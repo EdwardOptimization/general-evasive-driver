@@ -1,0 +1,110 @@
+# m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T084344Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_effective_candidate_reset_validation_adapter_design
+- Decision reason: M2392 synthesizes M2387-M2391 and continues to bounded reset-validation adapter design no reset/training/ranking/paper/self-ID claim
+
+## Hypothesis
+
+Synthesizing M2387-M2391 will prevent over-local schema/materialization work and select the next bounded non-ranking route.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_effective_config_materialization_branch_synthesis
+- parent_dataset: docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md, docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md, runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json, docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md, docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md, docs/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.md, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_config_rows.csv, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_scenario_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json
+- parent_objective: synthesize M2387-M2391 safety/schema/materialization branch before another narrow reset-validation design milestone
+- derived_from: m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design, m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation, m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit, m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design, m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+- blocked_by: the repair-plan materialization branch reached the local-search non-evidence limit after M2391, M2391 materialized effective candidate pack artifacts but no reset validation or measured execution has been run on them
+- supersedes: another ordinary result audit before synthesis, direct reset validation from overlay-only M2385 candidates, direct measured execution, repair execution, training, or ranking from M2391 artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md exists
+- the synthesis answers all required questions
+- the synthesis decision is continue pivot stop or promote_to_next_branch
+- the synthesis classifies actual progress and process overhead
+- a follow-up non-ranking route is selected or the branch is stopped
+
+## Failure Criteria
+
+- M2392 omits a required synthesis question
+- M2392 starts new training reset rollout measured execution replay PPO repair execution or private holdout
+- M2392 loads effective candidate configs into an environment
+- M2392 overwrites active config
+- M2392 ranks support policies or selects a winner
+- M2392 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims
+- M2392 claims scenario redesign executed or training repair success
+- M2392 routes directly to controller comparison without resolving process-overhead and evidence-expansion blockers
+
+## Evidence Gates
+
+- M2392 must answer the standard synthesis questions
+- M2392 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance for M2387-M2391
+- M2392 must decide continue pivot stop or promote_to_next_branch
+- M2392 must choose the next bounded non-ranking route or explicitly stop for user review
+- M2392 must not rerun materialization, load/reset environments, execute repair, train, rank, overwrite active config, or make paper/self-ID/current-sim verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun materialization
+- do not load an environment
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not select a winner
+- do not overwrite the active scenario config
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- objective_overfit
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
+- type: gate
+- checkpoint: docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_effective_candidate_reset_validation_adapter_design
+- reason: M2392 synthesizes M2387-M2391 and continues to bounded reset-validation adapter design no reset/training/ranking/paper/self-ID claim
+
+## Next Blocker
+
+m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis

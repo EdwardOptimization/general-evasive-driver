@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2397,
+    "completed": 2398,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization",
+    "task_id": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization",
-    "command_log": "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis",
+    "id": "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design",
     "kind": "gate",
-    "priority": 23870,
+    "priority": 23880,
     "status": "pending",
-    "hypothesis": "Synthesizing M2387-M2391 will prevent over-local schema/materialization work and select the next bounded non-ranking route.",
-    "command": "see experiments/manifests/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.json",
-    "success_artifact": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
-    "notes": "Pending: branch synthesis no materialization rerun environment load/reset repair training ranking or paper/self-ID/current-sim claims"
+    "hypothesis": "A bounded design can adapt reset-only validation to M2391 effective candidate pack artifacts by reading selected scenario env_config entries without active config overwrite, policy action, repair execution, ranking, or training-success claims.",
+    "command": "see experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json",
+    "success_artifact": "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md",
+    "notes": "Pending: design only no environment load/reset repair training ranking or paper/self-ID/current-sim claims"
   },
-  "updated_at_utc": "20260602T082811Z"
+  "updated_at_utc": "20260602T084102Z"
 }

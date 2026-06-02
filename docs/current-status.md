@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
-result: pass
+m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
+result: completed
 ```
 
 Current next task:
 
 ```text
-m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
+m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
 ```
 
 Current route:
@@ -37,11 +37,11 @@ Current route:
 ```text
 M2391 materialized run-dir-only effective candidate pack artifacts by joining
 M2385 overlay candidates to M2356 reset-valid repaired pack scenario specs.
-All 54 candidates were materialized, all had matching scenarios and env_config,
-and no environment load/reset/step occurred. The local-search guard now
-requires M2392 branch synthesis before another narrow validation-design step.
-That synthesis should decide whether to continue to a reset-validation adapter
-for effective candidate pack artifacts.
+M2392 synthesized M2387-M2391 and chose `continue`: M2391's effective
+candidate artifacts justify one bounded reset-validation adapter design, but
+they still do not prove reset compatibility, rollout performance, repair
+success, ranking, self-ID, or current-sim verdict. The next task is M2393,
+which must design the adapter without loading or resetting environments.
 ```
 
 ## Latest Evidence
@@ -98,6 +98,19 @@ environment_load_attempt_count: 0
 environment_reset_attempt_count: 0
 environment_step_count: 0
 guardrail_violation_count: 0
+```
+
+M2392 synthesis decision:
+
+```text
+synthesis window: M2387-M2391
+synthesis_decision: continue
+decision: continue_to_effective_candidate_reset_validation_adapter_design
+actual capability changed: effective candidate pack artifact generation
+still blocked: reset compatibility, rollout/measured execution, repair
+  execution, training, ranking, paper/FW-vs-GRU/level3 self-ID/current-sim
+  verdict claims
+next task: M2393 reset-validation adapter design
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

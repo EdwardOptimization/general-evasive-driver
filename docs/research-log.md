@@ -43479,3 +43479,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to branch synthesis before reset-validation adapter design
 - follow-up manifest: `experiments/manifests/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.json`
 - next: `m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis`
+
+## M2392 Paper-Route Current-Sim Dual-Axis Effective Config Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_effective_candidate_reset_validation_adapter_design`
+- manifest: `experiments/manifests/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.json`
+- doc: `docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md`
+- synthesis window: `M2387-M2391`
+- materialization rerun/reset/rollout/policy action in M2392: `false/false/false/false`
+- active config overwrite in M2392: `false`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- supported: M2391 generated 54 effective candidate pack artifacts with 2049 selected scenario references and guardrail 0
+- blocked: reset compatibility, measured execution, repair success, ranking, paper verdict, self-ID evidence, current-sim verdict
+- local-search guard: triggered correctly and reset by synthesis
+- follow-up manifest: `experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json`
+- next: `m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design`
