@@ -42181,3 +42181,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.json`
 - next: `m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design`
+
+## M2335 Paper-Route Current-Sim Role-Stratified Residual Support Rescore Design
+
+- status: completed
+- result_class: `role_stratified_residual_support_rescore_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.json`
+- doc: `docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md`
+- parent audit: `docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md`
+- admitted implementation: `artifact-only`
+- expected residual rows: `48`
+- expected R4 proxy/post-collision-blocked rows: `12`
+- expected support-policy coverage gap rows: `23`
+- expected scenario/support redesign gap rows: `12`
+- expected metric edge rows: `1`
+- reset/rollout/measured execution in M2335: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.json`
+- next: `m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation`

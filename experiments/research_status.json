@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2342,
+    "completed": 2343,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit",
+    "task_id": "m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md"
+    "command_log": "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md"
   },
   "next_task": {
-    "id": "m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design",
-    "kind": "gate",
-    "priority": 23300,
+    "id": "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
+    "kind": "infrastructure",
+    "priority": 23310,
     "status": "pending",
-    "hypothesis": "An artifact-only role-stratified residual support rescore can update the stale residual map after R0 and R4 semantics repairs without new execution or ranking.",
-    "command": "manual design from M2318 M2321 M2324 and M2333 artifacts",
-    "success_artifact": "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
-    "notes": "Pending: define residual rescore schema categories and artifact-only implementation route"
+    "hypothesis": "An artifact-only role-stratified residual support rescore can materialize updated residual categories after R0 and R4 semantics repairs.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --role-redesign-dir runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign --r4-semantics-dir runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics --output-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --target-residual-scenario-count 48 --next-blocker m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
+    "success_artifact": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+    "notes": "Pending: write residual rescore rows role/route summaries claim boundary and summary from existing artifacts"
   },
-  "updated_at_utc": "20260602T010838Z"
+  "updated_at_utc": "20260602T011147Z"
 }

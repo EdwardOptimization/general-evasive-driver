@@ -1,0 +1,207 @@
+{
+  "id": "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_residual_rescore_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/role_stratified_residual_rows.csv",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only role-stratified residual support rescore"
+    ],
+    "derived_from": [
+      "m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design"
+    ],
+    "blocked_by": [
+      "role-stratified residual map needs artifact-only update after R0/R4 semantics changes",
+      "controller comparison remains blocked until residual categories are refreshed"
+    ],
+    "supersedes": [
+      "manual residual rescore",
+      "using M2324 R4 metric gap after M2333 semantics materialization",
+      "direct controller comparison before residual rescore"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md",
+  "public_gates": [
+    "M2336 must read only existing artifacts and not run environment execution",
+    "M2336 must produce residual rescore rows and route summaries",
+    "M2336 must preserve R4 proxy semantics as descriptive current-sim limited evidence",
+    "M2336 must preserve ranking_admissible false and winner_selected false",
+    "M2336 must not train replay PPO private holdout rank promote or make paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_role_stratified_residual_rescore",
+    "evidence_axis": "Q_role_stratified_residual_rescore_implementation",
+    "evidence_increment": "materializes updated role-stratified residual route map from existing artifacts",
+    "claim_scope": "artifact-only residual rescore; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if implementation runs environment execution",
+      "stop if implementation claims residual support solved",
+      "stop if implementation ranks support policies",
+      "stop if R4 proxy semantics are treated as mitigation performance"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if artifacts are incomplete",
+      "route to result audit if rescore artifacts are complete",
+      "route to branch synthesis if residual categories remain ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2335 admits artifact-only residual support rescore implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement artifact-only role-stratified residual support rescore",
+    "admission_evidence": [
+      "M2335 defines rescore inputs and expected route categories",
+      "M2321 and M2324 residual artifacts exist",
+      "M2333 R4 semantics artifacts exist"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_role_stratified_residual_support_rescore.py",
+      "tests/test_paper_route_current_sim_role_stratified_residual_support_rescore.py",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+      "docs/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md",
+      "M2336 status queue scoreboard research log and review",
+      "one follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "focused tests pass",
+      "rescore rows are written",
+      "role and route summaries are written",
+      "summary reports expected route counts",
+      "guardrail_violation_count is 0"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2336 implements residual accounting and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2336; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "Existing residual and R4 semantics artifacts.",
+    "negative_result_policy": "Residual rescore results must not be interpreted as self-ID evidence.",
+    "allowed_claims": [
+      "role-stratified residual support rescore artifact",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "updates residual route categories rather than repairing a checkpoint or rerunning support policies",
+    "paper_verdict_delta": "can identify remaining task-quality blockers before controller comparison resumes",
+    "must_synthesize_if": [
+      "M2336 cannot produce rescore rows",
+      "M2336 routes directly to ranking",
+      "the role-stratified residual rescore branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "An artifact-only role-stratified residual support rescore can materialize updated residual categories after R0 and R4 semantics repairs.",
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_role_stratified_residual_support_rescore.py exists",
+    "tests/test_paper_route_current_sim_role_stratified_residual_support_rescore.py passes",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json exists",
+    "summary reports rescored_residual_scenario_count 48",
+    "summary reports r4_proxy_semantics_post_collision_blocked_count 12",
+    "summary reports support_policy_coverage_gap_count 23",
+    "summary reports scenario_or_support_redesign_gap_count 12",
+    "summary reports guardrail_violation_count 0"
+  ],
+  "failure_criteria": [
+    "M2336 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2336 ranks support policies or selects a winner",
+    "M2336 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2336 treats R4 proxy metrics as mitigation performance",
+    "M2336 cannot write complete artifact-only outputs"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_role_stratified_residual_support_rescore.py"
+    },
+    {
+      "name": "run",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --role-redesign-dir runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign --r4-semantics-dir runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics --output-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --target-residual-scenario-count 48 --next-blocker m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/paper_route_current_sim_role_stratified_residual_support_rescore.py",
+      "type": "py"
+    },
+    {
+      "path": "tests/test_paper_route_current_sim_role_stratified_residual_support_rescore.py",
+      "type": "py"
+    },
+    {
+      "path": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_residual_rescore_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+    "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/role_stratified_residual_rows.csv",
+    "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/r4_metric_semantics_rows.csv"
+  ],
+  "decision_rule": "M2336 passes if it writes complete artifact-only residual rescore outputs with expected counts and zero guardrail violations.",
+  "next_blocker": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit"
+}
