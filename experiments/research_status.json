@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2419,
+    "completed": 2420,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation",
+    "task_id": "m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation",
-    "command_log": "docs/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.md"
+    "run_dir": "",
+    "command_log": "docs/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit",
-    "kind": "gate",
-    "priority": 24090,
+    "id": "m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation",
+    "kind": "infrastructure",
+    "priority": 24100,
     "status": "pending",
-    "hypothesis": "Auditing M2413 will determine whether the complete source-linked measured-validation artifact should route to outcome localization, consolidation, synthesis, stop, or pivot without ranking or verdict claims.",
-    "command": "see experiments/manifests/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.json",
-    "success_artifact": "docs/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.md",
-    "notes": "Pending: audit M2413 complete but offtrack-dominated artifact no rerun repair training ranking or verdict claims"
+    "hypothesis": "Artifact-only localization of M2413 rows will produce bounded diagnostic slices for offtrack/collision/R4 outcome blockers without rerun, repair, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.json",
+    "success_artifact": "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json",
+    "notes": "Pending: artifact-only localization over M2413 rows no rerun repair training ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T143030Z"
+  "updated_at_utc": "20260602T144008Z"
 }

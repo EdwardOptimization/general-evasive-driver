@@ -43879,3 +43879,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2413 is a complete measured-validation artifact, not a driver-success or current-sim verdict; outcome remains offtrack-dominated and needs audit
 - follow-up manifest: `experiments/manifests/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.json`
 - next: `m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit`
+
+## M2414 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Validation Result Audit
+
+- status: completed
+- decision: `source_linked_measured_validation_complete_offtrack_dominated_route_to_outcome_localization`
+- manifest: `experiments/manifests/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.json`
+- doc: `docs/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.md`
+- parent summary: `runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json`
+- rerun/measured validation/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted artifact: M2413 complete with `5250` episodes and `18300` family-membership rows, clean failure/validation/metadata/metric/contract/guardrail counts
+- measured blocker: `offtrack_dominated_failure`, role_success_rate `0.06685714285714285`, collision_rate `0.1761904761904762`, offtrack_rate `0.7424761904761905`
+- audit result: artifact is complete but not driver-success evidence; route to artifact-only outcome localization
+- follow-up manifest: `experiments/manifests/m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation.json`
+- next: `m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation`

@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
+m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
+m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit
+m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation
 ```
 
 Current route:
@@ -113,6 +113,10 @@ offtrack-dominated: global role success rate 0.06685714285714285, collision
 rate 0.1761904761904762, and offtrack rate 0.7424761904761905. M2414 must
 audit this result and choose localization, consolidation, synthesis, stop, or
 pivot without rerun, repair, training, ranking, or verdict claims.
+M2414 accepted M2413 as a complete measured-validation artifact but kept the
+driver blocker as offtrack-dominated. The audit routes to M2415 artifact-only
+outcome localization over M2413 rows, with family/profile/controller axes kept
+diagnostic-only and no rerun, repair, training, ranking, or verdict claims.
 ```
 
 ## Latest Evidence
