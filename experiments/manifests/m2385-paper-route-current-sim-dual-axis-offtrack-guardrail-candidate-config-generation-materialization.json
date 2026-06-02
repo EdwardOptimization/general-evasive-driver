@@ -214,5 +214,5 @@
     "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json"
   ],
   "decision_rule": "M2385 passes if it generates candidate config files under the run directory without active config overwrite, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims, then routes to branch synthesis.",
-  "next_blocker": "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization"
+  "next_blocker": "m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis"
 }

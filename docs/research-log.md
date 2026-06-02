@@ -43343,3 +43343,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: active config overwrite, environment reset/rollout, repair execution, training, ranking, paper/current-sim/self-ID claims
 - follow-up manifest: `experiments/manifests/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.json`
 - next: `m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization`
+
+## M2385 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Candidate Config Generation Materialization
+
+- status: completed
+- result class: `current_sim_dual_axis_offtrack_guardrail_candidate_config_generation_pass`
+- manifest: `experiments/manifests/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.json`
+- doc: `docs/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation.py`
+- focused tests: `2 passed`
+- summary: `runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json`
+- candidate_config_file_written_count/outside_run_dir_count: `54/0`
+- source reward/curriculum/guardrail references: `162/54/284`
+- mixed_guarded_candidate_requirement_count: `18`
+- candidate_without_reward/curriculum/guardrail counts: `0/0/0`
+- active_config_overwrite_count/active_config_patch_application_count: `0/0`
+- loaded_into_environment_count/environment_reset_count: `0/0`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- guardrail_violation_count: `0`
+- follow-up manifest: `experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json`
+- next: `m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis`

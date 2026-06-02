@@ -1,0 +1,226 @@
+{
+  "id": "m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_config_generation_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+      "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json",
+      "docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md",
+      "docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.json"
+    ],
+    "parent_objective": [
+      "synthesize M2381-M2385 candidate config application/generation branch before another narrow validation-design milestone"
+    ],
+    "derived_from": [
+      "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
+      "m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization",
+      "m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit",
+      "m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design",
+      "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization"
+    ],
+    "blocked_by": [
+      "the post-M2380 repair-plan materialization branch reached the local-search non-evidence limit after M2385",
+      "M2385 generated candidate configs but no validation, repair, ranking, or paper-level capability evidence has been produced"
+    ],
+    "supersedes": [
+      "direct reset validation after M2385 without branch synthesis",
+      "direct training, repair execution, or ranking from generated candidate configs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+  "public_gates": [
+    "M2386 must answer the standard synthesis questions",
+    "M2386 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance",
+    "M2386 must decide continue pivot stop or promote_to_next_branch",
+    "M2386 must choose the next bounded non-ranking route or explicitly stop for user review",
+    "M2386 must not run reset rollout measured execution repair execution training replay PPO private holdout ranking active config overwrite or paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not load generated candidate configs into the environment",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_candidate_config_generation_branch_synthesis",
+    "evidence_increment": "synthesizes M2381-M2385 application-plan and run-dir candidate config generation artifacts before continuing",
+    "claim_scope": "branch synthesis only; no active config overwrite, candidate config loading, reset/rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to training, ranking, active config overwrite, or paper conclusion",
+      "stop if synthesis ignores local-search guard or process overhead",
+      "stop if synthesis treats candidate config artifacts as executed repair or measured improvement"
+    ],
+    "fallback_plan": [
+      "continue to bounded candidate config safety or reset-validation design if process overhead is justified and guardrails remain clean",
+      "pivot to branch complexity-pruning audit if artifact chain is too process-heavy",
+      "pivot to new data/panel evidence if candidate config validation would add only more local search",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2385 completes candidate config generation and the branch reaches the local-search non-evidence limit",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize candidate config generation branch",
+    "admission_evidence": [
+      "M2381 designs artifact-only application-plan materialization with active config overwrite blocked",
+      "M2382 materializes 54 candidate specs and 162/54/284 reward/curriculum/guardrail patch references with guardrail_violation_count 0",
+      "M2383 accepts application-plan artifacts and blocks direct config generation, reset validation, repair, training, and ranking",
+      "M2384 designs run-dir-only candidate config generation",
+      "M2385 materializes 54 candidate config files under its run directory with outside-run-dir count 0 and guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no candidate config loading",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion",
+      "no scenario-redesign-executed claim",
+      "no training-repair-success claim"
+    ],
+    "allowed_updates": [
+      "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+      "M2386 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "workflow/local-search risk is interpreted",
+      "actual evidence gain versus process overhead is classified",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2386 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2386; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2381-M2385 application-plan and candidate config generation artifacts.",
+    "negative_result_policy": "If branch synthesis finds only process-heavy local search, pivot before interpreting driver, paper, or self-ID evidence.",
+    "allowed_claims": [
+      "candidate config generation branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion training-repair success or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates config application-plan materialization and run-dir candidate config generation before another validation-design route",
+    "paper_verdict_delta": "can decide whether candidate config safety/reset validation remains justified or whether to pivot to new data/panel evidence",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2381-M2385 will prevent over-local candidate config generation work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies actual progress and process overhead",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2386 omits a required synthesis question",
+    "M2386 starts new training reset rollout measured execution replay PPO repair execution or private holdout",
+    "M2386 loads generated candidate configs into an environment",
+    "M2386 overwrites active config",
+    "M2386 ranks support policies or selects a winner",
+    "M2386 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2386 claims scenario redesign executed or training repair success",
+    "M2386 routes directly to controller comparison without resolving process-overhead and evidence-expansion blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md from M2381-M2385 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_config_generation_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.md",
+    "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2386 passes if it writes the required synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
+  "next_blocker": "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design"
+}
