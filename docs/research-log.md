@@ -44150,3 +44150,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: branch synthesis before any more local artifact repair or training route
 - follow-up manifest: `experiments/manifests/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.json`
 - next: `m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis`
+
+## M2430 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- route decision: `pivot_to_current_sim_dual_axis_task_quality_decision_branch`
+- manifest: `experiments/manifests/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.json`
+- doc: `docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md`
+- synthesized branch: M2425-M2429 source-linked repair-candidate reset/reindex evidence
+- supported claim: M2426 reset-only evidence and M2428 measured reindex are complete and guardrail-clean
+- negative result: c01/c02/c03 matched slices remain offtrack-dominated and c04 remains excluded
+- local-search decision: do not continue source-linked local repair, candidate ranking, direct repair, or PPO from this branch
+- new branch: `paper_route_current_sim_dual_axis_task_quality_decision`
+- follow-up manifest: `experiments/manifests/m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation.json`
+- next: `m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation`
+
+## M2431 Paper-Route Current-Sim Dual-Axis Task-Quality Decision Panel Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_task_quality_decision_panel_pass`
+- manifest: `experiments/manifests/m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation.json`
+- doc: `docs/m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_task_quality_decision_panel.py`
+- focused tests: `2 passed`
+- summary: `runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json`
+- measured panel count: `6`
+- offtrack-dominated panel count: `6`
+- success range: `0.04054010086220921` to `0.078`
+- offtrack range: `0.7262962962962963` to `0.8425898812428827`
+- c04 source-coverage gap observed: `true`
+- route recommendation: `route_to_task_semantics_reassessment_before_more_source_linked_repair`
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- interpretation: repeated offtrack dominance now appears as a current-sim task-quality blocker, not a reason for another source-linked local repair
+- follow-up manifest: `experiments/manifests/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.json`
+- next: `m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit`

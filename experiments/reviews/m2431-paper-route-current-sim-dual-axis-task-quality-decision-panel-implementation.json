@@ -1,0 +1,117 @@
+{
+  "decision_reason": "M2431 task-quality panel pass 6/6 included measured panels offtrack-dominated success range 0.04054010086220921-0.078 offtrack range 0.7262962962962963-0.8425898812428827 c04 coverage gap preserved no rollout repair training ranking or verdict claims",
+  "failure_criteria": [
+    "M2431 starts new measured rollout or reset rerun",
+    "M2431 executes repair or training",
+    "M2431 ranks candidate families or controllers",
+    "M2431 hides c04 exclusion",
+    "M2431 claims current-sim, paper, FW-vs-GRU, or self-ID verdict",
+    "M2431 omits required source panels"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not treat c04 as measured",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T185118Z",
+  "hypothesis": "A cross-artifact task-quality decision panel will show whether repeated offtrack dominance is a current-sim task-quality blocker and route away from more source-linked local repair.",
+  "lineage": {
+    "blocked_by": [
+      "M2430 pivoted away from source-linked local repair after repeated offtrack dominance",
+      "M2428 c01/c02/c03 matched slices remain offtrack-dominated",
+      "M2426/M2428 keep c04 excluded because outcome_bucket has zero matched effective candidates"
+    ],
+    "derived_from": [
+      "m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis",
+      "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution",
+      "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation",
+      "m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_task_quality_decision_panel"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json",
+      "runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json",
+      "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json",
+      "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/aggregate_by_candidate.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "build a cross-artifact current-sim task-quality decision panel before more source-linked local repair"
+    ],
+    "supersedes": [
+      "another source-linked repair-candidate adapter",
+      "another measured reindex over the same M2413 denominator",
+      "direct repair/training/PPO from the offtrack-dominated matched subset"
+    ]
+  },
+  "milestone": "m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation",
+  "next_blocker": "m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_task_quality_blocker_route_to_result_audit",
+  "public_gates": [
+    "M2431 must build a panel from M2362 M2397 M2413 and M2428 without new rollout",
+    "M2431 must preserve the c04 source-coverage gap",
+    "M2431 must classify whether all included measured panels remain offtrack-dominated",
+    "M2431 must output a route recommendation without ranking candidates or controllers",
+    "M2431 must not execute repair, train, replay, run PPO, use private holdout, overwrite active configs, or make verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_task_quality_blocker_route_to_result_audit",
+    "milestone": "m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation",
+    "reason": "M2431 task-quality panel pass 6/6 included measured panels offtrack-dominated success range 0.04054010086220921-0.078 offtrack range 0.7262962962962963-0.8425898812428827 c04 coverage gap preserved no rollout repair training ranking or verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json exists",
+    "panel rows include M2362 M2397 M2413 and M2428 c01/c02/c03 outcomes",
+    "c04 source-coverage gap is preserved",
+    "the panel states whether all included measured panels are offtrack-dominated",
+    "the panel recommends a bounded non-ranking next route",
+    "no rollout repair training ranking or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

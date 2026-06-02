@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
+m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
+m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis
+m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit
 ```
 
 Current route:
@@ -225,6 +225,19 @@ synthesis before any more local artifact repair, training, or measured rerun.
 M2430 must decide whether to pursue scenario-quality reassessment, c04
 source-coverage repair, bounded next evidence, high-fidelity/backend pivot, or
 stop. It must not treat M2428 as driver improvement or candidate-family ranking.
+M2430 synthesized M2425-M2429 and pivoted away from source-linked local repair
+to a current-sim task-quality decision branch. This is not a driver or
+checkpoint promotion. It is a route decision: the reset/reindex artifacts are
+complete and guardrail-clean, but c01/c02/c03 remain offtrack-dominated and c04
+is excluded. M2431 then implemented the task-quality decision panel from
+existing measured artifacts only. The panel passed as an evidence artifact:
+6/6 included measured panels are offtrack-dominated, success ranges from
+0.04054010086220921 to 0.078, offtrack ranges from 0.7262962962962963 to
+0.8425898812428827, c04 source coverage gap is preserved, and guardrail
+violations are zero. The current next task is M2432 result audit, which must
+decide task-semantics reassessment, source-coverage repair, high-fidelity/
+backend preparation, synthesis/stop, or another bounded route without rollout,
+repair, training, ranking, or verdict claims.
 ```
 
 ## Latest Evidence

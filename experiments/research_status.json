@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2435,
+    "completed": 2437,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit",
+    "task_id": "m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.md",
-    "command_log": "docs/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.md"
+    "run_dir": "runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json",
+    "command_log": "runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json"
   },
   "next_task": {
-    "id": "m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis",
+    "id": "m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit",
     "kind": "gate",
-    "priority": 24250,
+    "priority": 24270,
     "status": "pending",
-    "hypothesis": "Synthesizing M2425-M2429 will prevent local search after matched-subset offtrack-dominated evidence and choose the next bounded route.",
-    "command": "see experiments/manifests/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.json",
-    "success_artifact": "docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md",
-    "notes": "Pending: branch synthesis after matched-subset offtrack-dominated reindex and c04 exclusion no rollout/repair/training/ranking/verdict claims"
+    "hypothesis": "Auditing M2431 will determine whether repeated offtrack dominance should route to task-semantics reassessment, source-coverage repair, high-fidelity/backend preparation, synthesis, or stop.",
+    "command": "see experiments/manifests/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.json",
+    "success_artifact": "docs/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.md",
+    "notes": "Pending: audit M2431 task-quality decision panel 6/6 offtrack-dominated c04 coverage gap preserved no rollout/repair/training/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T183034Z"
+  "updated_at_utc": "20260602T184917Z"
 }

@@ -100,7 +100,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2429 classified matched-subset reindex as offtrack-dominated after M2425-M2428 reset/reindex work",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -164,12 +164,12 @@
   },
   "local_search_guard": {
     "actual_progress_type": "synthesis_decision",
-    "process_overhead": "medium",
-    "local_search_risk": "medium",
+    "process_overhead": "high",
+    "local_search_risk": "high",
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 0,
-    "evidence_expansion": "integrates reset evidence and measured reindex evidence before deciding whether to continue current-sim repair",
-    "paper_verdict_delta": "can decide whether to pivot/synthesize/repair source coverage, but cannot establish current-sim or paper verdict",
+    "evidence_expansion": "integrates reset evidence and measured reindex evidence into a branch pivot away from source-linked local repair",
+    "paper_verdict_delta": "moves toward task-quality decision evidence, but cannot establish current-sim or paper verdict",
     "must_synthesize_if": [
       "already_synthesis_milestone"
     ]

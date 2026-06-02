@@ -1,0 +1,104 @@
+# m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T185159Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_current_sim_dual_axis_task_quality_decision_branch
+- Decision reason: M2430 synthesizes M2425-M2429 and pivots away from source-linked local repair because c01/c02/c03 remain offtrack-dominated and c04 is excluded no rollout repair training ranking or verdict claims
+
+## Hypothesis
+
+Synthesizing M2425-M2429 will prevent local search after matched-subset offtrack-dominated evidence and choose the next bounded route.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_source_linked_repair_candidate_branch_synthesis
+- parent_dataset: docs/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.md, docs/m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation.md, docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md, docs/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md, docs/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.md, runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json, runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.json
+- parent_objective: synthesize the source-linked repair-candidate reset/reindex branch after matched-subset offtrack-dominated evidence
+- derived_from: m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis, m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation, m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit, m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation, m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
+- blocked_by: M2428 matched c01/c02/c03 slices remain offtrack-dominated, M2426/M2428 keep c04 excluded because outcome_bucket has zero matched effective candidates, continuing to another ordinary artifact step risks local-search over current-sim task-quality artifacts
+- supersedes: another repair-candidate adapter or reindex audit without route decision, direct training or PPO from offtrack-dominated matched-subset evidence, candidate-family ranking from diagnostic aggregates
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md exists
+- the synthesis answers all required questions
+- the synthesis decision is continue pivot stop or promote_to_next_branch
+- the synthesis classifies actual progress and process overhead
+- a follow-up evidence-producing non-ranking route is selected or the branch is stopped
+
+## Failure Criteria
+
+- M2430 omits a required synthesis question
+- M2430 starts measured rollout replay PPO repair execution training or private holdout
+- M2430 overwrites active config
+- M2430 ranks candidates profiles source-linked families support policies or controller families
+- M2430 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims
+- M2430 claims scenario redesign executed or training repair success
+- M2430 routes to another artifact-only local-search step without new evidence
+
+## Evidence Gates
+
+- M2430 must answer the standard synthesis questions
+- M2430 must classify actual progress, process overhead, local-search risk, evidence expansion, and paper-verdict distance for M2425-M2429
+- M2430 must decide continue pivot stop or promote_to_next_branch
+- M2430 must choose a next evidence-producing route or explicitly stop
+- M2430 must not run measured rollout, execute repair, train, rank candidates/families/profiles, overwrite active configs, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun M2426 or M2428
+- do not run new measured rollout
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not overwrite active configs
+- do not change actor inputs
+- do not inject hidden or oracle actor features
+- do not rank candidate families
+- do not select a winner
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis
+- type: gate
+- checkpoint: docs/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_current_sim_dual_axis_task_quality_decision_branch
+- reason: M2430 synthesizes M2425-M2429 and pivots away from source-linked local repair because c01/c02/c03 remain offtrack-dominated and c04 is excluded no rollout repair training ranking or verdict claims
+
+## Next Blocker
+
+m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis
