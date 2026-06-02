@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2407,
+    "completed": 2408,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation",
+    "task_id": "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation",
-    "command_log": "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md"
   },
   "next_task": {
-    "id": "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit",
+    "id": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis",
     "kind": "gate",
-    "priority": 23970,
+    "priority": 23980,
     "status": "pending",
-    "hypothesis": "The M2401 target consolidation artifact can be audited into a bounded repair-planning route, synthesis route, or stop decision without rerun, repair execution, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json",
-    "success_artifact": "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
-    "notes": "Pending: audit M2401 target consolidation no rerun/ranking/verdict claims"
+    "hypothesis": "Synthesizing M2393-M2402 will prevent over-local repair-plan work and select the next bounded non-ranking route.",
+    "command": "see experiments/manifests/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.json",
+    "success_artifact": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+    "notes": "Pending: branch synthesis before repair-plan route no rerun/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T122555Z"
+  "updated_at_utc": "20260602T123234Z"
 }

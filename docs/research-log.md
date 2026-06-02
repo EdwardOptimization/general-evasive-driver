@@ -43669,3 +43669,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json`
 - next: `m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit`
+
+## M2402 Paper-Route Current-Sim Dual-Axis Effective Candidate Actionable Target Consolidation Result Audit
+
+- status: completed
+- decision: `effective_candidate_actionable_target_consolidation_accepted_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json`
+- doc: `docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md`
+- parent summary: `runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted consolidation: source/consolidated rows `1313/1313`, offtrack/collision/R4/diagnostic counts `203/65/57/1034`
+- diagnostic-axis repair target/R4 ordinary repair target/ranking/winner/guardrail counts: `0/0/0/0/0`
+- repair target categories are meaningful but still require synthesis before repair planning
+- branch cadence: M2393-M2402 reached synthesis cadence after M2392, so route to synthesis before any M2403 repair-plan materialization
+- follow-up manifest: `experiments/manifests/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.json`
+- next: `m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis`

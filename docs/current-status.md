@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
+m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
+m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
+m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
 ```
 
 Current route:
@@ -56,6 +56,9 @@ direct repair, and routed to M2401 artifact-only actionable target
 consolidation. M2401 consolidated those slices into compact repair-target and
 guardrail tables while keeping candidate/profile/pack axes diagnostic-only. The
 next task is M2402 result audit.
+M2402 accepted M2401 consolidation, but because M2393-M2402 reached synthesis
+cadence, the next task is M2403 branch synthesis before repair-plan
+materialization.
 ```
 
 ## Latest Evidence
@@ -276,6 +279,18 @@ ranking_admissible_count/winner_selected_count/guardrail_violation_count: 0/0/0
 top repair targets: centerline, early_far, priority_offtrack_containment_repair, mid timing, slow_steer_actuator
 top collision guardrails: R5 right_offset/late_close, R2 right_offset, guarded weak_brake, guarded same_scene_balanced_panel
 next task: M2402 actionable target consolidation result audit
+```
+
+M2402 effective-candidate actionable target consolidation result audit:
+
+```text
+decision: effective_candidate_actionable_target_consolidation_accepted_route_to_branch_synthesis
+accepted M2401 consolidation: source/consolidated rows 1313/1313
+offtrack/collision/R4/diagnostic counts: 203/65/57/1034
+diagnostic-axis repair target/R4 ordinary repair target/ranking/winner/guardrail counts: 0/0/0/0/0
+classification: targets are meaningful but require branch synthesis before repair planning
+synthesis cadence: M2393-M2402 reached 10 milestones since M2392 synthesis
+next task: M2403 effective-candidate measured-validation branch synthesis
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

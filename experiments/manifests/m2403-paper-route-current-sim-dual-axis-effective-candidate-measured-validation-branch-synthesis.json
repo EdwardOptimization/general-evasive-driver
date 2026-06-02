@@ -1,0 +1,235 @@
+{
+  "id": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_effective_candidate_measured_validation_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+      "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json",
+      "docs/m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit.md",
+      "docs/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.md",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json",
+      "docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md",
+      "runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json",
+      "docs/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.md",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json",
+      "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2393-M2402 effective-candidate reset, measured-validation, outcome-localization, and target-consolidation branch before repair-plan materialization"
+    ],
+    "derived_from": [
+      "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design",
+      "m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation",
+      "m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit",
+      "m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design",
+      "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation",
+      "m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit",
+      "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation",
+      "m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit",
+      "m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation",
+      "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit"
+    ],
+    "blocked_by": [
+      "the branch reached synthesis cadence after M2402",
+      "M2401 target consolidation is ready for route decision but repair-plan materialization should not start without synthesis",
+      "M2397/M2399/M2401 evidence remains task-quality infrastructure and not paper/current-sim/self-ID proof"
+    ],
+    "supersedes": [
+      "direct repair-plan materialization after M2402",
+      "another ordinary artifact-only step before branch synthesis",
+      "paper/current-sim interpretation from M2397-M2401 artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+  "public_gates": [
+    "M2403 must answer the standard synthesis questions",
+    "M2403 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance for M2393-M2402",
+    "M2403 must decide continue pivot stop or promote_to_next_branch",
+    "M2403 must choose the next bounded non-ranking route or explicitly stop for user review",
+    "M2403 must not rerun reset/rollout/localization/consolidation, execute repair, train, rank, overwrite active config, or make paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset validation",
+    "do not run new rollout",
+    "do not rerun localization or consolidation",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_effective_candidate_measured_validation_branch_synthesis",
+    "evidence_increment": "synthesizes the M2393-M2402 reset-to-measured-to-localization-to-consolidation evidence before any repair-plan route",
+    "claim_scope": "branch synthesis only; no rerun, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to repair execution, training, ranking, active config overwrite, or paper conclusion",
+      "stop if synthesis ignores offtrack-dominated outcome or target-consolidation limits",
+      "stop if synthesis treats M2397/M2401 artifacts as current-sim driver success",
+      "stop if process overhead exceeds evidence gain"
+    ],
+    "fallback_plan": [
+      "continue to bounded repair-plan materialization if target categories are compact and guarded",
+      "pivot to scenario-quality reassessment if offtrack dominance suggests task construction rather than repair overlay",
+      "pivot to new measured panel if effective-candidate artifacts are too local",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2393-M2402 reached synthesis cadence and M2402 selected synthesis before repair planning",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "effective candidate measured-validation branch synthesis",
+    "admission_evidence": [
+      "M2394 reset-validation adapter passes 350/350 reset targets and 54/54 candidates",
+      "M2397 measured-validation panel completes 30735/30735 episodes with guardrail 0",
+      "M2397 outcome is offtrack-dominated with success_rate 0.04054010086220921 and offtrack_rate 0.8425898812428827",
+      "M2399 localizes 1313 slices including 1132 offtrack target slices",
+      "M2401 consolidates into 203 offtrack repair targets, 65 collision guardrails, 57 R4 semantics rows, and 1034 diagnostic guardrails",
+      "candidate/profile/pack rows remain diagnostic-only"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+      "M2403 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis or branch stop"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "actual progress versus process overhead is classified",
+      "target-consolidation readiness and offtrack-dominated blocker are interpreted",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2403 is branch synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2403; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2393-M2402 effective-candidate branch artifacts.",
+    "negative_result_policy": "If synthesis finds the branch is only local search, pivot or stop before more artifact work.",
+    "allowed_claims": [
+      "effective-candidate measured-validation branch synthesis",
+      "next route decision",
+      "no controller ranking, effective-candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates reset, measured-validation, outcome-localization, and target-consolidation evidence before repair planning",
+    "paper_verdict_delta": "can decide whether bounded repair-plan materialization is justified but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2393-M2402 will prevent over-local repair-plan work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies actual progress and process overhead",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2403 omits a required synthesis question",
+    "M2403 starts new rollout measured execution replay PPO repair execution training or private holdout",
+    "M2403 overwrites active config",
+    "M2403 ranks candidates profiles support policies or controller families",
+    "M2403 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2403 claims scenario redesign executed or training repair success",
+    "M2403 routes directly to repair execution without resolving process-overhead and target-readiness blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md from M2393-M2402 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_effective_candidate_measured_validation_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+    "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2403 passes if it synthesizes M2393-M2402, answers required questions, and selects a bounded non-ranking route without rerun, repair execution, training, ranking, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis"
+}
