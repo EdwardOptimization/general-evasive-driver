@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis
+m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design
 ```
 
 Current next task:
 
 ```text
-m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design
+m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization
 ```
 
 Current route:
 
 ```text
-M2380 synthesized M2375-M2379 and chose `continue`, but only to a bounded
-candidate config-patch application design. M2381 should design candidate config
-copy/overlay materialization without applying patches, overwriting active
-configs, running validation, executing repair, ranking, training, or making
-paper/self-ID/current-sim claims.
+M2381 designed an artifact-only application-plan route for M2378 overlay
+config-patch artifacts. M2382 should materialize application-plan artifacts,
+not apply patches, not write candidate config files, not overwrite active
+configs, not run validation, not execute repair, not rank, not train, and not
+make paper/self-ID/current-sim claims.
 ```
 
 ## Latest Evidence
@@ -292,6 +292,18 @@ local-search guard: triggered correctly and reset by synthesis
 paper/self-ID/current-sim verdict claims: blocked
 ```
 
+M2381 application design decision:
+
+```text
+design: artifact-only application-plan materializer
+candidate_application_spec_count expected: 54
+reward/curriculum/guardrail patch references expected: 162/54/284
+mixed_guarded_candidate_requirement_count expected: 18
+active config overwrite/config patch application/candidate config generation: blocked
+reset/rollout/repair/training/ranking: blocked
+paper/self-ID/current-sim verdict claims: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -316,7 +328,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2381 should design bounded candidate config-patch application using:
+M2382 should materialize application-plan artifacts using:
 
 ```text
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_manifest.json
@@ -324,10 +336,10 @@ runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_mat
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/reward_config_patch_rows.csv
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/curriculum_config_patch_rows.csv
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/guardrail_config_patch_rows.csv
-docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md
+docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md
 ```
 
-The design must not apply patches, overwrite the active config, run
-reset/rollout, execute repair, train, replay, use PPO, rank profiles or packs,
-select a winner, claim scenario redesign executed, claim repair success,
-current-sim verdict, or paper/self-ID claims.
+The materializer must not apply patches, write candidate config files,
+overwrite the active config, run reset/rollout, execute repair, train, replay,
+use PPO, rank profiles or packs, select a winner, claim scenario redesign
+executed, claim repair success, current-sim verdict, or paper/self-ID claims.

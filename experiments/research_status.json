@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2387,
+    "completed": 2388,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
+    "task_id": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md"
+    "command_log": "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md"
   },
   "next_task": {
-    "id": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
-    "kind": "gate",
-    "priority": 23760,
+    "id": "m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization",
+    "kind": "infrastructure",
+    "priority": 23770,
     "status": "pending",
-    "hypothesis": "A bounded application design can map M2378 overlay patch artifacts to candidate config-copy materialization without active config overwrite, repair execution, ranking, or training-success claims.",
-    "command": "write bounded config-patch application design",
-    "success_artifact": "docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md",
-    "notes": "Pending: design candidate config application without active config overwrite patch application reset validation repair execution training or ranking"
+    "hypothesis": "Artifact-only materialization can turn config-patch artifacts into application-plan artifacts without active config overwrite, config patch application, candidate config file generation, repair execution, ranking, or training-success claims.",
+    "command": "implement and run artifact-only application-plan materializer from M2378 config-patch artifacts",
+    "success_artifact": "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json",
+    "notes": "Pending: implement application-plan materializer no active config overwrite patch application candidate config generation repair execution or training"
   },
-  "updated_at_utc": "20260602T065442Z"
+  "updated_at_utc": "20260602T070028Z"
 }

@@ -43259,3 +43259,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: bounded candidate config-patch application design
 - follow-up manifest: `experiments/manifests/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.json`
 - next: `m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design`
+
+## M2381 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Config Patch Application Design
+
+- status: completed
+- decision: `config_patch_application_design_admit_artifact_only_application_plan_materializer`
+- manifest: `experiments/manifests/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.json`
+- doc: `docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md`
+- parent synthesis: `docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md`
+- reset/rollout/measured execution in M2381: `false`
+- active config overwrite/config patch application/candidate config file generation in M2381: `false/false/false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design: artifact-only application-plan materializer schema
+- expected candidate application specs: `54`
+- expected reward/curriculum/guardrail patch references: `162/54/284`
+- expected mixed guarded candidate requirements: `18`
+- blocked: active config overwrite, patch application, candidate config file generation, actor input change, hidden/oracle feature injection, profile-specific tuning, ranking, paper/current-sim/self-ID claims
+- follow-up manifest: `experiments/manifests/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.json`
+- next: `m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization`

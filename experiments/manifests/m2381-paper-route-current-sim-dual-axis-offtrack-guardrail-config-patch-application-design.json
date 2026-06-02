@@ -199,5 +199,5 @@
     "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json"
   ],
   "decision_rule": "M2381 passes if it designs a bounded candidate config-patch application route without active config overwrite, repair execution, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
-  "next_blocker": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design"
+  "next_blocker": "m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization"
 }
