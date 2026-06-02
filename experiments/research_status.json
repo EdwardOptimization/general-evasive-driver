@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2465,
+    "completed": 2466,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit",
+    "task_id": "m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.md"
+    "command_log": "docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md"
   },
   "next_task": {
-    "id": "m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design",
+    "id": "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 24550,
+    "priority": 24560,
     "status": "pending",
-    "hypothesis": "A design-only concrete overlay contract can define the numeric scenario ranges needed to unblock reset preflight for stable/AES work items without actor-input leakage or unsupported verdict claims.",
-    "command": "see experiments/manifests/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.json",
-    "success_artifact": "docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md",
-    "notes": "Pending: design concrete numeric overlays no reset rollout redesign execution repair training ranking winner verdict claims"
+    "hypothesis": "Concrete overlay materialization can attach valid env_config_overlay_json to the six stable/AES reset-blocked work items and make adapter preflight reset-ready without actor-input or claim-boundary violations.",
+    "command": "see experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json",
+    "success_artifact": "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json",
+    "notes": "Pending: materialize overlays and rerun adapter preflight no reset rollout redesign execution repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T231558Z"
+  "updated_at_utc": "20260602T232139Z"
 }

@@ -16,25 +16,40 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit
+m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit
+m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design
+m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
 ```
 
 Current route:
 
 ```text
+M2460 completed the concrete numeric overlay design needed to unblock the six
+stable/AES reset-required work items from M2458. It defines two bounded overlay
+families: R0 stable avoidable/AEB-feasible support with speed `[8.0, 12.0]`,
+obstacle distance `[34.0, 52.0]`, lateral offset `[-0.25, 0.25]`, and half
+width `[0.45, 0.65]`; and R1 AEB-infeasible stable-AES support with speed
+`[10.0, 14.0]`, obstacle distance `[20.0, 34.0]`, lateral offset `[-0.40,
+0.40]`, and half width `[0.55, 0.80]`. Both keep `track_width` `7.5`,
+`soft_offtrack_metric_enabled` `true`, and `soft_offtrack_tolerance_m` `0.20`.
+Labels remain environment-sampling metadata only and cannot enter actor input.
+The next task is M2461 materialization/preflight: attach these concrete overlays
+to exactly the six stable/AES reset-blocked rows and rerun the adapter without
+reset execution, rollout, policy actions, scenario redesign execution, repair,
+training, ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair
+verdict, or current-sim verdict.
+
 M2459 accepted M2458 as clean static-pass/reset-blocked evidence and routes to
 M2460 concrete overlay design. The audit preserves the key interpretation:
 `reset_blocked_missing_concrete_overlay_count` `6` is a scenario-spec readiness

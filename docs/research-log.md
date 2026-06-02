@@ -44680,3 +44680,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.json`
 - next: `m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design`
+
+## M2460 Paper-Route Current-Sim Dual-Axis Scenario-Quality Concrete Overlay Design
+
+- status: completed
+- decision: `concrete_overlay_design_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.json`
+- doc: `docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md`
+- parent audit: `docs/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.md`
+- design: two overlay families, `R0_stable_avoidable` and `R1_aeb_infeasible_stable_aes`, covering the six reset-blocked stable/AES work items
+- key ranges: R0 speed `[8.0, 12.0]`, distance `[34.0, 52.0]`, half width `[0.45, 0.65]`; R1 speed `[10.0, 14.0]`, distance `[20.0, 34.0]`, half width `[0.55, 0.80]`; both use track_width `7.5` and soft_offtrack_tolerance_m `0.20`
+- guardrails: labels remain metadata-only; handling-limit, hidden-dynamics, geometry/timing, and mitigation rows remain static-only in this branch
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json`
+- next: `m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight`
