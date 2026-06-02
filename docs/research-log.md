@@ -44603,3 +44603,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.json`
 - next: `m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight`
+
+## M2455 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Protocol Materialization Preflight
+
+- status: completed
+- result_class: `current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.json`
+- doc: `docs/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.md`
+- summary: `runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json`
+- candidate_row_count: `30`
+- candidate groups: stable `3`, stable AES `3`, geometry/timing `7`, handling-limit `5`, hidden-dynamics `9`, mitigation `3`
+- role_protocol_row_count: `5`
+- geometry_lever_row_count: `6`
+- guardrail_row_count: `15`
+- claim_boundary_row_count: `8`
+- labels_enter_actor_input_count: `0`
+- actor_input_contract_changed_count: `0`
+- guardrail_violation_count: `0`
+- rerun/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.json`
+- next: `m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit`
