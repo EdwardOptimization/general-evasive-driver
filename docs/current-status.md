@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation
+m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit
+m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -110,11 +110,21 @@ needs user review: 0
 guardrail violations: 0
 ```
 
-M2344 should audit the 13/13 split before choosing geometry/timing rebalance,
-hidden-dynamics range rebalance, or branch synthesis. Training, replay, PPO,
-support-policy ranking, controller-family ranking, winner selection, paper-level
-claims, finite-window vs GRU conclusions, and level3 self-ID claims remain
-blocked.
+M2344 accepts M2343 and routes to branch synthesis. Reason:
+
+```text
+geometry/timing rebalance candidates: 13
+hidden-dynamics range rebalance candidates: 13
+source disagreement:
+  original M2336 redesign rows lean hidden range 9/12
+  remapped M2340 rows lean geometry/timing 10/14
+```
+
+M2345 should synthesize M2338-M2344 before choosing a dual-axis design,
+geometry-first branch, hidden-range-first branch, or stop-for-review route.
+Training, replay, PPO, support-policy ranking, controller-family ranking,
+winner selection, paper-level claims, finite-window vs GRU conclusions, and
+level3 self-ID claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

@@ -42376,3 +42376,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.json`
 - next: `m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit`
+
+## M2344 Paper-Route Current-Sim Scenario Support Redesign Consolidation Result Audit
+
+- status: completed
+- result_class: `scenario_support_redesign_consolidation_result_accepted_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.json`
+- doc: `docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md`
+- parent summary: `runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json`
+- M2343 artifacts accepted: `true`
+- route split: `geometry_timing_rebalance_candidate 13`, `hidden_dynamics_range_rebalance_candidate 13`
+- decision: `route_to_branch_synthesis_before_single_axis_redesign`
+- reset/rollout/measured execution in M2344: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.json`
+- next: `m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis`

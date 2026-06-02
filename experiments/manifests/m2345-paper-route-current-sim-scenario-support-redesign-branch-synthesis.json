@@ -1,0 +1,212 @@
+{
+  "id": "m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_support_redesign_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+      "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+      "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize support coverage and redesign consolidation evidence before choosing the next task-quality branch"
+    ],
+    "derived_from": [
+      "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
+      "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
+      "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation",
+      "m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit"
+    ],
+    "blocked_by": [
+      "M2344 finds an exact 13/13 geometry/timing versus hidden-dynamics route split",
+      "direct single-axis redesign would be a local-search choice without synthesis",
+      "controller comparison remains blocked by unresolved task-quality route decision"
+    ],
+    "supersedes": [
+      "direct geometry/timing rebalance after M2344",
+      "direct hidden-dynamics range rebalance after M2344",
+      "direct controller comparison after redesign consolidation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+  "public_gates": [
+    "M2345 must answer the standard synthesis questions",
+    "M2345 must classify evidence under engineering performance, history mechanism, task quality, high-fidelity readiness, and workflow complexity axes",
+    "M2345 must decide continue pivot stop or promote_to_next_branch",
+    "M2345 must choose the next non-ranking route or explicitly stop for user review",
+    "M2345 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_support_redesign_synthesis",
+    "evidence_axis": "Q_scenario_support_redesign_branch_synthesis",
+    "evidence_increment": "synthesizes M2338-M2344 task-quality evidence after the 13/13 redesign route split",
+    "claim_scope": "branch synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to controller comparison",
+      "stop if synthesis ignores the equal geometry-vs-hidden split",
+      "stop if synthesis claims scenario redesign has been executed"
+    ],
+    "fallback_plan": [
+      "continue to dual-axis redesign calibration design if both branches must be preserved",
+      "pivot to geometry/timing rebalance design if geometry is selected",
+      "pivot to hidden-dynamics range rebalance design if hidden range is selected",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2344 accepts M2343 but finds equal geometry/timing and hidden-dynamics blockers",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize scenario/support redesign branch",
+    "admission_evidence": [
+      "M2340 source mapping identifies 9 coverage-materialization and 14 redesign candidates",
+      "M2343 consolidation identifies 26 redesign-related rows and 9 secondary coverage rows",
+      "M2343 route split is exactly 13 geometry/timing and 13 hidden-dynamics range",
+      "M2344 routes to synthesis before selecting a single-axis redesign branch"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+      "M2345 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "paper-route axes are classified",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2345 synthesizes task-quality evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2345; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2338-M2344 task-quality artifacts.",
+    "negative_result_policy": "Task-quality synthesis must not be interpreted as driver or self-ID evidence.",
+    "allowed_claims": [
+      "scenario/support redesign branch synthesis",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates support coverage source mapping and redesign consolidation before selecting a new task-quality route",
+    "paper_verdict_delta": "can choose whether current-sim task pack redesign should be dual-axis, geometry-first, hidden-first, or stopped",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2338-M2344 will prevent a local single-axis redesign choice and select the next bounded non-ranking task-quality route.",
+  "success_criteria": [
+    "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies task-quality and workflow evidence",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2345 omits a required synthesis question",
+    "M2345 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2345 ranks support policies or selects a winner",
+    "M2345 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2345 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md from M2338-M2344 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_support_redesign_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2345 passes if it writes synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
+  "next_blocker": "selected_by_m2345_synthesis"
+}
