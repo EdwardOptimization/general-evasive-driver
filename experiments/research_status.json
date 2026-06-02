@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2429,
+    "completed": 2430,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit",
+    "task_id": "m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "",
-    "command_log": "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md"
+    "run_dir": "runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter",
+    "command_log": "docs/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.md"
   },
   "next_task": {
-    "id": "m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation",
-    "kind": "infrastructure",
-    "priority": 24190,
+    "id": "m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis",
+    "kind": "gate",
+    "priority": 24200,
     "status": "pending",
-    "hypothesis": "M2422 source-linked candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.json",
-    "success_artifact": "runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json",
-    "notes": "Pending: read-only adapter validation over M2422 overlay JSONs guardrail refs claim boundary and run-dir-only metadata no measured rollout repair/training/ranking/verdict claims"
+    "hypothesis": "Synthesizing M2420-M2424 will prevent another artifact-only local-search step and choose the next evidence-producing non-ranking route.",
+    "command": "see experiments/manifests/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.json",
+    "success_artifact": "docs/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.md",
+    "notes": "Pending: branch synthesis over M2420-M2424 no measured rollout repair/training/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T164604Z"
+  "updated_at_utc": "20260602T170225Z"
 }

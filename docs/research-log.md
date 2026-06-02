@@ -44045,3 +44045,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: candidate materialization is complete and adapter-validation-ready, but does not prove repair success or driver improvement
 - follow-up manifest: `experiments/manifests/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.json`
 - next: `m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation`
+
+## M2424 Paper-Route Current-Sim Dual-Axis Source-Linked Candidate Reset/Load Validation Adapter Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter_pass`
+- manifest: `experiments/manifests/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.json`
+- doc: `docs/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter.py`
+- focused tests: `5 passed`
+- summary: `runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json`
+- overlay load/schema/table/source-key failures: `4/0/0/0`
+- guardrail metadata rows/failures: `24/0`
+- diagnostic-family metadata failures: `0`
+- claim boundary failures: `0`
+- outside-run-dir/active-overwrite/ranking/winner/guardrail counts: `0/0/0/0/0`
+- rerun/reset/rollout/repair/training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2424 is read-only adapter readiness evidence, not driver improvement or current-sim verdict
+- follow-up manifest: `experiments/manifests/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.json`
+- next: `m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis`

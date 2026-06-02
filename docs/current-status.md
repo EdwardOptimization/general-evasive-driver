@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
+m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
+m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
+m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
 ```
 
 Current route:
@@ -165,6 +165,13 @@ validation adapter over the four overlay JSONs and 24 guardrail metadata rows.
 M2424 must not execute repair, run measured rollout, train, rank candidates or
 families, overwrite active configs, or make current-sim/paper/self-ID verdict
 claims.
+M2424 implemented and ran that read-only adapter. All four overlays loaded and
+matched their table rows, all 24 guardrail metadata refs exist, diagnostic and
+family metadata remained monitoring-only, and claim-boundary/outside-run-dir/
+active-overwrite/ranking/guardrail failures are zero. No environment reset,
+policy action, measured rollout, repair, training, ranking, or verdict claim
+occurred. The next task is M2425 branch synthesis before another artifact-only
+step.
 ```
 
 ## Latest Evidence

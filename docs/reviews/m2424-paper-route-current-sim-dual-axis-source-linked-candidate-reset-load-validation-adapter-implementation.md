@@ -1,0 +1,108 @@
+# m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T171209Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: source_linked_candidate_reset_load_validation_adapter_pass_route_to_branch_synthesis
+- Decision reason: M2424 read-only validates 4/4 source-linked candidate overlays 24/24 guardrail metadata rows diagnostic-family/claim/outside/overwrite/ranking/guardrail failures 0 no measured rollout or verdict claims
+
+## Hypothesis
+
+M2422 source-linked candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_source_linked_candidate_reset_load_validation_adapter
+- parent_dataset: docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md, docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays.csv, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/candidate_guardrail_metadata.csv, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/claim_boundary.csv, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays/*.json, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json
+- parent_objective: validate M2422 source-linked run-dir-only overlays and guardrail metadata at adapter load/reset-readiness level
+- derived_from: m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit, m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
+- blocked_by: M2422 overlays are materialized but not yet load-validated, guardrail artifact references must be verified before any reset or measured route, candidate overlays must remain run-dir-only and non-ranking, diagnostic and family-membership rows must remain monitoring-only
+- supersedes: direct measured validation from unvalidated source-linked candidate overlays, candidate ranking from overlay families, source-linked family/profile ranking from diagnostic rows, active config overwrite from candidate overlays
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json exists
+- overlay_load_pass_count equals 4
+- overlay_schema_failure_count equals 0
+- guardrail_metadata_failure_count equals 0
+- diagnostic_family_metadata_failure_count equals 0
+- candidate_overlay_outside_run_dir_count active_config_overwrite_count ranking_admissible_count winner_selected_count and guardrail_violation_count equal 0
+- paper finite-window-vs-GRU level3 self-ID scenario-redesign training-repair and current-sim verdict claims remain false
+
+## Failure Criteria
+
+- M2424 runs measured rollout or executes repair/training/replay/PPO
+- M2424 overwrites active configs
+- M2424 ranks candidates, ranks source-linked families, ranks profiles, or selects a winner
+- M2424 drops collision, R4, max-step, speed-too-low, diagnostic, or family guardrail metadata
+- M2424 claims scenario redesign executed, training repair success, paper result, finite-window-vs-GRU result, current-sim verdict, or level3 self-ID
+
+## Evidence Gates
+
+- M2424 must load each M2422 overlay JSON and validate it against overlay table rows
+- M2424 must verify every overlay path is under the M2422 run directory
+- M2424 must verify collision, R4, max-step, speed-too-low, diagnostic, and family guardrail artifact refs exist and stay non-ranking
+- M2424 must verify diagnostic and family rows remain monitoring-only
+- M2424 must preserve claim boundaries and no active config overwrite
+- M2424 must not run measured rollout, execute repair, train, replay, run PPO, rank candidates/families/profiles, select a winner, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun M2413 M2415 M2417 M2420 M2421 M2422 or M2423
+- do not run new measured rollout
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not rank source-linked families
+- do not rank repair candidates
+- do not select a winner
+- do not overwrite the active scenario config
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
+- type: infrastructure
+- checkpoint: runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_linked_candidate_reset_load_validation_adapter_pass_route_to_branch_synthesis
+- reason: M2424 read-only validates 4/4 source-linked candidate overlays 24/24 guardrail metadata rows diagnostic-family/claim/outside/overwrite/ranking/guardrail failures 0 no measured rollout or verdict claims
+
+## Next Blocker
+
+m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
