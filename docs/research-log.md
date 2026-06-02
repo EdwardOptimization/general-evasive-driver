@@ -42289,3 +42289,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.json`
 - next: `m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation`
+
+## M2340 Paper-Route Current-Sim Support Coverage Gap Source Mapping Implementation
+
+- status: completed
+- result_class: `current_sim_support_coverage_gap_source_mapping_pass`
+- manifest: `experiments/manifests/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.json`
+- doc: `docs/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md`
+- summary: `runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_support_coverage_gap_source_mapping.py`
+- tests: `tests/test_paper_route_current_sim_support_coverage_gap_source_mapping.py`
+- coverage_gap_row_count: `23`
+- support_policy_coverage_materialization_candidate_count: `9`
+- scenario_or_support_redesign_candidate_count: `14`
+- unclassified_count: `0`
+- guardrail_violation_count: `0`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.json`
+- next: `m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit`

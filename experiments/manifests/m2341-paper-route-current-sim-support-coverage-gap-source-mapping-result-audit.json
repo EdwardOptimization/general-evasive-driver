@@ -1,0 +1,187 @@
+{
+  "id": "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_coverage_gap_source_mapping_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_source_rows.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_axis_summary.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_support_policy_summary.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_recommended_route_summary.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.json"
+    ],
+    "parent_objective": [
+      "audit artifact-only source mapping result and choose the next task-quality route"
+    ],
+    "derived_from": [
+      "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation"
+    ],
+    "blocked_by": [
+      "M2340 result must be audited before selecting coverage materialization or scenario/support redesign",
+      "controller comparison remains blocked until task-quality route is chosen"
+    ],
+    "supersedes": [
+      "direct coverage materialization after M2340 implementation",
+      "direct scenario redesign after M2340 implementation",
+      "manual interpretation of coverage source rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+  "public_gates": [
+    "M2341 must audit M2340 summary and route split",
+    "M2341 must preserve non-ranking and artifact-only claim boundary",
+    "M2341 must choose a bounded follow-up route or stop for user review",
+    "M2341 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_coverage_gap_source_mapping",
+    "evidence_axis": "Q_support_coverage_gap_source_mapping_result_audit",
+    "evidence_increment": "audits source-mapped route split before choosing coverage materialization versus scenario redesign",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2340 artifacts are incomplete",
+      "stop if audit ranks support policies",
+      "stop if audit routes directly to controller comparison",
+      "stop if audit claims residual support solved"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if artifacts are incomplete",
+      "route to support-policy coverage materialization design if coverage under-materialization is the dominant blocker",
+      "route to scenario/support redesign design if redesign rows dominate",
+      "stop for user review if split is ambiguous"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2340 materializes source mapping artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit support coverage gap source mapping result",
+    "admission_evidence": [
+      "M2340 summary exists",
+      "M2340 reports coverage_gap_row_count 23",
+      "M2340 reports unclassified_count 0 and guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+      "M2341 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2340 artifacts are accepted or rejected",
+      "route split is interpreted without ranking support policies",
+      "claim boundary is preserved",
+      "a bounded non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2341 audits task-quality source mapping and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2341; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2340 source mapping artifacts.",
+    "negative_result_policy": "M2340 source mapping must be interpreted as task-quality evidence, not as driver or self-ID evidence.",
+    "allowed_claims": [
+      "support coverage gap source mapping result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns source mapping output into the next task-quality route decision",
+    "paper_verdict_delta": "can decide whether support coverage materialization or scenario/support redesign should be attempted before controller comparison",
+    "must_synthesize_if": [
+      "M2341 cannot select a next task-quality route",
+      "M2341 routes directly to ranking",
+      "the support coverage gap source mapping branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2340 provides enough source-mapped task-quality evidence to choose the next bounded non-ranking route before current-sim controller comparison.",
+  "success_criteria": [
+    "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md exists",
+    "M2340 summary is audited",
+    "M2340 route split is audited",
+    "claim boundary is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2340 artifacts are missing",
+    "M2341 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2341 ranks support policies or selects a winner",
+    "M2341 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2341 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2340 summary source rows axis summaries support-policy summaries route summaries and claim boundary"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_coverage_gap_source_mapping_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation.md",
+    "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
+    "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_recommended_route_summary.csv",
+    "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/claim_boundary.csv"
+  ],
+  "decision_rule": "M2341 passes if it audits M2340 and selects a bounded non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2341_result_audit"
+}

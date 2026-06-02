@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design
+m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation
 ```
 
 Current next task:
 
 ```text
-m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation
+m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -74,26 +74,23 @@ next branch: paper_route_current_sim_support_coverage_gap_source_mapping
 largest actionable bucket: support-policy coverage gaps 23
 ```
 
-M2339 designs the artifact-only source mapping route over the 23 R2/R3/R5
-support-policy coverage gaps. M2340 should implement the source-mapping tool
-over existing M2336/M2321/M2313 artifacts and write:
+M2339 designs and M2340 implements the artifact-only source mapping route over
+the 23 R2/R3/R5 support-policy coverage gaps. M2340 output:
 
 ```text
-coverage_gap_source_rows.csv
-coverage_gap_axis_summary.csv
-coverage_gap_support_policy_summary.csv
-coverage_gap_recommended_route_summary.csv
-claim_boundary.csv
-summary.json
+result_class: current_sim_support_coverage_gap_source_mapping_pass
+coverage_gap_row_count: 23
+support-policy coverage materialization candidates: 9
+scenario/support redesign candidates: 14
+unclassified rows: 0
+guardrail violations: 0
 ```
 
-M2340 remains artifact-only. It must not run reset, rollout, measured
-execution, training, replay, PPO, support-policy ranking, controller-family
-ranking, winner selection, paper-level claims, finite-window vs GRU
-conclusions, or level3 self-ID claims. Training, replay, PPO,
-support-policy ranking, controller-family ranking, winner selection,
-paper-level claims, finite-window vs GRU conclusions, and level3 self-ID claims
-remain blocked.
+M2341 should audit this route split before any support-policy coverage
+materialization or scenario/support redesign branch. Training, replay, PPO,
+support-policy ranking, controller-family ranking, winner selection, paper-level
+claims, finite-window vs GRU conclusions, and level3 self-ID claims remain
+blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

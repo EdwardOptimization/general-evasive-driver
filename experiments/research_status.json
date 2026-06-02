@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2347,
+    "completed": 2348,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design",
+    "task_id": "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md"
+    "run_dir": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping",
+    "command_log": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json"
   },
   "next_task": {
-    "id": "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
-    "kind": "infrastructure",
-    "priority": 23350,
+    "id": "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
+    "kind": "gate",
+    "priority": 23360,
     "status": "pending",
-    "hypothesis": "Artifact-only source mapping can classify the 23 support-policy coverage gaps by source concentration and recommended next route without new execution or ranking.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_support_coverage_gap_source_mapping --rescore-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --support-dir runs/m2313_paper_route_current_sim_scenario_task_family_feasibility_calibration --output-dir runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping",
-    "success_artifact": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json",
-    "notes": "Pending: implement artifact-only source mapping for coverage gaps with tests and no reset/rollout/ranking"
+    "hypothesis": "M2340 provides enough source-mapped task-quality evidence to choose the next bounded non-ranking route before current-sim controller comparison.",
+    "command": "write docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md from M2340 artifacts",
+    "success_artifact": "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+    "notes": "Pending: audit M2340 route split 9 coverage-materialization vs 14 redesign before any repair branch"
   },
-  "updated_at_utc": "20260602T013244Z"
+  "updated_at_utc": "20260602T014110Z"
 }
