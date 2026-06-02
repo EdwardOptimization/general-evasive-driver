@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
+m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
+m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
+m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
 ```
 
 Current route:
@@ -148,6 +148,16 @@ verdict claims remain zero. M2421 accepted M2420 as complete and routes to
 M2422 run-dir-only source-linked repair-candidate materialization. The route is
 still artifact-only: no repair execution, training, active config overwrite,
 ranking, or verdict claim.
+M2422 materialized four compact source-linked run-dir-only repair-candidate
+overlays and assigned all 59 offtrack repair-plan rows. Every overlay carries
+collision, R4, max-step, speed-too-low, diagnostic-monitoring, and
+family-membership diagnostic metadata, for 24 guardrail metadata rows total.
+Diagnostic and family rows remain monitoring-only and non-ranking. Active
+config overwrite, repair execution, training, ranking, winner selection,
+guardrail violations, and verdict claims remain zero. The next task is M2423
+result audit: decide whether this candidate artifact admits read-only
+reset/load validation adapter implementation, artifact repair, scenario-quality
+pivot, or stop. It is not a repair execution or measured rollout route.
 ```
 
 ## Latest Evidence

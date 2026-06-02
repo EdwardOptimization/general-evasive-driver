@@ -1,0 +1,213 @@
+{
+  "id": "m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_linked_repair_candidate_materialization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md",
+      "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json",
+      "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays.csv",
+      "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/candidate_guardrail_metadata.csv",
+      "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays",
+      "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/claim_boundary.csv",
+      "docs/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2422 source-linked repair-candidate materialization and choose one bounded next route"
+    ],
+    "derived_from": [
+      "m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation",
+      "m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2422 materializes candidate overlays but does not audit whether they are reset/load-validation ready",
+      "candidate overlays must preserve collision, R4, max-step, speed-too-low, diagnostic, and family metadata",
+      "the next route must not jump directly to repair execution or measured rollout"
+    ],
+    "supersedes": [
+      "direct repair execution from M2422 overlays without audit",
+      "source-linked family/profile ranking from diagnostic rows",
+      "candidate winner selection from artifact-only overlays"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md",
+  "public_gates": [
+    "M2423 must audit M2422 candidate completeness, run-dir-only boundary, and guardrail metadata preservation",
+    "M2423 must decide whether to admit read-only reset/load validation adapter implementation, pivot to artifact repair, pivot to scenario-quality reassessment, or stop",
+    "M2423 must keep diagnostic and family-membership rows non-ranking",
+    "M2423 must not run rollout, execute repair, train, replay, run PPO, rank candidates/families/profiles, select a winner, overwrite active configs, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2413 M2415 M2417 M2420 M2421 or M2422",
+    "do not run new rollout",
+    "do not reset/load validate in M2423",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank source-linked families",
+    "do not rank repair candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_source_linked_reset_evidence",
+    "evidence_axis": "E_source_linked_repair_candidate_materialization_result_audit",
+    "evidence_increment": "audits whether M2422 candidate overlays are complete enough for a bounded read-only reset/load validation adapter",
+    "claim_scope": "result audit only; no reset/load execution, repair execution, training, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2422 candidate overlays are incomplete or not run-dir-only",
+      "stop if guardrail metadata is missing or diagnostic rows become repair/ranking rows",
+      "stop if next route would require source-linked family/profile/candidate ranking",
+      "stop if next route would require actor input contract changes or hidden/oracle features",
+      "stop if the only admissible route is scenario semantics rather than read-only adapter validation"
+    ],
+    "fallback_plan": [
+      "admit read-only reset/load validation adapter implementation only if candidate completeness and guardrails pass",
+      "pivot to artifact repair if M2422 schema or metadata is incomplete",
+      "pivot to scenario-quality reassessment if materialization is mostly task semantics",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2422 materialized run-dir-only source-linked repair candidate overlays",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-linked repair-candidate materialization result audit",
+    "admission_evidence": [
+      "M2422 result_class is current_sim_dual_axis_source_linked_repair_candidate_materialization_pass",
+      "M2422 assigned_offtrack_repair_plan_row_count is 59 of 59",
+      "M2422 candidate_count is 4",
+      "M2422 guardrail_metadata_row_count is 24",
+      "M2422 collision_guardrail_source_row_count is 30",
+      "M2422 r4_mitigation_source_row_count is 43",
+      "M2422 max_step_source_row_count is 1",
+      "M2422 speed_too_low_source_row_count is 1",
+      "M2422 diagnostic_monitoring_source_row_count is 2733",
+      "M2422 family_membership_diagnostic_source_row_count is 110",
+      "M2422 active_config_overwrite_count repair_execution_allowed_count training_allowed_count ranking_admissible_count winner_selected_count and guardrail_violation_count are 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no reset/load validation in M2423",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md",
+      "M2423 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit or branch stop"
+    ],
+    "next_stage_criteria": [
+      "M2422 candidate completeness is accepted or rejected",
+      "run-dir-only boundary is accepted or rejected",
+      "guardrail metadata preservation is accepted or rejected",
+      "failure taxonomy is recorded",
+      "one bounded next route is selected or the branch is stopped",
+      "blocked claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2423 audits candidate materialization and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2423; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2422 source-linked repair-candidate artifacts.",
+    "negative_result_policy": "If M2422 only supports scenario-quality changes, pivot instead of calling it driver repair.",
+    "allowed_claims": [
+      "M2422 source-linked repair-candidate materialization completeness accepted or rejected",
+      "next route decision",
+      "no controller ranking, source-linked family ranking, candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits whether M2422 converted repair-plan rows into reset/load-validation-admissible candidate overlays",
+    "paper_verdict_delta": "can admit a bounded read-only adapter route but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "M2423 cannot choose a bounded adapter, artifact repair, pivot, or stop route",
+      "M2423 proposes direct repair execution or measured rollout",
+      "M2423 attempts to rank candidates, source-linked families, or profiles",
+      "the source-linked repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The M2422 source-linked repair-candidate artifact can be audited into a read-only reset/load-validation route, artifact-repair route, scenario-quality pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md exists",
+    "M2422 completeness, run-dir-only boundary, and guardrail metadata preservation are accepted or rejected with explicit counts",
+    "diagnostic and family-membership rows remain non-ranking",
+    "one bounded follow-up route is selected or the branch is stopped",
+    "blocked paper/self-ID/current-sim/training-repair claims remain blocked"
+  ],
+  "failure_criteria": [
+    "M2423 reruns rollout or executes reset/load validation, repair, training, replay, or PPO",
+    "M2423 ranks source-linked families, ranks profiles, ranks candidates, or selects a winner",
+    "M2423 treats candidate materialization as repair or scenario redesign success",
+    "M2423 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2423 cannot classify the candidate artifact or choose a bounded route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2422 summary and source-linked repair-candidate artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_linked_repair_candidate_materialization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md",
+    "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json"
+  ],
+  "decision_rule": "M2423 passes if it audits M2422 into an explicit bounded next-route decision without reset/load execution, repair execution, ranking, or verdict claims.",
+  "next_blocker": "m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation"
+}

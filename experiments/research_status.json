@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2427,
+    "completed": 2428,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit",
+    "task_id": "m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "",
-    "command_log": "docs/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.md"
+    "run_dir": "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization",
+    "command_log": "docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md"
   },
   "next_task": {
-    "id": "m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation",
-    "kind": "infrastructure",
-    "priority": 24170,
+    "id": "m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit",
+    "kind": "gate",
+    "priority": 24180,
     "status": "pending",
-    "hypothesis": "The M2420 bounded repair-plan rows can be converted into compact run-dir-only source-linked repair candidate overlays with collision, R4, max-step, speed-too-low, diagnostic, and family metadata, without active config overwrite, repair execution, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.json",
-    "success_artifact": "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json",
-    "notes": "Pending: artifact-only source-linked repair candidate materialization no repair execution training ranking active overwrite or verdict claims"
+    "hypothesis": "The M2422 source-linked repair-candidate artifact can be audited into a read-only reset/load-validation route, artifact-repair route, scenario-quality pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json",
+    "success_artifact": "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md",
+    "notes": "Pending: audit M2422 candidate materialization completeness and choose bounded next route no reset/load execution repair training ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T161110Z"
+  "updated_at_utc": "20260602T163512Z"
 }

@@ -44009,3 +44009,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: plan is complete and guardrail-separated enough to admit run-dir-only source-linked repair-candidate materialization
 - follow-up manifest: `experiments/manifests/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.json`
 - next: `m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation`
+
+## M2422 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_repair_candidate_materialization_pass`
+- manifest: `experiments/manifests/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.json`
+- doc: `docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization.py`
+- focused tests: `5 passed`
+- summary: `runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json`
+- candidate overlays: `4` run-dir-only source-linked overlays
+- offtrack repair rows assigned: `59/59`
+- guardrail metadata: `24` rows across collision `30`, R4 `43`, max-step `1`, speed-too-low `1`, diagnostic `2733`, family diagnostic `110`
+- diagnostic/family rows monitoring-only: `true/true`
+- active-overwrite/repair/training/ranking/winner/guardrail counts: `0/0/0/0/0/0`
+- rerun/reset rerun/rollout/repair/training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2422 is artifact-only candidate materialization; it assigns repair-plan rows to compact non-ranking overlays and preserves guardrails but does not execute repair or validate reset/load readiness
+- follow-up manifest: `experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json`
+- next: `m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit`
