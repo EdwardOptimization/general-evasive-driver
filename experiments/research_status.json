@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2381,
+    "completed": 2382,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis",
+    "task_id": "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md"
+    "run_dir": "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization",
+    "command_log": "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization",
-    "kind": "infrastructure",
-    "priority": 23700,
+    "id": "m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit",
+    "kind": "gate",
+    "priority": 23710,
     "status": "pending",
-    "hypothesis": "Artifact-only materialization can turn audited repair specs into repair-plan artifacts without executing repair, ranking, or claiming training success.",
-    "command": "implement and run artifact-only repair-plan materializer from M2371 repair specs",
-    "success_artifact": "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json",
-    "notes": "Pending: implement artifact-only repair-plan materializer no repair execution/training/ranking"
+    "hypothesis": "Auditing M2375 repair-plan artifacts can decide the next bounded route without executing repair, ranking, training, or paper-level claims.",
+    "command": "write artifact-only result audit from M2375 repair-plan outputs",
+    "success_artifact": "docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md",
+    "notes": "Pending: audit repair-plan artifacts before any repair execution or validation design no training/ranking"
   },
-  "updated_at_utc": "20260602T055900Z"
+  "updated_at_utc": "20260602T061000Z"
 }

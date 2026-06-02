@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis
+m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization
 ```
 
 Current next task:
 
 ```text
-m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization
+m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit
 ```
 
 Current route:
 
 ```text
-M2374 synthesized M2364-M2373 and chose continue to artifact-only repair-plan
-materialization. M2375 should implement the repair-plan materializer, still
-without repair execution, scenario redesign, ranking, training, or paper-route
-interpretation.
+M2375 materialized artifact-only repair-plan files from the audited repair
+specs. M2376 must audit those artifacts before any repair execution, validation
+design, scenario redesign, ranking, training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -208,6 +207,24 @@ blocked: repair success, scenario redesign executed, ranking, current-sim verdic
   finite-window-vs-GRU, level3 self-ID
 ```
 
+M2375 repair-plan materialization result:
+
+```text
+input_repair_spec_row_count: 320
+ordinary/mixed/collision/R4/diagnostic source counts: 36/18/28/48/190
+reward_delta_row_count: 54
+curriculum_weight_row_count: 54
+guardrail_constraint_row_count: 284
+mixed_guarded_constraint_row_count: 18
+profile_specific_tuning_count: 0
+actor_input_change_count: 0
+hidden_oracle_feature_injection_count: 0
+collision_blind_mixed_repair_count: 0
+r4_ordinary_repair_count: 0
+guardrail_violation_count: 0
+repair execution/training/replay/PPO: false
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -232,17 +249,18 @@ training repair success
 
 ## Immediate Next Step
 
-M2375 should implement the artifact-only repair-plan materializer:
+M2376 should audit repair-plan materialization outputs:
 
 ```text
 runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
-src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization.py
-tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization.py
-runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/repair_implementation_plan.json
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/reward_delta_rows.csv
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/curriculum_weight_rows.csv
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/guardrail_constraint_rows.csv
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv
 ```
 
-The materializer should write repair-plan, reward-delta, curriculum-weight,
-guardrail-constraint, mixed-guarded-constraint, claim-boundary, and summary
-artifacts. It must not run reset/rollout, execute repair, train, replay, use
-PPO, rank profiles or packs, select a winner, claim scenario redesign executed,
-claim repair success, current-sim verdict, or paper/self-ID claims.
+The audit should choose a bounded next route or stop the branch. It must not
+run reset/rollout, execute repair, train, replay, use PPO, rank profiles or
+packs, select a winner, claim scenario redesign executed, claim repair success,
+current-sim verdict, or paper/self-ID claims.
