@@ -42230,3 +42230,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.json`
 - next: `m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit`
+
+## M2337 Paper-Route Current-Sim Role-Stratified Residual Support Rescore Result Audit
+
+- status: completed
+- result_class: `role_stratified_residual_support_rescore_result_accepted_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.json`
+- doc: `docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md`
+- parent summary: `runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json`
+- M2336 artifacts accepted: `true`
+- route map: `support_policy_coverage_gap 23`, `scenario_or_support_redesign_gap 12`, `R4 post-collision blocked 12`, `metric edge 1`
+- decision: `route_to_branch_synthesis_before_next_task_quality_branch`
+- reset/rollout/measured execution in M2337: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.json`
+- next: `m2338-paper-route-current-sim-residual-task-quality-branch-synthesis`

@@ -1,0 +1,227 @@
+{
+  "id": "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_process_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2320-paper-route-current-sim-scenario-task-family-residual-support-audit-design.md",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/summary.json",
+      "docs/m2322-paper-route-current-sim-scenario-task-family-residual-support-audit-result-audit.md",
+      "docs/m2323-paper-route-current-sim-scenario-task-family-role-stratified-residual-semantics-support-redesign-design.md",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md",
+      "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+      "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md",
+      "docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md",
+      "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
+      "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+      "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md",
+      "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
+      "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json",
+      "docs/m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit.md",
+      "docs/m2335-paper-route-current-sim-role-stratified-residual-support-rescore-design.md",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+      "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize residual task-quality branch after role-stratified rescore"
+    ],
+    "derived_from": [
+      "m2321-paper-route-current-sim-scenario-task-family-residual-support-audit-implementation",
+      "m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation",
+      "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
+      "m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation",
+      "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
+      "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit"
+    ],
+    "blocked_by": [
+      "M2320-M2337 reached synthesis cadence after residual support audit, R4 metric semantics work, and residual rescore",
+      "controller comparison remains blocked until the next task-quality route is selected",
+      "local-search guard requires branch-level synthesis before another coverage or redesign micro-branch"
+    ],
+    "supersedes": [
+      "direct support-policy coverage design without synthesis",
+      "direct controller comparison after residual rescore",
+      "another R4 metric semantics micro-audit before branch-level decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+  "public_gates": [
+    "M2338 must answer the standard synthesis questions",
+    "M2338 must classify evidence under engineering performance, history mechanism, task quality, high-fidelity readiness, and workflow complexity axes",
+    "M2338 must decide continue pivot stop or promote_to_next_branch",
+    "M2338 must choose the next non-ranking route or explicitly stop for user review",
+    "M2338 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim R4 mitigation performance from proxy metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_residual_task_quality_synthesis",
+    "evidence_axis": "Q_residual_task_quality_branch_synthesis",
+    "evidence_increment": "synthesizes M2320-M2337 residual-support, R4 semantics, and residual-rescore evidence before selecting the next branch",
+    "claim_scope": "branch synthesis only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to controller comparison without addressing residual route map",
+      "stop if synthesis treats R4 proxy semantics as mitigation performance",
+      "stop if synthesis ignores workflow/process overhead"
+    ],
+    "fallback_plan": [
+      "continue to support-policy coverage gap branch if coverage is the highest leverage blocker",
+      "pivot to scenario/support redesign if task pack quality is the blocker",
+      "pivot to post-collision continuation if R4 mitigation semantics block current-sim verdict",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2337 accepts residual rescore and local-search guard requires branch synthesis before another task-quality branch",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize residual task-quality branch after residual rescore",
+    "admission_evidence": [
+      "M2321 residual audit identifies 48 residual scenarios after R0 repair",
+      "M2330 produces fresh R4 diagnostic data",
+      "M2333 materializes R4 proxy semantics with post-collision blocked",
+      "M2336 materializes a 48-row residual route map with zero unclassified routes",
+      "M2337 routes to synthesis before another micro-branch"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+      "M2338 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis decision is one of continue pivot stop promote_to_next_branch",
+      "supported and falsified claims are explicit",
+      "next route is selected without experiment execution"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2338 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2338; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2320-M2337 residual task-quality artifacts.",
+    "negative_result_policy": "If residual support remains weak, select a task-quality route before interpreting driver failure or self-ID evidence.",
+    "allowed_claims": [
+      "residual task-quality branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates residual-support audit, fresh R4 panel data, metric semantics, and residual rescore before choosing a new branch",
+    "paper_verdict_delta": "can choose the remaining task-quality blocker that must be cleared before current-sim controller comparison",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2320-M2337 will show which residual task-quality blocker should be addressed next before controller comparison resumes.",
+  "success_criteria": [
+    "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies task-quality and workflow evidence",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2338 omits a required synthesis question",
+    "M2338 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2338 ranks support policies or selects a winner",
+    "M2338 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2338 routes directly to controller comparison without addressing task-quality blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md from M2320-M2337 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_process_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/route_rescore_summary.csv",
+    "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2338 passes if it writes the required synthesis and selects a non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2338_synthesis"
+}

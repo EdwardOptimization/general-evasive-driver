@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation
+m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit
 ```
 
 Current next task:
 
 ```text
-m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit
+m2338-paper-route-current-sim-residual-task-quality-branch-synthesis
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -65,10 +65,13 @@ unclassified residual routes: 0
 guardrail violations: 0
 ```
 
-M2337 is the result audit and should choose the next bounded task-quality route.
-Training, replay, PPO, support-policy ranking, controller-family ranking, winner
-selection, paper-level claims, finite-window vs GRU conclusions, and level3
-self-ID claims remain blocked.
+M2337 accepts M2336 and routes to branch synthesis before opening another
+task-quality branch. M2338 should synthesize M2320-M2337 and choose whether the
+next route is support-policy coverage, scenario/support redesign, R4
+post-collision continuation, or the remaining metric edge. Training, replay,
+PPO, support-policy ranking, controller-family ranking, winner selection,
+paper-level claims, finite-window vs GRU conclusions, and level3 self-ID claims
+remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

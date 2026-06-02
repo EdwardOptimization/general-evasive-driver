@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2344,
+    "completed": 2345,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation",
+    "task_id": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore",
-    "command_log": "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md"
   },
   "next_task": {
-    "id": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
+    "id": "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
     "kind": "gate",
-    "priority": 23320,
+    "priority": 23330,
     "status": "pending",
-    "hypothesis": "M2336 provides enough role-stratified residual rescore evidence to choose the next bounded non-ranking task-quality route.",
-    "command": "manual audit of M2336 summary route summaries residual rows and claim boundary",
-    "success_artifact": "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md",
-    "notes": "Pending: audit residual rescore route map and select next bounded task-quality route"
+    "hypothesis": "Synthesizing M2320-M2337 will show which residual task-quality blocker should be addressed next before controller comparison resumes.",
+    "command": "write docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md from M2320-M2337 artifacts",
+    "success_artifact": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+    "notes": "Pending: synthesize residual support R4 semantics rescore evidence and choose next non-ranking route"
   },
-  "updated_at_utc": "20260602T011753Z"
+  "updated_at_utc": "20260602T012334Z"
 }
