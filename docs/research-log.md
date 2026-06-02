@@ -43961,3 +43961,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: consolidation is complete and compact, but the source-linked branch should synthesize before repair-plan materialization
 - follow-up manifest: `experiments/manifests/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.json`
 - next: `m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis`
+
+## M2419 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Validation Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- route decision: `continue_to_source_linked_bounded_repair_plan_materialization`
+- manifest: `experiments/manifests/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.json`
+- doc: `docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md`
+- parent reset/measured/localization/consolidation: M2410/M2413/M2415/M2417
+- rerun/reset rerun/rollout/localization/consolidation rerun/repair/training/replay/PPO: `false`
+- family/profile/controller ranking and winner selection: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- synthesis summary: source-linked branch has reset-valid concrete env configs, a complete 5250-episode measured panel, artifact-only outcome localization, and compact target/guardrail rows, but the measured outcome remains offtrack-dominated
+- next route: bounded source-linked repair-plan materialization, not repair execution or training
+- follow-up manifest: `experiments/manifests/m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation.json`
+- next: `m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation`

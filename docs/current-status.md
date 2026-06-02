@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
+m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
+m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
+m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
 ```
 
 Current route:
@@ -134,6 +134,11 @@ M2418 accepted M2417 as a complete target-consolidation artifact. Because the
 source-linked branch has now produced reset evidence, measured validation,
 outcome localization, target consolidation, and audits, M2418 routes to M2419
 branch synthesis before any repair-plan materialization.
+M2419 synthesized M2410-M2418 and decided to continue to bounded source-linked
+repair-plan materialization. This is still a workflow route, not a driver
+success, paper, finite-window-vs-GRU, self-ID, scenario-redesign, or current-sim
+verdict. The next task is M2420 artifact-only repair-plan materialization from
+M2417 target and guardrail rows.
 ```
 
 ## Latest Evidence
