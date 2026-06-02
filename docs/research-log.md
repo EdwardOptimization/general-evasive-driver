@@ -43843,3 +43843,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: M2410 is clean enough to admit measured-validation design, but only as overlapping family diagnostics, not ranking or winner selection
 - follow-up manifest: `experiments/manifests/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.json`
 - next: `m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design`
+
+## M2412 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Validation Design
+
+- status: completed
+- decision: `source_linked_measured_validation_design_admit_implementation`
+- manifest: `experiments/manifests/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.json`
+- doc: `docs/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.md`
+- parent summary: `runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json`
+- reset/rollout/repair/training/replay/PPO/ranking/winner in M2412: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- denominator: `350` unique reset targets x `15` selected checkpoints = `5250` measured episodes
+- family handling: overlapping membership is diagnostic and must be exploded into membership rows, not ranking
+- unmatched source-key caveat: `95` unmatched keys preserved
+- implementation route: reconstruct env configs from M2391 effective candidate payloads by reset target hash
+- follow-up manifest: `experiments/manifests/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.json`
+- next: `m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation`

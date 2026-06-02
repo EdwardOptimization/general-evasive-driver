@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2417,
+    "completed": 2418,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit",
+    "task_id": "m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "",
-    "command_log": "docs/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.md"
+    "command_log": "docs/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.md"
   },
   "next_task": {
-    "id": "m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design",
-    "kind": "gate",
-    "priority": 24070,
+    "id": "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation",
+    "kind": "infrastructure",
+    "priority": 24080,
     "status": "pending",
-    "hypothesis": "A bounded 350-reset-target x selected-checkpoint measured-validation protocol can measure the source-linked family panel without ranking overlapping families or changing actor inputs.",
-    "command": "see experiments/manifests/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.json",
-    "success_artifact": "docs/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.md",
-    "notes": "Pending: design 350 reset-target x selected-checkpoint measured-validation protocol preserving family overlap and unmatched-key caveat no rollout/ranking/verdict claims"
+    "hypothesis": "The M2410 reset panel can be measured as 5250 closed-loop episodes while preserving actor contract, family-overlap diagnostics, and non-ranking claim boundaries.",
+    "command": "see experiments/manifests/m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation.json",
+    "success_artifact": "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json",
+    "notes": "Pending: run 5250 closed-loop episodes over 350 reset targets x 15 checkpoints no repair/training/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T135712Z"
+  "updated_at_utc": "20260602T140528Z"
 }

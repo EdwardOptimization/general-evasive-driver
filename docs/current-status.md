@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
+m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
+m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
+m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation
 ```
 
 Current route:
@@ -99,6 +99,12 @@ M2412 measured-validation design. The next denominator should be 350 unique
 reset targets times the selected checkpoint set, with overlapping family
 membership treated as diagnostic slices rather than ranking. The 95 unmatched
 source keys remain a required caveat.
+M2412 froze that design: 350 unique reset targets x 15 selected checkpoints =
+5250 measured episodes. M2413 should implement and run this measured panel,
+writing one primary episode row per reset target/checkpoint and separate
+exploded family-membership diagnostic rows. It must not execute repair, train,
+rank families, select a winner, or make current-sim/paper/self-ID verdict
+claims.
 ```
 
 ## Latest Evidence
