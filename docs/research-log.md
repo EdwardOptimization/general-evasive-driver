@@ -42773,3 +42773,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: `repaired_pack_reset_validation_pass_route_to_result_audit`
 - follow-up manifest: `experiments/manifests/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.json`
 - next: `m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit`
+
+## M2360 Paper-Route Current-Sim Dual-Axis Repaired Pack Reset Validation Result Audit
+
+- status: completed
+- decision: `repaired_pack_reset_validation_result_accepted_route_to_measured_execution_design`
+- manifest: `experiments/manifests/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.json`
+- doc: `docs/m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit.md`
+- audited summary: `runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json`
+- reset rerun in M2360: `false`
+- rollout/measured execution in M2360: `false`
+- policy action executed: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- M2359 result accepted: `true`
+- reset_success_count: `360 / 360`
+- contract_violation_count: `0`
+- repair_action_rows_preserved: `true`
+- metadata_caveat_rows_preserved: `true`
+- effective modified selections: `G 4`, `H 12`, `G+H 16`, `GH-minimal 14`
+- claim boundary: reset-valid repaired pack family only, no performance or mechanism claim
+- follow-up manifest: `experiments/manifests/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.json`
+- next: `m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design`

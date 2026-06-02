@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation
+m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit
 ```
 
 Current next task:
 
 ```text
-m2360-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-result-audit
+m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -357,6 +357,21 @@ M2360 should audit the M2359 pass before any measured-execution design.
 Controller comparison, support-policy ranking, paper-level evidence,
 finite-window vs GRU conclusions, level3 self-ID claims, and scenario redesign
 execution claims remain blocked.
+
+M2360 audits and accepts the M2359 pass without rerun:
+
+```text
+decision: repaired_pack_reset_validation_result_accepted_route_to_measured_execution_design
+reset rerun in M2360: false
+rollout/measured execution in M2360: false
+M2359 accepted: true
+claim boundary: reset-valid repaired five-pack family only
+next: m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
+```
+
+M2361 should design a bounded measured-execution protocol over the reset-valid
+repaired pack family. It must freeze denominator, metrics, input artifacts, and
+guardrails, but must not execute rollout or rank controllers.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

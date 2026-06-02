@@ -177,5 +177,5 @@
     "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
   ],
   "decision_rule": "M2360 passes if it audits M2359 artifacts and selects a bounded non-ranking follow-up route or stops the branch.",
-  "next_blocker": "selected_by_m2360_audit"
+  "next_blocker": "m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design"
 }
