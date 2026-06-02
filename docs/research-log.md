@@ -44285,3 +44285,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.json`
 - next: `m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation`
+
+## M2438 Paper-Route Current-Sim Dual-Axis Hard/Soft Offtrack Metric Split Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_hard_soft_offtrack_metric_split_pass`
+- manifest: `experiments/manifests/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.json`
+- doc: `docs/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split.py`
+- focused tests: `2 passed`
+- summary: `runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json`
+- panel rows: `12`
+- sources: `3`
+- source episode counts: M2362 `5400`, M2397 `30735`, M2413 `5250`
+- thresholds: `0.02`, `0.05`, `0.10`, `0.20` m
+- actual_success_preserved: `true`
+- actual_success_preservation_violation_count: `0`
+- min soft-success gain at `0.20 m`: `0.7175925925925926`
+- min counterfactual soft-success rate at `0.20 m`: `0.7827777777777778`
+- max counterfactual soft-success rate at `0.20 m`: `0.8752562225475842`
+- max actual success rate: `0.06685714285714285`
+- max hard offtrack failure rate at `0.20 m`: `0.010476190476190476`
+- guardrail violations: `0`
+- failure_types_observed: `[]`
+- interpretation: the hard/soft metric split is materialized and guardrailed, but soft success remains diagnostic-only and not actual success
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit.json`
+- next: `m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit`

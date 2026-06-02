@@ -16,25 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
+m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
+m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
+m2439-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-result-audit
 ```
 
 Current route:
 
 ```text
+M2438 implemented the hard/soft offtrack metric split panel over existing M2362,
+M2397, and M2413 episode rows. It produced 12 panel rows across 3 sources and
+the fixed 0.02/0.05/0.10/0.20 m threshold grid, preserved measured
+actual_success exactly, and produced guardrail_violation_count 0. At 0.20 m the
+min diagnostic soft-success gain remains 0.7175925925925926, while max actual
+success remains 0.06685714285714285. This supports a result audit route only:
+soft success is diagnostic, not actual success, and no rollout, repair,
+training, ranking, scenario redesign execution, paper/FW-vs-GRU/self-ID, or
+current-sim verdict claim is supported yet. The next task is M2439 result audit.
+
 M2437 completed the hard/soft offtrack metric split design after M2436 promoted
 the route to task-boundary metric redesign. The contract separates actual
 success, collision/obstacle-risk failure, hard offtrack failure, soft offtrack
