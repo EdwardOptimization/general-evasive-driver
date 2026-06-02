@@ -1,0 +1,117 @@
+# m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T135128Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: source_linked_offtrack_containment_reset_evidence_pass_route_to_result_audit
+- Decision reason: M2410 source-linked reset evidence pass families 4/4 matched scenario refs 3505 unique reset targets 350/350 unmatched keys 95 env step/policy/repair/training/ranking/verdict 0
+
+## Hypothesis
+
+Joining M2406 offtrack containment family source keys to M2391 reset-valid effective candidate specs will produce a concrete non-ranking reset evidence panel for all four families without changing actor inputs or executing repair.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_reset_only_source_linked_evidence
+- parent_dataset: docs/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays.csv, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays/*.json, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/candidate_guardrail_metadata.csv, runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_config_rows.csv, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_scenario_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json
+- parent_objective: materialize and reset-validate concrete source-linked scenario specs for the four M2406 offtrack containment candidate families
+- derived_from: m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis, m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation, m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+- blocked_by: M2406 overlays are semantic repair candidates, not directly executable env-config patches, M2408 validated only overlay structure and did not reset environments, M2409 promoted the workflow to a new reset-evidence branch before any measured rollout or repair training
+- supersedes: another same-branch artifact-only result audit, direct measured rollout over semantic overlays, candidate family ranking before source-linked reset evidence
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json exists
+- all 4 candidate-family overlays load
+- all 4 candidate families have matched M2391 effective candidates
+- source-linked scenario references are non-empty
+- all source-linked static rows pass actor-contract and env_config validation
+- all unique reset targets reset successfully
+- environment_step_count is 0
+- policy_action_executed is false
+- active_config_overwrite_count is 0
+- ranking_admissible_count and winner_selected_count are 0
+- guardrail_violation_count is 0
+
+## Failure Criteria
+
+- any family has zero matched effective candidates
+- source-linked scenario references are empty
+- any required env_config is missing
+- actor contract validation fails
+- any reset target fails reset validation
+- environment step or policy action executes
+- active config is overwritten
+- repair execution training replay PPO ranking or winner selection occurs
+- M2410 claims measured driver improvement, paper verdict, current-sim verdict, scenario redesign executed, training repair success, FW-vs-GRU conclusion, or level3 self-ID
+
+## Evidence Gates
+
+- M2410 must load all four M2406 candidate-family overlays
+- M2410 must link every family to at least one M2391 reset-valid effective candidate
+- M2410 must write run-dir-only source-linked family artifacts
+- M2410 must run reset-only validation over concrete env configs and stop before any environment step or policy action
+- M2410 must preserve P0 human-view no-wheel no-oracle actor contract
+- M2410 must report unmatched source keys as diagnostics rather than hiding them
+- M2410 must not rank candidate families or select a winner
+- M2410 must not execute repair, train, run replay, run PPO, overwrite active configs, or make paper/current-sim/FW-vs-GRU/self-ID verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not overwrite active configs
+- do not apply repair levers to the active config
+- do not execute repair training
+- do not run measured rollout
+- do not step environments after reset
+- do not execute policy actions
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not rank candidate families
+- do not select a winner
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle actor features
+- do not tune controller profiles
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- lineage_invalid
+- contract_violation
+- metric_artifact
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation
+- type: infrastructure
+- checkpoint: runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: 1.0
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_linked_offtrack_containment_reset_evidence_pass_route_to_result_audit
+- reason: M2410 source-linked reset evidence pass families 4/4 matched scenario refs 3505 unique reset targets 350/350 unmatched keys 95 env step/policy/repair/training/ranking/verdict 0
+
+## Next Blocker
+
+m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit

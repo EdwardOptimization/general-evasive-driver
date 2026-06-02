@@ -43790,3 +43790,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
 - next: `m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis`
+
+## M2409 Paper-Route Current-Sim Dual-Axis Repair-Plan Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- route decision: `promote_to_source_linked_reset_evidence_branch`
+- manifest: `experiments/manifests/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
+- doc: `docs/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md`
+- rerun/reset/rollout/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- branch evidence: M2404 repair-plan rows `1313`, M2406 compact families `4`, M2408 overlay load pass `4/4`
+- synthesis result: current branch is useful workflow readiness but too artifact-heavy to continue in-place
+- supported claim: a source-linked reset-evidence branch is admissible because every family has non-empty M2391 effective-candidate links
+- blocked claims: repair execution, measured driver improvement, candidate ranking, paper/current-sim verdict, FW-vs-GRU conclusion, level3 self-ID
+- follow-up manifest: `experiments/manifests/m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation.json`
+- next: `m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation`
+
+## M2410 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Reset Evidence Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence_pass`
+- manifest: `experiments/manifests/m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation.json`
+- doc: `docs/m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence.py`
+- focused tests: `2 passed`
+- summary: `runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json`
+- candidate families matched/reset pass: `4/4`
+- matched effective candidates: `54/54`
+- source-linked scenario refs: `3505`
+- unique reset targets success: `350/350`
+- unmatched source keys: `95`
+- static/reset failure counts: `0/0`
+- environment step/policy action: `0/false`
+- active overwrite/repair/training/ranking/winner/guardrail counts: `0/0/0/0/0/0`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2410 upgrades M2408 from overlay-readiness to concrete source-linked reset evidence, but remains reset-only and does not prove repair success
+- follow-up manifest: `experiments/manifests/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.json`
+- next: `m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit`

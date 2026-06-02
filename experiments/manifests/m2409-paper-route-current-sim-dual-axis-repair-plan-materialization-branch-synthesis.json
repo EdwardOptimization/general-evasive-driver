@@ -104,7 +104,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "research_validate flagged 6 consecutive non-evidence milestones after M2408",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",

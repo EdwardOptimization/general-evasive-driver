@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
+m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
+m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2409-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-result-audit
+m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
 ```
 
 Current route:
@@ -82,6 +82,18 @@ M2408 read-only validated all 4 overlays and their guardrail/claim-boundary
 metadata. It did not run measured rollout or reset the environment. The harness
 blocked another ordinary audit after the non-evidence milestone limit, so the
 next task is M2409 branch synthesis.
+M2409 synthesized M2404-M2408 and closed the repair-plan materialization branch
+with `promote_to_next_branch`. This is a workflow branch promotion, not a
+checkpoint or driver-result promotion. The new branch is source-linked reset
+evidence, because M2406 overlays are semantic repair families and not directly
+executable env-config patches.
+M2410 implemented that source-linked reset evidence panel. It joined the four
+M2406 candidate families to M2391 reset-valid effective candidate specs,
+produced 3505 source-linked scenario references, and reset all 350 unique env
+configs successfully. All four families passed reset evidence. The result is
+reset-only: no environment step, policy action, repair execution, training,
+ranking, or current-sim verdict occurred. The next task is M2411 result audit,
+including the 95 unmatched source-key diagnostic caveat.
 ```
 
 ## Latest Evidence
