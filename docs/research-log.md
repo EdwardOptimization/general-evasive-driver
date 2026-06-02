@@ -43927,3 +43927,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - audit result: localization is actionable enough to consolidate but too broad for direct repair
 - follow-up manifest: `experiments/manifests/m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation.json`
 - next: `m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation`
+
+## M2417 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Actionable Target Consolidation Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation_pass`
+- manifest: `experiments/manifests/m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation.json`
+- doc: `docs/m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation.py`
+- focused tests: `3 passed`
+- summary: `runs/m2417_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation/summary.json`
+- source slices: `2844` consolidated rows from M2415, preserving `2734` episode rows and `110` family-membership rows
+- target rows: offtrack `59`, collision guardrail `30`, R4 mitigation `43`, max-step `1`, speed-too-low `1`, diagnostic guardrail `2733`, family diagnostics `110`
+- family/profile repair-target counts: `0/0`
+- ranking/winner/guardrail counts: `0/0/0`
+- rerun/measured validation/localization rerun/repair/training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2417 is artifact-only consolidation, not repair execution or driver-success evidence; consolidated targets are ready for result audit
+- follow-up manifest: `experiments/manifests/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.json`
+- next: `m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit`

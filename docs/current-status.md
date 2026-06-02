@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit
+m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit
+m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation
+m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
 ```
 
 Current route:
@@ -124,6 +124,13 @@ It kept primary episode rows and overlapping family-membership rows separated.
 M2416 accepted this localization as actionable but too broad for direct repair,
 and routed to M2417 artifact-only target consolidation before any repair-
 planning route.
+M2417 consolidated M2415 slices into source-linked target and guardrail
+artifacts: 59 offtrack repair-target rows, 30 collision guardrail rows, 43 R4
+mitigation rows, 1 max-step noncompletion row, 1 speed-too-low row, 2733
+diagnostic guardrail rows, and 110 family-membership diagnostic rows.
+Family/profile repair-target counts, ranking, winner selection, guardrail
+violations, repair execution, training, and verdict claims all remain zero. The
+next task is M2418 result audit.
 ```
 
 ## Latest Evidence
