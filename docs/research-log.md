@@ -43719,3 +43719,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.json`
 - next: `m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit`
+
+## M2405 Paper-Route Current-Sim Dual-Axis Bounded Repair-Plan Materialization Result Audit
+
+- status: completed
+- decision: `bounded_repair_plan_materialization_accepted_route_to_offtrack_containment_candidate_materialization`
+- manifest: `experiments/manifests/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.json`
+- doc: `docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md`
+- parent summary: `runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted plan completeness: total/offtrack/collision/R4/diagnostic rows `1313/203/65/57/1048`
+- guardrail separation failures: diagnostic-axis repair/R4 ordinary repair/collision-as-plain-repair `0/0/0`
+- execution/training/ranking/winner/guardrail counts: `0/0/0/0/0`
+- next route: compact run-dir-only offtrack containment repair candidate materialization, preserving collision/R4 guardrail metadata
+- follow-up manifest: `experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json`
+- next: `m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation`

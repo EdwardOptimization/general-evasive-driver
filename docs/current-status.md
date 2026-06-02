@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
+m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
+m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
+m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
 ```
 
 Current route:
@@ -67,6 +67,10 @@ M2404 materialized that bounded repair plan: 1313 plan rows, including 203
 offtrack repair-plan rows, 65 collision guardrail rows, 57 R4 mitigation rows,
 and 1048 diagnostic monitoring rows. No repair/training/ranking/verdict action
 occurred. The next task is M2405 result audit.
+M2405 accepted M2404 completeness and guardrail separation, and routed to M2406
+compact run-dir-only offtrack containment repair candidate materialization. This
+still does not execute repair, overwrite active configs, train, rank, or make a
+current-sim verdict.
 ```
 
 ## Latest Evidence
@@ -327,6 +331,16 @@ plan route counts: collision_guardrail_constraint 5; diagnostic_monitoring_only 
 diagnostic-axis repair/R4 ordinary repair/collision-as-plain-repair: 0/0/0
 repair execution/training/ranking/winner/guardrail: 0/0/0/0/0
 next task: M2405 bounded repair-plan materialization result audit
+```
+
+M2405 bounded repair-plan materialization result audit:
+
+```text
+decision: bounded_repair_plan_materialization_accepted_route_to_offtrack_containment_candidate_materialization
+accepted plan rows total/offtrack/collision/R4/diagnostic: 1313/203/65/57/1048
+guardrail separation failures diagnostic-axis/R4/collision-as-plain: 0/0/0
+execution/training/ranking/winner/guardrail counts: 0/0/0/0/0
+next task: M2406 compact run-dir-only offtrack containment repair candidate materialization
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

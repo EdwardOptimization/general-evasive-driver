@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2410,
+    "completed": 2411,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation",
+    "task_id": "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization",
-    "command_log": "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit",
-    "kind": "gate",
-    "priority": 24000,
+    "id": "m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation",
+    "kind": "infrastructure",
+    "priority": 24010,
     "status": "pending",
-    "hypothesis": "The M2404 repair-plan artifact can be audited into an implementation-admissible bounded route, scenario-quality pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.json",
-    "success_artifact": "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
-    "notes": "Pending: audit M2404 plan completeness and guardrail separation no repair execution training ranking or verdict claims"
+    "hypothesis": "The M2404 bounded repair-plan rows can be converted into compact run-dir-only offtrack containment repair candidate overlays with collision and R4 guardrail metadata, without active config overwrite, repair execution, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json",
+    "success_artifact": "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json",
+    "notes": "Pending: artifact-only candidate materialization no active config overwrite repair execution training ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T124911Z"
+  "updated_at_utc": "20260602T125540Z"
 }
