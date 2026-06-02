@@ -43159,3 +43159,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.json`
 - next: `m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit`
+
+## M2376 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Plan Materialization Result Audit
+
+- status: completed
+- decision: `repair_plan_result_accepted_route_to_repair_plan_application_design`
+- manifest: `experiments/manifests/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.json`
+- doc: `docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md`
+- audited summary: `runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json`
+- reset/rollout/measured execution in M2376: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- M2375 repair-plan artifacts accepted: `true`
+- reward_delta_row_count: `54`
+- curriculum_weight_row_count: `54`
+- guardrail_constraint_row_count: `284`
+- mixed_guarded_constraint_row_count: `18`
+- exclusions and guardrail violations: `0`
+- decision: route to bounded static config-patch application design; no direct active config overwrite, repair execution, training, or validation
+- follow-up manifest: `experiments/manifests/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.json`
+- next: `m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design`

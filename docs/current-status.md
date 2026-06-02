@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization
+m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit
+m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design
 ```
 
 Current route:
 
 ```text
-M2375 materialized artifact-only repair-plan files from the audited repair
-specs. M2376 must audit those artifacts before any repair execution, validation
-design, scenario redesign, ranking, training, or paper-route interpretation.
+M2376 accepted the M2375 repair-plan artifact and routed to bounded static
+config-patch application design. M2377 must design that route without active
+config overwrite, repair execution, validation, scenario redesign, ranking,
+training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -225,6 +226,17 @@ guardrail_violation_count: 0
 repair execution/training/replay/PPO: false
 ```
 
+M2376 audit decision:
+
+```text
+M2375 repair-plan artifacts accepted: true
+next route: bounded static config-patch application design
+reward/curriculum rows: 54/54
+guardrail/mixed guarded constraints: 284/18
+exclusions and guardrail violations: 0
+active config overwrite/repair execution/training: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -249,7 +261,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2376 should audit repair-plan materialization outputs:
+M2377 should design static config-patch application from:
 
 ```text
 runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
@@ -260,7 +272,8 @@ runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_mate
 runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv
 ```
 
-The audit should choose a bounded next route or stop the branch. It must not
-run reset/rollout, execute repair, train, replay, use PPO, rank profiles or
-packs, select a winner, claim scenario redesign executed, claim repair success,
-current-sim verdict, or paper/self-ID claims.
+The design should define static config-patch artifacts and pass gates. It must
+not overwrite the active config, run reset/rollout, execute repair, train,
+replay, use PPO, rank profiles or packs, select a winner, claim scenario
+redesign executed, claim repair success, current-sim verdict, or paper/self-ID
+claims.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2382,
+    "completed": 2383,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization",
+    "task_id": "m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization",
-    "command_log": "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit",
+    "id": "m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design",
     "kind": "gate",
-    "priority": 23710,
+    "priority": 23720,
     "status": "pending",
-    "hypothesis": "Auditing M2375 repair-plan artifacts can decide the next bounded route without executing repair, ranking, training, or paper-level claims.",
-    "command": "write artifact-only result audit from M2375 repair-plan outputs",
-    "success_artifact": "docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md",
-    "notes": "Pending: audit repair-plan artifacts before any repair execution or validation design no training/ranking"
+    "hypothesis": "A bounded application design can map repair-plan artifacts to static config-patch artifacts while preserving guardrails and active-config safety.",
+    "command": "write static config-patch application design from M2376 audit and M2375 repair-plan artifacts",
+    "success_artifact": "docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md",
+    "notes": "Pending: design static config-patch route without active config overwrite repair execution training or ranking"
   },
-  "updated_at_utc": "20260602T061000Z"
+  "updated_at_utc": "20260602T061500Z"
 }
