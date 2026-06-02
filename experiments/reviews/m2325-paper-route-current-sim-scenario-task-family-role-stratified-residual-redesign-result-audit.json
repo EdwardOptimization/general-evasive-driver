@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2325 accepts R4 mitigation metric availability gap and routes to instrumentation design no ranking claims",
+  "failure_criteria": [
+    "M2324 artifacts are missing",
+    "M2325 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2325 ranks support policies or selects a winner",
+    "M2325 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2325 cannot select a next route"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T001621Z",
+  "hypothesis": "M2324 provides enough role-stratified residual redesign evidence to choose a non-ranking follow-up route.",
+  "lineage": {
+    "blocked_by": [
+      "M2324 reports R4 mitigation severity metric availability gap",
+      "R2/R3/R5 residual rows are materialized but not solved",
+      "support policies remain diagnostic support bounds"
+    ],
+    "derived_from": [
+      "m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.json"
+    ],
+    "parent_dataset": [
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/role_stratified_residual_rows.csv",
+      "docs/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.md"
+    ],
+    "parent_objective": [
+      "audit role-stratified residual redesign materialization and choose next non-ranking route"
+    ],
+    "supersedes": [
+      "direct training from role-stratified residual rows",
+      "mitigation-performance claims from proxy metrics",
+      "controller-family ranking from support diagnostics"
+    ]
+  },
+  "milestone": "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit",
+  "next_blocker": "selected_by_m2325_result_audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "role_stratified_residual_redesign_result_accepted_route_to_r4_mitigation_metric_instrumentation_design",
+  "public_gates": [
+    "M2325 must audit M2324 artifact completeness and guardrails",
+    "M2325 must accept or reject the R4 metric availability gap",
+    "M2325 must choose a non-ranking follow-up route",
+    "M2325 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "role_stratified_residual_redesign_result_accepted_route_to_r4_mitigation_metric_instrumentation_design",
+    "milestone": "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit",
+    "reason": "M2325 accepts R4 mitigation metric availability gap and routes to instrumentation design no ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md exists",
+    "M2324 result_class is audited",
+    "R4 metric availability gap is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "type": "gate"
+}

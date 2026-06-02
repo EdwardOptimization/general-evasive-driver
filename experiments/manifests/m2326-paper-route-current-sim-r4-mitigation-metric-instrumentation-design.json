@@ -1,0 +1,180 @@
+{
+  "id": "m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_design_only"
+    ],
+    "parent_dataset": [
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+      "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.json"
+    ],
+    "parent_objective": [
+      "design R4 mitigation severity instrumentation before any role-family comparison"
+    ],
+    "derived_from": [
+      "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit"
+    ],
+    "blocked_by": [
+      "R4 impact speed delta-v collision angle post-event and recoverability fields are absent",
+      "mitigation performance cannot be claimed from proxy fields",
+      "current measured execution artifacts need instrumentation before R4 comparison"
+    ],
+    "supersedes": [
+      "mitigation-performance claims from proxy metrics",
+      "direct R4 controller comparison without severity fields",
+      "training from R4 residual rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+  "public_gates": [
+    "M2326 must map each required R4 mitigation field to an instrumentation source or explicit unavailable status",
+    "M2326 must preserve the P0 human-view no-wheel no-oracle actor contract",
+    "M2326 must not change reward or training objective",
+    "M2326 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not add any mitigation field to actor input"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_r4_mitigation_metric_instrumentation",
+    "evidence_axis": "Q_r4_mitigation_metric_instrumentation_design",
+    "evidence_increment": "turns the accepted R4 metric availability gap into a concrete instrumentation plan",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the design changes actor input reward or training objective",
+      "stop if it routes directly to controller ranking",
+      "stop if required fields cannot be sourced or explicitly marked unavailable",
+      "stop if mitigation performance is claimed from proxy metrics"
+    ],
+    "fallback_plan": [
+      "route to current-sim metric-source audit if instrumentation points are unclear",
+      "route to R2/R3/R5 coverage-vs-redesign branch if R4 instrumentation is impossible in current sim",
+      "route to branch synthesis if the design cannot produce an implementation manifest"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new R4 mitigation instrumentation branch starts at M2326",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "freeze R4 mitigation metric instrumentation design",
+    "admission_evidence": [
+      "M2325 accepts M2324 R4 metric availability gap",
+      "M2324 reports r4_missing_required_mitigation_metric_count 8",
+      "M2324 reports guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+      "M2326 status queue scoreboard research log and review",
+      "one follow-up implementation manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "each required R4 metric has a source or explicit unavailable status",
+      "implementation scope is bounded to logging/measurement artifacts",
+      "actor input contract and reward are unchanged",
+      "an implementation route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2326 designs metric instrumentation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2326; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2324 R4 mitigation metric availability artifacts.",
+    "negative_result_policy": "R4 metric gaps must not be interpreted as self-ID failure.",
+    "allowed_claims": [
+      "R4 mitigation metric instrumentation design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds missing measurement capability required by scenario/task-quality evidence",
+    "paper_verdict_delta": "can make R4 mitigation measurable before current-sim controller comparison",
+    "must_synthesize_if": [
+      "M2326 routes directly to training",
+      "M2326 cannot identify instrumentation sources",
+      "the R4 mitigation instrumentation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded design can specify R4 mitigation severity instrumentation without changing actor input reward or training.",
+  "success_criteria": [
+    "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md exists",
+    "all required R4 fields are mapped to a source or unavailable status",
+    "the design forbids adding mitigation fields to actor input",
+    "the design selects a bounded implementation route"
+  ],
+  "failure_criteria": [
+    "M2326 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2326 ranks support policies or selects a winner",
+    "M2326 changes actor input reward or training objective",
+    "M2326 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2326 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual instrumentation design from M2324 metric availability artifacts and measured execution code inspection"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_design_only"
+  ],
+  "baseline_artifacts": [
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+    "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md"
+  ],
+  "decision_rule": "M2326 passes if it freezes a bounded R4 metric instrumentation design and selects an implementation route.",
+  "next_blocker": "m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation"
+}

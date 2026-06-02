@@ -41942,3 +41942,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.json`
 - next: `m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit`
+
+## M2325 Paper-Route Current-Sim Scenario Task-Family Role-Stratified Residual Redesign Result Audit
+
+- status: completed
+- result_class: `role_stratified_residual_redesign_result_accepted_route_to_r4_mitigation_metric_instrumentation_design`
+- manifest: `experiments/manifests/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.json`
+- audit doc: `docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md`
+- parent summary: `runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json`
+- M2324 accepted: `true`
+- R4 mitigation metric availability gap accepted: `true`
+- R4 missing required mitigation metrics: `8`
+- R4 available required mitigation metrics: `0`
+- route: bounded R4 mitigation metric instrumentation design
+- reset/rollout/policy action in M2325: `false`
+- training/replay/PPO in M2325: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design.json`
+- next: `m2326-paper-route-current-sim-r4-mitigation-metric-instrumentation-design`
