@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2395,
+    "completed": 2396,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit",
+    "task_id": "m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md"
+    "command_log": "docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md"
   },
   "next_task": {
-    "id": "m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design",
-    "kind": "gate",
-    "priority": 23850,
+    "id": "m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization",
+    "kind": "infrastructure",
+    "priority": 23860,
     "status": "pending",
-    "hypothesis": "A bounded design can repair candidate config schema by defining base env config lineage and run-dir effective config materialization without active config overwrite, reset, rollout, repair execution, ranking, or training-success claims.",
-    "command": "see experiments/manifests/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.json",
-    "success_artifact": "docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md",
-    "notes": "Pending: design base env config lineage and run-dir effective config schema no materialization reset repair training ranking or paper/self-ID claims"
+    "hypothesis": "Artifact-only materialization can join 54 M2385 candidate overlays to M2356 reset-valid base pack scenario specs and emit run-dir effective candidate pack artifacts without environment load/reset, active config overwrite, repair execution, ranking, or training-success claims.",
+    "command": "see experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json",
+    "success_artifact": "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json",
+    "notes": "Pending: implement artifact-only materializer no environment load/reset repair training ranking or paper/self-ID/current-sim claims"
   },
-  "updated_at_utc": "20260602T075948Z"
+  "updated_at_utc": "20260602T081210Z"
 }

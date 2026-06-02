@@ -16,7 +16,7 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit
+m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design
 ```
 
 Latest attempted milestone:
@@ -29,17 +29,19 @@ result: failed closed
 Current next task:
 
 ```text
-m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design
+m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
 ```
 
 Current route:
 
 ```text
-M2389 audited the M2388 fail-closed result. The failure is schema
-incompleteness, not sampler incompatibility or unsafe execution: all 54
-candidate configs passed static checks but lack reset-ready env_config. M2390
-may design effective-config schema repair, but must not materialize configs,
-reset, repair, train, rank, or make paper/self-ID/current-sim claims.
+M2390 designed the schema repair after M2388 failed closed. The key correction
+is that M2385 candidate configs are overlay candidates, not standalone
+env_config files. The bounded next step is M2391: materialize run-dir-only
+effective candidate pack artifacts by joining M2385 overlays to M2356
+reset-valid repaired pack scenario specs. M2391 may not load/reset an
+environment, repair, train, rank, overwrite active config, or make
+paper/self-ID/current-sim claims.
 ```
 
 ## Latest Evidence
@@ -60,6 +62,21 @@ global success_rate: 0.06518518518518518
 global offtrack_rate: 0.7262962962962963
 global collision_rate: 0.19962962962962963
 dominant_failure_mode: offtrack_dominated_failure
+```
+
+M2390 schema repair design:
+
+```text
+decision: effective_candidate_pack_schema_repair_route_to_materialization
+base env config lineage: M2356 repaired five-pack family
+base reset validation: M2359 360/360 reset successes
+base measured execution lineage: M2362 5400 episodes
+candidate overlays: M2385 54 run-dir-only files
+schema correction: overlay + base pack scenario selection, not one env_config per overlay
+M2391 output target: effective_candidate_configs/*.json under run dir only
+M2391 blocked: environment load/reset/step, policy action, repair execution,
+  training/replay/PPO, ranking/winner, paper/FW-vs-GRU/level3 self-ID,
+  scenario-redesign/training-repair/current-sim verdict claims
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

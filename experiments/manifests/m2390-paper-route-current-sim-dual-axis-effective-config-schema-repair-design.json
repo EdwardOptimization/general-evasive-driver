@@ -19,6 +19,15 @@
       "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json",
       "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
       "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_configs",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/baseline_reference_pack.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/g_primary_pack.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/h_primary_pack.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/g_h_primary_pack.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/gh_minimal_pack.json",
+      "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
       "docs/self-id-go-no-go-paper-route-plan.md",
       "docs/paper-route-finite-window-vs-gru-plan.md"
     ],
@@ -30,11 +39,15 @@
     ],
     "derived_from": [
       "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit",
-      "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation"
+      "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
+      "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization",
+      "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation",
+      "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation"
     ],
     "blocked_by": [
       "M2388 candidate configs pass static checks but lack reset-ready env_config",
-      "effective config materialization remains blocked until base env config lineage and merge semantics are designed"
+      "M2388 treated each overlay candidate as if it should already contain a standalone env_config",
+      "effective config materialization remains blocked until base pack lineage and scenario matching semantics are designed"
     ],
     "supersedes": [
       "direct reset rerun from overlay-only candidate configs",
@@ -46,6 +59,7 @@
   "public_gates": [
     "M2390 must design effective-config schema repair without materializing or resetting configs",
     "M2390 must identify legitimate base env config lineage or fail closed",
+    "M2390 must define candidate-overlay plus base-pack scenario selection semantics rather than forcing one standalone env_config per overlay",
     "M2390 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, ranking, and claim guardrails",
     "M2390 must choose a bounded materialization route, pivot, synthesis, or stop route"
   ],
@@ -78,7 +92,7 @@
   "workflow_synthesis": {
     "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
     "evidence_axis": "E_effective_config_schema_repair_design",
-    "evidence_increment": "designs bounded schema repair so generated candidate overlays can become reset-ready effective configs",
+    "evidence_increment": "designs bounded schema repair so generated candidate overlays can become run-dir effective candidate pack artifacts by joining M2385 overlays with M2356 reset-valid scenario specs",
     "claim_scope": "schema repair design only; no materialization, reset, rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
     "stop_condition": [
       "stop if no legitimate base env config lineage can be identified",
@@ -87,7 +101,7 @@
       "stop if design routes directly to rollout training ranking or paper conclusions"
     ],
     "fallback_plan": [
-      "route to bounded effective-config materialization if base lineage and merge semantics are clear",
+      "route to bounded effective candidate pack materialization if base lineage and scenario matching semantics are clear",
       "pivot to complexity-pruning synthesis if schema repair adds only local artifact work",
       "stop for user review if no bounded executable validation path is supported"
     ],
@@ -125,8 +139,8 @@
     ],
     "next_stage_criteria": [
       "base env config lineage is identified or branch stops",
-      "candidate overlay merge semantics are specified",
-      "run-dir-only effective config output schema is specified",
+      "candidate overlay plus base-pack scenario matching semantics are specified",
+      "run-dir-only effective candidate pack output schema is specified",
       "a bounded materialization route is selected or branch is stopped"
     ]
   },
@@ -162,7 +176,7 @@
   "success_criteria": [
     "docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md exists",
     "base env config lineage is identified or branch stops",
-    "effective config schema and merge semantics are specified",
+    "effective candidate pack schema and scenario matching semantics are specified",
     "active config overwrite, reset, rollout, repair execution, ranking, and training remain blocked in M2390",
     "a bounded materialization follow-up route is selected or the branch is stopped"
   ],
@@ -193,6 +207,6 @@
     "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
     "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json"
   ],
-  "decision_rule": "M2390 passes if it designs a bounded effective-config schema repair route or stops the branch without active config overwrite, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "decision_rule": "M2390 passes if it designs a bounded effective candidate pack schema repair route or stops the branch without active config overwrite, materialization, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
   "next_blocker": "m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization"
 }

@@ -1,0 +1,106 @@
+# m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T082123Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: effective_candidate_pack_schema_repair_route_to_materialization
+- Decision reason: M2390 corrects candidate schema to overlay plus M2356 reset-valid base pack scenario selection and registers M2391 artifact-only materializer no reset/training/ranking claims
+
+## Hypothesis
+
+A bounded design can repair candidate config schema by defining base env config lineage and run-dir effective config materialization without active config overwrite, reset, rollout, repair execution, ranking, or training-success claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_effective_config_schema_repair_design
+- parent_dataset: docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md, runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv, runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_configs, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/baseline_reference_pack.json, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/g_primary_pack.json, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/h_primary_pack.json, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/g_h_primary_pack.json, runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/config_packs/gh_minimal_pack.json, runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json, runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.json
+- parent_objective: design bounded effective-config schema repair after M2388 failed closed on missing env_config
+- derived_from: m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit, m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation, m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization, m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation, m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation
+- blocked_by: M2388 candidate configs pass static checks but lack reset-ready env_config, M2388 treated each overlay candidate as if it should already contain a standalone env_config, effective config materialization remains blocked until base pack lineage and scenario matching semantics are designed
+- supersedes: direct reset rerun from overlay-only candidate configs, direct repair execution, training, or ranking before effective config schema repair
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md exists
+- base env config lineage is identified or branch stops
+- effective candidate pack schema and scenario matching semantics are specified
+- active config overwrite, reset, rollout, repair execution, ranking, and training remain blocked in M2390
+- a bounded materialization follow-up route is selected or the branch is stopped
+
+## Failure Criteria
+
+- M2390 reruns reset rollout measured execution replay PPO or private holdout
+- M2390 materializes effective configs or overwrites active config
+- M2390 executes repair levers or trains
+- M2390 ranks support policies or controller families
+- M2390 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims
+- M2390 claims scenario redesign executed or training repair success
+
+## Evidence Gates
+
+- M2390 must design effective-config schema repair without materializing or resetting configs
+- M2390 must identify legitimate base env config lineage or fail closed
+- M2390 must define candidate-overlay plus base-pack scenario selection semantics rather than forcing one standalone env_config per overlay
+- M2390 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, ranking, and claim guardrails
+- M2390 must choose a bounded materialization route, pivot, synthesis, or stop route
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not select a winner
+- do not overwrite the active scenario config
+- do not materialize effective configs in M2390
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design
+- type: gate
+- checkpoint: docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: effective_candidate_pack_schema_repair_route_to_materialization
+- reason: M2390 corrects candidate schema to overlay plus M2356 reset-valid base pack scenario selection and registers M2391 artifact-only materializer no reset/training/ranking claims
+
+## Next Blocker
+
+m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization

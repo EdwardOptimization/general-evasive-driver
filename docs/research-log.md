@@ -43434,3 +43434,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: bounded effective-config schema repair design
 - follow-up manifest: `experiments/manifests/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.json`
 - next: `m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design`
+
+## M2390 Paper-Route Current-Sim Dual-Axis Effective Config Schema Repair Design
+
+- status: completed
+- decision: `effective_candidate_pack_schema_repair_route_to_materialization`
+- manifest: `experiments/manifests/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.json`
+- doc: `docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md`
+- parent audit: `docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md`
+- reset/rollout/policy action in M2390: `false`
+- effective config materialization in M2390: `false`
+- active config overwrite in M2390: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design correction: M2385 candidate configs are overlay candidates, not standalone reset-ready env_config files
+- base lineage: M2356 repaired five-pack config packs
+- base reset evidence: M2359 reset validation pass `360/360`
+- base measured lineage: M2362 repaired-pack measured execution `5400` episodes
+- effective schema: candidate overlay plus selected base pack scenario specs matched by `source_slice_axis/source_slice_value`
+- design-time inventory: 54 candidates, zero unmatched candidates, selected scenario references min/max/total `6/180/2049`
+- follow-up manifest: `experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json`
+- next: `m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization`
