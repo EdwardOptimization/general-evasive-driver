@@ -1,0 +1,225 @@
+{
+  "id": "m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repair_plan_materialization_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2374-paper-route-current-sim-dual-axis-outcome-localization-branch-synthesis.md",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json",
+      "docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md",
+      "docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json",
+      "docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2375-M2379 repair-plan materialization branch before another narrow application-design milestone"
+    ],
+    "derived_from": [
+      "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization",
+      "m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit",
+      "m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design",
+      "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization",
+      "m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "the repair-plan materialization branch reached the local-search non-evidence streak limit after M2379",
+      "M2379 admits an application-design route but workflow synthesis is required before another narrow design/materializer"
+    ],
+    "supersedes": [
+      "direct config-patch application design after M2379 without branch synthesis",
+      "direct active config overwrite or reset validation from config-patch artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+  "public_gates": [
+    "M2380 must answer the standard synthesis questions",
+    "M2380 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance",
+    "M2380 must decide continue pivot stop or promote_to_next_branch",
+    "M2380 must choose the next bounded non-ranking route or explicitly stop for user review",
+    "M2380 must not run reset rollout measured execution training replay PPO private holdout ranking repair execution active config overwrite or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not apply config patches",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_repair_plan_materialization_branch_synthesis",
+    "evidence_increment": "synthesizes M2375-M2379 repair-plan, config-patch, and audit artifacts before continuing",
+    "claim_scope": "branch synthesis only; no active config overwrite, config application, repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to training, ranking, active config overwrite, or paper conclusion",
+      "stop if synthesis ignores local-search guard or process overhead",
+      "stop if synthesis treats config-patch artifacts as executed repair or measured improvement"
+    ],
+    "fallback_plan": [
+      "continue to bounded candidate config application design if process overhead is justified and guardrails remain clean",
+      "pivot to branch complexity-pruning audit if artifact chain is too process-heavy",
+      "pivot to new data/panel evidence if application design would add only more local search",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2379 reaches the repair-plan materialization branch local-search guard before M2380 application design",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize repair-plan materialization branch",
+    "admission_evidence": [
+      "M2375 materializes reward 54 curriculum 54 guardrail 284 mixed 18 repair-plan artifacts with guardrail_violation_count 0",
+      "M2376 accepts repair-plan artifacts and blocks direct repair execution",
+      "M2377 designs overlay-only config-patch materialization",
+      "M2378 materializes reward 162 curriculum 54 guardrail 284 config-patch artifacts with guardrail_violation_count 0",
+      "M2379 accepts config-patch artifacts but local-search guard blocks another narrow design without synthesis"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no config application",
+      "no repair execution",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion",
+      "no scenario-redesign-executed claim",
+      "no training-repair-success claim"
+    ],
+    "allowed_updates": [
+      "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+      "M2380 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "workflow/local-search risk is interpreted",
+      "actual evidence gain versus process overhead is classified",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2380 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2380; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2375-M2379 repair-plan and config-patch artifacts.",
+    "negative_result_policy": "If branch synthesis finds only process-heavy local search, pivot before interpreting driver, paper, or self-ID evidence.",
+    "allowed_claims": [
+      "repair-plan materialization branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion training-repair success or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates repair-plan materialization, config-patch materialization, and audits before another application-design route",
+    "paper_verdict_delta": "can decide whether candidate config application remains justified or whether to pivot to new data/panel evidence",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2375-M2379 will prevent over-local application-design work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies actual progress and process overhead",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2380 omits a required synthesis question",
+    "M2380 starts new training reset rollout measured execution replay PPO repair execution or private holdout",
+    "M2380 applies config patches or overwrites active config",
+    "M2380 ranks support policies or selects a winner",
+    "M2380 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2380 claims scenario redesign executed or training repair success",
+    "M2380 routes directly to controller comparison without resolving process-overhead and evidence-expansion blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md from M2375-M2379 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repair_plan_materialization_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md",
+    "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2380 passes if it writes the required synthesis and selects a bounded non-ranking follow-up route or stops the branch for user review.",
+  "next_blocker": "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design"
+}

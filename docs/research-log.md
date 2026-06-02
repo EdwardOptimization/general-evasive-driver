@@ -43221,3 +43221,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.json`
 - next: `m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit`
+
+## M2379 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Config Patch Materialization Result Audit
+
+- status: completed
+- decision: `config_patch_result_accepted_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.json`
+- doc: `docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md`
+- audited summary: `runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json`
+- reset/rollout/measured execution in M2379: `false`
+- active config overwrite in M2379: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- M2378 config-patch artifacts accepted: `true`
+- reward/curriculum/guardrail patch rows: `162/54/284`
+- overlay namespace violations: `0`
+- guardrail_violation_count: `0`
+- decision: route to branch synthesis before another narrow application-design milestone; no direct active config overwrite, repair execution, reset validation, training, or ranking
+- follow-up manifest: `experiments/manifests/m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
+- next: `m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis`

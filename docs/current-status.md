@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization
+m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit
+m2380-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2378 materialized overlay-only static config-patch artifacts from M2375
-repair-plan artifacts. M2379 should audit those artifacts before any active
-config application, repair execution, reset validation, scenario redesign,
-ranking, training, or paper-route interpretation.
+M2379 accepted M2378 overlay-only config-patch artifacts, but local-search
+guard blocks another narrow application-design milestone. M2380 should
+synthesize M2375-M2379 before deciding whether to continue to candidate config
+application, pivot to new data/panel evidence, or stop for review.
 ```
 
 ## Latest Evidence
@@ -267,6 +267,17 @@ repair_execution_count/training_count/ranking_admissible_count/winner_selected_c
 guardrail_violation_count: 0
 ```
 
+M2379 audit decision:
+
+```text
+M2378 config-patch artifacts accepted: true
+next route: repair-plan materialization branch synthesis before application design
+reward/curriculum/guardrail patch rows: 162/54/284
+target namespaces: candidate overlay namespaces only
+active config overwrite/repair execution/training/ranking: blocked
+current-sim verdict/paper/self-ID claims: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -291,19 +302,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2379 should audit overlay-only config-patch artifacts from:
+M2380 should synthesize this artifact branch using:
 
 ```text
+runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json
+docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_manifest.json
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/reward_config_patch_rows.csv
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/curriculum_config_patch_rows.csv
 runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/guardrail_config_patch_rows.csv
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_preview.json
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/claim_boundary.csv
 ```
 
-The audit must not overwrite the active config, run reset/rollout, execute
-repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
-scenario redesign executed, claim repair success, current-sim verdict, or
-paper/self-ID claims.
+The synthesis must decide whether another candidate config application design
+is justified. It must not apply patches, overwrite the active config, run
+reset/rollout, execute repair, train, replay, use PPO, rank profiles or packs,
+select a winner, claim scenario redesign executed, claim repair success,
+current-sim verdict, or paper/self-ID claims.
