@@ -1,0 +1,188 @@
+{
+  "id": "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_target_consolidation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/slice_rows.csv",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/offtrack_target_slice_rows.csv",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/collision_guardrail_slice_rows.csv",
+      "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/r4_mitigation_semantics_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded consolidation of overlapping localization slices into actionable target and guardrail categories"
+    ],
+    "derived_from": [
+      "m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit",
+      "m2365-paper-route-current-sim-dual-axis-measured-outcome-localization-implementation"
+    ],
+    "blocked_by": [
+      "M2365 produced overlapping diagnostic slices that cannot be used directly as repair inputs",
+      "M2366 requires a consolidation design before materializing repair targets"
+    ],
+    "supersedes": [
+      "direct repair from all 313 localization rows",
+      "profile or pack ranking from localization rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md",
+  "public_gates": [
+    "M2367 must define canonical actionable target axes and diagnostic-only axes",
+    "M2367 must preserve collision guardrail and R4 mitigation semantics boundaries",
+    "M2367 must select a bounded artifact-only materialization route or stop the branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "E_actionable_target_consolidation_design",
+    "evidence_increment": "turns audited localization output into a design for non-overlapping actionable target and guardrail artifacts",
+    "claim_scope": "design only; no rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, or training-repair claim",
+    "stop_condition": [
+      "stop if actionable axes cannot be separated from diagnostic profile/pack/global axes",
+      "stop if R4 mitigation semantics would be mixed into ordinary offtrack repair",
+      "stop if collision guardrails cannot be preserved",
+      "stop if design routes directly to training or ranking"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if localization cannot be consolidated",
+      "route to schema repair if necessary fields are missing",
+      "route to artifact-only materializer if consolidation design is bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2366 accepts M2365 localization and requires consolidation before repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "actionable target consolidation design",
+    "admission_evidence": [
+      "M2366 accepts M2365 localization artifacts",
+      "M2365 offtrack_target_slice_count is 198",
+      "M2365 collision_guardrail_slice_count is 95",
+      "M2365 r4_mitigation_semantics_slice_count is 48"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU conclusion",
+      "no level3 self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md",
+      "M2367 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "canonical actionable and diagnostic axes are specified",
+      "R4 and collision guardrail boundaries are specified",
+      "claim boundary remains blocked",
+      "a bounded artifact-only materialization route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2367 designs target consolidation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2367; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2365 localization artifacts and M2366 audit.",
+    "negative_result_policy": "Consolidated weak-outcome targets should be explicit design inputs, not interpreted as driver ranking or self-ID evidence.",
+    "allowed_claims": [
+      "artifact-only actionable target consolidation design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a consolidated target/guardrail panel from a measured outcome localization panel",
+    "paper_verdict_delta": "can admit artifact materialization for repair targets but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2367 cannot specify non-overlapping target and guardrail categories",
+      "M2367 proposes direct profile ranking or paper conclusion",
+      "the outcome-localization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded consolidation design can convert the overlapping M2365 localization slices into actionable target, collision guardrail, R4 mitigation, and diagnostic-only categories without rerun or ranking claims.",
+  "success_criteria": [
+    "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md exists",
+    "actionable target axes and diagnostic-only axes are specified",
+    "collision guardrail and R4 mitigation semantics boundaries are preserved",
+    "ranking, winner selection, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked",
+    "a bounded artifact-only materializer route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2367 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2367 ranks support policies or controller families",
+    "M2367 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2367 claims scenario redesign executed or training repair success",
+    "M2367 cannot separate actionable targets from diagnostic profile/pack/global axes"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2366 audit and M2365 localization artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_target_consolidation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md",
+    "runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/slice_rows.csv"
+  ],
+  "decision_rule": "M2367 passes if it defines a bounded non-ranking consolidation design and selects an artifact-only materialization route or stops the branch.",
+  "next_blocker": "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design"
+}

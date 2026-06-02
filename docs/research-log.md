@@ -42939,3 +42939,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: localization only; no ranking/paper/FW-vs-GRU/self-ID/scenario-redesign/training-repair claim
 - follow-up manifest: `experiments/manifests/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.json`
 - next: `m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit`
+
+## M2366 Paper-Route Current-Sim Dual-Axis Measured Outcome Localization Result Audit
+
+- status: completed
+- decision: `measured_outcome_localization_result_accepted_route_to_actionable_target_consolidation_design`
+- manifest: `experiments/manifests/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.json`
+- doc: `docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md`
+- audited summary: `runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json`
+- reset/rollout/measured execution in M2366: `false`
+- policy action executed in M2366: `false`
+- training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID claims: `false`
+- M2365 localization accepted: `true`
+- slice_row_count: `313`
+- route class counts: offtrack target `118`, offtrack+collision guardrail `80`, collision guardrail `15`, R4 semantics `48`, diagnostic only `52`
+- high-priority offtrack examples: `early_far`, `R0_stable_avoidable`, `R0`, `nominal_neighbor`
+- collision guardrail examples: `late_close`, `mid`, `low_mu`, `weak_brake`
+- R4 mitigation semantics: separate route, not ordinary offtrack repair
+- decision: global/pack/profile rows are diagnostic guardrails only; actionable target consolidation must use role/timing/lateral/hidden axes
+- follow-up manifest: `experiments/manifests/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.json`
+- next: `m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design`
