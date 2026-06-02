@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
+m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
 ```
 
 Latest attempted milestone:
 
 ```text
-m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
+m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
+m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
 ```
 
 Current route:
 
 ```text
+M2452 built the first artifact-only scenario-quality discriminant panel from
+M2445 episode rows and M2449 target/guardrail/diagnostic rows. It passed with
+`71` panel rows, `7` scenario-quality blockers, `19` possible repair-plan
+candidates, `52` collision-mitigation guardrail rows, `9` hidden-dynamics
+guardrail rows, `7` geometry/timing guardrail rows, `41` monitoring-only rows,
+and `0` ranking, winner, or guardrail violations. Stable avoidable/AEB-feasible
+and stable AES rows are now classified as task-quality blockers; drift-required,
+hidden-dynamics, and geometry/timing rows can inform later bounded repair-plan
+design only after audit; unavoidable rows remain collision-mitigation
+guardrails. The next task is M2453 result audit. No rerun, policy action,
+repair, training, ranking, winner selection, scenario redesign, paper/
+FW-vs-GRU/self-ID/training-repair verdict, or current-sim verdict is supported.
+
 M2451 synthesized M2443-M2450 and made a branch decision:
 `promote_to_next_branch`. The metric-selected validation branch is closed. Its
 main result is negative but useful: the soft-boundary metric route is

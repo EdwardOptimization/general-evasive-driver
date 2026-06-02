@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2457,
+    "completed": 2458,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis",
+    "task_id": "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md",
-    "command_log": "docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md"
+    "run_dir": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel",
+    "command_log": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json"
   },
   "next_task": {
-    "id": "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel",
-    "kind": "infrastructure",
-    "priority": 24470,
+    "id": "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+    "kind": "gate",
+    "priority": 24480,
     "status": "pending",
-    "hypothesis": "M2445 episode rows and M2449 target/guardrail rows can be combined into a discriminant panel that separates scenario-quality blockers from possible repair-plan candidates without rerun, repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.json",
-    "success_artifact": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
-    "notes": "Pending: artifact-only scenario-quality discriminant panel from M2445 episodes and M2449 target guardrail rows no rerun repair training ranking winner verdict claims"
+    "hypothesis": "Auditing M2452 can decide whether the discriminant panel supports scenario redesign, guarded repair-plan design, synthesis, or stop without rerun, repair, training, ranking, winner selection, or verdict claims.",
+    "command": "see experiments/manifests/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.json",
+    "success_artifact": "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md",
+    "notes": "Pending: audit M2452 scenario-quality discriminant panel before scenario redesign repair-plan synthesis stop or verdict claims"
   },
-  "updated_at_utc": "20260602T214817Z"
+  "updated_at_utc": "20260602T221500Z"
 }

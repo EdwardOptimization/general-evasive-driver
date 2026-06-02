@@ -44549,3 +44549,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.json`
 - next: `m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel`
+
+## M2452 Paper-Route Current-Sim Dual-Axis Scenario-Quality Discriminant Panel
+
+- status: completed
+- result_class: `current_sim_dual_axis_scenario_quality_discriminant_panel_pass`
+- manifest: `experiments/manifests/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.json`
+- doc: `docs/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md`
+- summary: `runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json`
+- source artifacts: M2445 episode rows plus M2449 target/guardrail/diagnostic rows
+- panel_row_count: `71`
+- scenario_quality_blocker_count: `7`
+- possible_repair_plan_candidate_count: `19`
+- collision_mitigation_guardrail_count: `52`
+- hidden_dynamics_guardrail_count: `9`
+- geometry_timing_guardrail_count: `7`
+- monitoring_only_count: `41`
+- stable_task_quality_blocker_count: `2`
+- drift_candidate_count: `5`
+- route_supported: `true`
+- ranking_admissible_count: `0`
+- winner_selected_count: `0`
+- guardrail_violation_count: `0`
+- decision: stable/AES rows are scenario-quality blockers; drift/hidden/geometry rows may inform later guarded repair-plan design; unavoidable rows remain collision-mitigation guardrails; profile/pack/checkpoint axes remain monitoring-only
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.json`
+- next: `m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit`
