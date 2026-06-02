@@ -43913,3 +43913,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: localization is artifact-only and diagnostic; it is not target consolidation, repair execution, ranking, or current-sim verdict
 - follow-up manifest: `experiments/manifests/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.json`
 - next: `m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit`
+
+## M2416 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Measured Outcome Localization Result Audit
+
+- status: completed
+- decision: `source_linked_measured_outcome_localization_accepted_route_to_target_consolidation`
+- manifest: `experiments/manifests/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.json`
+- doc: `docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md`
+- parent summary: `runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json`
+- rerun/localization rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted localization: `2844` slice rows with offtrack/collision/R4/max-step/speed-too-low/diagnostic categories
+- audit result: localization is actionable enough to consolidate but too broad for direct repair
+- follow-up manifest: `experiments/manifests/m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation.json`
+- next: `m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation`
