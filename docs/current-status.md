@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit
+m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis
+m2346-paper-route-current-sim-dual-axis-redesign-calibration-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -120,9 +120,19 @@ source disagreement:
   remapped M2340 rows lean geometry/timing 10/14
 ```
 
-M2345 should synthesize M2338-M2344 before choosing a dual-axis design,
-geometry-first branch, hidden-range-first branch, or stop-for-review route.
-Training, replay, PPO, support-policy ranking, controller-family ranking,
+M2345 synthesizes M2338-M2344 and selects a dual-axis calibration design:
+
+```text
+redesign blocker: 26 rows
+geometry/timing candidates: 13
+hidden-dynamics range candidates: 13
+secondary coverage-materialization rows: 9
+decision: continue_to_dual_axis_redesign_calibration_design
+```
+
+M2346 should design geometry/timing and hidden-dynamics candidate
+transformations without executing rollouts or modifying the active benchmark
+pack. Training, replay, PPO, support-policy ranking, controller-family ranking,
 winner selection, paper-level claims, finite-window vs GRU conclusions, and
 level3 self-ID claims remain blocked.
 

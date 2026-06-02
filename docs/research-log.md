@@ -42395,3 +42395,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.json`
 - next: `m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis`
+
+## M2345 Paper-Route Current-Sim Scenario Support Redesign Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_dual_axis_redesign_calibration_design`
+- manifest: `experiments/manifests/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.json`
+- doc: `docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md`
+- synthesis window: `M2338-M2344`
+- redesign blocker: `26` rows
+- route split: `geometry_timing_rebalance_candidate 13`, `hidden_dynamics_range_rebalance_candidate 13`
+- secondary coverage-materialization rows: `9`
+- paper-route axis advanced: `scenario/task-quality evidence`
+- reset/rollout/measured execution in M2345: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.json`
+- next: `m2346-paper-route-current-sim-dual-axis-redesign-calibration-design`

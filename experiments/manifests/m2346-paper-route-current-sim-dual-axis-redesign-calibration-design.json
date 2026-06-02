@@ -1,0 +1,189 @@
+{
+  "id": "m2346-paper-route-current-sim-dual-axis-redesign-calibration-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_redesign_calibration_design"
+    ],
+    "parent_dataset": [
+      "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/consolidated_redesign_rows.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/secondary_coverage_materialization_rows.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded dual-axis scenario/support redesign calibration after 13/13 route split"
+    ],
+    "derived_from": [
+      "m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis",
+      "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation"
+    ],
+    "blocked_by": [
+      "M2345 selects dual-axis calibration because geometry/timing and hidden range are tied",
+      "direct single-axis redesign is not justified",
+      "controller comparison remains blocked until redesign calibration is designed"
+    ],
+    "supersedes": [
+      "direct geometry-only redesign",
+      "direct hidden-range-only redesign",
+      "direct controller comparison after M2345"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+  "public_gates": [
+    "M2346 must design a dual-axis calibration route preserving geometry/timing and hidden-dynamics blockers",
+    "M2346 must define candidate transformations and output schema before implementation",
+    "M2346 must preserve the 9 secondary coverage-materialization rows as tracked but not active",
+    "M2346 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_redesign_calibration",
+    "evidence_axis": "Q_dual_axis_redesign_calibration_design",
+    "evidence_increment": "designs a bounded dual-axis calibration route from the 26-row redesign blocker",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design collapses to a single axis without justification",
+      "stop if design starts execution",
+      "stop if design routes directly to controller comparison",
+      "stop if design claims scenario redesign executed"
+    ],
+    "fallback_plan": [
+      "route to artifact-only materializer implementation if candidate schema is sufficient",
+      "pivot to geometry/timing-only design only if hidden axis cannot be represented",
+      "pivot to hidden-range-only design only if geometry axis cannot be represented",
+      "stop for user review if dual-axis calibration cannot be bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2345 selects dual-axis calibration",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design dual-axis redesign calibration",
+    "admission_evidence": [
+      "M2345 identifies 13 geometry/timing and 13 hidden-dynamics range candidates",
+      "M2345 blocks direct single-axis redesign",
+      "M2343 preserves 9 secondary coverage-materialization rows"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+      "M2346 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "geometry/timing transformation candidates are specified",
+      "hidden-dynamics range transformation candidates are specified",
+      "secondary coverage rows are preserved",
+      "artifact materializer output schema is specified",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2346 designs task-quality calibration and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2346; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2343/M2345 task-quality artifacts.",
+    "negative_result_policy": "Dual-axis calibration design must be interpreted as task-quality evidence, not driver or self-ID evidence.",
+    "allowed_claims": [
+      "dual-axis redesign calibration design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from synthesis into a bounded dual-axis calibration plan instead of optimizing one public slice",
+    "paper_verdict_delta": "can define the current-sim task-pack redesign candidate set before controller comparison",
+    "must_synthesize_if": [
+      "M2346 cannot define both axes",
+      "M2346 routes directly to ranking",
+      "the dual-axis calibration branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded dual-axis calibration design can preserve both geometry/timing and hidden-dynamics redesign blockers before any artifact materialization or rollout.",
+  "success_criteria": [
+    "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md exists",
+    "geometry/timing candidate transformations are specified",
+    "hidden-dynamics range candidate transformations are specified",
+    "secondary coverage rows are preserved",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2346 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2346 ranks support policies or selects a winner",
+    "M2346 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2346 routes directly to controller comparison",
+    "M2346 collapses to a single-axis route without justification"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2345 synthesis and M2343 redesign consolidation artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_redesign_calibration_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/consolidated_redesign_rows.csv",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv"
+  ],
+  "decision_rule": "M2346 passes if it defines a bounded dual-axis calibration implementation route without execution or ranking.",
+  "next_blocker": "selected_by_m2346_design"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2352,
+    "completed": 2353,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit",
+    "task_id": "m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md"
+    "command_log": "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis",
+    "id": "m2346-paper-route-current-sim-dual-axis-redesign-calibration-design",
     "kind": "gate",
-    "priority": 23400,
+    "priority": 23410,
     "status": "pending",
-    "hypothesis": "Synthesizing M2338-M2344 will prevent a local single-axis redesign choice and select the next bounded non-ranking task-quality route.",
-    "command": "write docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md from M2338-M2344 artifacts",
-    "success_artifact": "docs/m2345-paper-route-current-sim-scenario-support-redesign-branch-synthesis.md",
-    "notes": "Pending: synthesize support coverage and redesign consolidation evidence after 13/13 split"
+    "hypothesis": "A bounded dual-axis calibration design can preserve both geometry/timing and hidden-dynamics redesign blockers before any artifact materialization or rollout.",
+    "command": "write docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md from M2345 synthesis and M2343 artifacts",
+    "success_artifact": "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md",
+    "notes": "Pending: design dual-axis geometry/timing plus hidden-dynamics redesign calibration without execution"
   },
-  "updated_at_utc": "20260602T020103Z"
+  "updated_at_utc": "20260602T020420Z"
 }
