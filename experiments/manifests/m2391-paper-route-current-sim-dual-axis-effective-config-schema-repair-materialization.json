@@ -217,7 +217,7 @@
     },
     {
       "name": "materialize",
-      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization --candidate-source-dir runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation --base-pack-manifest runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json --output-dir runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization --next-blocker m2392-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization-result-audit"
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization --candidate-source-dir runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation --base-pack-manifest runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json --output-dir runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization --next-blocker m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis"
     }
   ],
   "required_artifacts": [
@@ -235,6 +235,6 @@
     "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json",
     "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json"
   ],
-  "decision_rule": "M2391 passes if it emits 54 run-dir effective candidate pack artifacts with matching scenario specs, preserved actor-contract guardrails, and no environment load/reset, active config overwrite, ranking, training, or paper/self-ID/current-sim verdict claims, then routes to result audit.",
-  "next_blocker": "m2392-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization-result-audit"
+  "decision_rule": "M2391 passes if it emits 54 run-dir effective candidate pack artifacts with matching scenario specs, preserved actor-contract guardrails, and no environment load/reset, active config overwrite, ranking, training, or paper/self-ID/current-sim verdict claims, then routes to branch synthesis.",
+  "next_blocker": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis"
 }

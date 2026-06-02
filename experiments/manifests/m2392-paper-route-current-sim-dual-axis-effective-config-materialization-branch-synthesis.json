@@ -1,0 +1,232 @@
+{
+  "id": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_effective_config_materialization_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+      "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+      "runs/m2388_paper_route_current_sim_dual_axis_candidate_config_reset_validation/summary.json",
+      "docs/m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit.md",
+      "docs/m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design.md",
+      "docs/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.md",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_config_rows.csv",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_scenario_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json"
+    ],
+    "parent_objective": [
+      "synthesize M2387-M2391 safety/schema/materialization branch before another narrow reset-validation design milestone"
+    ],
+    "derived_from": [
+      "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design",
+      "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation",
+      "m2389-paper-route-current-sim-dual-axis-candidate-config-reset-validation-result-audit",
+      "m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design",
+      "m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization"
+    ],
+    "blocked_by": [
+      "the repair-plan materialization branch reached the local-search non-evidence limit after M2391",
+      "M2391 materialized effective candidate pack artifacts but no reset validation or measured execution has been run on them"
+    ],
+    "supersedes": [
+      "another ordinary result audit before synthesis",
+      "direct reset validation from overlay-only M2385 candidates",
+      "direct measured execution, repair execution, training, or ranking from M2391 artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+  "public_gates": [
+    "M2392 must answer the standard synthesis questions",
+    "M2392 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance for M2387-M2391",
+    "M2392 must decide continue pivot stop or promote_to_next_branch",
+    "M2392 must choose the next bounded non-ranking route or explicitly stop for user review",
+    "M2392 must not rerun materialization, load/reset environments, execute repair, train, rank, overwrite active config, or make paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun materialization",
+    "do not load an environment",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_effective_config_materialization_branch_synthesis",
+    "evidence_increment": "synthesizes M2387-M2391 reset-safety/schema/materialization evidence before continuing to another executable validation design",
+    "claim_scope": "branch synthesis only; no environment load/reset/rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to training, ranking, active config overwrite, or paper conclusion",
+      "stop if synthesis ignores local-search guard or process overhead",
+      "stop if synthesis treats effective candidate artifacts as reset-compatible or measured improvement"
+    ],
+    "fallback_plan": [
+      "continue to bounded effective candidate pack reset-validation adapter design if process overhead is justified and guardrails remain clean",
+      "pivot to branch complexity-pruning audit if artifact chain is too process-heavy",
+      "pivot to new data/panel evidence if reset-validation adapter would add only more local search",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2391 completes effective candidate pack materialization and the branch reaches the local-search non-evidence limit",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize effective candidate materialization branch",
+    "admission_evidence": [
+      "M2388 failed closed with schema_incomplete_candidate_count 54 and environment_reset_attempt_count 0",
+      "M2390 corrected the schema to overlay plus M2356 base pack scenario selection",
+      "M2391 materialized 54/54 effective candidate artifacts",
+      "M2391 candidate_without_matching_scenarios_count and candidate_without_env_config_count are 0",
+      "M2391 environment_load_attempt_count and environment_reset_attempt_count are 0",
+      "M2391 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no materialization rerun",
+      "no environment load",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+      "M2392 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "workflow/local-search risk is interpreted",
+      "actual evidence gain versus process overhead is classified",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2392 is process synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2392; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2387-M2391 safety/schema/materialization artifacts.",
+    "negative_result_policy": "If branch synthesis finds only process-heavy local search, pivot before interpreting driver, paper, or self-ID evidence.",
+    "allowed_claims": [
+      "effective candidate materialization branch synthesis",
+      "next route decision",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion training-repair success or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates failed overlay reset validation, schema correction, and effective candidate materialization before another validation-design route",
+    "paper_verdict_delta": "can decide whether effective candidate reset-validation remains justified or whether to pivot to new data/panel evidence",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2387-M2391 will prevent over-local schema/materialization work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies actual progress and process overhead",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2392 omits a required synthesis question",
+    "M2392 starts new training reset rollout measured execution replay PPO repair execution or private holdout",
+    "M2392 loads effective candidate configs into an environment",
+    "M2392 overwrites active config",
+    "M2392 ranks support policies or selects a winner",
+    "M2392 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2392 claims scenario redesign executed or training repair success",
+    "M2392 routes directly to controller comparison without resolving process-overhead and evidence-expansion blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md from M2387-M2391 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_effective_config_materialization_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.md",
+    "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json"
+  ],
+  "decision_rule": "M2392 passes if it synthesizes M2387-M2391, answers required synthesis questions, and selects a bounded non-ranking next route without materialization rerun, environment load/reset, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis"
+}

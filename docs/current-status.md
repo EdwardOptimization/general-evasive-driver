@@ -16,32 +16,32 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2390-paper-route-current-sim-dual-axis-effective-config-schema-repair-design
+m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
 ```
 
 Latest attempted milestone:
 
 ```text
-m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation
-result: failed closed
+m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+result: pass
 ```
 
 Current next task:
 
 ```text
-m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2390 designed the schema repair after M2388 failed closed. The key correction
-is that M2385 candidate configs are overlay candidates, not standalone
-env_config files. The bounded next step is M2391: materialize run-dir-only
-effective candidate pack artifacts by joining M2385 overlays to M2356
-reset-valid repaired pack scenario specs. M2391 may not load/reset an
-environment, repair, train, rank, overwrite active config, or make
-paper/self-ID/current-sim claims.
+M2391 materialized run-dir-only effective candidate pack artifacts by joining
+M2385 overlay candidates to M2356 reset-valid repaired pack scenario specs.
+All 54 candidates were materialized, all had matching scenarios and env_config,
+and no environment load/reset/step occurred. The local-search guard now
+requires M2392 branch synthesis before another narrow validation-design step.
+That synthesis should decide whether to continue to a reset-validation adapter
+for effective candidate pack artifacts.
 ```
 
 ## Latest Evidence
@@ -77,6 +77,27 @@ M2391 output target: effective_candidate_configs/*.json under run dir only
 M2391 blocked: environment load/reset/step, policy action, repair execution,
   training/replay/PPO, ranking/winner, paper/FW-vs-GRU/level3 self-ID,
   scenario-redesign/training-repair/current-sim verdict claims
+```
+
+M2391 materialization result:
+
+```text
+result_class: current_sim_dual_axis_effective_config_schema_repair_materialization_pass
+source_candidate_config_count: 54
+static_validation_pass_count: 54
+effective_candidate_config_written_count: 54
+effective_candidate_config_outside_run_dir_count: 0
+candidate_without_matching_scenarios_count: 0
+candidate_without_env_config_count: 0
+actor_contract_violation_count: 0
+base_pack_count: 5
+base_scenario_specs_per_pack_count: 72
+selected_scenario_reference_count: 2049
+min/max selected_scenario_count: 6/180
+environment_load_attempt_count: 0
+environment_reset_attempt_count: 0
+environment_step_count: 0
+guardrail_violation_count: 0
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

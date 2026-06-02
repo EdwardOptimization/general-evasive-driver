@@ -43455,3 +43455,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - design-time inventory: 54 candidates, zero unmatched candidates, selected scenario references min/max/total `6/180/2049`
 - follow-up manifest: `experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json`
 - next: `m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization`
+
+## M2391 Paper-Route Current-Sim Dual-Axis Effective Config Schema Repair Materialization
+
+- status: completed
+- result class: `current_sim_dual_axis_effective_config_schema_repair_materialization_pass`
+- manifest: `experiments/manifests/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.json`
+- doc: `docs/m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json`
+- source candidate configs/static pass/effective written: `54/54/54`
+- effective configs outside run dir: `0`
+- candidates without matching scenarios/env_config: `0/0`
+- actor contract violation count: `0`
+- base packs/scenario specs per pack: `5/72`
+- selected scenario references min/max/total: `6/180/2049`
+- environment load/reset/step counts: `0/0/0`
+- policy action executed: `false`
+- active config overwrite/guardrail violation counts: `0/0`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- decision: route to branch synthesis before reset-validation adapter design
+- follow-up manifest: `experiments/manifests/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.json`
+- next: `m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis`
