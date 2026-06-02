@@ -16,22 +16,21 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design
+m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation
 ```
 
 Current next task:
 
 ```text
-m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation
+m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit
 ```
 
 Current route:
 
 ```text
-M2367 froze an actionable target consolidation schema. M2368 must materialize
-the consolidated target/guardrail/R4/diagnostic panel from M2365 slices before
-any repair materialization, scenario redesign, ranking, or paper-route
-interpretation.
+M2368 materialized the consolidated target/guardrail/R4/diagnostic panel from
+M2365 slices. M2369 must audit that panel before any repair materialization,
+scenario redesign, ranking, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -114,6 +113,20 @@ ordinary repair target excludes: diagnostic axes and R4 semantics rows
 M2368 command: artifact-only consolidation, no reset/rollout/training/ranking
 ```
 
+M2368 result:
+
+```text
+source_slice_row_count: 313
+consolidated_row_count: 313
+offtrack_repair_target_row_count: 54
+collision_guardrail_row_count: 28
+r4_mitigation_semantics_row_count: 48
+diagnostic_guardrail_row_count: 190
+diagnostic_axis_repair_target_count: 0
+r4_ordinary_repair_target_count: 0
+guardrail_violation_count: 0
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -138,16 +151,16 @@ training repair success
 
 ## Immediate Next Step
 
-M2368 should materialize consolidation over M2365 outputs:
+M2369 should audit consolidation outputs:
 
 ```text
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/summary.json
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/slice_rows.csv
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/offtrack_target_slice_rows.csv
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/collision_guardrail_slice_rows.csv
-runs/m2365_paper_route_current_sim_dual_axis_measured_outcome_localization/r4_mitigation_semantics_rows.csv
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/consolidated_rows.csv
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/offtrack_repair_target_rows.csv
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/collision_guardrail_rows.csv
+runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/r4_mitigation_semantics_rows.csv
 ```
 
-The implementation should write consolidated target and guardrail artifacts and
-then route to result audit. It must not run reset/rollout, train, replay, use
-PPO, rank profiles or packs, select a winner, or make paper/self-ID claims.
+The audit should choose a bounded next route or stop the branch. It must not
+run reset/rollout, train, replay, use PPO, rank profiles or packs, select a
+winner, or make paper/self-ID claims.

@@ -42979,3 +42979,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - materializer output: consolidated target, collision guardrail, R4 semantics, diagnostic guardrail, claim boundary
 - follow-up manifest: `experiments/manifests/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.json`
 - next: `m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation`
+
+## M2368 Paper-Route Current-Sim Dual-Axis Actionable Target Consolidation Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_actionable_target_consolidation_pass`
+- manifest: `experiments/manifests/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.json`
+- doc: `docs/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_actionable_target_consolidation.py`
+- focused tests: `2 passed`
+- summary: `runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json`
+- source_slice_row_count: `313`
+- consolidated_row_count: `313`
+- offtrack_repair_target_row_count: `54`
+- collision_guardrail_row_count: `28`
+- r4_mitigation_semantics_row_count: `48`
+- diagnostic_guardrail_row_count: `190`
+- diagnostic_axis_repair_target_count: `0`
+- r4_ordinary_repair_target_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2368: `false`
+- policy action executed in M2368: `false`
+- training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- follow-up manifest: `experiments/manifests/m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit.json`
+- next: `m2369-paper-route-current-sim-dual-axis-actionable-target-consolidation-result-audit`
