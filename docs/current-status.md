@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
+m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
+m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
+m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
 ```
 
 Current route:
@@ -206,6 +206,18 @@ result reindex: join existing M2413 measured episode rows to M2426 c01/c02/c03
 matched family memberships, explicitly exclude c04, and produce non-ranking
 diagnostic aggregates without reset rerun, measured rollout rerun, repair,
 training, ranking, winner selection, or verdict claims.
+M2428 implemented that reindex. It reused 5250 existing M2413 measured episode
+rows and produced 13050 matched-family membership rows for c01/c02/c03, with
+exact reset-key coverage, c04 excluded, no reset rerun, no new measured rollout,
+no repair/training/replay/PPO, no ranking, no winner, and zero guardrail
+violations. The reindexed matched slices remain offtrack-dominated: c01
+success/offtrack is 0.06689655172413793/0.7583908045977011, c02 is
+0.06/0.8269047619047619, and c03 is 0.078/0.8162222222222222. The next task is
+M2429 result audit, which must decide whether this should trigger branch
+synthesis, c04 source-coverage repair, scenario-quality reassessment, bounded
+next evidence, or stop. It must not rerun measured rollout, execute repair,
+train, rank candidate families, or make current-sim/paper/self-ID verdict
+claims.
 ```
 
 ## Latest Evidence

@@ -44115,3 +44115,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: reindex existing M2413 measured rows by M2426 matched c01/c02/c03 family memberships; keep c04 excluded
 - follow-up manifest: `experiments/manifests/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.json`
 - next: `m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation`
+
+## M2428 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Measured Reindex Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_repair_candidate_measured_reindex_pass`
+- manifest: `experiments/manifests/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.json`
+- doc: `docs/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex.py`
+- focused tests: `2 passed`
+- summary: `runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json`
+- source episodes: `5250`
+- reindexed membership rows: `13050`
+- exact reset-key coverage: `true`
+- matched candidate families: `3`
+- c04 included as measured: `false`
+- rerun/reset/new rollout/repair/training/replay/PPO: `false`
+- ranking/winner/guardrail violations: `0/0/0`
+- aggregate result: c01 success/offtrack `0.06689655172413793/0.7583908045977011`, c02 `0.06/0.8269047619047619`, c03 `0.078/0.8162222222222222`
+- interpretation: reindexed matched c01/c02/c03 slices remain offtrack-dominated; c04 remains excluded due zero matched effective candidates
+- follow-up manifest: `experiments/manifests/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.json`
+- next: `m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit`

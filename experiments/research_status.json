@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2433,
+    "completed": 2434,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit",
+    "task_id": "m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md",
-    "command_log": "docs/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.md"
+    "run_dir": "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex",
+    "command_log": "docs/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.md"
   },
   "next_task": {
-    "id": "m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation",
-    "kind": "infrastructure",
-    "priority": 24230,
+    "id": "m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit",
+    "kind": "gate",
+    "priority": 24240,
     "status": "pending",
-    "hypothesis": "Existing M2413 measured rows can be reindexed by the M2426 matched source-linked repair-candidate families to produce non-ranking outcome diagnostics without rerun.",
-    "command": "see experiments/manifests/m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation.json",
-    "success_artifact": "runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json",
-    "notes": "Pending: reindex existing M2413 measured rows by M2426 matched c01/c02/c03 family memberships c04 excluded no rerun/ranking/verdict claims"
+    "hypothesis": "Auditing M2428 will determine whether the matched-subset offtrack-dominated result should trigger branch synthesis, c04 source-coverage repair, scenario-quality reassessment, or stop.",
+    "command": "see experiments/manifests/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.json",
+    "success_artifact": "docs/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.md",
+    "notes": "Pending: audit matched-subset measured reindex offtrack-dominated c04 excluded no rerun/repair/training/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T180915Z"
+  "updated_at_utc": "20260602T182149Z"
 }
