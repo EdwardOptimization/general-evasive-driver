@@ -42826,3 +42826,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: measured-execution design only, no ranking/paper/self-ID claim
 - follow-up manifest: `experiments/manifests/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.json`
 - next: `m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation`
+
+## M2362 Paper-Route Current-Sim Dual-Axis Repaired Pack Measured Execution Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_repaired_pack_measured_execution_pass`
+- manifest: `experiments/manifests/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.json`
+- doc: `docs/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_repaired_pack_measured_execution.py`
+- focused tests: `3 passed`
+- summary: `runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json`
+- config_pack_count: `5`
+- scenario_specs_per_pack_count: `72`
+- pack_aware_scenario_spec_count: `360`
+- selected_checkpoint_count: `15`
+- episode_count: `5400`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- guardrail_violation_count: `0`
+- measured execution in M2362: `true`
+- policy action executed: `true`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- global success_rate: `0.06518518518518518`
+- collision_rate: `0.19962962962962963`
+- offtrack_rate: `0.7262962962962963`
+- dominant_failure_mode: `offtrack_dominated_failure`
+- mean_min_clearance_margin: `6.79116992686492`
+- claim boundary: complete measured artifact only, no ranking/paper/self-ID claim
+- follow-up manifest: `experiments/manifests/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.json`
+- next: `m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit`

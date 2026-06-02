@@ -1,0 +1,184 @@
+{
+  "id": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "behavior_regression",
+    "contract_violation",
+    "lineage_invalid"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+    ],
+    "parent_dataset": [
+      "docs/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.md",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/aggregate_by_pack.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2362 measured-execution artifact before any repair, ranking, or paper-route interpretation"
+    ],
+    "derived_from": [
+      "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation",
+      "m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design"
+    ],
+    "blocked_by": [
+      "M2362 measured execution is complete but outcome interpretation is deferred to audit",
+      "M2362 global outcome is offtrack-dominated and requires slice localization before repair"
+    ],
+    "supersedes": [
+      "ranking profiles from raw M2362 aggregates",
+      "repairing offtrack failures before auditing outcome slices"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+  "public_gates": [
+    "M2363 must audit M2362 summary, episode denominator, metadata completeness, and claim boundary without rerun",
+    "M2363 must summarize global and pack/profile/role outcome slices",
+    "M2363 must choose a bounded next route without ranking, winner selection, paper finite-window-vs-GRU, or level3 self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repaired_pack_measured_execution",
+    "evidence_axis": "E_measured_execution_result_audit",
+    "evidence_increment": "audits the first complete closed-loop measured panel over the reset-valid repaired five-pack scenario family",
+    "claim_scope": "result audit only; no rerun, ranking, paper verdict, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if M2362 artifacts are incomplete or internally inconsistent",
+      "stop if outcome slices cannot localize the dominant failure mode",
+      "stop if audit attempts to rank profiles or claim paper verdict",
+      "stop if next route is not bounded"
+    ],
+    "fallback_plan": [
+      "route to runner/metric repair if artifacts are inconsistent",
+      "route to outcome-slice localization if offtrack or collision dominates",
+      "route to branch synthesis if measured evidence is sufficient to choose a larger route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2362 produces complete 5400-episode measured artifact",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "measured execution result audit",
+    "admission_evidence": [
+      "M2362 result_class is current_sim_dual_axis_repaired_pack_measured_execution_pass",
+      "M2362 episode_count is 5400",
+      "M2362 failure_count and guardrail_violation_count are 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU conclusion",
+      "no level3 self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+      "M2363 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2362 artifacts are accepted or rejected",
+      "dominant failure mode and actionable slices are summarized",
+      "claim boundary remains blocked",
+      "a bounded next route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2363 audits measured outcomes but does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2363; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2362 measured-execution artifact.",
+    "negative_result_policy": "Weak outcomes should be classified by role/pack/profile slices before repair.",
+    "allowed_claims": [
+      "measured-execution result audit and route selection",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a new 5400-episode measured closed-loop artifact",
+    "paper_verdict_delta": "can route to outcome localization or repair design but cannot establish paper verdict by itself",
+    "must_synthesize_if": [
+      "M2363 cannot choose a next route from the measured artifact",
+      "M2363 proposes direct ranking or paper conclusion",
+      "the measured-execution branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2362 measured-execution artifacts can identify the dominant failure mode and choose a bounded next route without ranking or paper-level claims.",
+  "success_criteria": [
+    "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md exists",
+    "M2362 denominator and metadata gates are audited",
+    "global and slice outcome summaries are recorded",
+    "ranking, winner selection, paper-level, finite-window-vs-GRU, and level3 self-ID claims remain blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2363 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2363 ranks support policies or controller families",
+    "M2363 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2363 claims scenario redesign executed",
+    "M2363 cannot decide next route from complete artifacts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2362 measured-execution artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2262_paper_route_current_sim_midcourse_corridor_containment_training_execution/selected_checkpoint_rows.csv"
+  ],
+  "baseline_artifacts": [
+    "docs/m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation.md",
+    "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json"
+  ],
+  "decision_rule": "M2363 passes if it audits the complete measured artifact and selects a bounded non-ranking follow-up route or stops the branch.",
+  "next_blocker": "selected_by_m2363_audit"
+}

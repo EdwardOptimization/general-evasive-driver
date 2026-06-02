@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2368,
+    "completed": 2369,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design",
+    "task_id": "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design.md"
+    "run_dir": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution",
+    "command_log": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json"
   },
   "next_task": {
-    "id": "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation",
-    "kind": "infrastructure",
-    "priority": 23570,
+    "id": "m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit",
+    "kind": "gate",
+    "priority": 23580,
     "status": "pending",
-    "hypothesis": "The pack-aware measured-execution runner can complete the frozen 5400-episode panel over the M2359 reset-valid repaired five-pack scenario family while preserving metadata and claim boundaries.",
-    "command": "implement and run frozen pack-aware measured-execution runner",
-    "success_artifact": "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/summary.json",
-    "notes": "Pending: implement pack-aware runner and run 5400-episode measured execution no ranking/paper/self-ID claims"
+    "hypothesis": "Auditing M2362 measured-execution artifacts can identify the dominant failure mode and choose a bounded next route without ranking or paper-level claims.",
+    "command": "manual audit of M2362 measured-execution artifacts",
+    "success_artifact": "docs/m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit.md",
+    "notes": "Pending: audit M2362 5400-episode artifact and choose bounded non-ranking next route"
   },
-  "updated_at_utc": "20260602T041006Z"
+  "updated_at_utc": "20260602T043318Z"
 }

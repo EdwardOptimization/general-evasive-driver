@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2361-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-design
+m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation
 ```
 
 Current next task:
 
 ```text
-m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-implementation
+m2363-paper-route-current-sim-dual-axis-repaired-pack-measured-execution-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -387,6 +387,36 @@ M2362 should implement the pack-aware measured-execution runner and run the
 frozen 5400-episode panel. Ranking, winner selection, paper-level evidence,
 finite-window vs GRU conclusions, level3 self-ID claims, and scenario redesign
 execution claims remain blocked until later audits.
+
+M2362 implements the pack-aware runner and completes the frozen measured panel:
+
+```text
+result_class: current_sim_dual_axis_repaired_pack_measured_execution_pass
+config_pack_count: 5
+scenario_specs_per_pack_count: 72
+pack_aware_scenario_spec_count: 360
+selected_checkpoint_count: 15
+episode_count: 5400
+failure_count: 0
+validation_failure_count: 0
+metadata_missing_count: 0
+metric_completeness_failure_count: 0
+guardrail_violation_count: 0
+```
+
+Outcome artifact, pending M2363 audit:
+
+```text
+success_rate: 0.06518518518518518
+collision_rate: 0.19962962962962963
+offtrack_rate: 0.7262962962962963
+dominant_failure_mode: offtrack_dominated_failure
+mean_min_clearance_margin: 6.79116992686492
+```
+
+M2363 should audit this complete measured artifact and choose a bounded next
+route before any repair, ranking, paper verdict, finite-window vs GRU conclusion,
+or level3 self-ID claim.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
