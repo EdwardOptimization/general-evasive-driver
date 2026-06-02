@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
+m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design
+m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
+m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
 ```
 
 Current route:
@@ -44,8 +44,10 @@ passed candidate-level reset aggregation. No environment step or policy action
 occurred. M2395 accepted this as reset-readiness evidence only and routed to a
 bounded measured-validation design. M2396 froze the effective-candidate
 measured-validation protocol: 2049 candidate-scenario references times 15
-selected checkpoints, for 30735 closed-loop episodes. The next task is M2397
-implementation and run, still with no repair, training, ranking, or
+selected checkpoints, for 30735 closed-loop episodes. M2397 implemented and ran
+that full panel with clean lineage and guardrails. The measured artifact is
+complete, but the observed outcome is still offtrack-dominated. The next task is
+M2398 result audit, with no rerun, repair, training, ranking, or
 paper/self-ID/current-sim verdict route.
 ```
 
@@ -178,6 +180,30 @@ reset/rollout/policy action in M2396: false/false/false
 blocked claims: ranking, paper verdict, finite-window-vs-GRU, level3 self-ID,
   scenario redesign executed, training repair success, current-sim verdict
 next task: M2397 measured-validation implementation
+```
+
+M2397 effective-candidate measured-validation implementation:
+
+```text
+result_class: current_sim_dual_axis_effective_candidate_measured_validation_pass
+episode_count: 30735
+target_episode_count: 30735
+source_candidate_count: 54
+candidate_scenario_reference_count: 2049
+unique_pack_scenario_count: 350
+selected_checkpoint_count: 15
+failure_count: 0
+validation_failure_count: 0
+metadata_missing_count: 0
+metric_completeness_failure_count: 0
+actor_contract_violation_count: 0
+guardrail_violation_count: 0
+global success_rate: 0.04054010086220921
+global offtrack_rate: 0.8425898812428827
+global collision_rate: 0.10157800553115341
+dominant_failure_mode: offtrack_dominated_failure
+ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: false
+next task: M2398 measured-validation result audit
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

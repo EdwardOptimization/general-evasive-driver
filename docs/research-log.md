@@ -43571,3 +43571,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pass target for M2397: complete or fail-close the fixed measured-validation panel with full lineage and no forbidden claims
 - follow-up manifest: `experiments/manifests/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.json`
 - next: `m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation`
+
+## M2397 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Validation Implementation
+
+- status: completed
+- result class: `current_sim_dual_axis_effective_candidate_measured_validation_pass`
+- manifest: `experiments/manifests/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.json`
+- doc: `docs/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_effective_candidate_measured_validation.py`
+- focused tests: `3 passed`
+- summary: `runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json`
+- denominator completed: `30735/30735` episodes from `2049` candidate-scenario refs x `15` selected checkpoints
+- source candidates/unique pack-scenario reset targets: `54/350`
+- failure/validation/metadata/metric/contract/guardrail counts: `0/0/0/0/0/0`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- global success/offtrack/collision rates: `0.04054010086220921/0.8425898812428827/0.10157800553115341`
+- dominant failure mode: `offtrack_dominated_failure`
+- supported: complete measured-validation artifact with preserved lineage and clean claim boundary
+- blocked: driver performance success, ranking, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario redesign executed, training repair success, current-sim verdict
+- follow-up manifest: `experiments/manifests/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.json`
+- next: `m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit`
