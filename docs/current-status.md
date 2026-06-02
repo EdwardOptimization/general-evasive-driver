@@ -16,16 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2299-paper-route-current-sim-scenario-task-family-offtrack-primary-collision-guardrail-result-audit
+m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation
 ```
 
 Current next task:
 
 ```text
-m2304-paper-route-current-sim-scenario-task-family-guarded-repair-training-execution
+m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit
 ```
 
-Immediate route: M2287 implemented the combined materializer repair for
+Current route: M2330 completed the bounded R4-only metric-instrumented support
+diagnostic rerun:
+
+```text
+scenario_spec_count: 12 / 12 R4-only
+support_policy_count: 3
+seed_repeat_count: 5
+episode_count: 180 / 180
+failure_count: 0
+required_r4_export_missing_field_count: 0
+non_r4_role_count: 0
+guardrail_violation_count: 0
+support labels: support_mixed 3, support_blocked 9
+global success/collision/offtrack: 0 / 173 / 6
+```
+
+M2331 is the next audit. It must preserve the diagnostic-only boundary and
+choose a non-ranking follow-up route. Training, replay, PPO, support-policy
+ranking, controller-family ranking, winner selection, paper-level claims,
+finite-window vs GRU conclusions, and level3 self-ID claims remain blocked.
+
+Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
 
 ```text

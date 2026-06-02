@@ -42056,3 +42056,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation.json`
 - next: `m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation`
+
+## M2330 Paper-Route Current-Sim R4 Metric-Instrumented Support Diagnostic Rerun Implementation
+
+- status: completed
+- result_class: `current_sim_r4_metric_instrumented_support_diagnostic_rerun_pass`
+- manifest: `experiments/manifests/m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation.json`
+- doc: `docs/m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation.md`
+- summary: `runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun.py`
+- tests: `tests/test_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun.py`
+- scenario specs: `12 / 12` R4-only
+- support policies: `3`
+- seed repeats: `5`
+- episode_count: `180 / 180`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- non_r4_role_count: `0`
+- required_r4_export_missing_field_count: `0`
+- guardrail_violation_count: `0`
+- global_success_count: `0`
+- global_collision_count: `173`
+- global_offtrack_count: `6`
+- support labels: `support_mixed 3`, `support_blocked 9`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.json`
+- next: `m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2337,
+    "completed": 2338,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design",
+    "task_id": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md"
+    "run_dir": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun",
+    "command_log": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json"
   },
   "next_task": {
-    "id": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
-    "kind": "infrastructure",
-    "priority": 23250,
+    "id": "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
+    "kind": "gate",
+    "priority": 23260,
     "status": "pending",
-    "hypothesis": "The R4-only diagnostic rerun can produce fresh support-policy rows with exported mitigation metric fields and no ranking/training claims.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --base-config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --target-scenario-spec-count 12 --target-support-policy-count 3 --seed-repeats 5 --target-episode-count 180 --next-blocker m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
-    "success_artifact": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
-    "notes": "Pending: materialize R4-only config and run 180 diagnostic support episodes with exported fields no training ranking paper or self-ID claims"
+    "hypothesis": "M2330 provides enough R4 metric-instrumented support diagnostic evidence to choose a bounded non-ranking follow-up route.",
+    "command": "manual audit of M2330 summary, episode rows, field completeness, support labels, and claim boundary",
+    "success_artifact": "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md",
+    "notes": "Pending: audit R4 diagnostic support rows field completeness support labels and claim boundary"
   },
-  "updated_at_utc": "20260602T003759Z"
+  "updated_at_utc": "20260602T005004Z"
 }

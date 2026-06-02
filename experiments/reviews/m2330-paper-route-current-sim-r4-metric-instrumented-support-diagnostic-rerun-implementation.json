@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2330 R4-only diagnostic pass 180/180 rows missing fields 0 collision 173 offtrack 6 guardrail 0 no ranking claims",
+  "failure_criteria": [
+    "M2330 trains replay PPO or promotes a checkpoint",
+    "M2330 ranks support policies or selects a winner",
+    "M2330 changes actor input reward or collision termination",
+    "M2330 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2330 includes non-R4 scenarios"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone",
+    "do not add any mitigation field to actor input",
+    "do not change reward",
+    "do not change collision termination behavior"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T005308Z",
+  "hypothesis": "The R4-only diagnostic rerun can produce fresh support-policy rows with exported mitigation metric fields and no ranking/training claims.",
+  "lineage": {
+    "blocked_by": [
+      "old R4 support artifacts lack exported mitigation fields",
+      "fresh R4 support diagnostics are needed before R4 semantics audit"
+    ],
+    "derived_from": [
+      "m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_support_policy_diagnostic"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.json"
+    ],
+    "parent_dataset": [
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
+      "docs/m2327-paper-route-current-sim-r4-mitigation-metric-instrumentation-implementation.md"
+    ],
+    "parent_objective": [
+      "execute bounded R4-only metric-instrumented support diagnostic rerun"
+    ],
+    "supersedes": [
+      "R4 support diagnosis from stale M2318 artifacts",
+      "full 72-scenario rerun as first response",
+      "support-policy ranking from diagnostic support rows"
+    ]
+  },
+  "milestone": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
+  "next_blocker": "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "current_sim_r4_metric_instrumented_support_diagnostic_rerun_pass",
+  "public_gates": [
+    "M2330 must run only the 12 R4 scenarios",
+    "M2330 must use diagnostic support policies aeb/aes/envelope_aes with 5 seed repeats",
+    "M2330 must produce 180 episode rows or preserve failures as rows",
+    "M2330 must preserve exported R4 mitigation metric fields",
+    "M2330 must not train replay PPO rank promote or make paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "current_sim_r4_metric_instrumented_support_diagnostic_rerun_pass",
+    "milestone": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
+    "reason": "M2330 R4-only diagnostic pass 180/180 rows missing fields 0 collision 173 offtrack 6 guardrail 0 no ranking claims",
+    "reset_success": "",
+    "success_rate": "0",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "src/autodrift/paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun.py exists",
+    "tests/test_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun.py passes",
+    "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json exists",
+    "summary reports scenario_spec_count 12",
+    "summary reports support_policy_count 3",
+    "summary reports seed_repeat_count 5",
+    "summary reports target_episode_count 180",
+    "summary reports guardrail_violation_count 0"
+  ],
+  "type": "infrastructure"
+}
