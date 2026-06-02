@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2455,
+    "completed": 2456,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation",
+    "task_id": "m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation",
-    "command_log": "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json"
+    "run_dir": "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md",
+    "command_log": "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md"
   },
   "next_task": {
-    "id": "m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit",
+    "id": "m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis",
     "kind": "gate",
-    "priority": 24450,
+    "priority": 24460,
     "status": "pending",
-    "hypothesis": "Auditing M2449 can decide whether compact target and guardrail artifacts support synthesis, scenario-quality route, repair-plan design, stop, or another bounded route without rerun, repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.json",
-    "success_artifact": "docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md",
-    "notes": "Pending: audit M2449 target consolidation 21 targets 56 guardrails diagnostic axes non-ranking no rerun repair training ranking winner verdict claims"
+    "hypothesis": "Synthesizing M2443-M2450 will classify the metric-selected validation branch and choose a bounded next branch or stop without rerun, repair, training, ranking, winner selection, or verdict claims.",
+    "command": "see experiments/manifests/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.json",
+    "success_artifact": "docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md",
+    "notes": "Pending: synthesize M2443-M2450 after M2450 accepted broad target-consolidation route no rerun repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T213650Z"
+  "updated_at_utc": "20260602T214317Z"
 }

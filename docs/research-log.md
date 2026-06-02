@@ -44519,3 +44519,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.json`
 - next: `m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit`
+
+## M2450 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Target Consolidation Result Audit
+
+- status: completed
+- decision: `accept_target_consolidation_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.json`
+- doc: `docs/m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit.md`
+- audited summary: `runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json`
+- accepted evidence: M2449 consolidation pass with `21` hard-offtrack targets, `56` guardrail rows, `44` diagnostic rows, diagnostic-axis repair target count `0`, ranking count `0`, winner count `0`, guardrail violation count `0`
+- audit classification: target surface is compact but broad across role, hidden dynamics, geometry/timing, and scenario-label axes
+- decision: route to branch synthesis before repair-plan design, scenario-quality route, or stop decision
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.json`
+- next: `m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis`

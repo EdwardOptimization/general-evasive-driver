@@ -16,42 +16,40 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
+m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation
+m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
+m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2449 consolidated M2447 localization into compact artifact-only target and
-guardrail tables. It produced `21` hard-offtrack target rows, `56` guardrail
-rows, `50` collision-guardrail rows, `45` soft-boundary diagnostic rows, `44`
-diagnostic rows, and `41` monitoring rows, with diagnostic-axis repair target
-count `0`, ranking count `0`, winner count `0`, and guardrail violations `0`.
-The largest hard-offtrack target slices include
-`obstacle_lateral_offset_bucket=centerline`,
+M2450 accepts M2449 target consolidation as complete but broad. M2449 produced
+`21` hard-offtrack target rows, `56` guardrail rows, `50` collision-guardrail
+rows, `45` soft-boundary diagnostic rows, `44` diagnostic rows, and `41`
+monitoring rows, with diagnostic-axis repair target count `0`, ranking count
+`0`, winner count `0`, and guardrail violations `0`. The largest hard-offtrack
+target slices include `obstacle_lateral_offset_bucket=centerline`,
 `sampled_obstacle_label=drift_required`,
 `obstacle_longitudinal_timing_bucket=early_far`,
 `obstacle_longitudinal_timing_bucket=mid`, and
-`sampled_obstacle_label=aes_feasible`. Profile, pack, family/checkpoint,
-global, termination, and outcome axes remain diagnostic-only and non-ranking.
-The next route is M2450 target-consolidation result audit before any synthesis,
-scenario-quality route, repair-plan design, or stop decision. No rerun, policy
-action, repair, training, ranking, winner selection, scenario redesign,
-paper/FW-vs-GRU/self-ID/training-repair verdict, or current-sim verdict is
-supported.
+`sampled_obstacle_label=aes_feasible`. Because the target surface spans role,
+hidden dynamics, geometry/timing, and scenario-label axes, the next route is
+M2451 branch synthesis before any repair-plan design, scenario-quality route,
+or stop decision. No rerun, policy action, repair, training, ranking, winner
+selection, scenario redesign, paper/FW-vs-GRU/self-ID/training-repair verdict,
+or current-sim verdict is supported.
 
 M2448 accepted M2447 localization as actionable enough for artifact-only target
 consolidation. That route has now been executed by M2449. M2447 localized the
