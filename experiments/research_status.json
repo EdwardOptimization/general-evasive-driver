@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2336,
+    "completed": 2337,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit",
+    "task_id": "m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2328-paper-route-current-sim-r4-mitigation-metric-instrumentation-result-audit.md"
+    "command_log": "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md"
   },
   "next_task": {
-    "id": "m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design",
-    "kind": "gate",
-    "priority": 23240,
+    "id": "m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation",
+    "kind": "infrastructure",
+    "priority": 23250,
     "status": "pending",
-    "hypothesis": "A bounded R4-only support diagnostic rerun can be designed to refresh mitigation metric artifacts without ranking or training.",
-    "command": "manual R4-only metric-instrumented support diagnostic rerun design",
-    "success_artifact": "docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md",
-    "notes": "Pending: freeze 12x3x5 R4 diagnostic rerun implementation route no reset rollout training ranking paper or self-ID claims"
+    "hypothesis": "The R4-only diagnostic rerun can produce fresh support-policy rows with exported mitigation metric fields and no ranking/training claims.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --base-config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --target-scenario-spec-count 12 --target-support-policy-count 3 --seed-repeats 5 --target-episode-count 180 --next-blocker m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
+    "success_artifact": "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+    "notes": "Pending: materialize R4-only config and run 180 diagnostic support episodes with exported fields no training ranking paper or self-ID claims"
   },
-  "updated_at_utc": "20260602T003510Z"
+  "updated_at_utc": "20260602T003759Z"
 }

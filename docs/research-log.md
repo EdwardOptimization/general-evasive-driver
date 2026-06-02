@@ -42032,3 +42032,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.json`
 - next: `m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design`
+
+## M2329 Paper-Route Current-Sim R4 Metric-Instrumented Support Diagnostic Rerun Design
+
+- status: completed
+- result_class: `r4_metric_instrumented_support_diagnostic_rerun_design_admit_bounded_execution`
+- manifest: `experiments/manifests/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.json`
+- design doc: `docs/m2329-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-design.md`
+- base config: `configs/paper_route_current_sim_scenario_task_family_v0.json`
+- R4 scenario count: `12`
+- support policy count: `3`
+- seed repeats: `5`
+- expected diagnostic episodes: `180`
+- reset/rollout/policy action in M2329: `false`
+- measured execution in M2329: `false`
+- training/replay/PPO in M2329: `false`
+- actor input changed: `false`
+- reward/training objective changed: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation.json`
+- next: `m2330-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-implementation`
