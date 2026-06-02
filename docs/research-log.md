@@ -44651,3 +44651,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation.json`
 - next: `m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation`
+
+## M2458 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Reset/Static Preflight Adapter Implementation
+
+- status: completed
+- result_class: `scenario_quality_redesign_reset_static_preflight_adapter_static_pass_reset_blocked`
+- manifest: `experiments/manifests/m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation.json`
+- doc: `docs/m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_redesign_reset_static_preflight_adapter.py`
+- summary: `runs/m2458_paper_route_current_sim_dual_axis_scenario_quality_redesign_reset_static_preflight_adapter/summary.json`
+- result: `30` work items, `246` static checks, `0` static failures, `0` guardrail violations
+- reset-readiness finding: stable/AES support rows require concrete numeric overlays; `reset_required_count` `6`, `concrete_overlay_available_count` `0`, `reset_attempted_count` `0`, `reset_blocked_missing_concrete_overlay_count` `6`
+- interpretation: reset blocked by scenario-spec readiness, not driver performance; no unsafe default scenario was inferred
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.json`
+- next: `m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit`

@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
+m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
+m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation
+m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit
 ```
 
 Current route:
 
 ```text
+M2458 implemented and ran the reset/static preflight adapter. It produced `30`
+work items from M2455, ran `246` static checks with `0` static failures, and
+kept guardrail violations at `0`. It did not execute reset, rollout, policy
+actions, scenario redesign, repair, training, ranking, or winner selection. The
+important result is reset-readiness, not driver performance: the `6` stable/AES
+support work items require concrete numeric env overlays, but
+concrete_overlay_available_count is `0`, so reset_attempted_count is `0` and
+reset_blocked_missing_concrete_overlay_count is `6`. M2459 must audit this
+static-pass/reset-blocked evidence before any concrete overlay design, reset,
+measured rollout, scenario redesign execution, repair, training, ranking,
+winner selection, paper/FW-vs-GRU/self-ID/training-repair verdict, or current-
+sim verdict route.
+
 M2457 completed the reset/static preflight design and routes to M2458 adapter
 implementation. The core decision is fail-closed: M2455 protocol rows can all
 enter static schema/guardrail validation, but reset validation is allowed only
