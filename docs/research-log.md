@@ -42960,3 +42960,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: global/pack/profile rows are diagnostic guardrails only; actionable target consolidation must use role/timing/lateral/hidden axes
 - follow-up manifest: `experiments/manifests/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.json`
 - next: `m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design`
+
+## M2367 Paper-Route Current-Sim Dual-Axis Actionable Target Consolidation Design
+
+- status: completed
+- decision: `actionable_target_consolidation_design_admit_artifact_only_materializer`
+- manifest: `experiments/manifests/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.json`
+- doc: `docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md`
+- parent audit: `docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md`
+- reset/rollout/measured execution in M2367: `false`
+- policy action executed in M2367: `false`
+- training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID claims: `false`
+- source slice_row_count: `313`
+- diagnostic-only axes: `global`, `pack_id`, `profile_name`, `sampling_repair_class`, pack/profile composites
+- actionable axes: role, scenario, obstacle label, timing, lateral, hidden, role-conditioned timing/lateral/hidden
+- R4 mitigation semantics: separate route and never ordinary repair target
+- materializer output: consolidated target, collision guardrail, R4 semantics, diagnostic guardrail, claim boundary
+- follow-up manifest: `experiments/manifests/m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation.json`
+- next: `m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2373,
+    "completed": 2374,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit",
+    "task_id": "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2366-paper-route-current-sim-dual-axis-measured-outcome-localization-result-audit.md"
+    "command_log": "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md"
   },
   "next_task": {
-    "id": "m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design",
-    "kind": "gate",
-    "priority": 23620,
+    "id": "m2368-paper-route-current-sim-dual-axis-actionable-target-consolidation-implementation",
+    "kind": "infrastructure",
+    "priority": 23630,
     "status": "pending",
-    "hypothesis": "A bounded consolidation design can convert the overlapping M2365 localization slices into actionable target, collision guardrail, R4 mitigation, and diagnostic-only categories without rerun or ranking claims.",
-    "command": "write actionable target consolidation design from M2366 audit",
-    "success_artifact": "docs/m2367-paper-route-current-sim-dual-axis-actionable-target-consolidation-design.md",
-    "notes": "Pending: design actionable target consolidation before materialization no rerun/ranking"
+    "hypothesis": "Artifact-only consolidation can materialize actionable repair targets and guardrails from M2365 slices while excluding diagnostic profile/pack/global axes and R4 mitigation semantics from ordinary repair targets.",
+    "command": "implement and run artifact-only target consolidation from M2365 slice rows",
+    "success_artifact": "runs/m2368_paper_route_current_sim_dual_axis_actionable_target_consolidation/summary.json",
+    "notes": "Pending: materialize consolidated target/guardrail/R4/diagnostic panel no rerun/ranking"
   },
-  "updated_at_utc": "20260602T051000Z"
+  "updated_at_utc": "20260602T052000Z"
 }
