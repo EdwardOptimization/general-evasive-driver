@@ -1,0 +1,207 @@
+{
+  "id": "m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_application_plan_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.md",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/application_plan_manifest.json",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/candidate_application_specs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/reward_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/curriculum_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/guardrail_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/config_copy_preview.json",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/claim_boundary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.json"
+    ],
+    "parent_objective": [
+      "audit M2382 application-plan artifacts before any candidate config generation or validation route"
+    ],
+    "derived_from": [
+      "m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization",
+      "m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design",
+      "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization"
+    ],
+    "blocked_by": [
+      "M2382 materializes application-plan artifacts but does not audit whether they are sufficient for a bounded next route",
+      "candidate config generation, patch application, repair execution, and reset validation remain blocked until application-plan artifacts are audited"
+    ],
+    "supersedes": [
+      "direct candidate config generation from application-plan artifacts without audit",
+      "direct config patch application or reset validation from application-plan artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md",
+  "public_gates": [
+    "M2383 must audit M2382 application-plan summary, candidate counts, patch references, guardrail scope, and claim boundary without applying patches",
+    "M2383 must identify the next bounded route or stop the branch",
+    "M2383 must keep active-config overwrite, config application, candidate config generation, repair execution, reset/rollout, ranking, paper finite-window-vs-GRU, current-sim verdict, scenario-redesign-executed, training-repair, and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not apply config patches",
+    "do not write candidate config files",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_application_plan_result_audit",
+    "evidence_increment": "audits application-plan artifacts before any candidate config generation or validation route",
+    "claim_scope": "result audit only; no active config overwrite, config application, candidate config generation, repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2382 artifacts are incomplete or internally inconsistent",
+      "stop if patch references are missing",
+      "stop if candidate config files were written or patches applied",
+      "stop if audit would route directly to training or ranking without bounded candidate config generation design"
+    ],
+    "fallback_plan": [
+      "route to application-plan schema repair if artifacts are inconsistent",
+      "route to bounded next design if artifacts are accepted",
+      "route to branch synthesis if application-plan artifacts are insufficient to choose a route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2382 materializes application-plan artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "application-plan result audit",
+    "admission_evidence": [
+      "M2382 result_class is current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization_pass",
+      "M2382 guardrail_violation_count is 0",
+      "M2382 candidate_application_spec_count is 54",
+      "M2382 reward/curriculum/guardrail patch references are 162/54/284",
+      "M2382 mixed_guarded_candidate_requirement_count is 18"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no config patch application",
+      "no candidate config file generation",
+      "no repair execution",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md",
+      "M2383 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2382 artifacts are accepted or rejected",
+      "candidate and patch reference counts are summarized",
+      "claim boundary remains blocked",
+      "a bounded next route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2383 audits application-plan artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2383; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2382 application-plan artifacts.",
+    "negative_result_policy": "Application-plan artifacts remain engineering design artifacts until candidate config generation and measured validation.",
+    "allowed_claims": [
+      "artifact-only application-plan result audit",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits application-plan artifacts but does not yet test capability",
+    "paper_verdict_delta": "can admit bounded next design but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2383 cannot audit or route from application-plan artifacts",
+      "M2383 proposes direct active config overwrite, ranking, or paper conclusion",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Auditing M2382 application-plan artifacts can decide the next bounded route without applying patches, generating candidate config files, executing repair, ranking, training, or paper-level claims.",
+  "success_criteria": [
+    "docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md exists",
+    "M2382 candidate counts, patch references, guardrail scope, and claim boundary are audited",
+    "active config overwrite, patch application, candidate config generation, repair execution, ranking, winner selection, paper-level, finite-window-vs-GRU, scenario-redesign-executed, training-repair, current-sim verdict, and level3 self-ID claims remain blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2383 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2383 applies config patches or overwrites active config",
+    "M2383 writes candidate config files",
+    "M2383 executes repair levers or trains",
+    "M2383 ranks support policies or controller families",
+    "M2383 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2383 claims scenario redesign executed or training repair success",
+    "M2383 cannot decide next route from complete application-plan artifacts"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2382 application-plan artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_application_plan_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.md",
+    "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json"
+  ],
+  "decision_rule": "M2383 passes if it audits M2382 application-plan artifacts and selects a bounded non-ranking follow-up route or stops the branch.",
+  "next_blocker": "m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit"
+}

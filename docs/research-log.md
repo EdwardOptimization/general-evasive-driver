@@ -43278,3 +43278,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: active config overwrite, patch application, candidate config file generation, actor input change, hidden/oracle feature injection, profile-specific tuning, ranking, paper/current-sim/self-ID claims
 - follow-up manifest: `experiments/manifests/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.json`
 - next: `m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization`
+
+## M2382 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Config Patch Application Plan Materialization
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization_pass`
+- manifest: `experiments/manifests/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.json`
+- doc: `docs/m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json`
+- candidate_application_spec_count: `54`
+- candidate repair family counts: `priority 26 / ordinary 10 / guarded mixed 18`
+- reward/curriculum/guardrail patch references: `162/54/284`
+- mixed_guarded_candidate_requirement_count: `18`
+- candidate_without_reward/curriculum/guardrail counts: `0/0/0`
+- active_config_overwrite_count/config_patch_applied_count/candidate_config_file_written_count: `0/0/0`
+- actor_input_change_count/hidden_oracle_feature_injection_count/profile_specific_tuning_count: `0/0/0`
+- repair_execution_count/training_count/ranking_admissible_count/winner_selected_count: `0/0/0/0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2382: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.json`
+- next: `m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit`

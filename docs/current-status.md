@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design
+m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization
 ```
 
 Current next task:
 
 ```text
-m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization
+m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit
 ```
 
 Current route:
 
 ```text
-M2381 designed an artifact-only application-plan route for M2378 overlay
-config-patch artifacts. M2382 should materialize application-plan artifacts,
-not apply patches, not write candidate config files, not overwrite active
-configs, not run validation, not execute repair, not rank, not train, and not
-make paper/self-ID/current-sim claims.
+M2382 materialized application-plan artifacts that reference overlay patches
+without applying them. M2383 should audit those artifacts before any candidate
+config generation, patch application, reset validation, repair execution,
+ranking, training, or paper/self-ID/current-sim interpretation.
 ```
 
 ## Latest Evidence
@@ -304,6 +303,19 @@ reset/rollout/repair/training/ranking: blocked
 paper/self-ID/current-sim verdict claims: blocked
 ```
 
+M2382 application-plan materialization result:
+
+```text
+result_class: current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization_pass
+candidate_application_spec_count: 54
+candidate repair families: priority 26, ordinary 10, guarded mixed 18
+reward/curriculum/guardrail patch references: 162/54/284
+mixed_guarded_candidate_requirement_count: 18
+candidate_without_reward/curriculum/guardrail counts: 0/0/0
+active_config_overwrite_count/config_patch_applied_count/candidate_config_file_written_count: 0/0/0
+guardrail_violation_count: 0
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -328,18 +340,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2382 should materialize application-plan artifacts using:
+M2383 should audit application-plan artifacts from:
 
 ```text
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_manifest.json
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/reward_config_patch_rows.csv
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/curriculum_config_patch_rows.csv
-runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/guardrail_config_patch_rows.csv
-docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/application_plan_manifest.json
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/candidate_application_specs.csv
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/reward_patch_application_refs.csv
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/curriculum_patch_application_refs.csv
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/guardrail_patch_application_refs.csv
+runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv
 ```
 
-The materializer must not apply patches, write candidate config files,
-overwrite the active config, run reset/rollout, execute repair, train, replay,
-use PPO, rank profiles or packs, select a winner, claim scenario redesign
-executed, claim repair success, current-sim verdict, or paper/self-ID claims.
+The audit must not apply patches, write candidate config files, overwrite the
+active config, run reset/rollout, execute repair, train, replay, use PPO, rank
+profiles or packs, select a winner, claim scenario redesign executed, claim
+repair success, current-sim verdict, or paper/self-ID claims.
