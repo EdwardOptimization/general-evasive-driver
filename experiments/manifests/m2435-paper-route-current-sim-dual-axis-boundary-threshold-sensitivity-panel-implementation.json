@@ -1,0 +1,217 @@
+{
+  "id": "m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_boundary_threshold_sensitivity_panel"
+    ],
+    "parent_dataset": [
+      "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize a counterfactual road-boundary threshold sensitivity panel over existing measured episode rows"
+    ],
+    "derived_from": [
+      "m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit",
+      "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution",
+      "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation"
+    ],
+    "blocked_by": [
+      "M2433/M2434 show road-boundary dominated offtrack",
+      "threshold sensitivity must be quantified before task-boundary redesign or more training",
+      "M2435 must remain counterfactual metric analysis and not claim actual success"
+    ],
+    "supersedes": [
+      "direct repair/training/PPO from road-boundary dominated offtrack panel",
+      "candidate/controller ranking before task-boundary threshold sensitivity",
+      "current-sim verdict from offtrack semantics alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md",
+  "public_gates": [
+    "M2435 must read existing primary episode rows from M2362 M2397 and M2413",
+    "M2435 must compute threshold sensitivity for 0.02 0.05 0.10 and 0.20 m without rerun",
+    "M2435 must keep counterfactual soft success separate from actual success",
+    "M2435 must not run new rollout, execute repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_quality_decision",
+    "evidence_axis": "E_current_sim_boundary_threshold_sensitivity_panel",
+    "evidence_increment": "quantifies how much observed offtrack failure is sensitive to small positive-clearance road-boundary overshoot thresholds",
+    "claim_scope": "counterfactual metric-sensitivity reanalysis only; no new measured rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if implementation starts new rollout or repair",
+      "stop if implementation treats counterfactual soft success as actual success",
+      "stop if implementation ranks candidates or controllers",
+      "stop if implementation claims scenario redesign was executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if the panel is complete",
+      "route to metric lineage repair if required fields are missing",
+      "route to task-boundary redesign design if threshold sensitivity is high",
+      "route to high-fidelity/backend preparation if current-sim semantics are too weak"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_applicable_third_milestone_after_M2430_pivot_with_new_panel_evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "boundary threshold sensitivity panel implementation",
+    "admission_evidence": [
+      "M2434 accepted M2433 road-boundary dominated offtrack semantics",
+      "M2433 min positive-clearance low-overshoot offtrack rate is 0.9841229193341869",
+      "M2362 M2397 and M2413 primary episode rows contain clearance and overshoot fields"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel.py",
+      "tests/test_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel.py",
+      "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json",
+      "docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md",
+      "M2435 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the implementation result"
+    ],
+    "next_stage_criteria": [
+      "panel rows include M2362 M2397 and M2413 threshold rows",
+      "counterfactual soft success remains separated from actual success",
+      "all guardrails remain false",
+      "a result-audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2435 reanalyses task metrics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2435; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2362 M2397 M2413 existing primary episode rows.",
+    "negative_result_policy": "If metric threshold sensitivity is high, route to task-boundary redesign design/audit before more repair/training.",
+    "allowed_claims": [
+      "counterfactual boundary-threshold sensitivity panel generation",
+      "task-quality evidence about road-boundary threshold sensitivity",
+      "route recommendation for result audit",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds threshold sensitivity evidence beyond event-level semantics",
+    "paper_verdict_delta": "can decide task-boundary redesign route; cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "threshold sensitivity panel still cannot choose a bounded next route",
+      "another local source-linked repair is proposed",
+      "the task-quality branch accumulates another artifact-only step after M2435"
+    ]
+  },
+  "hypothesis": "A boundary-threshold sensitivity panel will quantify how much of the current-sim failure rate is metric/termination semantics rather than obstacle failure.",
+  "success_criteria": [
+    "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json exists",
+    "panel rows include M2362 M2397 and M2413 threshold rows",
+    "thresholds 0.02 0.05 0.10 and 0.20 m are evaluated",
+    "counterfactual soft success is clearly separated from actual success",
+    "the panel recommends a bounded non-ranking next route",
+    "no rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2435 starts new measured rollout or reset rerun",
+    "M2435 executes repair or training",
+    "M2435 ranks candidate families or controllers",
+    "M2435 treats soft success as actual success",
+    "M2435 claims scenario redesign success",
+    "M2435 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims",
+    "M2435 omits required primary episode panels or thresholds"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel.py"
+    },
+    {
+      "name": "implementation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/panel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/decision_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_boundary_threshold_sensitivity_panel"
+  ],
+  "baseline_artifacts": [
+    "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+    "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+    "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv",
+    "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv"
+  ],
+  "decision_rule": "M2435 passes if it builds a complete non-ranking boundary-threshold sensitivity panel from existing episode rows and routes to result audit without rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation"
+}

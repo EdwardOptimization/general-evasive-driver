@@ -1,0 +1,190 @@
+{
+  "id": "m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_hard_soft_offtrack_metric_split_design"
+    ],
+    "parent_dataset": [
+      "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+      "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a hard/soft offtrack metric and termination split before any scenario redesign or measured rollout"
+    ],
+    "derived_from": [
+      "m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit"
+    ],
+    "blocked_by": [
+      "M2436 promotes to task-boundary metric/termination redesign branch",
+      "counterfactual soft success must not become actual success",
+      "hard/soft offtrack semantics must be specified before implementation"
+    ],
+    "supersedes": [
+      "direct rollout under ambiguous offtrack semantics",
+      "training/PPO before metric split",
+      "controller-family comparison before task-boundary contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+  "public_gates": [
+    "M2437 must specify hard offtrack, soft offtrack, collision-risk failure, and actual success semantics",
+    "M2437 must preserve that counterfactual relabeling is not actual success",
+    "M2437 must define admission criteria for a future implementation/validation milestone",
+    "M2437 must not run measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_boundary_metric_redesign",
+    "evidence_axis": "E_hard_soft_offtrack_metric_split_design",
+    "evidence_increment": "defines the hard/soft offtrack metric and termination contract required before implementation",
+    "claim_scope": "design only; no new measured rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if design treats counterfactual soft success as actual success",
+      "stop if design omits hard offtrack failure semantics",
+      "stop if design routes directly to training instead of implementation/validation",
+      "stop if design claims scenario redesign was executed"
+    ],
+    "fallback_plan": [
+      "route to implementation if the contract is complete",
+      "route to metric lineage repair if required fields are missing",
+      "route to high-fidelity/backend preparation if current-sim semantics cannot be repaired",
+      "stop for user review if no bounded implementation route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_applicable_first_milestone_new_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "hard/soft offtrack metric split design",
+    "admission_evidence": [
+      "M2436 synthesis promoted to task-boundary metric redesign branch",
+      "M2435 detected high boundary-threshold sensitivity",
+      "M2435 kept counterfactual soft success separate from actual success"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+      "M2437 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "hard/soft offtrack semantics are specified",
+      "actual success remains an executed rollout outcome only",
+      "implementation admission criteria are specified",
+      "a bounded next route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2437 designs task metrics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2437; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2436 branch synthesis and M2435 threshold panel.",
+    "negative_result_policy": "If metric semantics cannot be specified without actual-success leakage, stop for synthesis or user review before implementation.",
+    "allowed_claims": [
+      "hard/soft offtrack metric split design",
+      "termination and claim-boundary specification",
+      "next route decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new metric/termination redesign branch after synthesis",
+    "paper_verdict_delta": "can enable future implementation and measured validation; cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "design cannot choose implementation or stop",
+      "another design-only milestone is proposed without implementation",
+      "counterfactual soft success would leak into actual success"
+    ]
+  },
+  "hypothesis": "A hard/soft offtrack metric split design will make the next current-sim validation route well-defined without leaking counterfactual soft success into actual success.",
+  "success_criteria": [
+    "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md exists",
+    "hard offtrack, soft offtrack, collision-risk failure, and actual success semantics are specified",
+    "counterfactual soft success is explicitly barred from actual success",
+    "implementation admission criteria are specified",
+    "a bounded non-ranking next route is selected",
+    "no rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2437 runs measured validation",
+    "M2437 executes repair or training",
+    "M2437 ranks candidate families or controllers",
+    "M2437 treats soft success as actual success",
+    "M2437 claims scenario redesign success",
+    "M2437 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md from M2436 synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_hard_soft_offtrack_metric_split_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+    "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json"
+  ],
+  "decision_rule": "M2437 passes if it specifies a hard/soft offtrack metric split and selects a bounded implementation route without measured rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design"
+}

@@ -1,0 +1,226 @@
+{
+  "id": "m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_task_quality_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation.md",
+      "docs/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.md",
+      "docs/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.md",
+      "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
+      "docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md",
+      "runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json",
+      "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json",
+      "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.json"
+    ],
+    "parent_objective": [
+      "synthesize the task-quality decision branch after counterfactual boundary-threshold sensitivity evidence"
+    ],
+    "derived_from": [
+      "m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation",
+      "m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit",
+      "m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation",
+      "m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit",
+      "m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation"
+    ],
+    "blocked_by": [
+      "M2431 confirms 6/6 included measured panels are offtrack-dominated",
+      "M2433 confirms 3/3 primary panels are road-boundary dominated by positive-clearance low-overshoot offtrack",
+      "M2435 confirms high boundary-threshold sensitivity",
+      "M2435 counterfactual soft success is not actual rollout success",
+      "local-search guard requires branch synthesis before another audit/design-only step"
+    ],
+    "supersedes": [
+      "direct repair/training/PPO from threshold sensitivity panel",
+      "candidate/controller ranking from counterfactual soft success",
+      "claiming current-sim verdict from M2435 alone",
+      "another ordinary task-quality audit before branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+  "public_gates": [
+    "M2436 must answer the standard synthesis questions",
+    "M2436 must synthesize M2431-M2435 task-quality and threshold-sensitivity evidence",
+    "M2436 must preserve that counterfactual soft success is not actual success",
+    "M2436 must choose continue pivot stop or promote_to_next_branch",
+    "M2436 must choose a bounded next branch or stop",
+    "M2436 must not rerun measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2431 M2433 or M2435",
+    "do not run new measured rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_quality_decision",
+    "evidence_axis": "E_current_sim_task_quality_decision_branch_synthesis",
+    "evidence_increment": "synthesizes M2431-M2435 task-quality, offtrack-semantics, and boundary-threshold sensitivity evidence before opening a task-boundary redesign branch",
+    "claim_scope": "branch synthesis only; no new measured rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis treats counterfactual soft success as actual success",
+      "stop if synthesis ranks candidates or controllers",
+      "stop if synthesis claims scenario redesign was executed",
+      "stop if synthesis routes to training before task-boundary semantics are decided"
+    ],
+    "fallback_plan": [
+      "promote to task-boundary metric/termination redesign branch if M2435 is accepted",
+      "route to metric lineage repair if M2435 fields are unreliable",
+      "route to high-fidelity/backend preparation if current-sim semantics are judged exhausted",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2435 completed the third panel evidence milestone in the task-quality branch and the local-search guard blocks another ordinary audit/design-only step",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "task-quality branch synthesis after boundary threshold sensitivity evidence",
+    "admission_evidence": [
+      "M2431 result_class is current_sim_dual_axis_task_quality_decision_panel_pass",
+      "M2433 result_class is current_sim_dual_axis_offtrack_semantics_panel_pass",
+      "M2435 result_class is current_sim_dual_axis_boundary_threshold_sensitivity_panel_pass",
+      "M2435 min soft-success gain at 0.20 m is 0.7175925925925926",
+      "M2435 actual_success_improvement_claim_made is false",
+      "M2435 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+      "M2436 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "standard synthesis questions are answered",
+      "boundary-threshold sensitivity evidence is classified",
+      "counterfactual soft success remains separated from actual success",
+      "a bounded next branch is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2436 synthesizes task-quality metrics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2436; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2431-M2435 task-quality decision branch.",
+    "negative_result_policy": "If threshold sensitivity is accepted, route to task-boundary metric/termination redesign design before more local repair or training.",
+    "allowed_claims": [
+      "task-quality branch synthesis",
+      "boundary-threshold sensitivity classification",
+      "next branch decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes task-quality, offtrack-semantics, and threshold-sensitivity evidence into a branch decision",
+    "paper_verdict_delta": "promotes the route toward task-boundary redesign design; cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2431-M2435 will close the task-quality decision branch and route to a task-boundary metric/termination redesign branch without treating counterfactual soft success as actual success.",
+  "success_criteria": [
+    "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md exists",
+    "the synthesis answers all required synthesis questions",
+    "counterfactual soft success is kept separate from actual success",
+    "boundary-threshold sensitivity is classified",
+    "a bounded non-ranking next branch is selected or the route is stopped",
+    "no measured rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2436 reruns measured validation",
+    "M2436 executes repair or training",
+    "M2436 ranks candidate families or controllers",
+    "M2436 treats soft success as actual success",
+    "M2436 hides threshold sensitivity evidence",
+    "M2436 claims scenario redesign success",
+    "M2436 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md from M2431-M2435 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_task_quality_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md",
+    "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json"
+  ],
+  "decision_rule": "M2436 passes if it synthesizes M2431-M2435 evidence and selects a bounded non-ranking next branch or stops without measured rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit"
+}

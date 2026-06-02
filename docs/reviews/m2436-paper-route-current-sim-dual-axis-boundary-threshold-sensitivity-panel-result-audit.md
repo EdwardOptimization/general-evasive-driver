@@ -1,0 +1,107 @@
+# m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T191848Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: promote_to_task_boundary_metric_termination_redesign_branch
+- Decision reason: M2436 synthesizes M2431-M2435 task-quality branch and promotes to task-boundary metric redesign branch while preserving counterfactual soft success is not actual success no rollout repair training ranking or verdict claims
+
+## Hypothesis
+
+Synthesizing M2431-M2435 will close the task-quality decision branch and route to a task-boundary metric/termination redesign branch without treating counterfactual soft success as actual success.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_task_quality_branch_synthesis
+- parent_dataset: docs/m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation.md, docs/m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit.md, docs/m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation.md, docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md, docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md, runs/m2431_paper_route_current_sim_dual_axis_task_quality_decision_panel/summary.json, runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json, runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.json
+- parent_objective: synthesize the task-quality decision branch after counterfactual boundary-threshold sensitivity evidence
+- derived_from: m2431-paper-route-current-sim-dual-axis-task-quality-decision-panel-implementation, m2432-paper-route-current-sim-dual-axis-task-quality-decision-panel-result-audit, m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation, m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit, m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation
+- blocked_by: M2431 confirms 6/6 included measured panels are offtrack-dominated, M2433 confirms 3/3 primary panels are road-boundary dominated by positive-clearance low-overshoot offtrack, M2435 confirms high boundary-threshold sensitivity, M2435 counterfactual soft success is not actual rollout success, local-search guard requires branch synthesis before another audit/design-only step
+- supersedes: direct repair/training/PPO from threshold sensitivity panel, candidate/controller ranking from counterfactual soft success, claiming current-sim verdict from M2435 alone, another ordinary task-quality audit before branch synthesis
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md exists
+- the synthesis answers all required synthesis questions
+- counterfactual soft success is kept separate from actual success
+- boundary-threshold sensitivity is classified
+- a bounded non-ranking next branch is selected or the route is stopped
+- no measured rollout repair training ranking actual-success or verdict claim is made
+
+## Failure Criteria
+
+- M2436 reruns measured validation
+- M2436 executes repair or training
+- M2436 ranks candidate families or controllers
+- M2436 treats soft success as actual success
+- M2436 hides threshold sensitivity evidence
+- M2436 claims scenario redesign success
+- M2436 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims
+
+## Evidence Gates
+
+- M2436 must answer the standard synthesis questions
+- M2436 must synthesize M2431-M2435 task-quality and threshold-sensitivity evidence
+- M2436 must preserve that counterfactual soft success is not actual success
+- M2436 must choose continue pivot stop or promote_to_next_branch
+- M2436 must choose a bounded next branch or stop
+- M2436 must not rerun measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun M2431 M2433 or M2435
+- do not run new measured rollout
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not overwrite active configs
+- do not change actor inputs
+- do not inject hidden or oracle actor features
+- do not rank candidate families
+- do not rank controller families
+- do not select a winner
+- do not claim actual success improvement
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- scenario_sampling_failure
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit
+- type: gate
+- checkpoint: docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: promote_to_task_boundary_metric_termination_redesign_branch
+- reason: M2436 synthesizes M2431-M2435 task-quality branch and promotes to task-boundary metric redesign branch while preserving counterfactual soft success is not actual success no rollout repair training ranking or verdict claims
+
+## Next Blocker
+
+m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit

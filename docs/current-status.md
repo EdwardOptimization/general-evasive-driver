@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation
+m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation
+m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit
+m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
 ```
 
 Current route:
@@ -251,6 +251,29 @@ redesign success. The current next task is M2434 result audit: decide
 offtrack-boundary task-semantics reassessment, metric/termination threshold
 design, high-fidelity/backend preparation, synthesis/stop, or another bounded
 route, without rollout, repair, training, ranking, or verdict claims.
+M2434 accepted M2433 and routed to boundary-threshold sensitivity analysis.
+M2435 implemented that panel from existing primary episode rows only, evaluating
+0.02, 0.05, 0.10, and 0.20 m road-boundary tolerance. It passed as a
+counterfactual metric-sensitivity artifact: at 0.20 m, the minimum soft-success
+gain is 0.717, the minimum counterfactual soft-success rate is
+0.7827777777777778, and the maximum counterfactual soft-success rate is
+0.8752562225475842, while maximum actual success remains only
+0.066. M2435 does not claim actual success improvement, scenario redesign,
+driver progress, or current-sim verdict. The current next task is M2436 result
+audit: decide task-boundary metric/termination redesign design, hard/soft
+offtrack metric split, high-fidelity/backend preparation, synthesis/stop, or
+another bounded route, without rollout, repair, training, ranking,
+actual-success, or verdict claims.
+M2436 synthesized the M2431-M2435 task-quality decision branch and promoted the
+workflow to a new branch:
+`paper_route_current_sim_dual_axis_task_boundary_metric_redesign`. The synthesis
+keeps counterfactual soft success separate from actual rollout success. It does
+not claim driver improvement, scenario redesign execution, current-sim verdict,
+paper result, finite-window-vs-GRU result, or level3 self-identification. The
+current next task is M2437: design a hard/soft offtrack metric and termination
+split that defines hard offtrack failure, soft offtrack violation, collision-
+risk failure, and actual success semantics before any implementation or
+measured validation.
 ```
 
 ## Latest Evidence

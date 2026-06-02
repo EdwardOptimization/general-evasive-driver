@@ -44220,3 +44220,54 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: dominant offtrack failures are road-boundary/task-semantics dominated by positive-clearance low-overshoot events, not a basis for immediate repair/training
 - follow-up manifest: `experiments/manifests/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.json`
 - next: `m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit`
+
+## M2434 Paper-Route Current-Sim Dual-Axis Offtrack Semantics Panel Result Audit
+
+- status: completed
+- decision: `offtrack_semantics_panel_accepted_route_to_boundary_threshold_sensitivity`
+- manifest: `experiments/manifests/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.json`
+- doc: `docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md`
+- audited summary: `runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json`
+- accepted evidence: M2433 panel pass, `3/3` primary panels road-boundary dominated, min positive-clearance low-overshoot offtrack rate `0.9841229193341869`, guardrail violations `0`
+- diagnosis: next useful question is threshold sensitivity, not repair/training
+- route: counterfactual boundary-threshold sensitivity panel over existing primary episode rows
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.json`
+- next: `m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation`
+
+## M2435 Paper-Route Current-Sim Dual-Axis Boundary-Threshold Sensitivity Panel Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_boundary_threshold_sensitivity_panel_pass`
+- manifest: `experiments/manifests/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.json`
+- doc: `docs/m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel.py`
+- focused tests: `2 passed`
+- summary: `runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json`
+- thresholds: `0.02`, `0.05`, `0.10`, `0.20` m
+- min soft-success gain at `0.20 m`: `0.7175925925925926`
+- min counterfactual soft-success rate at `0.20 m`: `0.7827777777777778`
+- max counterfactual soft-success rate at `0.20 m`: `0.8752562225475842`
+- max actual success rate: `0.06685714285714285`
+- actual success improvement claim: `false`
+- guardrail violations: `0`
+- interpretation: current-sim failure rate is highly sensitive to small road-boundary tolerance, but soft success remains counterfactual diagnostic evidence only
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.json`
+- next: `m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit`
+
+## M2436 Paper-Route Current-Sim Dual-Axis Boundary-Threshold Sensitivity Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- route decision: `promote_to_task_boundary_metric_termination_redesign_branch`
+- manifest: `experiments/manifests/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.json`
+- doc: `docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md`
+- synthesized branch: M2431-M2435 current-sim task-quality decision branch
+- evidence summary: M2431 `6/6` measured panels offtrack-dominated; M2433 `3/3` primary panels road-boundary dominated; M2435 threshold sensitivity high with min 0.20m soft-success gain `0.7175925925925926`
+- supported claim: current-sim failure analysis now identifies a task-boundary metric/termination blocker
+- blocked claim: counterfactual soft success is not actual success and cannot support driver/current-sim/paper/self-ID verdicts
+- local-search decision: close the task-quality decision branch before another same-data audit/design step
+- new branch: `paper_route_current_sim_dual_axis_task_boundary_metric_redesign`
+- follow-up manifest: `experiments/manifests/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.json`
+- next: `m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2439,
+    "completed": 2442,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2433-paper-route-current-sim-dual-axis-offtrack-semantics-panel-implementation",
+    "task_id": "m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json",
-    "command_log": "runs/m2433_paper_route_current_sim_dual_axis_offtrack_semantics_panel/summary.json"
+    "run_dir": "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md",
+    "command_log": "docs/m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit.md"
   },
   "next_task": {
-    "id": "m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit",
-    "kind": "gate",
-    "priority": 24290,
+    "id": "m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design",
+    "kind": "infrastructure",
+    "priority": 24320,
     "status": "pending",
-    "hypothesis": "Auditing M2433 will determine whether road-boundary dominated offtrack should route to task-boundary semantics reassessment, metric/threshold design, high-fidelity/backend preparation, synthesis, or stop.",
-    "command": "see experiments/manifests/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.json",
-    "success_artifact": "docs/m2434-paper-route-current-sim-dual-axis-offtrack-semantics-panel-result-audit.md",
-    "notes": "Pending: audit M2433 offtrack semantics panel 3/3 road-boundary dominated panels min positive-clearance low-overshoot offtrack rate 0.9841229193341869 no rollout/repair/training/ranking/verdict claims"
+    "hypothesis": "A hard/soft offtrack metric split design will make the next current-sim validation route well-defined without leaking counterfactual soft success into actual success.",
+    "command": "see experiments/manifests/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.json",
+    "success_artifact": "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+    "notes": "Pending: design hard/soft offtrack metric split after M2436 synthesis no rollout/repair/training/ranking/actual-success/verdict claims"
   },
-  "updated_at_utc": "20260602T190033Z"
+  "updated_at_utc": "20260602T191719Z"
 }
