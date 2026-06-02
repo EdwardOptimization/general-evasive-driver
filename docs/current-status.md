@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization
+m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit
 ```
 
 Current next task:
 
 ```text
-m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit
+m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design
 ```
 
 Current route:
 
 ```text
-M2371 materialized repair-spec artifacts without executing repair. M2372 must
-audit those artifacts before any repair implementation design, scenario
-redesign, ranking, training, or paper-route interpretation.
+M2372 accepted the M2371 repair-spec artifact as clean and routed to bounded
+repair implementation design. M2373 must design the implementation route and
+decide synthesis cadence before any repair execution, scenario redesign,
+ranking, training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -166,6 +167,22 @@ collision_blind_mixed_repair_spec_count: 0
 guardrail_violation_count: 0
 ```
 
+M2372 audit decision:
+
+```text
+M2371 repair specs accepted: true
+next route: bounded offtrack guardrail repair implementation design
+ordinary offtrack specs: 36
+mixed guarded offtrack specs: 18
+collision guardrail specs: 28
+R4 mitigation semantics guardrail specs: 48
+diagnostic no-ranking guardrail specs: 190
+profile/pack ordinary repair specs: 0
+R4 ordinary repair specs: 0
+collision-blind mixed repair specs: 0
+repair execution/training/replay/PPO: false
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -190,17 +207,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2372 should audit repair-spec outputs:
+M2373 should design the bounded implementation route from repair-spec outputs:
 
 ```text
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/repair_spec_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/ordinary_offtrack_repair_spec_rows.csv
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/mixed_guarded_repair_spec_rows.csv
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/collision_guardrail_spec_rows.csv
 runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/r4_guardrail_spec_rows.csv
+runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/diagnostic_guardrail_spec_rows.csv
 ```
 
-The audit should choose a bounded next route or stop the branch. It must not
-execute repair levers, run reset/rollout, train, replay, use PPO, rank profiles
-or packs, select a winner, claim scenario redesign executed, claim repair
-success, or make paper/self-ID claims.
+The design should map implementation levers and guardrail preservation without
+executing repair levers. It must also decide whether branch synthesis is needed
+before another narrow implementation milestone. It must not run reset/rollout,
+train, replay, use PPO, rank profiles or packs, select a winner, claim scenario
+redesign executed, claim repair success, or make paper/self-ID claims.

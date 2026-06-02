@@ -43067,3 +43067,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
 - follow-up manifest: `experiments/manifests/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.json`
 - next: `m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit`
+
+## M2372 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Spec Result Audit
+
+- status: completed
+- decision: `repair_spec_result_accepted_route_to_offtrack_guardrail_repair_implementation_design`
+- manifest: `experiments/manifests/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.json`
+- doc: `docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md`
+- audited summary: `runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json`
+- reset/rollout/measured execution in M2372: `false`
+- policy action executed in M2372: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair claims: `false`
+- M2371 repair specs accepted: `true`
+- repair_spec_row_count: `320`
+- priority_offtrack_containment_repair: `26`
+- offtrack_containment_repair: `10`
+- guarded_offtrack_containment_repair: `18`
+- collision_guardrail_constraint: `28`
+- r4_mitigation_semantics_guardrail: `48`
+- diagnostic_no_ranking_guardrail: `190`
+- profile_or_pack_repair_spec_count: `0`
+- r4_ordinary_repair_spec_count: `0`
+- collision_blind_mixed_repair_spec_count: `0`
+- guardrail_violation_count: `0`
+- decision: route to bounded offtrack guardrail repair implementation design; no direct repair execution or training-repair-success claim
+- follow-up manifest: `experiments/manifests/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.json`
+- next: `m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design`

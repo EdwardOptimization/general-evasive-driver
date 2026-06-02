@@ -1,0 +1,202 @@
+{
+  "id": "m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repair_implementation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md",
+      "docs/m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization.md",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/repair_spec_rows.csv",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/ordinary_offtrack_repair_spec_rows.csv",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/mixed_guarded_repair_spec_rows.csv",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/collision_guardrail_spec_rows.csv",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/r4_guardrail_spec_rows.csv",
+      "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/diagnostic_guardrail_spec_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded implementation route for audited offtrack guardrail repair specs without executing repair"
+    ],
+    "derived_from": [
+      "m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit",
+      "m2371-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-materialization"
+    ],
+    "blocked_by": [
+      "M2372 accepts repair specs but no implementation route is designed",
+      "repair execution remains blocked until implementation levers and guardrail preservation are specified"
+    ],
+    "supersedes": [
+      "direct repair execution from repair-spec rows",
+      "training or scenario redesign that ignores collision/R4/diagnostic guardrails"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
+  "public_gates": [
+    "M2373 must design implementation levers for ordinary offtrack and mixed guarded repair specs without executing them",
+    "M2373 must preserve collision, R4 mitigation, and diagnostic no-ranking guardrails as constraints",
+    "M2373 must decide whether branch synthesis is required before any subsequent narrow implementation milestone",
+    "M2373 must keep ranking, winner selection, paper finite-window-vs-GRU, scenario-redesign-executed, training-repair, and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_outcome_localization",
+    "evidence_axis": "E_repair_implementation_design",
+    "evidence_increment": "turns audited repair specs into a bounded implementation route without executing repair",
+    "claim_scope": "design only; no repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, or training-repair claim",
+    "stop_condition": [
+      "stop if implementation design would require actor input changes or oracle features",
+      "stop if ordinary offtrack repair cannot be separated from collision/R4/diagnostic guardrails",
+      "stop if implementation route would directly rank profiles or packs",
+      "stop if design claims scenario redesign executed or training repair success"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if the branch reaches cadence before another implementation milestone",
+      "route to repair-spec schema repair if implementation levers cannot preserve guardrails",
+      "route to artifact-only implementation materializer only if design is bounded and synthesis cadence allows it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2372 accepts repair specs and routes to implementation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack guardrail repair implementation design",
+    "admission_evidence": [
+      "M2372 accepts M2371 repair specs",
+      "M2371 repair_spec_row_count is 320",
+      "M2371 ordinary offtrack repair specs are 36",
+      "M2371 mixed guarded repair specs are 18",
+      "M2371 collision/R4/diagnostic guardrail specs are 28/48/190",
+      "M2371 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no repair execution",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no scenario-redesign-executed claim",
+      "no training-repair-success claim"
+    ],
+    "allowed_updates": [
+      "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
+      "M2373 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design or a synthesis route"
+    ],
+    "next_stage_criteria": [
+      "repair levers and guardrail constraints are mapped to implementation surfaces",
+      "claim boundary remains blocked",
+      "branch synthesis need is decided",
+      "a bounded next route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2373 designs implementation route and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2373; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2371 repair-spec artifacts and M2372 audit.",
+    "negative_result_policy": "Implementation design remains an engineering route, not driver capability evidence.",
+    "allowed_claims": [
+      "bounded offtrack guardrail repair implementation design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a bounded implementation route from repair-spec artifacts but does not yet test capability",
+    "paper_verdict_delta": "can admit or block an implementation materializer but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2373 cannot specify a bounded implementation route",
+      "M2373 proposes direct profile ranking or paper conclusion",
+      "M2373 selects another narrow implementation milestone after the outcome-localization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded implementation design can map audited repair specs to concrete repair surfaces while preserving collision, R4, diagnostic, and claim guardrails.",
+  "success_criteria": [
+    "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md exists",
+    "implementation levers are mapped for ordinary offtrack and mixed guarded specs",
+    "collision, R4, and diagnostic guardrails remain constraints",
+    "actor input, oracle-feature, profile-tuning, ranking, winner, paper-level, finite-window-vs-GRU, scenario-redesign-executed, training-repair, and level3 self-ID claims remain blocked",
+    "a bounded follow-up route or branch synthesis route is selected"
+  ],
+  "failure_criteria": [
+    "M2373 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2373 executes repair levers or trains",
+    "M2373 changes actor inputs or injects hidden/oracle features",
+    "M2373 ranks support policies or controller families",
+    "M2373 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2373 claims scenario redesign executed or training repair success",
+    "M2373 ignores synthesis cadence before selecting another narrow implementation route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2372 audit and M2371 repair-spec artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repair_implementation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2372-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-spec-result-audit.md",
+    "runs/m2371_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_spec_materialization/summary.json"
+  ],
+  "decision_rule": "M2373 passes if it designs a bounded implementation route or routes to synthesis without executing repair, ranking, training, or paper/self-ID claims.",
+  "next_blocker": "m2373-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-implementation-design"
+}
