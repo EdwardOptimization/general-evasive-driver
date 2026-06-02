@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
+m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
+m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
+m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
 ```
 
 Current route:
 
 ```text
+M2443 implemented and ran the metric-selected validation preflight for the M2413
+denominator under soft-boundary config. It materialized 5250 workload cells from
+350 reset targets x 15 selected checkpoints, verified source-cell coverage with
+0 duplicate cells and 0 missing targets/checkpoints/cells, reset 350/350
+soft-boundary env configs successfully, preserved actor observation shape, and
+executed 0 policy actions. This is reset/config readiness evidence only: no
+measured driving rollout, repair, training, ranking, actual-success claim,
+scenario redesign execution, paper/FW-vs-GRU/self-ID claim, or current-sim
+verdict is supported. The next task is M2444 preflight result audit before any
+full metric-selected measured validation route.
+
 M2442 synthesized M2437-M2441 after the local-search guard blocked another
 ordinary audit. The synthesis decision is continue, but only to fresh
 metric-selected validation preflight evidence. The branch now has hard/soft

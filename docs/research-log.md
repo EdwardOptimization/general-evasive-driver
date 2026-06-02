@@ -44374,3 +44374,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.json`
 - next: `m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation`
+
+## M2443 Paper-Route Current-Sim Dual-Axis Metric-Selected Validation Preflight Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_metric_selected_validation_preflight_pass`
+- manifest: `experiments/manifests/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.json`
+- doc: `docs/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.md`
+- summary: `runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/summary.json`
+- workload rows: `5250`
+- reset targets: `350`
+- selected checkpoints: `15`
+- source M2413 cells: `5250`
+- duplicate source cells: `0`
+- missing source targets/checkpoints/cells: `0` / `0` / `0`
+- environment reset success: `350`
+- actor observation shape changed: `0`
+- finite observations: `350`
+- soft-enabled resets: `350`
+- policy action count: `0`
+- guardrail violations: `0`
+- failure_types_observed: `[]`
+- interpretation: the M2413 denominator can be materialized and reset-tested under `soft_offtrack_metric_enabled=true` and `soft_offtrack_tolerance_m=0.20` without changing actor observation shape or executing policy actions
+- rerun/new measured rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.json`
+- next: `m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit`

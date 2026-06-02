@@ -1,0 +1,189 @@
+{
+  "id": "m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_metric_selected_validation_preflight_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.md",
+      "runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/summary.json",
+      "runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/workload_rows.csv",
+      "runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/reset_validation_rows.csv",
+      "runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/decision_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.json"
+    ],
+    "parent_objective": [
+      "audit metric-selected validation preflight before any full measured rollout"
+    ],
+    "derived_from": [
+      "m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation",
+      "m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis"
+    ],
+    "blocked_by": [
+      "full measured validation must not start until preflight result is audited",
+      "preflight reset/config evidence is not actual success evidence"
+    ],
+    "supersedes": [
+      "direct full measured validation without preflight audit",
+      "treating reset-only preflight as measured driving result"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md",
+  "public_gates": [
+    "M2444 must audit M2443 summary, workload rows, reset validation rows, and decision rows",
+    "M2444 must verify 350 x 15 source-cell coverage and no duplicate/missing cells",
+    "M2444 must verify soft-boundary reset success, unchanged actor observation shape, and zero policy action",
+    "M2444 must choose accept, reject, repair, stop, or bounded measured-validation route",
+    "M2444 must not run measured rollout, repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run measured policy rollout",
+    "do not execute policy action",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_boundary_metric_redesign",
+    "evidence_axis": "E_metric_selected_validation_preflight_audit",
+    "evidence_increment": "audits whether M2443 preflight evidence admits bounded full metric-selected measured validation",
+    "claim_scope": "preflight result audit only; no measured policy rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2443 workload coverage is incomplete",
+      "stop if actor observation shape changed",
+      "stop if M2443 executed policy action",
+      "stop if M2443 is interpreted as measured driving success"
+    ],
+    "fallback_plan": [
+      "route to bounded full metric-selected measured-validation implementation if M2443 is accepted",
+      "route to preflight/config repair if M2443 has fixable gaps",
+      "stop for user review if no bounded measured-validation route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_applicable_after_M2442_continue_synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "metric-selected validation preflight result audit",
+    "admission_evidence": [
+      "M2443 result_class current_sim_dual_axis_metric_selected_validation_preflight_pass",
+      "M2443 source cells 5250/5250 with zero duplicate or missing cells",
+      "M2443 reset success 350/350 with unchanged actor observation shape",
+      "M2443 policy_action_count 0 and guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md",
+      "M2444 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2443 evidence is accepted or rejected",
+      "a bounded non-ranking next route is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2444 audits task metric preflight and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2444; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2443 metric-selected reset/config preflight.",
+    "negative_result_policy": "If M2443 is not accepted, repair preflight/config support or stop before measured rollout.",
+    "allowed_claims": [
+      "metric-selected validation preflight result audit",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits fresh preflight/reset evidence before measured validation",
+    "paper_verdict_delta": "can admit full measured validation route; cannot itself establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "audit cannot choose measured-validation route, repair, or stop",
+      "another same-data relabel is proposed",
+      "preflight is interpreted as actual success"
+    ]
+  },
+  "hypothesis": "Auditing M2443 can accept or reject the metric-selected validation preflight and choose a bounded next route without measured rollout.",
+  "success_criteria": [
+    "docs/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md exists",
+    "M2443 summary and CSV artifacts are audited",
+    "preflight evidence is accepted or rejected",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no measured policy rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2444 executes policy action or measured policy rollout",
+    "M2444 executes repair or training",
+    "M2444 ranks candidate families or controllers",
+    "M2444 treats reset/config preflight as actual success",
+    "M2444 changes actor input contract",
+    "M2444 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md from M2443 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_metric_selected_validation_preflight_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.md",
+    "runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/summary.json"
+  ],
+  "decision_rule": "M2444 passes if it audits M2443 and selects a bounded non-ranking next route or stops without rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit"
+}
