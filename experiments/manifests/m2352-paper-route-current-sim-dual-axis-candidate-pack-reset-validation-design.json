@@ -1,0 +1,190 @@
+{
+  "id": "m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_candidate_pack_reset_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded reset validation for M2350 candidate config packs"
+    ],
+    "derived_from": [
+      "m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis",
+      "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2351 routes to reset-validation design but does not run reset validation",
+      "M2350 candidate packs are artifact files and need reset-validity evidence before any rollout or controller comparison"
+    ],
+    "supersedes": [
+      "direct measured validation over M2350 packs",
+      "direct controller comparison after M2350",
+      "direct patch-resolution repair before reset-validation design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+  "public_gates": [
+    "M2352 must design reset validation over the five M2350 config packs",
+    "M2352 must define metadata-only caveat reporting and fail-closed reset criteria",
+    "M2352 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid redesigned scenario pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_reset_validation",
+    "evidence_axis": "Q_candidate_pack_reset_validation_design",
+    "evidence_increment": "designs bounded reset-validation protocol for five candidate config packs",
+    "claim_scope": "design only; no reset execution, measured rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if design runs reset validation",
+      "stop if design ignores metadata-only patch caveats",
+      "stop if design routes directly to measured controller comparison",
+      "stop if design claims reset-valid redesigned scenario pack"
+    ],
+    "fallback_plan": [
+      "route to reset-validation implementation if schema is sufficient",
+      "pivot to patch-resolution repair design if metadata caveats cannot be represented",
+      "stop for user review if no bounded reset-validation protocol is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2351 routes dual-axis calibration branch to candidate pack reset-validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design candidate pack reset-validation protocol",
+    "admission_evidence": [
+      "M2350 materializes five config packs",
+      "M2351 accepts branch continuation to reset-validation design",
+      "M2350 reports metadata_only_patch_count 37 and unresolved_patch_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no active config overwrite",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+      "M2352 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "pack list and scenario count expectations are specified",
+      "metadata-only caveat reporting is specified",
+      "reset pass/fail criteria are specified",
+      "output artifacts and summary fields are specified",
+      "a bounded non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2352 designs task-quality reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2352; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2350/M2351 task-quality artifacts.",
+    "negative_result_policy": "Reset-validation design must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "dual-axis candidate pack reset-validation design",
+      "no reset-valid scenario pack, controller ranking, paper-level result, finite-window-vs-GRU conclusion, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a bounded reset-validation protocol after branch synthesis instead of extending artifact-only local search",
+    "paper_verdict_delta": "can produce the first reset-validity evidence for dual-axis candidate packs in a later implementation milestone",
+    "must_synthesize_if": [
+      "M2352 cannot bound the reset-validation protocol",
+      "M2352 routes directly to controller comparison",
+      "the reset-validation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded reset-validation design can test the five M2350 candidate config packs while preserving metadata-only caveat reporting and claim boundaries.",
+  "success_criteria": [
+    "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md exists",
+    "pack list and scenario count expectations are specified",
+    "metadata-only caveat reporting is specified",
+    "reset pass/fail criteria are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2352 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2352 ranks support policies or controller families",
+    "M2352 overwrites the active scenario config",
+    "M2352 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2352 claims scenario redesign executed or reset-valid redesigned scenario pack",
+    "M2352 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2351 synthesis and M2350 config-pack artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_candidate_pack_reset_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json"
+  ],
+  "decision_rule": "M2352 passes if it designs a bounded non-ranking reset-validation implementation route without execution or claims.",
+  "next_blocker": "selected_by_m2352_design"
+}

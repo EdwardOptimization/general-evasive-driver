@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation
+m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis
+m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -210,7 +210,19 @@ local-search guard triggered after M2350. The synthesis must interpret the
 config-pack artifacts and metadata-only patch caveat before choosing reset
 validation design, patch-resolution repair, or another bounded route. The
 project still has no claim that the candidate packs are reset-valid or that
-scenario redesign has been executed.
+scenario redesign has been executed. M2351 is now complete:
+
+```text
+synthesis decision: continue
+decision: continue_to_candidate_pack_reset_validation_design
+metadata_only_patch_count: 37
+unresolved_patch_count: 0
+active_config_overwritten: false
+guardrail_violation_count: 0
+```
+
+M2352 should design a bounded reset-validation protocol for the five M2350
+candidate config packs. It must not run reset validation yet.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

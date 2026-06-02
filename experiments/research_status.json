@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2358,
+    "completed": 2359,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation",
+    "task_id": "m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization",
-    "command_log": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis",
+    "id": "m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design",
     "kind": "gate",
-    "priority": 23460,
+    "priority": 23470,
     "status": "pending",
-    "hypothesis": "Synthesizing M2346-M2350 will prevent over-local candidate-pack work and select the next bounded non-ranking route.",
-    "command": "write docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md from M2346-M2350 artifacts",
-    "success_artifact": "docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md",
-    "notes": "Pending: synthesize dual-axis calibration branch after local-search guard trigger no reset/rollout/training/ranking"
+    "hypothesis": "A bounded reset-validation design can test the five M2350 candidate config packs while preserving metadata-only caveat reporting and claim boundaries.",
+    "command": "write docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md from M2351 synthesis and M2350 artifacts",
+    "success_artifact": "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+    "notes": "Pending: design bounded candidate pack reset-validation protocol no reset/rollout/training/ranking"
   },
-  "updated_at_utc": "20260602T023821Z"
+  "updated_at_utc": "20260602T024450Z"
 }

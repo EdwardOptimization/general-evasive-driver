@@ -42539,3 +42539,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - scenario redesign executed claim made: `false`
 - follow-up manifest: `experiments/manifests/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.json`
 - next: `m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis`
+
+## M2351 Paper-Route Current-Sim Dual-Axis Calibration Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_candidate_pack_reset_validation_design`
+- manifest: `experiments/manifests/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.json`
+- doc: `docs/m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis.md`
+- synthesis window: `M2346-M2350`
+- M2350 artifacts accepted as reset-validation design input: `true`
+- metadata_only_patch_count: `37`
+- unresolved_patch_count: `0`
+- active_config_overwritten: `false`
+- guardrail_violation_count: `0`
+- paper-route axis advanced: `scenario/task-quality evidence`
+- reset/rollout/measured execution in M2351: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- follow-up manifest: `experiments/manifests/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.json`
+- next: `m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design`
