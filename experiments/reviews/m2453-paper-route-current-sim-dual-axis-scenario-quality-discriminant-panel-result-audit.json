@@ -1,0 +1,113 @@
+{
+  "decision_reason": "M2453 accepts M2452 panel and routes to scenario-quality redesign protocol design because stable avoidable and stable AES rows are hard-offtrack dominated direct repair training blocked",
+  "failure_criteria": [
+    "M2453 reruns measured validation or policy action",
+    "M2453 executes repair or training",
+    "M2453 ranks candidate families, controller families, selected checkpoints, or panel rows as winners",
+    "M2453 selects a winner",
+    "M2453 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank panel rows as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "generalization",
+  "generated_at_utc": "20260602T222324Z",
+  "hypothesis": "Auditing M2452 can decide whether the discriminant panel supports scenario redesign, guarded repair-plan design, synthesis, or stop without rerun, repair, training, ranking, winner selection, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2452 created a discriminant panel that must be audited before any scenario redesign, repair, or training route",
+      "stable avoidable and AES feasible rows are hard-offtrack dominated",
+      "handling-limit and hidden-dynamics rows remain possible repair-plan candidates but require guardrails"
+    ],
+    "derived_from": [
+      "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel",
+      "m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_scenario_quality_discriminant_panel_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.json"
+    ],
+    "parent_dataset": [
+      "docs/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/guardrail_rows.csv",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/decision_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit the artifact-only scenario-quality discriminant panel before scenario redesign, repair-plan design, synthesis, or stop"
+    ],
+    "supersedes": [
+      "direct scenario redesign from M2452 without audit",
+      "direct repair/training from M2452 panel rows",
+      "ranking profiles, packs, selected checkpoints, candidate families, or panel rows as winners"
+    ]
+  },
+  "milestone": "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+  "next_blocker": "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_panel_route_to_scenario_quality_redesign_protocol_design",
+  "public_gates": [
+    "M2453 must audit M2452 summary, panel, guardrail, and decision rows",
+    "M2453 must decide whether the panel supports scenario redesign, guarded repair-plan design, synthesis, or stop",
+    "M2453 must preserve monitoring axes as non-ranking and no-winner",
+    "M2453 must not rerun rollout, repair, train, rank, select winners, or make paper/current-sim/self-ID verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md",
+    "clearance_margin_mean": "6.847753455149411",
+    "decision": "accept_panel_route_to_scenario_quality_redesign_protocol_design",
+    "milestone": "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+    "reason": "M2453 accepts M2452 panel and routes to scenario-quality redesign protocol design because stable avoidable and stable AES rows are hard-offtrack dominated direct repair training blocked",
+    "reset_success": "",
+    "success_rate": "0.06685714285714285",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md exists",
+    "M2452 summary, panel rows, guardrail rows, and decision rows are audited",
+    "monitoring axes remain non-ranking",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no rerun repair training ranking winner or verdict claim is made"
+  ],
+  "type": "gate"
+}

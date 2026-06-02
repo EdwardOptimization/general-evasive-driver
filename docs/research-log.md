@@ -44575,3 +44575,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.json`
 - next: `m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit`
+
+## M2453 Paper-Route Current-Sim Dual-Axis Scenario-Quality Discriminant Panel Result Audit
+
+- status: completed
+- decision: `accept_panel_route_to_scenario_quality_redesign_protocol_design`
+- manifest: `experiments/manifests/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.json`
+- doc: `docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md`
+- audited summary: `runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json`
+- accepted evidence: M2452 panel pass with `71` panel rows, `7` scenario-quality blockers, `19` possible repair-plan candidates, `52` collision-mitigation guardrail rows, `41` monitoring-only rows, and guardrail violations `0`
+- audit finding: stable avoidable/AEB-feasible hard_offtrack_rate `0.9333333333333333` with collision_rate `0.0`; stable AES hard_offtrack_rate `0.66` with collision_rate `0.011111111111111112`
+- decision: direct repair/training from M2452 rows is blocked; route to design-only scenario-quality redesign protocol
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.json`
+- next: `m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design`

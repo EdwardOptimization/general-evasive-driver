@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
+m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
+m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit
+m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design
 ```
 
 Current route:
 
 ```text
+M2453 accepted M2452 as a complete scenario-quality discriminant panel and
+routed to design-only scenario-quality redesign protocol. The key audit finding
+is that stable avoidable/AEB-feasible rows are hard-offtrack dominated with
+hard_offtrack_rate `0.9333333333333333` and collision_rate `0.0`, while stable
+AES rows remain hard-offtrack dominated with hard_offtrack_rate `0.66` and
+collision_rate `0.011111111111111112`. This blocks direct repair/training from
+M2452 rows: ordinary stable/AES scenario quality must be specified first.
+M2454 should design, not execute, role-specific scenario-quality rules for
+stable/AES feasibility, boundary/geometry/timing levers, and drift-required /
+unavoidable guardrails. No rerun, policy action, scenario redesign execution,
+repair, training, ranking, winner selection, paper/FW-vs-GRU/self-ID/
+training-repair verdict, or current-sim verdict is supported.
+
 M2452 built the first artifact-only scenario-quality discriminant panel from
 M2445 episode rows and M2449 target/guardrail/diagnostic rows. It passed with
 `71` panel rows, `7` scenario-quality blockers, `19` possible repair-plan
