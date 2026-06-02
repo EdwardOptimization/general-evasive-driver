@@ -1,0 +1,104 @@
+# m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T120228Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: effective_candidate_measured_validation_complete_offtrack_dominated_route_to_outcome_localization
+- Decision reason: M2398 accepts M2397 complete artifact and classifies outcome as offtrack-dominated driver-outcome blocker; routes to artifact-only outcome localization no ranking/verdict claims
+
+## Hypothesis
+
+The complete M2397 effective-candidate measured-validation artifact can be audited into a bounded failure taxonomy and next-route decision without rerun, repair execution, training, ranking, or paper/self-ID/current-sim claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_effective_candidate_measured_validation_result_audit
+- parent_dataset: docs/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.md, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/failure_rows.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/validation_failure_rows.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/metadata_missing_rows.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/metric_completeness_failures.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/claim_boundary.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_candidate.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_candidate_profile.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_role_family.csv, runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_hidden_dynamics_bucket.csv, docs/m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design.md, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.json
+- parent_objective: audit complete effective-candidate measured-validation artifact and choose bounded next route
+- derived_from: m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation, m2396-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-design, m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit
+- blocked_by: M2397 produced complete measured data but did not audit outcome meaning, M2397 aggregates are diagnostic-only and cannot be interpreted as rankings or verdicts inside the implementation milestone, global M2397 outcome is offtrack-dominated and requires failure taxonomy before any next repair or scenario route
+- supersedes: treating M2397 artifact completeness as driver performance success, using profile or candidate aggregates as direct ranking, routing to another implementation step without auditing the complete measured result
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md exists
+- M2397 artifact completeness is accepted or rejected with explicit counts
+- M2397 offtrack-dominated outcome is classified separately from artifact pass
+- failure types and blocked claims are recorded
+- candidate/profile/role aggregates remain diagnostic-only
+- a bounded follow-up route is selected or the branch is stopped
+
+## Failure Criteria
+
+- M2398 reruns rollout or executes repair/training/replay/PPO
+- M2398 ranks candidates, ranks profiles, or selects a winner
+- M2398 treats artifact completeness as driver-performance success
+- M2398 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims
+- M2398 cannot classify the outcome or choose a bounded route
+
+## Evidence Gates
+
+- M2398 must audit M2397 as a complete measured artifact before any further execution
+- M2398 must classify artifact completeness separately from driver outcome quality
+- M2398 must treat candidate/profile/role aggregates as diagnostic-only unless a later promotion protocol admits comparison
+- M2398 must choose a bounded next route or stop without making paper, finite-window-vs-GRU, level3 self-ID, scenario-redesign, training-repair, or current-sim verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun M2397
+- do not run new rollout
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not rank effective candidates
+- do not select a winner
+- do not overwrite the active scenario config
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- behavior_regression
+- scenario_sampling_failure
+- lineage_invalid
+- contract_violation
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
+- type: gate
+- checkpoint: docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: effective_candidate_measured_validation_complete_offtrack_dominated_route_to_outcome_localization
+- reason: M2398 accepts M2397 complete artifact and classifies outcome as offtrack-dominated driver-outcome blocker; routes to artifact-only outcome localization no ranking/verdict claims
+
+## Next Blocker
+
+m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation

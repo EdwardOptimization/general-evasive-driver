@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2403,
+    "completed": 2404,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation",
+    "task_id": "m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation",
-    "command_log": "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit",
-    "kind": "gate",
-    "priority": 23930,
+    "id": "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation",
+    "kind": "infrastructure",
+    "priority": 23940,
     "status": "pending",
-    "hypothesis": "The complete M2397 effective-candidate measured-validation artifact can be audited into a bounded failure taxonomy and next-route decision without rerun, repair execution, training, ranking, or paper/self-ID/current-sim claims.",
-    "command": "see experiments/manifests/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.json",
-    "success_artifact": "docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md",
-    "notes": "Pending: audit complete but offtrack-dominated 30735-episode M2397 panel no rerun/ranking/verdict claims"
+    "hypothesis": "M2397 measured outcomes can be localized into actionable offtrack, collision-guardrail, R4 mitigation, and diagnostic-only slices without rerun, repair execution, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation.json",
+    "success_artifact": "runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json",
+    "notes": "Pending: artifact-only localization of complete offtrack-dominated M2397 panel no rerun/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T114843Z"
+  "updated_at_utc": "20260602T115928Z"
 }

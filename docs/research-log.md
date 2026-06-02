@@ -43592,3 +43592,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: driver performance success, ranking, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario redesign executed, training repair success, current-sim verdict
 - follow-up manifest: `experiments/manifests/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.json`
 - next: `m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit`
+
+## M2398 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Validation Result Audit
+
+- status: completed
+- decision: `effective_candidate_measured_validation_complete_offtrack_dominated_route_to_outcome_localization`
+- manifest: `experiments/manifests/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.json`
+- doc: `docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md`
+- parent summary: `runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted artifact completeness: M2397 `30735/30735` episodes with failure/validation/metadata/metric/contract/guardrail `0/0/0/0/0/0`
+- outcome quality: `offtrack_dominated_failure`
+- global success/offtrack/collision rates: `0.04054010086220921/0.8425898812428827/0.10157800553115341`
+- observed blocker: complete effective-candidate panel did not solve closed-loop offtrack outcome
+- not observed: metric artifact, lineage invalid, contract violation, artifact-construction scenario sampling failure
+- diagnostic-only signal: L3 GRU profile has higher panel success than finite-window profiles, but no FW-vs-GRU conclusion is admitted
+- decision: route directly to artifact-only outcome localization implementation to avoid another design-only milestone
+- follow-up manifest: `experiments/manifests/m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation.json`
+- next: `m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation`

@@ -100,7 +100,7 @@
     ],
     "fallback_plan": [
       "route to artifact repair only if M2397 completeness or lineage is invalid",
-      "route to measured outcome localization if M2397 is complete and offtrack-dominated",
+      "route directly to measured outcome localization implementation if M2397 is complete and offtrack-dominated",
       "route to branch synthesis if the next route would become another narrow artifact loop",
       "stop the branch if the panel cannot support any bounded next question"
     ],
@@ -208,5 +208,5 @@
     "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json"
   ],
   "decision_rule": "M2398 passes if it audits M2397 completeness and outcome quality into an explicit bounded next-route decision without rerun, ranking, or verdict claims.",
-  "next_blocker": "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-design"
+  "next_blocker": "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation"
 }

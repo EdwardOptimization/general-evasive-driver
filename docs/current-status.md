@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
+m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation
+m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
+m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
 ```
 
 Current route:
@@ -45,10 +45,10 @@ occurred. M2395 accepted this as reset-readiness evidence only and routed to a
 bounded measured-validation design. M2396 froze the effective-candidate
 measured-validation protocol: 2049 candidate-scenario references times 15
 selected checkpoints, for 30735 closed-loop episodes. M2397 implemented and ran
-that full panel with clean lineage and guardrails. The measured artifact is
-complete, but the observed outcome is still offtrack-dominated. The next task is
-M2398 result audit, with no rerun, repair, training, ranking, or
-paper/self-ID/current-sim verdict route.
+that full panel with clean lineage and guardrails. M2398 accepted the artifact
+as complete but classified the measured outcome as offtrack-dominated. The next
+task is M2399 artifact-only outcome localization over M2397 rows, with no
+rerun, repair, training, ranking, or paper/self-ID/current-sim verdict route.
 ```
 
 ## Latest Evidence
@@ -204,6 +204,21 @@ global collision_rate: 0.10157800553115341
 dominant_failure_mode: offtrack_dominated_failure
 ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: false
 next task: M2398 measured-validation result audit
+```
+
+M2398 effective-candidate measured-validation result audit:
+
+```text
+decision: effective_candidate_measured_validation_complete_offtrack_dominated_route_to_outcome_localization
+accepted artifact: M2397 complete 30735/30735 episodes
+failure/validation/metadata/metric/contract/guardrail counts: 0/0/0/0/0/0
+outcome_quality: offtrack_dominated_failure
+global success_rate: 0.04054010086220921
+global offtrack_rate: 0.8425898812428827
+global collision_rate: 0.10157800553115341
+metric_artifact/lineage_invalid/contract_violation: not observed
+ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: false
+next task: M2399 artifact-only measured outcome localization implementation
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:
