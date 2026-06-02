@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2357 accepts repaired artifacts effective selections G4 H12 GH16 GHmin14 route to reset-validation design no reset/ranking",
+  "failure_criteria": [
+    "M2357 runs reset rollout measured execution replay PPO or private holdout",
+    "M2357 ranks support policies or controller families",
+    "M2357 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2357 claims scenario redesign executed or reset-valid repaired pack",
+    "M2357 routes directly to controller comparison"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid repaired pack"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T033818Z",
+  "hypothesis": "Auditing M2356 repaired artifacts can decide whether the repaired packs are eligible for a separate reset-validation design.",
+  "lineage": {
+    "blocked_by": [
+      "M2356 creates repaired packs but does not run reset validation",
+      "repaired pack reset-validity remains unknown"
+    ],
+    "derived_from": [
+      "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_sampling_repair_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/effective_pack_summary_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2356 repaired candidate-pack artifacts before any reset validation"
+    ],
+    "supersedes": [
+      "direct repaired-pack reset validation without audit",
+      "direct measured execution after repair materialization"
+    ]
+  },
+  "milestone": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+  "next_blocker": "selected_by_m2357_audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "sampling_repair_result_accepted_route_to_repaired_pack_reset_validation_design",
+  "public_gates": [
+    "M2357 must audit M2356 repaired artifact counts and effective modification counts",
+    "M2357 must decide whether repaired packs are eligible for reset-validation design or need repair materializer changes",
+    "M2357 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "sampling_repair_result_accepted_route_to_repaired_pack_reset_validation_design",
+    "milestone": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+    "reason": "M2357 accepts repaired artifacts effective selections G4 H12 GH16 GHmin14 route to reset-validation design no reset/ranking",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md exists",
+    "M2356 summary counts are summarized",
+    "effective modified pack counts are interpreted",
+    "reset-validity claim remains blocked",
+    "a bounded non-ranking follow-up route is selected or branch is stopped"
+  ],
+  "type": "gate"
+}

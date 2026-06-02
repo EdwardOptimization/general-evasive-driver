@@ -1,0 +1,183 @@
+{
+  "id": "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_repaired_pack_reset_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repair_action_rows.csv",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/effective_pack_summary_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation for M2356 repaired candidate packs"
+    ],
+    "derived_from": [
+      "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+      "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2356 repaired packs are not reset-validated",
+      "M2357 accepts artifacts but blocks reset-validity claims"
+    ],
+    "supersedes": [
+      "direct repaired-pack reset execution without design",
+      "direct measured execution after repair materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md",
+  "public_gates": [
+    "M2358 must design reset-only validation for five M2356 repaired packs",
+    "M2358 must define repair-action metadata preservation through reset artifacts",
+    "M2358 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid repaired pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repaired_pack_reset_validation",
+    "evidence_axis": "Q_repaired_pack_reset_validation_design",
+    "evidence_increment": "designs reset-only validation over repaired five-pack artifacts",
+    "claim_scope": "design only; no reset execution, rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if design runs reset validation",
+      "stop if design drops repair-action metadata",
+      "stop if design routes directly to measured execution",
+      "stop if design claims reset-valid repaired pack"
+    ],
+    "fallback_plan": [
+      "route to repaired-pack reset-validation implementation if schema is sufficient",
+      "pivot to repair artifact schema fix if repair metadata cannot be represented",
+      "stop for user review if reset-validation design is not bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2357 accepts M2356 repaired artifacts for reset-validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "repaired pack reset-validation design",
+    "admission_evidence": [
+      "M2356 result_class is pass",
+      "M2357 accepts repaired artifacts as reset-validation design input",
+      "M2356 repaired_config_pack_manifest exists"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md",
+      "M2358 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "repaired pack list and reset count expectations are specified",
+      "repair-action metadata preservation is specified",
+      "reset pass/fail criteria are specified",
+      "a bounded non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2358 designs task-quality reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2358; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2356/M2357 repaired candidate pack artifacts.",
+    "negative_result_policy": "Reset-validation design must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "repaired candidate pack reset-validation design",
+      "no reset-valid repaired pack, controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "prepares a new repaired-pack reset-validity attempt after artifact repair and audit",
+    "paper_verdict_delta": "can produce repaired-pack reset-validity evidence in a later implementation milestone but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2358 cannot bound the reset-validation protocol",
+      "M2358 routes directly to controller comparison",
+      "the repaired-pack reset-validation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded reset-validation design can test the five M2356 repaired packs while preserving repair-action metadata and claim boundaries.",
+  "success_criteria": [
+    "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md exists",
+    "pack list and reset count expectations are specified",
+    "repair-action metadata preservation is specified",
+    "reset pass/fail criteria are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2358 starts reset rollout measured execution replay PPO or private holdout",
+    "M2358 ranks support policies or controller families",
+    "M2358 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2358 claims scenario redesign executed or reset-valid repaired pack",
+    "M2358 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2357 audit and M2356 repaired artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_repaired_pack_reset_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
+    "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json"
+  ],
+  "decision_rule": "M2358 passes if it designs bounded repaired-pack reset validation without execution or claims.",
+  "next_blocker": "selected_by_m2358_design"
+}

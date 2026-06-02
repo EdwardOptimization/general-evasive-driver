@@ -42693,3 +42693,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset-valid scenario pack claim made: `false`
 - follow-up manifest: `experiments/manifests/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.json`
 - next: `m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit`
+
+## M2357 Paper-Route Current-Sim Dual-Axis Candidate Pack Sampling Repair Result Audit
+
+- status: completed
+- decision: `sampling_repair_result_accepted_route_to_repaired_pack_reset_validation_design`
+- manifest: `experiments/manifests/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.json`
+- doc: `docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md`
+- audited summary: `runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json`
+- reset/rollout/measured execution in M2357: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid repaired pack claim made: `false`
+- repaired artifact accepted: `true`
+- effective modified selections: `G 4`, `H 12`, `G+H 16`, `GH-minimal 14`
+- decision: route to repaired-pack reset-validation design
+- follow-up manifest: `experiments/manifests/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.json`
+- next: `m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design`

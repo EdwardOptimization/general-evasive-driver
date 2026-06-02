@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2363,
+    "completed": 2364,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation",
+    "task_id": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair",
-    "command_log": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md"
   },
   "next_task": {
-    "id": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+    "id": "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design",
     "kind": "gate",
-    "priority": 23520,
+    "priority": 23530,
     "status": "pending",
-    "hypothesis": "Auditing M2356 repaired artifacts can decide whether the repaired packs are eligible for a separate reset-validation design.",
-    "command": "write docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md from M2356 artifacts",
-    "success_artifact": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md",
-    "notes": "Pending: audit repaired artifact counts and decide reset-validation route no reset/ranking"
+    "hypothesis": "A bounded reset-validation design can test the five M2356 repaired packs while preserving repair-action metadata and claim boundaries.",
+    "command": "write docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md from M2357 audit and M2356 artifacts",
+    "success_artifact": "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md",
+    "notes": "Pending: design repaired-pack reset validation no reset/ranking"
   },
-  "updated_at_utc": "20260602T032844Z"
+  "updated_at_utc": "20260602T033612Z"
 }
