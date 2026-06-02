@@ -42564,3 +42564,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset-valid scenario pack claim made: `false`
 - follow-up manifest: `experiments/manifests/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.json`
 - next: `m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design`
+
+## M2352 Paper-Route Current-Sim Dual-Axis Candidate Pack Reset Validation Design
+
+- status: completed
+- decision: `candidate_pack_reset_validation_design_admit_reset_only_implementation`
+- manifest: `experiments/manifests/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.json`
+- doc: `docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md`
+- parent pack manifest: `runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json`
+- designed reset workload: `5 packs x 72 scenario specs = 360 reset attempts`
+- reset/rollout/measured execution in M2352: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- metadata caveat required for M2353: `metadata_only_patch_count 37`, `unresolved_patch_count 0`
+- follow-up manifest: `experiments/manifests/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.json`
+- next: `m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation`

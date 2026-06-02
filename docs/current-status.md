@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2351-paper-route-current-sim-dual-axis-calibration-branch-synthesis
+m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design
 ```
 
 Current next task:
 
 ```text
-m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design
+m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -221,8 +221,21 @@ active_config_overwritten: false
 guardrail_violation_count: 0
 ```
 
-M2352 should design a bounded reset-validation protocol for the five M2350
-candidate config packs. It must not run reset validation yet.
+M2352 designs a bounded reset-validation protocol for the five M2350 candidate
+config packs. M2352 does not run reset validation. It freezes the next workload:
+
+```text
+config_pack_count: 5
+scenario_specs_per_pack: 72
+reset_attempt_count: 360
+expected_observation_dim: 72
+metadata_only_patch_count: 37
+unresolved_patch_count: 0
+```
+
+M2353 should implement and run the frozen reset-only validator. It must not run
+rollout, execute policy actions, rank support policies/controller families, or
+claim scenario redesign execution.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

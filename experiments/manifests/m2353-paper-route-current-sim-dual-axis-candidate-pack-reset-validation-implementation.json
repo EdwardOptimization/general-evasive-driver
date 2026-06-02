@@ -1,0 +1,197 @@
+{
+  "id": "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "contract_violation",
+    "metric_artifact"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_candidate_pack_reset_validation"
+    ],
+    "parent_dataset": [
+      "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.json"
+    ],
+    "parent_objective": [
+      "implement and run frozen reset-only validation over the five M2350 candidate config packs"
+    ],
+    "derived_from": [
+      "m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design",
+      "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2352 designs reset validation but does not run it",
+      "M2350 candidate config packs are not reset-valid until reset evidence exists"
+    ],
+    "supersedes": [
+      "claiming reset validity from config-pack materialization",
+      "direct measured execution after M2350"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.md",
+  "public_gates": [
+    "M2353 must run the frozen reset-only command from M2352",
+    "M2353 must attempt 360 resets over five 72-spec packs",
+    "M2353 must preserve metadata-only caveat reporting",
+    "M2353 must keep rollout measured execution ranking paper finite-window-vs-GRU and level3 self-ID claims blocked"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_reset_validation",
+    "evidence_axis": "Q_candidate_pack_reset_validation_execution",
+    "evidence_increment": "produces first reset-only validation evidence over the five dual-axis candidate config packs",
+    "claim_scope": "reset-only public diagnostic evidence; no rollout measured execution ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if any reset fails",
+      "stop if any metadata caveat cannot be preserved",
+      "stop if any contract or guardrail violation appears",
+      "stop if output counts differ from the frozen M2352 design"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any reset, schema, metadata, or contract failure",
+      "repair helper only after failure audit localizes the issue",
+      "design measured rollout only after reset validation passes and audit confirms it"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2352 froze the candidate-pack reset-only command",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "candidate pack reset validation",
+    "admission_evidence": [
+      "M2352 freezes the exact reset-only command",
+      "M2350 materializes five 72-spec config packs",
+      "M2351 routes to reset-validation design with metadata caveat tracked"
+    ],
+    "blocked_shortcuts": [
+      "do not run rollout measured execution training replay PPO",
+      "do not rank support policies or controller families",
+      "do not interpret reset success as paper-level evidence"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_candidate_pack_reset_validation.py",
+      "tests/test_paper_route_current_sim_dual_axis_candidate_pack_reset_validation.py",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/*",
+      "docs/m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation.md",
+      "M2353 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "360 reset attempts",
+      "360 reset successes",
+      "zero reset failures",
+      "zero contract and guardrail violations",
+      "metadata caveat rows are preserved",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "not applicable; reset validation does not test history necessity.",
+    "history_necessity_tests": [
+      "No history-necessity test is run in M2353."
+    ],
+    "temporal_evidence_window": "M2350-M2352 task-quality config pack artifacts.",
+    "negative_result_policy": "If reset validation fails, classify the failure before repair or rerun.",
+    "allowed_claims": [
+      "task-quality reset-validation public diagnostic evidence",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds real simulator reset evidence over the five candidate config packs",
+    "paper_verdict_delta": "can admit result audit and then measured rollout design if reset validation passes, but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2353 fails due to candidate pack schema mismatch",
+      "M2353 output counts are incomplete",
+      "M2353 produces reset evidence but no audit route is registered"
+    ]
+  },
+  "hypothesis": "The five M2350 candidate config packs are reset-valid under the current simulator and strict human-view observation contract.",
+  "success_criteria": [
+    "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json exists",
+    "result_class is current_sim_dual_axis_candidate_pack_reset_validation_pass",
+    "input_config_pack_count equals 5",
+    "scenario_specs_per_pack_count equals 72",
+    "reset_attempt_count equals 360",
+    "reset_success_count equals 360",
+    "reset_failure_count equals 0",
+    "contract_violation_count equals 0",
+    "metadata_only_patch_count equals 37",
+    "unresolved_patch_count equals 0",
+    "metadata_caveat_rows_preserved is true",
+    "guardrail_violation_count equals 0"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "input_config_pack_count differs from 5",
+    "scenario_specs_per_pack_count differs from 72",
+    "reset_attempt_count differs from 360",
+    "any reset fails",
+    "metadata caveat rows are not preserved",
+    "any contract or guardrail violation appears",
+    "rollout measured execution ranking paper finite-window-vs-GRU or level3 self-ID claims are made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_candidate_pack_reset_validation.py"
+    },
+    {
+      "name": "reset_validation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_candidate_pack_reset_validation --config-pack-manifest runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json --patch-rows runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv --output-dir runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation --eval-seed-base 235300 --target-pack-count 5 --target-scenario-specs-per-pack 72 --expected-observation-dim 72 --next-blocker m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_candidate_pack_reset_validation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2352-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-design.md",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv"
+  ],
+  "decision_rule": "M2353 passes if the frozen reset-only command validates all five packs and all 360 scenario resets with zero reset failures, zero contract violations, and preserved metadata caveat reporting.",
+  "next_blocker": "m2353-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-implementation"
+}
