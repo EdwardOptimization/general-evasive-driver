@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2412,
+    "completed": 2413,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation",
+    "task_id": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization",
-    "command_log": "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
-    "kind": "gate",
-    "priority": 24020,
+    "id": "m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation",
+    "kind": "infrastructure",
+    "priority": 24030,
     "status": "pending",
-    "hypothesis": "The M2406 run-dir-only candidate overlays can be audited into reset/load validation readiness, artifact repair, pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.json",
-    "success_artifact": "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md",
-    "notes": "Pending: audit candidate completeness run-dir boundary and guardrail metadata no repair/training/ranking/verdict claims"
+    "hypothesis": "M2406 candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.json",
+    "success_artifact": "runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json",
+    "notes": "Pending: adapter load validation no measured rollout repair training active overwrite ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T130602Z"
+  "updated_at_utc": "20260602T131312Z"
 }

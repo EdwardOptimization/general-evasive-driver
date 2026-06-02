@@ -43755,3 +43755,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.json`
 - next: `m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit`
+
+## M2407 Paper-Route Current-Sim Dual-Axis Offtrack Containment Repair Candidate Materialization Result Audit
+
+- status: completed
+- decision: `offtrack_containment_repair_candidate_materialization_accepted_route_to_reset_load_validation_adapter`
+- manifest: `experiments/manifests/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.json`
+- doc: `docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md`
+- parent summary: `runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json`
+- accepted candidates: count/written/outside-run-dir `4/4/0`, assigned rows `203/203`
+- guardrail metadata: rows `8`, collision/R4 source rows `65/57`, missing `0`
+- active overwrite/repair/training/ranking/winner/guardrail counts: `0/0/0/0/0/0`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- route: read-only reset/load validation adapter implementation, no standalone design milestone
+- follow-up manifest: `experiments/manifests/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.json`
+- next: `m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation`

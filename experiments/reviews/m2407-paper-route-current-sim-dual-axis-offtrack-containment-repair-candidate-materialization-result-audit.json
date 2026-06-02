@@ -1,0 +1,113 @@
+{
+  "decision_reason": "M2407 accepts M2406 compact run-dir-only overlays and guardrail metadata; routes to read-only adapter validation no repair/training/ranking/verdict claims",
+  "failure_criteria": [
+    "M2407 reruns rollout or executes repair/training/replay/PPO",
+    "M2407 ranks candidates, ranks profiles, or selects a winner",
+    "M2407 treats candidate materialization as repair or scenario redesign success",
+    "M2407 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2407 cannot classify the candidate materialization result or choose a bounded route"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun M2397 M2399 M2401 M2404 or M2406",
+    "do not run new rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T131645Z",
+  "hypothesis": "The M2406 run-dir-only candidate overlays can be audited into reset/load validation readiness, artifact repair, pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2406 materializes candidate overlays but does not audit reset/load validation readiness",
+      "candidate overlays must remain non-ranking and run-dir-only",
+      "collision and R4 guardrail metadata must remain attached before any validation route"
+    ],
+    "derived_from": [
+      "m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation",
+      "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_offtrack_containment_repair_candidate_materialization_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json"
+    ],
+    "parent_dataset": [
+      "docs/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.md",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays.csv",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/candidate_guardrail_metadata.csv",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/claim_boundary.csv",
+      "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2406 run-dir-only candidate materialization and choose bounded next route"
+    ],
+    "supersedes": [
+      "direct reset or rollout validation from M2406 without audit",
+      "candidate ranking from overlay families",
+      "active config overwrite from candidate overlays"
+    ]
+  },
+  "milestone": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
+  "next_blocker": "m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "offtrack_containment_repair_candidate_materialization_accepted_route_to_reset_load_validation_adapter",
+  "public_gates": [
+    "M2407 must audit M2406 candidate completeness, run-dir-only boundary, and guardrail metadata",
+    "M2407 must decide whether to admit reset/load validation adapter design, pivot, or stop",
+    "M2407 must keep candidates non-ranking",
+    "M2407 must not run rollout, execute repair, train, replay, run PPO, rank candidates/profiles, overwrite active configs, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "offtrack_containment_repair_candidate_materialization_accepted_route_to_reset_load_validation_adapter",
+    "milestone": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
+    "reason": "M2407 accepts M2406 compact run-dir-only overlays and guardrail metadata; routes to read-only adapter validation no repair/training/ranking/verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md exists",
+    "M2406 completeness and run-dir-only boundary are accepted or rejected with explicit counts",
+    "guardrail metadata completeness is accepted or rejected",
+    "candidates remain non-ranking",
+    "one bounded follow-up route is selected or the branch is stopped",
+    "blocked paper/self-ID/current-sim/training-repair claims remain blocked"
+  ],
+  "type": "gate"
+}

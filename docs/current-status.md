@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
+m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
+m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
+m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
 ```
 
 Current route:
@@ -75,6 +75,9 @@ M2406 materialized 4 compact run-dir-only candidate overlays and assigned all
 203 offtrack repair-plan rows. Collision and R4 guardrail metadata were attached
 to every candidate. No repair/training/ranking/verdict action occurred. The next
 task is M2407 result audit.
+M2407 accepted M2406 completeness, run-dir-only boundary, and guardrail metadata
+as sufficient for read-only adapter validation. The next task is M2408 adapter
+load validation, not measured rollout or repair execution.
 ```
 
 ## Latest Evidence
@@ -359,6 +362,18 @@ collision/R4/diagnostic source rows: 65/57/1048
 guardrail metadata rows: 8
 active overwrite/repair/training/ranking/winner/guardrail: 0/0/0/0/0/0
 next task: M2407 candidate materialization result audit
+```
+
+M2407 offtrack containment repair candidate materialization result audit:
+
+```text
+decision: offtrack_containment_repair_candidate_materialization_accepted_route_to_reset_load_validation_adapter
+accepted candidates count/written/outside-run-dir: 4/4/0
+assigned rows: 203/203
+guardrail metadata rows/missing: 8/0
+collision/R4 source rows: 65/57
+active overwrite/repair/training/ranking/winner/guardrail: 0/0/0/0/0/0
+next task: M2408 read-only candidate reset/load validation adapter
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:
