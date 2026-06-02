@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2349,
+    "completed": 2350,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
+    "task_id": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md"
+    "command_log": "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md"
   },
   "next_task": {
-    "id": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
-    "kind": "gate",
-    "priority": 23370,
+    "id": "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation",
+    "kind": "infrastructure",
+    "priority": 23380,
     "status": "pending",
-    "hypothesis": "A design-first consolidation over the 26 redesign-related rows can define the task-quality blocker that must be addressed before current-sim controller comparison.",
-    "command": "write docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md from M2341 audit plus M2336 and M2340 artifacts",
-    "success_artifact": "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md",
-    "notes": "Pending: design artifact-only consolidation over 12 original redesign rows plus 14 remapped redesign candidates"
+    "hypothesis": "Artifact-only consolidation can merge the 12 original redesign gaps and 14 remapped redesign candidates into a 26-row task-quality blocker without new execution or ranking.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_support_redesign_consolidation --rescore-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --source-mapping-dir runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping --output-dir runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation",
+    "success_artifact": "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+    "notes": "Pending: implement tested artifact-only consolidation over 26 redesign-related rows and preserve 9 secondary coverage rows"
   },
-  "updated_at_utc": "20260602T014438Z"
+  "updated_at_utc": "20260602T015026Z"
 }

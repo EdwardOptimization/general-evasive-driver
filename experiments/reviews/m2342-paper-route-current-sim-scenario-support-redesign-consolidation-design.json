@@ -1,0 +1,103 @@
+{
+  "decision_reason": "M2342 freezes consolidation schema for 26 redesign-related rows and 9 secondary coverage rows no rerun/ranking claims",
+  "failure_criteria": [
+    "M2342 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2342 ranks support policies or selects a winner",
+    "M2342 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2342 routes directly to controller comparison",
+    "M2342 cannot define a bounded implementation route"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260602T015241Z",
+  "hypothesis": "A design-first consolidation over the 26 redesign-related rows can define the task-quality blocker that must be addressed before current-sim controller comparison.",
+  "lineage": {
+    "blocked_by": [
+      "M2341 finds 26 redesign-related rows versus 9 coverage-materialization rows",
+      "current-sim controller comparison remains blocked until redesign-related task-quality rows are consolidated",
+      "direct training or support-policy materialization would ignore the dominant redesign blocker"
+    ],
+    "derived_from": [
+      "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
+      "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_scenario_support_redesign_consolidation_design"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_source_rows.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_axis_summary.csv",
+      "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/coverage_gap_recommended_route_summary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "design artifact-only consolidation for the 26 scenario/support redesign-related rows"
+    ],
+    "supersedes": [
+      "direct support-policy coverage materialization from M2340",
+      "direct controller comparison after source mapping",
+      "manual redesign-row inspection without a consolidated schema"
+    ]
+  },
+  "milestone": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
+  "next_blocker": "selected_by_m2342_design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "scenario_support_redesign_consolidation_design_admit_artifact_only_implementation",
+  "public_gates": [
+    "M2342 must design an artifact-only consolidation over 26 redesign-related rows",
+    "M2342 must preserve the 9 support coverage materialization rows as a secondary bucket",
+    "M2342 must define output schema and decision rules before implementation",
+    "M2342 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "scenario_support_redesign_consolidation_design_admit_artifact_only_implementation",
+    "milestone": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
+    "reason": "M2342 freezes consolidation schema for 26 redesign-related rows and 9 secondary coverage rows no rerun/ranking claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md exists",
+    "the 26-row redesign-related input set is defined",
+    "the 9-row coverage-materialization secondary bucket is preserved",
+    "output schema and decision rules are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "type": "gate"
+}

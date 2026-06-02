@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit
+m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design
 ```
 
 Current next task:
 
 ```text
-m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design
+m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -97,12 +97,20 @@ remaining coverage-materialization bucket: 9
 support-policy successes across the 23 mapped coverage rows: 0
 ```
 
-M2342 should design an artifact-only consolidation over the 26
-redesign-related rows before any scenario redesign implementation, support
-coverage materialization, controller comparison, or training. Training, replay,
-PPO, support-policy ranking, controller-family ranking, winner selection,
-paper-level claims, finite-window vs GRU conclusions, and level3 self-ID claims
-remain blocked.
+M2342 designs an artifact-only consolidation over the 26 redesign-related rows:
+
+```text
+original redesign rows: 12
+remapped redesign rows: 14
+combined redesign-related rows: 26
+secondary coverage-materialization rows: 9
+```
+
+M2343 should implement the consolidation tool and write redesign rows, secondary
+coverage rows, axis summaries, route summaries, source summaries, claim
+boundary, and summary JSON. Training, replay, PPO, support-policy ranking,
+controller-family ranking, winner selection, paper-level claims, finite-window
+vs GRU conclusions, and level3 self-ID claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

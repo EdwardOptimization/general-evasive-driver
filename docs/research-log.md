@@ -42331,3 +42331,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.json`
 - next: `m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design`
+
+## M2342 Paper-Route Current-Sim Scenario Support Redesign Consolidation Design
+
+- status: completed
+- result_class: `scenario_support_redesign_consolidation_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.json`
+- doc: `docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md`
+- parent audit: `docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md`
+- admitted implementation: `artifact-only`
+- target redesign-related rows: `26`
+- original redesign rows: `12`
+- remapped redesign rows: `14`
+- secondary coverage-materialization rows: `9`
+- reset/rollout/measured execution in M2342: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.json`
+- next: `m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation`
