@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
+m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2428-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-implementation
+m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit
+m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis
 ```
 
 Current route:
@@ -218,6 +218,13 @@ synthesis, c04 source-coverage repair, scenario-quality reassessment, bounded
 next evidence, or stop. It must not rerun measured rollout, execute repair,
 train, rank candidate families, or make current-sim/paper/self-ID verdict
 claims.
+M2429 accepted M2428 as a complete reindex artifact but classified the outcome
+as negative for matched-subset task-quality improvement: c01/c02/c03 all remain
+offtrack-dominated, and c04 remains excluded. The audit routes to M2430 branch
+synthesis before any more local artifact repair, training, or measured rerun.
+M2430 must decide whether to pursue scenario-quality reassessment, c04
+source-coverage repair, bounded next evidence, high-fidelity/backend pivot, or
+stop. It must not treat M2428 as driver improvement or candidate-family ranking.
 ```
 
 ## Latest Evidence

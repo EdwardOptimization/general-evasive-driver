@@ -44136,3 +44136,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: reindexed matched c01/c02/c03 slices remain offtrack-dominated; c04 remains excluded due zero matched effective candidates
 - follow-up manifest: `experiments/manifests/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.json`
 - next: `m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit`
+
+## M2429 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Measured Reindex Result Audit
+
+- status: completed
+- decision: `measured_reindex_offtrack_dominated_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.json`
+- doc: `docs/m2429-paper-route-current-sim-dual-axis-source-linked-repair-candidate-measured-reindex-result-audit.md`
+- audited summary: `runs/m2428_paper_route_current_sim_dual_axis_source_linked_repair_candidate_measured_reindex/summary.json`
+- accepted artifact: M2428 complete measured reindex, `5250` source episodes, `13050` membership rows, exact reset-key coverage, no rerun/ranking/verdict
+- negative result: c01/c02/c03 matched slices remain offtrack-dominated
+- c04 caveat: c04 remains excluded because M2426 has zero matched effective candidates
+- route: branch synthesis before any more local artifact repair or training route
+- follow-up manifest: `experiments/manifests/m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis.json`
+- next: `m2430-paper-route-current-sim-dual-axis-source-linked-repair-candidate-branch-synthesis`
