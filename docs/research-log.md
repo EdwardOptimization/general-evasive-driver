@@ -44029,3 +44029,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2422 is artifact-only candidate materialization; it assigns repair-plan rows to compact non-ranking overlays and preserves guardrails but does not execute repair or validate reset/load readiness
 - follow-up manifest: `experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json`
 - next: `m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit`
+
+## M2423 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Materialization Result Audit
+
+- status: completed
+- decision: `source_linked_repair_candidate_materialization_accepted_route_to_reset_load_validation_adapter`
+- manifest: `experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json`
+- doc: `docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md`
+- parent summary: `runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json`
+- rerun/reset-load validation/rollout/repair/training/replay/PPO: `false`
+- family/profile/candidate/controller ranking and winner selection: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted candidate artifact: `4` run-dir-only overlays, `59/59` assigned offtrack rows, `24` guardrail metadata rows
+- guardrails preserved: collision `30`, R4 `43`, max-step `1`, speed-too-low `1`, diagnostic `2733`, family diagnostic `110`
+- audit result: candidate materialization is complete and adapter-validation-ready, but does not prove repair success or driver improvement
+- follow-up manifest: `experiments/manifests/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.json`
+- next: `m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation`

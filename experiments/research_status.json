@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2428,
+    "completed": 2429,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation",
+    "task_id": "m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization",
-    "command_log": "docs/m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation.md"
+    "run_dir": "",
+    "command_log": "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit",
-    "kind": "gate",
-    "priority": 24180,
+    "id": "m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation",
+    "kind": "infrastructure",
+    "priority": 24190,
     "status": "pending",
-    "hypothesis": "The M2422 source-linked repair-candidate artifact can be audited into a read-only reset/load-validation route, artifact-repair route, scenario-quality pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.json",
-    "success_artifact": "docs/m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit.md",
-    "notes": "Pending: audit M2422 candidate materialization completeness and choose bounded next route no reset/load execution repair training ranking or verdict claims"
+    "hypothesis": "M2422 source-linked candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation.json",
+    "success_artifact": "runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json",
+    "notes": "Pending: read-only adapter validation over M2422 overlay JSONs guardrail refs claim boundary and run-dir-only metadata no measured rollout repair/training/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T163512Z"
+  "updated_at_utc": "20260602T164604Z"
 }

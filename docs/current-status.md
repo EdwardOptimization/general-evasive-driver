@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
+m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation
+m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2423-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-result-audit
+m2424-paper-route-current-sim-dual-axis-source-linked-candidate-reset-load-validation-adapter-implementation
 ```
 
 Current route:
@@ -158,6 +158,13 @@ guardrail violations, and verdict claims remain zero. The next task is M2423
 result audit: decide whether this candidate artifact admits read-only
 reset/load validation adapter implementation, artifact repair, scenario-quality
 pivot, or stop. It is not a repair execution or measured rollout route.
+M2423 accepted M2422 as complete and adapter-validation-ready. This is still a
+process decision only: it does not prove repair success or driver improvement.
+The next task is M2424, a read-only source-linked candidate reset/load
+validation adapter over the four overlay JSONs and 24 guardrail metadata rows.
+M2424 must not execute repair, run measured rollout, train, rank candidates or
+families, overwrite active configs, or make current-sim/paper/self-ID verdict
+claims.
 ```
 
 ## Latest Evidence
