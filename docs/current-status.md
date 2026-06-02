@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit
+m2338-paper-route-current-sim-residual-task-quality-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2338-paper-route-current-sim-residual-task-quality-branch-synthesis
+m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -65,11 +65,19 @@ unclassified residual routes: 0
 guardrail violations: 0
 ```
 
-M2337 accepts M2336 and routes to branch synthesis before opening another
-task-quality branch. M2338 should synthesize M2320-M2337 and choose whether the
-next route is support-policy coverage, scenario/support redesign, R4
-post-collision continuation, or the remaining metric edge. Training, replay,
-PPO, support-policy ranking, controller-family ranking, winner selection,
+M2338 synthesizes the M2320-M2337 residual task-quality branch. It accepts the
+48-row residual route map and chooses the next non-ranking route:
+
+```text
+decision: continue_to_support_coverage_gap_source_mapping_design
+next branch: paper_route_current_sim_support_coverage_gap_source_mapping
+largest actionable bucket: support-policy coverage gaps 23
+```
+
+M2339 should design an artifact-only source mapping over the 23 R2/R3/R5
+support-policy coverage gaps before any coverage materialization, scenario
+redesign, controller comparison, or training. Training, replay, PPO,
+support-policy ranking, controller-family ranking, winner selection,
 paper-level claims, finite-window vs GRU conclusions, and level3 self-ID claims
 remain blocked.
 

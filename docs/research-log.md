@@ -42249,3 +42249,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.json`
 - next: `m2338-paper-route-current-sim-residual-task-quality-branch-synthesis`
+
+## M2338 Paper-Route Current-Sim Residual Task-Quality Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_support_coverage_gap_source_mapping_design`
+- manifest: `experiments/manifests/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.json`
+- doc: `docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md`
+- synthesis window: `M2320-M2337`
+- residual route map: `support_policy_coverage_gap 23`, `scenario_or_support_redesign_gap 12`, `R4 post-collision blocked 12`, `metric edge 1`
+- public gate overfit risk: `moderate_and_rising`
+- next branch: `paper_route_current_sim_support_coverage_gap_source_mapping`
+- reset/rollout/measured execution in M2338: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.json`
+- next: `m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design`

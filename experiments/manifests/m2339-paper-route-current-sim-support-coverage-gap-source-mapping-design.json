@@ -1,0 +1,191 @@
+{
+  "id": "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_support_coverage_gap_source_mapping_design"
+    ],
+    "parent_dataset": [
+      "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/role_rescore_summary.csv",
+      "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/route_rescore_summary.csv",
+      "runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit/residual_scenario_rows.csv",
+      "runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design artifact-only source mapping for the 23 R2/R3/R5 support-policy coverage gaps"
+    ],
+    "derived_from": [
+      "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
+      "m2336-paper-route-current-sim-role-stratified-residual-support-rescore-implementation"
+    ],
+    "blocked_by": [
+      "current-sim controller comparison remains blocked by 23 support-policy coverage gaps",
+      "coverage gaps must be source-mapped before deciding support-policy materialization versus scenario redesign",
+      "local-search guard blocks direct rerun or ranking after M2338 synthesis"
+    ],
+    "supersedes": [
+      "direct controller comparison after M2338",
+      "manual inspection of coverage-gap rows without a schema",
+      "direct support-policy materialization before source mapping"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+  "public_gates": [
+    "M2339 must design an artifact-only source mapping over the 23 support-policy coverage gaps",
+    "M2339 must define grouping axes and output schema before any implementation",
+    "M2339 must choose a bounded follow-up route without ranking support policies",
+    "M2339 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_support_coverage_gap_source_mapping",
+    "evidence_axis": "Q_support_coverage_gap_source_mapping_design",
+    "evidence_increment": "designs a source-mapping schema for the largest remaining residual bucket before any coverage or redesign implementation",
+    "claim_scope": "design only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if design cannot identify source-mapping axes",
+      "stop if design routes directly to controller comparison",
+      "stop if design ranks support policies or selects a winner",
+      "stop if design ignores scenario/support redesign as an alternative explanation"
+    ],
+    "fallback_plan": [
+      "route to source mapping implementation if input artifacts are sufficient",
+      "pivot to scenario/support redesign design if coverage rows lack required fields",
+      "pivot to metric-edge semantics if mapping shows the remaining metric edge dominates interpretation",
+      "stop for user review if coverage gaps cannot be separated from task infeasibility"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2338 selects support coverage gap source mapping as the next task-quality route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design artifact-only support coverage gap source mapping",
+    "admission_evidence": [
+      "M2338 selects coverage-gap source mapping after branch synthesis",
+      "M2336 reports support_policy_coverage_gap_count 23",
+      "M2336 reports scenario_or_support_redesign_gap_count 12 and r4_proxy_semantics_post_collision_blocked_count 12",
+      "M2336 reports guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+      "M2339 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "source-mapping grouping axes are specified",
+      "output artifact schema is specified",
+      "decision tree for coverage materialization versus scenario redesign is specified",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2339 designs task-quality source mapping and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2339; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2336 residual rescore coverage-gap rows.",
+    "negative_result_policy": "Coverage-gap source mapping must be treated as task-quality evidence, not as driver or self-ID evidence.",
+    "allowed_claims": [
+      "support coverage gap source mapping design",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from residual labels to source mapping over the largest remaining coverage-gap bucket",
+    "paper_verdict_delta": "can decide whether current-sim task-quality work should materialize support-policy coverage or redesign scenarios before controller comparison",
+    "must_synthesize_if": [
+      "M2339 cannot define source axes",
+      "M2339 routes directly to ranking",
+      "the support coverage gap source mapping branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A design-first source mapping over the 23 coverage gaps can separate support-policy coverage gaps from scenario/support redesign needs before current-sim controller comparison resumes.",
+  "success_criteria": [
+    "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md exists",
+    "source grouping axes are specified",
+    "output schema is specified",
+    "decision rules for coverage materialization versus scenario redesign are specified",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2339 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2339 ranks support policies or selects a winner",
+    "M2339 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2339 routes directly to controller comparison",
+    "M2339 cannot define a bounded implementation route"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "manual design from M2338 synthesis and M2336 residual coverage-gap artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_support_coverage_gap_source_mapping_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/residual_rescore_rows.csv",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/role_rescore_summary.csv",
+    "runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore/route_rescore_summary.csv"
+  ],
+  "decision_rule": "M2339 passes if it defines a bounded artifact-only source mapping route for support-policy coverage gaps without execution or ranking.",
+  "next_blocker": "selected_by_m2339_design"
+}

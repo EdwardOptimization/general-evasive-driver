@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2345,
+    "completed": 2346,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit",
+    "task_id": "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2337-paper-route-current-sim-role-stratified-residual-support-rescore-result-audit.md"
+    "command_log": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2338-paper-route-current-sim-residual-task-quality-branch-synthesis",
+    "id": "m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design",
     "kind": "gate",
-    "priority": 23330,
+    "priority": 23340,
     "status": "pending",
-    "hypothesis": "Synthesizing M2320-M2337 will show which residual task-quality blocker should be addressed next before controller comparison resumes.",
-    "command": "write docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md from M2320-M2337 artifacts",
-    "success_artifact": "docs/m2338-paper-route-current-sim-residual-task-quality-branch-synthesis.md",
-    "notes": "Pending: synthesize residual support R4 semantics rescore evidence and choose next non-ranking route"
+    "hypothesis": "A design-first source mapping over the 23 coverage gaps can separate support-policy coverage gaps from scenario/support redesign needs before current-sim controller comparison resumes.",
+    "command": "write docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md from M2338 synthesis and M2336 artifacts",
+    "success_artifact": "docs/m2339-paper-route-current-sim-support-coverage-gap-source-mapping-design.md",
+    "notes": "Pending: design artifact-only source mapping over 23 R2/R3/R5 support-policy coverage gaps"
   },
-  "updated_at_utc": "20260602T012334Z"
+  "updated_at_utc": "20260602T012852Z"
 }
