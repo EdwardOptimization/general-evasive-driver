@@ -44533,3 +44533,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.json`
 - next: `m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis`
+
+## M2451 Paper-Route Current-Sim Dual-Axis Metric-Selected Validation Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- route decision: `promote_to_scenario_quality_discriminant_panel`
+- manifest: `experiments/manifests/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.json`
+- doc: `docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md`
+- synthesized branch: M2443-M2450 metric-selected validation branch
+- evidence summary: preflight passed 5250 cells, fresh measured validation completed 5250 episodes, actual_success_rate `0.06685714285714285`, hard_offtrack_failure_rate `0.7468571428571429`, target consolidation produced `21` target rows and `56` guardrail rows
+- supported claim: soft-boundary metric route is executable and fresh result is hard-offtrack dominated
+- falsified claim: old hard-termination-row soft-boundary relabel predicts actual success under true soft-boundary execution
+- next branch: `paper_route_current_sim_dual_axis_scenario_quality_discriminant`
+- rerun/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.json`
+- next: `m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel`

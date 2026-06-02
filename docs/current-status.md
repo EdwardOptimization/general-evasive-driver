@@ -16,40 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
+m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit
+m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis
+m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel
 ```
 
 Current route:
 
 ```text
-M2450 accepts M2449 target consolidation as complete but broad. M2449 produced
-`21` hard-offtrack target rows, `56` guardrail rows, `50` collision-guardrail
-rows, `45` soft-boundary diagnostic rows, `44` diagnostic rows, and `41`
-monitoring rows, with diagnostic-axis repair target count `0`, ranking count
-`0`, winner count `0`, and guardrail violations `0`. The largest hard-offtrack
-target slices include `obstacle_lateral_offset_bucket=centerline`,
-`sampled_obstacle_label=drift_required`,
-`obstacle_longitudinal_timing_bucket=early_far`,
-`obstacle_longitudinal_timing_bucket=mid`, and
-`sampled_obstacle_label=aes_feasible`. Because the target surface spans role,
-hidden dynamics, geometry/timing, and scenario-label axes, the next route is
-M2451 branch synthesis before any repair-plan design, scenario-quality route,
-or stop decision. No rerun, policy action, repair, training, ranking, winner
-selection, scenario redesign, paper/FW-vs-GRU/self-ID/training-repair verdict,
-or current-sim verdict is supported.
+M2451 synthesized M2443-M2450 and made a branch decision:
+`promote_to_next_branch`. The metric-selected validation branch is closed. Its
+main result is negative but useful: the soft-boundary metric route is
+executable, yet fresh metric-selected measured validation remains hard-offtrack
+dominated with actual_success_rate `0.06685714285714285`,
+hard_offtrack_failure_rate `0.7468571428571429`, and target consolidation
+showing `21` hard-offtrack target rows plus `56` guardrail rows. The old
+hard-termination-row soft-boundary relabel was falsified as a predictor of true
+soft-boundary execution. The next branch is
+`paper_route_current_sim_dual_axis_scenario_quality_discriminant`, starting with
+M2452 artifact-only panel over M2445 episode rows and M2449 target/guardrail
+rows. No rerun, policy action, repair, training, ranking, winner selection,
+scenario redesign, paper/FW-vs-GRU/self-ID/training-repair verdict, or
+current-sim verdict is supported.
 
 M2448 accepted M2447 localization as actionable enough for artifact-only target
 consolidation. That route has now been executed by M2449. M2447 localized the

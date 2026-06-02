@@ -1,0 +1,215 @@
+{
+  "id": "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_scenario_quality_discriminant_panel"
+    ],
+    "parent_dataset": [
+      "docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md",
+      "runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/episode_rows.csv",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/target_rows.csv",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/guardrail_rows.csv",
+      "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/diagnostic_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "build an artifact-only scenario-quality discriminant panel from M2445 episodes and M2449 target/guardrail rows"
+    ],
+    "derived_from": [
+      "m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis",
+      "m2450-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation-result-audit",
+      "m2449-paper-route-current-sim-dual-axis-metric-selected-measured-validation-target-consolidation"
+    ],
+    "blocked_by": [
+      "M2451 closed the metric-selected validation branch and requires a new scenario-quality evidence axis",
+      "fresh measured validation is hard-offtrack dominated across a broad target surface",
+      "direct repair/training is not admitted before discriminating scenario-quality blockers from repair candidates"
+    ],
+    "supersedes": [
+      "another target-table relabel in the metric-selected validation branch",
+      "direct repair/training from M2449 targets",
+      "ranking profiles, packs, families, selected checkpoints, or target rows as winners"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md",
+  "public_gates": [
+    "M2452 must use existing M2445 episode rows and M2449 target/guardrail rows only",
+    "M2452 must write a new discriminant panel that separates scenario-quality blockers from possible repair-plan candidates",
+    "M2452 must preserve profile/pack/checkpoint axes as monitoring-only and non-ranking",
+    "M2452 must not rerun rollout, repair, train, rank, select winners, or make paper/current-sim/self-ID verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank target rows as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_scenario_quality_discriminant_panel",
+    "evidence_increment": "creates a new scenario-quality discriminant panel from existing fresh measured rows and target/guardrail artifacts",
+    "claim_scope": "artifact-only discriminant panel; no rerun, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if panel cannot separate scenario-quality blockers from possible repair candidates",
+      "stop if diagnostic monitoring axes become rankings",
+      "stop if no bounded next route is supported"
+    ],
+    "fallback_plan": [
+      "route to result audit if the panel succeeds",
+      "route to branch synthesis if the panel remains too broad",
+      "stop for user review if no bounded route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "new branch after M2451 promote_to_next_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "artifact-only scenario-quality discriminant panel",
+    "admission_evidence": [
+      "M2451 promoted to scenario-quality discriminant branch",
+      "M2445 measured validation complete 5250 episodes",
+      "M2449 target consolidation complete 21 targets and 56 guardrails"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no winner selection",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel.py",
+      "tests/test_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel.py",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/guardrail_rows.csv",
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/decision_rows.csv",
+      "docs/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md",
+      "M2452 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the panel"
+    ],
+    "next_stage_criteria": [
+      "scenario-quality and repair-candidate classes are separated",
+      "monitoring axes remain non-ranking",
+      "a bounded next route is selected or the route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2452 builds task-quality panel evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2452; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2445 fresh measured rows plus M2449 target/guardrail rows.",
+    "negative_result_policy": "If the panel shows the blocker is too broad for repair, synthesize or stop before repair/training.",
+    "allowed_claims": [
+      "artifact-only scenario-quality discriminant panel",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a new branch with a new scenario-quality discriminant panel",
+    "paper_verdict_delta": "can distinguish whether next evidence should be scenario redesign, guarded repair-plan design, branch synthesis, or stop",
+    "must_synthesize_if": [
+      "panel remains too broad",
+      "diagnostic axes are treated as ranking",
+      "another artifact-only relabel is proposed without a new evidence axis"
+    ]
+  },
+  "hypothesis": "M2445 episode rows and M2449 target/guardrail rows can be combined into a discriminant panel that separates scenario-quality blockers from possible repair-plan candidates without rerun, repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json exists",
+    "panel rows and guardrail/decision rows are written",
+    "profile/pack/checkpoint monitoring axes remain non-ranking",
+    "a bounded non-ranking next route is selected or the route is stopped",
+    "no rerun repair training ranking actual-success-improvement or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2452 reruns measured validation or policy action",
+    "M2452 executes repair or training",
+    "M2452 ranks candidate families, controller families, selected checkpoints, or target rows as winners",
+    "M2452 selects a winner",
+    "M2452 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel.py"
+    },
+    {
+      "name": "implementation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/panel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/decision_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_scenario_quality_discriminant_panel"
+  ],
+  "baseline_artifacts": [
+    "docs/m2451-paper-route-current-sim-dual-axis-metric-selected-validation-branch-synthesis.md",
+    "runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/episode_rows.csv",
+    "runs/m2449_paper_route_current_sim_dual_axis_metric_selected_measured_validation_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2452 passes if it builds a discriminant panel and selects a bounded non-ranking next route or stops without rerun, repair, training, ranking, winner selection, actual-success-improvement, or verdict claims.",
+  "next_blocker": "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel"
+}
