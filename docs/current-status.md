@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
+m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit
+m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation
+m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
 ```
 
 Current route:
@@ -49,6 +49,9 @@ that full panel with clean lineage and guardrails. M2398 accepted the artifact
 as complete but classified the measured outcome as offtrack-dominated. The next
 task is M2399 artifact-only outcome localization over M2397 rows, with no
 rerun, repair, training, ranking, or paper/self-ID/current-sim verdict route.
+M2399 materialized localization slices; M2400 must audit whether those slices
+are actionable enough for consolidation or whether the branch should pivot,
+synthesize, or stop.
 ```
 
 ## Latest Evidence
@@ -219,6 +222,26 @@ global collision_rate: 0.10157800553115341
 metric_artifact/lineage_invalid/contract_violation: not observed
 ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: false
 next task: M2399 artifact-only measured outcome localization implementation
+```
+
+M2399 effective-candidate measured outcome localization:
+
+```text
+result_class: current_sim_dual_axis_effective_candidate_measured_outcome_localization_pass
+source_episode_count: 30735
+source_candidate_count: 54
+source_profile_count: 5
+source_role_family_count: 6
+slice_row_count: 1313
+offtrack_target_slice_count: 1132
+collision_guardrail_slice_count: 364
+r4_mitigation_semantics_slice_count: 57
+diagnostic_only_slice_count: 96
+high_priority_offtrack_slice_count: 658
+route_class_counts: offtrack_target 796, offtrack_target_with_collision_guardrail 336, collision_guardrail 28, r4_mitigation_semantics 57, diagnostic_only 96
+ranking_admissible_count/winner_selected_count/guardrail_violation_count: 0/0/0
+top localized blockers: centerline offtrack, drift_required offtrack+collision, early_far offtrack, guarded_offtrack_containment_repair offtrack+collision, R4 collision semantics
+next task: M2400 localization result audit
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

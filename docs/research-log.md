@@ -43611,3 +43611,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route directly to artifact-only outcome localization implementation to avoid another design-only milestone
 - follow-up manifest: `experiments/manifests/m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation.json`
 - next: `m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation`
+
+## M2399 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Outcome Localization Implementation
+
+- status: completed
+- result class: `current_sim_dual_axis_effective_candidate_measured_outcome_localization_pass`
+- manifest: `experiments/manifests/m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation.json`
+- doc: `docs/m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization.py`
+- focused tests: `3 passed`
+- summary: `runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json`
+- source episode count: `30735`
+- source candidates/profiles/role families: `54/5/6`
+- slice/offtrack/collision/R4/diagnostic/high-priority-offtrack counts: `1313/1132/364/57/96/658`
+- route class counts: `offtrack_target 796`, `offtrack_target_with_collision_guardrail 336`, `collision_guardrail 28`, `r4_mitigation_semantics 57`, `diagnostic_only 96`
+- ranking/winner/guardrail counts: `0/0/0`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- top offtrack slices include global all, centerline, drift_required, early_far, and guarded_offtrack_containment_repair
+- top collision guardrail slices include drift_required, guarded_offtrack_containment_repair, late_close, right_offset, and guarded R2
+- R4 mitigation semantics are collision-dominated
+- follow-up manifest: `experiments/manifests/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.json`
+- next: `m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit`

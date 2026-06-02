@@ -1,0 +1,117 @@
+{
+  "decision_reason": "M2399 materializes 1313 localization slices from M2397 rows: offtrack 1132 collision 364 R4 57 high-priority offtrack 658 guardrail 0 no rerun/ranking/verdict claims",
+  "failure_criteria": [
+    "M2399 reruns rollout or executes repair/training/replay/PPO",
+    "M2399 ranks candidates, ranks profiles, or selects a winner",
+    "M2399 drops candidate/pack/scenario/checkpoint lineage",
+    "M2399 cannot reconcile localization counts with M2397 summary",
+    "M2399 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims"
+  ],
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun M2397",
+    "do not run new rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260602T121229Z",
+  "hypothesis": "M2397 measured outcomes can be localized into actionable offtrack, collision-guardrail, R4 mitigation, and diagnostic-only slices without rerun, repair execution, training, ranking, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2398 accepts M2397 as complete but offtrack-dominated",
+      "offtrack/collision/R4 semantics are not yet localized into actionable slice rows",
+      "repair or scenario decisions are inadmissible before localization"
+    ],
+    "derived_from": [
+      "m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit",
+      "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_effective_candidate_measured_outcome_localization"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2398-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-result-audit.md",
+      "docs/m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-implementation.md",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/summary.json",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_candidate.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_candidate_profile.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_repair_family.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_role_family.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/aggregate_by_hidden_dynamics_bucket.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/claim_boundary.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "materialize artifact-only localization slices from the complete M2397 measured panel"
+    ],
+    "supersedes": [
+      "manual interpretation of M2397 aggregate tables",
+      "direct repair from global offtrack rate",
+      "candidate/profile ranking from diagnostic aggregates"
+    ]
+  },
+  "milestone": "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation",
+  "next_blocker": "m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "effective_candidate_measured_outcome_localization_pass_route_to_result_audit",
+  "public_gates": [
+    "M2399 must read only M2397 artifact rows and must not rerun rollout",
+    "M2399 must materialize slice rows for offtrack targets, collision guardrails, R4 mitigation semantics, and diagnostic-only categories",
+    "M2399 must preserve candidate/profile/pack/role/hidden/timing/lateral lineage without ranking or winner selection",
+    "M2399 must keep paper, finite-window-vs-GRU, level3 self-ID, scenario-redesign, training-repair, and current-sim verdict claims blocked"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "effective_candidate_measured_outcome_localization_pass_route_to_result_audit",
+    "milestone": "m2399-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-implementation",
+    "reason": "M2399 materializes 1313 localization slices from M2397 rows: offtrack 1132 collision 364 R4 57 high-priority offtrack 658 guardrail 0 no rerun/ranking/verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2399_paper_route_current_sim_dual_axis_effective_candidate_measured_outcome_localization/summary.json exists",
+    "source_episode_count equals 30735",
+    "slice rows preserve M2397 lineage fields",
+    "offtrack target, collision guardrail, R4 mitigation semantics, and diagnostic-only classes are separated",
+    "ranking_admissible_count equals 0 and winner_selected_count equals 0",
+    "paper finite-window-vs-GRU level3 self-ID scenario-redesign training-repair and current-sim verdict claims remain false"
+  ],
+  "type": "infrastructure"
+}
