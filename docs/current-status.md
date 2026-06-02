@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit
+m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design
 ```
 
 Current next task:
 
 ```text
-m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design
+m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -41,13 +41,13 @@ support labels: support_mixed 3, support_blocked 9
 global success/collision/offtrack: 0 / 173 / 6
 ```
 
-M2331 also records the main semantics issue: R4 is an unavoidable-mitigation
-role, so obstacle-passage success is not the right final role-success semantic.
-M2332 must design bounded current-sim R4 mitigation metric semantics from the
-available impact proxies while keeping unavailable post-collision delta-v and
-recoverability fields explicitly blocked. Training, replay, PPO, support-policy
-ranking, controller-family ranking, winner selection, paper-level claims,
-finite-window vs GRU conclusions, and level3 self-ID claims remain blocked.
+M2332 records the main semantics issue: R4 is an unavoidable-mitigation role,
+so obstacle-passage success is not the right final role-success semantic. It
+splits current-sim R4 evidence into available impact-proxy semantics and blocked
+post-collision canonical semantics. M2333 is an artifact-only implementation of
+that audit over M2330 artifacts. Training, replay, PPO, support-policy ranking,
+controller-family ranking, winner selection, paper-level claims, finite-window
+vs GRU conclusions, and level3 self-ID claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

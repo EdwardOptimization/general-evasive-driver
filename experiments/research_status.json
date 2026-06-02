@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2339,
+    "completed": 2340,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit",
+    "task_id": "m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md"
+    "command_log": "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md"
   },
   "next_task": {
-    "id": "m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design",
-    "kind": "gate",
-    "priority": 23270,
+    "id": "m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation",
+    "kind": "infrastructure",
+    "priority": 23280,
     "status": "pending",
-    "hypothesis": "A bounded R4 mitigation metric semantics design can separate current-sim impact-proxy evidence from unavailable post-collision metrics before any controller comparison resumes.",
-    "command": "manual design from M2331 audit and M2330 artifacts",
-    "success_artifact": "docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md",
-    "notes": "Pending: define available impact proxies unavailable post-collision fields and artifact-only semantics implementation route"
+    "hypothesis": "An artifact-only R4 mitigation metric semantics audit can materialize proxy-available and post-collision-blocked labels without new rollouts or ranking.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_r4_mitigation_metric_semantics_audit --input-dir runs/m2330_paper_route_current_sim_r4_metric_instrumented_support_diagnostic_rerun --output-dir runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics --target-scenario-count 12 --next-blocker m2334-paper-route-current-sim-r4-mitigation-metric-semantics-result-audit",
+    "success_artifact": "runs/m2333_paper_route_current_sim_r4_mitigation_metric_semantics/summary.json",
+    "notes": "Pending: materialize R4 semantics rows proxy aggregates claim boundary and summary from M2330 artifacts only"
   },
-  "updated_at_utc": "20260602T005454Z"
+  "updated_at_utc": "20260602T005755Z"
 }

@@ -42112,3 +42112,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.json`
 - next: `m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design`
+
+## M2332 Paper-Route Current-Sim R4 Mitigation Metric Semantics Design
+
+- status: completed
+- result_class: `r4_mitigation_metric_semantics_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.json`
+- doc: `docs/m2332-paper-route-current-sim-r4-mitigation-metric-semantics-design.md`
+- parent audit: `docs/m2331-paper-route-current-sim-r4-metric-instrumented-support-diagnostic-rerun-result-audit.md`
+- semantic split: `impact-proxy available` vs `post-collision canonical blocked`
+- R4 obstacle-passage success-only semantics: `insufficient_for_r4`
+- admitted implementation: `artifact-only`
+- reset/rollout/measured execution in M2332: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation.json`
+- next: `m2333-paper-route-current-sim-r4-mitigation-metric-semantics-implementation`
