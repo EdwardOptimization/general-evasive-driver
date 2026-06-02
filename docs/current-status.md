@@ -16,21 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization
+m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit
 ```
 
 Current next task:
 
 ```text
-m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit
+m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design
 ```
 
 Current route:
 
 ```text
-M2382 materialized application-plan artifacts that reference overlay patches
-without applying them. M2383 should audit those artifacts before any candidate
-config generation, patch application, reset validation, repair execution,
+M2383 accepted M2382 application-plan artifacts and routed to bounded
+candidate config generation design. M2384 should design run-dir-only candidate
+config generation without generating configs in the design milestone, applying
+patches, overwriting active configs, reset validation, repair execution,
 ranking, training, or paper/self-ID/current-sim interpretation.
 ```
 
@@ -316,6 +317,18 @@ active_config_overwrite_count/config_patch_applied_count/candidate_config_file_w
 guardrail_violation_count: 0
 ```
 
+M2383 audit decision:
+
+```text
+M2382 application-plan artifacts accepted: true
+next route: bounded candidate config generation design
+candidate_application_spec_count: 54
+reward/curriculum/guardrail patch references: 162/54/284
+active config overwrite/config patch application/candidate config generation: blocked
+reset/rollout/repair/training/ranking: blocked
+paper/self-ID/current-sim verdict claims: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -340,7 +353,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2383 should audit application-plan artifacts from:
+M2384 should design candidate config generation from:
 
 ```text
 runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json
@@ -352,7 +365,7 @@ runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_app
 runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv
 ```
 
-The audit must not apply patches, write candidate config files, overwrite the
-active config, run reset/rollout, execute repair, train, replay, use PPO, rank
-profiles or packs, select a winner, claim scenario redesign executed, claim
-repair success, current-sim verdict, or paper/self-ID claims.
+The design must not generate candidate configs yet, apply patches, overwrite
+the active config, run reset/rollout, execute repair, train, replay, use PPO,
+rank profiles or packs, select a winner, claim scenario redesign executed,
+claim repair success, current-sim verdict, or paper/self-ID claims.

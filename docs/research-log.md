@@ -43302,3 +43302,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.json`
 - next: `m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit`
+
+## M2383 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Config Patch Application Plan Materialization Result Audit
+
+- status: completed
+- decision: `application_plan_result_accepted_route_to_candidate_config_generation_design`
+- manifest: `experiments/manifests/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.json`
+- doc: `docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md`
+- audited summary: `runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json`
+- reset/rollout/measured execution in M2383: `false`
+- active config overwrite/config patch application/candidate config file generation in M2383: `false/false/false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- M2382 application-plan artifacts accepted: `true`
+- candidate application specs: `54`
+- reward/curriculum/guardrail patch references: `162/54/284`
+- mixed guarded candidate requirements: `18`
+- guardrail_violation_count: `0`
+- decision: route to bounded candidate config generation design; no config generation, patch application, active overwrite, reset validation, training, or ranking
+- follow-up manifest: `experiments/manifests/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.json`
+- next: `m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design`
