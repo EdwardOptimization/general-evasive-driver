@@ -42310,3 +42310,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.json`
 - next: `m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit`
+
+## M2341 Paper-Route Current-Sim Support Coverage Gap Source Mapping Result Audit
+
+- status: completed
+- result_class: `support_coverage_gap_source_mapping_result_accepted_route_to_redesign_consolidation`
+- manifest: `experiments/manifests/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.json`
+- doc: `docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md`
+- parent summary: `runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json`
+- M2340 artifacts accepted: `true`
+- M2340 route split: `support coverage materialization 9`, `scenario/support redesign 14`, `unclassified 0`
+- combined redesign-related rows: `26` (`12` original M2336 redesign rows + `14` remapped M2340 redesign candidates)
+- support-policy aggregate success over 23 coverage rows: `0`
+- decision: `route_to_scenario_support_redesign_consolidation_design`
+- reset/rollout/measured execution in M2341: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.json`
+- next: `m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design`

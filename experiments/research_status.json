@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2348,
+    "completed": 2349,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2340-paper-route-current-sim-support-coverage-gap-source-mapping-implementation",
+    "task_id": "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping",
-    "command_log": "runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md"
   },
   "next_task": {
-    "id": "m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit",
+    "id": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
     "kind": "gate",
-    "priority": 23360,
+    "priority": 23370,
     "status": "pending",
-    "hypothesis": "M2340 provides enough source-mapped task-quality evidence to choose the next bounded non-ranking route before current-sim controller comparison.",
-    "command": "write docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md from M2340 artifacts",
-    "success_artifact": "docs/m2341-paper-route-current-sim-support-coverage-gap-source-mapping-result-audit.md",
-    "notes": "Pending: audit M2340 route split 9 coverage-materialization vs 14 redesign before any repair branch"
+    "hypothesis": "A design-first consolidation over the 26 redesign-related rows can define the task-quality blocker that must be addressed before current-sim controller comparison.",
+    "command": "write docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md from M2341 audit plus M2336 and M2340 artifacts",
+    "success_artifact": "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md",
+    "notes": "Pending: design artifact-only consolidation over 12 original redesign rows plus 14 remapped redesign candidates"
   },
-  "updated_at_utc": "20260602T014110Z"
+  "updated_at_utc": "20260602T014438Z"
 }
