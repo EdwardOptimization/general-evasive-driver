@@ -44399,3 +44399,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/new measured rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.json`
 - next: `m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit`
+
+## M2444 Paper-Route Current-Sim Dual-Axis Metric-Selected Validation Preflight Result Audit
+
+- status: completed
+- decision: `accept_metric_selected_preflight_route_to_full_measured_validation_implementation`
+- manifest: `experiments/manifests/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.json`
+- doc: `docs/m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit.md`
+- audited summary: `runs/m2443_paper_route_current_sim_dual_axis_metric_selected_validation_preflight/summary.json`
+- accepted evidence: M2443 result_class `current_sim_dual_axis_metric_selected_validation_preflight_pass`, workload `5250`, reset targets `350`, selected checkpoints `15`, unique source cells `5250`, duplicate cells `0`, missing cells `0`, reset success `350`, observation shape changed `0`, policy action `0`, guardrail violations `0`
+- accepted claim: M2413 denominator is ready for bounded metric-selected measured-validation implementation under `soft_offtrack_metric_enabled=true` and `soft_offtrack_tolerance_m=0.20`
+- blocked claims: actual success improvement, measured driver success, scenario redesign execution, candidate/controller ranking, winner selection, paper/FW-vs-GRU/self-ID/current-sim verdict
+- route: M2445 bounded metric-selected measured-validation implementation
+- rerun/new measured rollout/repair/training/replay/PPO/ranking/verdict claims in the audit: `false`
+- follow-up manifest: `experiments/manifests/m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation.json`
+- next: `m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation`

@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
+m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
+m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
+m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
 ```
 
 Current route:
 
 ```text
+M2444 accepted M2443 as a complete metric-selected validation preflight and
+routes to bounded full metric-selected measured-validation implementation.
+Accepted evidence: 5250/5250 source cells, no duplicate or missing cells,
+350/350 reset success, unchanged actor observation shape, 0 policy actions, and
+0 guardrail violations. This audit still does not measure driving performance
+or support actual-success, ranking, scenario redesign, paper/FW-vs-GRU/self-ID,
+training-repair, or current-sim verdict claims. The next task is M2445, which
+may execute the M2443 workload as fresh closed-loop data but must not repair,
+train, rank, select winners, promote checkpoints, or claim a verdict before a
+later result audit.
+
 M2443 implemented and ran the metric-selected validation preflight for the M2413
 denominator under soft-boundary config. It materialized 5250 workload cells from
 350 reset targets x 15 selected checkpoints, verified source-cell coverage with
