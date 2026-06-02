@@ -43946,3 +43946,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2417 is artifact-only consolidation, not repair execution or driver-success evidence; consolidated targets are ready for result audit
 - follow-up manifest: `experiments/manifests/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.json`
 - next: `m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit`
+
+## M2418 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Actionable Target Consolidation Result Audit
+
+- status: completed
+- decision: `source_linked_actionable_target_consolidation_accepted_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.json`
+- doc: `docs/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.md`
+- parent summary: `runs/m2417_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation/summary.json`
+- rerun/consolidation rerun/repair/training/replay/PPO: `false`
+- family/profile/controller ranking and winner selection: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted consolidation: `2844` rows with offtrack `59`, collision guardrail `30`, R4 `43`, max-step `1`, speed-too-low `1`, diagnostic guardrail `2733`, family diagnostic `110`
+- audit result: consolidation is complete and compact, but the source-linked branch should synthesize before repair-plan materialization
+- follow-up manifest: `experiments/manifests/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.json`
+- next: `m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis`

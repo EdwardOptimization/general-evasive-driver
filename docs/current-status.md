@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation
+m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation
+m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit
+m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
 ```
 
 Current route:
@@ -130,7 +130,10 @@ mitigation rows, 1 max-step noncompletion row, 1 speed-too-low row, 2733
 diagnostic guardrail rows, and 110 family-membership diagnostic rows.
 Family/profile repair-target counts, ranking, winner selection, guardrail
 violations, repair execution, training, and verdict claims all remain zero. The
-next task is M2418 result audit.
+M2418 accepted M2417 as a complete target-consolidation artifact. Because the
+source-linked branch has now produced reset evidence, measured validation,
+outcome localization, target consolidation, and audits, M2418 routes to M2419
+branch synthesis before any repair-plan materialization.
 ```
 
 ## Latest Evidence

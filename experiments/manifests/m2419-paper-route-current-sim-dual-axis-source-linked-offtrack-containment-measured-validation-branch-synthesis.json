@@ -1,0 +1,233 @@
+{
+  "id": "m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_linked_measured_validation_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+      "runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json",
+      "docs/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.md",
+      "docs/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.md",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/summary.json",
+      "docs/m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit.md",
+      "runs/m2415_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_outcome_localization/summary.json",
+      "docs/m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit.md",
+      "runs/m2417_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation/summary.json",
+      "docs/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M2410-M2418 source-linked reset, measured-validation, outcome-localization, and target-consolidation branch before repair-plan materialization"
+    ],
+    "derived_from": [
+      "m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation",
+      "m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit",
+      "m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-implementation",
+      "m2414-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-result-audit",
+      "m2415-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-implementation",
+      "m2416-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-outcome-localization-result-audit",
+      "m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation",
+      "m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit"
+    ],
+    "blocked_by": [
+      "the branch reached synthesis cadence after M2418",
+      "M2417 target consolidation is ready for route decision but repair-plan materialization should not start without synthesis",
+      "M2413/M2415/M2417 evidence remains task-quality infrastructure and not paper/current-sim/self-ID proof"
+    ],
+    "supersedes": [
+      "direct repair-plan materialization after M2418",
+      "another ordinary artifact-only step before branch synthesis",
+      "paper/current-sim interpretation from M2413-M2417 artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+  "public_gates": [
+    "M2419 must answer the standard synthesis questions",
+    "M2419 must classify actual progress, process overhead, public-gate overfit risk, and paper-verdict distance for M2410-M2418",
+    "M2419 must decide continue pivot stop or promote_to_next_branch",
+    "M2419 must choose the next bounded non-ranking route or explicitly stop for user review",
+    "M2419 must not rerun reset/rollout/localization/consolidation, execute repair, train, rank, overwrite active config, or make paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset validation",
+    "do not run new rollout",
+    "do not rerun localization or consolidation",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank source-linked families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_source_linked_reset_evidence",
+    "evidence_axis": "E_source_linked_measured_validation_branch_synthesis",
+    "evidence_increment": "synthesizes the M2410-M2418 source-linked reset-to-measured-to-localization-to-consolidation evidence before any repair-plan route",
+    "claim_scope": "branch synthesis only; no rerun, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes directly to repair execution, training, ranking, active config overwrite, or paper conclusion",
+      "stop if synthesis ignores offtrack-dominated outcome or target-consolidation limits",
+      "stop if synthesis treats M2413/M2417 artifacts as current-sim driver success",
+      "stop if process overhead exceeds evidence gain"
+    ],
+    "fallback_plan": [
+      "continue to bounded source-linked repair-plan materialization if target categories are compact and guarded",
+      "pivot to scenario-quality reassessment if offtrack dominance suggests task construction rather than repair overlay",
+      "pivot to new measured panel if source-linked artifacts are too local",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2410-M2418 reached synthesis cadence and M2418 selected synthesis before repair planning",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "source-linked measured-validation branch synthesis",
+    "admission_evidence": [
+      "M2410 reset evidence passes 350/350 unique reset targets and 4/4 source-linked families",
+      "M2413 measured-validation panel completes 5250/5250 episodes with guardrail 0",
+      "M2413 outcome is offtrack-dominated with role_success_rate 0.06685714285714285 and offtrack_rate 0.7424761904761905",
+      "M2415 localizes 2844 slices including offtrack, collision, R4, max-step, and speed-too-low categories",
+      "M2417 consolidates into 59 offtrack repair targets, 30 collision guardrails, 43 R4 rows, one max-step row, one speed-too-low row, and 2733 diagnostic guardrail rows",
+      "family/profile/controller rows remain diagnostic-only"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+      "M2419 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis or branch stop"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "standard synthesis questions are answered",
+      "actual progress versus process overhead is classified",
+      "target-consolidation readiness and offtrack-dominated blocker are interpreted",
+      "a bounded non-ranking follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2419 is branch synthesis and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2419; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2410-M2418 source-linked branch artifacts.",
+    "negative_result_policy": "If synthesis finds the branch is only local search, pivot or stop before more artifact work.",
+    "allowed_claims": [
+      "source-linked measured-validation branch synthesis",
+      "next route decision",
+      "no controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "integrates source-linked reset, measured-validation, outcome-localization, and target-consolidation evidence before repair planning",
+    "paper_verdict_delta": "can decide whether bounded repair-plan materialization is justified but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2410-M2418 will prevent over-local repair-plan work and select the next bounded non-ranking route.",
+  "success_criteria": [
+    "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md exists",
+    "the synthesis answers all required questions",
+    "the synthesis decision is continue pivot stop or promote_to_next_branch",
+    "the synthesis classifies actual progress and process overhead",
+    "a follow-up non-ranking route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2419 omits a required synthesis question",
+    "M2419 starts new rollout measured execution replay PPO repair execution training or private holdout",
+    "M2419 overwrites active config",
+    "M2419 ranks source-linked families profiles support policies or controller families",
+    "M2419 makes finite-window-vs-GRU paper-level current-sim verdict or level3 self-ID claims",
+    "M2419 claims scenario redesign executed or training repair success",
+    "M2419 routes directly to repair execution without resolving process-overhead and target-readiness blockers"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md from M2410-M2418 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_linked_measured_validation_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.md",
+    "runs/m2417_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2419 passes if it synthesizes M2410-M2418, answers required questions, and selects a bounded non-ranking route without rerun, repair execution, training, ranking, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation"
+}

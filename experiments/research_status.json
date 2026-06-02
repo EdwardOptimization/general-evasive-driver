@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2423,
+    "completed": 2424,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation",
+    "task_id": "m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2417_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_actionable_target_consolidation",
-    "command_log": "docs/m2417-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-implementation.md"
+    "run_dir": "",
+    "command_log": "docs/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.md"
   },
   "next_task": {
-    "id": "m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit",
+    "id": "m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis",
     "kind": "gate",
-    "priority": 24130,
+    "priority": 24140,
     "status": "pending",
-    "hypothesis": "Auditing M2417 will determine whether the source-linked target-consolidation result is ready for synthesis, bounded repair-plan materialization, stop, or pivot without rerun, repair, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.json",
-    "success_artifact": "docs/m2418-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-actionable-target-consolidation-result-audit.md",
-    "notes": "Pending: result audit for M2417 consolidation no rerun repair training ranking or verdict claims"
+    "hypothesis": "Synthesizing M2410-M2418 will prevent over-local repair-plan work and select the next bounded non-ranking route.",
+    "command": "see experiments/manifests/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.json",
+    "success_artifact": "docs/m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis.md",
+    "notes": "Pending: branch synthesis before source-linked repair-plan materialization no rerun repair training ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T152203Z"
+  "updated_at_utc": "20260602T153220Z"
 }
