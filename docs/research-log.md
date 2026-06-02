@@ -42352,3 +42352,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.json`
 - next: `m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation`
+
+## M2343 Paper-Route Current-Sim Scenario Support Redesign Consolidation Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_support_redesign_consolidation_pass`
+- manifest: `experiments/manifests/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.json`
+- doc: `docs/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.md`
+- summary: `runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_scenario_support_redesign_consolidation.py`
+- tests: `tests/test_paper_route_current_sim_scenario_support_redesign_consolidation.py`
+- original_redesign_gap_count: `12`
+- remapped_coverage_redesign_candidate_count: `14`
+- combined_redesign_related_row_count: `26`
+- unique_redesign_scenario_count: `26`
+- secondary_coverage_materialization_row_count: `9`
+- recommended route split: `geometry_timing_rebalance_candidate 13`, `hidden_dynamics_range_rebalance_candidate 13`
+- needs_user_review_count: `0`
+- guardrail_violation_count: `0`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.json`
+- next: `m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit`

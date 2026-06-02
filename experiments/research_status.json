@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2350,
+    "completed": 2351,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design",
+    "task_id": "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2342-paper-route-current-sim-scenario-support-redesign-consolidation-design.md"
+    "run_dir": "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation",
+    "command_log": "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json"
   },
   "next_task": {
-    "id": "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation",
-    "kind": "infrastructure",
-    "priority": 23380,
+    "id": "m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit",
+    "kind": "gate",
+    "priority": 23390,
     "status": "pending",
-    "hypothesis": "Artifact-only consolidation can merge the 12 original redesign gaps and 14 remapped redesign candidates into a 26-row task-quality blocker without new execution or ranking.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_scenario_support_redesign_consolidation --rescore-dir runs/m2336_paper_route_current_sim_role_stratified_residual_support_rescore --residual-dir runs/m2321_paper_route_current_sim_scenario_task_family_residual_support_audit --source-mapping-dir runs/m2340_paper_route_current_sim_support_coverage_gap_source_mapping --output-dir runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation",
-    "success_artifact": "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
-    "notes": "Pending: implement tested artifact-only consolidation over 26 redesign-related rows and preserve 9 secondary coverage rows"
+    "hypothesis": "M2343 provides enough redesign consolidation evidence to choose the next bounded task-quality route without execution or ranking.",
+    "command": "write docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md from M2343 artifacts",
+    "success_artifact": "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+    "notes": "Pending: audit M2343 13 geometry/timing vs 13 hidden-dynamics split before selecting next branch"
   },
-  "updated_at_utc": "20260602T015026Z"
+  "updated_at_utc": "20260602T015720Z"
 }

@@ -1,0 +1,188 @@
+{
+  "id": "m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_support_redesign_consolidation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.md",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/consolidated_redesign_rows.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_axis_summary.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_source_summary.csv",
+      "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/claim_boundary.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit artifact-only scenario/support redesign consolidation result and choose the next task-quality route"
+    ],
+    "derived_from": [
+      "m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation"
+    ],
+    "blocked_by": [
+      "M2343 result must be audited before choosing geometry/timing or hidden-dynamics rebalance",
+      "controller comparison remains blocked until task-quality route is selected"
+    ],
+    "supersedes": [
+      "direct geometry/timing rebalance after M2343",
+      "direct hidden-dynamics range rebalance after M2343",
+      "manual interpretation of redesign consolidation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+  "public_gates": [
+    "M2344 must audit M2343 summary and 13/13 route split",
+    "M2344 must preserve non-ranking and artifact-only claim boundary",
+    "M2344 must choose a bounded follow-up route or branch synthesis",
+    "M2344 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_support_redesign_consolidation",
+    "evidence_axis": "Q_scenario_support_redesign_consolidation_result_audit",
+    "evidence_increment": "audits 26-row redesign consolidation and selects the next task-quality branch",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2343 artifacts are incomplete",
+      "stop if audit claims redesign has been executed",
+      "stop if audit routes directly to controller comparison",
+      "stop if audit ignores the 13/13 geometry-vs-hidden split"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if artifacts are incomplete",
+      "route to branch synthesis if the 13/13 split makes a single next branch ambiguous",
+      "route to bounded geometry/timing rebalance design if geometry/timing is selected",
+      "route to hidden-dynamics range rebalance design if hidden range is selected"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2343 materializes 26-row redesign consolidation artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit scenario/support redesign consolidation result",
+    "admission_evidence": [
+      "M2343 summary exists",
+      "M2343 reports combined_redesign_related_row_count 26",
+      "M2343 reports geometry_timing_rebalance_candidate 13 and hidden_dynamics_range_rebalance_candidate 13",
+      "M2343 reports needs_user_review_count 0 and guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+      "M2344 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2343 artifacts are accepted or rejected",
+      "13/13 route split is interpreted without claiming a fix",
+      "claim boundary is preserved",
+      "a bounded non-ranking follow-up route or synthesis is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2344 audits task-quality consolidation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2344; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2343 redesign consolidation artifacts.",
+    "negative_result_policy": "M2343 redesign consolidation must be interpreted as task-quality evidence, not driver or self-ID evidence.",
+    "allowed_claims": [
+      "scenario/support redesign consolidation result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns consolidated redesign output into a next-route decision",
+    "paper_verdict_delta": "can decide whether to synthesize, rebalance geometry/timing, or rebalance hidden dynamics before current-sim controller comparison",
+    "must_synthesize_if": [
+      "M2344 cannot select a next task-quality route",
+      "M2344 routes directly to ranking",
+      "the redesign consolidation branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2343 provides enough redesign consolidation evidence to choose the next bounded task-quality route without execution or ranking.",
+  "success_criteria": [
+    "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md exists",
+    "M2343 summary is audited",
+    "M2343 route split is audited",
+    "claim boundary is audited",
+    "a follow-up non-ranking route or synthesis is selected"
+  ],
+  "failure_criteria": [
+    "M2343 artifacts are missing",
+    "M2344 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2344 ranks support policies or selects a winner",
+    "M2344 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2344 routes directly to controller comparison"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2343 summary consolidated rows route summaries axis summaries source summaries and claim boundary"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2344-paper-route-current-sim-scenario-support-redesign-consolidation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_support_redesign_consolidation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2343-paper-route-current-sim-scenario-support-redesign-consolidation-implementation.md",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/summary.json",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/redesign_route_summary.csv",
+    "runs/m2343_paper_route_current_sim_scenario_support_redesign_consolidation/claim_boundary.csv"
+  ],
+  "decision_rule": "M2344 passes if it audits M2343 and selects a bounded non-ranking follow-up route or synthesis.",
+  "next_blocker": "selected_by_m2344_result_audit"
+}
