@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
+m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit
+m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation
+m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
 ```
 
 Current route:
@@ -53,7 +53,9 @@ M2399 materialized localization slices; M2400 must audit whether those slices
 are actionable enough for consolidation or whether the branch should pivot,
 synthesize, or stop. M2400 accepted localization as actionable but too broad for
 direct repair, and routed to M2401 artifact-only actionable target
-consolidation.
+consolidation. M2401 consolidated those slices into compact repair-target and
+guardrail tables while keeping candidate/profile/pack axes diagnostic-only. The
+next task is M2402 result audit.
 ```
 
 ## Latest Evidence
@@ -256,6 +258,24 @@ route_class_counts: offtrack_target 796, offtrack_target_with_collision_guardrai
 classification: actionable enough to continue but too broad for direct repair
 blocked: raw slice ranking, candidate/profile ranking, direct repair, paper/current-sim/self-ID verdict
 next task: M2401 artifact-only actionable target consolidation implementation
+```
+
+M2401 effective-candidate actionable target consolidation:
+
+```text
+result_class: current_sim_dual_axis_effective_candidate_actionable_target_consolidation_pass
+source_slice_row_count: 1313
+consolidated_row_count: 1313
+offtrack_repair_target_row_count: 203
+collision_guardrail_row_count: 65
+r4_mitigation_semantics_row_count: 57
+diagnostic_guardrail_row_count: 1034
+diagnostic_axis_repair_target_count: 0
+r4_ordinary_repair_target_count: 0
+ranking_admissible_count/winner_selected_count/guardrail_violation_count: 0/0/0
+top repair targets: centerline, early_far, priority_offtrack_containment_repair, mid timing, slow_steer_actuator
+top collision guardrails: R5 right_offset/late_close, R2 right_offset, guarded weak_brake, guarded same_scene_balanced_panel
+next task: M2402 actionable target consolidation result audit
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

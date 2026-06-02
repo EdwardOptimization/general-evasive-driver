@@ -1,0 +1,207 @@
+{
+  "id": "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_effective_candidate_actionable_target_consolidation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.md",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/consolidated_rows.csv",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/offtrack_repair_target_rows.csv",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/collision_guardrail_rows.csv",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/r4_mitigation_semantics_rows.csv",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/diagnostic_guardrail_rows.csv",
+      "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/claim_boundary.csv",
+      "docs/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2401 consolidated targets and choose bounded next route"
+    ],
+    "derived_from": [
+      "m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation",
+      "m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit"
+    ],
+    "blocked_by": [
+      "M2401 materializes consolidated target rows but does not audit route readiness",
+      "repair planning must not proceed from unreviewed consolidated targets",
+      "candidate/profile/pack diagnostic guardrails must remain non-ranking"
+    ],
+    "supersedes": [
+      "direct repair from M2401 rows without audit",
+      "candidate/profile ranking from diagnostic guardrails",
+      "scenario-redesign or repair-success claims from consolidation artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+  "public_gates": [
+    "M2402 must audit M2401 consolidation before repair planning or new rollout",
+    "M2402 must decide whether offtrack, collision, and R4 categories are ready for bounded repair planning or need synthesis/stop",
+    "M2402 must keep candidate/profile/pack rows diagnostic-only",
+    "M2402 must choose a bounded next route without ranking, repair execution, training, paper, finite-window-vs-GRU, level3 self-ID, scenario-redesign, training-repair, or current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2397 M2399 or M2401",
+    "do not run new rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_effective_candidate_actionable_target_consolidation_result_audit",
+    "evidence_increment": "audits compact target categories and selects whether to proceed to repair planning, synthesize, or stop",
+    "claim_scope": "result audit only; no rerun, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2401 consolidation counts are inconsistent with M2399 slices",
+      "stop if consolidated targets are still too broad for bounded repair planning",
+      "stop if next route would require candidate/profile ranking",
+      "stop if offtrack/collision/R4 categories cannot be guarded separately",
+      "stop if branch synthesis is required before any further repair-plan step"
+    ],
+    "fallback_plan": [
+      "route to bounded repair-plan materialization only if targets are compact and guarded",
+      "route to branch synthesis if local-search risk or target breadth is too high",
+      "route to artifact repair only if M2401 outputs are structurally invalid",
+      "stop if no bounded next route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2401 produced compact consolidated target artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "effective candidate actionable target consolidation result audit",
+    "admission_evidence": [
+      "M2401 result_class is current_sim_dual_axis_effective_candidate_actionable_target_consolidation_pass",
+      "M2401 source_slice_row_count is 1313",
+      "M2401 offtrack_repair_target_row_count is 203",
+      "M2401 collision_guardrail_row_count is 65",
+      "M2401 r4_mitigation_semantics_row_count is 57",
+      "M2401 diagnostic_axis_repair_target_count is 0",
+      "M2401 ranking_admissible_count winner_selected_count and guardrail_violation_count are 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+      "M2402 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit or branch stop"
+    ],
+    "next_stage_criteria": [
+      "M2401 consolidation completeness is accepted or rejected",
+      "repair target and guardrail readiness is classified",
+      "failure taxonomy is recorded",
+      "a bounded follow-up route is selected or the branch is stopped",
+      "blocked claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2402 audits target consolidation only and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2402; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2397 measured panel through M2401 consolidated target artifacts.",
+    "negative_result_policy": "If targets are still too broad, route to synthesis or stop instead of overfitting another artifact step.",
+    "allowed_claims": [
+      "M2401 target-consolidation artifact completeness accepted or rejected",
+      "bounded next-route decision from consolidated targets",
+      "no controller ranking, effective-candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits compact target categories and must decide whether repair planning is justified",
+    "paper_verdict_delta": "can admit bounded repair-plan materialization but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "M2402 cannot justify repair planning from consolidated targets",
+      "M2402 proposes another artifact-only consolidation step before repair-plan route",
+      "M2402 attempts to rank candidates or profiles",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The M2401 target consolidation artifact can be audited into a bounded repair-planning route, synthesis route, or stop decision without rerun, repair execution, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md exists",
+    "M2401 consolidation completeness is accepted or rejected with explicit counts",
+    "offtrack repair target collision guardrail R4 mitigation and diagnostic guardrail counts are interpreted",
+    "candidate/profile/pack rows remain diagnostic-only",
+    "a bounded follow-up route is selected or the branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2402 reruns rollout or executes repair/training/replay/PPO",
+    "M2402 ranks candidates, ranks profiles, or selects a winner",
+    "M2402 treats consolidation as repair or scenario redesign success",
+    "M2402 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2402 cannot classify the consolidation result or choose a bounded route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2401 summary and consolidated target artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_effective_candidate_actionable_target_consolidation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.md",
+    "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json"
+  ],
+  "decision_rule": "M2402 passes if it audits M2401 consolidation into an explicit bounded next-route decision without rerun, ranking, or verdict claims.",
+  "next_blocker": "m2403-paper-route-current-sim-dual-axis-effective-candidate-repair-plan-materialization-implementation"
+}

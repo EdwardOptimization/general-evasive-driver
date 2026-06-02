@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2406,
+    "completed": 2407,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit",
+    "task_id": "m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2400-paper-route-current-sim-dual-axis-effective-candidate-measured-outcome-localization-result-audit.md"
+    "run_dir": "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation",
+    "command_log": "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json"
   },
   "next_task": {
-    "id": "m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation",
-    "kind": "infrastructure",
-    "priority": 23960,
+    "id": "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit",
+    "kind": "gate",
+    "priority": 23970,
     "status": "pending",
-    "hypothesis": "M2399 localization slices can be consolidated into compact offtrack target, collision guardrail, R4 mitigation, and diagnostic-only categories without rerun, repair execution, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.json",
-    "success_artifact": "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json",
-    "notes": "Pending: artifact-only consolidation of M2399 localization slices no rerun/ranking/verdict claims"
+    "hypothesis": "The M2401 target consolidation artifact can be audited into a bounded repair-planning route, synthesis route, or stop decision without rerun, repair execution, training, ranking, or verdict claims.",
+    "command": "see experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json",
+    "success_artifact": "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md",
+    "notes": "Pending: audit M2401 target consolidation no rerun/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T121822Z"
+  "updated_at_utc": "20260602T122555Z"
 }

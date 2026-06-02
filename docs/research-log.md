@@ -43650,3 +43650,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route directly to artifact-only actionable target consolidation implementation
 - follow-up manifest: `experiments/manifests/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.json`
 - next: `m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation`
+
+## M2401 Paper-Route Current-Sim Dual-Axis Effective Candidate Actionable Target Consolidation Implementation
+
+- status: completed
+- result class: `current_sim_dual_axis_effective_candidate_actionable_target_consolidation_pass`
+- manifest: `experiments/manifests/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.json`
+- doc: `docs/m2401-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation.py`
+- focused tests: `3 passed`
+- summary: `runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json`
+- source/consolidated row counts: `1313/1313`
+- offtrack repair target/collision guardrail/R4/diagnostic counts: `203/65/57/1034`
+- diagnostic-axis repair target/R4 ordinary repair target/ranking/winner/guardrail counts: `0/0/0/0/0`
+- consolidated route counts: `offtrack_repair_target 143`, `offtrack_repair_target_with_collision_guardrail 60`, `collision_guardrail 5`, `r4_mitigation_semantics 57`, `diagnostic_guardrail 1034`, `diagnostic_only 14`
+- candidate/profile/pack/global axes remain diagnostic guardrails, not repair targets
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.json`
+- next: `m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit`
