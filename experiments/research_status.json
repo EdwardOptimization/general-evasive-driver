@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2398,
+    "completed": 2399,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis",
+    "task_id": "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md"
+    "command_log": "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md"
   },
   "next_task": {
-    "id": "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design",
-    "kind": "gate",
-    "priority": 23880,
+    "id": "m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation",
+    "kind": "infrastructure",
+    "priority": 23890,
     "status": "pending",
-    "hypothesis": "A bounded design can adapt reset-only validation to M2391 effective candidate pack artifacts by reading selected scenario env_config entries without active config overwrite, policy action, repair execution, ranking, or training-success claims.",
-    "command": "see experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json",
-    "success_artifact": "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md",
-    "notes": "Pending: design only no environment load/reset repair training ranking or paper/self-ID/current-sim claims"
+    "hypothesis": "The M2391 effective candidate artifacts can be statically validated across 2049 references and reset-tested across 350 unique pack/scenario targets without active config overwrite, environment steps, policy actions, repair execution, ranking, or training-success claims.",
+    "command": "see experiments/manifests/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.json",
+    "success_artifact": "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json",
+    "notes": "Pending: implement reset-only adapter 350 reset targets no env step policy repair training ranking or paper/self-ID/current-sim claims"
   },
   "updated_at_utc": "20260602T084102Z"
 }

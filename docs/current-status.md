@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
+m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis
+m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design
+m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation
 ```
 
 Current route:
@@ -37,11 +37,13 @@ Current route:
 ```text
 M2391 materialized run-dir-only effective candidate pack artifacts by joining
 M2385 overlay candidates to M2356 reset-valid repaired pack scenario specs.
-M2392 synthesized M2387-M2391 and chose `continue`: M2391's effective
-candidate artifacts justify one bounded reset-validation adapter design, but
-they still do not prove reset compatibility, rollout performance, repair
-success, ranking, self-ID, or current-sim verdict. The next task is M2393,
-which must design the adapter without loading or resetting environments.
+M2393 designed the reset-validation adapter for M2391 effective candidate
+artifacts. The adapter uses two layers: 2049 candidate-scenario references for
+static coverage and 350 unique `(pack_id, scenario_spec_id)` reset targets for
+future reset-only validation. The next task is M2394 implementation. It may
+load/reset environments only for the reset targets, but it may not step
+environments, execute policy actions, repair, train, rank, or make paper/self-ID
+or current-sim claims.
 ```
 
 ## Latest Evidence
@@ -111,6 +113,18 @@ still blocked: reset compatibility, rollout/measured execution, repair
   execution, training, ranking, paper/FW-vs-GRU/level3 self-ID/current-sim
   verdict claims
 next task: M2393 reset-validation adapter design
+```
+
+M2393 adapter design:
+
+```text
+candidate_scenario_reference_count: 2049
+unique_reset_target_count: 350
+duplicate policy: deduplicate by pack_id + scenario_spec_id
+future M2394 reset scope: reset-only, no environment step and no policy action
+future pass target: 350/350 reset successes and 54/54 candidate reset passes
+still blocked: rollout/measured execution, repair execution, training, ranking,
+  paper/FW-vs-GRU/level3 self-ID/current-sim verdict claims
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

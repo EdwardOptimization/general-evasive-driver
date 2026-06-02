@@ -43497,3 +43497,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - local-search guard: triggered correctly and reset by synthesis
 - follow-up manifest: `experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json`
 - next: `m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design`
+
+## M2393 Paper-Route Current-Sim Dual-Axis Effective Candidate Reset Validation Adapter Design
+
+- status: completed
+- decision: `effective_candidate_reset_validation_adapter_design_admit_implementation`
+- manifest: `experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json`
+- doc: `docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md`
+- parent synthesis: `docs/m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis.md`
+- environment load/reset/step in M2393: `0/0/0`
+- policy action in M2393: `false`
+- active config overwrite in M2393: `false`
+- repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design: two-layer adapter with 2049 static candidate-scenario references and 350 unique reset targets
+- duplicate policy: deduplicate reset targets by `(pack_id, scenario_spec_id)`
+- future M2394 pass target: 350 reset successes and 54 candidate reset passes, no environment step or policy action
+- follow-up manifest: `experiments/manifests/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.json`
+- next: `m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation`

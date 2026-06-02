@@ -1,0 +1,220 @@
+{
+  "id": "m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_effective_candidate_reset_validation_adapter"
+    ],
+    "parent_dataset": [
+      "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_config_rows.csv",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_scenario_rows.csv",
+      "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_configs",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.json"
+    ],
+    "parent_objective": [
+      "implement and run reset-only adapter over deduplicated M2391 effective candidate scenario env_config targets"
+    ],
+    "derived_from": [
+      "m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design",
+      "m2392-paper-route-current-sim-dual-axis-effective-config-materialization-branch-synthesis",
+      "m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization"
+    ],
+    "blocked_by": [
+      "M2393 designs reset-validation adapter but does not implement or run it",
+      "effective candidate reset compatibility remains unknown"
+    ],
+    "supersedes": [
+      "direct measured execution without reset validation",
+      "resetting all duplicate 2049 candidate-scenario references as independent evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.md",
+  "public_gates": [
+    "M2394 must implement the reset-only adapter for M2391 effective candidate artifacts",
+    "M2394 must statically validate 2049 candidate-scenario references and reset the 350 unique pack/scenario targets",
+    "M2394 must stop before environment loading if static validation fails",
+    "M2394 must not step environments or execute policy actions",
+    "M2394 must not execute repair, train, rank, select a winner, or make paper/self-ID/current-sim claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment rollout",
+    "do not step environments after reset",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_effective_candidate_reset_validation_adapter_implementation",
+    "evidence_increment": "implements and runs reset-only validation for effective candidate artifacts using deduplicated unique reset targets",
+    "claim_scope": "reset-only validation adapter implementation; no rollout, policy action, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if static validation fails before reset",
+      "stop if environment step or policy action occurs",
+      "stop if active config overwrite occurs",
+      "stop if reset budget differs from design without fail-closed reporting",
+      "stop if implementation routes directly to measured execution, training, ranking, or paper conclusions"
+    ],
+    "fallback_plan": [
+      "route to result audit if reset adapter pass/fail artifact is complete",
+      "route to adapter repair design if static schema or reset failures occur",
+      "stop for user review if reset-only adapter cannot be bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2393 admits bounded reset-validation adapter implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "effective candidate reset-only validation adapter implementation",
+    "admission_evidence": [
+      "M2393 specifies 2049 candidate-scenario references",
+      "M2393 specifies 350 unique reset targets",
+      "M2393 blocks environment steps and policy actions",
+      "M2391 actor_contract_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no environment step",
+      "no policy action",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter.py",
+      "tests/test_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter.py",
+      "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/*",
+      "docs/m2394-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-implementation.md",
+      "M2394 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "reset adapter summary exists",
+      "candidate-scenario static validation rows exist",
+      "unique reset target rows exist",
+      "reset validation rows exist",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2394 validates reset compatibility and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2394; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2391 effective candidate materialization and M2393 reset adapter design.",
+    "negative_result_policy": "Reset validation remains task-quality infrastructure and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "effective candidate reset-only validation pass/fail",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds executable reset-only validation evidence for effective candidate artifacts",
+    "paper_verdict_delta": "can establish task-quality reset readiness but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2394 fails and another schema repair is proposed before result audit",
+      "M2394 passes and another non-executable artifact step is proposed before measured validation design",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The M2391 effective candidate artifacts can be statically validated across 2049 references and reset-tested across 350 unique pack/scenario targets without active config overwrite, environment steps, policy actions, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json exists",
+    "source_candidate_config_count equals 54",
+    "candidate_scenario_reference_count equals 2049",
+    "unique_reset_target_count equals 350",
+    "static_validation_pass_count equals 2049",
+    "static_validation_failure_count equals 0",
+    "environment_load_attempt_count equals 350",
+    "environment_reset_attempt_count equals 350",
+    "environment_reset_success_count equals 350",
+    "environment_reset_failure_count equals 0",
+    "candidate_reset_pass_count equals 54",
+    "candidate_reset_failure_count equals 0",
+    "environment_step_count equals 0",
+    "policy_action_executed is false",
+    "active_config_overwrite_count ranking_admissible_count winner_selected_count guardrail_violation_count are 0",
+    "repair execution training replay PPO paper finite-window-vs-GRU level3 self-ID scenario-redesign training-repair and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "static validation fails before reset",
+    "unique reset target count differs from 350 without fail-closed reporting",
+    "environment step or policy action occurs",
+    "active config overwrite occurs",
+    "repair execution training replay PPO ranking or winner selection occurs",
+    "any forbidden paper/self-ID/current-sim claim flag is set",
+    "result audit route is missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter.py"
+    },
+    {
+      "name": "reset_validation_adapter",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter --source-dir runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization --output-dir runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter --next-blocker m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2394_paper_route_current_sim_dual_axis_effective_candidate_reset_validation_adapter/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_effective_candidate_reset_validation_adapter"
+  ],
+  "baseline_artifacts": [
+    "docs/m2393-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-design.md",
+    "runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json"
+  ],
+  "decision_rule": "M2394 passes if it validates 2049 candidate-scenario references and resets 350 unique targets without environment steps, policy actions, active config overwrite, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2395-paper-route-current-sim-dual-axis-effective-candidate-reset-validation-adapter-result-audit"
+}
