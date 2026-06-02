@@ -16,25 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
+m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2444-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-result-audit
+m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation
+m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit
 ```
 
 Current route:
 
 ```text
+M2445 executed the audited M2443 metric-selected workload as fresh closed-loop
+measured validation under `soft_offtrack_metric_enabled=true` and
+`soft_offtrack_tolerance_m=0.20`. It completed 5250/5250 episodes with
+failure/validation/metadata/metric-completeness/actor-contract/guardrail counts
+all 0. Raw measured rates: actual success `0.06685714285714285`, hard-offtrack
+failure `0.7468571428571429`, soft-offtrack violation `0.0032380952380952383`,
+and boundary-tolerated success `0.0`. Global aggregate is still offtrack-heavy:
+collision rate `0.1761904761904762`, offtrack rate `0.7453333333333333`,
+dominant_failure_mode `offtrack_dominated_failure`. This is a measured artifact,
+not a verdict. The next task is M2446 result audit to classify the mismatch
+between old diagnostic relabel soft success and fresh soft-boundary execution,
+then choose a bounded route without rerun, repair, training, ranking, winner
+selection, or paper/FW-vs-GRU/self-ID/training-repair verdict claims.
+
 M2444 accepted M2443 as a complete metric-selected validation preflight and
 routes to bounded full metric-selected measured-validation implementation.
 Accepted evidence: 5250/5250 source cells, no duplicate or missing cells,

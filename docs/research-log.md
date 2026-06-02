@@ -44414,3 +44414,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/new measured rollout/repair/training/replay/PPO/ranking/verdict claims in the audit: `false`
 - follow-up manifest: `experiments/manifests/m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation.json`
 - next: `m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation`
+
+## M2445 Paper-Route Current-Sim Dual-Axis Metric-Selected Measured Validation Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_metric_selected_measured_validation_pass`
+- manifest: `experiments/manifests/m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation.json`
+- doc: `docs/m2445-paper-route-current-sim-dual-axis-metric-selected-measured-validation-implementation.md`
+- summary: `runs/m2445_paper_route_current_sim_dual_axis_metric_selected_measured_validation/summary.json`
+- episode rows: `5250`
+- target episodes: `5250`
+- failure_count: `0`
+- validation_failure_count: `0`
+- metadata_missing_count: `0`
+- metric_completeness_failure_count: `0`
+- actor_contract_violation_count: `0`
+- guardrail_violation_count: `0`
+- metric_selected_actual_success_rate: `0.06685714285714285`
+- metric_selected_hard_offtrack_failure_rate: `0.7468571428571429`
+- metric_selected_soft_offtrack_violation_rate: `0.0032380952380952383`
+- metric_selected_boundary_tolerated_success_rate: `0.0`
+- global collision_rate: `0.1761904761904762`
+- global offtrack_rate: `0.7453333333333333`
+- global dominant_failure_mode: `offtrack_dominated_failure`
+- interpretation boundary: raw measured artifact only; current-sim verdict and improvement claims require M2446 audit
+- repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit.json`
+- next: `m2446-paper-route-current-sim-dual-axis-metric-selected-measured-validation-result-audit`
