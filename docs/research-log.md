@@ -43735,3 +43735,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: compact run-dir-only offtrack containment repair candidate materialization, preserving collision/R4 guardrail metadata
 - follow-up manifest: `experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json`
 - next: `m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation`
+
+## M2406 Paper-Route Current-Sim Dual-Axis Offtrack Containment Repair Candidate Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_containment_repair_candidate_materialization_pass`
+- manifest: `experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json`
+- doc: `docs/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization.py`
+- focused tests: `4 passed`
+- summary: `runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json`
+- assigned offtrack repair-plan rows: `203/203`, unassigned `0`
+- candidate count/written/outside-run-dir: `4/4/0`
+- candidates: `geometry_timing_containment`, `hidden_dynamics_response_containment`, `general_offtrack_boundary_containment`, `role_conditioned_containment`
+- collision/R4/diagnostic source rows: `65/57/1048`
+- guardrail metadata rows: `8`
+- active overwrite/repair/training/ranking/winner/guardrail counts: `0/0/0/0/0/0`
+- rerun/repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.json`
+- next: `m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit`

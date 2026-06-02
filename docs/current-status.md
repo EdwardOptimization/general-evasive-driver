@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
+m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit
+m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
+m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
 ```
 
 Current route:
@@ -71,6 +71,10 @@ M2405 accepted M2404 completeness and guardrail separation, and routed to M2406
 compact run-dir-only offtrack containment repair candidate materialization. This
 still does not execute repair, overwrite active configs, train, rank, or make a
 current-sim verdict.
+M2406 materialized 4 compact run-dir-only candidate overlays and assigned all
+203 offtrack repair-plan rows. Collision and R4 guardrail metadata were attached
+to every candidate. No repair/training/ranking/verdict action occurred. The next
+task is M2407 result audit.
 ```
 
 ## Latest Evidence
@@ -341,6 +345,20 @@ accepted plan rows total/offtrack/collision/R4/diagnostic: 1313/203/65/57/1048
 guardrail separation failures diagnostic-axis/R4/collision-as-plain: 0/0/0
 execution/training/ranking/winner/guardrail counts: 0/0/0/0/0
 next task: M2406 compact run-dir-only offtrack containment repair candidate materialization
+```
+
+M2406 offtrack containment repair candidate materialization:
+
+```text
+result_class: current_sim_dual_axis_offtrack_containment_repair_candidate_materialization_pass
+assigned offtrack repair-plan rows: 203/203
+candidate overlays written/outside run dir: 4/0
+candidate families: geometry_timing, hidden_dynamics_response, general_boundary,
+  role_conditioned
+collision/R4/diagnostic source rows: 65/57/1048
+guardrail metadata rows: 8
+active overwrite/repair/training/ranking/winner/guardrail: 0/0/0/0/0/0
+next task: M2407 candidate materialization result audit
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

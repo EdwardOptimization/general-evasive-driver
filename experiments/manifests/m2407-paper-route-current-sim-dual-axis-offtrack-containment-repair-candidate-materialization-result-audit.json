@@ -1,0 +1,206 @@
+{
+  "id": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_offtrack_containment_repair_candidate_materialization_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.md",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays.csv",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/candidate_guardrail_metadata.csv",
+      "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/claim_boundary.csv",
+      "docs/m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2406 run-dir-only candidate materialization and choose bounded next route"
+    ],
+    "derived_from": [
+      "m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation",
+      "m2405-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2406 materializes candidate overlays but does not audit reset/load validation readiness",
+      "candidate overlays must remain non-ranking and run-dir-only",
+      "collision and R4 guardrail metadata must remain attached before any validation route"
+    ],
+    "supersedes": [
+      "direct reset or rollout validation from M2406 without audit",
+      "candidate ranking from overlay families",
+      "active config overwrite from candidate overlays"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md",
+  "public_gates": [
+    "M2407 must audit M2406 candidate completeness, run-dir-only boundary, and guardrail metadata",
+    "M2407 must decide whether to admit reset/load validation adapter design, pivot, or stop",
+    "M2407 must keep candidates non-ranking",
+    "M2407 must not run rollout, execute repair, train, replay, run PPO, rank candidates/profiles, overwrite active configs, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun M2397 M2399 M2401 M2404 or M2406",
+    "do not run new rollout",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not rank effective candidates",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_offtrack_containment_repair_candidate_materialization_result_audit",
+    "evidence_increment": "audits whether M2406 candidate overlays admit reset/load validation without ranking or active config overwrite",
+    "claim_scope": "result audit only; no repair execution, training, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2406 candidates are incomplete or not compact",
+      "stop if any overlay is outside the run directory",
+      "stop if collision or R4 guardrail metadata is missing",
+      "stop if next route requires candidate ranking",
+      "stop if next route requires active config overwrite"
+    ],
+    "fallback_plan": [
+      "admit reset/load validation adapter design if overlays are complete",
+      "route to artifact repair if overlay paths or guardrail metadata are invalid",
+      "pivot to scenario-quality reassessment if overlays are mostly task semantics",
+      "stop for user review if no bounded non-ranking route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2406 materialized run-dir-only candidate overlays",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "offtrack containment repair candidate materialization result audit",
+    "admission_evidence": [
+      "M2406 result_class is current_sim_dual_axis_offtrack_containment_repair_candidate_materialization_pass",
+      "M2406 source_offtrack_repair_plan_row_count and assigned_offtrack_repair_plan_row_count are 203",
+      "M2406 candidate_count is 4",
+      "M2406 candidate_overlay_written_count is 4",
+      "M2406 candidate_overlay_outside_run_dir_count is 0",
+      "M2406 guardrail_metadata_row_count is 8",
+      "M2406 active_config_overwrite_count repair_execution_allowed_count ranking_admissible_count winner_selected_count and guardrail_violation_count are 0"
+    ],
+    "blocked_shortcuts": [
+      "no rerun",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no winner selection",
+      "no active config overwrite",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md",
+      "M2407 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit or branch stop"
+    ],
+    "next_stage_criteria": [
+      "M2406 completeness is accepted or rejected",
+      "run-dir-only boundary is accepted or rejected",
+      "guardrail metadata completeness is accepted or rejected",
+      "one bounded next route is selected or the branch is stopped",
+      "blocked claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2407 audits candidate artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2407; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2406 candidate materialization artifacts.",
+    "negative_result_policy": "If candidates are not validation-ready, route to artifact repair or stop instead of claiming repair success.",
+    "allowed_claims": [
+      "M2406 candidate materialization completeness accepted or rejected",
+      "next route decision",
+      "no controller ranking, effective-candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits compact candidate overlays before any reset or measured validation route",
+    "paper_verdict_delta": "can admit reset/load validation readiness but cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "M2407 cannot choose reset/load validation artifact repair pivot or stop",
+      "M2407 proposes candidate ranking",
+      "M2407 proposes direct rollout or training",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "The M2406 run-dir-only candidate overlays can be audited into reset/load validation readiness, artifact repair, pivot, or stop decision without executing repair, training, ranking, or verdict claims.",
+  "success_criteria": [
+    "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md exists",
+    "M2406 completeness and run-dir-only boundary are accepted or rejected with explicit counts",
+    "guardrail metadata completeness is accepted or rejected",
+    "candidates remain non-ranking",
+    "one bounded follow-up route is selected or the branch is stopped",
+    "blocked paper/self-ID/current-sim/training-repair claims remain blocked"
+  ],
+  "failure_criteria": [
+    "M2407 reruns rollout or executes repair/training/replay/PPO",
+    "M2407 ranks candidates, ranks profiles, or selects a winner",
+    "M2407 treats candidate materialization as repair or scenario redesign success",
+    "M2407 makes paper finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2407 cannot classify the candidate materialization result or choose a bounded route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual audit of M2406 summary and candidate overlay artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_offtrack_containment_repair_candidate_materialization_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.md",
+    "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json"
+  ],
+  "decision_rule": "M2407 passes if it audits M2406 into an explicit bounded next-route decision without repair execution, ranking, or verdict claims.",
+  "next_blocker": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit"
+}
