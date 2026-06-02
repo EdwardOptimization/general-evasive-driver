@@ -16,23 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization
+m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis
 ```
 
 Current next task:
 
 ```text
-m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis
+m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design
 ```
 
 Current route:
 
 ```text
-M2385 generated 54 run-dir-only candidate config artifacts from
-application-plan artifacts without active config overwrite, environment load,
-reset/rollout, repair execution, ranking, training, or paper/self-ID/current-sim
-claims. M2386 must synthesize the M2381-M2385 candidate config generation branch
-before any reset-validation, repair, or ranking continuation.
+M2386 synthesized the M2381-M2385 candidate config generation branch and
+continued to bounded candidate config safety/reset-validation design. M2387 may
+design validation only. It must not load configs, reset environments, run
+rollouts, execute repair, rank, train, or make paper/self-ID/current-sim claims.
 ```
 
 ## Latest Evidence
@@ -363,6 +362,19 @@ paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim cla
 next: M2386 branch synthesis
 ```
 
+M2386 branch synthesis decision:
+
+```text
+synthesis window: M2381-M2385
+synthesis decision: continue
+next route: bounded candidate config safety/reset-validation design
+actual capability changed: artifact capability only
+driver behavior/training/validation changed: false
+public gate overfit risk: moderate
+local-search guard: triggered correctly and reset by synthesis
+paper/self-ID/current-sim verdict claims: blocked
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -387,19 +399,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2386 should synthesize the M2381-M2385 candidate config generation branch:
+M2387 should design bounded candidate config safety/reset validation from:
 
 ```text
-docs/m2381-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-design.md
-runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json
-docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md
-docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md
+docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md
 runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv
+runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv
 ```
 
-The synthesis must decide whether to continue to bounded candidate config
-safety/reset validation, pivot to complexity pruning or new panel evidence, or
-stop for user review. It must not load candidate configs, run reset/rollout,
-execute repair, train, replay, use PPO, rank profiles or packs, select a
-winner, claim scenario redesign executed, claim repair success, current-sim
-verdict, or paper/self-ID claims.
+The design must specify inventory, schema/path safety checks, future reset-only
+validation scope, blocked rollout/training/ranking routes, and failure taxonomy.
+M2387 itself must not load candidate configs, run reset/rollout, execute
+repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
+scenario redesign executed, claim repair success, current-sim verdict, or
+paper/self-ID claims.

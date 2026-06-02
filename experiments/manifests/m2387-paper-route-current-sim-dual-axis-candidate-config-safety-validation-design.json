@@ -1,0 +1,204 @@
+{
+  "id": "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_config_safety_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_config_rows.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_patch_reference_matrix.csv",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/candidate_guardrail_scope_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded safety/reset-validation protocol for generated candidate config artifacts after M2386 synthesis"
+    ],
+    "derived_from": [
+      "m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis",
+      "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization"
+    ],
+    "blocked_by": [
+      "generated candidate configs have not been statically safety-checked beyond M2385 counts",
+      "generated candidate configs have not been reset-tested or sampled",
+      "direct reset validation remains blocked until a bounded design specifies scope and failure taxonomy"
+    ],
+    "supersedes": [
+      "direct reset validation after M2385 without validation design",
+      "direct measured rollout, repair execution, training, or ranking from generated candidate configs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+  "public_gates": [
+    "M2387 must design bounded candidate config safety/reset validation without running validation",
+    "M2387 must preserve active config overwrite, actor-input, oracle-feature, profile-specific tuning, collision, R4, diagnostic, ranking, and claim guardrails",
+    "M2387 must choose a bounded artifact-only or reset-only follow-up route or stop the branch"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not load candidate configs in M2387",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_candidate_config_safety_validation_design",
+    "evidence_increment": "designs bounded safety/reset-validation route after M2386 branch synthesis",
+    "claim_scope": "validation design only; no candidate config loading, active config overwrite, reset/rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if design would overwrite active config",
+      "stop if design would run reset or rollout in M2387",
+      "stop if design drops guardrail references or mixed guarded collision requirements",
+      "stop if design routes directly to repair, training, ranking, or paper conclusions"
+    ],
+    "fallback_plan": [
+      "route to candidate config schema repair if generated config artifacts are insufficient",
+      "route to bounded reset-only validation implementation if design is accepted",
+      "route to complexity-pruning synthesis if validation design would add only more local artifact work",
+      "stop for user review if no bounded validation route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2386 synthesis continues to bounded candidate config safety validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "bounded candidate config safety validation design",
+    "admission_evidence": [
+      "M2386 synthesis decision is continue",
+      "M2385 candidate_config_file_written_count is 54",
+      "M2385 candidate_config_files_outside_run_dir_count is 0",
+      "M2385 source reward/curriculum/guardrail reference counts are 162/54/284",
+      "M2385 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no candidate config loading in M2387",
+      "no reset in M2387",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+      "M2387 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "candidate config validation inventory is specified",
+      "static schema/path safety checks are specified",
+      "future reset-only validation scope is bounded",
+      "active config overwrite remains blocked",
+      "a bounded follow-up route is selected or branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2387 designs candidate config safety validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2387; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2385 generated candidate configs and M2386 synthesis.",
+    "negative_result_policy": "Candidate config validation design remains an engineering artifact until reset or measured validation is executed.",
+    "allowed_claims": [
+      "bounded candidate config safety/reset-validation design",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "can admit candidate config safety/reset validation route but does not yet test capability",
+    "paper_verdict_delta": "can prepare executable candidate config validation but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2387 cannot define a safe validation schema",
+      "M2387 proposes direct active config overwrite reset execution training or ranking",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "A bounded safety-validation design can convert generated candidate config artifacts into a future reset-only validation route without active config overwrite, rollout, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md exists",
+    "candidate config inventory and static safety checks are specified",
+    "future reset-only validation scope is bounded",
+    "active config overwrite, rollout, repair execution, ranking, and training remain blocked in M2387",
+    "collision, R4, diagnostic, mixed guarded, actor-input, oracle-feature, ranking, paper, current-sim verdict, and self-ID guardrails remain blocked",
+    "a bounded follow-up route is selected or branch is stopped"
+  ],
+  "failure_criteria": [
+    "M2387 reruns reset rollout measured execution replay PPO or private holdout",
+    "M2387 loads generated candidate configs or overwrites active config",
+    "M2387 executes repair levers or trains",
+    "M2387 changes actor inputs or injects hidden/oracle features",
+    "M2387 ranks support policies or controller families",
+    "M2387 makes paper-level finite-window-vs-GRU current-sim verdict or level3 self-ID claims",
+    "M2387 claims scenario redesign executed or training repair success"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write bounded candidate config safety/reset-validation design"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_config_safety_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
+    "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json"
+  ],
+  "decision_rule": "M2387 passes if it designs a bounded candidate config safety/reset-validation route without active config overwrite, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2388-paper-route-current-sim-dual-axis-candidate-config-reset-validation-implementation"
+}

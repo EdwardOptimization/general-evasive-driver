@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2392,
+    "completed": 2393,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization",
+    "task_id": "m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation",
-    "command_log": "docs/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.md"
+    "run_dir": "docs",
+    "command_log": "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis",
+    "id": "m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design",
     "kind": "gate",
-    "priority": 23810,
+    "priority": 23820,
     "status": "pending",
-    "hypothesis": "Synthesizing M2381-M2385 will prevent over-local candidate config generation work and select the next bounded non-ranking route.",
-    "command": "see experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json",
-    "success_artifact": "docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md",
-    "notes": "Pending: synthesize candidate config generation branch and choose bounded non-ranking next route no reset/repair/training/ranking claims"
+    "hypothesis": "A bounded safety-validation design can convert generated candidate config artifacts into a future reset-only validation route without active config overwrite, rollout, repair execution, ranking, or training-success claims.",
+    "command": "see experiments/manifests/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.json",
+    "success_artifact": "docs/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.md",
+    "notes": "Pending: design candidate config safety/reset validation only no config loading reset repair training ranking or paper/self-ID claims"
   },
-  "updated_at_utc": "20260602T073220Z"
+  "updated_at_utc": "20260602T073810Z"
 }

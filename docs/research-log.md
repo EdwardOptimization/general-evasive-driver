@@ -43364,3 +43364,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - guardrail_violation_count: `0`
 - follow-up manifest: `experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json`
 - next: `m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis`
+
+## M2386 Paper-Route Current-Sim Dual-Axis Candidate Config Generation Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_bounded_candidate_config_safety_validation_design`
+- manifest: `experiments/manifests/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.json`
+- doc: `docs/m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis.md`
+- synthesis window: `M2381-M2385`
+- reset/rollout/policy action in M2386: `false`
+- active config overwrite/candidate config loading in M2386: `false/false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- supported: M2385 generated 54 run-dir-only candidate config files with outside-run-dir count 0 and guardrail 0
+- blocked: driver improvement, validation, repair execution, ranking, current-sim verdict, paper/self-ID claims
+- local-search guard: triggered and reset by synthesis
+- follow-up manifest: `experiments/manifests/m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design.json`
+- next: `m2387-paper-route-current-sim-dual-axis-candidate-config-safety-validation-design`
