@@ -42486,3 +42486,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - scenario redesign executed claim made: `false`
 - follow-up manifest: `experiments/manifests/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.json`
 - next: `m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design`
+
+## M2349 Paper-Route Current-Sim Dual-Axis Calibration Candidate Config Materialization Design
+
+- status: completed
+- result_class: `dual_axis_candidate_config_materialization_design_admit_artifact_only_implementation`
+- manifest: `experiments/manifests/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.json`
+- doc: `docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md`
+- parent audit: `docs/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.md`
+- designed pack family: `baseline_reference_pack`, `g_primary_pack`, `h_primary_pack`, `g_h_primary_pack`, `gh_minimal_pack`
+- bounded pack count: `5`
+- modified pack count: `4`
+- expected selections: `G 13`, `H 13`, `G+H 26`, `GH-minimal 26`
+- reset/rollout/measured execution in M2349: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- follow-up manifest: `experiments/manifests/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.json`
+- next: `m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation`

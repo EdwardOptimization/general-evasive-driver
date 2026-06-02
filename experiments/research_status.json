@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2356,
+    "completed": 2357,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit",
+    "task_id": "m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.md"
+    "command_log": "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md"
   },
   "next_task": {
-    "id": "m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design",
-    "kind": "gate",
-    "priority": 23440,
+    "id": "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation",
+    "kind": "infrastructure",
+    "priority": 23450,
     "status": "pending",
-    "hypothesis": "A bounded design can collapse the 53 M2347 candidate rows into a small non-ranking config-pack family before any reset or measured validation.",
-    "command": "write docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md from M2348 audit and M2347 candidate artifacts",
-    "success_artifact": "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md",
-    "notes": "Pending: design bounded candidate config-pack materialization no reset/rollout/training/ranking"
+    "hypothesis": "An artifact-only materializer can emit the five M2349 config packs from M2347 candidate rows without overwriting the active config or making execution claims.",
+    "command": "implement and run autodrift.paper_route_current_sim_dual_axis_candidate_config_materialization from M2347 candidate artifacts into runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization",
+    "success_artifact": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+    "notes": "Pending: implement artifact-only candidate config-pack materializer no reset/rollout/training/ranking"
   },
-  "updated_at_utc": "20260602T022558Z"
+  "updated_at_utc": "20260602T023005Z"
 }

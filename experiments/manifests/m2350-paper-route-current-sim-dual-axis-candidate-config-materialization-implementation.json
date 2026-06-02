@@ -1,0 +1,222 @@
+{
+  "id": "m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_dual_axis_candidate_config_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md",
+      "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/calibration_candidate_rows.csv",
+      "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/calibration_config_candidates.json",
+      "configs/paper_route_current_sim_scenario_task_family_v0.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only candidate config-pack materializer from M2349 design"
+    ],
+    "derived_from": [
+      "m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design",
+      "m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation"
+    ],
+    "blocked_by": [
+      "M2349 designs config-pack materialization but does not implement it",
+      "reset validation remains blocked until config-pack artifacts exist and are audited"
+    ],
+    "supersedes": [
+      "manual config-pack construction",
+      "direct validation over raw candidate rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.md",
+  "public_gates": [
+    "M2350 must implement the artifact-only candidate config-pack materializer",
+    "M2350 must emit exactly the bounded pack family from M2349",
+    "M2350 must not overwrite the active scenario config",
+    "M2350 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim controller comparison readiness",
+    "do not claim scenario redesign executed"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_redesign_calibration",
+    "evidence_axis": "Q_dual_axis_candidate_config_materialization",
+    "evidence_increment": "materializes bounded candidate config-pack artifacts without validation execution",
+    "claim_scope": "artifact materialization only; no reset rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if pack family expands beyond M2349 design",
+      "stop if active config is overwritten",
+      "stop if reset rollout training replay PPO or ranking starts",
+      "stop if output claims scenario redesign executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifacts pass",
+      "repair materializer schema if required fields are missing",
+      "return to M2349 if patch rules are insufficient",
+      "stop for user review if bounded pack materialization is not possible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2349 admits artifact-only candidate config-pack materializer implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement candidate config-pack materialization",
+    "admission_evidence": [
+      "M2349 defines five bounded config packs",
+      "M2347 provides 53 candidate rows",
+      "M2348 blocks direct validation until config packs are materialized"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no active config overwrite",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_candidate_config_materialization.py",
+      "tests/test_paper_route_current_sim_dual_axis_candidate_config_materialization.py",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/*",
+      "docs/m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation.md",
+      "M2350 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "config-pack materializer exists",
+      "focused tests pass",
+      "required artifacts exist",
+      "summary counts match M2349 acceptance criteria",
+      "guardrail flags remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2350 materializes task-quality config artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2350; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2347-M2349 task-quality artifacts.",
+    "negative_result_policy": "Candidate config materialization must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "artifact-only dual-axis candidate config-pack materialization",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns candidate rows into bounded config-pack artifacts without local-search validation",
+    "paper_verdict_delta": "can prepare current-sim task-pack redesign candidates for a later bounded reset-validation audit",
+    "must_synthesize_if": [
+      "M2350 cannot preserve the five-pack boundary",
+      "M2350 output suggests direct controller comparison",
+      "the dual-axis calibration branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "An artifact-only materializer can emit the five M2349 config packs from M2347 candidate rows without overwriting the active config or making execution claims.",
+  "success_criteria": [
+    "summary.json exists",
+    "config_pack_manifest.json exists",
+    "candidate_selection_rows.csv exists",
+    "scenario_spec_patch_rows.csv exists",
+    "claim_boundary.csv exists",
+    "config_pack_count == 5",
+    "modified_config_pack_count == 4",
+    "baseline_reference_pack_count == 1",
+    "g_primary_selection_count == 13",
+    "h_primary_selection_count == 13",
+    "g_h_primary_selection_count == 26",
+    "gh_minimal_selection_count == 26",
+    "active_config_overwritten == false",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "M2350 starts training reset rollout measured execution replay PPO or private holdout",
+    "M2350 ranks support policies or controller families",
+    "M2350 overwrites the active scenario config",
+    "M2350 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2350 claims scenario redesign executed",
+    "required artifacts or counts are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_paper_route_current_sim_dual_axis_candidate_config_materialization.py -q"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_candidate_config_materialization --candidate-dir runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization --config configs/paper_route_current_sim_scenario_task_family_v0.json --output-dir runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/candidate_selection_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/claim_boundary.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_dual_axis_candidate_config_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design.md",
+    "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/calibration_candidate_rows.csv",
+    "configs/paper_route_current_sim_scenario_task_family_v0.json"
+  ],
+  "decision_rule": "M2350 passes if it emits bounded candidate config-pack artifacts with expected counts and no execution, ranking, or claim-boundary violations.",
+  "next_blocker": "selected_by_m2350_result"
+}

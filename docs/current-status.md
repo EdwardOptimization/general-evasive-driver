@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit
+m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design
 ```
 
 Current next task:
 
 ```text
-m2349-paper-route-current-sim-dual-axis-calibration-candidate-config-materialization-design
+m2350-paper-route-current-sim-dual-axis-candidate-config-materialization-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -177,7 +177,18 @@ decision: route_to_dual_axis_calibration_candidate_config_materialization_design
 M2349 should design a bounded candidate config-pack materialization route. The
 current intent is to collapse M2347's 53 metadata patch candidates into a small
 non-ranking pack family, such as G-primary, H-primary, and GH-minimal packs,
-before any reset or measured validation.
+before any reset or measured validation. M2349 is now complete:
+
+```text
+pack family: baseline_reference_pack, g_primary_pack, h_primary_pack,
+  g_h_primary_pack, gh_minimal_pack
+config_pack_count: 5
+modified_config_pack_count: 4
+expected selections: G 13, H 13, G+H 26, GH-minimal 26
+```
+
+M2350 should implement the artifact-only config-pack materializer. It must not
+overwrite the active config or run reset/rollout validation.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
