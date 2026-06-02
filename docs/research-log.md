@@ -44359,3 +44359,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.json`
 - next: `m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis`
+
+## M2442 Paper-Route Current-Sim Dual-Axis Task-Boundary Metric Redesign Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- route decision: `continue_to_metric_selected_validation_preflight_implementation`
+- manifest: `experiments/manifests/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.json`
+- doc: `docs/m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis.md`
+- synthesized branch: M2437-M2441 task-boundary metric redesign
+- evidence summary: metric semantics specified, hard/soft panel implemented, result audited, measured-validation protocol designed, opt-in soft-boundary env support implemented and focused-tested
+- public gate overfit risk before synthesis: `high`
+- decision: continue only to fresh metric-selected validation preflight evidence, not another same-data relabel
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation.json`
+- next: `m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation`

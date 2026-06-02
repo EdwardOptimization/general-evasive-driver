@@ -16,25 +16,34 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
+m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2441-paper-route-current-sim-dual-axis-soft-boundary-env-support-implementation
+m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2442-paper-route-current-sim-dual-axis-task-boundary-metric-redesign-branch-synthesis
+m2443-paper-route-current-sim-dual-axis-metric-selected-validation-preflight-implementation
 ```
 
 Current route:
 
 ```text
+M2442 synthesized M2437-M2441 after the local-search guard blocked another
+ordinary audit. The synthesis decision is continue, but only to fresh
+metric-selected validation preflight evidence. The branch now has hard/soft
+metric semantics, a classifier panel, an audit, a measured-validation protocol,
+and opt-in soft-boundary env support. Old-row soft success and env tests remain
+separate from actual success. The next task is M2443 workload/reset preflight
+for the M2413 denominator under soft-boundary config, with no policy rollout,
+repair, training, ranking, or verdict claim.
+
 M2441 implemented opt-in soft-boundary env support. Default offtrack termination
 behavior is preserved, enabled mode continues inside tolerance and terminates
 beyond tolerance, actor observation shape is unchanged, and focused tests passed
