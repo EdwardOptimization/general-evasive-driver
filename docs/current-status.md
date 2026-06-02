@@ -16,25 +16,38 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight
+m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight
+m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit
+m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
 ```
 
 Current route:
 
 ```text
+M2456 accepted M2455 as a complete scenario-quality protocol materialization
+artifact and routes to reset/static preflight design. The audited materialization
+has `30` candidate rows with stable-feasibility `3`, stable-AES `3`,
+geometry/timing guardrail `7`, handling-limit guardrail `5`, hidden-dynamics
+guardrail `9`, mitigation guardrail `3`, and guardrail violations `0`.
+Actor-input and claim boundaries remain clean: labels_enter_actor_input `0`,
+actor_input_contract_changed `0`, ranking_admissible_count `0`,
+winner_selected_count `0`. The audit explicitly rejects treating M2455 rows as
+executable scenario specs: M2457 must design reset/static preflight work-item
+mapping, allowed geometry levers, metadata-only labels, guardrail requirements,
+and static/reset checks before any reset, rollout, scenario redesign execution,
+repair, training, ranking, winner selection, or verdict route.
+
 M2455 materialized the scenario-quality protocol into non-ranking artifacts. It
 passed with `30` candidate rows: stable-feasibility `3`, stable-AES `3`,
 geometry/timing guardrail `7`, handling-limit guardrail `5`, hidden-dynamics

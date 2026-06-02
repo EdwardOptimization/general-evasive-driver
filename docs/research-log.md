@@ -44623,3 +44623,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rerun/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.json`
 - next: `m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit`
+
+## M2456 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Protocol Materialization Result Audit
+
+- status: completed
+- decision: `accept_materialization_route_to_reset_static_preflight_design`
+- manifest: `experiments/manifests/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.json`
+- doc: `docs/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.md`
+- audited summary: `runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json`
+- accepted evidence: M2455 protocol materialization is complete with `30` candidate rows, group counts stable `3`, stable AES `3`, geometry/timing `7`, handling-limit `5`, hidden-dynamics `9`, mitigation `3`, guardrail violations `0`, labels_enter_actor_input `0`, actor_input_contract_changed `0`
+- audit finding: M2455 rows are protocol artifacts, not executable scenario specs; measured rollout is blocked until reset/static preflight mapping defines concrete work items, allowed geometry levers, metadata-only labels, guardrail requirements, and static/reset checks
+- decision: route to `m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design`
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.json`
+- next: `m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design`

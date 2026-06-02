@@ -1,0 +1,194 @@
+{
+  "id": "m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_quality_redesign_reset_static_preflight_design"
+    ],
+    "parent_dataset": [
+      "docs/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.md",
+      "docs/m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight.md",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/candidate_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/guardrail_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design reset/static preflight mapping from M2455 protocol artifacts before any reset or execution"
+    ],
+    "derived_from": [
+      "m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit",
+      "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2455 protocol rows are not executable scenario specs",
+      "reset/static preflight mapping must be designed before any reset or rollout",
+      "labels and hidden metadata must remain actor-input blocked"
+    ],
+    "supersedes": [
+      "direct reset/static preflight without a mapping design",
+      "direct measured rollout from M2455 protocol rows",
+      "direct scenario redesign execution, repair, or training"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md",
+  "public_gates": [
+    "M2457 must design reset/static preflight mapping only and must not execute reset, rollout, scenario redesign, repair, training, ranking, or winner selection",
+    "M2457 must define concrete preflight work-item schema, guardrail requirements, and claim boundaries",
+    "M2457 must keep labels and hidden/oracle metadata out of actor input",
+    "M2457 must select a bounded implementation/audit next route or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset environment",
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank scenario candidates as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_scenario_quality_redesign_reset_static_preflight_design",
+    "evidence_increment": "designs the reset/static preflight mapping needed before any execution of materialized protocol rows",
+    "claim_scope": "design-only reset/static preflight mapping; no reset, rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if concrete preflight work items cannot be defined from M2455 artifacts",
+      "stop if labels or hidden/oracle metadata would enter actor input",
+      "stop if guardrail requirements cannot be represented",
+      "stop if the next route would execute measured rollout without reset/static preflight"
+    ],
+    "fallback_plan": [
+      "route to implementation if mapping schema is concrete",
+      "route to branch synthesis if mapping remains broad",
+      "stop for user review if M2455 protocol rows cannot support preflight"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2456 audit routes to reset/static preflight design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "scenario-quality redesign reset/static preflight design",
+    "admission_evidence": [
+      "M2456 accepts M2455 materialization",
+      "M2455 candidate_row_count 30 guardrail_violation_count 0",
+      "M2455 labels_enter_actor_input_count 0 actor_input_contract_changed_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no scenario redesign execution",
+      "no measured rollout",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md",
+      "M2457 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "concrete preflight work-item schema is defined",
+      "bounded implementation/audit route is selected or route is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2457 designs scenario-quality reset/static preflight mapping and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2457; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2455/M2456 materialized protocol artifacts and audit.",
+    "negative_result_policy": "If reset/static mapping cannot be designed without contract leakage, synthesize or stop before implementation.",
+    "allowed_claims": [
+      "scenario-quality reset/static preflight design",
+      "bounded next-route decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns materialized protocol rows into a concrete preflight mapping design",
+    "paper_verdict_delta": "can admit reset/static preflight implementation or force synthesis/stop",
+    "must_synthesize_if": [
+      "mapping remains broad",
+      "another design-only route is proposed after M2457 without implementation",
+      "the next route would execute measured rollout directly"
+    ]
+  },
+  "hypothesis": "A design-only reset/static preflight mapping can turn M2455 materialized protocol rows into concrete preflight work items while preserving actor-input and claim boundaries.",
+  "success_criteria": [
+    "docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md exists",
+    "the design defines preflight work-item schema and guardrail requirements",
+    "the design selects a bounded implementation/audit next route or stops",
+    "no reset rollout scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2457 resets environment or executes policy action",
+    "M2457 executes scenario redesign, repair, or training",
+    "M2457 ranks scenario candidates, candidate families, controllers, selected checkpoints, or panel rows as winners",
+    "M2457 selects a winner",
+    "M2457 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md from M2455/M2456 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_quality_redesign_reset_static_preflight_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.md",
+    "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M2457 passes if it writes a concrete reset/static preflight design and selects a bounded implementation/audit route or stops without reset, rollout, scenario redesign execution, repair, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design"
+}
