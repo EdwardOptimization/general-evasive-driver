@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2384,
+    "completed": 2385,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design",
+    "task_id": "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md"
+    "run_dir": "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization",
+    "command_log": "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization",
-    "kind": "infrastructure",
-    "priority": 23730,
+    "id": "m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit",
+    "kind": "gate",
+    "priority": 23740,
     "status": "pending",
-    "hypothesis": "Artifact-only materialization can turn repair-plan artifacts into overlay config-patch artifacts without active config overwrite, repair execution, ranking, or training-success claims.",
-    "command": "implement and run overlay-only config-patch materializer from M2375 repair-plan artifacts",
-    "success_artifact": "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json",
-    "notes": "Pending: implement overlay-only config-patch materializer no active config overwrite repair execution or training"
+    "hypothesis": "Auditing M2378 config-patch artifacts can decide the next bounded route without applying patches, executing repair, ranking, training, or paper-level claims.",
+    "command": "manual audit of M2378 config-patch artifacts",
+    "success_artifact": "docs/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.md",
+    "notes": "Pending: audit config-patch artifacts before any active config application repair execution reset validation or ranking"
   },
-  "updated_at_utc": "20260602T062000Z"
+  "updated_at_utc": "20260602T063817Z"
 }

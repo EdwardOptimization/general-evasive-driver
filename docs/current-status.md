@@ -16,22 +16,22 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design
+m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization
 ```
 
 Current next task:
 
 ```text
-m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization
+m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit
 ```
 
 Current route:
 
 ```text
-M2377 designed an overlay-only static config-patch materializer route from the
-repair-plan artifacts. M2378 should implement that materializer without active
-config overwrite, repair execution, validation, scenario redesign, ranking,
-training, or paper-route interpretation.
+M2378 materialized overlay-only static config-patch artifacts from M2375
+repair-plan artifacts. M2379 should audit those artifacts before any active
+config application, repair execution, reset validation, scenario redesign,
+ranking, training, or paper-route interpretation.
 ```
 
 ## Latest Evidence
@@ -248,6 +248,25 @@ repair execution/training/replay/PPO: false
 next route: artifact-only config-patch materialization
 ```
 
+M2378 config-patch materialization result:
+
+```text
+result_class: current_sim_dual_axis_offtrack_guardrail_config_patch_materialization_pass
+source reward/curriculum/guardrail/mixed rows: 54/54/284/18
+reward_config_patch_row_count: 162
+curriculum_config_patch_row_count: 54
+guardrail_config_patch_row_count: 284
+target namespaces: candidate_reward_overlay 162, candidate_curriculum_overlay 54,
+  candidate_guardrail_overlay 284
+guardrail targets: collision 46, R4 semantics 48, no-ranking 190
+active_config_overwrite_count: 0
+actor_input_change_count: 0
+hidden_oracle_feature_injection_count: 0
+profile_specific_tuning_count: 0
+repair_execution_count/training_count/ranking_admissible_count/winner_selected_count: 0/0/0/0
+guardrail_violation_count: 0
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -272,18 +291,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2378 should implement overlay-only static config-patch materialization from:
+M2379 should audit overlay-only config-patch artifacts from:
 
 ```text
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/repair_implementation_plan.json
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/reward_delta_rows.csv
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/curriculum_weight_rows.csv
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/guardrail_constraint_rows.csv
-runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_manifest.json
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/reward_config_patch_rows.csv
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/curriculum_config_patch_rows.csv
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/guardrail_config_patch_rows.csv
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/config_patch_preview.json
+runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/claim_boundary.csv
 ```
 
-The materializer should write overlay patch artifacts only. It must not
-overwrite the active config, run reset/rollout, execute repair, train, replay,
-use PPO, rank profiles or packs, select a winner, claim scenario redesign
-executed, claim repair success, current-sim verdict, or paper/self-ID claims.
+The audit must not overwrite the active config, run reset/rollout, execute
+repair, train, replay, use PPO, rank profiles or packs, select a winner, claim
+scenario redesign executed, claim repair success, current-sim verdict, or
+paper/self-ID claims.

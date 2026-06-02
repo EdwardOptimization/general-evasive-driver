@@ -43195,3 +43195,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - blocked: active config overwrite, actor input change, hidden/oracle feature injection, profile-specific tuning, ranking, paper/current-sim/self-ID claims
 - follow-up manifest: `experiments/manifests/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.json`
 - next: `m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization`
+
+## M2378 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Config Patch Materialization
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_guardrail_config_patch_materialization_pass`
+- manifest: `experiments/manifests/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.json`
+- doc: `docs/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization.py`
+- focused tests: `2 passed`
+- summary: `runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json`
+- source reward/curriculum/guardrail/mixed rows: `54/54/284/18`
+- reward/curriculum/guardrail patch rows: `162/54/284`
+- target namespaces: `candidate_reward_overlay`, `candidate_curriculum_overlay`, `candidate_guardrail_overlay`
+- active_config_overwrite_count: `0`
+- actor_input_change_count: `0`
+- hidden_oracle_feature_injection_count: `0`
+- profile_specific_tuning_count: `0`
+- repair_execution_count/training_count/ranking_admissible_count/winner_selected_count: `0/0/0/0`
+- namespace_violation_count: `0`
+- mixed_guarded_missing_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2378: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit.json`
+- next: `m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit`

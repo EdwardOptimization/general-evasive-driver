@@ -1,0 +1,111 @@
+# m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T063844Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: config_patch_materialization_pass_route_to_result_audit
+- Decision reason: M2378 materializes overlay-only config patch artifacts reward 162 curriculum 54 guardrail 284 namespace/guardrail violations 0 no active config overwrite repair execution training or ranking claims
+
+## Hypothesis
+
+Artifact-only materialization can turn repair-plan artifacts into overlay config-patch artifacts without active config overwrite, repair execution, ranking, or training-success claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_artifact_only_config_patch_materialization
+- parent_dataset: docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/repair_implementation_plan.json, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/reward_delta_rows.csv, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/curriculum_weight_rows.csv, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/guardrail_constraint_rows.csv, runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.json
+- parent_objective: materialize overlay-only static config-patch artifacts from M2377 design and M2375 repair-plan artifacts
+- derived_from: m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design, m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit, m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization
+- blocked_by: M2377 designs overlay-only config patches but does not materialize them, active config overwrite and repair execution remain blocked until patch artifacts are materialized and audited
+- supersedes: direct active config overwrite after application design, direct repair execution or training from repair-plan artifacts
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json exists
+- source reward_delta row count equals 54
+- source curriculum_weight row count equals 54
+- source guardrail_constraint row count equals 284
+- source mixed_guarded_constraint row count equals 18
+- reward_config_patch_row_count equals 162
+- curriculum_config_patch_row_count equals 54
+- guardrail_config_patch_row_count equals 284
+- active_config_overwritten is false
+- actor_input_change_count hidden_oracle_feature_injection_count profile_specific_tuning_count ranking_admissible_count winner_selected_count are 0
+- environment_rollout_started policy_action_executed repair_execution_started training_started replay_started ppo_used are false
+- paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false
+
+## Failure Criteria
+
+- summary is missing
+- source counts differ from M2375
+- any required output family is missing
+- active config overwrite occurs
+- patch artifacts include actor input changes hidden/oracle features profile-specific tuning ranking or winner selection
+- any forbidden execution or claim flag is set
+- result audit route is missing
+
+## Evidence Gates
+
+- M2378 must materialize overlay-only config-patch artifacts from M2375 repair-plan outputs and M2377 design
+- M2378 must preserve active-config overwrite, actor-input, oracle-feature, profile-tuning, collision, R4, diagnostic, and mixed guarded constraints
+- M2378 must not run reset rollout measured execution repair execution training replay PPO private holdout ranking or paper/self-ID/current-sim verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset
+- do not run environment rollout
+- do not execute policy actions
+- do not run measured execution
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not select a winner
+- do not overwrite the active scenario config
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- objective_overfit
+- behavior_regression
+
+## Scoreboard
+
+- milestone: m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization
+- type: infrastructure
+- checkpoint: runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: config_patch_materialization_pass_route_to_result_audit
+- reason: M2378 materializes overlay-only config patch artifacts reward 162 curriculum 54 guardrail 284 namespace/guardrail violations 0 no active config overwrite repair execution training or ranking claims
+
+## Next Blocker
+
+m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit
