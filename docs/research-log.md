@@ -44079,3 +44079,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - new branch: `paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence`
 - follow-up manifest: `experiments/manifests/m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation.json`
 - next: `m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation`
+
+## M2426 Paper-Route Current-Sim Dual-Axis Source-Linked Repair-Candidate Reset Evidence Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_repair_candidate_reset_evidence_fail_closed`
+- manifest: `experiments/manifests/m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation.json`
+- doc: `docs/m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence.py`
+- focused tests: `3 passed`
+- summary: `runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json`
+- candidate family coverage: `3/4` matched, `1/4` unmatched
+- concrete reset evidence: `2049` source-linked scenario refs, `350` unique reset targets, `350/350` reset successes
+- unmatched source keys: `5`, including c04 `episode_rows:outcome_bucket:off_track_noncollision_noncompletion`
+- static validation/reset failures: `0/0`
+- environment step / policy action: `0 / false`
+- repair/training/replay/PPO: `false / false / false / false`
+- ranking/winner/current-sim verdict: `false / false / false`
+- interpretation: M2426 is clean reset-only fail-closed evidence; it does not admit all-four-family measured validation because c04 has no matched M2391 effective candidate
+- follow-up manifest: `experiments/manifests/m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit.json`
+- next: `m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit`

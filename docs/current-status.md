@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
+m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis
+m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
+m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
 ```
 
 Current route:
@@ -184,6 +184,19 @@ repair-candidate reset-only evidence panel by joining M2422 candidate source
 keys to M2391 reset-valid effective scenario specs. M2426 must not execute an
 environment step, policy action, repair, training, replay, PPO, ranking, winner
 selection, active config overwrite, or verdict claim.
+M2426 implemented and ran that reset-only evidence panel. The result is clean
+fail-closed: 3/4 candidate families matched M2391 effective candidates, 2049
+source-linked scenario refs materialized, 350 unique reset targets reset
+successfully, static validation failures are zero, environment step count is
+zero, policy action is false, and guardrail violations are zero. The blocker is
+source coverage: c04 source-linked outcome-failure-surface containment has zero
+matched effective candidates because the
+`episode_rows:outcome_bucket:off_track_noncollision_noncompletion` key has no
+M2391 source match. The next task
+is M2427 result audit, which must decide source-coverage repair, matched-subset
+measured-validation design with explicit c04 exclusion, scenario-quality
+reassessment, synthesis, or stop. It must not rerun reset, run measured rollout,
+execute repair, train, rank, or make current-sim/paper/self-ID verdict claims.
 ```
 
 ## Latest Evidence

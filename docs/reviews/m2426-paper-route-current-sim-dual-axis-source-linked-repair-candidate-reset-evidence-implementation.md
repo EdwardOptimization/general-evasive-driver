@@ -1,0 +1,118 @@
+# m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T180028Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: source_linked_repair_candidate_reset_evidence_fail_closed_route_to_audit
+- Decision reason: M2426 reset-only evidence fail-closed candidate families 4 matched 3 source refs 2049 reset targets 350/350 c04 outcome_bucket unmatched no step/policy/repair/training/ranking/verdict claims
+
+## Hypothesis
+
+Joining M2422 source-linked repair-candidate source keys to M2391 reset-valid effective candidate specs will produce a concrete non-ranking reset evidence panel for all four candidates without changing actor inputs or executing repair.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_reset_only_source_linked_repair_candidate_evidence
+- parent_dataset: docs/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.md, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/summary.json, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays.csv, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/repair_candidate_overlays/*.json, runs/m2422_paper_route_current_sim_dual_axis_source_linked_repair_candidate_materialization/candidate_guardrail_metadata.csv, runs/m2424_paper_route_current_sim_dual_axis_source_linked_candidate_reset_load_validation_adapter/summary.json, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/summary.json, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_config_rows.csv, runs/m2391_paper_route_current_sim_dual_axis_effective_config_schema_repair_materialization/effective_candidate_scenario_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis.json
+- parent_objective: materialize and reset-validate concrete source-linked scenario specs for the four M2422 source-linked repair-candidate families
+- derived_from: m2425-paper-route-current-sim-dual-axis-source-linked-repair-plan-materialization-branch-synthesis, m2422-paper-route-current-sim-dual-axis-source-linked-repair-candidate-materialization-implementation, m2391-paper-route-current-sim-dual-axis-effective-config-schema-repair-materialization
+- blocked_by: M2422 overlays are semantic repair candidates, not directly executable env-config patches, M2424 validated only overlay structure and did not reset environments, M2425 promoted the workflow to a new reset-evidence branch before any measured rollout or repair training
+- supersedes: another same-branch artifact-only result audit, direct measured rollout over semantic overlays, candidate or family ranking before source-linked reset evidence
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json exists
+- all 4 candidate overlays load
+- all 4 candidate families have matched M2391 effective candidates or a fail-closed unmatched-key result is recorded
+- source-linked scenario references are non-empty
+- all source-linked static rows pass actor-contract and env_config validation
+- all unique reset targets reset successfully
+- environment_step_count is 0
+- policy_action_executed is false
+- active_config_overwrite_count is 0
+- ranking_admissible_count and winner_selected_count are 0
+- guardrail_violation_count is 0
+
+## Failure Criteria
+
+- source-linked scenario references are empty
+- any required env_config is missing
+- actor contract validation fails
+- any reset target fails reset validation
+- environment step or policy action executes
+- active config is overwritten
+- repair execution training replay PPO ranking or winner selection occurs
+- M2426 claims measured driver improvement, paper verdict, current-sim verdict, scenario redesign executed, training repair success, FW-vs-GRU conclusion, or level3 self-ID
+
+## Evidence Gates
+
+- M2426 must load all four M2422 source-linked repair-candidate overlays
+- M2426 must link every candidate family to at least one reset-valid effective candidate if the source keys are valid
+- M2426 must write run-dir-only source-linked repair-candidate reset-evidence artifacts
+- M2426 must run reset-only validation over concrete env configs and stop before any environment step or policy action
+- M2426 must preserve P0 human-view no-wheel no-oracle actor contract
+- M2426 must report unmatched source keys as diagnostics rather than hiding them
+- M2426 must not rank candidates, families, profiles, or select a winner
+- M2426 must not execute repair, train, run replay, run PPO, overwrite active configs, or make paper/current-sim/FW-vs-GRU/self-ID verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not overwrite active configs
+- do not apply repair levers to the active config
+- do not execute repair training
+- do not run measured rollout
+- do not step environments after reset
+- do not execute policy actions
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not rank candidate families
+- do not rank source-linked families
+- do not rank repair candidates
+- do not select a winner
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle actor features
+- do not tune controller profiles
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- scenario_sampling_failure
+- lineage_invalid
+- contract_violation
+- metric_artifact
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2426-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-implementation
+- type: infrastructure
+- checkpoint: runs/m2426_paper_route_current_sim_dual_axis_source_linked_repair_candidate_reset_evidence/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: 1.0
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: source_linked_repair_candidate_reset_evidence_fail_closed_route_to_audit
+- reason: M2426 reset-only evidence fail-closed candidate families 4 matched 3 source refs 2049 reset targets 350/350 c04 outcome_bucket unmatched no step/policy/repair/training/ranking/verdict claims
+
+## Next Blocker
+
+m2427-paper-route-current-sim-dual-axis-source-linked-repair-candidate-reset-evidence-result-audit
