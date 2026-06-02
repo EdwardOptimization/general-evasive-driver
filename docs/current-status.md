@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
+m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2419-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-branch-synthesis
+m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation
+m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit
 ```
 
 Current route:
@@ -139,6 +139,12 @@ repair-plan materialization. This is still a workflow route, not a driver
 success, paper, finite-window-vs-GRU, self-ID, scenario-redesign, or current-sim
 verdict. The next task is M2420 artifact-only repair-plan materialization from
 M2417 target and guardrail rows.
+M2420 materialized that bounded source-linked repair-plan artifact: 2844 plan
+rows, with 59 offtrack repair-plan rows, 30 collision guardrails, 43 R4
+mitigation rows, 1 max-step guardrail, 1 speed-too-low guardrail, 2733
+diagnostic monitoring rows, and 110 family-membership diagnostics. Repair
+execution, training, ranking, winner selection, guardrail violations, and
+verdict claims remain zero. The next task is M2421 result audit.
 ```
 
 ## Latest Evidence

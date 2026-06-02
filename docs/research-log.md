@@ -43977,3 +43977,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: bounded source-linked repair-plan materialization, not repair execution or training
 - follow-up manifest: `experiments/manifests/m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation.json`
 - next: `m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation`
+
+## M2420 Paper-Route Current-Sim Dual-Axis Source-Linked Bounded Repair-Plan Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_source_linked_bounded_repair_plan_materialization_pass`
+- manifest: `experiments/manifests/m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation.json`
+- doc: `docs/m2420-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_source_linked_bounded_repair_plan_materialization.py`
+- focused tests: `4 passed`
+- summary: `runs/m2420_paper_route_current_sim_dual_axis_source_linked_bounded_repair_plan_materialization/summary.json`
+- repair-plan rows: total `2844`, offtrack `59`, collision guardrail `30`, R4 `43`, max-step `1`, speed-too-low `1`, diagnostic monitoring `2733`, family diagnostic `110`
+- repair/training/ranking/winner/guardrail counts: `0/0/0/0/0`
+- rerun/reset rerun/rollout/localization/consolidation rerun/repair/training/replay/PPO: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- interpretation: M2420 is artifact-only repair-plan materialization; it defines bounded levers/gates/stop rules but does not execute repair
+- follow-up manifest: `experiments/manifests/m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit.json`
+- next: `m2421-paper-route-current-sim-dual-axis-source-linked-bounded-repair-plan-materialization-result-audit`
