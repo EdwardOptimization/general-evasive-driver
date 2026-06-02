@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2364,
+    "completed": 2365,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit",
+    "task_id": "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit.md"
+    "command_log": "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md"
   },
   "next_task": {
-    "id": "m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design",
-    "kind": "gate",
-    "priority": 23530,
+    "id": "m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation",
+    "kind": "infrastructure",
+    "priority": 23540,
     "status": "pending",
-    "hypothesis": "A bounded reset-validation design can test the five M2356 repaired packs while preserving repair-action metadata and claim boundaries.",
-    "command": "write docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md from M2357 audit and M2356 artifacts",
-    "success_artifact": "docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md",
-    "notes": "Pending: design repaired-pack reset validation no reset/ranking"
+    "hypothesis": "The five M2356 repaired candidate config packs are reset-valid under the current simulator and strict human-view observation contract.",
+    "command": "run frozen repaired-pack reset-only validation preserving repair-action metadata",
+    "success_artifact": "runs/m2359_paper_route_current_sim_dual_axis_repaired_pack_reset_validation/summary.json",
+    "notes": "Pending: implement and run repaired-pack reset-only validator no rollout/policy/ranking"
   },
-  "updated_at_utc": "20260602T033612Z"
+  "updated_at_utc": "20260602T033926Z"
 }

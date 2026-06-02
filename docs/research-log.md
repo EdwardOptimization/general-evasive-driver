@@ -42714,3 +42714,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to repaired-pack reset-validation design
 - follow-up manifest: `experiments/manifests/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.json`
 - next: `m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design`
+
+## M2358 Paper-Route Current-Sim Dual-Axis Repaired Pack Reset Validation Design
+
+- status: completed
+- decision: `repaired_pack_reset_validation_design_admit_reset_only_implementation`
+- manifest: `experiments/manifests/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.json`
+- doc: `docs/m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design.md`
+- repaired pack manifest: `runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/repaired_config_pack_manifest.json`
+- reset/rollout/measured execution in M2358: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid repaired pack claim made: `false`
+- designed reset workload: `5 packs x 72 scenario specs = 360 reset attempts`
+- required repair metadata: `32 fallback actions`, `27 timing`, `3 hidden`, `2 lateral-hidden`
+- follow-up manifest: `experiments/manifests/m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation.json`
+- next: `m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation`

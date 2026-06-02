@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit
+m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design
 ```
 
 Current next task:
 
 ```text
-m2358-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-design
+m2359-paper-route-current-sim-dual-axis-repaired-pack-reset-validation-implementation
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -308,9 +308,25 @@ effective modified selections:
 decision: route_to_repaired_pack_reset_validation_design
 ```
 
-M2358 should design reset-only validation over the repaired packs. It must not
-run reset. Reset-validity, controller comparison, support-policy ranking,
-paper-level evidence, and scenario redesign execution claims remain blocked.
+M2358 designs reset-only validation over the repaired packs. It does not run
+reset. Frozen workload:
+
+```text
+config_pack_count: 5
+scenario_specs_per_pack: 72
+reset_attempt_count: 360
+expected_observation_dim: 72
+repair metadata required:
+  fallback actions 32
+  timing 27
+  hidden-only 3
+  lateral-hidden 2
+```
+
+M2359 should implement and run the repaired-pack reset-only validator. It must
+not run rollout or execute policy actions. Controller comparison,
+support-policy ranking, paper-level evidence, and scenario redesign execution
+claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:
