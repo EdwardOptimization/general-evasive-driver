@@ -42639,3 +42639,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - baseline_reference_pack failures: `0`
 - follow-up manifest: `experiments/manifests/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.json`
 - next: `m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design`
+
+## M2355 Paper-Route Current-Sim Dual-Axis Candidate Pack Sampling-Compatible Repair Design
+
+- status: completed
+- decision: `sampling_compatible_repair_design_admit_artifact_only_materializer`
+- manifest: `experiments/manifests/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.json`
+- doc: `docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md`
+- parent audit: `docs/m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit.md`
+- reset/rollout/measured execution in M2355: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- reset-valid scenario pack claim made: `false`
+- repair action: `baseline_env_config_fallback`
+- expected fallback count: `32`
+- expected timing-related repair count: `27`
+- expected hidden-only repair count: `3`
+- expected lateral-hidden repair count: `2`
+- follow-up manifest: `experiments/manifests/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.json`
+- next: `m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation`

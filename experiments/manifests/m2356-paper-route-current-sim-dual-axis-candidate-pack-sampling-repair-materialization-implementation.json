@@ -1,0 +1,202 @@
+{
+  "id": "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_sampling_repair_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv",
+      "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/candidate_selection_rows.csv",
+      "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.json"
+    ],
+    "parent_objective": [
+      "implement artifact-only sampling-compatible repair materializer"
+    ],
+    "derived_from": [
+      "m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design",
+      "m2354-paper-route-current-sim-dual-axis-candidate-pack-reset-validation-result-audit"
+    ],
+    "blocked_by": [
+      "M2355 designs sampling-compatible repair but does not materialize artifacts",
+      "M2353 candidate packs are not reset-valid"
+    ],
+    "supersedes": [
+      "manual row-level candidate pack repair",
+      "direct reset rerun of M2350 packs"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md",
+  "public_gates": [
+    "M2356 must implement the artifact-only sampling repair materializer",
+    "M2356 must apply baseline env_config fallback to exactly the 32 M2353 failed rows",
+    "M2356 must preserve five-pack discipline and metadata caveat reporting",
+    "M2356 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim reset-valid redesigned scenario pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_candidate_pack_sampling_repair",
+    "evidence_axis": "Q_sampling_repair_materialization",
+    "evidence_increment": "materializes repaired candidate config packs after classified reset sampling failures",
+    "claim_scope": "artifact materialization only; no reset rerun, rollout, ranking, paper, finite-window-vs-GRU, or self-ID claim",
+    "stop_condition": [
+      "stop if repaired pack count differs from five",
+      "stop if fallback count differs from 32",
+      "stop if metadata caveat reporting is lost",
+      "stop if active config is overwritten",
+      "stop if reset or rollout starts"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifacts pass",
+      "route to schema repair if baseline fallback cannot be represented",
+      "stop for user review if five-pack repair cannot be bounded"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2355 admits artifact-only sampling repair materializer implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "sampling-compatible repair materialization",
+    "admission_evidence": [
+      "M2355 freezes row-level baseline fallback repair design",
+      "M2353 reset failure rows identify exactly 32 failed pack/scenario keys",
+      "M2354 shows baseline reference pack reset failures are zero"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_candidate_pack_sampling_repair.py",
+      "tests/test_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair.py",
+      "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/*",
+      "docs/m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation.md",
+      "M2356 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the materialization result"
+    ],
+    "next_stage_criteria": [
+      "repaired config pack manifest exists",
+      "repair action rows exist",
+      "32 fallback actions are recorded",
+      "metadata caveat rows are preserved",
+      "result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2356 materializes task-quality repair artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2356; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2353-M2355 reset failure and repair design artifacts.",
+    "negative_result_policy": "Repair materialization must not be interpreted as driver, controller, or self-ID evidence.",
+    "allowed_claims": [
+      "artifact-only sampling-compatible repair materialization",
+      "no reset-valid pack, controller ranking, paper-level result, finite-window-vs-GRU result, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns classified reset failures into repaired artifacts for a future reset-validity attempt",
+    "paper_verdict_delta": "can prepare repaired candidate packs for another reset-validity gate, but cannot establish driver performance",
+    "must_synthesize_if": [
+      "M2356 cannot preserve five-pack discipline",
+      "M2356 suggests direct measured execution",
+      "the sampling repair branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "An artifact-only materializer can apply row-level baseline fallback to the 32 M2353 failed rows while preserving the five-pack structure and metadata caveat reporting.",
+  "success_criteria": [
+    "summary.json exists",
+    "repaired_config_pack_manifest.json exists",
+    "repair_action_rows.csv exists",
+    "effective_pack_summary_rows.csv exists",
+    "output_config_pack_count == 5",
+    "scenario_specs_per_pack_count == 72",
+    "input_reset_failure_count == 32",
+    "baseline_env_config_fallback_count == 32",
+    "repair_missing_field_count == 0",
+    "metadata_caveat_rows_preserved == true",
+    "active_config_overwritten == false",
+    "guardrail_violation_count == 0"
+  ],
+  "failure_criteria": [
+    "M2356 starts reset rollout measured execution replay PPO or private holdout",
+    "M2356 ranks support policies or controller families",
+    "M2356 overwrites the active scenario config",
+    "M2356 makes paper-level finite-window-vs-GRU or level3 self-ID claims",
+    "M2356 claims scenario redesign executed or reset-valid redesigned scenario pack",
+    "required artifacts or counts are missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "PYTHONPATH=src python -m pytest tests/test_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair.py -q"
+    },
+    {
+      "name": "materialize",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_candidate_pack_sampling_repair --config-pack-manifest runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json --patch-rows runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/scenario_spec_patch_rows.csv --candidate-selection-rows runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/candidate_selection_rows.csv --reset-failure-rows runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv --output-dir runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair --next-blocker m2357-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2356_paper_route_current_sim_dual_axis_candidate_pack_sampling_repair/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_sampling_repair_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2355-paper-route-current-sim-dual-axis-candidate-pack-sampling-compatible-repair-design.md",
+    "runs/m2350_paper_route_current_sim_dual_axis_candidate_config_materialization/config_pack_manifest.json",
+    "runs/m2353_paper_route_current_sim_dual_axis_candidate_pack_reset_validation/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2356 passes if it emits repaired five-pack artifacts with exactly 32 baseline fallback actions, preserved metadata caveats, and no execution or claim-boundary violations.",
+  "next_blocker": "m2356-paper-route-current-sim-dual-axis-candidate-pack-sampling-repair-materialization-implementation"
+}
