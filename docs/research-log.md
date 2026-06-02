@@ -42436,3 +42436,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.json`
 - next: `m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation`
+
+## M2347 Paper-Route Current-Sim Dual-Axis Redesign Calibration Materialization Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_redesign_calibration_materialization_pass`
+- manifest: `experiments/manifests/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.json`
+- doc: `docs/m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation.md`
+- summary: `runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/summary.json`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_redesign_calibration_materialization.py`
+- tests: `tests/test_paper_route_current_sim_dual_axis_redesign_calibration_materialization.py`
+- input_redesign_row_count: `26`
+- geometry_timing_input_row_count: `13`
+- hidden_range_input_row_count: `13`
+- secondary_coverage_tracked_count: `9`
+- calibration_candidate_count: `53`
+- geometry_timing_candidate_count: `28`
+- hidden_range_candidate_count: `13`
+- combined_axis_candidate_count: `12`
+- rows_without_candidate_count: `0`
+- guardrail_violation_count: `0`
+- reset/rollout/measured execution in M2347: `false`
+- training/replay/PPO: `false`
+- support-policy ranking claim made: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- scenario redesign executed claim made: `false`
+- follow-up manifest: `experiments/manifests/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.json`
+- next: `m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit`

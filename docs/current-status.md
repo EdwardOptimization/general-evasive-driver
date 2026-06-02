@@ -16,13 +16,13 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2346-paper-route-current-sim-dual-axis-redesign-calibration-design
+m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation
 ```
 
 Current next task:
 
 ```text
-m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation
+m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit
 ```
 
 Current route: M2331 accepts M2330 as a complete bounded R4-only
@@ -145,9 +145,27 @@ secondary coverage rows: 9 tracked as inactive
 M2347 should implement the artifact-only materializer and focused tests. It
 must preserve the 13/13 split and inactive 9-row secondary bucket while writing
 candidate artifacts under `runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization`.
-Training, replay, PPO, support-policy ranking, controller-family ranking,
-winner selection, paper-level claims, finite-window vs GRU conclusions, and
-level3 self-ID claims remain blocked.
+M2347 is now complete:
+
+```text
+result_class: current_sim_dual_axis_redesign_calibration_materialization_pass
+input_redesign_row_count: 26
+geometry_timing_input_row_count: 13
+hidden_range_input_row_count: 13
+secondary_coverage_tracked_count: 9
+calibration_candidate_count: 53
+geometry_timing_candidate_count: 28
+hidden_range_candidate_count: 13
+combined_axis_candidate_count: 12
+rows_without_candidate_count: 0
+guardrail_violation_count: 0
+```
+
+M2348 should audit the M2347 candidate artifacts and claim boundary before any
+validation rerun or active config materialization. Training, replay, PPO,
+support-policy ranking, controller-family ranking, winner selection, paper-level
+claims, finite-window vs GRU conclusions, level3 self-ID claims, and scenario
+redesign executed claims remain blocked.
 
 Historical context retained below: M2287 implemented the combined materializer repair for
 `configs/paper_route_current_sim_scenario_task_family_v0.json`:

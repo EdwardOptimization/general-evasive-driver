@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2354,
+    "completed": 2355,
     "failed": 2,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2346-paper-route-current-sim-dual-axis-redesign-calibration-design",
+    "task_id": "m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2346-paper-route-current-sim-dual-axis-redesign-calibration-design.md"
+    "run_dir": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization",
+    "command_log": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2347-paper-route-current-sim-dual-axis-redesign-calibration-materialization-implementation",
-    "kind": "infrastructure",
-    "priority": 23420,
+    "id": "m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit",
+    "kind": "gate",
+    "priority": 23430,
     "status": "pending",
-    "hypothesis": "An artifact-only materializer can convert the M2346 dual-axis design into bounded candidate rows while preserving the 13/13 axis split and 9 inactive secondary coverage rows.",
-    "command": "implement and run autodrift.paper_route_current_sim_dual_axis_redesign_calibration_materialization from M2343 artifacts into runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization",
-    "success_artifact": "runs/m2347_paper_route_current_sim_dual_axis_redesign_calibration_materialization/summary.json",
-    "notes": "Pending: implement artifact-only candidate materializer and focused tests no reset/rollout/training/ranking"
+    "hypothesis": "Auditing M2347 will determine whether the dual-axis candidate artifacts are complete enough for a bounded validation-design route without making ranking or paper claims.",
+    "command": "write docs/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.md from M2347 summary and candidate artifacts",
+    "success_artifact": "docs/m2348-paper-route-current-sim-dual-axis-redesign-calibration-materialization-result-audit.md",
+    "notes": "Pending: audit candidate completeness claim boundary and next non-ranking route no reset/rollout/training/ranking"
   },
-  "updated_at_utc": "20260602T020942Z"
+  "updated_at_utc": "20260602T021812Z"
 }
