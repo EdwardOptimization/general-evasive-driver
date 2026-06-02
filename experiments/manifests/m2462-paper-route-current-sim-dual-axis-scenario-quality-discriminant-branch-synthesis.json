@@ -1,0 +1,237 @@
+{
+  "id": "m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_quality_discriminant_branch_synthesis"
+    ],
+    "parent_dataset": [
+      "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+      "docs/m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit.md",
+      "docs/m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design.md",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+      "docs/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.md",
+      "docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md",
+      "runs/m2458_paper_route_current_sim_dual_axis_scenario_quality_redesign_reset_static_preflight_adapter/summary.json",
+      "docs/m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit.md",
+      "docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/concrete_overlay_rows.csv",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/candidate_rows_with_overlays.csv",
+      "docs/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize the scenario-quality discriminant branch before reset-validation design or another local artifact milestone"
+    ],
+    "derived_from": [
+      "m2452-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel",
+      "m2453-paper-route-current-sim-dual-axis-scenario-quality-discriminant-panel-result-audit",
+      "m2454-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-design",
+      "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight",
+      "m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit",
+      "m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design",
+      "m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation",
+      "m2459-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-result-audit",
+      "m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design",
+      "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight"
+    ],
+    "blocked_by": [
+      "workflow synthesis cadence reached on paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+      "M2461 resolved missing-overlay readiness at preflight level but reset validation has not been designed or audited",
+      "the branch has accumulated process, design, materialization, and audit milestones that need synthesis before continuation"
+    ],
+    "supersedes": [
+      "direct M2462 concrete overlay materialization result audit before branch synthesis",
+      "direct reset-validation design from M2461 without branch synthesis",
+      "direct reset, measured rollout, repair, training, ranking, winner selection, or verdict claims from overlay materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+  "public_gates": [
+    "M2462 must answer the standard synthesis questions",
+    "M2462 must synthesize M2452-M2461 scenario-quality discriminant evidence and process overhead",
+    "M2462 must keep M2461 overlay materialization as preflight readiness evidence rather than driver-performance evidence",
+    "M2462 must decide continue pivot stop or promote_to_next_branch",
+    "M2462 must choose a bounded next route or stop",
+    "M2462 must not execute reset, rollout, scenario redesign, repair, training, replay, PPO, ranking, winner selection, or verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset environment",
+    "do not rerun measured policy rollout",
+    "do not execute policy action",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not rank selected checkpoints",
+    "do not rank scenario candidates as winners",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_scenario_quality_discriminant_branch_synthesis",
+    "evidence_increment": "synthesizes M2452-M2461 scenario-quality discriminant, protocol, preflight, adapter, overlay design, and overlay materialization evidence before reset-validation continuation",
+    "claim_scope": "branch synthesis only; no reset, rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis treats preflight materialization as actual closed-loop success",
+      "stop if synthesis cannot decide continue pivot stop or promote_to_next_branch",
+      "stop if synthesis routes to measured rollout without reset-validation design and audit",
+      "stop if synthesis ranks candidates, candidate families, controllers, checkpoints, or scenario rows"
+    ],
+    "fallback_plan": [
+      "continue to bounded reset-validation design if M2461 readiness evidence is accepted and claim boundaries remain clean",
+      "pivot to overlay/protocol repair design if the materialized overlay rows are insufficient",
+      "stop for user review if scenario-quality evidence is too process-heavy or overfit-prone to support a bounded route",
+      "promote_to_next_branch only if the scenario-quality discriminant branch is closed in favor of a named next branch"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M2461 concrete overlay materialization/preflight",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "scenario-quality discriminant branch synthesis",
+    "admission_evidence": [
+      "M2452 discriminant panel pass rows 71 scenario-quality blockers 7 repair-plan candidates 19 guardrail violations 0",
+      "M2455 materialization pass candidates 30 stable 3 stableAES 3 geometry 7 handling 5 hidden 9 mitigation 3 guardrail violations 0",
+      "M2458 adapter static pass reset blocked work items 30 static failures 0 reset required 6 reset attempted 0 reset blocked missing overlays 6 guardrail violations 0",
+      "M2460 defined R0/R1 concrete overlay families for the six stable/AES reset-blocked rows",
+      "M2461 materialized six overlays and reran adapter preflight with concrete_overlay_available_count 6 static_check_fail_count 0 reset_attempted_count 0 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no measured rollout",
+      "no scenario redesign execution",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+      "M2462 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "standard synthesis questions are answered",
+      "M2452-M2461 evidence is classified under task-quality, high-fidelity readiness, workflow complexity, and mechanism-evidence axes",
+      "public gate overfit risk is stated",
+      "a bounded non-ranking follow-up route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2462 synthesizes scenario-quality infrastructure and preflight evidence and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2462; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2452-M2461 scenario-quality discriminant and overlay materialization branch.",
+    "negative_result_policy": "If the synthesis cannot support bounded reset-validation design, stop or pivot before execution rather than treating preflight artifacts as driver failure.",
+    "allowed_claims": [
+      "scenario-quality discriminant branch synthesis",
+      "workflow continuation decision",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the scenario-quality discriminant branch after concrete overlay materialization before another local route",
+    "paper_verdict_delta": "can decide whether current-sim scenario-quality readiness supports reset-validation design, pivot, stop, or promotion to a named next branch; cannot itself establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing M2452-M2461 will reset the branch cadence, classify the evidence gained by scenario-quality discriminant work, and decide whether bounded reset-validation design is admissible without reset, rollout, repair, training, ranking, winner selection, or verdict claims.",
+  "success_criteria": [
+    "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md exists",
+    "the synthesis answers all required synthesis questions",
+    "M2461 overlay materialization is kept separate from actual driver success evidence",
+    "a bounded non-ranking next route is selected or the branch is stopped",
+    "no reset rollout scenario-redesign execution repair training ranking actual-success-improvement or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2462 executes reset, rollout, scenario redesign, repair, training, replay, PPO, or private holdout",
+    "M2462 ranks scenario candidates, candidate families, controllers, selected checkpoints, or panel rows as winners",
+    "M2462 selects a winner",
+    "M2462 treats M2461 preflight readiness as actual closed-loop success",
+    "M2462 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, or training-repair verdict claims"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md from M2452-M2461 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_quality_discriminant_branch_synthesis"
+  ],
+  "baseline_artifacts": [
+    "runs/m2452_paper_route_current_sim_dual_axis_scenario_quality_discriminant_panel/summary.json",
+    "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+    "runs/m2458_paper_route_current_sim_dual_axis_scenario_quality_redesign_reset_static_preflight_adapter/summary.json",
+    "docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md",
+    "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json"
+  ],
+  "decision_rule": "M2462 passes if it synthesizes M2452-M2461 and selects a bounded non-ranking next route or stops without reset, rollout, repair, training, ranking, actual-success-improvement, or verdict claims.",
+  "next_blocker": "m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis"
+}

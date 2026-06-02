@@ -44694,3 +44694,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json`
 - next: `m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight`
+
+## M2461 Paper-Route Current-Sim Dual-Axis Scenario-Quality Concrete Overlay Materialization Preflight
+
+- status: completed
+- result_class: `scenario_quality_concrete_overlay_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json`
+- doc: `docs/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight.py`
+- summary: `runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json`
+- result: `6` concrete overlays materialized, `3` R0 stable avoidable and `3` R1 AEB-infeasible stable AES
+- adapter preflight: concrete_overlay_available_count `6`, static_check_fail_count `0`, guardrail_violation_count `0`, reset_attempted_count `0`, reset_blocked_missing_concrete_overlay_count `0`
+- interpretation: missing-overlay reset blocker is resolved at preflight level only; reset execution remains disabled and must wait for branch synthesis plus reset-validation design/admission
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.json`
+- next: `m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis`

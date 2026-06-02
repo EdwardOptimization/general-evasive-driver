@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2466,
+    "completed": 2467,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design",
+    "task_id": "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design.md"
+    "run_dir": "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight",
+    "command_log": "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 24560,
+    "id": "m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis",
+    "kind": "gate",
+    "priority": 24570,
     "status": "pending",
-    "hypothesis": "Concrete overlay materialization can attach valid env_config_overlay_json to the six stable/AES reset-blocked work items and make adapter preflight reset-ready without actor-input or claim-boundary violations.",
-    "command": "see experiments/manifests/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.json",
-    "success_artifact": "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json",
-    "notes": "Pending: materialize overlays and rerun adapter preflight no reset rollout redesign execution repair training ranking winner verdict claims"
+    "hypothesis": "Synthesizing M2452-M2461 will reset the branch cadence, classify the scenario-quality discriminant evidence, and decide whether bounded reset-validation design is admissible without executing reset, rollout, repair, training, ranking, winner selection, or verdict claims.",
+    "command": "see experiments/manifests/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.json",
+    "success_artifact": "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+    "notes": "Pending: branch synthesis before reset validation no reset rollout redesign execution repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T232139Z"
+  "updated_at_utc": "20260602T234816Z"
 }

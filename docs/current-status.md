@@ -16,25 +16,39 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design
+m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design
+m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
+m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
 ```
 
 Current route:
 
 ```text
+M2461 materialized the M2460 overlays and reran adapter preflight. It produced
+`6` concrete overlays, with `3` `R0_stable_avoidable` rows and `3`
+`R1_aeb_infeasible_stable_aes` rows. The adapter now reports
+`concrete_overlay_available_count` `6`, `static_check_fail_count` `0`,
+`guardrail_violation_count` `0`, `reset_attempted_count` `0`, and
+`reset_blocked_missing_concrete_overlay_count` `0`. This resolves the missing-
+overlay readiness blocker at preflight level only: reset execution remains
+disabled and recorded as `reset_execution_not_enabled_in_m2458_adapter`. The
+next task is M2462 branch synthesis because the scenario-quality discriminant
+branch reached workflow synthesis cadence before reset-validation design. No
+reset, rollout, policy action, scenario redesign execution, repair, training,
+ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair verdict, or
+current-sim verdict is supported.
+
 M2460 completed the concrete numeric overlay design needed to unblock the six
 stable/AES reset-required work items from M2458. It defines two bounded overlay
 families: R0 stable avoidable/AEB-feasible support with speed `[8.0, 12.0]`,
