@@ -16,23 +16,23 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit
+m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design
 ```
 
 Current next task:
 
 ```text
-m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design
+m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization
 ```
 
 Current route:
 
 ```text
-M2383 accepted M2382 application-plan artifacts and routed to bounded
-candidate config generation design. M2384 should design run-dir-only candidate
-config generation without generating configs in the design milestone, applying
-patches, overwriting active configs, reset validation, repair execution,
-ranking, training, or paper/self-ID/current-sim interpretation.
+M2384 designed run-dir-only candidate config generation from application-plan
+artifacts. M2385 may write candidate config JSON artifacts under its run
+directory only. It must not overwrite active configs, load configs, run reset
+or rollout, execute repair, rank, train, or make paper/self-ID/current-sim
+claims.
 ```
 
 ## Latest Evidence
@@ -329,6 +329,19 @@ reset/rollout/repair/training/ranking: blocked
 paper/self-ID/current-sim verdict claims: blocked
 ```
 
+M2384 candidate config generation design:
+
+```text
+design: run-dir-only candidate config generation materializer
+candidate_config_file_written_count expected in M2385: 54
+candidate_config_files_outside_run_dir_count expected: 0
+source reward/curriculum/guardrail references expected: 162/54/284
+mixed_guarded_candidate_requirement_count expected: 18
+active config overwrite/reset/rollout/repair/training/ranking: blocked
+paper/self-ID/current-sim verdict claims: blocked
+next after M2385: branch synthesis, not another narrow audit
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -353,7 +366,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2384 should design candidate config generation from:
+M2385 should materialize run-dir-only candidate configs from:
 
 ```text
 runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json
@@ -365,7 +378,8 @@ runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_app
 runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv
 ```
 
-The design must not generate candidate configs yet, apply patches, overwrite
-the active config, run reset/rollout, execute repair, train, replay, use PPO,
-rank profiles or packs, select a winner, claim scenario redesign executed,
-claim repair success, current-sim verdict, or paper/self-ID claims.
+The materializer may write candidate config files under its run directory only.
+It must not overwrite the active config, load candidate configs, run
+reset/rollout, execute repair, train, replay, use PPO, rank profiles or packs,
+select a winner, claim scenario redesign executed, claim repair success,
+current-sim verdict, or paper/self-ID claims.

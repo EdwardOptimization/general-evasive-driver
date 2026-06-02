@@ -43322,3 +43322,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to bounded candidate config generation design; no config generation, patch application, active overwrite, reset validation, training, or ranking
 - follow-up manifest: `experiments/manifests/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.json`
 - next: `m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design`
+
+## M2384 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Candidate Config Generation Design
+
+- status: completed
+- decision: `candidate_config_generation_design_admit_run_dir_only_materializer`
+- manifest: `experiments/manifests/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.json`
+- doc: `docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md`
+- parent audit: `docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md`
+- reset/rollout/measured execution in M2384: `false`
+- candidate config file generation in M2384: `false`
+- active config overwrite in M2384: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design: run-dir-only candidate config generation materializer schema
+- expected candidate config files in M2385: `54`
+- expected outside-run-dir candidate config files: `0`
+- expected reward/curriculum/guardrail references: `162/54/284`
+- expected mixed guarded candidate requirements: `18`
+- blocked: active config overwrite, environment reset/rollout, repair execution, training, ranking, paper/current-sim/self-ID claims
+- follow-up manifest: `experiments/manifests/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.json`
+- next: `m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization`

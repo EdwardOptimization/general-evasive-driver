@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2390,
+    "completed": 2391,
     "failed": 3,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit",
+    "task_id": "m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit.md"
+    "command_log": "docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md"
   },
   "next_task": {
-    "id": "m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design",
-    "kind": "gate",
-    "priority": 23790,
+    "id": "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization",
+    "kind": "infrastructure",
+    "priority": 23800,
     "status": "pending",
-    "hypothesis": "A bounded design can map M2382 application-plan artifacts to run-dir-only candidate config generation without active config overwrite, patch application, reset validation, repair execution, ranking, or training-success claims.",
-    "command": "write bounded candidate config generation design",
-    "success_artifact": "docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md",
-    "notes": "Pending: design candidate config generation without writing candidate configs applying patches active config overwrite reset validation repair execution training or ranking"
+    "hypothesis": "Artifact-only materialization can generate candidate config files under the run directory from application-plan artifacts without active config overwrite, reset validation, repair execution, ranking, or training-success claims.",
+    "command": "implement and run run-dir-only candidate config generation materializer",
+    "success_artifact": "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+    "notes": "Pending: generate candidate config files under run dir only no active config overwrite reset validation repair execution training ranking route to synthesis"
   },
-  "updated_at_utc": "20260602T071816Z"
+  "updated_at_utc": "20260602T072406Z"
 }

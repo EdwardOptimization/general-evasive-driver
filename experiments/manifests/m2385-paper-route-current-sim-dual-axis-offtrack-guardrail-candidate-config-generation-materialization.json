@@ -1,0 +1,218 @@
+{
+  "id": "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_candidate_config_generation_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/application_plan_manifest.json",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/candidate_application_specs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/reward_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/curriculum_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/guardrail_patch_application_refs.csv",
+      "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.json"
+    ],
+    "parent_objective": [
+      "materialize run-dir-only candidate config artifacts from M2384 design and M2382 application-plan artifacts"
+    ],
+    "derived_from": [
+      "m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design",
+      "m2383-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization-result-audit",
+      "m2382-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-application-plan-materialization"
+    ],
+    "blocked_by": [
+      "M2384 designs candidate config generation but does not materialize generated files",
+      "reset validation and repair execution remain blocked until candidate config generation is materialized and synthesized"
+    ],
+    "supersedes": [
+      "direct reset validation from application-plan artifacts",
+      "direct active config overwrite from candidate generation design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.md",
+  "public_gates": [
+    "M2385 must materialize candidate config files under its run directory only",
+    "M2385 must preserve active-config overwrite, actor-input, oracle-feature, profile-tuning, collision, R4, diagnostic, and mixed guarded constraints",
+    "M2385 must not run reset rollout measured execution repair execution training replay PPO private holdout ranking or paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not write candidate config files outside the M2385 run directory",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_candidate_config_generation_materialization",
+    "evidence_increment": "materializes run-dir-only candidate config artifacts from application-plan artifacts without active overwrite or validation",
+    "claim_scope": "artifact-only candidate config generation; no active config overwrite, reset/rollout, repair execution, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if active config overwrite occurs",
+      "stop if candidate config files are written outside the run directory",
+      "stop if generated candidate configs drop reward, curriculum, or guardrail references",
+      "stop if any forbidden execution or claim flag is set"
+    ],
+    "fallback_plan": [
+      "route to result/failure synthesis for any artifact mismatch",
+      "route to generation design repair if schema is insufficient",
+      "route to M2386 branch synthesis if gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2384 admits run-dir-only candidate config generation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "artifact-only candidate config generation",
+    "admission_evidence": [
+      "M2384 defines candidate config generation schema and pass gates",
+      "M2382 candidate_application_spec_count is 54",
+      "M2382 reward/curriculum/guardrail references are 162/54/284",
+      "M2382 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation.py",
+      "tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation.py",
+      "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/*",
+      "docs/m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization.md",
+      "M2385 status queue scoreboard research log and review",
+      "one follow-up manifest for branch synthesis"
+    ],
+    "next_stage_criteria": [
+      "candidate config files exist under the run directory",
+      "source candidate spec count matches M2382",
+      "candidate config file count equals 54",
+      "outside-run-dir candidate config count is 0",
+      "active config overwrite remains false",
+      "M2386 branch synthesis is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2385 materializes candidate config files and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden zero-history or finite-window-vs-GRU verdict is run in M2385."
+    ],
+    "temporal_evidence_window": "M2382 application-plan artifacts, M2383 audit, and M2384 design.",
+    "negative_result_policy": "Generated candidate configs remain engineering artifacts and cannot be interpreted as driver capability improvements until validation.",
+    "allowed_claims": [
+      "artifact-only run-dir candidate config generation",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds candidate config artifacts from application-plan route but does not yet test capability",
+    "paper_verdict_delta": "can admit branch synthesis but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2385 cannot materialize candidate config artifacts",
+      "M2385 produces candidate config artifacts but no branch synthesis route",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Artifact-only materialization can generate candidate config files under the run directory from application-plan artifacts without active config overwrite, reset validation, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json exists",
+    "source_candidate_application_spec_count equals 54",
+    "candidate_config_file_written_count equals 54",
+    "candidate_config_files_outside_run_dir_count equals 0",
+    "source_reward_patch_reference_count equals 162",
+    "source_curriculum_patch_reference_count equals 54",
+    "source_guardrail_patch_reference_count equals 284",
+    "mixed_guarded_candidate_requirement_count equals 18",
+    "candidate_without_reward_overlay_count candidate_without_curriculum_overlay_count candidate_without_guardrail_overlay_count are 0",
+    "active_config_overwritten is false and active_config_patch_application_count is 0",
+    "actor_input_change_count hidden_oracle_feature_injection_count profile_specific_tuning_count ranking_admissible_count winner_selected_count are 0",
+    "environment_rollout_started policy_action_executed repair_execution_started training_started replay_started ppo_used are false",
+    "paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "source counts differ from M2382",
+    "candidate config file count differs from 54",
+    "candidate config files are written outside the run directory",
+    "active config overwrite occurs",
+    "any forbidden execution or claim flag is set",
+    "M2386 branch synthesis route is missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation.py"
+    },
+    {
+      "name": "candidate_config_generation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation --summary runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json --application-plan-manifest runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/application_plan_manifest.json --candidate-application-specs runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/candidate_application_specs.csv --reward-patch-application-refs runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/reward_patch_application_refs.csv --curriculum-patch-application-refs runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/curriculum_patch_application_refs.csv --guardrail-patch-application-refs runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/guardrail_patch_application_refs.csv --mixed-guarded-candidate-requirements runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/mixed_guarded_candidate_requirements.csv --output-dir runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation --next-blocker m2386-paper-route-current-sim-dual-axis-candidate-config-generation-branch-synthesis"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2385_paper_route_current_sim_dual_axis_offtrack_guardrail_candidate_config_generation/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_candidate_config_generation_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2384-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-design.md",
+    "runs/m2382_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_application_plan_materialization/summary.json"
+  ],
+  "decision_rule": "M2385 passes if it generates candidate config files under the run directory without active config overwrite, reset/rollout, ranking, training, or paper/self-ID/current-sim verdict claims, then routes to branch synthesis.",
+  "next_blocker": "m2385-paper-route-current-sim-dual-axis-offtrack-guardrail-candidate-config-generation-materialization"
+}
