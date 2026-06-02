@@ -43179,3 +43179,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - decision: route to bounded static config-patch application design; no direct active config overwrite, repair execution, training, or validation
 - follow-up manifest: `experiments/manifests/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.json`
 - next: `m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design`
+
+## M2377 Paper-Route Current-Sim Dual-Axis Offtrack Guardrail Repair Plan Application Design
+
+- status: completed
+- decision: `repair_plan_application_design_admit_artifact_only_config_patch_materializer`
+- manifest: `experiments/manifests/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.json`
+- doc: `docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md`
+- parent audit: `docs/m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit.md`
+- active config overwrite in M2377: `false`
+- repair execution/training/replay/PPO: `false`
+- ranking/winner/paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- design: overlay-only config-patch materializer schema
+- expected reward/curriculum/guardrail patch rows: `162/54/284`
+- blocked: active config overwrite, actor input change, hidden/oracle feature injection, profile-specific tuning, ranking, paper/current-sim/self-ID claims
+- follow-up manifest: `experiments/manifests/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.json`
+- next: `m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization`

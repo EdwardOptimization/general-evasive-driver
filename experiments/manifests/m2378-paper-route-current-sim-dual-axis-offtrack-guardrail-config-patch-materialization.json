@@ -1,0 +1,215 @@
+{
+  "id": "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "objective_overfit",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_config_patch_materialization"
+    ],
+    "parent_dataset": [
+      "docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/repair_implementation_plan.json",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/reward_delta_rows.csv",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/curriculum_weight_rows.csv",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/guardrail_constraint_rows.csv",
+      "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.json"
+    ],
+    "parent_objective": [
+      "materialize overlay-only static config-patch artifacts from M2377 design and M2375 repair-plan artifacts"
+    ],
+    "derived_from": [
+      "m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design",
+      "m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit",
+      "m2375-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization"
+    ],
+    "blocked_by": [
+      "M2377 designs overlay-only config patches but does not materialize them",
+      "active config overwrite and repair execution remain blocked until patch artifacts are materialized and audited"
+    ],
+    "supersedes": [
+      "direct active config overwrite after application design",
+      "direct repair execution or training from repair-plan artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.md",
+  "public_gates": [
+    "M2378 must materialize overlay-only config-patch artifacts from M2375 repair-plan outputs and M2377 design",
+    "M2378 must preserve active-config overwrite, actor-input, oracle-feature, profile-tuning, collision, R4, diagnostic, and mixed guarded constraints",
+    "M2378 must not run reset rollout measured execution repair execution training replay PPO private holdout ranking or paper/self-ID/current-sim verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle features",
+    "do not tune controller profiles",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_repair_plan_materialization",
+    "evidence_axis": "E_config_patch_materialization",
+    "evidence_increment": "materializes overlay-only static config-patch artifacts from repair-plan artifacts without applying repair",
+    "claim_scope": "artifact-only config-patch materialization; no repair execution, rerun, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if active config overwrite occurs",
+      "stop if patch target namespace is not overlay-only",
+      "stop if guardrail constraints are missing",
+      "stop if any forbidden execution or claim flag is set"
+    ],
+    "fallback_plan": [
+      "route to result/failure audit for any artifact mismatch",
+      "route to application design repair if overlay schema is insufficient",
+      "route to M2379 result audit if gates pass"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2377 admits overlay-only config-patch materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "artifact-only overlay config-patch materialization",
+    "admission_evidence": [
+      "M2377 defines overlay-only config-patch schema and pass gates",
+      "M2375 reward_delta_row_count is 54",
+      "M2375 curriculum_weight_row_count is 54",
+      "M2375 guardrail_constraint_row_count is 284",
+      "M2375 guardrail_violation_count is 0"
+    ],
+    "blocked_shortcuts": [
+      "no active config overwrite",
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no repair execution",
+      "no training",
+      "no replay",
+      "no PPO",
+      "no ranking",
+      "no paper-level claim",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization.py",
+      "tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization.py",
+      "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/*",
+      "docs/m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization.md",
+      "M2378 status queue scoreboard research log and review",
+      "one follow-up manifest for result audit"
+    ],
+    "next_stage_criteria": [
+      "overlay config-patch artifacts exist",
+      "source plan counts match M2375",
+      "guardrail constraints are present",
+      "active config overwrite remains false",
+      "M2379 result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2378 materializes config-patch artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "No wrong-history reset-hidden zero-history or finite-window-vs-GRU verdict is run in M2378."
+    ],
+    "temporal_evidence_window": "M2375 repair-plan artifacts, M2376 audit, and M2377 application design.",
+    "negative_result_policy": "Config-patch artifacts remain engineering design artifacts and cannot be interpreted as driver capability improvements.",
+    "allowed_claims": [
+      "artifact-only overlay config-patch materialization",
+      "no controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds overlay config-patch artifacts from repair-plan route but does not yet test capability",
+    "paper_verdict_delta": "can admit config-patch result audit but cannot establish paper verdict",
+    "must_synthesize_if": [
+      "M2378 cannot materialize config-patch artifacts",
+      "M2378 produces config-patch artifacts but no result audit route",
+      "the repair-plan materialization branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "Artifact-only materialization can turn repair-plan artifacts into overlay config-patch artifacts without active config overwrite, repair execution, ranking, or training-success claims.",
+  "success_criteria": [
+    "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json exists",
+    "source reward_delta row count equals 54",
+    "source curriculum_weight row count equals 54",
+    "source guardrail_constraint row count equals 284",
+    "source mixed_guarded_constraint row count equals 18",
+    "reward_config_patch_row_count equals 162",
+    "curriculum_config_patch_row_count equals 54",
+    "guardrail_config_patch_row_count equals 284",
+    "active_config_overwritten is false",
+    "actor_input_change_count hidden_oracle_feature_injection_count profile_specific_tuning_count ranking_admissible_count winner_selected_count are 0",
+    "environment_rollout_started policy_action_executed repair_execution_started training_started replay_started ppo_used are false",
+    "paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "source counts differ from M2375",
+    "any required output family is missing",
+    "active config overwrite occurs",
+    "patch artifacts include actor input changes hidden/oracle features profile-specific tuning ranking or winner selection",
+    "any forbidden execution or claim flag is set",
+    "result audit route is missing"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization.py"
+    },
+    {
+      "name": "config_patch_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization --summary runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json --repair-plan runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/repair_implementation_plan.json --reward-delta-rows runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/reward_delta_rows.csv --curriculum-weight-rows runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/curriculum_weight_rows.csv --guardrail-constraint-rows runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/guardrail_constraint_rows.csv --mixed-guarded-constraint-rows runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv --output-dir runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization --next-blocker m2379-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2378_paper_route_current_sim_dual_axis_offtrack_guardrail_config_patch_materialization/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_config_patch_materialization"
+  ],
+  "baseline_artifacts": [
+    "docs/m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design.md",
+    "runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json"
+  ],
+  "decision_rule": "M2378 passes if it materializes overlay config-patch artifacts without active config overwrite, repair execution, ranking, training, or paper/self-ID/current-sim verdict claims.",
+  "next_blocker": "m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization"
+}

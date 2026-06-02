@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2376-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-materialization-result-audit
+m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design
 ```
 
 Current next task:
 
 ```text
-m2377-paper-route-current-sim-dual-axis-offtrack-guardrail-repair-plan-application-design
+m2378-paper-route-current-sim-dual-axis-offtrack-guardrail-config-patch-materialization
 ```
 
 Current route:
 
 ```text
-M2376 accepted the M2375 repair-plan artifact and routed to bounded static
-config-patch application design. M2377 must design that route without active
+M2377 designed an overlay-only static config-patch materializer route from the
+repair-plan artifacts. M2378 should implement that materializer without active
 config overwrite, repair execution, validation, scenario redesign, ranking,
 training, or paper-route interpretation.
 ```
@@ -237,6 +237,17 @@ exclusions and guardrail violations: 0
 active config overwrite/repair execution/training: blocked
 ```
 
+M2377 application design decision:
+
+```text
+design: overlay-only config-patch materializer
+expected reward/curriculum/guardrail patch rows: 162/54/284
+active config overwrite: blocked
+actor input change/oracle feature/profile-specific tuning: blocked
+repair execution/training/replay/PPO: false
+next route: artifact-only config-patch materialization
+```
+
 ## Current Interpretation Boundary
 
 Allowed claim:
@@ -261,7 +272,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2377 should design static config-patch application from:
+M2378 should implement overlay-only static config-patch materialization from:
 
 ```text
 runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/summary.json
@@ -272,8 +283,7 @@ runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_mate
 runs/m2375_paper_route_current_sim_dual_axis_offtrack_guardrail_repair_plan_materialization/mixed_guarded_constraint_rows.csv
 ```
 
-The design should define static config-patch artifacts and pass gates. It must
-not overwrite the active config, run reset/rollout, execute repair, train,
-replay, use PPO, rank profiles or packs, select a winner, claim scenario
-redesign executed, claim repair success, current-sim verdict, or paper/self-ID
-claims.
+The materializer should write overlay patch artifacts only. It must not
+overwrite the active config, run reset/rollout, execute repair, train, replay,
+use PPO, rank profiles or packs, select a winner, claim scenario redesign
+executed, claim repair success, current-sim verdict, or paper/self-ID claims.
