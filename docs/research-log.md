@@ -43771,3 +43771,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: read-only reset/load validation adapter implementation, no standalone design milestone
 - follow-up manifest: `experiments/manifests/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.json`
 - next: `m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation`
+
+## M2408 Paper-Route Current-Sim Dual-Axis Offtrack Containment Candidate Reset/Load Validation Adapter Implementation
+
+- status: completed
+- result_class: `current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter_pass`
+- manifest: `experiments/manifests/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.json`
+- doc: `docs/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter.py`
+- focused tests: `4 passed`
+- summary: `runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json`
+- candidate/overlay load pass: `4/4`
+- schema/table/source-key/outside-run-dir failures: `0/0/0/0`
+- guardrail metadata/claim boundary failures: `0/0`
+- missing collision/R4 guardrail counts: `0/0`
+- active overwrite/repair/training/ranking/winner/contract/oracle/guardrail counts: `0/0/0/0/0/0/0/0`
+- measured rollout/repair execution/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json`
+- next: `m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis`

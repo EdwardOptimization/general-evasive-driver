@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
+m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit
+m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
+m2409-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-result-audit
 ```
 
 Current route:
@@ -78,6 +78,10 @@ task is M2407 result audit.
 M2407 accepted M2406 completeness, run-dir-only boundary, and guardrail metadata
 as sufficient for read-only adapter validation. The next task is M2408 adapter
 load validation, not measured rollout or repair execution.
+M2408 read-only validated all 4 overlays and their guardrail/claim-boundary
+metadata. It did not run measured rollout or reset the environment. The harness
+blocked another ordinary audit after the non-evidence milestone limit, so the
+next task is M2409 branch synthesis.
 ```
 
 ## Latest Evidence
@@ -374,6 +378,18 @@ guardrail metadata rows/missing: 8/0
 collision/R4 source rows: 65/57
 active overwrite/repair/training/ranking/winner/guardrail: 0/0/0/0/0/0
 next task: M2408 read-only candidate reset/load validation adapter
+```
+
+M2408 offtrack containment candidate reset/load validation adapter:
+
+```text
+result_class: current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter_pass
+candidate/overlay load pass: 4/4
+schema/table/source-key/outside-run-dir failures: 0/0/0/0
+guardrail metadata/claim boundary failures: 0/0
+missing collision/R4 guardrails: 0/0
+active overwrite/repair/training/ranking/winner/contract/oracle/guardrail: 0/0/0/0/0/0/0/0
+next task: M2409 repair-plan materialization branch synthesis
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:

@@ -1,0 +1,105 @@
+# m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation Research Review
+
+## Summary
+
+- Generated at UTC: 20260602T132624Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: offtrack_containment_candidate_reset_load_validation_adapter_pass_route_to_branch_synthesis
+- Decision reason: M2408 read-only validates 4 overlays with schema/guardrail/claim/outside/overwrite/ranking/guardrail failures 0 no measured rollout or verdict claims; route to synthesis after non-evidence limit
+
+## Hypothesis
+
+M2406 candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.
+
+## Lineage
+
+- parent_checkpoint: not_applicable_offtrack_containment_candidate_reset_load_validation_adapter
+- parent_dataset: docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md, docs/m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation.md, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/summary.json, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays.csv, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/candidate_guardrail_metadata.csv, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/claim_boundary.csv, runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays/*.json, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.json
+- parent_objective: validate M2406 run-dir-only overlays and guardrail metadata at adapter load/reset-readiness level
+- derived_from: m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit, m2406-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-implementation
+- blocked_by: M2406 overlays are materialized but not yet load-validated, guardrail artifact references must be verified before any reset or measured route, candidate overlays must remain run-dir-only and non-ranking
+- supersedes: direct measured validation from unvalidated candidate overlays, candidate ranking from overlay families, active config overwrite from candidate overlays
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json exists
+- overlay_load_pass_count equals 4
+- overlay_schema_failure_count equals 0
+- guardrail_metadata_failure_count equals 0
+- candidate_overlay_outside_run_dir_count active_config_overwrite_count ranking_admissible_count winner_selected_count and guardrail_violation_count equal 0
+- paper finite-window-vs-GRU level3 self-ID scenario-redesign training-repair and current-sim verdict claims remain false
+
+## Failure Criteria
+
+- M2408 runs measured rollout or executes repair/training/replay/PPO
+- M2408 overwrites active configs
+- M2408 ranks candidates, ranks profiles, or selects a winner
+- M2408 drops collision or R4 guardrail metadata
+- M2408 claims scenario redesign executed, training repair success, paper result, finite-window-vs-GRU result, current-sim verdict, or level3 self-ID
+
+## Evidence Gates
+
+- M2408 must load each M2406 overlay JSON and validate it against overlay table rows
+- M2408 must verify every overlay path is under the M2406 run directory
+- M2408 must verify collision and R4 guardrail artifact refs exist and stay non-ranking
+- M2408 must preserve claim boundaries and no active config overwrite
+- M2408 must not run measured rollout, execute repair, train, replay, run PPO, rank candidates/profiles, select a winner, or make scenario-redesign/training-repair/paper/current-sim/self-ID verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun M2397 M2399 M2401 M2404 or M2406
+- do not run new measured rollout
+- do not execute repair levers
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle features
+- do not tune controller profiles
+- do not rank support policies or controller families
+- do not rank effective candidates
+- do not select a winner
+- do not overwrite the active scenario config
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim scenario redesign executed
+- do not claim training repair success
+- do not claim current-sim verdict
+
+## Failure Taxonomy
+
+- metric_artifact
+- lineage_invalid
+- contract_violation
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation
+- type: infrastructure
+- checkpoint: runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: offtrack_containment_candidate_reset_load_validation_adapter_pass_route_to_branch_synthesis
+- reason: M2408 read-only validates 4 overlays with schema/guardrail/claim/outside/overwrite/ranking/guardrail failures 0 no measured rollout or verdict claims; route to synthesis after non-evidence limit
+
+## Next Blocker
+
+m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis

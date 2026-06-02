@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2413,
+    "completed": 2414,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit",
+    "task_id": "m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2407-paper-route-current-sim-dual-axis-offtrack-containment-repair-candidate-materialization-result-audit.md"
+    "run_dir": "runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter",
+    "command_log": "runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json"
   },
   "next_task": {
-    "id": "m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation",
-    "kind": "infrastructure",
-    "priority": 24030,
+    "id": "m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis",
+    "kind": "gate",
+    "priority": 24040,
     "status": "pending",
-    "hypothesis": "M2406 candidate overlays can be read-only load-validated with guardrail metadata and run-dir-only boundaries intact, without repair execution, training, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2408-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-implementation.json",
-    "success_artifact": "runs/m2408_paper_route_current_sim_dual_axis_offtrack_containment_candidate_reset_load_validation_adapter/summary.json",
-    "notes": "Pending: adapter load validation no measured rollout repair training active overwrite ranking or verdict claims"
+    "hypothesis": "Synthesizing M2404-M2408 will prevent another artifact-only local-search step and choose the next evidence-producing non-ranking route.",
+    "command": "see experiments/manifests/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.json",
+    "success_artifact": "docs/m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis.md",
+    "notes": "Pending: branch synthesis after non-evidence milestone limit no measured rollout repair training ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T131312Z"
+  "updated_at_utc": "20260602T132425Z"
 }

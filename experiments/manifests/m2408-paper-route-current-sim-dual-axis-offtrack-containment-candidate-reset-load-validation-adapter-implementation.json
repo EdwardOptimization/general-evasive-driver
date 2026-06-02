@@ -205,5 +205,5 @@
     "runs/m2406_paper_route_current_sim_dual_axis_offtrack_containment_repair_candidate_materialization/repair_candidate_overlays.csv"
   ],
   "decision_rule": "M2408 passes if it read-only validates all M2406 candidate overlays and guardrail metadata without active overwrite, ranking, repair execution, training, or verdict claims.",
-  "next_blocker": "m2409-paper-route-current-sim-dual-axis-offtrack-containment-candidate-reset-load-validation-adapter-result-audit"
+  "next_blocker": "m2409-paper-route-current-sim-dual-axis-repair-plan-materialization-branch-synthesis"
 }
