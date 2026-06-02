@@ -44709,3 +44709,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.json`
 - next: `m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis`
+
+## M2462 Paper-Route Current-Sim Dual-Axis Scenario-Quality Discriminant Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- route decision: `continue_to_concrete_overlay_reset_validation_design`
+- manifest: `experiments/manifests/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.json`
+- doc: `docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md`
+- synthesized branch: M2452-M2461 scenario-quality discriminant branch
+- evidence summary: M2452 panel 71 rows and 7 scenario-quality blockers; M2455 materialization 30 candidates; M2458 static pass with 6 reset-blocked missing overlays; M2461 materialized 6 overlays and adapter reports concrete_overlay_available_count 6, static_check_fail_count 0, reset_attempted_count 0, guardrail_violation_count 0
+- supported claim: missing-overlay blocker is resolved at preflight level and bounded reset-validation design is admissible
+- blocked claims: driver performance, reset success, measured actual success, scenario redesign executed, repair/training success, current-sim/paper/FW-vs-GRU/level3 self-ID verdict
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.json`
+- next: `m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design`

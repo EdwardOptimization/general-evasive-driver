@@ -16,25 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
+m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight
+m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
+m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
 ```
 
 Current route:
 
 ```text
+M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
+decision is `continue` only to bounded reset-validation design: M2461's six
+concrete overlay rows resolve the missing-overlay blocker at preflight level,
+but no reset, rollout, policy action, scenario redesign execution, repair,
+training, ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair
+verdict, or current-sim verdict is supported. M2463 must design reset-only
+validation for exactly the six M2461 stable/AES concrete-overlay rows, keep
+geometry/timing, handling-limit, hidden-dynamics, and mitigation guardrails
+static-only, and route to a result audit before any measured rollout.
+
 M2461 materialized the M2460 overlays and reran adapter preflight. It produced
 `6` concrete overlays, with `3` `R0_stable_avoidable` rows and `3`
 `R1_aeb_infeasible_stable_aes` rows. The adapter now reports

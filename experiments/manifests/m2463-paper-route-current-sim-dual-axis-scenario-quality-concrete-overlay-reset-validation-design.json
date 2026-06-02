@@ -1,0 +1,204 @@
+{
+  "id": "m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_concrete_overlay_reset_validation_design"
+    ],
+    "parent_dataset": [
+      "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+      "docs/m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight.md",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/concrete_overlay_rows.csv",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/candidate_rows_with_overlays.csv",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/adapter_preflight_work_items.csv",
+      "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/adapter_reset_check_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design reset-only validation for the six M2461 concrete-overlay stable/AES rows"
+    ],
+    "derived_from": [
+      "m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis",
+      "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight",
+      "m2460-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-design"
+    ],
+    "blocked_by": [
+      "M2462 admits only design of reset validation, not reset execution",
+      "M2461 adapter kept reset execution disabled by design",
+      "the six concrete overlay rows need explicit reset-only command and pass/fail criteria before any environment reset"
+    ],
+    "supersedes": [
+      "direct reset execution from M2461 without command design",
+      "direct measured rollout from concrete overlay rows",
+      "direct repair or training from overlay materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md",
+  "public_gates": [
+    "M2463 must design reset-only validation over exactly the six M2461 concrete-overlay rows",
+    "M2463 must specify source artifacts, target count, expected observation-contract checks, output artifacts, pass/fail criteria, and result-audit route",
+    "M2463 must keep geometry/timing, handling-limit, hidden-dynamics, and mitigation guardrails static-only",
+    "M2463 must not execute reset, rollout, policy action, scenario redesign, repair, training, replay, PPO, ranking, winner selection, or verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank scenario candidates",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not overwrite the active scenario config",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_concrete_overlay_reset_validation_design",
+    "evidence_increment": "designs bounded reset-only validation for the six concrete overlay rows admitted by M2462 synthesis",
+    "claim_scope": "reset-validation design only; no reset execution, rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if design cannot identify exactly six reset targets",
+      "stop if design would execute reset or policy action",
+      "stop if design admits measured rollout before reset result audit",
+      "stop if design ranks scenario candidates or controllers"
+    ],
+    "fallback_plan": [
+      "route to reset-validation implementation if design is complete and bounded",
+      "pivot to overlay materialization repair if target rows are missing or malformed",
+      "route to result/failure audit if the design exposes incompatible reset semantics",
+      "synthesize again if the branch accumulates another local loop before new reset evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2462 synthesis decision continue admits reset-validation design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "concrete overlay reset-validation design",
+    "admission_evidence": [
+      "M2462 synthesis decision continue",
+      "M2461 concrete_overlay_row_count 6",
+      "M2461 adapter_concrete_overlay_available_count 6",
+      "M2461 adapter_static_check_fail_count 0",
+      "M2461 adapter_reset_attempted_count 0",
+      "M2461 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset in design",
+      "no rollout",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md",
+      "M2463 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "six reset target rows and source artifacts are specified",
+      "reset-only command and expected output artifacts are specified",
+      "observation and actor-contract checks are specified",
+      "pass/fail criteria and result-audit route are specified"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2463 designs scenario-quality reset validation and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2463; no wrong-history reset-hidden zero-history finite-window or GRU comparison is run."
+    ],
+    "temporal_evidence_window": "M2461 concrete overlay materialization and M2462 synthesis.",
+    "negative_result_policy": "If reset-validation design cannot be bounded, stop or repair overlay artifacts before any reset execution.",
+    "allowed_claims": [
+      "concrete overlay reset-validation design",
+      "no reset-valid scenario claim, controller ranking, paper-level result, finite-window-vs-GRU conclusion, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares a bounded reset-validation protocol after branch synthesis instead of extending artifact-only local search",
+    "paper_verdict_delta": "can admit reset-only implementation evidence in a later milestone but cannot itself establish driver performance or verdict claims",
+    "must_synthesize_if": [
+      "M2463 cannot bound the reset-validation protocol",
+      "M2463 routes directly to measured rollout",
+      "the reset-validation continuation reaches cadence without new reset evidence"
+    ]
+  },
+  "hypothesis": "A bounded reset-validation design can test the six M2461 concrete-overlay stable/AES rows while preserving actor-input, no-ranking, and no-verdict claim boundaries.",
+  "success_criteria": [
+    "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md exists",
+    "six reset target rows and source artifacts are specified",
+    "reset-only command and expected output artifacts are specified",
+    "observation and actor-contract checks are specified",
+    "pass/fail criteria and result-audit route are specified",
+    "no reset rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2463 starts environment reset, rollout, measured execution, policy action, repair, training, replay, PPO, or private holdout",
+    "M2463 ranks scenario candidates, support policies, controllers, or selected checkpoints",
+    "M2463 overwrites the active scenario config",
+    "M2463 changes actor inputs or admits hidden/oracle actor features",
+    "M2463 makes finite-window-vs-GRU, paper-level, current-sim, training-repair, scenario-redesign, or level3 self-ID claims",
+    "M2463 routes directly to measured rollout"
+  ],
+  "commands": [
+    {
+      "name": "design",
+      "command": "write docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md from M2461/M2462 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_concrete_overlay_reset_validation_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md",
+    "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json",
+    "runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/concrete_overlay_rows.csv"
+  ],
+  "decision_rule": "M2463 passes if it designs a bounded non-ranking reset-validation implementation route without execution or verdict claims.",
+  "next_blocker": "m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design"
+}
