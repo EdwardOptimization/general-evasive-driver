@@ -44637,3 +44637,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.json`
 - next: `m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design`
+
+## M2457 Paper-Route Current-Sim Dual-Axis Scenario-Quality Redesign Reset/Static Preflight Design
+
+- status: completed
+- decision: `reset_static_preflight_design_route_to_adapter_implementation`
+- manifest: `experiments/manifests/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.json`
+- doc: `docs/m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design.md`
+- parent audit: `docs/m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit.md`
+- design finding: M2455 protocol rows are not concrete env specs; all rows can enter static schema/guardrail validation, but reset validation is allowed only for rows with concrete numeric env overlays
+- fail-closed rule: rows without complete overlays must be marked `reset_blocked_missing_concrete_overlay`, not inferred into unsafe reset specs and not treated as driver failures
+- output contract: M2458 should write `summary.json`, `preflight_work_items.csv`, `static_check_rows.csv`, `reset_check_rows.csv`, `overlay_requirement_rows.csv`, `guardrail_rows.csv`, `claim_boundary.csv`, and `decision_rows.csv`
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation.json`
+- next: `m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation`

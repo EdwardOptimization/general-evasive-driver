@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit
+m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2456-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-result-audit
+m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2457-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-design
+m2458-paper-route-current-sim-dual-axis-scenario-quality-redesign-reset-static-preflight-adapter-implementation
 ```
 
 Current route:
 
 ```text
+M2457 completed the reset/static preflight design and routes to M2458 adapter
+implementation. The core decision is fail-closed: M2455 protocol rows can all
+enter static schema/guardrail validation, but reset validation is allowed only
+for rows with concrete numeric env overlays. Rows without complete overlays
+must be recorded as `reset_blocked_missing_concrete_overlay`, not inferred into
+unsafe scenario specs and not treated as driver-performance failures. M2458 may
+implement static checks and reset-only checks for concrete overlays, but still
+must not execute policy action, measured rollout, scenario redesign, repair,
+training, ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair
+verdict, or current-sim verdict.
+
 M2456 accepted M2455 as a complete scenario-quality protocol materialization
 artifact and routes to reset/static preflight design. The audited materialization
 has `30` candidate rows with stable-feasibility `3`, stable-AES `3`,
