@@ -43828,3 +43828,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - interpretation: M2410 upgrades M2408 from overlay-readiness to concrete source-linked reset evidence, but remains reset-only and does not prove repair success
 - follow-up manifest: `experiments/manifests/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.json`
 - next: `m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit`
+
+## M2411 Paper-Route Current-Sim Dual-Axis Source-Linked Offtrack Containment Reset Evidence Result Audit
+
+- status: completed
+- decision: `source_linked_reset_evidence_accepted_route_to_measured_validation_design`
+- manifest: `experiments/manifests/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.json`
+- doc: `docs/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.md`
+- parent summary: `runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json`
+- rerun/reset/rollout/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- accepted reset evidence: families `4/4`, source-linked scenario refs `3505`, unique reset targets `350/350`
+- unmatched source-key diagnostic: `95` total, by family `3/40/52/0`
+- audit result: M2410 is clean enough to admit measured-validation design, but only as overlapping family diagnostics, not ranking or winner selection
+- follow-up manifest: `experiments/manifests/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.json`
+- next: `m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design`

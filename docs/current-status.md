@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation
+m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation
+m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit
+m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design
 ```
 
 Current route:
@@ -94,6 +94,11 @@ configs successfully. All four families passed reset evidence. The result is
 reset-only: no environment step, policy action, repair execution, training,
 ranking, or current-sim verdict occurred. The next task is M2411 result audit,
 including the 95 unmatched source-key diagnostic caveat.
+M2411 accepted M2410 as clean reset-only source-linked evidence and routed to
+M2412 measured-validation design. The next denominator should be 350 unique
+reset targets times the selected checkpoint set, with overlapping family
+membership treated as diagnostic slices rather than ranking. The 95 unmatched
+source keys remain a required caveat.
 ```
 
 ## Latest Evidence

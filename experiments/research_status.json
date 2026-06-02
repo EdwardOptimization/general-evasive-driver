@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2416,
+    "completed": 2417,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2410-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-implementation",
+    "task_id": "m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence",
-    "command_log": "runs/m2410_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_reset_evidence/summary.json"
+    "run_dir": "",
+    "command_log": "docs/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.md"
   },
   "next_task": {
-    "id": "m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit",
+    "id": "m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design",
     "kind": "gate",
-    "priority": 24060,
+    "priority": 24070,
     "status": "pending",
-    "hypothesis": "Auditing M2410 will determine whether the source-linked reset panel is clean enough to admit bounded measured-validation design without ranking or verdict claims.",
-    "command": "see experiments/manifests/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.json",
-    "success_artifact": "docs/m2411-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-reset-evidence-result-audit.md",
-    "notes": "Pending: audit M2410 reset-only result unmatched source-key diagnostics no rerun rollout repair training ranking or verdict claims"
+    "hypothesis": "A bounded 350-reset-target x selected-checkpoint measured-validation protocol can measure the source-linked family panel without ranking overlapping families or changing actor inputs.",
+    "command": "see experiments/manifests/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.json",
+    "success_artifact": "docs/m2412-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation-design.md",
+    "notes": "Pending: design 350 reset-target x selected-checkpoint measured-validation protocol preserving family overlap and unmatched-key caveat no rollout/ranking/verdict claims"
   },
-  "updated_at_utc": "20260602T134639Z"
+  "updated_at_utc": "20260602T135712Z"
 }
