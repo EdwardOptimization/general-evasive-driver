@@ -1,0 +1,226 @@
+{
+  "id": "m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "lineage_invalid",
+    "contract_violation",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_hard_soft_offtrack_metric_split_implementation"
+    ],
+    "parent_dataset": [
+      "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+      "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+      "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv",
+      "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv",
+      "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.json"
+    ],
+    "parent_objective": [
+      "materialize a hard/soft offtrack metric split classification panel over existing measured episode rows"
+    ],
+    "derived_from": [
+      "m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design",
+      "m2362-paper-route-current-sim-dual-axis-repaired-pack-measured-execution",
+      "m2397-paper-route-current-sim-dual-axis-effective-candidate-measured-validation",
+      "m2413-paper-route-current-sim-dual-axis-source-linked-offtrack-containment-measured-validation",
+      "m2435-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-implementation"
+    ],
+    "blocked_by": [
+      "M2437 must be implemented before measured rollout or training resumes",
+      "actual_success must remain an executed rollout outcome only",
+      "counterfactual soft success must stay diagnostic",
+      "hard/soft offtrack semantics must be materialized with guardrails before a result audit"
+    ],
+    "supersedes": [
+      "direct measured rollout under ambiguous offtrack semantics",
+      "training/PPO before task-boundary metric split implementation",
+      "controller-family ranking before metric semantics are materialized"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md",
+  "public_gates": [
+    "M2438 must read existing primary episode rows from M2362 M2397 and M2413",
+    "M2438 must compute hard/soft/diagnostic offtrack columns for 0.02 0.05 0.10 and 0.20 m thresholds",
+    "M2438 must preserve measured actual_success unchanged",
+    "M2438 must keep counterfactual soft success separate from actual success",
+    "M2438 must not run new rollout, execute repair, train, rank candidates/controllers, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new measured rollout",
+    "do not rerun reset",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank candidate families",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_task_boundary_metric_redesign",
+    "evidence_axis": "E_hard_soft_offtrack_metric_split_implementation",
+    "evidence_increment": "materializes the M2437 hard/soft offtrack classification contract over existing measured episode rows",
+    "claim_scope": "classification/relabel implementation only; no new measured rollout, actual success claim, repair execution, training, ranking, paper verdict, finite-window-vs-GRU, self-ID, scenario-redesign-executed, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if implementation changes measured actual_success",
+      "stop if implementation treats counterfactual soft success as actual success",
+      "stop if implementation omits hard offtrack failure semantics",
+      "stop if implementation ranks candidate families or controllers",
+      "stop if implementation claims scenario redesign was executed"
+    ],
+    "fallback_plan": [
+      "route to result audit if the panel is complete",
+      "route to metric-lineage repair if source fields are missing",
+      "route to task-boundary contract revision if hard/soft classes are ambiguous",
+      "stop for user review if no bounded audit route is supported"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "not_applicable_second_milestone_new_branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "hard/soft offtrack metric split implementation",
+    "admission_evidence": [
+      "M2437 defines actual success collision/risk hard offtrack soft offtrack and boundary-tolerated diagnostic semantics",
+      "M2435 evaluated the required threshold grid 0.02 0.05 0.10 0.20 m",
+      "M2362 M2397 and M2413 primary episode rows contain clearance and overshoot fields"
+    ],
+    "blocked_shortcuts": [
+      "no measured rollout",
+      "no actual success claim",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split.py",
+      "tests/test_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split.py",
+      "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json",
+      "docs/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md",
+      "M2438 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the implementation result"
+    ],
+    "next_stage_criteria": [
+      "summary panel and decision rows are generated",
+      "measured actual_success preservation is verified",
+      "hard/soft/diagnostic fields cover M2362 M2397 and M2413",
+      "all guardrails remain false",
+      "a result-audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2438 implements task metrics and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2438; no wrong-history reset-hidden zero-history finite-window or GRU verdict is run."
+    ],
+    "temporal_evidence_window": "M2362 M2397 M2413 existing primary episode rows and M2435 threshold panel.",
+    "negative_result_policy": "If hard/soft metric split implementation cannot preserve actual success and diagnostic labels separately, stop for audit or design revision before measured rollout.",
+    "allowed_claims": [
+      "hard/soft offtrack metric split implementation",
+      "task-boundary classification panel generation",
+      "route recommendation for result audit",
+      "no actual success improvement, controller ranking, candidate-family ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "implements the new task-boundary metric split after branch synthesis and design",
+    "paper_verdict_delta": "can enable a metric-split result audit and later measured validation design; cannot establish current-sim or paper verdict",
+    "must_synthesize_if": [
+      "implementation still cannot choose a bounded result-audit route",
+      "another design-only milestone is proposed before implementation",
+      "counterfactual soft success would leak into actual success"
+    ]
+  },
+  "hypothesis": "A hard/soft offtrack metric split implementation will materialize M2437 semantics over existing episode rows while preserving actual success and keeping soft success diagnostic-only.",
+  "success_criteria": [
+    "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json exists",
+    "panel rows include M2362 M2397 and M2413 threshold rows",
+    "thresholds 0.02 0.05 0.10 and 0.20 m are evaluated",
+    "measured actual_success is preserved exactly",
+    "hard offtrack soft offtrack collision-risk failure and boundary-tolerated diagnostic columns are generated",
+    "the panel recommends a bounded non-ranking next route",
+    "no rollout repair training ranking actual-success or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2438 starts new measured rollout or reset rerun",
+    "M2438 executes repair or training",
+    "M2438 ranks candidate families or controllers",
+    "M2438 treats soft success as actual success",
+    "M2438 changes measured actual_success",
+    "M2438 claims scenario redesign success",
+    "M2438 makes current-sim, paper, FW-vs-GRU, or self-ID verdict claims",
+    "M2438 omits required primary episode panels or thresholds"
+  ],
+  "commands": [
+    {
+      "name": "focused-tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split.py"
+    },
+    {
+      "name": "implementation",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/panel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2438_paper_route_current_sim_dual_axis_hard_soft_offtrack_metric_split/decision_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_hard_soft_offtrack_metric_split_implementation"
+  ],
+  "baseline_artifacts": [
+    "docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md",
+    "runs/m2362_paper_route_current_sim_dual_axis_repaired_pack_measured_execution/episode_rows.csv",
+    "runs/m2397_paper_route_current_sim_dual_axis_effective_candidate_measured_validation/episode_rows.csv",
+    "runs/m2413_paper_route_current_sim_dual_axis_source_linked_offtrack_containment_measured_validation/episode_rows.csv",
+    "runs/m2435_paper_route_current_sim_dual_axis_boundary_threshold_sensitivity_panel/summary.json"
+  ],
+  "decision_rule": "M2438 passes if it builds a complete non-ranking hard/soft offtrack metric split panel from existing episode rows and routes to result audit without rollout, repair, training, ranking, actual-success, or verdict claims.",
+  "next_blocker": "m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation"
+}

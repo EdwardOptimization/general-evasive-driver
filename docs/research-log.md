@@ -44271,3 +44271,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - new branch: `paper_route_current_sim_dual_axis_task_boundary_metric_redesign`
 - follow-up manifest: `experiments/manifests/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.json`
 - next: `m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design`
+
+## M2437 Paper-Route Current-Sim Dual-Axis Hard/Soft Offtrack Metric Split Design
+
+- status: completed
+- decision: `hard_soft_offtrack_metric_split_design_route_to_implementation`
+- manifest: `experiments/manifests/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.json`
+- doc: `docs/m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design.md`
+- source synthesis: M2436 task-boundary metric redesign branch
+- defined semantics: `actual_success`, `collision_or_obstacle_risk_failure`, `hard_offtrack_failure`, `soft_offtrack_violation`, `boundary_tolerated_diagnostic`
+- threshold policy: fixed diagnostic grid `0.02`, `0.05`, `0.10`, `0.20` m with no per-profile tuning
+- claim boundary: counterfactual soft success remains diagnostic-only and cannot overwrite actual success
+- rerun/reset/new rollout/repair/training/replay/PPO/ranking/verdict claims: `false`
+- follow-up manifest: `experiments/manifests/m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation.json`
+- next: `m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation`

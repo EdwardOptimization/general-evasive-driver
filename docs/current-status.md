@@ -16,25 +16,35 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit
+m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2436-paper-route-current-sim-dual-axis-boundary-threshold-sensitivity-panel-result-audit
+m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2437-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-design
+m2438-paper-route-current-sim-dual-axis-hard-soft-offtrack-metric-split-implementation
 ```
 
 Current route:
 
 ```text
+M2437 completed the hard/soft offtrack metric split design after M2436 promoted
+the route to task-boundary metric redesign. The contract separates actual
+success, collision/obstacle-risk failure, hard offtrack failure, soft offtrack
+violation, and boundary-tolerated diagnostics. It preserves that counterfactual
+soft success is not actual success, uses a fixed diagnostic threshold grid
+0.02/0.05/0.10/0.20 m, and routes to M2438 implementation over existing M2362,
+M2397, and M2413 episode rows. No rollout, repair, training, ranking, scenario
+redesign execution, paper/FW-vs-GRU/self-ID, or current-sim verdict claim is
+supported yet.
+
 M2391 materialized run-dir-only effective candidate pack artifacts by joining
 M2385 overlay candidates to M2356 reset-valid repaired pack scenario specs.
 M2394 implemented and ran the reset-only adapter for M2391 effective candidate
