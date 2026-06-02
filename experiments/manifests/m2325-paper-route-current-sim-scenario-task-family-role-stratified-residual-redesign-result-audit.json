@@ -1,0 +1,180 @@
+{
+  "id": "m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_artifact_only_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+      "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/role_stratified_residual_rows.csv",
+      "docs/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.json"
+    ],
+    "parent_objective": [
+      "audit role-stratified residual redesign materialization and choose next non-ranking route"
+    ],
+    "derived_from": [
+      "m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation"
+    ],
+    "blocked_by": [
+      "M2324 reports R4 mitigation severity metric availability gap",
+      "R2/R3/R5 residual rows are materialized but not solved",
+      "support policies remain diagnostic support bounds"
+    ],
+    "supersedes": [
+      "direct training from role-stratified residual rows",
+      "mitigation-performance claims from proxy metrics",
+      "controller-family ranking from support diagnostics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md",
+  "public_gates": [
+    "M2325 must audit M2324 artifact completeness and guardrails",
+    "M2325 must accept or reject the R4 metric availability gap",
+    "M2325 must choose a non-ranking follow-up route",
+    "M2325 must not run reset rollout measured execution training replay PPO private holdout ranking or paper/self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run environment reset",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not run measured execution",
+    "do not run replay",
+    "do not run PPO",
+    "do not use private holdout",
+    "do not promote any checkpoint",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim residual support solved",
+    "do not claim mitigation performance from proxy metrics alone"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_task_family_role_stratified_residual_semantics_support_redesign",
+    "evidence_axis": "Q_role_stratified_residual_redesign_result_audit",
+    "evidence_increment": "audits M2324 role-stratified artifacts and selects the next non-ranking route",
+    "claim_scope": "result audit only; no rerun ranking paper finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2324 artifacts are incomplete",
+      "stop if M2325 routes directly to training or ranking",
+      "stop if M2325 claims mitigation performance from proxy metrics",
+      "stop if R4 severity metric gap is ignored"
+    ],
+    "fallback_plan": [
+      "route to mitigation metric instrumentation design if R4 gap is accepted",
+      "route to R2/R3/R5 coverage-vs-redesign audit if R4 fields are unexpectedly available",
+      "route to branch synthesis if M2324 counts contradict M2321"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2324 completed role-stratified residual redesign materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit role-stratified residual redesign result",
+    "admission_evidence": [
+      "M2324 result_class is current_sim_scenario_task_family_role_stratified_residual_redesign_pass",
+      "M2324 reports role_stratified_residual_row_count 48",
+      "M2324 reports r4_mitigation_metric_availability_gap true",
+      "M2324 reports guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no measured execution",
+      "no training",
+      "no ranking",
+      "no paper-level claim",
+      "no finite-window-vs-GRU or self-ID conclusion"
+    ],
+    "allowed_updates": [
+      "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md",
+      "M2325 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2324 completeness and guardrails are audited",
+      "R4 metric availability gap is accepted or rejected",
+      "a non-ranking follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2325 audits scenario/metric artifacts and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2325; no wrong-history reset-hidden or zero-history intervention is run."
+    ],
+    "temporal_evidence_window": "M2324 role-stratified residual redesign artifacts.",
+    "negative_result_policy": "R4 metric availability gaps must not be interpreted as self-ID failure.",
+    "allowed_claims": [
+      "role-stratified residual redesign result audit",
+      "no controller ranking paper-level result finite-window-vs-GRU conclusion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns metric availability materialization into a route decision",
+    "paper_verdict_delta": "can decide whether current-sim scenario-quality route needs mitigation instrumentation before controller comparison",
+    "must_synthesize_if": [
+      "M2325 routes directly to training",
+      "M2325 claims mitigation performance from proxy metrics",
+      "the role-stratified residual branch reaches 10 milestones without synthesis"
+    ]
+  },
+  "hypothesis": "M2324 provides enough role-stratified residual redesign evidence to choose a non-ranking follow-up route.",
+  "success_criteria": [
+    "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md exists",
+    "M2324 result_class is audited",
+    "R4 metric availability gap is audited",
+    "a follow-up non-ranking route is selected"
+  ],
+  "failure_criteria": [
+    "M2324 artifacts are missing",
+    "M2325 starts new training reset rollout measured execution replay PPO or private holdout",
+    "M2325 ranks support policies or selects a winner",
+    "M2325 makes finite-window-vs-GRU paper-level or level3 self-ID claims",
+    "M2325 cannot select a next route"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "manual artifact audit of runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json and metric availability artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_artifact_only_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/r4_mitigation_metric_availability.csv",
+    "runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/role_stratified_residual_rows.csv"
+  ],
+  "decision_rule": "M2325 passes if it audits M2324 and selects a non-ranking follow-up route.",
+  "next_blocker": "selected_by_m2325_result_audit"
+}

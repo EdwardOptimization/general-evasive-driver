@@ -41915,3 +41915,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - level3 self-ID claim made: `false`
 - follow-up manifest: `experiments/manifests/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.json`
 - next: `m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation`
+
+## M2324 Paper-Route Current-Sim Scenario Task-Family Role-Stratified Residual Redesign Implementation
+
+- status: completed
+- result_class: `current_sim_scenario_task_family_role_stratified_residual_redesign_pass`
+- manifest: `experiments/manifests/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.json`
+- implementation doc: `docs/m2324-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-implementation.md`
+- summary: `runs/m2324_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign/summary.json`
+- runner: `src/autodrift/paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign.py`
+- focused tests: `tests/test_paper_route_current_sim_scenario_task_family_role_stratified_residual_redesign.py`
+- role_stratified_residual_row_count: `48`
+- R4 mitigation rows: `12`
+- R4 mitigation metric availability gap: `true`
+- R4 missing required mitigation metrics: `8`
+- R2/R3/R5 coverage rows: `23`
+- R2/R3/R5 redesign rows: `12`
+- metric edge rows: `1`
+- guardrail_violation_count: `0`
+- reset/rollout/policy action in M2324: `false`
+- training/replay/PPO in M2324: `false`
+- controller-family ranking claim made: `false`
+- winner selected: `false`
+- paper-level claim made: `false`
+- finite-window vs GRU conclusion made: `false`
+- level3 self-ID claim made: `false`
+- follow-up manifest: `experiments/manifests/m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit.json`
+- next: `m2325-paper-route-current-sim-scenario-task-family-role-stratified-residual-redesign-result-audit`
