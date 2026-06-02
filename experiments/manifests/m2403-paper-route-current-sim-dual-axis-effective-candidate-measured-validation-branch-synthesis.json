@@ -231,5 +231,5 @@
     "runs/m2401_paper_route_current_sim_dual_axis_effective_candidate_actionable_target_consolidation/summary.json"
   ],
   "decision_rule": "M2403 passes if it synthesizes M2393-M2402, answers required questions, and selects a bounded non-ranking route without rerun, repair execution, training, ranking, or paper/self-ID/current-sim verdict claims.",
-  "next_blocker": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis"
+  "next_blocker": "m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation"
 }

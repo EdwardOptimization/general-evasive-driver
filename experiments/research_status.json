@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2408,
+    "completed": 2409,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit",
+    "task_id": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit.md"
+    "command_log": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis",
-    "kind": "gate",
-    "priority": 23980,
+    "id": "m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation",
+    "kind": "infrastructure",
+    "priority": 23990,
     "status": "pending",
-    "hypothesis": "Synthesizing M2393-M2402 will prevent over-local repair-plan work and select the next bounded non-ranking route.",
-    "command": "see experiments/manifests/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.json",
-    "success_artifact": "docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md",
-    "notes": "Pending: branch synthesis before repair-plan route no rerun/ranking/verdict claims"
+    "hypothesis": "M2401 consolidated target and guardrail rows can be materialized into a bounded non-ranking repair plan that defines candidate levers, acceptance gates, and stop rules without executing repair or claiming scenario/training success.",
+    "command": "see experiments/manifests/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.json",
+    "success_artifact": "runs/m2404_paper_route_current_sim_dual_axis_bounded_repair_plan_materialization/summary.json",
+    "notes": "Pending: artifact-only repair-plan materialization no repair execution training rerun ranking or verdict claims"
   },
-  "updated_at_utc": "20260602T123234Z"
+  "updated_at_utc": "20260602T123953Z"
 }

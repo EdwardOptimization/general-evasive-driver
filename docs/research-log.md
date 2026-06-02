@@ -43685,3 +43685,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - branch cadence: M2393-M2402 reached synthesis cadence after M2392, so route to synthesis before any M2403 repair-plan materialization
 - follow-up manifest: `experiments/manifests/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.json`
 - next: `m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis`
+
+## M2403 Paper-Route Current-Sim Dual-Axis Effective Candidate Measured Validation Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- route decision: `continue_to_bounded_repair_plan_materialization`
+- manifest: `experiments/manifests/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.json`
+- doc: `docs/m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis.md`
+- rerun/repair/training/replay/PPO/ranking/winner: `false`
+- paper/FW-vs-GRU/level3 self-ID/scenario-redesign/training-repair/current-sim verdict claims: `false`
+- branch evidence: M2394 reset pass `350/350`, M2397 measured panel `30735/30735`, M2399 localization `1313` slices, M2401 consolidation `203/65/57/1034` offtrack/collision/R4/diagnostic rows
+- synthesis result: clean artifact chain but offtrack-dominated driver-outcome blocker remains
+- supported claim: target/guardrail categories are ready for bounded repair-plan materialization
+- blocked claims: effective-candidate ranking, controller-family ranking, paper/current-sim verdict, FW-vs-GRU conclusion, level3 self-ID, scenario-redesign/training-repair success
+- follow-up manifest: `experiments/manifests/m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation.json`
+- next: `m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation`

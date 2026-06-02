@@ -16,20 +16,20 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
+m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2402-paper-route-current-sim-dual-axis-effective-candidate-actionable-target-consolidation-result-audit
+m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2403-paper-route-current-sim-dual-axis-effective-candidate-measured-validation-branch-synthesis
+m2404-paper-route-current-sim-dual-axis-bounded-repair-plan-materialization-implementation
 ```
 
 Current route:
@@ -59,6 +59,10 @@ next task is M2402 result audit.
 M2402 accepted M2401 consolidation, but because M2393-M2402 reached synthesis
 cadence, the next task is M2403 branch synthesis before repair-plan
 materialization.
+M2403 synthesized M2393-M2402 and decided to continue only to artifact-only
+bounded repair-plan materialization. It did not promote a driver result: the
+offtrack-dominated blocker remains, and paper/current-sim/self-ID/FW-vs-GRU
+claims are still blocked.
 ```
 
 ## Latest Evidence
@@ -291,6 +295,21 @@ diagnostic-axis repair target/R4 ordinary repair target/ranking/winner/guardrail
 classification: targets are meaningful but require branch synthesis before repair planning
 synthesis cadence: M2393-M2402 reached 10 milestones since M2392 synthesis
 next task: M2403 effective-candidate measured-validation branch synthesis
+```
+
+M2403 effective-candidate measured-validation branch synthesis:
+
+```text
+synthesis decision: continue
+route decision: continue_to_bounded_repair_plan_materialization
+branch evidence: M2394 reset pass 350/350; M2397 measured panel 30735/30735;
+  M2399 localization 1313 slices; M2401 consolidation 203 offtrack targets,
+  65 collision guardrails, 57 R4 semantics rows, 1034 diagnostics
+driver outcome: still offtrack-dominated, not a positive current-sim result
+supported: bounded target/guardrail categories are ready for repair-plan materialization
+blocked: ranking, paper/current-sim verdict, FW-vs-GRU conclusion, level3 self-ID,
+  scenario-redesign/training-repair success
+next task: M2404 artifact-only bounded repair-plan materialization
 ```
 
 M2363 audited M2362 and blocked raw ranking or paper interpretation:
