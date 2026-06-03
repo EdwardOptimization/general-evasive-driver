@@ -1,0 +1,15 @@
+artifact_id,path,artifact_type,source_milestone,included_in_pack,public_claim_scope,forbidden_interpretation,source_exists
+observation_contract,docs/observation-contract.md,contract,m2504,True,P0 72 observation and deployed 3-action boundary,not a performance result,True
+post_m2470_route_plan,docs/post-m2470-route-plan.md,route_plan,post-m2470,True,engineering route and public benchmark pack motivation,not a milestone result,True
+m2503_synthesis,docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md,synthesis,m2503,True,source-only metric branch synthesis and next-branch decision,not driver performance,True
+m2502_audit,docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md,audit,m2502,True,diagnostic baseline comparison artifact audit,not a controller ranking,True
+m2501_result_doc,docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md,result_doc,m2501,True,source-only baseline comparison implementation preflight,not a winner selection,True
+m2501_summary,runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json,summary_json,m2501,True,900-row source-only diagnostic comparison summary,not a success-rate verdict,True
+m2501_panel,runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv,csv,m2501,True,9-row role-subject diagnostic panel,not a leaderboard,True
+m2501_telemetry,runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv,csv,m2501,True,900 diagnostic telemetry rows,not outcome labels,True
+m2500_design,docs/m2500-engineering-controller-source-only-baseline-comparison-design.md,design,m2500,True,baseline comparison protocol design,not execution evidence,True
+m2499_audit,docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md,audit,m2499,True,parameterized role metric panel audit,not driver performance,True
+m2498_result_doc,docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md,result_doc,m2498,True,parameterized role metric panel rerun,not high-fidelity validation,True
+m2498_summary,runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json,summary_json,m2498,True,300-row parameterized role metric summary,not a success-rate result,True
+m2498_panel,runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv,csv,m2498,True,3-row role diagnostic panel,not a controller ranking,True
+m2498_telemetry,runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv,csv,m2498,True,300 diagnostic telemetry rows,not outcome labels,True

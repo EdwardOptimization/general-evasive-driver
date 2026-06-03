@@ -45422,3 +45422,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2504: `false`
 - follow-up manifest: `experiments/manifests/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.json`
 - next: `m2505-engineering-controller-public-benchmark-pack-materialization-preflight`
+
+## M2505 Engineering Controller Public Benchmark Pack Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_public_benchmark_pack_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.json`
+- doc: `docs/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.md`
+- implementation: `src/autodrift/engineering_controller_public_benchmark_pack.py`
+- pack directory: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/`
+- summary: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json`
+- artifact manifest: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/artifact_manifest.csv`
+- generated pack files: `README.md`, `artifact_manifest.csv`, `claim_boundary.md`, `actor_contract.md`, `checkpoint_lineage.md`, `scenario_role_diagnostics.md`, `baseline_comparison_diagnostics.md`, `known_limitations.md`, `reproduce.md`, `summary.json`
+- materialization gates: artifact manifest rows `14`, required files present, source artifacts exist, missing source artifacts `[]`, actor contract shape `72/3`, claim boundary present and rejects forbidden interpretations, known limitations present, source-only diagnostic scope
+- preserved contract: P0 observation shape `72`, action shape `3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2505: `false`
+- follow-up manifest: `experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json`
+- next: `m2506-engineering-controller-public-benchmark-pack-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2510,
+    "completed": 2511,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2504-engineering-controller-public-benchmark-pack-design",
+    "task_id": "m2505-engineering-controller-public-benchmark-pack-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2504-engineering-controller-public-benchmark-pack-design.md"
+    "run_dir": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505",
+    "command_log": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json"
   },
   "next_task": {
-    "id": "m2505-engineering-controller-public-benchmark-pack-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25000,
+    "id": "m2506-engineering-controller-public-benchmark-pack-result-audit",
+    "kind": "gate",
+    "priority": 25010,
     "status": "pending",
-    "hypothesis": "Materialize a bounded public benchmark pack from M2504 design without creating performance claims.",
-    "command": "see experiments/manifests/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.json",
-    "success_artifact": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
-    "notes": "Pending: write benchmark pack files and validators no policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit the materialized source-only public benchmark pack before any public export or route escalation.",
+    "command": "see experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json",
+    "success_artifact": "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
+    "notes": "Pending: audit M2505 required files source references actor contract claim boundaries and false claim flags no policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T101746Z"
+  "updated_at_utc": "20260603T102745Z"
 }
