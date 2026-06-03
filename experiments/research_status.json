@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2565,
+    "completed": 2566,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design",
+    "task_id": "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
-    "command_log": "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md"
+    "run_dir": "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json",
+    "command_log": "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25550,
+    "id": "m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit",
+    "kind": "gate",
+    "priority": 25560,
     "status": "pending",
-    "hypothesis": "Materialize Route A HF3 low-cost pilot preflight artifacts and gates after M2559 design.",
-    "command": "see experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json",
-    "success_artifact": "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json",
-    "notes": "Pending: materialize HF3 pilot candidate reset-feasibility rollout-feasibility external-boundary claim-boundary and gate artifacts without external simulation policy actions pilot admission validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Audit the M2560 Route A HF3 low-cost pilot materialization preflight before pilot execution or validation interpretation.",
+    "command": "see experiments/manifests/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.json",
+    "success_artifact": "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
+    "notes": "Pending: audit M2560 candidate reset rollout external-boundary claim-boundary and gate artifacts without external simulation policy actions reset rollout execution validation driver-performance ranking or self-ID claims"
   },
-  "updated_at_utc": "20260603T195806Z"
+  "updated_at_utc": "20260603T201048Z"
 }

@@ -1,0 +1,234 @@
+{
+  "id": "m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_pilot_candidate_rows.csv",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_reset_feasibility_plan.csv",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_rollout_feasibility_plan.csv",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_external_backend_boundary_checks.csv",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_claim_boundary_checks.csv",
+      "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/materialization_gate_matrix.csv",
+      "docs/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.md",
+      "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+      "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json",
+      "experiments/manifests/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.json",
+      "experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit the M2560 Route A HF3 low-cost pilot materialization preflight artifacts before pilot execution or validation interpretation"
+    ],
+    "derived_from": [
+      "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight",
+      "m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design",
+      "m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis",
+      "m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2560 materialized HF3 low-cost pilot preflight artifacts that must be audited before pilot execution planning",
+      "preflight rows are candidate and feasibility-plan artifacts and must not become pilot admission validation readiness or controller ranking",
+      "execution and claim-boundary guards must be audited before any low-cost pilot execution route"
+    ],
+    "supersedes": [
+      "interpreting M2560 preflight rows as high-fidelity validation",
+      "ranking or promoting Route A policies from M2560 artifacts",
+      "starting pilot execution before M2560 materialization is audited",
+      "claiming reset rollout or pilot readiness from preflight rows alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
+  "public_gates": [
+    "M2561 must audit M2560 summary pilot candidate reset-feasibility rollout-feasibility external-boundary claim-boundary and gate matrix artifacts",
+    "M2561 must verify M2560 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "M2561 must verify two pilot candidate rows two reset rows two rollout rows six external-boundary rows seven claim-boundary rows and eight gates pass",
+    "M2561 must verify stable avoidable/AEB-feasible and stable AES/AEB-infeasible candidate rows preserve P0 observation shape 72 action shape 3",
+    "M2561 must verify M2560 did not grant pilot admission or silently upgrade candidate rows",
+    "M2561 must verify M2560 did not allow or execute policy actions resets steps rollouts external simulation install import or run",
+    "M2561 must verify M2560 did not train replay PPO rank select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims",
+    "M2561 must register result synthesis execution-design repair branch synthesis pivot or stop as the next route without validation or performance claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute policy actions in the audit",
+    "do not step environments in the audit",
+    "do not run reset or rollout execution in the audit",
+    "do not train in the audit",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes pilot-candidate reset-feasibility or rollout-feasibility labels to actor input",
+    "do not silently upgrade candidate rows to pilot-admitted rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2560 artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_low_cost_pilot_materialization_result_audit",
+    "evidence_increment": "audits materialized HF3 low-cost pilot preflight artifacts before choosing execution design repair or synthesis",
+    "claim_scope": "HF3 low-cost pilot materialization result audit only; no external simulator execution, policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, current-sim, high-fidelity, or validation verdict claim",
+    "stop_condition": [
+      "stop if M2560 artifacts are missing or inconsistent",
+      "stop if candidate rows were silently admitted as pilots",
+      "stop if M2560 allowed or executed reset rollout policy action external simulation or environment step",
+      "stop if audit would claim validation readiness or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if actor or claim boundaries failed",
+      "route to artifact repair if required artifacts or lineage are incomplete",
+      "route to mapping repair if candidate source statuses are inconsistent",
+      "route to result synthesis if M2560 artifacts are accepted without validation claims",
+      "route to branch synthesis pivot or stop if another infrastructure step would not change evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2560 materialized HF3 low-cost pilot preflight artifacts and now requires audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 low-cost pilot materialization result audit",
+    "admission_evidence": [
+      "M2560 summary reports status_pass true result_class engineering_controller_route_a_hf3_low_cost_pilot_materialization_preflight_pass",
+      "M2560 reports two pilot candidates two reset rows two rollout rows six external-boundary rows seven claim-boundary rows and eight gates pass",
+      "M2560 reports no pilot admission no external simulation no policy action no reset step rollout execution and no validation or driver-performance claim",
+      "M2559 design requires M2561 audit before broader HF3 execution or synthesis routing"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no policy action in audit",
+      "no reset or rollout execution in audit",
+      "no environment stepping in audit",
+      "no training in audit",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from preflight rows"
+    ],
+    "allowed_updates": [
+      "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
+      "M2561 status queue scoreboard research log and review",
+      "one follow-up result synthesis execution design artifact repair contract repair mapping repair branch synthesis pivot or stop manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2560 materialization is accepted or rejected explicitly",
+      "candidate reset rollout external-boundary claim-boundary and gate evidence are checked",
+      "follow-up route is registered without validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2561 audits engineering HF3 preflight artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2561; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2560 HF3 low-cost pilot preflight materialization.",
+    "negative_result_policy": "If audit finds M2560 preflight artifacts incomplete, route to contract repair artifact repair or mapping repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 low-cost pilot materialization result audit",
+      "no high-fidelity validation result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the new M2560 HF3 preflight materialization before choosing the next execution or synthesis route",
+    "paper_verdict_delta": "does not decide paper verdict but protects HF3 preflight evidence from being overclaimed as validation self-ID or driver performance",
+    "must_synthesize_if": [
+      "M2561 would claim validation or driver performance from M2560 artifacts",
+      "M2561 would rank or promote controllers from preflight rows",
+      "M2561 accepts M2560 but cannot identify a bounded next route",
+      "another infrastructure step is proposed after M2561 without evidence increment"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2560 HF3 low-cost pilot preflight while preserving actor contract integrity candidate-status honesty and no-ranking or validation boundaries.",
+  "success_criteria": [
+    "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md exists",
+    "audit verifies M2560 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "audit verifies M2560 pilot candidate reset rollout external-boundary claim-boundary and gate artifacts exist",
+    "audit verifies two candidate rows two reset rows two rollout rows six external-boundary rows seven claim-boundary rows and eight gates pass",
+    "audit verifies M2560 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "audit verifies M2560 made no external simulation policy action reset step rollout training replay PPO ranking winner success-rate promotion validation driver-performance or verdict claim",
+    "audit registers result synthesis execution design artifact repair contract repair mapping repair or branch synthesis without validation or performance claims"
+  ],
+  "failure_criteria": [
+    "M2561 installs imports or runs Chrono or another external simulator",
+    "M2561 changes actor input or action contract",
+    "M2561 injects hidden or oracle actor features",
+    "M2561 steps an environment or runs policy rollout",
+    "M2561 runs reset or rollout execution",
+    "M2561 starts training",
+    "M2561 treats M2560 preflight rows as driver performance",
+    "M2561 ranks controller families or selects a winner",
+    "M2561 computes success rate or promotes a checkpoint",
+    "M2561 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_pilot_candidate_rows.csv",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_reset_feasibility_plan.csv",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_rollout_feasibility_plan.csv",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_external_backend_boundary_checks.csv",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/hf3_claim_boundary_checks.csv",
+    "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/materialization_gate_matrix.csv",
+    "docs/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.md",
+    "experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json",
+    "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2561 passes if it audits M2560 HF3 low-cost pilot preflight artifacts, verifies candidate reset rollout external-boundary claim-boundary and gate evidence, and registers a bounded next route without external simulation, policy action, reset execution, rollout execution, training, ranking, winner selection, success-rate, promotion, validation, driver-performance, paper, finite-window-vs-GRU, current-sim, high-fidelity validation, or self-ID claims.",
+  "next_blocker": "m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis"
+}

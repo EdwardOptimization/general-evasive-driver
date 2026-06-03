@@ -46463,3 +46463,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json`
 - next: `m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight`
+
+## M2560 Engineering Controller Route A Baseline HF3 Low-Cost Pilot Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_low_cost_pilot_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_low_cost_pilot_materialization.py`
+- summary: `runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json`
+- doc: `docs/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.md`
+- pilot candidate rows: `2`, stable avoidable/AEB-feasible and stable AES/AEB-infeasible
+- reset-feasibility rows: `2`, no policy action and no environment step
+- rollout-feasibility rows: `2`, no rollout execution and no success-rate or controller-family verdict
+- external-boundary checks: `6`, all pass with no install/import/run
+- claim-boundary checks: `7`, all pass with no claim allowed in M2560
+- materialization gates: `8`, all pass
+- guard boundary: candidate rows pilot-admitted `false`, reset/step/rollout execution `false`, P0 `72/3`
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.json`
+- next: `m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit`
