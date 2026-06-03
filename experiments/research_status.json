@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2592,
+    "completed": 2593,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis",
+    "task_id": "m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
-    "command_log": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md"
+    "run_dir": "docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md",
+    "command_log": "docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md"
   },
   "next_task": {
-    "id": "m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design",
+    "id": "m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25820,
+    "priority": 25830,
     "status": "pending",
-    "hypothesis": "Design bounded HF3 source-only adapter readiness blocker artifacts after accepted platform/protocol materialization synthesis.",
-    "command": "see experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json",
-    "success_artifact": "docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md",
-    "notes": "Pending: design external state extraction time-step/actuator latency failure/status taxonomy source-only fixture smoke lineage actor-visibility claim-boundary and gate artifacts without platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Materialize bounded HF3 source-only adapter readiness blocker definition artifacts and gates after M2587 design.",
+    "command": "see experiments/manifests/m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight.json",
+    "success_artifact": "docs/m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight.md",
+    "notes": "Pending: materialize external state extraction time-step/actuator latency failure/status taxonomy source-only fixture smoke lineage actor-visibility claim-boundary and gate rows while keeping blocker closure platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims false"
   },
-  "updated_at_utc": "20260603T233409Z"
+  "updated_at_utc": "20260603T234424Z"
 }

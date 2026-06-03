@@ -46779,3 +46779,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: source-only adapter readiness blocker design only, not platform selection or validation execution
 - follow-up manifest: `experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json`
 - next: `m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design`
+
+## M2587 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Design
+
+- status: completed
+- decision: `route_to_hf3_source_only_adapter_readiness_blocker_materialization_preflight`
+- manifest: `experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json`
+- design doc: `docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md`
+- parent synthesis: `docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md`
+- accepted evidence: M2584/M2585/M2586 platform/protocol materialization evidence with 3 platform rows 3 dependency rows 2 protocol skeleton rows 7 source-only adapter prerequisite rows 2 actor/action rows 14 claim rows and 10 gates pass
+- remaining blockers: external state extraction boundary time-step/actuator latency contract failure/status taxonomy mapping and source-only fixture smoke lineage
+- design output: M2588 should materialize blocker-definition rows for external state extraction time-step/actuator latency failure/status taxonomy source-only fixture smoke lineage actor-visibility claim-boundary and gate artifacts
+- materialization boundary: M2588 rows define blockers only and must keep readiness_satisfied_in_m2588 false external_validation_execution_allowed_in_m2588 false and blocker closure false
+- guard boundary: preserve P0 `72/3` and `[steer, throttle, brake]`; keep labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection and protocol status out of actor-visible inputs
+- rejected claims: no blocker closure platform selection validation protocol readiness validation admission validation readiness/result external validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight.json`
+- next: `m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight`
