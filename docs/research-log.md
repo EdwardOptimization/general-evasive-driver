@@ -46351,3 +46351,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity validation, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.json`
 - next: `m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit`
+
+## M2553 Engineering Controller Route A Baseline HF1 P0 Parity Smoke Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf1_p0_parity_smoke_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.json`
+- audit doc: `docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md`
+- parent summary: `runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json`
+- accepted evidence: M2552 status_pass true result_class pass with source artifacts present and materialization gates all pass
+- accepted counts: 7 actor-visible field rows cover P0 72/72 5 value-range rows 7 action rows 6 external-boundary rows 33 diagnostics-exclusion rows and 8 gates pass
+- supported claim: source-level HF1 P0 parity-smoke materialization is internally consistent and can route to result synthesis
+- rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2552/M2553 do not repair behavior or evaluate scenario success
+- follow-up manifest: `experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json`
+- next: `m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis`

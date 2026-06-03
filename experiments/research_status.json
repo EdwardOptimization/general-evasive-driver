@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2558,
+    "completed": 2559,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight",
+    "task_id": "m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json",
-    "command_log": "runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json"
+    "run_dir": "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md",
+    "command_log": "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit",
+    "id": "m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis",
     "kind": "gate",
-    "priority": 25480,
+    "priority": 25490,
     "status": "pending",
-    "hypothesis": "Audit the M2552 Route A HF1 P0 parity-smoke materialization before HF2 taxonomy mapping or validation interpretation.",
-    "command": "see experiments/manifests/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.json",
-    "success_artifact": "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md",
-    "notes": "Pending: audit M2552 summary field parity value-range action mapping external-boundary diagnostics-exclusion and gate artifacts before any HF2 route validation readiness ranking driver-performance or self-ID claim"
+    "hypothesis": "Synthesize accepted M2552/M2553 HF1 P0 parity-smoke evidence before choosing HF2 taxonomy mapping repair pivot or stop.",
+    "command": "see experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json",
+    "success_artifact": "docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md",
+    "notes": "Pending: synthesize HF1 parity-smoke evidence and choose HF2 taxonomy mapping design artifact repair contract repair external-boundary repair branch synthesis pivot or stop without validation driver-performance ranking or self-ID claims"
   },
-  "updated_at_utc": "20260603T192027Z"
+  "updated_at_utc": "20260603T192419Z"
 }
