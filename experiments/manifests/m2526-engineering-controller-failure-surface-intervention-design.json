@@ -216,5 +216,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2526 passes if it designs a bounded no-oracle intervention path and registers a follow-up route without external simulation, rollout, policy action, training, ranking, winner selection, success-rate verdict, or validation claim.",
-  "next_blocker": "m2526-engineering-controller-failure-surface-intervention-design"
+  "next_blocker": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight"
 }

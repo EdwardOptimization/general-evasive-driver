@@ -1,0 +1,238 @@
+{
+  "id": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+      "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
+      "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv",
+      "docs/observation-contract.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json"
+    ],
+    "parent_objective": [
+      "materialize the M2526 failure-surface intervention design as structured plan artifacts before implementation or training"
+    ],
+    "derived_from": [
+      "m2526-engineering-controller-failure-surface-intervention-design",
+      "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis",
+      "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit"
+    ],
+    "blocked_by": [
+      "M2526 defines intervention targets but the protected rows gate matrix and config patch plan have not been materialized",
+      "future implementation needs machine-readable artifacts before repair training or source-only execution",
+      "road-departure mitigation and command-conflict targets must remain separated from ranking and performance claims"
+    ],
+    "supersedes": [
+      "ad hoc repair training without protected regression rows",
+      "manual config patching without a no-oracle intervention spec",
+      "another measured behavior panel before intervention artifacts exist"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.md",
+  "public_gates": [
+    "M2527 must materialize M2526 intervention design into structured artifacts",
+    "M2527 must write summary.json intervention_spec.json protected_regression_rows.csv implementation_gate_matrix.csv and candidate_config_patch_plan.json",
+    "M2527 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary",
+    "M2527 must keep active training config overwrite false and training_started false",
+    "M2527 must not install import or run external high-fidelity simulation",
+    "M2527 must not execute policy action train rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute policy actions in the materialization milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not add rule-switching controller modes",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from intervention materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_failure_surface_intervention",
+    "evidence_axis": "failure_surface_intervention_plan_materialization",
+    "evidence_increment": "materializes M2526 design into machine-readable protected rows gates and config patch plan before repair implementation",
+    "claim_scope": "engineering-controller failure-surface intervention plan materialization only; no rollout, simulation, policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if protected rows cannot be traced to M2521-M2524 artifacts",
+      "stop if the materialized spec requires hidden or oracle actor inputs",
+      "stop if candidate config patch plan would overwrite active training configs",
+      "stop if artifact contents imply ranking success-rate or validation verdict claims"
+    ],
+    "fallback_plan": [
+      "route to design repair if protected rows or gates cannot be materialized",
+      "route to source-only implementation preflight only after all plan artifacts pass",
+      "route to branch synthesis if the intervention branch accumulates repeated non-evidence milestones",
+      "stop for user review if no bounded repair path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2526 routed the failure-surface intervention design to materialization preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller failure-surface intervention plan materialization",
+    "admission_evidence": [
+      "M2526 designed the intervention targets and protected regression rows",
+      "M2525 promoted the bounded measured behavior panel branch to failure-surface intervention",
+      "M2524 accepted M2523 fresh-seed measured behavior artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no policy action in the materialization milestone",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_failure_surface_intervention_plan.py",
+      "tests/test_engineering_controller_failure_surface_intervention_plan.py",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json",
+      "M2527 status queue scoreboard research log and review",
+      "one follow-up implementation preflight or synthesis manifest selected by the materialization"
+    ],
+    "next_stage_criteria": [
+      "all required plan artifacts exist",
+      "protected rows trace to M2521-M2524 source artifacts",
+      "candidate config patch plan does not overwrite active configs",
+      "training_started false and policy_action false",
+      "actor input and action contracts remain unchanged"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2527 materializes Route A intervention plan artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2527; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2521-M2526 measured behavior and intervention-design artifacts.",
+    "negative_result_policy": "If materialization shows the intervention requires oracle inputs or rule switching, fail the milestone and route to synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller failure-surface intervention plan materialization",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts intervention design into structured artifacts required for future repair implementation",
+    "paper_verdict_delta": "does not decide paper verdict but prepares a controlled Route A repair implementation path",
+    "must_synthesize_if": [
+      "M2527 cannot trace protected rows to M2521-M2524 artifacts",
+      "a second plan materialization is proposed without implementation or new behavior evidence",
+      "road-departure mitigation repair still fails after three same-failure attempts",
+      "public source-only rows are optimized without fresh held-out or generalization evidence"
+    ]
+  },
+  "hypothesis": "A materialization preflight can turn the M2526 failure-surface intervention design into traceable protected rows gates and config patch artifacts before any repair implementation or training.",
+  "success_criteria": [
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json exists",
+    "summary verifies P0 observation shape 72 and action shape 3 unchanged",
+    "summary verifies training_started false policy_action false active_config_overwritten false and false claim flags",
+    "protected rows trace to M2521-M2524 source artifacts",
+    "no external high-fidelity simulation install import execution environment rollout policy action training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2527 installs imports or runs Chrono or another external simulator",
+    "M2527 changes actor input or action contract",
+    "M2527 injects hidden or oracle actor features",
+    "M2527 executes policy action or rollout",
+    "M2527 starts training or overwrites an active config",
+    "M2527 treats intervention materialization as driver performance",
+    "M2527 ranks controller families or selects a winner",
+    "M2527 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "materialize_intervention_plan",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_failure_surface_intervention_plan --output-dir runs/m2527_engineering_controller_failure_surface_intervention_plan"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+    "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv",
+    "docs/observation-contract.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2527 passes if it materializes traceable intervention-plan artifacts with no actor contract change, no hidden/oracle actor input, no active config overwrite, no policy action, no training, no ranking, no winner selection, no success-rate verdict, and no validation or performance claim.",
+  "next_blocker": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight"
+}

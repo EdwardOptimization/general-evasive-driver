@@ -45832,3 +45832,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2525: `false`
 - follow-up manifest: `experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json`
 - next: `m2526-engineering-controller-failure-surface-intervention-design`
+
+## M2526 Engineering Controller Failure-Surface Intervention Design
+
+- status: completed
+- decision: `route_to_failure_surface_intervention_materialization_preflight`
+- manifest: `experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json`
+- doc: `docs/m2526-engineering-controller-failure-surface-intervention-design.md`
+- parent synthesis: `docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md`
+- evidence basis: M2521-M2525 measured behavior panel branch and Route A observation contract
+- design target: road-boundary preservation in `stable_aes` and `drift_required_recovery`, unavoidable-mitigation behavior, and simultaneous throttle/brake command-conflict reduction
+- protected rows: M1154 `stable_aes` seeds `252300`-`252304`, M1154 `drift_required_recovery` seeds `253300`-`253304`, M1154 `unavoidable_mitigation` seeds `254300`-`254304`, plus straight-brake and coast reference context rows from M2523
+- contract boundary: preserve P0 observation `72`, action `3`, `human_view_online_gru`, horizon `1`, single actor, no rule-switching controller modes, no hidden/oracle actor inputs
+- materialization route: write `intervention_spec.json`, `protected_regression_rows.csv`, `implementation_gate_matrix.csv`, `candidate_config_patch_plan.json`, and `summary.json` before implementation or training
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action in M2526: `false`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2526: `false`
+- follow-up manifest: `experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json`
+- next: `m2527-engineering-controller-failure-surface-intervention-materialization-preflight`
