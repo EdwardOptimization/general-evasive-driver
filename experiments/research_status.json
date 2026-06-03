@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2580,
+    "completed": 2581,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis",
+    "task_id": "m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.md",
-    "command_log": "docs/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.md"
+    "run_dir": "docs/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.md",
+    "command_log": "docs/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.md"
   },
   "next_task": {
-    "id": "m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design",
+    "id": "m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25700,
+    "priority": 25710,
     "status": "pending",
-    "hypothesis": "Design bounded Route A HF3 validation-readiness boundary artifacts and gates after accepted M2574 synthesis.",
-    "command": "see experiments/manifests/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.json",
-    "success_artifact": "docs/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.md",
-    "notes": "Pending: design readiness request evidence admission platform boundary dependency policy scenario-discrepancy actor-input isolation claim-boundary and gate artifacts without external simulation validation execution rollout-success ranking promotion driver-performance or self-ID claims"
+    "hypothesis": "Materialize bounded Route A HF3 validation-readiness boundary artifacts and gates after M2575 design.",
+    "command": "see experiments/manifests/m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight.json",
+    "success_artifact": "runs/m2576_engineering_controller_route_a_hf3_validation_readiness_boundary/summary.json",
+    "notes": "Pending: materialize readiness request evidence admission platform boundary dependency policy scenario-discrepancy actor-input isolation claim-boundary and gate artifacts without external simulation validation execution rollout-success ranking promotion driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T214859Z"
+  "updated_at_utc": "20260603T215226Z"
 }

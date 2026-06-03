@@ -46711,3 +46711,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: validation-readiness boundary design only, not validation execution
 - follow-up manifest: `experiments/manifests/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.json`
 - next: `m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design`
+
+## M2575 Engineering Controller Route A Baseline HF3 Validation-Readiness Boundary Design
+
+- status: completed
+- decision: `route_to_hf3_validation_readiness_boundary_materialization_preflight`
+- manifest: `experiments/manifests/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.json`
+- design doc: `docs/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.md`
+- parent synthesis: `docs/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.md`
+- accepted evidence: M2572/M2573/M2574 reset/action/step feasibility evidence with no rollout success validation ranking promotion driver-performance or self-ID claim
+- route-plan binding: Route C HF3 reset/rollout feasibility only and HF4 discrepancy questions only after later validation exists
+- design output: M2576 should materialize readiness request evidence admission platform boundary dependency policy scenario-discrepancy actor-input isolation claim-boundary and gate artifacts
+- execution boundary: M2576 materializes static boundary artifacts only; no external simulator install import run no reset action step rollout or validation execution
+- guard boundary: preserve P0 `72/3` and `[steer, throttle, brake]`; keep labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes and validation outcomes out of actor-visible inputs
+- rejected claims: no validation readiness/result rollout success success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight.json`
+- next: `m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight`
