@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2576,
+    "completed": 2577,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis",
+    "task_id": "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
-    "command_log": "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md"
+    "run_dir": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+    "command_log": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md"
   },
   "next_task": {
-    "id": "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
+    "id": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25660,
+    "priority": 25670,
     "status": "pending",
-    "hypothesis": "Design bounded Route A HF3 rollout-feasibility execution artifacts and gates after accepted M2570 synthesis.",
-    "command": "see experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json",
-    "success_artifact": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
-    "notes": "Pending: design rollout request fixed M1154 policy source rollout plan policy action backend step actor-view outcome claim-boundary and gate artifacts without validation driver-performance ranking promotion or self-ID claims"
+    "hypothesis": "Materialize bounded Route A HF3 rollout-feasibility execution artifacts and gates after M2571 design.",
+    "command": "see experiments/manifests/m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight.json",
+    "success_artifact": "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json",
+    "notes": "Pending: materialize two rollout requests fixed M1154 policy source short-horizon policy action audit backend step/outcome actor-view contract claim-boundary and gate artifacts through repo-local backend only without external simulation validation success-rate ranking promotion driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T211728Z"
+  "updated_at_utc": "20260603T212213Z"
 }

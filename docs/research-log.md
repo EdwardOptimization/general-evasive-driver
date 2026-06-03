@@ -46645,3 +46645,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because reset-only evidence can be overclaimed if treated as rollout feasibility or validation evidence
 - follow-up manifest: `experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json`
 - next: `m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design`
+
+## M2571 Engineering Controller Route A Baseline HF3 Rollout-Feasibility Execution Design
+
+- status: completed
+- decision: `route_to_hf3_rollout_feasibility_execution_materialization_preflight`
+- manifest: `experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json`
+- design doc: `docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md`
+- parent synthesis: `docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md`
+- accepted evidence: M2568/M2569/M2570 reset-only execution observed evidence with 2 reset requests 2 backend probes 2 reset-only rows 2 actor-view rows 2 outcome rows 8 claim rows and 9 gates pass
+- route-plan binding: Route A/Route C HF3 reset feasibility and rollout feasibility only; no controller-family verdict
+- design output: M2572 should materialize rollout request fixed policy source rollout plan policy action audit backend step/outcome actor-view contract claim-boundary and gate artifacts
+- policy source: fixed M1154 promoted public-base checkpoint `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt` with no ranking promotion or family comparison
+- execution boundary: M2572 may run bounded repo-local reset/action/step smoke through `CurrentSimDynamicsBackend`; no external high-fidelity simulator install/import/run
+- guard boundary: preserve P0 `72/3` and `[steer, throttle, brake]`; keep labels feasibility classes backend statuses diagnostics reset outcomes and rollout outcomes out of actor-visible inputs
+- rejected claims: no rollout success validation readiness/result success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight.json`
+- next: `m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight`
