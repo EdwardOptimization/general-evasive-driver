@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2510-engineering-controller-known-failure-taxonomy-materialization-preflight
+m2511-engineering-controller-known-failure-taxonomy-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2510-engineering-controller-known-failure-taxonomy-materialization-preflight
+m2511-engineering-controller-known-failure-taxonomy-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2511-engineering-controller-known-failure-taxonomy-result-audit
+m2512-engineering-controller-route-a-artifact-set-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2510 materializes a structured known failure taxonomy from existing Route A
-artifacts. It writes 10 taxonomy rows across 9 categories, with source
-references, severity, known limitations, route implications, and forbidden
-interpretations. The active next task is a result audit before public export
-preparation or route escalation.
+M2511 accepts the structured known failure taxonomy from existing Route A
+artifacts. Route A now has public diagnostic pack, runtime/inference-cost
+report, known failure taxonomy, source-only role diagnostics, and baseline
+comparison artifacts. The active next task is a branch synthesis before public
+export preparation or another engineering route.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,13 +47,13 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2510 did not install, import, or run an external high-fidelity simulator. It
+M2511 did not install, import, or run an external high-fidelity simulator. It
 did not step a simulator, execute policy rollouts, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
 computation, or any paper/FW-vs-GRU/self-ID/current-sim/high-fidelity
 validation verdict.
 
-The active next task is M2511: audit the known failure taxonomy. It must not
+The active next task is M2512: synthesize the Route A artifact set. It must not
 step an environment, execute policy rollouts, train, rank, select a winner,
 compute success-rate verdicts, or claim performance or validation.
 
@@ -469,6 +469,16 @@ M2510:
   rejected claims: performance success-rate ranking winner validation paper FW-vs-GRU self-ID
   environment rollout in M2510: false
   external simulation installed/imported/executed: false
+
+M2511:
+  decision: accept_known_failure_taxonomy_route_to_route_a_artifact_synthesis
+  audited taxonomy rows: 10
+  audited categories: 9
+  accepted scope: structured known limitations and route implications
+  rejected claims: performance behavior verdict success-rate ranking winner validation paper FW-vs-GRU self-ID
+  route: Route A artifact-set branch synthesis
+  environment rollout in M2511: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -520,6 +530,9 @@ M2509 audits and accepts that runtime artifact, then routes to known failure
 taxonomy because Route A still needs structured limitations before export or
 claim escalation. M2510 materializes that taxonomy from existing M2498/M2501/
 M2505/M2508 artifacts without new rollout or performance interpretation.
+M2511 audits and accepts the taxonomy, then routes to Route A artifact-set
+synthesis so the project does not continue static artifact work without a route
+decision.
 ```
 
 Blocked claims:
@@ -539,18 +552,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2511 should audit the known failure taxonomy:
+M2512 should synthesize the Route A artifact set:
 
 ```text
+docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md
 runs/m2510_engineering_controller_known_failure_taxonomy/summary.json
-runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv
-docs/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md
+runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json
+public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json
+docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md
 ```
 
-The audit should accept or reject taxonomy rows, source references, schema, and
-forbidden interpretations before public export preparation. It must not install,
-import, or run external high-fidelity simulation, step a simulator, train,
-replay, use PPO, rank controllers, select a winner, promote a checkpoint,
-compute success-rate verdicts, or claim high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The synthesis should decide whether the next route is public export
+preparation, behavior/outcome protocol, high-fidelity validation preparation,
+paper-route bridging, or stop. It must not install, import, or run external
+high-fidelity simulation, step a simulator, train, replay, use PPO, rank
+controllers, select a winner, promote a checkpoint, compute success-rate
+verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

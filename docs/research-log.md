@@ -45527,3 +45527,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2510: `false`
 - follow-up manifest: `experiments/manifests/m2511-engineering-controller-known-failure-taxonomy-result-audit.json`
 - next: `m2511-engineering-controller-known-failure-taxonomy-result-audit`
+
+## M2511 Engineering Controller Known Failure Taxonomy Result Audit
+
+- status: completed
+- decision: `accept_known_failure_taxonomy_route_to_route_a_artifact_synthesis`
+- manifest: `experiments/manifests/m2511-engineering-controller-known-failure-taxonomy-result-audit.json`
+- doc: `docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md`
+- audited summary: `runs/m2510_engineering_controller_known_failure_taxonomy/summary.json`
+- audited taxonomy: `runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv`
+- accepted evidence: taxonomy result_class pass, 10 data rows, 9 failure categories, required fields present, all source references exist, actor contract `72/3`, false claim flags preserved
+- accepted scope: structured known limitations and route implications only
+- rejected claims: no driver performance, behavior improvement/regression verdict, success-rate benchmark, controller ranking, winner, deployment certification, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: synthesize Route A artifact set before public export preparation or another engineering branch
+- external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2511: `false`
+- follow-up manifest: `experiments/manifests/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.json`
+- next: `m2512-engineering-controller-route-a-artifact-set-branch-synthesis`
