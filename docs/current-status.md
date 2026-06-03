@@ -16,32 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2506-engineering-controller-public-benchmark-pack-result-audit
+m2507-engineering-controller-public-benchmark-pack-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2506-engineering-controller-public-benchmark-pack-result-audit
+m2507-engineering-controller-public-benchmark-pack-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2507-engineering-controller-public-benchmark-pack-branch-synthesis
+m2508-engineering-controller-runtime-inference-cost-report-preflight
 ```
 
 Current route:
 
 ```text
-M2506 accepts the bounded public benchmark pack for the source-only engineering
-diagnostics as a public diagnostic artifact. The pack includes checkpoint
-lineage, actor I/O contract, source-only role metrics, baseline comparison
-diagnostics, known limitations, artifact manifest, reproduction notes, claim
-boundaries, and a machine-checkable summary. The next task is branch synthesis
-before any public export, runtime-report, validation, paper-route, or further
-packaging milestone.
+M2507 closes the public benchmark pack branch and promotes to a runtime/
+inference-cost report route. M2504 designed, M2505 materialized, and M2506
+audited the source-only public diagnostic pack. The pack remains useful for
+later export preparation, but the active next task is a deployability artifact
+for actor forward-pass cost rather than another packaging milestone.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -49,14 +47,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2506 did not install, import, or run an external high-fidelity simulator. It
+M2507 did not install, import, or run an external high-fidelity simulator. It
 did not execute policy actions, measured validation, training, replay, PPO,
 controller ranking, winner selection, success-rate computation, or any paper/
 FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2507: synthesize the public benchmark pack branch. It
-must not execute policy actions, train, rank, select a winner, compute
-success-rate verdicts, or claim performance or validation.
+The active next task is M2508: produce a bounded runtime/inference-cost report
+for the admitted checkpoint. It must not step an environment, execute policy
+rollouts, train, rank, select a winner, compute success-rate verdicts, or claim
+performance or validation.
 
 ## Latest Evidence
 
@@ -422,6 +421,17 @@ M2506:
   route: branch synthesis before public export or route escalation
   new policy action in M2506: false
   external simulation installed/imported/executed: false
+
+M2507:
+  synthesis decision: promote_to_next_branch
+  decision: promote_to_engineering_controller_runtime_inference_cost_report
+  evidence window: M2504-M2506
+  supported scope: bounded public source-only diagnostic pack is complete enough for later export review
+  rejected claims: performance success-rate ranking winner validation paper FW-vs-GRU self-ID
+  public-gate overfit risk: medium-low
+  route: runtime/inference-cost report preflight
+  new policy action in M2507: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -464,7 +474,10 @@ driver-performance benchmark. M2505 materializes that pack and checks required
 files, source artifact references, actor contract, claim boundary, and false
 claim flags without adding new performance evidence. M2506 audits and accepts
 the pack as a public source-only diagnostic artifact, then routes to branch
-synthesis instead of another packaging task.
+synthesis instead of another packaging task. M2507 closes the public pack branch
+and promotes to a runtime/inference-cost report route, because Route A still
+needs deployability cost evidence and another packaging task would be local
+process work.
 ```
 
 Blocked claims:
@@ -484,21 +497,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2507 should synthesize the public benchmark pack branch:
+M2508 should produce a bounded runtime/inference-cost report:
 
 ```text
-docs/m2504-engineering-controller-public-benchmark-pack-design.md
-docs/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.md
-docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md
-public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json
-public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/artifact_manifest.csv
+runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md
+docs/observation-contract.md
+docs/post-m2470-route-plan.md
 ```
 
-The synthesis should decide whether to stop the public-pack branch, continue to
-public export preparation, promote to runtime/inference-cost reporting, or pivot
-to high-fidelity validation preparation. It must not install, import, or run
-external high-fidelity simulation, execute policy action, train, replay, use
-PPO, rank controllers, select a winner, promote a checkpoint, compute
-success-rate verdicts, or claim high-fidelity validation, current-sim verdict,
-paper-level evidence, finite-window-vs-GRU evidence, or level-3
+The report should measure actor forward-pass cost and deployment assumptions
+without environment rollout or behavior-quality interpretation. It must not
+install, import, or run external high-fidelity simulation, step a simulator,
+train, replay, use PPO, rank controllers, select a winner, promote a checkpoint,
+compute success-rate verdicts, or claim high-fidelity validation, current-sim
+verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
 self-identification.

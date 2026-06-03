@@ -45456,3 +45456,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2506: `false`
 - follow-up manifest: `experiments/manifests/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.json`
 - next: `m2507-engineering-controller-public-benchmark-pack-branch-synthesis`
+
+## M2507 Engineering Controller Public Benchmark Pack Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_engineering_controller_runtime_inference_cost_report`
+- manifest: `experiments/manifests/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.json`
+- synthesis artifact: `docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md`
+- parent evidence window: `m2504` through `m2506`
+- evidence summary: M2504 designed, M2505 materialized, and M2506 audited the public source-only diagnostic benchmark pack; required files, source references, actor contract, claim boundaries, and false claim flags are present
+- supported claim: public source-only diagnostic pack is ready enough for later export/release review under the same claim boundary
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- public-gate overfit risk: `medium-low`; continuing packaging would be process overhead, so route to runtime/inference-cost reporting
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2507: `false`
+- follow-up manifest: `experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json`
+- next: `m2508-engineering-controller-runtime-inference-cost-report-preflight`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2512,
+    "completed": 2513,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2506-engineering-controller-public-benchmark-pack-result-audit",
+    "task_id": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md"
+    "command_log": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
-    "kind": "gate",
-    "priority": 25020,
+    "id": "m2508-engineering-controller-runtime-inference-cost-report-preflight",
+    "kind": "infrastructure",
+    "priority": 25030,
     "status": "pending",
-    "hypothesis": "Synthesize the public benchmark pack branch after design materialization and audit before another packaging or route milestone.",
-    "command": "see experiments/manifests/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.json",
-    "success_artifact": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
-    "notes": "Pending: synthesize M2504-M2506 public pack branch and choose bounded next route no policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Produce a bounded runtime and inference-cost report for the admitted engineering-controller checkpoint without simulator rollout or performance claims.",
+    "command": "see experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json",
+    "success_artifact": "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+    "notes": "Pending: write runtime/inference cost report artifacts for actor forward-pass cost no environment rollout external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T103317Z"
+  "updated_at_utc": "20260603T103927Z"
 }
