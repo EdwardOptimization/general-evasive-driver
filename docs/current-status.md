@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
+m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
+m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
+m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
 ```
 
 Current route:
@@ -66,7 +66,11 @@ valid Route A evidence but rejects promotion, generalization, or performance
 interpretation. M2534 localizes the remaining mitigation failure: all five
 mitigation rows improve road margin and command conflict after M2532, but seed
 `254302` has a low-baseline severity regression. M2534 therefore routes to a
-mitigation-preserving repair design before another repair execution.
+mitigation-preserving repair design before another repair execution. M2535
+defines that design: keep M2532 road-boundary and command-conflict gains as
+retained proof gates, add all-mitigation-row severity non-regression, treat seed
+`254302` as a sentinel rather than a sole tuning target, and route to M2536
+branch synthesis before any bounded execution.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -145,12 +149,20 @@ on severity, classified the remaining issue as `behavior_regression`,
 `proof_washout`, and `objective_overfit`, rejected metric-artifact
 interpretation, and routed to M2535.
 
-The active next task is M2535: write a design-only mitigation-preserving repair
-objective that preserves M2532 road-boundary and command-conflict gains while
-guarding mitigation severity. It must not tune only seed `254302`, execute new
-policy actions, train, rank, select a winner, promote, compute success-rate, or
-claim performance, validation, paper, FW-vs-GRU, self-ID, current-sim, or
-high-fidelity verdict evidence.
+M2535 did not execute new policy actions or train. It wrote the
+mitigation-preserving repair design and registered M2536 as the next bounded
+branch synthesis because the failure-surface intervention branch has reached
+its synthesis cadence. It treats seed `254302` as a sentinel for
+objective-level mitigation severity non-regression, not as a seed-only
+public-gate patch.
+
+The active next task is M2536: synthesize the M2526-M2535 failure-surface
+intervention branch before approving any second mitigation-preserving repair
+execution. It must separate actual behavior evidence from process overhead,
+assess public-gate overfit risk, and decide continue, pivot, stop, or promote
+to a new branch. It must not execute new policy actions, train, rank, select a
+winner, promote, compute success-rate, or claim performance, validation, paper,
+FW-vs-GRU, self-ID, current-sim, or high-fidelity verdict evidence.
 
 ## Latest Evidence
 

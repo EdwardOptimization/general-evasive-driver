@@ -46028,3 +46028,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route: design a mitigation-preserving repair objective before another repair execution so the next step preserves road-boundary and command-conflict gains while guarding mitigation severity
 - follow-up manifest: `experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json`
 - next: `m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design`
+
+## M2535 Engineering Controller Failure-Surface Mitigation-Preserving Repair Design
+
+- status: completed
+- decision: `route_to_mitigation_preserving_repair_branch_synthesis`
+- manifest: `experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json`
+- design doc: `docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md`
+- parent localization: `runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json`
+- source evidence: M2534 localized `5` mitigation rows with `4` improved and `1` regressed after M2532
+- sentinel row: seed `254302`, severity delta `+0.674427724901157`, road margin delta `+4.456761035401987`, command conflict delta `-1.0`, collision regressed `false`
+- design interpretation: M2532's coarse command-conflict actor-head projection retained road margin and removed simultaneous throttle-brake but did not enforce mitigation severity non-regression
+- retained gates for next execution: M2532 `road_boundary_proof` and `command_conflict_proof`
+- new required guard: all mitigation-primary rows must satisfy severity non-regression and retain positive road-margin improvement
+- anti-overfit rule: seed `254302` is a sentinel and may not be the sole repair target
+- recommended execution shape after synthesis approval: bounded actor-head repair candidate sweep starting from M2532 repaired checkpoint with retained proof gates and mitigation-preserving selection criteria
+- localization/design scope: no environment step, new policy action, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim in M2535
+- cadence decision: M2536 must synthesize the M2526-M2535 branch before approving any second repair execution because the branch has reached synthesis cadence
+- failure policy: if synthesis cannot justify another bounded repair execution, pivot/stop/artifact repair rather than a third protected public-gate repair loop
+- follow-up manifest: `experiments/manifests/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json`
+- next: `m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis`

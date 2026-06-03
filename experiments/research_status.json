@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2540,
+    "completed": 2541,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight",
+    "task_id": "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
-    "command_log": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json"
+    "run_dir": "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md",
+    "command_log": "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md"
   },
   "next_task": {
-    "id": "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design",
-    "kind": "infrastructure",
-    "priority": 25300,
+    "id": "m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis",
+    "kind": "gate",
+    "priority": 25310,
     "status": "pending",
-    "hypothesis": "Design a bounded mitigation-preserving repair objective before any second repair execution.",
-    "command": "see experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json",
-    "success_artifact": "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md",
-    "notes": "Pending: design-only mitigation-preserving repair objective from M2534 localization preserving M2532 road-boundary and command-conflict gains preventing mitigation severity regression avoiding seed-only public-gate tuning no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Synthesize M2526-M2535 failure-surface intervention evidence before another mitigation-preserving repair execution.",
+    "command": "see experiments/manifests/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json",
+    "success_artifact": "docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+    "notes": "Pending: process synthesis of failure-surface intervention branch evidence/process overhead/public-gate overfit before approving continuing pivoting stopping or promoting next branch no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T162653Z"
+  "updated_at_utc": "20260603T163554Z"
 }

@@ -209,5 +209,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2535 passes if it writes a mitigation-preserving repair design and registers a bounded follow-up route without new policy actions, external simulation, training, ranking, winner selection, success-rate, promotion, or verdict claims.",
-  "next_blocker": "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design"
+  "next_blocker": "m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis"
 }
