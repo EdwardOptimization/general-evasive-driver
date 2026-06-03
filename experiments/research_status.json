@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2495,
+    "completed": 2496,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2489-source-only-closed-loop-fixture-pilot-result-audit",
+    "task_id": "m2490-source-only-closed-loop-fixture-pilot-extended-execution",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md"
+    "run_dir": "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution",
+    "command_log": "docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md"
   },
   "next_task": {
-    "id": "m2490-source-only-closed-loop-fixture-pilot-extended-execution",
-    "kind": "infrastructure",
-    "priority": 24850,
+    "id": "m2491-source-only-closed-loop-fixture-pilot-extended-result-audit",
+    "kind": "gate",
+    "priority": 24860,
     "status": "pending",
-    "hypothesis": "Run extended bounded source-only closed-loop fixture pilot after M2489 audit.",
-    "command": "see experiments/manifests/m2490-source-only-closed-loop-fixture-pilot-extended-execution.json",
-    "success_artifact": "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json",
-    "notes": "Pending: run same admitted 72-by-3 actor on three source-only fixtures for 100 deterministic policy-action steps each no external simulation training ranking winner verdict claims"
+    "hypothesis": "Audit M2490 extended source-only closed-loop fixture pilot result before route escalation.",
+    "command": "see experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json",
+    "success_artifact": "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md",
+    "notes": "Pending: audit M2490 summary and 300 rollout rows no new policy action external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T082638Z"
+  "updated_at_utc": "20260603T083216Z"
 }

@@ -45161,3 +45161,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2489: `false`
 - follow-up manifest: `experiments/manifests/m2490-source-only-closed-loop-fixture-pilot-extended-execution.json`
 - next: `m2490-source-only-closed-loop-fixture-pilot-extended-execution`
+
+## M2490 Source-Only Closed-Loop Fixture Pilot Extended Execution
+
+- status: completed
+- result_class: `source_only_closed_loop_fixture_pilot_pass`
+- manifest: `experiments/manifests/m2490-source-only-closed-loop-fixture-pilot-extended-execution.json`
+- doc: `docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md`
+- implementation: `src/autodrift/hf0_source_only_closed_loop_fixture_pilot.py`
+- summary: `runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json`
+- rollout rows: `runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv`
+- checkpoint admission: obs dim `72`, action dim `3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- pilot result: fixtures `3`, resets `3`, deterministic policy-action steps `300`, horizon `100` per fixture, all observations shape `72`, all actions shape `3`, all actions finite and within bounds, all backend statuses `running`, wheel diagnostic count `4` on every row
+- actor-input leak flags: fixture labels, scenario labels, feasibility classes, hidden values, oracle labels, diagnostics, reward terms, success labels, TTC, and required clearance enter actor input `false`
+- interpretation: extended source-only same-contract policy-action execution only, not driver performance, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2490: `false`
+- follow-up manifest: `experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json`
+- next: `m2491-source-only-closed-loop-fixture-pilot-extended-result-audit`

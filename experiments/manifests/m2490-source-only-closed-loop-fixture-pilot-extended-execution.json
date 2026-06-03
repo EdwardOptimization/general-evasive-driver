@@ -171,7 +171,7 @@
   "commands": [
     {
       "name": "extended_execution",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_closed_loop_fixture_pilot --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution --horizon-steps 100 --next-blocker m2491-source-only-closed-loop-fixture-pilot-extended-result-audit"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_closed_loop_fixture_pilot --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution --horizon-steps 100 --milestone m2490-source-only-closed-loop-fixture-pilot-extended-execution --next-blocker m2491-source-only-closed-loop-fixture-pilot-extended-result-audit"
     }
   ],
   "required_artifacts": [

@@ -26,6 +26,7 @@ from autodrift.train_ppo import ActorCritic, HUMAN_VIEW_ONLINE_RECURRENT_ENCODER
 
 
 DEFAULT_HORIZON_STEPS = 20
+DEFAULT_MILESTONE = "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight"
 ALLOWED_ACTOR_ENCODERS = frozenset(HUMAN_VIEW_ONLINE_RECURRENT_ENCODERS)
 
 
@@ -274,6 +275,7 @@ def run_preflight(
     checkpoint_path: Path | str,
     horizon_steps: int = DEFAULT_HORIZON_STEPS,
     device: str = "cpu",
+    milestone: str = DEFAULT_MILESTONE,
     next_blocker: str,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -285,7 +287,7 @@ def run_preflight(
     )
     summary.update(
         {
-            "milestone": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight",
+            "milestone": str(milestone),
             "generated_at_utc": utc_timestamp(),
             "pilot_rollout_rows": str(rows_path),
             "next_blocker": str(next_blocker),
@@ -411,6 +413,7 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--horizon-steps", type=int, default=DEFAULT_HORIZON_STEPS)
     parser.add_argument("--device", default="cpu")
+    parser.add_argument("--milestone", default=DEFAULT_MILESTONE)
     parser.add_argument(
         "--next-blocker",
         default="m2489-source-only-closed-loop-fixture-pilot-result-audit",
@@ -421,6 +424,7 @@ def main() -> None:
         checkpoint_path=args.checkpoint,
         horizon_steps=args.horizon_steps,
         device=args.device,
+        milestone=args.milestone,
         next_blocker=args.next_blocker,
     )
 

@@ -128,6 +128,7 @@ def test_run_preflight_writes_summary_and_rollout_rows(tmp_path):
     )
 
     assert summary["status_pass"] is True
+    assert summary["milestone"] == "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight"
     assert summary["step_count"] == 3
     assert summary["pilot_rollout_rows"] == str(tmp_path / "run" / "pilot_rollout_rows.csv")
 
