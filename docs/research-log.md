@@ -46448,3 +46448,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because taxonomy rows can be overclaimed if HF3 design skips reset and rollout feasibility gates
 - follow-up manifest: `experiments/manifests/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.json`
 - next: `m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design`
+
+## M2559 Engineering Controller Route A Baseline HF3 Low-Cost Pilot Design
+
+- status: completed
+- decision: `route_to_hf3_low_cost_pilot_materialization_preflight`
+- manifest: `experiments/manifests/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.json`
+- design doc: `docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md`
+- parent synthesis: `docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md`
+- designed artifacts: M2560 summary pilot candidate rows reset-feasibility plan rollout-feasibility plan external-backend boundary checks claim-boundary checks and gate matrix
+- pilot roles: stable avoidable/AEB-feasible and stable AES/AEB-infeasible as candidates only
+- guard boundary: no HF3 pilot admission no external simulator install/import/run no policy action no reset/step execution no validation ranking driver-performance or self-ID claim
+- supported claim: HF3 low-cost pilot preflight can now be materialized as source-level candidate/reset/rollout feasibility artifacts
+- rejected claims: no high-fidelity validation readiness/result, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight.json`
+- next: `m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight`
