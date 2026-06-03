@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2497,
+    "completed": 2498,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2491-source-only-closed-loop-fixture-pilot-extended-result-audit",
+    "task_id": "m2492-source-only-closed-loop-fixture-pilot-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md"
+    "command_log": "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2492-source-only-closed-loop-fixture-pilot-branch-synthesis",
-    "kind": "gate",
-    "priority": 24870,
+    "id": "m2493-engineering-controller-source-only-role-metric-panel",
+    "kind": "infrastructure",
+    "priority": 24880,
     "status": "pending",
-    "hypothesis": "Synthesize source-only closed-loop fixture pilot branch before another extension or route escalation.",
-    "command": "see experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json",
-    "success_artifact": "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md",
-    "notes": "Pending: synthesize M2487-M2491 source-only closed-loop evidence and choose next bounded route no new policy action external simulation training ranking winner verdict claims"
+    "hypothesis": "Build source-only role metric panel for engineering-controller diagnostics after M2492 synthesis.",
+    "command": "see experiments/manifests/m2493-engineering-controller-source-only-role-metric-panel.json",
+    "success_artifact": "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json",
+    "notes": "Pending: write telemetry and nonverdict role metric panel over three source-only fixtures no external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T083605Z"
+  "updated_at_utc": "20260603T084434Z"
 }

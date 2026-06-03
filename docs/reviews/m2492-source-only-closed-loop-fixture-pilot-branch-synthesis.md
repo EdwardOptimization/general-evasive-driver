@@ -1,0 +1,106 @@
+# m2492-source-only-closed-loop-fixture-pilot-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T084905Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: promote_to_engineering_controller_source_only_metric_panel
+- Decision reason: M2492 closes source-only closed-loop pilot branch and promotes to engineering source-only role metric panel because rows prove path execution but not performance validation ranking paper or self-ID claims
+
+## Hypothesis
+
+A branch synthesis can prevent the source-only closed-loop pilot from becoming a local loop and choose the next evidence-producing route after path-smoke and extended execution pass.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md, runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json, runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv, docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md, runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json, runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv, docs/m2487-source-only-closed-loop-fixture-pilot-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json
+- parent_objective: synthesize source-only closed-loop fixture pilot evidence before another extension or route escalation
+- derived_from: m2491-source-only-closed-loop-fixture-pilot-extended-result-audit, m2490-source-only-closed-loop-fixture-pilot-extended-execution, m2489-source-only-closed-loop-fixture-pilot-result-audit, m2488-source-only-closed-loop-fixture-pilot-implementation-preflight
+- blocked_by: source-only branch has produced useful closed-loop rows but still no performance or validation verdict, another source-only horizon extension may add local evidence without clarifying the route, the next step must choose between source-only continuation engineering-controller evidence external backend work or paper-route bridging
+- supersedes: direct source-only horizon extension after M2491, direct claim escalation from source-only rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision
+- synthesis distinguishes source-only closed-loop execution from performance validation and paper evidence
+- synthesis registers a bounded follow-up milestone
+- no external high-fidelity simulation install import execution new policy action training ranking winner or verdict claim is made
+
+## Failure Criteria
+
+- M2492 installs imports or runs Chrono or another external simulator
+- M2492 changes actor input or action contract
+- M2492 injects hidden or oracle actor features
+- M2492 executes new policy action or rollout
+- M2492 treats source-only rows as driver performance
+- M2492 ranks controller families or selects a winner
+- M2492 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2492 must synthesize M2487-M2491 source-only closed-loop fixture pilot evidence
+- M2492 must explicitly separate source-only closed-loop evidence from driver performance high-fidelity validation and paper evidence
+- M2492 must decide continue pivot stop or promote_to_next_branch
+- M2492 must answer whether the next branch should continue source-only execution pivot to engineering-controller evidence return to external backend work or bridge to paper-route comparison
+- M2492 must not install import or run external high-fidelity simulation
+- M2492 must not execute new policy action train rank controllers select winners promote checkpoints or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not run measured validation
+- do not execute new policy actions in the synthesis milestone
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from source-only rows
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2492-source-only-closed-loop-fixture-pilot-branch-synthesis
+- type: gate
+- checkpoint: docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: promote_to_engineering_controller_source_only_metric_panel
+- reason: M2492 closes source-only closed-loop pilot branch and promotes to engineering source-only role metric panel because rows prove path execution but not performance validation ranking paper or self-ID claims
+
+## Next Blocker
+
+m2492-source-only-closed-loop-fixture-pilot-branch-synthesis

@@ -108,7 +108,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2491 accepted 300-row extended source-only policy-action execution after M2487-M2490 pilot branch milestones",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "evaluation_only",

@@ -1,0 +1,213 @@
+{
+  "id": "m2493-engineering-controller-source-only-role-metric-panel",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md",
+      "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md",
+      "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json",
+      "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "produce source-only role metric and telemetry panel for engineering-controller evidence without verdict claims"
+    ],
+    "derived_from": [
+      "m2492-source-only-closed-loop-fixture-pilot-branch-synthesis",
+      "m2491-source-only-closed-loop-fixture-pilot-extended-result-audit",
+      "m2490-source-only-closed-loop-fixture-pilot-extended-execution"
+    ],
+    "blocked_by": [
+      "source-only closed-loop rows have path gates but no role metrics",
+      "engineering-controller route needs telemetry and failure taxonomy before performance claims",
+      "another plain source-only horizon extension would not clarify driver behavior"
+    ],
+    "supersedes": [
+      "direct source-only horizon extension after M2491",
+      "direct driver-performance claim from M2490 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2493-engineering-controller-source-only-role-metric-panel.md",
+  "public_gates": [
+    "M2493 must reuse the admitted checkpoint path and same-contract 72 observation 3 action admission gate",
+    "M2493 must run exactly the three admitted source-only fixtures unless the manifest is updated before execution",
+    "M2493 must execute deterministic deployable policy actions through FourWheelHF0Backend and record telemetry rows",
+    "M2493 must preserve P0 observation shape 72 and action shape 3 at every reset and step",
+    "M2493 must keep fixture labels scenario labels feasibility classes hidden values wheel diagnostics oracle labels TTC required clearance reward terms and success or progress labels out of actor input",
+    "M2493 must write summary.json telemetry_rows.csv and role_metric_panel.csv and must not train replay run PPO rank select a winner promote a checkpoint compute success rate or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics in this panel",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_source_only_metric_panel",
+    "evidence_axis": "source_only_role_metric_panel",
+    "evidence_increment": "adds role-specific closed-loop telemetry and nonverdict engineering diagnostics after source-only path execution passes",
+    "claim_scope": "source-only engineering metric panel only; no external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if checkpoint admission fails the 72/3 actor contract",
+      "stop if actor-input leak flags fail",
+      "stop if telemetry would be interpreted as success rate or performance verdict",
+      "stop if source-only metrics cannot identify any actionable failure or engineering route"
+    ],
+    "fallback_plan": [
+      "route to instrumentation repair if telemetry fields are insufficient",
+      "route to source-only backend repair if state telemetry exposes backend path failure",
+      "route to engineering-controller synthesis if role metrics are accepted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2492 promoted the source-only closed-loop branch to engineering-controller metric evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller source-only role metric panel",
+    "admission_evidence": [
+      "M2492 synthesis promotes to engineering-controller source-only metric panel",
+      "M2490 extended source-only execution passed 300 policy-action row gates",
+      "M2491 audit preserves source-only claim boundary"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/hf0_source_only_role_metric_panel.py",
+      "tests/test_hf0_source_only_role_metric_panel.py",
+      "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json",
+      "runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv",
+      "runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv",
+      "docs/m2493-engineering-controller-source-only-role-metric-panel.md",
+      "M2493 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary telemetry and role metric artifacts exist",
+      "role metric panel covers all three source-only roles",
+      "observation action and actor-input leak gates pass",
+      "success-rate performance ranking winner and verdict flags remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2493 produces source-only role metrics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2493; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "One bounded source-only role metric panel over the admitted fixtures.",
+    "negative_result_policy": "If the role panel exposes poor or uninterpretable behavior, record it as engineering diagnostic evidence and route to repair or synthesis rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "source-only engineering telemetry and nonverdict role metric panel",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds role-specific telemetry and engineering diagnostics beyond source-only path-gate rows",
+    "paper_verdict_delta": "does not decide paper verdict but prepares engineering evidence needed before fair comparisons",
+    "must_synthesize_if": [
+      "role metric panel is accepted and the next task would claim performance",
+      "role metric panel exposes repeated behavior or contract failures",
+      "another metric-only milestone is proposed without route value"
+    ]
+  },
+  "hypothesis": "A source-only role metric panel can convert accepted closed-loop path rows into actionable engineering-controller diagnostics without changing actor inputs or overstating driver performance.",
+  "success_criteria": [
+    "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json exists",
+    "runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv exists",
+    "runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv exists",
+    "role metric panel covers stable_aes drift_required_recovery and unavoidable_mitigation",
+    "checkpoint loads and is admitted as obs_dim 72 action_dim 3 allowed recurrent actor",
+    "all reset and step observations have shape 72",
+    "all actions have shape 3 finite values and stay within deployed bounds",
+    "all actor-input leak flags are false",
+    "no external high-fidelity simulation install import execution training replay PPO ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2493 installs imports or runs Chrono or another external simulator",
+    "M2493 changes actor input or action contract",
+    "M2493 injects hidden or oracle actor features",
+    "M2493 trains replays runs PPO promotes ranks or selects a winner",
+    "M2493 computes success rate or claims driver performance",
+    "M2493 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "role_metric_panel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_role_metric_panel --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2493_engineering_controller_source_only_role_metric_panel --horizon-steps 100"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2493-engineering-controller-source-only-role-metric-panel.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md",
+    "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md",
+    "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json",
+    "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2493 passes if it writes source-only telemetry and role metric panel artifacts over the three admitted fixtures while preserving actor-input/action contracts and making no success-rate, ranking, promotion, performance, validation, or paper claims.",
+  "next_blocker": "m2493-engineering-controller-source-only-role-metric-panel"
+}

@@ -45194,3 +45194,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2491: `false`
 - follow-up manifest: `experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json`
 - next: `m2492-source-only-closed-loop-fixture-pilot-branch-synthesis`
+
+## M2492 Source-Only Closed-Loop Fixture Pilot Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_engineering_controller_source_only_metric_panel`
+- manifest: `experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json`
+- doc: `docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md`
+- parent evidence window: `m2487` through `m2491`
+- accepted source-only evidence: same-contract actor admitted with obs/action `72/3`, M2488 path smoke `60` policy-action rows, M2490 extended execution `300` policy-action rows, all action/observation/backend/leak gates passed
+- supported claim: source-only HF0 closed-loop execution path is live for the admitted actor and three admitted fixtures
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: close the `source_only_closed_loop_fixture_pilot` branch and promote to `engineering_controller_source_only_metric_panel`
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2492: `false`
+- follow-up manifest: `experiments/manifests/m2493-engineering-controller-source-only-role-metric-panel.json`
+- next: `m2493-engineering-controller-source-only-role-metric-panel`
