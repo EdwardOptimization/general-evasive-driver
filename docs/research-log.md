@@ -45689,3 +45689,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2518: `false`
 - follow-up manifest: `experiments/manifests/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.json`
 - next: `m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit`
+
+## M2519 Engineering Controller Source-Only Outcome Event Instrumentation Result Audit
+
+- status: completed
+- decision: `accept_source_only_outcome_event_instrumentation_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.json`
+- doc: `docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md`
+- audited summary: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json`
+- audited outcome event rows: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_event_rows.csv`
+- audited outcome metric gap delta: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_metric_gap_delta.csv`
+- accepted evidence: M2518 result_class pass, status_pass true, required artifacts present, source artifacts exist, missing source artifacts `[]`, outcome event rows `12`, metric gap delta rows `40`, filled M2516 unsupported metrics `10`, remaining unsupported metrics `2`, actor contract `72/3`, no hidden/oracle actor inputs, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, no ranking/winner/success-rate/verdict fields, false claim flags preserved
+- remaining unsupported metrics: `mitigation_delta_against_reference`, `seed`
+- accepted scope: source-only outcome event instrumentation result audit only
+- rejected claims: no behavior quality, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: behavior/outcome protocol branch synthesis before measured behavior, validation, or another source-only diagnostic artifact
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2519: `false`
+- follow-up manifest: `experiments/manifests/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.json`
+- next: `m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis`

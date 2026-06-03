@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2524,
+    "completed": 2525,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight",
+    "task_id": "m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation",
-    "command_log": "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md"
   },
   "next_task": {
-    "id": "m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit",
+    "id": "m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis",
     "kind": "gate",
-    "priority": 25140,
+    "priority": 25150,
     "status": "pending",
-    "hypothesis": "Audit M2518 source-only outcome event instrumentation before measured behavior or validation routing.",
-    "command": "see experiments/manifests/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.json",
-    "success_artifact": "docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md",
-    "notes": "Pending: audit M2518 12 event rows 40 gap deltas 10 filled unsupported metrics 2 remaining unsupported metrics false claim flags source_only_diagnostic no-ranking actor contract 72/3 no rollout simulation new policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Synthesize the behavior/outcome protocol branch after M2519 accepted source-only event instrumentation before measured behavior or validation routing.",
+    "command": "see experiments/manifests/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.json",
+    "success_artifact": "docs/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.md",
+    "notes": "Pending: synthesize M2513-M2519 behavior/outcome protocol branch and decide measured behavior repair validation-prep stop or pivot no rollout simulation new policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T122424Z"
+  "updated_at_utc": "20260603T123359Z"
 }

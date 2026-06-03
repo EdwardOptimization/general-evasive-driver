@@ -1,0 +1,116 @@
+# m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T123735Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_source_only_outcome_event_instrumentation_route_to_branch_synthesis
+- Decision reason: M2519 accepts M2518 source-only outcome event instrumentation 12 event rows 40 gap delta rows fills 10 M2516 unsupported metrics leaves 2 unsupported actor contract 72/3 source_only_diagnostic no-ranking false claim flags and routes to behavior outcome protocol branch synthesis no environment rollout simulation new policy action training ranking success-rate verdict validation or driver-performance claims
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2518 outcome event instrumentation without treating source-only event proxies as behavior, performance, ranking, validation, or paper evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.md, runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json, runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_event_rows.csv, runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_metric_gap_delta.csv, docs/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.md, runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json, runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv, runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv
+- parent_config: experiments/manifests/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.json
+- parent_objective: audit source-only evaluator-side outcome event instrumentation before measured behavior or validation routing
+- derived_from: m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight, m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit
+- blocked_by: M2518 generated source-only outcome event artifacts but they have not been independently audited, event rows must remain evaluator-side diagnostics and must not become controller rankings or success-rate verdicts, future measured behavior work should not start until event instrumentation is accepted or rejected
+- supersedes: using M2518 event rows without result audit, measured behavior route before source-only outcome-event audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md exists
+- audit verifies M2518 summary status_pass true and result_class pass
+- audit verifies outcome_event_rows.csv row count 12
+- audit verifies outcome_metric_gap_delta.csv row count 40
+- audit verifies 10 M2516 unsupported metrics are filled and 2 remain unsupported
+- audit verifies remaining unsupported metrics are mitigation_delta_against_reference and seed
+- audit verifies all rows are source_only_diagnostic with diagnostic_only_no_ranking_claim true
+- audit verifies actor contract 72/3 and no hidden or oracle actor input boundary
+- audit verifies false flags for external simulation rollout simulator step policy action training ranking winner success-rate performance validation paper finite-window-vs-GRU current-sim and self-ID claims
+- no external high-fidelity simulation install import execution environment rollout new policy action training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2519 installs imports or runs Chrono or another external simulator
+- M2519 changes actor input or action contract
+- M2519 injects hidden or oracle actor features
+- M2519 steps an environment or runs policy rollout
+- M2519 treats source-only event instrumentation as driver performance
+- M2519 ranks controller families or selects a winner
+- M2519 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2519 must audit M2518 summary outcome_event_rows.csv and outcome_metric_gap_delta.csv
+- M2519 must verify outcome event row count 12 and metric gap delta row count 40
+- M2519 must verify 10 M2516 unsupported metrics are filled and 2 remain unsupported
+- M2519 must verify remaining unsupported metrics are mitigation_delta_against_reference and seed
+- M2519 must verify actor contract 72/3 and no hidden or oracle actor inputs
+- M2519 must verify all rows remain source_only_diagnostic and diagnostic_only_no_ranking_claim true
+- M2519 must verify M2518 false flags for external simulation environment rollout simulator step new policy action training replay PPO ranking winner success-rate verdict performance validation paper finite-window-vs-GRU current-sim and self-ID claims
+- M2519 must not run simulation environment rollout policy action training replay PPO ranking winner selection success-rate verdict or validation verdict
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not run environment rollout
+- do not step a simulator
+- do not execute new policy actions
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not use success labels or reward terms
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from source-only outcome event instrumentation
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit
+- type: gate
+- checkpoint: docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_source_only_outcome_event_instrumentation_route_to_branch_synthesis
+- reason: M2519 accepts M2518 source-only outcome event instrumentation 12 event rows 40 gap delta rows fills 10 M2516 unsupported metrics leaves 2 unsupported actor contract 72/3 source_only_diagnostic no-ranking false claim flags and routes to behavior outcome protocol branch synthesis no environment rollout simulation new policy action training ranking success-rate verdict validation or driver-performance claims
+
+## Next Blocker
+
+m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis
