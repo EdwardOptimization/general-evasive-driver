@@ -45871,3 +45871,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2527: `false`
 - follow-up manifest: `experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json`
 - next: `m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight`
+
+## M2528 Engineering Controller Failure-Surface Intervention Config Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_failure_surface_intervention_config_materialization_pass`
+- manifest: `experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_failure_surface_intervention_config_materialization.py`
+- summary: `runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json`
+- candidate config: `runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json`
+- config patch audit: `runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv`
+- protected gate bindings: `runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv`
+- materialized config state: immutable candidate config `true`, candidate config file written `true`, active config overwritten `false`
+- materialized audit rows: `4` config patch audit rows, `7` protected gate bindings
+- traceability: protected rows traceable `true`, gate bindings traceable `true`, candidate config references M2527 protected rows and gate matrix
+- contract boundary: P0 observation `72`, action `3`, actor input changed `false`, hidden/oracle actor inputs required `false`, rule-switching controller modes allowed `false`
+- execution boundary: training started `false`, policy action run `false`, external high-fidelity simulation run `false`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json`
+- next: `m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight`

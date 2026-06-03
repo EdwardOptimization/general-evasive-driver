@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2533,
+    "completed": 2534,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+    "task_id": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2527_engineering_controller_failure_surface_intervention_plan",
-    "command_log": "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json"
+    "run_dir": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization",
+    "command_log": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
+    "id": "m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight",
     "kind": "infrastructure",
-    "priority": 25230,
+    "priority": 25240,
     "status": "pending",
-    "hypothesis": "Materialize immutable candidate config and protected gate bindings from the M2527 intervention plan before repair smoke or training.",
-    "command": "see experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json",
-    "success_artifact": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json",
-    "notes": "Pending: materialize candidate_config config_patch_audit and protected_gate_bindings no active config overwrite policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Run a bounded source-only repair smoke using the immutable M2528 candidate config before promotion ranking or validation.",
+    "command": "see experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json",
+    "success_artifact": "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json",
+    "notes": "Pending: execute bounded source-only repair smoke and protected gate evaluation from M2528 candidate config no external simulation hidden actor input ranking winner promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T141701Z"
+  "updated_at_utc": "20260603T143230Z"
 }

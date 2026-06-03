@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2527-engineering-controller-failure-surface-intervention-materialization-preflight
+m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2527-engineering-controller-failure-surface-intervention-materialization-preflight
+m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
+m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
 ```
 
 Current route:
@@ -49,6 +49,8 @@ M2526 defines that intervention boundary and routes to structured plan
 materialization before implementation or training.
 M2527 materializes the intervention spec, protected rows, gate matrix, and
 candidate patch plan as machine-readable artifacts.
+M2528 materializes an immutable candidate config and protected gate bindings
+without overwriting active configs, training, or running policy actions.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -92,9 +94,13 @@ or reference rows, `7` implementation gates, and a candidate patch plan while
 keeping active config overwrite, training, policy action, ranking, success-rate,
 and validation claims false.
 
-The active next task is M2528: materialize an immutable candidate config and
-protected gate bindings from the M2527 intervention plan before repair smoke or
-training.
+M2528 did not execute policy actions or train. It produced candidate config,
+config patch audit, and protected gate binding artifacts from M2527 and routed
+to a bounded source-only repair smoke.
+
+The active next task is M2529: run a bounded source-only repair smoke from the
+immutable M2528 candidate config, producing protected gate evaluations without
+ranking, promotion, success-rate, validation, or driver-performance claims.
 
 ## Latest Evidence
 
@@ -769,6 +775,17 @@ M2527:
   config boundary: active config overwritten false candidate config file written false training started false policy action false
   rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
   route: failure-surface intervention config materialization preflight
+
+M2528:
+  result_class: engineering_controller_failure_surface_intervention_config_materialization_pass
+  summary: runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json
+  artifacts: candidate_config.json config_patch_audit.csv protected_gate_bindings.csv
+  config state: immutable candidate config true candidate config written true active config overwritten false
+  traceability: 4 config patch audit rows 7 protected gate binding rows protected rows traceable true gate bindings traceable true
+  contract boundary: P0 observation 72 action 3 actor input changed false hidden/oracle inputs required false rule-switching controller modes allowed false
+  execution boundary: training started false policy action false external high-fidelity simulation false
+  rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
+  route: bounded source-only repair smoke preflight
 ```
 
 ## Current Interpretation Boundary
@@ -869,7 +886,9 @@ implementation. M2526 does that design work and routes to a materialization
 preflight so the next step produces machine-readable intervention-plan
 artifacts rather than informal reward/config edits or direct training. M2527
 materializes those artifacts and routes to immutable candidate config
-materialization, still without policy action or training.
+materialization, still without policy action or training. M2528 materializes
+that candidate config and gate bindings, creating the controlled input for the
+first repair smoke.
 ```
 
 Blocked claims:
@@ -889,23 +908,22 @@ training repair success
 
 ## Immediate Next Step
 
-M2528 should materialize the failure-surface intervention candidate config:
+M2529 should run the failure-surface intervention repair smoke:
 
 ```text
-runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json
 runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json
-runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv
 runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv
-experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json
+runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json
+runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv
+runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv
+runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json
+experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json
 runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json
-runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json
 runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv
-runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv
-runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json
 ```
 
-The config materialization should write immutable candidate config and protected
-gate bindings without overwriting active configs. It must not run source-only actions,
-install/import/run external high-fidelity simulation, train, replay/PPO,
-rank/select a winner, compute success-rate, or claim performance, validation,
+The repair smoke may run bounded source-only repair smoke actions within the
+pre-registered scope, but it must preserve the `72/3` actor contract and must
+not install/import/run external high-fidelity simulation, rank/select a winner,
+promote a checkpoint, compute success-rate, or claim performance, validation,
 paper, FW-vs-GRU, self-ID, or current-sim/high-fidelity verdict evidence.
