@@ -45492,3 +45492,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2508: `false`
 - follow-up manifest: `experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json`
 - next: `m2509-engineering-controller-runtime-inference-cost-report-result-audit`
+
+## M2509 Engineering Controller Runtime Inference Cost Report Result Audit
+
+- status: completed
+- decision: `accept_runtime_inference_cost_report_route_to_known_failure_taxonomy`
+- manifest: `experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json`
+- doc: `docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md`
+- audited summary: `runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json`
+- audited runtime measurements: `runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv`
+- accepted evidence: local CPU actor-only forward timing rows `300`, batch sizes `1/8/32`, checkpoint contract `72/3`, actor encoder `human_view_online_gru`, horizon `1`, false claim flags preserved
+- accepted scope: bounded runtime/inference-cost artifact only
+- rejected claims: no driver performance, controller quality, environment throughput, simulator throughput, success-rate, ranking, winner, deployment certification, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: Route A now has public diagnostic pack and runtime report; next missing Route A artifact is known failure taxonomy
+- external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2509: `false`
+- follow-up manifest: `experiments/manifests/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.json`
+- next: `m2510-engineering-controller-known-failure-taxonomy-materialization-preflight`

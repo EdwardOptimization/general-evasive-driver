@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2514,
+    "completed": 2515,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2508-engineering-controller-runtime-inference-cost-report-preflight",
+    "task_id": "m2509-engineering-controller-runtime-inference-cost-report-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2508_engineering_controller_runtime_inference_cost_report",
-    "command_log": "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md"
   },
   "next_task": {
-    "id": "m2509-engineering-controller-runtime-inference-cost-report-result-audit",
-    "kind": "gate",
-    "priority": 25040,
+    "id": "m2510-engineering-controller-known-failure-taxonomy-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 25050,
     "status": "pending",
-    "hypothesis": "Audit the runtime and inference-cost report before deployability or export interpretation.",
-    "command": "see experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json",
-    "success_artifact": "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
-    "notes": "Pending: audit M2508 summary and runtime rows for contract timing validity and false claim flags no environment rollout external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Materialize a structured known failure taxonomy from existing engineering-controller source-only diagnostic artifacts without new rollout or performance claims.",
+    "command": "see experiments/manifests/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.json",
+    "success_artifact": "runs/m2510_engineering_controller_known_failure_taxonomy/summary.json",
+    "notes": "Pending: write known failure taxonomy from existing M2498/M2501/M2505/M2508 artifacts no environment rollout external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T104844Z"
+  "updated_at_utc": "20260603T105553Z"
 }

@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2508-engineering-controller-runtime-inference-cost-report-preflight
+m2509-engineering-controller-runtime-inference-cost-report-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2508-engineering-controller-runtime-inference-cost-report-preflight
+m2509-engineering-controller-runtime-inference-cost-report-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2509-engineering-controller-runtime-inference-cost-report-result-audit
+m2510-engineering-controller-known-failure-taxonomy-materialization-preflight
 ```
 
 Current route:
 
 ```text
-M2508 produces a bounded runtime/inference-cost report for the admitted
-engineering-controller checkpoint. It measures actor-only forward-pass cost on
-seeded synthetic 72-shape observations for batch sizes 1, 8, and 32. The report
-is a deployability artifact, not an environment rollout, simulator throughput
-result, controller-quality metric, or performance benchmark.
+M2509 accepts the M2508 runtime/inference-cost report as a bounded actor-only
+forward timing artifact. Route A now has a public diagnostic pack and runtime
+cost report. The active next task is to materialize a structured known failure
+taxonomy from existing source-only diagnostics rather than running new rollout
+or another runtime microbenchmark.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,15 +47,16 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2508 did not install, import, or run an external high-fidelity simulator. It
+M2509 did not install, import, or run an external high-fidelity simulator. It
 did not step a simulator, execute policy rollouts, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
 computation, or any paper/FW-vs-GRU/self-ID/current-sim/high-fidelity
 validation verdict.
 
-The active next task is M2509: audit the runtime/inference-cost report. It must
-not step an environment, execute policy rollouts, train, rank, select a winner,
-compute success-rate verdicts, or claim performance or validation.
+The active next task is M2510: materialize a known failure taxonomy from
+existing artifacts. It must not step an environment, execute policy rollouts,
+train, rank, select a winner, compute success-rate verdicts, or claim
+performance or validation.
 
 ## Latest Evidence
 
@@ -447,6 +448,16 @@ M2508:
   rejected claims: performance success-rate ranking winner validation paper FW-vs-GRU self-ID
   environment rollout in M2508: false
   external simulation installed/imported/executed: false
+
+M2509:
+  decision: accept_runtime_inference_cost_report_route_to_known_failure_taxonomy
+  audited summary: runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json
+  audited runtime rows: 300 data rows
+  accepted scope: actor-only runtime/inference cost
+  rejected claims: performance controller quality environment throughput simulator throughput ranking validation paper FW-vs-GRU self-ID
+  route: known failure taxonomy materialization preflight
+  environment rollout in M2509: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -494,6 +505,9 @@ and promotes to a runtime/inference-cost report route, because Route A still
 needs deployability cost evidence and another packaging task would be local
 process work. M2508 adds that deployability artifact by measuring actor-only
 forward-pass cost without environment rollout or performance interpretation.
+M2509 audits and accepts that runtime artifact, then routes to known failure
+taxonomy because Route A still needs structured limitations before export or
+claim escalation.
 ```
 
 Blocked claims:
@@ -513,17 +527,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2509 should audit the runtime/inference-cost report:
+M2510 should materialize a known failure taxonomy from existing artifacts:
 
 ```text
+runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json
+runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv
+runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json
+runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv
+public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json
 runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json
-runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv
-docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md
 ```
 
-The audit should accept or reject the runtime artifact before any deployability
-or export interpretation. It must not install, import, or run external
-high-fidelity simulation, step a simulator, train, replay, use PPO, rank
-controllers, select a winner, promote a checkpoint, compute success-rate
+The taxonomy should structure known limitations and failure categories without
+new rollout or behavior-quality interpretation. It must not install, import, or
+run external high-fidelity simulation, step a simulator, train, replay, use PPO,
+rank controllers, select a winner, promote a checkpoint, compute success-rate
 verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
 evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

@@ -1,0 +1,221 @@
+{
+  "id": "m2510-engineering-controller-known-failure-taxonomy-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+      "docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md",
+      "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+      "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize a known failure taxonomy from existing engineering-controller source-only diagnostic artifacts"
+    ],
+    "derived_from": [
+      "m2509-engineering-controller-runtime-inference-cost-report-result-audit",
+      "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
+      "post-m2470-route-plan"
+    ],
+    "blocked_by": [
+      "Route A lists known failure taxonomy as a near-term engineering artifact",
+      "public pack and runtime report exist but known limitations are not yet a structured taxonomy",
+      "taxonomy should be materialized from existing diagnostic artifacts before more rollout or export work"
+    ],
+    "supersedes": [
+      "unstructured known limitations only",
+      "another runtime microbenchmark after M2509"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md",
+  "public_gates": [
+    "M2510 must materialize a structured known failure taxonomy from existing M2498 M2501 M2505 and M2508 artifacts",
+    "M2510 must separate known limitations from driver performance success-rate controller ranking and validation claims",
+    "M2510 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary",
+    "M2510 must include source artifact references failure category scope evidence type severity and forbidden interpretation fields",
+    "M2510 must write summary and taxonomy artifacts with false flags for new simulation rollout training ranking winner success-rate verdict performance validation paper finite-window-vs-GRU and self-ID claims",
+    "M2510 must not run external high-fidelity simulation environment rollout training replay PPO rank select a winner promote a checkpoint compute success rate or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from taxonomy rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_known_failure_taxonomy",
+    "evidence_axis": "known_failure_taxonomy_materialization_preflight",
+    "evidence_increment": "materializes a structured known failure taxonomy from existing source-only diagnostic and runtime artifacts",
+    "claim_scope": "engineering-controller known failure taxonomy materialization only; no environment rollout, external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if taxonomy rows require new simulator rollout",
+      "stop if taxonomy wording becomes behavior-quality or driver-performance verdict",
+      "stop if taxonomy requires hidden/oracle actor inputs",
+      "stop if source artifacts are missing"
+    ],
+    "fallback_plan": [
+      "route to taxonomy source-reference repair if source artifacts are missing",
+      "route to wording repair if taxonomy overclaims",
+      "route to result audit if taxonomy artifacts validate"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2509 accepted the runtime report and Route A still needs known failure taxonomy",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller known failure taxonomy materialization preflight",
+    "admission_evidence": [
+      "M2509 accepted runtime report",
+      "M2506 accepted public diagnostic pack",
+      "M2501 source-only diagnostic comparison artifacts",
+      "M2498 parameterized role metric artifacts",
+      "Route A in docs/post-m2470-route-plan.md lists known failure taxonomy"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_failure_taxonomy.py",
+      "tests for failure taxonomy artifact structure",
+      "runs/m2510_engineering_controller_known_failure_taxonomy/summary.json",
+      "runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv",
+      "docs/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md",
+      "M2510 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "failure taxonomy summary exists",
+      "taxonomy CSV references source artifacts and rejected interpretations",
+      "summary preserves no-rollout no-training no-ranking no-verdict claim flags",
+      "bounded result audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2510 materializes known failure taxonomy and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2510; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2498-M2509 engineering-controller source-only diagnostic and runtime artifacts.",
+    "negative_result_policy": "If taxonomy identifies serious limitations, state them as limitations rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller known failure taxonomy materialization",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from runtime reporting to structured known limitations taxonomy for Route A",
+    "paper_verdict_delta": "does not decide paper verdict but fills a Route A engineering artifact",
+    "must_synthesize_if": [
+      "taxonomy materialization needs multiple repairs without producing a taxonomy artifact",
+      "taxonomy rows are mistaken for driver performance",
+      "another static taxonomy artifact is proposed without audit"
+    ]
+  },
+  "hypothesis": "A structured known failure taxonomy can turn existing source-only diagnostic and runtime artifacts into a bounded engineering limitations artifact without new rollout or performance claims.",
+  "success_criteria": [
+    "runs/m2510_engineering_controller_known_failure_taxonomy/summary.json exists",
+    "runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv exists",
+    "taxonomy rows include failure_category evidence_scope source_artifact severity known_limitation and forbidden_interpretation fields",
+    "summary verifies referenced source artifacts exist and actor/action contract 72/3 is preserved",
+    "summary flags mark environment rollout simulation training ranking winner success-rate performance validation and paper claim flags false",
+    "docs/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md exists",
+    "no external high-fidelity simulation install import execution environment rollout training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2510 installs imports or runs Chrono or another external simulator",
+    "M2510 changes actor input or action contract",
+    "M2510 injects hidden or oracle actor features",
+    "M2510 steps an environment or runs policy rollout",
+    "M2510 treats taxonomy rows as driver performance",
+    "M2510 ranks controller families or selects a winner",
+    "M2510 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "known_failure_taxonomy_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_failure_taxonomy --output-dir runs/m2510_engineering_controller_known_failure_taxonomy --milestone m2510-engineering-controller-known-failure-taxonomy-materialization-preflight --next-blocker m2511-engineering-controller-known-failure-taxonomy-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2510_engineering_controller_known_failure_taxonomy/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+    "docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md",
+    "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+    "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2510 passes if it writes a structured known failure taxonomy from existing artifacts while preserving actor/action contracts and making no simulation rollout, training, ranking, success-rate, performance, validation, or paper claims.",
+  "next_blocker": "m2510-engineering-controller-known-failure-taxonomy-materialization-preflight"
+}
