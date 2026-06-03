@@ -46681,3 +46681,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes or rollout outcomes actor-visible
 - follow-up manifest: `experiments/manifests/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.json`
 - next: `m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit`
+
+## M2573 Engineering Controller Route A Baseline HF3 Rollout-Feasibility Execution Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_rollout_feasibility_execution_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.json`
+- audit doc: `docs/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.md`
+- parent summary: `runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json`
+- accepted evidence: M2572 status_pass true 2 rollout requests 1 fixed M1154 policy source 2 rollout plans 16 policy-action rows 16 backend-step rows 18 actor-view rows 9 claim rows and 10 gates pass
+- supported operational claims: reset execution observed and rollout-feasibility execution observed
+- guard boundary: no rollout success validation readiness/result success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- hidden-input audit: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes or rollout outcomes actor-visible
+- public-gate overfit risk: medium because short-horizon repo-local feasibility rows can be overclaimed as rollout success or validation evidence
+- follow-up manifest: `experiments/manifests/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.json`
+- next: `m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis`
