@@ -45980,3 +45980,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json`
 - next: `m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit`
+
+## M2533 Engineering Controller Failure-Surface Guarded Repair Execution Result Audit
+
+- status: completed
+- decision: `accept_partial_guarded_repair_evidence_route_to_mitigation_regression_localization`
+- manifest: `experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json`
+- audit doc: `docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md`
+- audited summary: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json`
+- audited training trace: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repair_training_trace.csv`
+- audited checkpoint manifest: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repaired_checkpoint_manifest.json`
+- audited post-repair rows: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv`
+- audited protected gate evaluation: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv`
+- accepted evidence: M2532 `status_pass` true proves guarded repair execution and traceability, not full proof success
+- partial proof result: `road_boundary_proof` pass, `command_conflict_proof` pass, `mitigation_proof` fail
+- mitigation detail: `4/5` mitigation rows improved, `1/5` row regressed; regressed row `m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302`
+- regressed row metrics: road margin delta `+4.456761035401987`, severity delta `+0.674427724901157`, collision regressed `false`
+- failure classification: `behavior_regression`, `proof_washout`
+- rejected failure classifications: no contract violation, lineage invalidity, metric artifact, or training instability found in M2532 artifacts
+- interpretation: M2532 is valid behavior-changing Route A evidence, but protected proof remains partial and fresh/generalization stays deferred
+- route: mitigation regression localization before any second repair execution, generalization, ranking, winner selection, promotion, or validation claim
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json`
+- next: `m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight`

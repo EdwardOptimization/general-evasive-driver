@@ -217,5 +217,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2533 passes if it audits M2532 source-only guarded repair artifacts, explicitly separates execution success from full proof success, classifies the mitigation regression and proof-washout result, and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, promotion, or verdict claims.",
-  "next_blocker": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit"
+  "next_blocker": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight"
 }

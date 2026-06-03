@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2538,
+    "completed": 2539,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight",
+    "task_id": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution",
-    "command_log": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json"
+    "run_dir": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
+    "command_log": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md"
   },
   "next_task": {
-    "id": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit",
+    "id": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight",
     "kind": "gate",
-    "priority": 25280,
+    "priority": 25290,
     "status": "pending",
-    "hypothesis": "Audit M2532 partial guarded repair execution before further repair promotion ranking or generalization claim.",
-    "command": "see experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json",
-    "success_artifact": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
-    "notes": "Pending: audit M2532 status_pass true but protected_proof_gates_all_passed false road-boundary and command-conflict proof pass mitigation proof fails one row classify proof_washout no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Localize the single M2532 mitigation regression before another repair attempt or generalization claim.",
+    "command": "see experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json",
+    "success_artifact": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
+    "notes": "Pending: artifact-only localization of m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302 compare against four improved mitigation rows classify objective/metric/scenario risk no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T155216Z"
+  "updated_at_utc": "20260603T160621Z"
 }

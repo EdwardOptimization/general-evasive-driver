@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
+m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
+m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
+m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
 ```
 
 Current route:
@@ -63,6 +63,10 @@ under its run directory, and records partial protected proof evidence:
 road-boundary and command-conflict proof pass, while mitigation proof still
 fails on one regressed mitigation row. M2533 must audit this partial result
 before any further repair, generalization, or promotion interpretation.
+M2533 accepts M2532 as valid partial guarded repair evidence, classifies the
+remaining mitigation row as `behavior_regression`/`proof_washout`, and routes
+to mitigation-regression localization before another repair or generalization
+step.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -875,6 +879,18 @@ M2532:
   rollback boundary: source checkpoint unchanged M2528 candidate config unchanged active configs unchanged no promotion metadata
   route: guarded repair execution result audit
   boundary: no ranking winner promotion success-rate verdict validation or driver-performance claims
+
+M2533:
+  decision: accept_partial_guarded_repair_evidence_route_to_mitigation_regression_localization
+  audit doc: docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md
+  accepted evidence: M2532 status_pass true proves guarded repair execution and traceability only
+  partial proof result: road_boundary_proof pass command_conflict_proof pass mitigation_proof fail
+  mitigation detail: 4/5 mitigation rows improved 1/5 row regressed
+  regressed row: m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302
+  regressed row metrics: road_margin_delta +4.456761035401987 severity_delta +0.674427724901157 collision_regressed false
+  failure classification: behavior_regression proof_washout
+  route: mitigation regression localization
+  boundary: no new policy action training ranking winner promotion success-rate verdict validation or driver-performance claims
 ```
 
 ## Current Interpretation Boundary
@@ -994,7 +1010,9 @@ and command-conflict protected proof gates pass, but mitigation proof still
 fails on one regressed mitigation row, so protected proof is partial and
 fresh/generalization evidence remains deferred. M2532 therefore does not
 support promotion, ranking, success-rate, validation, or driver-performance
-claims; M2533 must audit the partial proof and mitigation regression first.
+claims. M2533 audits and accepts the partial proof result, identifies the
+remaining regressed row, and routes to mitigation-regression localization
+before another repair or generalization step.
 ```
 
 Blocked claims:
@@ -1014,22 +1032,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2533 should audit the partial M2532 guarded repair result:
+M2534 should localize the single M2532 mitigation regression:
 
 ```text
-experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json
-docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md
+experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json
+runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json
+runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/mitigation_regression_rows.csv
+runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/localization_findings.json
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repair_training_trace.csv
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repaired_checkpoint_manifest.json
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/candidate_config_snapshot.json
+docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md
 ```
 
-The audit must separate M2532 execution success from full protected proof
-success. It should accept or reject the partial result, classify the remaining
-mitigation regression/proof-washout, keep fresh/generalization deferred until
-all protected proof gates pass, and avoid new policy action, training, ranking,
-winner selection, promotion, success-rate, validation, or driver-performance
-claims.
+The localization must identify why
+`m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302` regressed in
+severity while road margin and command conflict improved. It must remain
+artifact-only and avoid new policy action, training, ranking, winner selection,
+promotion, success-rate, validation, or driver-performance claims.
