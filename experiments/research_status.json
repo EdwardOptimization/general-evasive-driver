@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2486,
+    "completed": 2487,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight",
+    "task_id": "m2481-high-fidelity-interface-scenario-taxonomy-fixture-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight",
-    "command_log": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md"
   },
   "next_task": {
-    "id": "m2481-high-fidelity-interface-scenario-taxonomy-fixture-design",
+    "id": "m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 24760,
+    "priority": 24770,
     "status": "pending",
-    "hypothesis": "Design bounded fixture requirements for limited HF0 scenario taxonomy rows.",
-    "command": "see experiments/manifests/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.json",
-    "success_artifact": "docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md",
-    "notes": "Pending: design fixture requirements for limited rows preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
+    "hypothesis": "Materialize checked HF0 fixture catalog from M2481 design.",
+    "command": "see experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json",
+    "success_artifact": "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json",
+    "notes": "Pending: generate fixture catalog preserving obs 72 action 3 explicit limited admissions labels metadata-only no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T072126Z"
+  "updated_at_utc": "20260603T072837Z"
 }

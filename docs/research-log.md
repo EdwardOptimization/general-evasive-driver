@@ -45017,3 +45017,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2480: `false`
 - follow-up manifest: `experiments/manifests/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.json`
 - next: `m2481-high-fidelity-interface-scenario-taxonomy-fixture-design`
+
+## M2481 High-Fidelity Interface Scenario Taxonomy Fixture Design
+
+- status: completed
+- decision: `scenario_taxonomy_fixture_design_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.json`
+- doc: `docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md`
+- parent matrix: `runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv`
+- limited rows covered: current-sim `stable_aes` and `unavoidable_mitigation`; source-only four-wheel `stable_aes`, `drift_required_recovery`, and `unavoidable_mitigation`
+- design decision: current-sim limited rows remain diagnostic/reference only; source-only four-wheel limited rows are admitted for fixture catalog materialization with explicit metadata-only labels
+- contract boundary: observation shape `72`, action shape `3`, actor source `ActorView` only, role/feasibility/hidden dynamics/wheel diagnostics/oracle verdicts metadata-only
+- interpretation: fixture design only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2481: `false`
+- follow-up manifest: `experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json`
+- next: `m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight`

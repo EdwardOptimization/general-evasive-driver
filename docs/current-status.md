@@ -16,29 +16,29 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight
+m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight
+m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
+m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight
 ```
 
 Current route:
 
 ```text
-M2480 materialized the HF0 scenario taxonomy mapping across current-sim and
-source-only four-wheel adapter surfaces as a checked surface-role matrix. It
-covers stable avoidable, stable AES, drift-required recovery, hidden-dynamics
-robustness, and unavoidable mitigation roles as metadata-only taxonomy labels.
+M2481 designed bounded HF0 fixture admissions for the limited rows from the
+M2480 surface-role matrix. Current-sim limited rows stay diagnostic/reference
+only; source-only four-wheel limited rows are admitted for fixture catalog
+materialization with explicit metadata-only labels.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,16 +46,16 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2480 did not install, import, or run an external high-fidelity simulator. It
+M2481 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2481: design bounded fixture requirements for the
-limited HF0 scenario taxonomy rows. M2481 must preserve observation shape `72`,
-action shape `3`, and metadata-only role labels. It must not install, import,
-or run external high-fidelity simulation, train, rank controllers, select
-winners, or make validation/paper verdict claims.
+The active next task is M2482: materialize a checked fixture catalog from the
+M2481 design. M2482 must preserve observation shape `72`, action shape `3`,
+explicit limited-row admissions, and metadata-only role labels. It must not
+install, import, or run external high-fidelity simulation, train, rank
+controllers, select winners, or make validation/paper verdict claims.
 
 ## Latest Evidence
 
@@ -153,6 +153,16 @@ M2480:
   role labels and feasibility classes enter actor input: false
   next route: bounded fixture design for limited rows
   external simulation installed/imported/executed: false
+
+M2481:
+  decision: scenario_taxonomy_fixture_design_route_to_materialization_preflight
+  limited rows covered: 5
+  current-sim limited rows: diagnostic/reference only
+  source-only four-wheel limited rows: admitted for fixture catalog materialization
+  observation/action shape: 72 / 3
+  role labels feasibility classes hidden diagnostics and oracle verdicts: metadata only
+  next route: checked fixture catalog materialization
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -164,8 +174,9 @@ The HF0 interface boundary has checked local contract primitives, a current-sim
 adapter smoke, a bounded external-backend route design, a dependency/API audit,
 branch synthesis, source-only four-wheel adapter preflight, and scenario
 taxonomy mapping design/materialization. These preserve the canonical P0
-actor/action contract and keep diagnostics outside actor input, but they do not
-prove driver capability.
+actor/action contract and keep diagnostics outside actor input. M2481 also
+designs fixture admissions for limited rows, but it does not prove driver
+capability.
 ```
 
 Blocked claims:
@@ -185,7 +196,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2481 should design bounded fixture requirements from:
+M2482 should materialize a checked fixture catalog from:
 
 ```text
 docs/post-m2470-route-plan.md
@@ -196,10 +207,12 @@ runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summ
 docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md
 runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json
 runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv
+docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md
 ```
 
-The fixture design must cover M2480 limited rows while preserving observation
-shape `72`, action shape `3`, and metadata-only role labels. It must not
+The materialization must generate a checked `fixture_catalog.csv` and
+`summary.json` while preserving observation shape `72`, action shape `3`,
+explicit limited-row admissions, and metadata-only role labels. It must not
 install, import, or run external high-fidelity simulation, execute policy
 rollout, train, replay, use PPO, rank controllers, select a winner, or claim
 high-fidelity validation, current-sim verdict, paper-level evidence,
