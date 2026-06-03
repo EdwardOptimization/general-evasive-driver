@@ -46498,3 +46498,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2560/M2561 do not repair behavior or evaluate scenario success
 - follow-up manifest: `experiments/manifests/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.json`
 - next: `m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis`
+
+## M2562 Engineering Controller Route A Baseline HF3 Low-Cost Pilot Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_reset_feasibility_execution_design`
+- manifest: `experiments/manifests/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.json`
+- synthesis doc: `docs/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.md`
+- parent audit: `docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md`
+- accepted evidence: M2560/M2561 source-level HF3 preflight artifacts with 2 pilot candidate rows 2 reset-feasibility rows 2 rollout-feasibility rows 6 external-boundary rows 7 claim-boundary rows and 8 gates pass
+- guard boundary: no pilot admission no reset success no rollout success no external simulator install/import/run no policy action no reset/step/rollout execution no validation ranking driver-performance or self-ID claim P0 `72/3`
+- supported claim: HF3 preflight evidence can route to design-only reset-feasibility execution materialization with explicit backend availability reset request reset outcome and claim-boundary artifacts
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- public-gate overfit risk: medium because preflight rows can be overclaimed if reset execution design skips backend availability and reset outcome boundaries
+- follow-up manifest: `experiments/manifests/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.json`
+- next: `m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design`
