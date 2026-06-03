@@ -213,5 +213,5 @@
     "runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json"
   ],
   "decision_rule": "M2524 passes if it audits M2523 fresh-seed measured behavior artifacts and confirms seed-panel counts, subject-role-seed coverage, telemetry count, metric completeness, seed variant lineage, mitigation reference semantics, actor/action contract, no hidden actor inputs, all-attempted-row retention, zero denominator gaps, and false claim flags without external simulation, rollout, new policy action, training, ranking, winner selection, success-rate, or verdict claims.",
-  "next_blocker": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit"
+  "next_blocker": "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis"
 }

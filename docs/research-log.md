@@ -45792,3 +45792,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2523: `false`
 - follow-up manifest: `experiments/manifests/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.json`
 - next: `m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit`
+
+## M2524 Engineering Controller Source-Only Fresh-Seed Measured Behavior Panel Result Audit
+
+- status: completed
+- decision: `accept_fresh_seed_measured_behavior_panel_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.json`
+- doc: `docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md`
+- audited summary: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json`
+- audited seed panel spec: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv`
+- audited measured behavior rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv`
+- audited measured event rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv`
+- audited metric completeness rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv`
+- accepted evidence: M2523 result_class pass, status_pass true, seed panel rows `15`, fresh seeds per role `5`, telemetry rows `4500`, measured behavior rows `45`, measured event rows `45`, metric completeness rows `40`, zero denominator gaps, all attempted subject-role-seed rows retained, actor contract `72/3`, all actions finite and within bounds, all backend statuses running, seed lineage and fresh seed variant digests explicit, mitigation reference subject `straight_full_brake_open_loop`, all metrics supported with missing row count `0`, false claim flags preserved
+- diagnostic behavior surface: M1154 avoids collision but leaves road in all 5 `stable_aes` and all 5 `drift_required_recovery` seeds; M1154 collides and leaves road in all 5 `unavoidable_mitigation` seeds; `straight_full_brake_open_loop` has no collision or road departure in all 5 `stable_aes` seeds; this is failure-surface evidence only, not ranking or performance
+- accepted scope: source-only fresh-seed measured behavior panel result audit only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: synthesize the bounded measured behavior panel branch before another source-only panel, controller intervention design, Route A synthesis, or claim escalation
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action in M2524: `false`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2524: `false`
+- follow-up manifest: `experiments/manifests/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.json`
+- next: `m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis`

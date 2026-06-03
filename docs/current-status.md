@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight
+m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight
+m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit
+m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis
 ```
 
 Current route:
@@ -41,9 +41,10 @@ M2513-M2519 produced accepted protocol schema, row-completeness, and
 evaluator-side event instrumentation, but not measured behavior evidence.
 M2521 materializes the first bounded source-only measured behavior panel under
 the accepted protocol, and M2522 accepts those artifacts as source-only
-diagnostics. M2523 expands the denominator to a fresh source-only seed panel.
-The active next task audits those M2523 artifacts before any broader behavior
-route or claim escalation.
+diagnostics. M2523 expands the denominator to a fresh source-only seed panel,
+and M2524 accepts those artifacts as complete for source-only diagnostic scope.
+The active next task synthesizes M2521-M2524 before another source-only panel
+or claim escalation.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -69,9 +70,13 @@ validation, training, replay, PPO, controller ranking, winner selection,
 success-rate computation, or any driver-performance, paper/FW-vs-GRU/self-ID/
 current-sim/high-fidelity validation verdict.
 
-The active next task is M2524: audit the M2523 fresh-seed measured behavior
-artifacts, denominator completeness, actor contract, seed/reference semantics,
-and false-claim flags before another source-only panel or Route A synthesis.
+M2524 did not execute new source-only actions. It audited M2523 artifacts and
+routed to M2525 branch synthesis because another source-only panel before
+synthesis risks local-search/public-gate overfit.
+
+The active next task is M2525: synthesize the fixed/fresh-seed measured
+behavior evidence and select the next Route A branch while preserving
+no-ranking/no-verdict boundaries.
 
 ## Latest Evidence
 
@@ -697,6 +702,18 @@ M2523:
   external simulation installed/imported/executed in M2523: false
   measured validation training replay PPO ranking winner verdict claims in M2523: false
   route: result audit before another source-only panel or Route A synthesis
+
+M2524:
+  decision: accept_fresh_seed_measured_behavior_panel_route_to_branch_synthesis
+  audited summary: runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json
+  audited rows: seed panel 15 measured behavior 45 measured events 45 metric completeness 40 telemetry 4500
+  accepted gates: status_pass true result_class pass five seeds per role zero denominator gaps all attempted rows retained actor contract 72/3 all actions finite/bounded all metrics supported seed variant lineage explicit mitigation reference straight_full_brake_open_loop false claim flags
+  diagnostic surface: M1154 avoids collision but leaves road in all stable_aes and drift_required_recovery seeds; M1154 collides and leaves road in all unavoidable_mitigation seeds
+  accepted scope: source-only fresh-seed measured behavior artifact audit only
+  rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
+  new policy action in M2524: false
+  external simulation installed/imported/executed in M2524: false
+  route: bounded measured behavior panel branch synthesis before another source-only panel or claim escalation
 ```
 
 ## Current Interpretation Boundary
@@ -782,6 +799,10 @@ complete metric-completeness rows, and 4500 telemetry rows. It improves the
 Route A denominator but remains source-only diagnostic evidence; it does not
 prove driver capability, validation readiness, controller ranking,
 success-rate, paper evidence, finite-window-vs-GRU, or self-identification.
+M2524 audits and accepts the M2523 artifacts as complete for source-only scope,
+while preserving the same blocked claims. M2524 routes to branch synthesis
+because M2521-M2524 have enough measured-behavior substrate and another
+source-only panel risks local search before route-level interpretation.
 ```
 
 Blocked claims:
@@ -801,27 +822,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2524 should audit the fresh source-only seed measured behavior panel:
+M2525 should synthesize the bounded measured behavior panel branch:
 
 ```text
+docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md
 docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md
 runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json
-runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv
 runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv
-runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv
-runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv
-docs/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.md
+runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json
+docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md
 ```
 
-The audit should accept or reject M2523's 15 seed-panel rows, 45 measured
-behavior rows, 45 measured event rows, 40 metric-completeness rows, and 4500
-telemetry rows. It must verify all-attempted subject-role-seed row retention,
-zero denominator gaps, `72/3` actor/action contract preservation, explicit
-fresh-seed variant lineage, mitigation reference subject
-`straight_full_brake_open_loop`, metric completeness, and false-claim flags.
-M2524 must not execute new source-only policy actions or open-loop actions,
-install/import/run external high-fidelity simulation, train, replay, use PPO,
-rank controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim driver performance, high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The synthesis should answer evidence summary, supported claims, falsified
+claims, failure taxonomy summary, public-gate overfit risk, and next branch
+decision. It must not run new source-only actions, install/import/run external
+high-fidelity simulation, train, replay/PPO, rank/select a winner, compute
+success-rate, or claim performance, validation, paper, FW-vs-GRU, self-ID, or
+current-sim/high-fidelity verdict evidence.

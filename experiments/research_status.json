@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2529,
+    "completed": 2530,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight",
+    "task_id": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel",
-    "command_log": "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md"
   },
   "next_task": {
-    "id": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit",
+    "id": "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis",
     "kind": "gate",
-    "priority": 25190,
+    "priority": 25200,
     "status": "pending",
-    "hypothesis": "Audit M2523 fresh source-only seed measured behavior artifacts before broader interpretation or another source-only panel.",
-    "command": "see experiments/manifests/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.json",
-    "success_artifact": "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
-    "notes": "Pending: audit M2523 15 seed panel rows 45 measured behavior rows 45 measured event rows 40 metric completeness rows 4500 telemetry rows zero denominator gaps actor contract 72/3 no ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Synthesize the bounded measured behavior panel branch after fixed-seed and fresh-seed source-only artifacts passed.",
+    "command": "see experiments/manifests/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.json",
+    "success_artifact": "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
+    "notes": "Pending: synthesize M2521-M2524 measured behavior panel branch decide next Route A branch and avoid another source-only panel without route value no new policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T133002Z"
+  "updated_at_utc": "20260603T133837Z"
 }
