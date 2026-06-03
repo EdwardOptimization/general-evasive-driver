@@ -46381,3 +46381,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because parity/taxonomy rows can be overclaimed as validation if support statuses are silently upgraded
 - follow-up manifest: `experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json`
 - next: `m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design`
+
+## M2555 Engineering Controller Route A Baseline HF2 Scenario Taxonomy Mapping Design
+
+- status: completed
+- decision: `route_to_hf2_scenario_taxonomy_mapping_materialization_preflight`
+- manifest: `experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json`
+- design doc: `docs/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.md`
+- parent synthesis: `docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md`
+- source taxonomy: `runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv`
+- source fixture catalog: `runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv`
+- designed artifacts: M2556 summary HF2 route-role mapping surface/fixture binding metadata-boundary checks pilot-admission guards and gate matrix
+- role families: stable avoidable/AEB-feasible stable-AES/AEB-infeasible drift-required recovery hidden-dynamics robustness unavoidable mitigation
+- guard boundary: preserve P0 `72/3`, labels and feasibility metadata-only, no silent upgrade of limited/reference rows
+- rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.json`
+- next: `m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight`
