@@ -46513,3 +46513,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because preflight rows can be overclaimed if reset execution design skips backend availability and reset outcome boundaries
 - follow-up manifest: `experiments/manifests/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.json`
 - next: `m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design`
+
+## M2563 Engineering Controller Route A Baseline HF3 Reset-Feasibility Execution Design
+
+- status: completed
+- decision: `route_to_hf3_reset_feasibility_execution_materialization_preflight`
+- manifest: `experiments/manifests/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.json`
+- design doc: `docs/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.md`
+- parent synthesis: `docs/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.md`
+- designed artifacts: M2564 summary reset-execution candidate rows backend availability checks reset request contract reset execution plan reset outcome schema claim-boundary checks and gate matrix
+- reset candidates: stable avoidable/AEB-feasible and stable AES/AEB-infeasible as reset-execution candidates only
+- guard boundary: no pilot admission no reset execution no external simulator install/import/run no policy action no validation ranking driver-performance or self-ID claim
+- supported claim: HF3 reset-feasibility execution boundary can now be materialized as source-level candidate/backend/request/plan/outcome artifacts
+- rejected claims: no high-fidelity validation readiness/result, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.json`
+- next: `m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight`
