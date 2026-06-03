@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
+m2531-engineering-controller-failure-surface-guarded-repair-execution-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
+m2531-engineering-controller-failure-surface-guarded-repair-execution-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2531-engineering-controller-failure-surface-guarded-repair-execution-design
+m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
 ```
 
 Current route:
@@ -56,6 +56,8 @@ candidate config, matches all `45` protected/reference rows, and records a
 negative proof-gate result while preserving contract and claim boundaries.
 M2530 audits and accepts that negative no-update smoke, then routes away from
 config-only/no-update artifacts toward guarded repair execution design.
+M2531 designs that guarded repair execution and registers M2532 as the next
+behavior-changing closed-loop repair evidence milestone.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -115,10 +117,17 @@ accepted the negative no-update evidence: `status_pass=true` means execution
 and traceability passed, while `protected_proof_gates_all_passed=false` means
 the actual repair proof remains absent.
 
-The active next task is M2531: design the minimal guarded repair execution step
-that can produce behavior-changing closed-loop repair evidence while preserving
-the `72/3` actor contract and avoiding ranking, promotion, success-rate,
-validation, or driver-performance claims.
+M2531 did not execute policy actions or train. It designed a bounded guarded
+repair execution contract with proof-first gates, rollback, failure taxonomy,
+and required artifacts, then routed directly to M2532 for new closed-loop repair
+evidence.
+
+The active next task is M2532: run the bounded guarded source-only repair
+execution and post-repair protected proof smoke from the M2528 candidate config.
+M2532 may train only inside the pre-registered guarded repair scope, and still
+must not rank, select a winner, promote, compute success-rate, or claim
+performance, validation, paper, FW-vs-GRU, self-ID, current-sim, or
+high-fidelity verdict evidence.
 
 ## Latest Evidence
 
@@ -832,6 +841,15 @@ M2530:
   deferred gate: fresh_seed_generalization
   route: guarded repair execution design
   boundary: no new policy action training ranking winner promotion success-rate verdict validation or driver-performance claims
+
+M2531:
+  decision: route_to_guarded_repair_execution_preflight
+  design doc: docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md
+  required next artifacts: summary repair_training_trace repaired_checkpoint_manifest post_repair_smoke_rows protected_gate_evaluation candidate_config_snapshot
+  proof gate order: contract/no-oracle first road-boundary mitigation command-conflict before generalization
+  rollback boundary: source checkpoint unchanged M2528 candidate config unchanged active configs unchanged no promotion metadata
+  route: guarded source-only repair execution preflight
+  boundary: no policy action training ranking winner promotion success-rate verdict validation or driver-performance claims in M2531 design
 ```
 
 ## Current Interpretation Boundary
@@ -941,7 +959,10 @@ unimproved, so the next step is result audit before any actual guarded repair
 training or candidate tuning. M2530 accepts that negative evidence and closes
 the no-update path: the next milestone must design a guarded repair execution
 that leads directly to new closed-loop behavior evidence or to branch
-synthesis, not another config-only artifact.
+synthesis, not another config-only artifact. M2531 writes that design and
+registers M2532 as the next behavior-changing preflight. The design still makes
+no repair-success claim; it only fixes the execution boundary so M2532 can run
+a bounded guarded repair with traceable proof gates and rollback.
 ```
 
 Blocked claims:
@@ -961,16 +982,22 @@ training repair success
 
 ## Immediate Next Step
 
-M2531 should design the guarded repair execution:
+M2532 should run the guarded repair execution:
 
 ```text
-docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md
-experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json
 docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md
+experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repair_training_trace.csv
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repaired_checkpoint_manifest.json
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv
+runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/candidate_config_snapshot.json
 ```
 
-The design must route directly to a future execution milestone that produces
-new closed-loop repair evidence or to branch synthesis. It must not run policy
-action, train, rank/select a winner, promote a checkpoint, compute success-rate,
-or claim performance, validation, paper, FW-vs-GRU, self-ID, or current-sim/
-high-fidelity verdict evidence in the design milestone.
+The execution may run bounded source-only guarded repair training inside the
+M2532 run directory. It must preserve the `72/3` actor contract, keep hidden
+and oracle fields out of actor input, keep the source checkpoint and M2528
+candidate config immutable, evaluate protected proof gates before any
+generalization, and avoid ranking, winner selection, promotion, success-rate,
+validation, or driver-performance claims.

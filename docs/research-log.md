@@ -45934,3 +45934,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json`
 - next: `m2531-engineering-controller-failure-surface-guarded-repair-execution-design`
+
+## M2531 Engineering Controller Failure-Surface Guarded Repair Execution Design
+
+- status: completed
+- decision: `route_to_guarded_repair_execution_preflight`
+- manifest: `experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json`
+- design doc: `docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md`
+- parent audit: `docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md`
+- design target: stop config-only/no-update artifacts and require actual bounded guarded repair execution
+- M2532 required artifacts: `summary.json`, `repair_training_trace.csv`, `repaired_checkpoint_manifest.json`, `post_repair_smoke_rows.csv`, `protected_gate_evaluation.csv`, `candidate_config_snapshot.json`
+- protected proof gates: `contract_p0_72_3`, `no_oracle_actor_inputs`, `road_boundary_proof`, `mitigation_proof`, `command_conflict_proof`, `no_ranking_no_success_rate`
+- rollback boundary: source checkpoint unchanged, M2528 candidate config unchanged, active configs unchanged, repaired checkpoint only under M2532 run directory, no promotion metadata
+- failure taxonomy: `contract_violation`, `training_instability`, `proof_washout`, `behavior_regression`, `objective_overfit`, `scenario_sampling_failure`, `lineage_invalid`, `metric_artifact`
+- interpretation: M2531 is design-only; it does not run policy action, train, rank, promote, or claim repair success
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json`
+- next: `m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight`

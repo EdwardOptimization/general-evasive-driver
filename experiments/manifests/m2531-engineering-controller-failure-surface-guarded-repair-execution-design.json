@@ -208,5 +208,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2531 passes if it writes a guarded repair execution design and registers a bounded follow-up execution route without new policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
-  "next_blocker": "m2531-engineering-controller-failure-surface-guarded-repair-execution-design"
+  "next_blocker": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight"
 }
