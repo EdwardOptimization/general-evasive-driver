@@ -46224,3 +46224,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no training, replay, PPO, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.json`
 - next: `m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit`
+
+## M2545 Engineering Controller Route A Baseline Source-Only Execution Readiness Panel Result Audit
+
+- status: completed
+- decision: `accept_route_a_source_only_execution_readiness_panel_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.json`
+- audit doc: `docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md`
+- audited summary: `runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json`
+- accepted panel: M2544 `status_pass=true`, result class `engineering_controller_route_a_source_only_execution_readiness_panel_preflight_pass`
+- denominator audit: `5` subjects, `3` policy checkpoints admitted, `2` open-loop references, `3` roles, `5` seeds per role, `75` behavior rows, `75` event rows, `40` completeness rows, `7500` telemetry rows, denominator gaps `0`
+- actor contract audit: P0 observation shape `72`, action shape `3`, all three policy checkpoints admitted with `human_view_online_gru`, no hidden/oracle actor inputs
+- claim boundary: no external simulation, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.json`
+- next: `m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis`

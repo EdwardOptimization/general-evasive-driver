@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2550,
+    "completed": 2551,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight",
+    "task_id": "m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json",
-    "command_log": "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json"
+    "run_dir": "docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md",
+    "command_log": "docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md"
   },
   "next_task": {
-    "id": "m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit",
+    "id": "m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis",
     "kind": "gate",
-    "priority": 25400,
+    "priority": 25410,
     "status": "pending",
-    "hypothesis": "Audit the M2544 Route A source-only execution-readiness panel before any synthesis ranking success-rate validation or driver-performance interpretation.",
-    "command": "see experiments/manifests/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.json",
-    "success_artifact": "docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md",
-    "notes": "Pending: audit M2544 status_pass result 5 subjects 3 policy checkpoints admitted 2 open-loop references 3 roles 5 seeds per role 75 behavior rows 75 event rows 40 completeness rows 7500 telemetry rows denominator gaps 0 actor contract 72/3 no hidden oracle leak and no external simulation training ranking promotion success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Synthesize the accepted M2544/M2545 Route A source-only execution-readiness panel before choosing the next bounded Route A or HF0 step.",
+    "command": "see experiments/manifests/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.json",
+    "success_artifact": "docs/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.md",
+    "notes": "Pending: synthesize accepted source-only panel evidence and decide continue pivot stop artifact repair contract repair panel instrumentation repair runtime/report design HF0 parity smoke design or broader source-only behavior synthesis without new policy action external simulation training ranking promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T181718Z"
+  "updated_at_utc": "20260603T182055Z"
 }

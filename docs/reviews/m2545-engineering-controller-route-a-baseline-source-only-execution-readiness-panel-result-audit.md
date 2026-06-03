@@ -1,0 +1,118 @@
+# m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T182342Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_route_a_source_only_execution_readiness_panel_route_to_result_synthesis
+- Decision reason: M2545 accepts M2544 source-only Route A execution-readiness panel status_pass true 5 subjects 3 policy checkpoints admitted 2 open-loop references 3 roles 5 seeds per role 75 behavior rows 75 event rows 40 completeness rows 7500 telemetry rows denominator gaps 0 actor contract 72/3 no hidden oracle no external simulation training ranking promotion success-rate verdict validation or driver-performance claims route to M2546 result synthesis
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M2544 Route A source-only execution-readiness panel while preserving denominator completeness, actor contract integrity, and no-ranking or verdict boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/seed_panel_spec.csv, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/subject_registry.csv, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/telemetry_rows.csv, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/measured_behavior_rows.csv, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/measured_event_rows.csv, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/metric_completeness_rows.csv, docs/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.md, docs/m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design.md, docs/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/baseline_checkpoint_list.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/scenario_role_metric_report_plan.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json, experiments/manifests/m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design.json, experiments/manifests/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.json
+- parent_objective: audit the M2544 Route A source-only execution-readiness panel before any synthesis, ranking, success-rate, validation, or driver-performance interpretation
+- derived_from: m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight, m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design, m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit, m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight, post-m2470-route-plan
+- blocked_by: M2544 produced the first post-pivot Route A source-only subject-role-seed panel and must be audited before interpretation, M2544 admits three policy checkpoints and two open-loop references but the output is diagnostic only and not a controller-family ranking, Route A must preserve the post-M2470 split between engineering baseline evidence, paper self-ID evidence, and high-fidelity validation preparation
+- supersedes: interpreting M2544 rows directly as driver performance, ranking or promoting M1154 M2532 or M2537 from source-only execution-readiness rows, starting high-fidelity validation before auditing source-only denominator and contract evidence, computing a success-rate verdict from M2544 measured behavior rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md exists
+- audit verifies M2544 summary status_pass true result_class pass required_artifacts_present true and source_artifacts_exist true
+- audit verifies M2544 covers m1154_original_policy m2532_guarded_repair_policy m2537_mitigation_preserving_policy coast_open_loop and straight_full_brake_open_loop
+- audit verifies M2544 covers stable_aes drift_required_recovery and unavoidable_mitigation with five fresh seeds per role
+- audit verifies M2544 has 75 measured behavior rows 75 measured event rows 40 metric completeness rows 7500 telemetry rows and zero denominator gaps
+- audit verifies P0 observation shape 72 action shape 3 no hidden/oracle actor inputs finite bounded actions and running backend statuses
+- audit verifies seed lineage mitigation reference semantics and role-seed reset digest parity are explicit
+- audit verifies no external high-fidelity simulation install import execution training replay PPO ranking winner success-rate promotion validation or verdict claim is made by M2544 or M2545
+- audit registers result synthesis artifact repair contract repair panel instrumentation repair or branch synthesis without validation or performance claims
+
+## Failure Criteria
+
+- M2545 installs imports or runs Chrono or another external simulator
+- M2545 changes actor input or action contract
+- M2545 injects hidden or oracle actor features
+- M2545 steps an environment or runs policy rollout
+- M2545 starts training
+- M2545 treats M2544 source-only rows as driver performance
+- M2545 ranks controller families or selects a winner
+- M2545 computes success rate or controller-family verdict metrics
+- M2545 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2545 must audit M2544 summary seed_panel_spec subject_registry telemetry measured_behavior measured_event metric_completeness and milestone doc artifacts
+- M2545 must verify M2544 status_pass true result_class pass required_artifacts_present true and source_artifacts_exist true
+- M2545 must verify five comparison subjects three policy checkpoints two open-loop references three role families five fresh seeds per role 75 measured behavior rows 75 measured event rows 40 metric completeness rows and 7500 telemetry rows
+- M2545 must verify all attempted subject-role-seed rows are retained denominator_gap_count is zero reset_count is 75 and expected telemetry row count is 7500
+- M2545 must verify all three policy checkpoints are admitted under P0 observation shape 72 action shape 3 and no hidden/oracle actor inputs
+- M2545 must verify seed lineage and mitigation reference semantics are explicit and role-seed reset digests match across subjects
+- M2545 must verify M2544 did not install import or run external high-fidelity simulation
+- M2545 must verify M2544 did not train replay run PPO rank select a winner promote a checkpoint compute success-rate verdicts or claim driver performance validation paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID results
+- M2545 must register result synthesis artifact repair contract repair panel instrumentation repair or branch synthesis as the next route without making validation or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the audit
+- do not step the environment in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not tune public protected rows
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from M2544 source-only execution-readiness rows
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit
+- type: gate
+- checkpoint: docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_route_a_source_only_execution_readiness_panel_route_to_result_synthesis
+- reason: M2545 accepts M2544 source-only Route A execution-readiness panel status_pass true 5 subjects 3 policy checkpoints admitted 2 open-loop references 3 roles 5 seeds per role 75 behavior rows 75 event rows 40 completeness rows 7500 telemetry rows denominator gaps 0 actor contract 72/3 no hidden oracle no external simulation training ranking promotion success-rate verdict validation or driver-performance claims route to M2546 result synthesis
+
+## Next Blocker
+
+m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis
