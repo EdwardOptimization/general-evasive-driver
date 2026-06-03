@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2507,
+    "completed": 2508,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight",
+    "task_id": "m2502-engineering-controller-source-only-baseline-comparison-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight",
-    "command_log": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md"
   },
   "next_task": {
-    "id": "m2502-engineering-controller-source-only-baseline-comparison-result-audit",
+    "id": "m2503-engineering-controller-source-only-metric-panel-branch-synthesis",
     "kind": "gate",
-    "priority": 24970,
+    "priority": 24980,
     "status": "pending",
-    "hypothesis": "Audit M2501 source-only baseline comparison artifacts before repair synthesis or claim escalation.",
-    "command": "see experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json",
-    "success_artifact": "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md",
-    "notes": "Pending: audit diagnostic comparison telemetry and route bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Synthesize the engineering-controller source-only metric panel branch after M2502 audit.",
+    "command": "see experiments/manifests/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.json",
+    "success_artifact": "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md",
+    "notes": "Pending: synthesize M2493-M2502 source-only diagnostics and choose bounded next route no new policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T100204Z"
+  "updated_at_utc": "20260603T100719Z"
 }

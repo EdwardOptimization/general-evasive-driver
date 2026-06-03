@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight
+m2502-engineering-controller-source-only-baseline-comparison-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight
+m2502-engineering-controller-source-only-baseline-comparison-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2502-engineering-controller-source-only-baseline-comparison-result-audit
+m2503-engineering-controller-source-only-metric-panel-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2501 implements the bounded source-only diagnostic comparison protocol across
-the admitted policy actor, coast open-loop, and straight full-brake open-loop
-subjects over the three parameterized role fixtures. It writes 900 telemetry
-rows and 9 role-subject panel rows. The next task must audit those artifacts
-before any repair, synthesis, or claim escalation.
+M2502 accepts M2501 source-only baseline comparison artifacts as diagnostic
+engineering telemetry only: 3 subjects, 3 roles, 900 telemetry rows, 9 panel
+rows, reset digest gates passing, and no ranking/success-rate/verdict claims.
+The next task is branch synthesis before any further source-only metric artifact
+or claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,14 +47,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2501 did not install, import, or run an external high-fidelity simulator. It
-did not run measured validation, training, replay, PPO, controller ranking,
-winner selection, success-rate computation, or any paper/FW-vs-GRU/self-ID/
-current-sim/high-fidelity validation verdict.
+M2502 did not install, import, or run an external high-fidelity simulator. It
+did not execute new policy actions, measured validation, training, replay, PPO,
+controller ranking, winner selection, success-rate computation, or any paper/
+FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2502: audit the M2501 source-only baseline comparison
-artifacts. It must not execute new policy actions, train, rank, select a
-winner, compute success-rate verdicts, or claim performance or validation.
+The active next task is M2503: synthesize M2493-M2502 source-only engineering
+diagnostics and choose a bounded next route. It must not execute new policy
+actions, train, rank, select a winner, compute success-rate verdicts, or claim
+performance or validation.
 
 ## Latest Evidence
 
@@ -366,6 +367,15 @@ M2501:
   rejected claims: performance validation ranking paper FW-vs-GRU self-ID
   route: result audit before repair synthesis or claim escalation
   external simulation installed/imported/executed: false
+
+M2502:
+  decision: accept_source_only_baseline_comparison_route_to_branch_synthesis
+  accepted evidence: M2501 diagnostic comparison artifacts
+  accepted scope: source-only engineering diagnostics only
+  rejected claims: behavior performance success-rate validation ranking paper FW-vs-GRU self-ID
+  route: branch synthesis before another metric artifact or claim escalation
+  new policy action: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -399,7 +409,8 @@ audits and accepts that boundary, then routes to baseline comparison protocol
 design rather than direct ranking or verdict claims. M2500 defines that
 protocol and keeps the next implementation preflight diagnostic-only. M2501
 implements the diagnostic comparison artifact but still does not rank
-controllers or prove driver performance.
+controllers or prove driver performance. M2502 audits and accepts the artifact
+only as engineering diagnostics, then routes to branch synthesis.
 ```
 
 Blocked claims:
@@ -419,21 +430,24 @@ training repair success
 
 ## Immediate Next Step
 
-M2502 should audit the bounded source-only baseline comparison preflight from:
+M2503 should synthesize the engineering-controller source-only metric panel branch from:
 
 ```text
+docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md
 docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md
 runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json
-runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv
 runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv
 docs/m2500-engineering-controller-source-only-baseline-comparison-design.md
-experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json
+docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md
+docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md
+docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md
+docs/post-m2470-route-plan.md
 ```
 
-The audit should verify row counts, reset digest gates, actor/action contract
-gates, diagnostic-only panel rows, and rejected interpretations. It must not
-install, import, or run external high-fidelity simulation, execute new policy
-action, train, replay, use PPO, rank controllers, select a winner, promote a
-checkpoint, compute success-rate verdicts, or claim high-fidelity validation,
-current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
-level-3 self-identification.
+The synthesis should answer evidence summary, supported claims, falsified or
+unsupported claims, failure taxonomy, public-gate overfit risk, and next branch
+decision. It must not install, import, or run external high-fidelity simulation,
+execute new policy action, train, replay, use PPO, rank controllers, select a
+winner, promote a checkpoint, compute success-rate verdicts, or claim
+high-fidelity validation, current-sim verdict, paper-level evidence,
+finite-window-vs-GRU evidence, or level-3 self-identification.

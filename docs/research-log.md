@@ -45372,3 +45372,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2501: `false`
 - follow-up manifest: `experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json`
 - next: `m2502-engineering-controller-source-only-baseline-comparison-result-audit`
+
+## M2502 Engineering Controller Source-Only Baseline Comparison Result Audit
+
+- status: completed
+- decision: `accept_source_only_baseline_comparison_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json`
+- doc: `docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md`
+- audited summary: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json`
+- audited telemetry rows: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv`
+- audited controller-role metric panel: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv`
+- accepted evidence: M2501 source-only diagnostic comparison pass with 3 subjects, 3 roles, 9 resets, 900 telemetry rows, 9 role-subject panel rows, reset digests matching within role and differentiated across roles, observation/action `72/3`, finite bounded actions, backend `running`, wheel diagnostic count `4`, and diagnostic-only panel rows
+- accepted claim: source-only comparison artifacts are acceptable diagnostic engineering telemetry for branch synthesis
+- rejected claims: no driver performance, role-specific success, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: synthesize M2493-M2502 before another source-only metric artifact or claim escalation
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2502: `false`
+- follow-up manifest: `experiments/manifests/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.json`
+- next: `m2503-engineering-controller-source-only-metric-panel-branch-synthesis`
