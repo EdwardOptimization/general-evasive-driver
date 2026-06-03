@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2591,
+    "completed": 2592,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit",
+    "task_id": "m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md",
-    "command_log": "docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md"
+    "run_dir": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+    "command_log": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 25810,
+    "id": "m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design",
+    "kind": "infrastructure",
+    "priority": 25820,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2584/M2585 HF3 validation platform/protocol readiness materialization evidence before choosing source-only adapter readiness blocker design repair pivot or stop.",
-    "command": "see experiments/manifests/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.json",
-    "success_artifact": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize M2584/M2585 evidence and decide source-only adapter readiness blocker design platform-dependency repair artifact/contract repair branch synthesis pivot or stop without platform selection validation protocol readiness validation admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Design bounded HF3 source-only adapter readiness blocker artifacts after accepted platform/protocol materialization synthesis.",
+    "command": "see experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json",
+    "success_artifact": "docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md",
+    "notes": "Pending: design external state extraction time-step/actuator latency failure/status taxonomy source-only fixture smoke lineage actor-visibility claim-boundary and gate artifacts without platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T232833Z"
+  "updated_at_utc": "20260603T233409Z"
 }

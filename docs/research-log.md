@@ -46763,3 +46763,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium-high because static platform/protocol skeleton rows can be overclaimed as validation protocol readiness or platform selection
 - follow-up manifest: `experiments/manifests/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.json`
 - next: `m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis`
+
+## M2586 Engineering Controller Route A Baseline HF3 Validation Platform/Protocol Readiness Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_source_only_adapter_readiness_blocker_design`
+- manifest: `experiments/manifests/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md`
+- parent audit: `docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md`
+- accepted evidence: M2584/M2585 platform/protocol materialization evidence with 3 platform rows 3 dependency rows 2 protocol skeleton rows 7 source-only adapter prerequisite rows 2 actor/action guard rows 14 claim rows and 10 gates pass
+- supported operational claims: platform/protocol readiness design materialized and source-only adapter blockers explicitly identified
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- remaining blockers: external state extraction boundary time-step/actuator latency contract failure/status taxonomy mapping and source-only fixture smoke lineage
+- public-gate overfit risk: high because M2583-M2586 are static validation-layer process steps without new closed-loop driver behavior evidence
+- next route: source-only adapter readiness blocker design only, not platform selection or validation execution
+- follow-up manifest: `experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json`
+- next: `m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design`
