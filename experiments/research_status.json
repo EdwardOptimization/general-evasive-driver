@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2586,
+    "completed": 2587,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight",
+    "task_id": "m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2580_engineering_controller_route_a_hf3_validation_admission/summary.json",
-    "command_log": "runs/m2580_engineering_controller_route_a_hf3_validation_admission/summary.json"
+    "run_dir": "docs/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.md",
+    "command_log": "docs/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit",
+    "id": "m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis",
     "kind": "gate",
-    "priority": 25760,
+    "priority": 25770,
     "status": "pending",
-    "hypothesis": "Audit the M2580 Route A HF3 validation-admission materialization before validation admission readiness/result or performance interpretation.",
-    "command": "see experiments/manifests/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.json",
-    "success_artifact": "docs/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.md",
-    "notes": "Pending: audit M2580 admission request criteria external-platform readiness evidence-sufficiency actor/action guard claim-boundary and gate artifacts without external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Synthesize accepted M2580/M2581 HF3 validation-admission materialization evidence before choosing platform/protocol readiness design repair pivot or stop.",
+    "command": "see experiments/manifests/m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis.json",
+    "success_artifact": "docs/m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis.md",
+    "notes": "Pending: synthesize M2580/M2581 admission materialization evidence without external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T224444Z"
+  "updated_at_utc": "20260603T225407Z"
 }

@@ -1,0 +1,121 @@
+# m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T225443Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_hf3_validation_admission_materialization_route_to_result_synthesis
+- Decision reason: M2581 accepts M2580 HF3 validation-admission materialization status_pass true 2 admission requests 12 criteria rows 3 external-platform rows 7 evidence-sufficiency rows 2 actor/action guard rows 12 claim rows and 9 gates pass no validation admission validation execution external simulation ranking driver performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2580 HF3 validation-admission materialization while preserving actor contract integrity candidate-status honesty and no validation ranking or performance boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2580_engineering_controller_route_a_hf3_validation_admission/summary.json, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_validation_admission_request_rows.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_admission_criteria_rows.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_external_platform_readiness_rows.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_evidence_sufficiency_rows.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_actor_action_guard_rows.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/hf3_claim_boundary_checks.csv, runs/m2580_engineering_controller_route_a_hf3_validation_admission/validation_admission_gate_matrix.csv, docs/m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight.md, docs/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.md, docs/m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis.md, runs/m2576_engineering_controller_route_a_hf3_validation_readiness_boundary/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight.json, experiments/manifests/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.json, experiments/manifests/m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis.json
+- parent_objective: audit the M2580 Route A HF3 validation-admission materialization artifacts before validation admission readiness result or performance interpretation
+- derived_from: m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight, m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design, m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis, m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight
+- blocked_by: M2580 materialized validation-admission preflight artifacts that must be audited before interpretation, M2580 supports only admission design materialization and rejects validation admission readiness result ranking and driver-performance claims, Route C requires audited admission boundaries before any external validation execution or HF4 discrepancy result
+- supersedes: interpreting M2580 admission request rows as validation admission, claiming validation readiness or driver performance from M2580 artifacts, starting external high-fidelity validation before M2580 admission evidence is audited, silently upgrading admission preflight rows to validation-admitted rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.md exists
+- audit verifies M2580 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- audit verifies M2580 admission request criteria external-platform evidence-sufficiency actor/action guard claim-boundary and gate artifacts exist
+- audit verifies two admission request rows twelve criteria rows three external-platform rows seven evidence-sufficiency rows two actor/action guard rows twelve claim rows and nine gates pass
+- audit verifies M2580 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- audit verifies M2580 made no validation admission validation execution external simulation training replay PPO ranking winner success-rate promotion validation result driver-performance or verdict claim
+- audit registers result synthesis validation-readiness design artifact repair contract repair platform-dependency repair mapping repair or branch synthesis without validation admission readiness result or performance claims
+
+## Failure Criteria
+
+- M2581 installs imports or runs Chrono or another external simulator
+- M2581 changes actor input or action contract
+- M2581 injects hidden or oracle actor features
+- M2581 steps an environment runs policy action or executes rollout
+- M2581 starts training
+- M2581 treats M2580 admission rows as driver performance
+- M2581 ranks controller families or selects a winner
+- M2581 computes success rate or promotes a checkpoint
+- M2581 claims validation admission readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2581 must audit M2580 summary admission request criteria external-platform readiness evidence-sufficiency actor/action guard claim-boundary and gate matrix artifacts
+- M2581 must verify M2580 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- M2581 must verify two admission request rows twelve admission criteria rows three external-platform rows seven evidence-sufficiency rows two actor/action guard rows twelve claim-boundary rows and nine gates pass
+- M2581 must verify M2580 preserved P0 observation shape 72 action shape 3 no hidden or oracle actor input and no actor-visible diagnostics labels backend status reset outcome rollout outcome or validation outcome
+- M2581 must verify M2580 did not grant validation admission execute validation run external simulation install import mutate dependencies rank controllers select winners promote checkpoints compute success rates or claim driver performance
+- M2581 must register result synthesis artifact repair contract repair platform-dependency repair mapping repair branch synthesis pivot or stop as the next route without validation admission readiness result or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute reset in the audit
+- do not execute policy actions in the audit
+- do not step environments in the audit
+- do not execute rollout in the audit
+- do not execute validation in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes or validation outcomes to actor input
+- do not silently upgrade candidate rows to validation-admitted rows
+- do not answer HF4 discrepancy questions
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim rollout success
+- do not claim validation admission
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2580 artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2581-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_hf3_validation_admission_materialization_route_to_result_synthesis
+- reason: M2581 accepts M2580 HF3 validation-admission materialization status_pass true 2 admission requests 12 criteria rows 3 external-platform rows 7 evidence-sufficiency rows 2 actor/action guard rows 12 claim rows and 9 gates pass no validation admission validation execution external simulation ranking driver performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis
