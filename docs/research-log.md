@@ -45300,3 +45300,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2497: `false`
 - follow-up manifest: `experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json`
 - next: `m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun`
+
+## M2498 Engineering Controller Parameterized Source-Only Role Metric Panel Rerun
+
+- status: completed
+- result_class: `engineering_controller_parameterized_source_only_role_metric_panel_pass`
+- manifest: `experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json`
+- doc: `docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md`
+- implementation: `src/autodrift/hf0_source_only_role_metric_panel.py`
+- summary: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json`
+- telemetry rows: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv`
+- role metric panel: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv`
+- checkpoint admission: obs/action `72/3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- panel result: parameterized fixtures `true`, fixtures `3`, resets `3`, deterministic policy-action telemetry rows `300`, role metric rows `3`, horizon `100` per fixture, all observations shape `72`, all actions shape `3`, all actions finite and within bounds, backend statuses all `running`, wheel diagnostic count `4` on every row
+- reset digest gate: role reset observation digests differentiated with unique count `3` (`stable_aes=be74fec0227f041e`, `drift_required_recovery=ca4fed8c6285ef14`, `unavoidable_mitigation=eff1d7f164d537cb`)
+- key finding: role metrics are no longer identical; max abs y by role stable_aes `8.874552706111096`, drift_required_recovery `9.186174406522152`, unavoidable_mitigation `4.35557577943488`
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2498: `false`
+- follow-up manifest: `experiments/manifests/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.json`
+- next: `m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2503,
+    "completed": 2504,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit",
+    "task_id": "m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md"
+    "run_dir": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel",
+    "command_log": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json"
   },
   "next_task": {
-    "id": "m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun",
-    "kind": "infrastructure",
-    "priority": 24930,
+    "id": "m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit",
+    "kind": "gate",
+    "priority": 24940,
     "status": "pending",
-    "hypothesis": "Rerun source-only role metric panel on M2496 differentiated role fixtures.",
-    "command": "see experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json",
-    "success_artifact": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
-    "notes": "Pending: execute deterministic policy telemetry on parameterized fixtures no external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit M2498 parameterized source-only role metric panel before comparison repair or synthesis.",
+    "command": "see experiments/manifests/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.json",
+    "success_artifact": "docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md",
+    "notes": "Pending: audit parameterized telemetry and nonidentical role metrics route bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T092018Z"
+  "updated_at_utc": "20260603T092804Z"
 }

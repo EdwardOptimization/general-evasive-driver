@@ -16,29 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
+m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
 ```
 
 Latest attempted milestone:
 
 ```text
-m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
+m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
+m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit
 ```
 
 Current route:
 
 ```text
-M2497 accepts the M2496 reset-only source-only role fixture parameterization
-artifacts and routes to a parameterized nonverdict source-only role metric panel
-rerun. The reset-only fixture differentiation blocker is resolved at the
-infrastructure level, but no behavior or performance claim is supported yet.
+M2498 reruns the source-only role metric panel on the M2496 differentiated
+fixtures. It produces 300 deterministic policy-action telemetry rows and 3
+diagnostic-only role metric rows with differentiated reset digests and
+nonidentical role metrics. The next task should audit this before any
+comparison, repair, synthesis, or claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,15 +47,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2497 did not install, import, or run an external high-fidelity simulator. It
-did not run new policy action, measured validation, training, replay, PPO,
-controller ranking, winner selection, success-rate computation, or any paper/
-FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
+M2498 did not install, import, or run an external high-fidelity simulator. It
+did not run measured validation, training, replay, PPO, controller ranking,
+winner selection, success-rate computation, or any paper/FW-vs-GRU/self-ID/
+current-sim/high-fidelity validation verdict.
 
-The active next task is M2498: rerun the source-only role metric panel on the
-M2496 differentiated fixtures. It may execute deterministic policy actions only
-to write telemetry and nonverdict role metrics. It must not train, rank, select
-a winner, compute success-rate verdicts, or claim performance or validation.
+The active next task is M2499: audit M2498 parameterized telemetry and
+nonidentical role metrics. It must not execute new policy actions, train, rank,
+select a winner, compute success-rate verdicts, or claim performance or
+validation.
 
 ## Latest Evidence
 
@@ -320,6 +321,19 @@ M2497:
   rejected claims: behavior performance success-rate validation ranking paper FW-vs-GRU self-ID
   route: parameterized source-only nonverdict role metric panel rerun
   external simulation installed/imported/executed: false
+
+M2498:
+  result_class: engineering_controller_parameterized_source_only_role_metric_panel_pass
+  parameterized fixtures: true
+  telemetry rows / role panel rows: 300 / 3
+  checkpoint obs/action/encoder/horizon: 72 / 3 / human_view_online_gru / 1
+  role reset digests unique: 3
+  row gates: observation 72 action 3 finite bounded running wheel_count_4
+  role metric status: nonidentical diagnostic-only rows
+  max abs y by role: stable_aes 8.874552706111096 drift_required_recovery 9.186174406522152 unavoidable_mitigation 4.35557577943488
+  rejected claims: performance validation ranking paper FW-vs-GRU self-ID
+  route: result audit before comparison repair synthesis or claim escalation
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -346,7 +360,9 @@ are not yet differentiated. M2494 audits that finding and routes to fixture
 parameterization design. M2495 defines that parameterization contract and keeps
 the next step reset-only. M2496 implements that reset-only differentiation.
 M2497 audits and accepts the reset-only differentiation. These do not prove
-driver capability.
+driver capability. M2498 reruns the nonverdict role metric panel on the
+differentiated fixtures, producing role telemetry that is now interpretable as
+source-only engineering diagnostics but still not performance evidence.
 ```
 
 Blocked claims:
@@ -366,19 +382,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2498 should rerun the source-only role metric panel from:
+M2499 should audit the parameterized source-only role metric panel from:
 
 ```text
-docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md
-experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json
-src/autodrift/hf0_source_only_role_metric_panel.py
-src/autodrift/hf0_source_only_role_fixture_parameterization.py
+docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md
+runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json
+runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv
+runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv
 ```
 
-The rerun should use `--use-parameterized-role-fixtures`, write telemetry and a
-diagnostic role metric panel, and verify reset digests are differentiated. It
-must preserve the actor/input contract and must not install, import, or run
-external high-fidelity simulation, train, replay, use PPO, rank controllers,
+The audit should verify parameterized fixture usage, differentiated reset
+digests, row gates, and nonverdict claim boundaries. It must preserve the
+actor/input contract and must not install, import, or run external high-fidelity
+simulation, execute new policy action, train, replay, use PPO, rank controllers,
 select a winner, promote a checkpoint, compute success-rate verdicts, or claim
 high-fidelity validation, current-sim verdict, paper-level evidence,
 finite-window-vs-GRU evidence, or level-3 self-identification.

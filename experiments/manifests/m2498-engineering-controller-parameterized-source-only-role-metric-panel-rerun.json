@@ -182,7 +182,7 @@
   "commands": [
     {
       "name": "parameterized_role_metric_panel",
-      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_role_metric_panel --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel --horizon-steps 100 --use-parameterized-role-fixtures"
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_role_metric_panel --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel --horizon-steps 100 --use-parameterized-role-fixtures --milestone m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun --next-blocker m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit"
     }
   ],
   "required_artifacts": [
