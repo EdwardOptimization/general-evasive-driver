@@ -1,0 +1,230 @@
+{
+  "id": "m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md",
+      "docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_route_role_mapping.csv",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_surface_fixture_binding.csv",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_metadata_boundary_checks.csv",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_pilot_admission_guard_rows.csv",
+      "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/materialization_gate_matrix.csv",
+      "docs/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json",
+      "experiments/manifests/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.json",
+      "experiments/manifests/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design a bounded Route A HF3 low-cost pilot preflight after accepted HF2 scenario taxonomy mapping synthesis"
+    ],
+    "derived_from": [
+      "m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis",
+      "m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit",
+      "m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight",
+      "m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design"
+    ],
+    "blocked_by": [
+      "M2558 selects HF3 low-cost pilot design while rejecting validation and driver-performance claims",
+      "M2556/M2557 keep all HF3 pilot admission claims false until explicit reset and rollout feasibility gates exist",
+      "Route C requires single-role stable avoidable and stable AES pilot design before any external simulation execution"
+    ],
+    "supersedes": [
+      "starting HF3 pilot execution directly from HF2 taxonomy rows",
+      "treating baseline/reference rows as admitted pilots",
+      "claiming high-fidelity validation readiness from taxonomy mapping",
+      "ranking or promoting controllers from pilot design artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+  "public_gates": [
+    "M2559 must design a bounded HF3 low-cost pilot materialization/preflight after M2558 synthesis",
+    "M2559 must define M2560 artifacts for pilot candidate rows reset-feasibility rows rollout-feasibility rows external-backend boundary rows claim-boundary rows and gate matrix",
+    "M2559 must include stable avoidable/AEB-feasible and stable AES/AEB-infeasible candidate definitions without granting pilot admission",
+    "M2559 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2559 must keep taxonomy labels feasibility classes pilot-candidate statuses reset feasibility statuses and rollout feasibility statuses out of actor-visible inputs",
+    "M2559 must require reset feasibility before rollout feasibility and rollout feasibility before any validation or controller-family verdict",
+    "M2559 must keep high-fidelity validation readiness driver-performance controller ranking success-rate paper finite-window-vs-GRU current-sim and self-ID claims out of scope",
+    "M2559 must not execute new policy actions step environments install import or run external high-fidelity simulation train replay PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute policy actions in the design milestone",
+    "do not step environments in the design milestone",
+    "do not train in the design milestone",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes pilot-candidate statuses reset feasibility statuses or rollout feasibility statuses to actor input",
+    "do not silently upgrade baseline_reference diagnostic_reference_only or materialization_candidate rows to pilot-admitted rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from pilot design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_low_cost_pilot_design",
+    "evidence_increment": "designs bounded HF3 low-cost pilot preflight artifacts after accepted HF2 taxonomy mapping synthesis",
+    "claim_scope": "HF3 low-cost pilot design only; no external simulator execution, new policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, current-sim, high-fidelity, or validation verdict claim",
+    "stop_condition": [
+      "stop if the design requires actor input or action contract changes",
+      "stop if labels feasibility classes or feasibility statuses would enter actor-visible inputs",
+      "stop if baseline/reference rows would be silently admitted as pilots",
+      "stop if the design would install import or run external high-fidelity simulation",
+      "stop if the design would claim validation readiness or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if HF3 candidate design cannot preserve P0 72/3",
+      "route to mapping repair if stable avoidable or stable AES candidate status is ambiguous",
+      "route to artifact repair if M2556/M2557/M2558 source evidence is incomplete",
+      "route to branch synthesis pivot or stop if no bounded HF3 materialization remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2558 selected continue_to_hf3_low_cost_pilot_design after accepted HF2 taxonomy mapping evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 low-cost pilot design",
+    "admission_evidence": [
+      "M2558 synthesis continues to HF3 low-cost pilot design without validation or performance claims",
+      "M2557 audit accepts M2556 HF2 taxonomy mapping while rejecting HF3 pilot admission",
+      "M2556 materialized five role rows ten binding rows seven metadata-boundary checks five pilot-admission guards and seven gates pass",
+      "Post-M2470 Route C lists HF3 low-cost pilot after HF2 scenario taxonomy mapping"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no policy action in design",
+      "no environment stepping in design",
+      "no training in design",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from design"
+    ],
+    "allowed_updates": [
+      "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+      "M2559 status queue scoreboard research log and review",
+      "one follow-up M2560 HF3 low-cost pilot materialization/preflight artifact repair contract repair mapping repair branch synthesis pivot or stop manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "stable avoidable and stable AES pilot candidate rows are specified without pilot admission",
+      "reset-feasibility and rollout-feasibility preflight rows are specified",
+      "external-backend boundary and claim-boundary checks are specified without install import run",
+      "M2560 materialization/preflight is registered",
+      "no validation performance ranking or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2559 designs HF3 low-cost pilot preflight and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2559; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2558 HF2 taxonomy mapping result synthesis.",
+    "negative_result_policy": "If HF3 pilot cannot be designed without weakening actor or claim boundaries, route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 low-cost pilot design",
+      "no high-fidelity validation result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs the first HF3 pilot preflight after accepted HF2 taxonomy mapping instead of adding another HF2 artifact",
+    "paper_verdict_delta": "does not decide paper verdict but prepares reset/rollout feasibility boundaries required before any high-fidelity pilot execution",
+    "must_synthesize_if": [
+      "M2559 cannot define M2560 materialization without external simulator execution",
+      "M2559 would claim validation readiness or driver performance",
+      "M2559 would rank or promote controllers",
+      "another design-only milestone is proposed after M2559 without materialization or synthesis"
+    ]
+  },
+  "hypothesis": "A bounded design can specify HF3 low-cost pilot preflight artifacts and gates after accepted HF2 taxonomy evidence without executing simulation, changing actor inputs, or claiming validation.",
+  "success_criteria": [
+    "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md exists",
+    "design defines stable avoidable/AEB-feasible and stable AES/AEB-infeasible pilot candidate rows without pilot admission",
+    "design defines reset-feasibility preflight rows",
+    "design defines rollout-feasibility preflight rows",
+    "design defines external-backend boundary and claim-boundary checks without install import run",
+    "design defines M2560 required artifacts and pass/fail gates",
+    "design registers M2560 HF3 low-cost pilot materialization/preflight or repair/synthesis route without validation or performance claims"
+  ],
+  "failure_criteria": [
+    "M2559 installs imports or runs Chrono or another external simulator",
+    "M2559 changes actor input or action contract",
+    "M2559 injects hidden or oracle actor features",
+    "M2559 exposes labels feasibility classes or reset/rollout feasibility statuses to actor input",
+    "M2559 silently admits baseline/reference rows as pilots",
+    "M2559 executes new policy action or rollout",
+    "M2559 starts training",
+    "M2559 treats design as driver performance",
+    "M2559 ranks controller families or selects a winner",
+    "M2559 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md",
+    "docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_pilot_admission_guard_rows.csv",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_surface_fixture_binding.csv",
+    "experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json",
+    "experiments/manifests/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2559 passes if it designs bounded HF3 low-cost pilot artifacts and gates with M2560 follow-up while preserving actor contract boundaries support-status honesty and making no external simulation, policy rollout, training, ranking, winner selection, success-rate, promotion, validation, driver-performance, paper, finite-window-vs-GRU, current-sim, high-fidelity validation, or self-ID claims.",
+  "next_blocker": "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight"
+}

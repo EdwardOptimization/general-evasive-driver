@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2563,
+    "completed": 2564,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit",
+    "task_id": "m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md",
-    "command_log": "docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md"
+    "run_dir": "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md",
+    "command_log": "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis",
-    "kind": "gate",
-    "priority": 25530,
+    "id": "m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design",
+    "kind": "infrastructure",
+    "priority": 25540,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2556/M2557 HF2 taxonomy mapping evidence before choosing HF3 pilot design repair pivot or stop.",
-    "command": "see experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json",
-    "success_artifact": "docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md",
-    "notes": "Pending: synthesize HF2 taxonomy mapping evidence and choose HF3 low-cost pilot design artifact repair contract repair mapping repair branch synthesis pivot or stop without validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Design bounded Route A HF3 low-cost pilot preflight artifacts and gates after accepted HF2 taxonomy mapping synthesis.",
+    "command": "see experiments/manifests/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.json",
+    "success_artifact": "docs/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.md",
+    "notes": "Pending: design HF3 low-cost pilot candidate reset-feasibility rollout-feasibility external-boundary claim-boundary and gate artifacts without external simulation policy actions validation driver-performance ranking or self-ID claims"
   },
-  "updated_at_utc": "20260603T194518Z"
+  "updated_at_utc": "20260603T195329Z"
 }

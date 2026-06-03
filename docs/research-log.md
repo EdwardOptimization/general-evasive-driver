@@ -46433,3 +46433,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2556/M2557 do not repair behavior or evaluate scenario success
 - follow-up manifest: `experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json`
 - next: `m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis`
+
+## M2558 Engineering Controller Route A Baseline HF2 Scenario Taxonomy Mapping Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_low_cost_pilot_design`
+- manifest: `experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json`
+- synthesis doc: `docs/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.md`
+- parent audit: `docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md`
+- accepted evidence: M2556/M2557 source-level HF2 taxonomy mapping with 5 role rows 10 surface/fixture binding rows 7 metadata-boundary checks 5 pilot guard rows and 7 gates pass
+- guard boundary: support/admission statuses preserved no limited/reference upgrade no metadata label actor leakage no HF3 pilot admission claim P0 `72/3`
+- supported claim: HF2 taxonomy mapping can route to design-only HF3 low-cost pilot preflight with explicit reset/rollout feasibility gates
+- rejected claims: no high-fidelity validation readiness/result, HF3 pilot admission, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- public-gate overfit risk: medium because taxonomy rows can be overclaimed if HF3 design skips reset and rollout feasibility gates
+- follow-up manifest: `experiments/manifests/m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design.json`
+- next: `m2559-engineering-controller-route-a-baseline-hf3-low-cost-pilot-design`
