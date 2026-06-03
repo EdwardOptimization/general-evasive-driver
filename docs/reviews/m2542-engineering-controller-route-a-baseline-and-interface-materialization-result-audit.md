@@ -1,0 +1,113 @@
+# m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T175707Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_route_a_baseline_interface_materialization_route_to_execution_readiness_design
+- Decision reason: M2542 accepts M2541 materialization status_pass true required artifacts present 3 baseline checkpoints admitted actor contract 72/3 9 Route A artifact rows 2 taxonomy extension rows 7 scenario role metric rows 17 HF0 boundary rows no hidden oracle leakage no external simulation action training ranking promotion success-rate verdict validation or driver-performance claims route to M2543 execution-readiness design
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M2541 Route A baseline and HF0 interface materialization while preserving the no-oracle actor contract and preventing static artifacts from being overclaimed as validation or driver performance.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/baseline_checkpoint_list.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/route_a_artifact_map.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/known_failure_taxonomy_extension.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/scenario_role_metric_report_plan.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_boundary_map.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_contract.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/materialization_gate_plan.md, docs/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.md, docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md, docs/post-m2470-route-plan.md, docs/observation-contract.md
+- parent_config: experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json, experiments/manifests/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.json, experiments/manifests/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json
+- parent_objective: audit the M2541 Route A baseline and HF0 interface materialization before any execution readiness design validation routing or driver-performance claim
+- derived_from: m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight, m2540-engineering-controller-route-a-baseline-and-interface-pivot-design, m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis, post-m2470-route-plan
+- blocked_by: M2541 materialized baseline and HF0 interface artifacts but they must be audited before any execution readiness route, Route A baseline evidence must remain diagnostic until audited without ranking winner selection or promotion, HF0 interface boundaries must be checked before any external high-fidelity simulator installation import or run
+- supersedes: starting a trainer directly after M2541 materialization, claiming Route A driver performance from materialization artifacts, running HF validation before the HF0 boundary map is audited
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.md exists
+- audit verifies M2541 summary status_pass true result_class pass and required_artifacts_present true
+- audit verifies M2541 all_baseline_checkpoints_exist true and all_baseline_checkpoints_admitted true
+- audit verifies M2541 actor contract shape 72 action shape 3 no hidden/oracle actor inputs
+- audit verifies M2541 route_a_artifact_map known_failure_taxonomy_extension scenario_role_metric_report_plan and hf0_interface_boundary_map row counts are nonzero and traceable
+- audit verifies M2541 made no external simulation new policy action training ranking winner selection promotion success-rate validation or driver-performance claim
+- audit registers artifact repair contract repair HF0 boundary repair execution-readiness design or branch synthesis without validation or performance claims
+
+## Failure Criteria
+
+- M2542 installs imports or runs Chrono or another external simulator
+- M2542 changes actor input or action contract
+- M2542 injects hidden or oracle actor features
+- M2542 steps an environment or runs policy rollout
+- M2542 starts training
+- M2542 treats M2541 materialization as driver performance
+- M2542 ranks controller families or selects a winner
+- M2542 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+- M2542 registers another public-gate repair loop instead of a broader Route A/HF0 route
+
+## Evidence Gates
+
+- M2542 must audit M2541 summary baseline_checkpoint_list actor_io_contract_snapshot route_a_artifact_map known_failure_taxonomy_extension scenario_role_metric_report_plan hf0_interface_boundary_map hf0_interface_contract and materialization_gate_plan artifacts
+- M2542 must verify M2541 status_pass true result_class pass and required_artifacts_present true
+- M2542 must verify all three baseline checkpoint paths exist and were admitted without ranking winner selection or promotion
+- M2542 must verify P0 observation shape 72 action shape 3 and no hidden/oracle actor inputs
+- M2542 must verify HF0 boundary rows keep diagnostics-only hidden dynamics outside actor-visible fields
+- M2542 must verify M2541 preserved the M2537 partial-proof boundary and did not convert protected proof failure into driver performance
+- M2542 must not install import or run external high-fidelity simulation packages
+- M2542 must not train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not tune only public protected rows
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from M2541 materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_route_a_baseline_interface_materialization_route_to_execution_readiness_design
+- reason: M2542 accepts M2541 materialization status_pass true required artifacts present 3 baseline checkpoints admitted actor contract 72/3 9 Route A artifact rows 2 taxonomy extension rows 7 scenario role metric rows 17 HF0 boundary rows no hidden oracle leakage no external simulation action training ranking promotion success-rate verdict validation or driver-performance claims route to M2543 execution-readiness design
+
+## Next Blocker
+
+m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design

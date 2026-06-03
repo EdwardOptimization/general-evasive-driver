@@ -46172,3 +46172,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no external high-fidelity simulation, new policy action, replay, PPO, training, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.json`
 - next: `m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit`
+
+## M2542 Engineering Controller Route A Baseline And Interface Materialization Result Audit
+
+- status: completed
+- decision: `accept_route_a_baseline_interface_materialization_route_to_execution_readiness_design`
+- manifest: `experiments/manifests/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.json`
+- audit doc: `docs/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.md`
+- audited summary: `runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json`
+- accepted materialization: M2541 `status_pass=true`, `result_class=engineering_controller_route_a_baseline_interface_materialization_pass`, required artifacts present
+- baseline checkpoint audit: `3` checkpoints exist and are admitted; M1154 historical baseline, M2532 diagnostic repair, M2537 diagnostic retained-gate repair; no ranking, winner, or promotion
+- actor contract audit: P0 observation shape `72`, action shape `3`, no hidden/oracle actor inputs, `33` diagnostics-only hidden keys remain outside actor inputs
+- artifact/taxonomy audit: `9` Route A artifact rows and `2` taxonomy extension rows are traceable and preserve the repeated mitigation proof failure and public protected-row overfit risk as known limitations
+- scenario/HF0 audit: `7` scenario-role metric plan rows and `17` HF0 boundary rows; `DIAGNOSTIC_ONLY_KEYS` is actor_visible=false and allowed_for_actor=false
+- M2537 proof boundary preserved: `m2537_status_pass=true`, `m2537_protected_proof_gates_all_passed=false`
+- claim boundary: no external high-fidelity simulation, new policy action, replay, PPO, training, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design.json`
+- next: `m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design`
