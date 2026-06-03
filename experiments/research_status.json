@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2530,
+    "completed": 2531,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit",
+    "task_id": "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md"
+    "command_log": "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis",
-    "kind": "gate",
-    "priority": 25200,
+    "id": "m2526-engineering-controller-failure-surface-intervention-design",
+    "kind": "infrastructure",
+    "priority": 25210,
     "status": "pending",
-    "hypothesis": "Synthesize the bounded measured behavior panel branch after fixed-seed and fresh-seed source-only artifacts passed.",
-    "command": "see experiments/manifests/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.json",
-    "success_artifact": "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
-    "notes": "Pending: synthesize M2521-M2524 measured behavior panel branch decide next Route A branch and avoid another source-only panel without route value no new policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Design a bounded no-oracle intervention for the road-departure mitigation and command-conflict failure surface exposed by M2521-M2525.",
+    "command": "see experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json",
+    "success_artifact": "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+    "notes": "Pending: design road-boundary mitigation and command-conflict intervention path with protected M2521-M2524 regression rows no policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T133837Z"
+  "updated_at_utc": "20260603T134949Z"
 }

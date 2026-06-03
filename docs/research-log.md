@@ -45813,3 +45813,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2524: `false`
 - follow-up manifest: `experiments/manifests/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.json`
 - next: `m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis`
+
+## M2525 Engineering Controller Bounded Measured Behavior Panel Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_engineering_controller_failure_surface_intervention`
+- manifest: `experiments/manifests/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.json`
+- doc: `docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md`
+- evidence window: M2521 fixed-seed measured behavior panel, M2522 audit, M2523 fresh-seed measured behavior panel, M2524 audit
+- accepted evidence: M2521-M2524 produced and accepted a bounded source-only measured behavior denominator with M2521 `900` telemetry rows, `9` measured behavior rows, `9` measured event rows, `40` metric completeness rows; M2523 `15` seed panel rows, five fresh seeds per role, `4500` telemetry rows, `45` measured behavior rows, `45` measured event rows, `40` metric completeness rows, zero denominator gaps, actor contract `72/3`, all metrics supported, false claim flags preserved
+- diagnostic behavior surface: M1154 avoids collision but leaves road in all five `stable_aes` and all five `drift_required_recovery` fresh seeds; M1154 collides and leaves road in all five `unavoidable_mitigation` fresh seeds; simultaneous throttle/brake command conflict is present in all M1154 fresh-seed rows; this is source-only failure-surface evidence only, not ranking or performance
+- supported claim: the measured behavior panel branch is complete enough to route to a failure-surface intervention design rather than another source-only panel
+- falsified local claim: the admitted M1154 actor is ready to freeze as a usable engineering-controller baseline without repair
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: close bounded measured behavior panel branch and promote to engineering-controller failure-surface intervention design
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action in M2525: `false`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2525: `false`
+- follow-up manifest: `experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json`
+- next: `m2526-engineering-controller-failure-surface-intervention-design`
