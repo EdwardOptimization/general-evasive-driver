@@ -1,0 +1,108 @@
+# m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T193440Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_hf2_scenario_taxonomy_mapping_design
+- Decision reason: M2554 synthesis decision continue to HF2 scenario taxonomy mapping design accepts M2552/M2553 as source-level HF1 parity-smoke evidence only P0 coverage 72/72 action 3 diagnostics 33/33 and 8 gates pass no validation readiness driver-performance ranking paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded synthesis can convert accepted HF1 P0 parity-smoke materialization into a clear next HF2 or repair route decision without claiming validation driver performance paper evidence finite-window-vs-GRU or self-ID.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/hf1_actor_visible_field_parity_rows.csv, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/hf1_observation_value_range_checks.csv, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/hf1_action_mapping_parity_checks.csv, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/hf1_external_backend_boundary_checks.csv, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/hf1_diagnostics_exclusion_checks.csv, runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/materialization_gate_matrix.csv, docs/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.md, docs/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.md, docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.json, experiments/manifests/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.json, experiments/manifests/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.json
+- parent_objective: synthesize accepted M2552/M2553 HF1 P0 parity-smoke evidence before choosing HF2 taxonomy mapping repair pivot or stop
+- derived_from: m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit, m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight, m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design, m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis
+- blocked_by: M2553 accepts M2552 as source-level HF1 parity-smoke evidence but rejects validation and performance interpretation, Route C requires a synthesis decision before HF2 scenario taxonomy mapping or any external-backend pilot planning, HF1 interface artifacts must not be overclaimed as high-fidelity validation readiness
+- supersedes: starting HF2 or HF3 directly from M2552 without result synthesis, claiming high-fidelity validation readiness from P0 field parity alone, ranking or promoting Route A policies from parity-smoke artifacts, continuing HF1 infrastructure without a concrete HF2 or repair decision
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis separates source-level parity-smoke readiness from validation driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims
+- synthesis registers HF2 scenario taxonomy mapping design artifact repair contract repair external-boundary repair branch synthesis pivot or stop without validation or performance claims
+- no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2554 installs imports or runs Chrono or another external simulator
+- M2554 changes actor input or action contract
+- M2554 injects hidden or oracle actor features
+- M2554 executes new policy action or rollout
+- M2554 starts training
+- M2554 treats parity-smoke synthesis as driver performance
+- M2554 ranks controller families or selects a winner
+- M2554 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2554 must synthesize M2552 and M2553 HF1 P0 parity-smoke evidence before any HF2 or HF3 route decision
+- M2554 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2554 must separate accepted interface parity-smoke evidence from high-fidelity validation driver-performance controller ranking paper finite-window-vs-GRU current-sim and self-ID claims
+- M2554 must decide whether the next step is HF2 scenario taxonomy mapping design artifact repair contract repair external-boundary repair branch synthesis pivot or stop
+- M2554 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode
+- M2554 must not run new policy actions step environments train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the synthesis milestone
+- do not step environments in the synthesis milestone
+- do not train in the synthesis milestone
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from parity-smoke synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis
+- type: gate
+- checkpoint: docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_hf2_scenario_taxonomy_mapping_design
+- reason: M2554 synthesis decision continue to HF2 scenario taxonomy mapping design accepts M2552/M2553 as source-level HF1 parity-smoke evidence only P0 coverage 72/72 action 3 diagnostics 33/33 and 8 gates pass no validation readiness driver-performance ranking paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design

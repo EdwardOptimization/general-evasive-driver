@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2559,
+    "completed": 2560,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit",
+    "task_id": "m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md",
-    "command_log": "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md"
+    "run_dir": "docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md",
+    "command_log": "docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis",
-    "kind": "gate",
-    "priority": 25490,
+    "id": "m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design",
+    "kind": "infrastructure",
+    "priority": 25500,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2552/M2553 HF1 P0 parity-smoke evidence before choosing HF2 taxonomy mapping repair pivot or stop.",
-    "command": "see experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json",
-    "success_artifact": "docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md",
-    "notes": "Pending: synthesize HF1 parity-smoke evidence and choose HF2 taxonomy mapping design artifact repair contract repair external-boundary repair branch synthesis pivot or stop without validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Design Route A HF2 scenario taxonomy mapping artifacts and gates after accepted HF1 parity-smoke synthesis.",
+    "command": "see experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json",
+    "success_artifact": "docs/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.md",
+    "notes": "Pending: design HF2 role-family mapping surface/fixture binding metadata-only label checks pilot-admission guards and M2556 materialization gates preserving P0 72/3 no label leakage external simulation validation ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T192419Z"
+  "updated_at_utc": "20260603T192900Z"
 }

@@ -46366,3 +46366,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2552/M2553 do not repair behavior or evaluate scenario success
 - follow-up manifest: `experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json`
 - next: `m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis`
+
+## M2554 Engineering Controller Route A Baseline HF1 P0 Parity Smoke Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf2_scenario_taxonomy_mapping_design`
+- manifest: `experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json`
+- synthesis doc: `docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md`
+- parent audit: `docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md`
+- accepted evidence: M2552/M2553 source-level HF1 parity-smoke artifacts with P0 coverage 72/72 5 value-range checks 7 action checks 6 external-boundary checks 33 diagnostics checks and 8 gates pass
+- supporting source material: M2480 two-surface five-role taxonomy matrix and M2482 ten-row fixture catalog, reused only as source material under M2552/M2553 HF1 boundaries
+- supported claim: HF1 parity-smoke readiness can route to Route A HF2 taxonomy mapping design
+- rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- public-gate overfit risk: medium because parity/taxonomy rows can be overclaimed as validation if support statuses are silently upgraded
+- follow-up manifest: `experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json`
+- next: `m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design`
