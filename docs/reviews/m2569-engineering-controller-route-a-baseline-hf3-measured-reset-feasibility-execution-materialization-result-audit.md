@@ -1,0 +1,116 @@
+# m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T211034Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_hf3_measured_reset_only_execution_route_to_result_synthesis
+- Decision reason: M2569 accepts M2568 HF3 reset-only execution observed evidence status_pass true 2 reset requests 2 backend probes 2 reset-only rows 2 actor-view rows 2 outcome rows 8 claim rows and 9 gates pass no reset success rollout validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2568 HF3 measured reset-only execution materialization while preserving actor contract integrity candidate-status honesty and no-ranking or validation boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_request_rows.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_backend_probe_rows.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_execution_rows.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_actor_view_contract_rows.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_reset_outcome_rows.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_claim_boundary_checks.csv, runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/measured_reset_gate_matrix.csv, docs/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.md, docs/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.md, docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json, experiments/manifests/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.json, experiments/manifests/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.json
+- parent_objective: audit the M2568 Route A HF3 measured reset-feasibility execution materialization artifacts before reset success rollout or validation interpretation
+- derived_from: m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight, m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design, m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis, m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight
+- blocked_by: M2568 materialized measured reset-only execution artifacts that must be audited before interpretation, M2568 rows support only reset execution observed and must not become reset success rollout feasibility validation readiness or controller ranking, Route A requires result synthesis after audit before selecting rollout-feasibility design repair pivot or stop
+- supersedes: interpreting M2568 reset-only rows as reset success, claiming rollout feasibility or validation readiness from M2568 reset-only evidence, starting rollout execution before M2568 reset-only evidence is audited, silently upgrading reset candidates to pilot-admitted rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md exists
+- audit verifies M2568 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- audit verifies M2568 reset request backend probe reset-only actor-view reset outcome claim-boundary and gate artifacts exist
+- audit verifies two reset requests two backend probes two reset-only rows two actor-view rows two outcome rows eight claim rows and nine gates pass
+- audit verifies M2568 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- audit verifies M2568 made no pilot admission reset success external simulation policy action step rollout training replay PPO ranking winner success-rate promotion validation driver-performance or verdict claim
+- audit registers result synthesis rollout-feasibility design artifact repair contract repair mapping repair or branch synthesis without validation or performance claims
+
+## Failure Criteria
+
+- M2569 installs imports or runs Chrono or another external simulator
+- M2569 changes actor input or action contract
+- M2569 injects hidden or oracle actor features
+- M2569 steps an environment or runs policy rollout
+- M2569 starts training
+- M2569 treats M2568 reset-only rows as driver performance
+- M2569 ranks controller families or selects a winner
+- M2569 computes success rate or promotes a checkpoint
+- M2569 claims reset success high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2569 must audit M2568 summary reset request backend probe reset-only execution actor-view contract reset outcome claim-boundary and gate matrix artifacts
+- M2569 must verify M2568 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- M2569 must verify two reset requests two backend probes two reset-only execution rows two actor-view rows two outcome rows eight claim-boundary rows and nine gates pass
+- M2569 must verify both reset-only rows observed repo-local backend reset and actor-view availability with P0 observation shape 72 action shape 3
+- M2569 must verify M2568 did not grant pilot admission or allow reset success rollout validation ranking driver-performance paper current-sim high-fidelity validation or self-ID claims
+- M2569 must verify M2568 did not install import or run external high-fidelity simulation and did not execute policy actions environment steps or rollouts
+- M2569 must register result synthesis repair branch synthesis pivot or stop as the next route without validation or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute policy actions in the audit
+- do not step environments in the audit
+- do not execute rollout in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels feasibility classes backend statuses diagnostics or reset outcomes to actor input
+- do not silently upgrade candidate rows to pilot-admitted rows
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim reset success
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from M2568 artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_hf3_measured_reset_only_execution_route_to_result_synthesis
+- reason: M2569 accepts M2568 HF3 reset-only execution observed evidence status_pass true 2 reset requests 2 backend probes 2 reset-only rows 2 actor-view rows 2 outcome rows 8 claim rows and 9 gates pass no reset success rollout validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis

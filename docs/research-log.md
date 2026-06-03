@@ -46614,3 +46614,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.json`
 - next: `m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit`
+
+## M2569 Engineering Controller Route A Baseline HF3 Measured Reset-Feasibility Execution Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_measured_reset_only_execution_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.json`
+- audit doc: `docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md`
+- parent summary: `runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json`
+- accepted evidence: M2568 status_pass true result_class pass with source artifacts present and materialization gates all pass
+- accepted counts: 2 reset requests 2 backend probes 2 reset-only execution rows 2 actor-view contract rows 2 reset outcome rows 8 claim-boundary rows and 9 gates pass
+- guard boundary: reset-only execution observed for both candidates; no reset success no rollout no external simulator install/import/run no policy action no environment step no validation ranking driver-performance or self-ID claim P0 `72/3`
+- supported claim: source-level HF3 reset-only execution evidence is internally consistent and can route to result synthesis
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- open limitation: reset-only execution does not measure closed-loop policy behavior or rollout feasibility
+- follow-up manifest: `experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json`
+- next: `m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis`
