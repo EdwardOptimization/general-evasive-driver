@@ -1,0 +1,111 @@
+# m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T180516Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: route_to_route_a_baseline_source_only_execution_readiness_panel_preflight
+- Decision reason: M2543 designs M2544 source-only Route A execution-readiness panel across 3 policy checkpoints 2 open-loop references 3 roles 5 fresh seeds per role horizon 100 expected 75 measured rows and 7500 telemetry rows preserves 72/3 no oracle no external simulation action training ranking promotion success-rate verdict validation or driver-performance claims
+
+## Hypothesis
+
+A bounded execution-readiness design can convert the accepted M2541/M2542 Route A baseline and HF0 interface materialization into a concrete next evidence-producing panel without changing actor inputs or overclaiming materialization artifacts.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/baseline_checkpoint_list.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/route_a_artifact_map.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/known_failure_taxonomy_extension.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/scenario_role_metric_report_plan.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_boundary_map.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_contract.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/materialization_gate_plan.md, docs/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.json, experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json, experiments/manifests/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.json
+- parent_objective: design the first bounded execution-readiness step after M2542 accepts Route A baseline and HF0 interface materialization
+- derived_from: m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit, m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight, m2540-engineering-controller-route-a-baseline-and-interface-pivot-design, post-m2470-route-plan
+- blocked_by: M2542 accepts materialization but no new behavior evidence has been produced in the post-pivot branch, Route A needs an execution-readiness protocol before running baseline checkpoints in a new panel, HF0 P0 boundary must be respected before any source-only or later high-fidelity smoke
+- supersedes: another static materialization-only milestone, direct training or validation without execution-readiness gates, ranking or promoting baseline checkpoints from materialization artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design.md exists
+- design defines baseline checkpoint subjects roles seeds metrics and denominator completeness for the next evidence-producing panel
+- design preserves P0 observation 72 action 3 and no hidden/oracle actor input boundary
+- design defines HF0 or source-only P0 parity gates before any validation or performance interpretation
+- design registers a follow-up source-only execution-readiness panel HF0 P0 parity smoke artifact repair or branch synthesis route
+- no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made by M2543
+
+## Failure Criteria
+
+- M2543 installs imports or runs Chrono or another external simulator
+- M2543 changes actor input or action contract
+- M2543 injects hidden or oracle actor features
+- M2543 executes new policy action or rollout
+- M2543 starts training
+- M2543 treats design as driver performance
+- M2543 ranks controller families or selects a winner
+- M2543 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+- M2543 registers another static materialization/audit chain without evidence-producing next work
+
+## Evidence Gates
+
+- M2543 must design a bounded execution-readiness step using the accepted M2541 baseline checkpoint list actor contract Route A artifact map scenario-role metric plan and HF0 boundary map
+- M2543 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary
+- M2543 must define which baseline checkpoints subjects roles seeds and metrics will be exercised in the next evidence-producing milestone
+- M2543 must define denominator completeness action-bound backend-status and no-ranking gates before any success-rate or validation interpretation
+- M2543 must explicitly route to a next milestone that produces new panel or closed-loop evidence or route to branch synthesis if it cannot
+- M2543 must not install import or run external high-fidelity simulation packages
+- M2543 must not train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the design milestone
+- do not train in the design milestone
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not tune only public protected rows
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from execution-readiness design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design
+- type: infrastructure
+- checkpoint: docs/m2543-engineering-controller-route-a-baseline-and-interface-execution-readiness-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_route_a_baseline_source_only_execution_readiness_panel_preflight
+- reason: M2543 designs M2544 source-only Route A execution-readiness panel across 3 policy checkpoints 2 open-loop references 3 roles 5 fresh seeds per role horizon 100 expected 75 measured rows and 7500 telemetry rows preserves 72/3 no oracle no external simulation action training ranking promotion success-rate verdict validation or driver-performance claims
+
+## Next Blocker
+
+m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight
