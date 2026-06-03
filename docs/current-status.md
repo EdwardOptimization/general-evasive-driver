@@ -16,51 +16,49 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2474-high-fidelity-interface-current-sim-adapter-smoke
+m2475-high-fidelity-interface-external-backend-route-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2474-high-fidelity-interface-current-sim-adapter-smoke
+m2475-high-fidelity-interface-external-backend-route-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2475-high-fidelity-interface-external-backend-route-design
+m2476-high-fidelity-interface-external-backend-dependency-api-audit
 ```
 
 Current route:
 
 ```text
-M2474 completed the HF0 current-sim adapter smoke selected by M2473. It wraps
-AutoDriftEnv through CurrentSimDynamicsBackend, reconstructs ActorView from the
-canonical P0 observation, and re-extracts the P0 frame through
-P0ObservationExtractor to verify backend-boundary parity.
+M2475 completed the external-backend route design selected after the M2474
+current-sim adapter smoke. It chooses a dependency/API audit before any
+external backend adapter implementation, install, import, simulation, or
+validation route.
 ```
 
-The M2474 summary reports seed count `3`, bounded current-sim reset count `3`,
-bounded step count `6`, observation shape `72`, action shape `3`, P0 extractor
-shape `72`, canonical P0 config `true`, and max extractor parity error
-`5.960464477539063e-08`. All contract flags remain false: actor input
-unchanged, action contract unchanged, hidden values excluded, oracle labels
-excluded, and diagnostics unavailable to actor observation extraction.
+The selected primary direction is an open, auditable high-fidelity vehicle
+dynamics layer, with the Chrono/Chrono::Vehicle family as the preferred
+candidate direction from `docs/post-m2470-route-plan.md`. M2475 does not claim
+that Chrono is installed, importable, API-compatible, or selected for
+validation. The selected fallback is a source-only `FourWheelDriftModel`
+adapter preflight if external dependency/API audit is not locally admissible.
 
-M2474 did not import or run an external high-fidelity simulator. It did not run
-measured validation, policy evaluation, training, replay, PPO, controller
-ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-sim/high-
-fidelity validation verdict. The current-sim reset/step counts are bounded
-adapter-smoke counts only.
+M2475 did not install, import, or run an external high-fidelity simulator. It
+did not run measured validation, policy evaluation, training, replay, PPO,
+controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
+sim/high-fidelity validation verdict.
 
-The active next task is M2475: design the bounded external-backend route after
-HF0 contract and current-sim adapter smoke evidence. M2475 must select an
-implementation/preflight route while preserving the P0 `72`-value observation
-contract, the three-dimensional `[steer, throttle, brake]` action contract, and
-the diagnostics/actor-input split. It must not install, import, or run external
-high-fidelity simulation, train, rank controllers, select winners, or make
-validation/paper verdict claims.
+The active next task is M2476: audit external backend dependency, licensing,
+build, import, and API feasibility before implementation. M2476 must preserve
+P0 observation shape `72`, action shape `3`, and diagnostics separation as
+admission criteria. It must not install, import, or run external high-fidelity
+simulation, train, rank controllers, select winners, or make validation/paper
+verdict claims.
 
 ## Latest Evidence
 
@@ -111,6 +109,12 @@ M2474:
   max extractor parity error: 5.960464477539063e-08
   actor/action contract changed: false
   hidden/oracle diagnostics enter actor input: false
+
+M2475:
+  decision: external_backend_route_to_dependency_api_audit
+  primary direction: open auditable high-fidelity backend route
+  fallback direction: source-only four-wheel adapter preflight
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -118,9 +122,9 @@ M2474:
 Allowed claim:
 
 ```text
-The HF0 interface boundary now has checked local contract primitives and a
-current-sim adapter smoke that preserve the canonical P0 actor/action contract
-and keep diagnostics outside actor input.
+The HF0 interface boundary has checked local contract primitives, a current-sim
+adapter smoke, and a bounded external-backend route design that preserve the
+canonical P0 actor/action contract and keep diagnostics outside actor input.
 ```
 
 Blocked claims:
@@ -140,7 +144,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2475 should design the external-backend route from:
+M2476 should audit external backend dependency/API feasibility from:
 
 ```text
 docs/post-m2470-route-plan.md
@@ -149,12 +153,13 @@ docs/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.md
 runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json
 docs/m2474-high-fidelity-interface-current-sim-adapter-smoke.md
 runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json
+docs/m2475-high-fidelity-interface-external-backend-route-design.md
 ```
 
-The design must select a bounded next implementation or preflight route while
-preserving P0 observation shape `72`, action shape `3`, and diagnostics
-separation. It must not install, import, or run external high-fidelity
-simulation, execute policy rollout, train, replay, use PPO, rank controllers,
-select a winner, or claim high-fidelity validation, current-sim verdict,
-paper-level evidence, finite-window-vs-GRU evidence, or level-3 self-
-identification.
+The audit must answer dependency, licensing, build, import, and API feasibility
+for the selected external backend route and register either a bounded external
+adapter scaffold/preflight or source-only fallback. It must not install, import,
+or run external high-fidelity simulation, execute policy rollout, train, replay,
+use PPO, rank controllers, select a winner, or claim high-fidelity validation,
+current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
+level-3 self-identification.

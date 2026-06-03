@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2480,
+    "completed": 2481,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2474-high-fidelity-interface-current-sim-adapter-smoke",
+    "task_id": "m2475-high-fidelity-interface-external-backend-route-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke",
-    "command_log": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2475-high-fidelity-interface-external-backend-route-design.md"
   },
   "next_task": {
-    "id": "m2475-high-fidelity-interface-external-backend-route-design",
+    "id": "m2476-high-fidelity-interface-external-backend-dependency-api-audit",
     "kind": "infrastructure",
-    "priority": 24700,
+    "priority": 24710,
     "status": "pending",
-    "hypothesis": "Design the next bounded external-backend implementation route after HF0 current-sim adapter smoke without installing or running external simulation.",
-    "command": "see experiments/manifests/m2475-high-fidelity-interface-external-backend-route-design.json",
-    "success_artifact": "docs/m2475-high-fidelity-interface-external-backend-route-design.md",
-    "notes": "Pending: select bounded external-backend route preserving obs 72 action 3 diagnostics separation no external simulation import training ranking winner verdict claims"
+    "hypothesis": "Audit external backend dependency licensing build import and API feasibility before implementation while preserving HF0 contracts.",
+    "command": "see experiments/manifests/m2476-high-fidelity-interface-external-backend-dependency-api-audit.json",
+    "success_artifact": "docs/m2476-high-fidelity-interface-external-backend-dependency-api-audit.md",
+    "notes": "Pending: dependency API audit only no install import simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T062954Z"
+  "updated_at_utc": "20260603T063714Z"
 }

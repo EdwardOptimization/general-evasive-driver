@@ -44917,3 +44917,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - high-fidelity simulation/import/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2474: `false`
 - follow-up manifest: `experiments/manifests/m2475-high-fidelity-interface-external-backend-route-design.json`
 - next: `m2475-high-fidelity-interface-external-backend-route-design`
+
+## M2475 High-Fidelity Interface External Backend Route Design
+
+- status: completed
+- decision: `external_backend_route_to_dependency_api_audit`
+- manifest: `experiments/manifests/m2475-high-fidelity-interface-external-backend-route-design.json`
+- doc: `docs/m2475-high-fidelity-interface-external-backend-route-design.md`
+- parent adapter smoke: `docs/m2474-high-fidelity-interface-current-sim-adapter-smoke.md`
+- parent summary: `runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json`
+- route decision: choose dependency/API audit before any external backend adapter implementation, install, import, simulation, or validation route
+- primary direction: open auditable high-fidelity vehicle dynamics layer, with Chrono/Chrono::Vehicle family as the preferred candidate direction from `docs/post-m2470-route-plan.md`
+- fallback direction: source-only `FourWheelDriftModel` adapter preflight if external dependency/API audit is not locally admissible
+- admission boundary: preserve P0 observation shape `72`, action shape `3`, actor-visible `ActorView` extraction only, and diagnostics-only hidden/oracle/backend state
+- interpretation: external-backend route design only, not high-fidelity validation readiness, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2475: `false`
+- follow-up manifest: `experiments/manifests/m2476-high-fidelity-interface-external-backend-dependency-api-audit.json`
+- next: `m2476-high-fidelity-interface-external-backend-dependency-api-audit`
