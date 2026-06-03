@@ -1,0 +1,119 @@
+# m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T185317Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: engineering_controller_route_a_hf0_parity_runtime_materialization_pass
+- Decision reason: M2548 materializes Route A HF0 parity runtime artifacts status_pass true 5 P0 parity checks pass 7 action mapping checks pass 21 runtime schema fields 270 actor inference cost rows 8 materialization gates pass 3 policy checkpoints admitted P0 72/3 no hidden oracle no external high-fidelity simulation policy rollout training ranking promotion success-rate validation driver-performance or self-ID claims
+
+## Hypothesis
+
+The Route A baseline can materialize bounded HF0 P0 parity action-mapping and per-checkpoint runtime artifacts while preserving the 72/3 no-oracle actor contract and avoiding external simulation ranking validation or driver-performance claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.md, docs/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.md, docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json, runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/subject_registry.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_boundary_map.csv, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/hf0_interface_contract.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.json, runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.json, experiments/manifests/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.json, experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json
+- parent_objective: materialize the Route A HF0 P0 parity and runtime/inference-cost artifacts designed by M2547
+- derived_from: m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design, m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis, m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit, m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight, m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight
+- blocked_by: M2547 design requires materialized HF0 P0 parity checks and runtime report rows before any HF0 audit or validation routing, Route A has accepted source-only execution-readiness panel evidence but still lacks a per-checkpoint runtime report and parity gate artifact, The post-M2470 route plan requires HF0/HF1 interface preparation without waiting for current-sim readiness to become perfect
+- supersedes: another static HF0 design milestone without materialized parity or runtime artifacts, claiming high-fidelity validation readiness without P0 parity checks, ranking Route A policies using M2544 source-only rows, running external high-fidelity simulation before source-level parity artifacts are present
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json exists
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/hf0_p0_parity_checks.csv exists
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/action_mapping_checks.csv exists
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/runtime_report_schema.csv exists
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/actor_inference_cost_rows.csv exists
+- runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/materialization_gate_matrix.csv exists
+- docs/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.md exists
+- all P0 parity checks pass with observation shape 72 finite observations and no hidden/oracle actor input
+- all action mapping checks pass with deployed action shape 3 and expected throttle/brake physical-control mapping
+- actor inference cost rows cover M1154 M2532 M2537 batch sizes 1 8 32 and 30 measured iterations
+- all policy checkpoints are admitted under P0 observation shape 72 action shape 3 human_view_online_gru action_sequence_horizon 1
+- no external high-fidelity simulation install import execution policy rollout training replay PPO ranking winner success-rate promotion validation or verdict claim is made
+
+## Failure Criteria
+
+- M2548 installs imports or runs Chrono or another external simulator
+- M2548 changes actor input or action contract
+- M2548 injects hidden or oracle actor features
+- M2548 executes policy rollout or interprets actions as performance
+- M2548 starts training
+- M2548 ranks controller families or selects a winner
+- M2548 computes success rate or promotes a checkpoint
+- M2548 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2548 must materialize summary hf0_p0_parity_checks action_mapping_checks runtime_report_schema actor_inference_cost_rows materialization_gate_matrix and milestone doc artifacts
+- M2548 must run bounded local P0 parity checks for default ActorView CurrentSimDynamicsBackend and FourWheelHF0Backend without external high-fidelity simulator dependencies
+- M2548 must verify P0 observation shape 72 finite observations extractor parity and diagnostics-only key exclusion
+- M2548 must verify validate_actor_action and physical_control_from_action mapping for valid clipped invalid-shape and non-finite inputs
+- M2548 must measure actor-forward runtime rows for M1154 M2532 and M2537 checkpoints over batch sizes 1 8 32 and 30 measured iterations each
+- M2548 must preserve P0 observation shape 72 action shape 3 human_view_online_gru action_sequence_horizon 1 and no hidden/oracle actor inputs for all policy checkpoints
+- M2548 must not rank controller families select winners promote checkpoints compute success rates or interpret actor output timing as driver performance
+- M2548 must not install import or run external high-fidelity simulation packages
+- M2548 must not train replay run PPO run policy rollouts or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute policy rollouts
+- do not interpret actor outputs as deployed control performance
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from parity or runtime artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: engineering_controller_route_a_hf0_parity_runtime_materialization_pass
+- reason: M2548 materializes Route A HF0 parity runtime artifacts status_pass true 5 P0 parity checks pass 7 action mapping checks pass 21 runtime schema fields 270 actor inference cost rows 8 materialization gates pass 3 policy checkpoints admitted P0 72/3 no hidden oracle no external high-fidelity simulation policy rollout training ranking promotion success-rate validation driver-performance or self-ID claims
+
+## Next Blocker
+
+m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit

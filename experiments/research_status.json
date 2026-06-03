@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2553,
+    "completed": 2554,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design",
+    "task_id": "m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.md",
-    "command_log": "docs/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.md"
+    "run_dir": "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
+    "command_log": "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25430,
+    "id": "m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit",
+    "kind": "gate",
+    "priority": 25440,
     "status": "pending",
-    "hypothesis": "Materialize Route A HF0 P0 parity action-mapping and runtime/inference-cost artifacts after M2547 design.",
-    "command": "see experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json",
-    "success_artifact": "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
-    "notes": "Pending: implement/run materializer writing summary parity checks action mapping checks runtime schema actor inference rows and gate matrix for 3 policy checkpoints batch sizes 1/8/32 measured iterations 30 preserve 72/3 no hidden oracle no external simulation policy rollout training ranking promotion success-rate validation driver-performance or self-ID claims"
+    "hypothesis": "Audit the M2548 Route A HF0 parity and runtime materialization before any HF0 validation routing or performance interpretation.",
+    "command": "see experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json",
+    "success_artifact": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md",
+    "notes": "Pending: audit M2548 parity action mapping runtime rows gate matrix and no-claim boundaries verify 5 parity checks 7 action checks 270 runtime rows 8 gates pass 3 policy checkpoints admitted P0 72/3 no external simulation policy rollout training ranking promotion success-rate validation driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T183509Z"
+  "updated_at_utc": "20260603T185123Z"
 }

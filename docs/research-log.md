@@ -46268,3 +46268,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no external simulation, policy rollout, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json`
 - next: `m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight`
+
+## M2548 Engineering Controller Route A Baseline HF0 Parity And Runtime Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_hf0_parity_runtime_materialization_pass`
+- manifest: `experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf0_parity_runtime_materialization.py`
+- summary: `runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json`
+- output dir: `runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization`
+- HF0 P0 parity checks: `5`, all pass, observation shape `72`, no hidden/oracle actor input detected
+- action mapping checks: `7`, all pass, deployed action shape `3`
+- runtime schema fields: `21`
+- actor inference cost rows: `270`, covering 3 policy checkpoints, batch sizes `1/8/32`, measured iterations `30`
+- materialization gates: `8`, all pass
+- all policy checkpoints admitted: `true`, P0 `72/3`, `human_view_online_gru`, action sequence horizon `1`
+- claim boundary: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json`
+- next: `m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit`
