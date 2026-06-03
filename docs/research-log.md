@@ -46397,3 +46397,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.json`
 - next: `m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight`
+
+## M2556 Engineering Controller Route A Baseline HF2 Scenario Taxonomy Mapping Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf2_scenario_taxonomy_mapping_materialization_pass`
+- manifest: `experiments/manifests/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf2_scenario_taxonomy_mapping_materialization.py`
+- summary: `runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json`
+- doc: `docs/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.md`
+- route-role mapping rows: `5`, all pass
+- surface/fixture binding rows: `10`, all pass
+- metadata-boundary checks: `7`, all pass
+- pilot-admission guard rows: `5`, all pass
+- materialization gates: `7`, all pass
+- source support counts: supported `5`, limited_fixture `5`
+- binding status counts: baseline_reference `5`, diagnostic_reference `2`, materialization_candidate `3`
+- guard boundary: no limited/reference upgrade, metadata labels enter actor input `false`, HF3 pilot claim `false`, P0 `72/3`
+- rejected claims: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity validation, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.json`
+- next: `m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit`

@@ -1,0 +1,139 @@
+{
+  "decision_reason": "M2556 materializes HF2 taxonomy mapping artifacts status_pass true 5 route-role rows 10 surface-fixture bindings 7 metadata-boundary checks 5 pilot guards 7 gates pass no limited/reference upgrade no label leakage no HF3 pilot claim validation ranking driver-performance or self-ID claim",
+  "failure_criteria": [
+    "M2556 installs imports or runs Chrono or another external simulator",
+    "M2556 changes actor input or action contract",
+    "M2556 injects hidden or oracle actor features",
+    "M2556 exposes labels feasibility classes or pilot-admission labels to actor input",
+    "M2556 silently upgrades limited/reference rows",
+    "M2556 executes policy rollout or interprets taxonomy as performance",
+    "M2556 starts training",
+    "M2556 ranks controller families or selects a winner",
+    "M2556 computes success rate or promotes a checkpoint",
+    "M2556 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute policy rollouts",
+    "do not step environments",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose scenario labels feasibility classes or pilot-admission labels to the actor",
+    "do not silently upgrade limited_fixture baseline_reference or diagnostic_reference_only rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from taxonomy artifacts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260603T194428Z",
+  "hypothesis": "The Route A baseline can materialize bounded HF2 scenario taxonomy mapping artifacts while preserving the 72/3 no-oracle actor contract support-status honesty and no validation claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2555 design requires materialized HF2 taxonomy mapping artifacts before HF3 pilot planning",
+      "M2480/M2482 taxonomy artifacts must be rebound to Route A/HF1 lineage with support-status honesty",
+      "Route C requires HF2 scenario taxonomy mapping before low-cost pilots"
+    ],
+    "derived_from": [
+      "m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design",
+      "m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis",
+      "m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight",
+      "m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight",
+      "m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json",
+      "experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json",
+      "experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json",
+      "experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.md",
+      "docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md",
+      "docs/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.md",
+      "runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json",
+      "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json",
+      "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "materialize Route A HF2 scenario taxonomy mapping artifacts and gates after M2555 design"
+    ],
+    "supersedes": [
+      "another static HF2 design milestone without materialized mapping artifacts",
+      "starting HF3 pilot planning before HF2 taxonomy mapping artifacts are present",
+      "silently upgrading limited/reference fixture rows",
+      "claiming validation readiness from taxonomy metadata"
+    ]
+  },
+  "milestone": "m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight",
+  "next_blocker": "m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "engineering_controller_route_a_hf2_scenario_taxonomy_mapping_materialization_pass",
+  "public_gates": [
+    "M2556 must materialize summary HF2 route-role mapping surface/fixture binding metadata-boundary pilot-admission guard gate matrix and milestone doc artifacts",
+    "M2556 must map all five Route C role families exactly once while preserving P0 observation shape 72 and action shape 3",
+    "M2556 must represent every M2480 surface/role row honestly using M2482 fixture information or explicit blocked bindings",
+    "M2556 must prove scenario labels feasibility classes AEB/AES labels hidden dynamics fixture admission labels reward success and termination labels are metadata-only",
+    "M2556 must prevent limited_fixture diagnostic_reference_only and baseline_reference rows from becoming HF3 pilot-ready without materialized support",
+    "M2556 must not install import or run external high-fidelity simulation packages",
+    "M2556 must not run policy rollouts train replay PPO rank select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "engineering_controller_route_a_hf2_scenario_taxonomy_mapping_materialization_pass",
+    "milestone": "m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight",
+    "reason": "M2556 materializes HF2 taxonomy mapping artifacts status_pass true 5 route-role rows 10 surface-fixture bindings 7 metadata-boundary checks 5 pilot guards 7 gates pass no limited/reference upgrade no label leakage no HF3 pilot claim validation ranking driver-performance or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json exists",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_route_role_mapping.csv exists",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_surface_fixture_binding.csv exists",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_metadata_boundary_checks.csv exists",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_pilot_admission_guard_rows.csv exists",
+    "runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/materialization_gate_matrix.csv exists",
+    "docs/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.md exists",
+    "all five Route C role families are mapped exactly once with P0 72/3",
+    "every M2480/M2482 source row is represented honestly or explicitly blocked",
+    "metadata-only checks pass and no labels enter actor input",
+    "pilot admission guards pass with no HF3 pilot readiness claim",
+    "no external high-fidelity simulation install import execution policy rollout training replay PPO ranking winner success-rate promotion validation or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}
