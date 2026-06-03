@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2575,
+    "completed": 2576,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit",
+    "task_id": "m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md",
-    "command_log": "docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md"
+    "run_dir": "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
+    "command_log": "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis",
-    "kind": "gate",
-    "priority": 25650,
+    "id": "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
+    "kind": "infrastructure",
+    "priority": 25660,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2568/M2569 HF3 measured reset-only execution evidence before choosing rollout-feasibility design repair pivot or stop.",
-    "command": "see experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json",
-    "success_artifact": "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
-    "notes": "Pending: synthesize accepted reset-only execution observed evidence and choose rollout-feasibility execution design artifact repair contract repair mapping repair branch synthesis pivot or stop without reset-success validation or driver-performance claims"
+    "hypothesis": "Design bounded Route A HF3 rollout-feasibility execution artifacts and gates after accepted M2570 synthesis.",
+    "command": "see experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json",
+    "success_artifact": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+    "notes": "Pending: design rollout request fixed M1154 policy source rollout plan policy action backend step actor-view outcome claim-boundary and gate artifacts without validation driver-performance ranking promotion or self-ID claims"
   },
-  "updated_at_utc": "20260603T210805Z"
+  "updated_at_utc": "20260603T211728Z"
 }

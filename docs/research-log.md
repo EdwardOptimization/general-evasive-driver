@@ -46630,3 +46630,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - open limitation: reset-only execution does not measure closed-loop policy behavior or rollout feasibility
 - follow-up manifest: `experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json`
 - next: `m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis`
+
+## M2570 Engineering Controller Route A Baseline HF3 Measured Reset-Feasibility Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_rollout_feasibility_execution_design`
+- manifest: `experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json`
+- synthesis doc: `docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md`
+- parent audit: `docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md`
+- accepted evidence: M2568/M2569 reset-only execution observed evidence with 2 reset requests 2 backend probes 2 reset-only rows 2 actor-view rows 2 outcome rows 8 claim rows and 9 gates pass
+- guard boundary: reset-only execution observed for both candidates; no reset success no policy action no environment step no rollout no external simulator install/import/run no validation ranking driver-performance or self-ID claim P0 `72/3`
+- supported claim: HF3 reset-only execution evidence can route to design-only rollout-feasibility execution with fixed M1154 policy source and explicit action/step/outcome boundaries
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- public-gate overfit risk: medium because reset-only evidence can be overclaimed if treated as rollout feasibility or validation evidence
+- follow-up manifest: `experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json`
+- next: `m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design`

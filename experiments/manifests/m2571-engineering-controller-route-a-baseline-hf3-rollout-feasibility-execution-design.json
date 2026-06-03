@@ -1,0 +1,235 @@
+{
+  "id": "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
+      "docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_execution_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_actor_view_contract_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/measured_reset_gate_matrix.csv",
+      "src/autodrift/high_fidelity_interface.py",
+      "src/autodrift/checkpoints.py",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json",
+      "experiments/manifests/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.json",
+      "experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design a bounded HF3 rollout-feasibility execution milestone after accepted reset-only execution synthesis"
+    ],
+    "derived_from": [
+      "m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis",
+      "m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit",
+      "m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight",
+      "m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design"
+    ],
+    "blocked_by": [
+      "M2570 selects rollout-feasibility execution design while rejecting reset-success validation and driver-performance claims",
+      "M2568/M2569 provide reset-only evidence but no policy action or rollout evidence",
+      "Route C requires rollout feasibility before validation readiness and before any controller-family verdict"
+    ],
+    "supersedes": [
+      "starting rollout execution without a design and gate schema",
+      "claiming rollout success from reset-only rows alone",
+      "ranking or promoting controllers from rollout-design artifacts",
+      "continuing HF3 infrastructure without a rollout-feasibility materialization target"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+  "public_gates": [
+    "M2571 must design a bounded HF3 rollout-feasibility execution materialization after M2570 synthesis",
+    "M2571 must define M2572 artifacts for rollout request rows fixed policy source rows rollout plan rows policy action audit rows backend step/outcome rows actor-view contract rows claim-boundary rows and gate matrix",
+    "M2571 must use the fixed M1154 promoted public-base checkpoint as the first rollout policy source without ranking or promoting it",
+    "M2571 must include stable avoidable/AEB-feasible and stable AES/AEB-infeasible rollout candidates without granting pilot admission",
+    "M2571 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2571 must keep taxonomy labels feasibility classes candidate statuses backend statuses diagnostics reset outcomes and rollout outcomes out of actor-visible inputs",
+    "M2571 must separate rollout feasibility from rollout success validation and driver performance",
+    "M2571 must keep high-fidelity validation readiness driver-performance controller ranking success-rate paper finite-window-vs-GRU current-sim and self-ID claims out of scope",
+    "M2571 must not execute new policy actions resets steps rollouts install import or run external high-fidelity simulation train replay PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute reset in the design milestone",
+    "do not execute policy actions in the design milestone",
+    "do not step environments in the design milestone",
+    "do not execute rollout in the design milestone",
+    "do not train in the design milestone",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes or rollout outcomes to actor input",
+    "do not silently upgrade candidate rows to pilot-admitted rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from rollout design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_rollout_feasibility_execution_design",
+    "evidence_increment": "designs bounded rollout-feasibility execution artifacts after accepted reset-only execution synthesis",
+    "claim_scope": "HF3 rollout-feasibility execution design only; no external simulator execution, policy action, rollout execution, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, current-sim, high-fidelity, or validation verdict claim",
+    "stop_condition": [
+      "stop if the design requires actor input or action contract changes",
+      "stop if labels feasibility classes backend statuses diagnostics reset outcomes or rollout outcomes would enter actor-visible inputs",
+      "stop if candidate rows would be silently admitted as pilots",
+      "stop if the design would install import or run external high-fidelity simulation",
+      "stop if the design would claim rollout success validation readiness or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if rollout design cannot preserve P0 72/3",
+      "route to mapping repair if candidate source bindings are ambiguous",
+      "route to artifact repair if M2568/M2569/M2570 source evidence is incomplete",
+      "route to branch synthesis pivot or stop if no bounded rollout-feasibility execution remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2570 selected continue_to_hf3_rollout_feasibility_execution_design after accepted reset-only evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 rollout-feasibility execution design",
+    "admission_evidence": [
+      "M2570 synthesis continues to rollout-feasibility execution design without reset-success validation or performance claims",
+      "M2569 audit accepts M2568 reset-only execution while rejecting reset success rollout validation and driver-performance claims",
+      "M2568 materialized two reset requests two backend probes two reset-only rows two actor-view rows two outcome rows eight claim rows and nine gates pass",
+      "Post-M2470 Route C lists reset feasibility before rollout feasibility and no controller-family verdict yet"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no reset execution in design",
+      "no policy action in design",
+      "no environment stepping in design",
+      "no rollout execution in design",
+      "no training in design",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from design"
+    ],
+    "allowed_updates": [
+      "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+      "M2571 status queue scoreboard research log and review",
+      "one follow-up M2572 rollout-feasibility execution materialization artifact repair contract repair mapping repair branch synthesis pivot or stop manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "rollout request fixed policy source rollout plan policy action backend step actor-view outcome and claim-boundary rows are specified",
+      "M2572 rollout-feasibility execution materialization/preflight is registered",
+      "no validation performance ranking or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2571 designs HF3 rollout-feasibility execution and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2571; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2570 reset-only result synthesis.",
+    "negative_result_policy": "If rollout-feasibility execution cannot be designed without weakening actor or claim boundaries, route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 rollout-feasibility execution design",
+      "no rollout success high-fidelity validation result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs the first bounded rollout-feasibility execution after accepted reset-only evidence instead of adding another reset-only audit",
+    "paper_verdict_delta": "does not decide paper verdict but prepares the first policy-action rollout evidence layer required before validation can be interpreted",
+    "must_synthesize_if": [
+      "M2571 cannot define M2572 materialization without actor contract or action contract changes",
+      "M2571 would claim rollout success validation readiness or driver performance",
+      "M2571 would rank or promote controllers",
+      "another design-only milestone is proposed after M2571 without materialization or synthesis"
+    ]
+  },
+  "hypothesis": "A bounded design can specify HF3 rollout-feasibility execution artifacts and gates after accepted reset-only evidence without changing actor inputs or claiming validation.",
+  "success_criteria": [
+    "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md exists",
+    "design defines rollout request rows for stable avoidable/AEB-feasible and stable AES/AEB-infeasible without pilot admission",
+    "design defines fixed M1154 policy source rows without ranking promotion or family comparison",
+    "design defines rollout plan rows with bounded horizon and no success-rate verdict",
+    "design defines policy action and backend step audit rows preserving P0 72/3 and [steer throttle brake]",
+    "design defines rollout outcome and claim-boundary rows",
+    "design registers M2572 rollout-feasibility execution materialization/preflight or repair/synthesis route without validation or performance claims"
+  ],
+  "failure_criteria": [
+    "M2571 installs imports or runs Chrono or another external simulator",
+    "M2571 changes actor input or action contract",
+    "M2571 injects hidden or oracle actor features",
+    "M2571 exposes labels feasibility classes backend statuses diagnostics reset outcomes or rollout outcomes to actor input",
+    "M2571 silently admits candidate rows as pilots",
+    "M2571 executes reset policy action rollout or environment step",
+    "M2571 starts training",
+    "M2571 treats design as driver performance",
+    "M2571 ranks controller families or selects a winner",
+    "M2571 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
+    "docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md",
+    "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json",
+    "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_execution_rows.csv",
+    "experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json",
+    "experiments/manifests/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.json",
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "src/autodrift/high_fidelity_interface.py",
+    "src/autodrift/checkpoints.py",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2571 passes if it designs bounded HF3 rollout-feasibility execution artifacts and gates with M2572 follow-up while preserving actor contract boundaries candidate-status honesty and making no external simulation, training, ranking, winner selection, success-rate, promotion, validation, driver-performance, paper, finite-window-vs-GRU, current-sim, high-fidelity validation, or self-ID claims.",
+  "next_blocker": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight"
+}
