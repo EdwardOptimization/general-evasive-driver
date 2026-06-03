@@ -46727,3 +46727,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no validation readiness/result rollout success success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight.json`
 - next: `m2576-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-materialization-preflight`
+
+## M2584 Engineering Controller Route A Baseline HF3 Validation Platform/Protocol Readiness Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_validation_platform_protocol_readiness_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_validation_platform_protocol_readiness.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_validation_platform_protocol_readiness.py`
+- summary: `runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json`
+- milestone doc: `docs/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.md`
+- materialized evidence: 3 platform candidate rows 3 dependency/import policy rows 2 validation protocol skeleton rows 7 source-only adapter prerequisite rows 2 actor/action guard rows 14 claim rows and 10 gates pass
+- platform boundary: no platform selected; no external simulator install import runtime execution or dependency mutation
+- protocol boundary: static skeleton rows only; no holdout/generalization policy reset action step rollout external validation or validation-result claim
+- source-only adapter boundary: 3 source-side prerequisites satisfied and 4 prerequisites remain missing before platform/protocol readiness
+- actor/action contract: P0 observation shape `72` action shape `3` and deployed `[steer, throttle, brake]` mapping preserved
+- allowed operational claims: platform/protocol readiness design materialized
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution rollout success success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- follow-up manifest: `experiments/manifests/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.json`
+- next: `m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2589,
+    "completed": 2590,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design",
+    "task_id": "m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md",
-    "command_log": "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md"
+    "run_dir": "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json",
+    "command_log": "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json"
   },
   "next_task": {
-    "id": "m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25790,
+    "id": "m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit",
+    "kind": "gate",
+    "priority": 25800,
     "status": "pending",
-    "hypothesis": "Materialize bounded HF3 validation platform/protocol readiness artifacts and gates after M2583 design.",
-    "command": "see experiments/manifests/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.json",
-    "success_artifact": "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json",
-    "notes": "Pending: materialize platform candidate dependency/import policy validation protocol skeleton source-only adapter prerequisite actor/action guard claim-boundary and gate artifacts without platform selection external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Audit the M2584 Route A HF3 validation platform/protocol readiness materialization before platform selection validation protocol readiness/admission/readiness/result or performance interpretation.",
+    "command": "see experiments/manifests/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.json",
+    "success_artifact": "docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md",
+    "notes": "Pending: audit M2584 summary platform candidate dependency/import policy protocol skeleton source-only adapter prerequisite actor/action guard claim-boundary and gate artifacts without platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T230823Z"
+  "updated_at_utc": "20260603T232327Z"
 }
