@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2508,
+    "completed": 2509,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2502-engineering-controller-source-only-baseline-comparison-result-audit",
+    "task_id": "m2503-engineering-controller-source-only-metric-panel-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md"
+    "command_log": "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2503-engineering-controller-source-only-metric-panel-branch-synthesis",
-    "kind": "gate",
-    "priority": 24980,
+    "id": "m2504-engineering-controller-public-benchmark-pack-design",
+    "kind": "infrastructure",
+    "priority": 24990,
     "status": "pending",
-    "hypothesis": "Synthesize the engineering-controller source-only metric panel branch after M2502 audit.",
-    "command": "see experiments/manifests/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.json",
-    "success_artifact": "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md",
-    "notes": "Pending: synthesize M2493-M2502 source-only diagnostics and choose bounded next route no new policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Design a bounded public benchmark pack for engineering-controller source-only diagnostic evidence.",
+    "command": "see experiments/manifests/m2504-engineering-controller-public-benchmark-pack-design.json",
+    "success_artifact": "docs/m2504-engineering-controller-public-benchmark-pack-design.md",
+    "notes": "Pending: design public benchmark pack contents exclusions and claim boundaries no policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T100719Z"
+  "updated_at_utc": "20260603T101228Z"
 }

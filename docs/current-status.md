@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2502-engineering-controller-source-only-baseline-comparison-result-audit
+m2503-engineering-controller-source-only-metric-panel-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2502-engineering-controller-source-only-baseline-comparison-result-audit
+m2503-engineering-controller-source-only-metric-panel-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2503-engineering-controller-source-only-metric-panel-branch-synthesis
+m2504-engineering-controller-public-benchmark-pack-design
 ```
 
 Current route:
 
 ```text
-M2502 accepts M2501 source-only baseline comparison artifacts as diagnostic
-engineering telemetry only: 3 subjects, 3 roles, 900 telemetry rows, 9 panel
-rows, reset digest gates passing, and no ranking/success-rate/verdict claims.
-The next task is branch synthesis before any further source-only metric artifact
-or claim escalation.
+M2503 synthesizes M2493-M2502 and promotes the source-only metric diagnostics
+branch to `engineering_controller_public_benchmark_pack`. The next task is
+design-only public benchmark pack planning for checkpoint lineage, actor I/O
+contract, source-only role metrics, baseline comparison diagnostics, known
+limitations, exclusions, and claim boundaries.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,13 +47,13 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2502 did not install, import, or run an external high-fidelity simulator. It
+M2503 did not install, import, or run an external high-fidelity simulator. It
 did not execute new policy actions, measured validation, training, replay, PPO,
 controller ranking, winner selection, success-rate computation, or any paper/
 FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2503: synthesize M2493-M2502 source-only engineering
-diagnostics and choose a bounded next route. It must not execute new policy
+The active next task is M2504: design a bounded public benchmark pack for the
+engineering-controller source-only diagnostics. It must not execute policy
 actions, train, rank, select a winner, compute success-rate verdicts, or claim
 performance or validation.
 
@@ -376,6 +376,17 @@ M2502:
   route: branch synthesis before another metric artifact or claim escalation
   new policy action: false
   external simulation installed/imported/executed: false
+
+M2503:
+  synthesis decision: promote_to_next_branch
+  decision: promote_to_engineering_controller_public_benchmark_pack
+  evidence window: M2493-M2502
+  supported scope: source-only engineering diagnostic telemetry package
+  rejected claims: performance validation ranking paper FW-vs-GRU self-ID
+  public-gate overfit risk: medium
+  route: public benchmark pack design
+  new policy action: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -410,7 +421,9 @@ design rather than direct ranking or verdict claims. M2500 defines that
 protocol and keeps the next implementation preflight diagnostic-only. M2501
 implements the diagnostic comparison artifact but still does not rank
 controllers or prove driver performance. M2502 audits and accepts the artifact
-only as engineering diagnostics, then routes to branch synthesis.
+only as engineering diagnostics, then routes to branch synthesis. M2503 closes
+the source-only metric branch and promotes to public benchmark-pack design
+instead of adding another local metric artifact.
 ```
 
 Blocked claims:
@@ -430,9 +443,10 @@ training repair success
 
 ## Immediate Next Step
 
-M2503 should synthesize the engineering-controller source-only metric panel branch from:
+M2504 should design the public benchmark pack from:
 
 ```text
+docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md
 docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md
 docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md
 runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json
@@ -440,14 +454,13 @@ runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/cont
 docs/m2500-engineering-controller-source-only-baseline-comparison-design.md
 docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md
 docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md
-docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md
 docs/post-m2470-route-plan.md
 ```
 
-The synthesis should answer evidence summary, supported claims, falsified or
-unsupported claims, failure taxonomy, public-gate overfit risk, and next branch
-decision. It must not install, import, or run external high-fidelity simulation,
-execute new policy action, train, replay, use PPO, rank controllers, select a
-winner, promote a checkpoint, compute success-rate verdicts, or claim
-high-fidelity validation, current-sim verdict, paper-level evidence,
-finite-window-vs-GRU evidence, or level-3 self-identification.
+The design should define pack contents, artifact manifest, exclusions, tests,
+audit gates, known limitations, and public claim boundaries. It must not
+install, import, or run external high-fidelity simulation, execute policy
+action, train, replay, use PPO, rank controllers, select a winner, promote a
+checkpoint, compute success-rate verdicts, or claim high-fidelity validation,
+current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
+level-3 self-identification.

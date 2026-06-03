@@ -45389,3 +45389,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2502: `false`
 - follow-up manifest: `experiments/manifests/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.json`
 - next: `m2503-engineering-controller-source-only-metric-panel-branch-synthesis`
+
+## M2503 Engineering Controller Source-Only Metric Panel Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_engineering_controller_public_benchmark_pack`
+- manifest: `experiments/manifests/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.json`
+- doc: `docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md`
+- parent evidence window: `m2493` through `m2502`
+- evidence summary: source-only role metric panel path is operational; metadata-only role fixture blocker was resolved; parameterized role telemetry and policy/coast/brake diagnostic comparison artifacts exist; all preserved P0 `72` observation and `3` action contract
+- supported claims: source-only engineering diagnostic telemetry package is coherent enough for public benchmark-pack design
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- public-gate overfit risk: `medium`; fixed source-only fixtures should not be extended with another local metric artifact before packaging or route pivot
+- route decision: close `engineering_controller_source_only_metric_panel` branch and open `engineering_controller_public_benchmark_pack`
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2503: `false`
+- follow-up manifest: `experiments/manifests/m2504-engineering-controller-public-benchmark-pack-design.json`
+- next: `m2504-engineering-controller-public-benchmark-pack-design`
