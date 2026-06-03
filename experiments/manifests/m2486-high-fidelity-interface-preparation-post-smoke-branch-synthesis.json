@@ -1,0 +1,205 @@
+{
+  "id": "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_hf_interface_post_smoke_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+      "docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize high-fidelity interface preparation after executable source-only fixture smoke"
+    ],
+    "derived_from": [
+      "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+      "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
+      "m2477-high-fidelity-interface-preparation-branch-synthesis"
+    ],
+    "blocked_by": [
+      "HF0 interface branch has produced useful infrastructure but not driver capability evidence",
+      "another interface-only milestone may add process overhead without changing paper or driver evidence",
+      "the branch needs a route decision after source-only smoke before pilot design, external backend work, or training work"
+    ],
+    "supersedes": [
+      "direct pilot design from source-only smoke without branch synthesis",
+      "direct high-fidelity interface micro-milestone continuation after M2485"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2486 must synthesize M2477-M2485 high-fidelity interface preparation evidence",
+    "M2486 must explicitly separate infrastructure progress from driver capability and paper evidence",
+    "M2486 must decide continue pivot stop or promote_to_next_branch",
+    "M2486 must answer whether the next branch should produce closed-loop driver evidence, bounded source-only pilot evidence, external backend work, or stop",
+    "M2486 must not install import or run external high-fidelity simulation",
+    "M2486 must not train rank controllers select winners or make paper self-ID finite-window-vs-GRU current-sim or high-fidelity validation claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "high_fidelity_interface_preparation",
+    "evidence_axis": "post_source_only_fixture_smoke_synthesis",
+    "evidence_increment": "synthesizes HF0 interface preparation after source-only fixture smoke and selects next branch",
+    "claim_scope": "branch synthesis only; no external simulation, measured validation, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop this branch if interface work is ready enough and another HF0 task would not add executable evidence",
+      "pivot if source-only smoke is useful but insufficient for high-fidelity validation",
+      "continue only if the next task adds executable backend or closed-loop evidence",
+      "do not continue if the next task only rephrases catalog/fixture metadata"
+    ],
+    "fallback_plan": [
+      "pivot to closed-loop driver evidence route if interface scaffolding is sufficient",
+      "route to bounded source-only pilot implementation only if it adds closed-loop or backend evidence",
+      "stop external backend work until dependencies are available if required"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2485 accepted executable source-only fixture smoke after the post-M2477 interface branch accumulated multiple infrastructure milestones",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "HF0 interface post-smoke branch synthesis",
+    "admission_evidence": [
+      "M2477 branch synthesis",
+      "M2478 source-only adapter preflight",
+      "M2480 surface role matrix",
+      "M2482 fixture catalog",
+      "M2484 source-only fixture smoke",
+      "M2485 result audit"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no policy rollout",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+      "M2486 status queue scoreboard research log and review",
+      "one follow-up manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit and process overhead are assessed",
+      "bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2486 is branch synthesis and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2486; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2477 through M2485 HF0 interface preparation evidence.",
+    "negative_result_policy": "If synthesis finds no driver evidence gain, state that plainly and pivot to an evidence-producing route.",
+    "allowed_claims": [
+      "HF0 interface branch synthesis",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes interface evidence and prevents another local HF0 metadata loop",
+    "paper_verdict_delta": "may choose a route toward future evidence but cannot itself establish paper or high-fidelity evidence",
+    "must_synthesize_if": [
+      "next proposed milestone is another non-executable interface metadata artifact",
+      "branch cannot identify a route back to closed-loop driver evidence",
+      "source-only fixture smoke is mistaken for validation or driver performance"
+    ]
+  },
+  "hypothesis": "A post-smoke branch synthesis can prevent HF0 interface preparation from becoming another infrastructure loop and select the next evidence-producing route.",
+  "success_criteria": [
+    "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision",
+    "synthesis distinguishes infrastructure progress from driver capability evidence",
+    "synthesis registers a bounded follow-up milestone",
+    "no external high-fidelity simulation install import execution training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2486 installs imports or runs Chrono or another external simulator",
+    "M2486 changes actor input or action contract",
+    "M2486 injects hidden or oracle actor features",
+    "M2486 treats canned source-only smoke as policy performance",
+    "M2486 ranks controller families or selects a winner",
+    "M2486 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_hf_interface_post_smoke_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+    "docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2486 passes if it synthesizes HF0 interface preparation evidence after source-only smoke and chooses a bounded next route without external simulation, training, ranking, or verdict claims.",
+  "next_blocker": "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis"
+}

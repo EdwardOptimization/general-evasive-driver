@@ -45082,3 +45082,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2484: `false`
 - follow-up manifest: `experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json`
 - next: `m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit`
+
+## M2485 High-Fidelity Interface Source-Only Fixture Smoke Result Audit
+
+- status: completed
+- decision: `accept_source_only_fixture_smoke_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json`
+- doc: `docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md`
+- audited summary: `runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json`
+- audited rows: `runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv`
+- accepted evidence: source-only fixture smoke pass, fixtures `3`, resets `3`, steps `6`, observation shape `72`, action shape `3`, wheel-force diagnostic counts `4 4 4 4 4 4`, all actor-label leak flags `false`
+- rejected claims: no driver performance, policy rollout, training, ranking, winner, validation, current-sim verdict, paper, finite-window-vs-GRU, or self-ID evidence
+- route decision: branch synthesis before another high-fidelity interface milestone, to prevent interface hygiene from becoming the main loop
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2485: `false`
+- follow-up manifest: `experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json`
+- next: `m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis`

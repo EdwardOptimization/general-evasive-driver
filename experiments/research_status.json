@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2490,
+    "completed": 2491,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
+    "task_id": "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight",
-    "command_log": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md"
   },
   "next_task": {
-    "id": "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+    "id": "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
     "kind": "gate",
-    "priority": 24800,
+    "priority": 24810,
     "status": "pending",
-    "hypothesis": "Audit M2484 source-only fixture smoke result before pilot design synthesis or repair.",
-    "command": "see experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json",
-    "success_artifact": "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
-    "notes": "Pending: audit source-only fixture smoke result preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
+    "hypothesis": "Synthesize HF0 interface preparation after source-only fixture smoke before another interface milestone.",
+    "command": "see experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json",
+    "success_artifact": "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+    "notes": "Pending: synthesize M2477-M2485 interface evidence and choose bounded evidence-producing next route no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T075323Z"
+  "updated_at_utc": "20260603T075734Z"
 }
