@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2570,
+    "completed": 2571,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight",
+    "task_id": "m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/summary.json",
-    "command_log": "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/summary.json"
+    "run_dir": "docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md",
+    "command_log": "docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit",
+    "id": "m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 25600,
+    "priority": 25610,
     "status": "pending",
-    "hypothesis": "Audit the M2564 Route A HF3 reset-feasibility execution materialization preflight before reset execution or validation interpretation.",
-    "command": "see experiments/manifests/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.json",
-    "success_artifact": "docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md",
-    "notes": "Pending: audit M2564 summary reset candidate backend availability reset request reset plan outcome schema claim-boundary and gate artifacts before any reset success validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Synthesize accepted M2564/M2565 HF3 reset-feasibility execution materialization evidence before choosing measured reset execution design repair pivot or stop.",
+    "command": "see experiments/manifests/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize accepted reset-feasibility materialization evidence and choose measured reset execution design artifact repair contract repair mapping repair branch synthesis pivot or stop without validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T204038Z"
+  "updated_at_utc": "20260603T204457Z"
 }

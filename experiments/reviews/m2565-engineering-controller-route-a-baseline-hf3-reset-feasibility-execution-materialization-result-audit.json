@@ -1,0 +1,138 @@
+{
+  "decision_reason": "M2565 accepts M2564 HF3 reset-feasibility execution materialization status_pass true 2 reset candidates 4 backend checks 2 reset request contracts 2 reset plans 8 outcome rows 8 claim rows and 9 gates pass no pilot admission reset execution reset success validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+  "failure_criteria": [
+    "M2565 installs imports or runs Chrono or another external simulator",
+    "M2565 changes actor input or action contract",
+    "M2565 injects hidden or oracle actor features",
+    "M2565 steps an environment or runs policy rollout",
+    "M2565 runs reset or rollout execution",
+    "M2565 starts training",
+    "M2565 treats M2564 preflight rows as driver performance",
+    "M2565 ranks controller families or selects a winner",
+    "M2565 computes success rate or promotes a checkpoint",
+    "M2565 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute reset in the audit",
+    "do not execute policy actions in the audit",
+    "do not step environments in the audit",
+    "do not execute rollout in the audit",
+    "do not train in the audit",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend availability statuses reset feasibility statuses or reset outcomes to actor input",
+    "do not silently upgrade candidate rows to pilot-admitted rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2564 artifacts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260603T204955Z",
+  "hypothesis": "A bounded result audit can accept or reject M2564 HF3 reset-feasibility execution materialization while preserving actor contract integrity candidate-status honesty and no-ranking or validation boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2564 materialized reset-feasibility execution boundary artifacts that must be audited before interpretation",
+      "M2564 rows are candidate backend request plan outcome and claim-boundary artifacts and must not become reset success validation readiness or controller ranking",
+      "Route A requires result synthesis after audit before selecting repair pivot stop or a later execution route"
+    ],
+    "derived_from": [
+      "m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight",
+      "m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design",
+      "m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis",
+      "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.json",
+      "experiments/manifests/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.json",
+      "experiments/manifests/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/summary.json",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_reset_execution_candidate_rows.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_backend_availability_checks.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_reset_request_contract.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_reset_execution_plan.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_reset_outcome_schema.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/hf3_claim_boundary_checks.csv",
+      "runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/materialization_gate_matrix.csv",
+      "docs/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.md",
+      "docs/m2563-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-design.md",
+      "docs/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "audit the M2564 Route A HF3 reset-feasibility execution materialization artifacts before any reset execution or validation interpretation"
+    ],
+    "supersedes": [
+      "interpreting M2564 reset plans as reset execution",
+      "claiming reset success or rollout feasibility from M2564 preflight rows",
+      "starting high-fidelity validation before M2564 boundary artifacts are audited",
+      "silently upgrading reset-execution candidates to admitted pilots"
+    ]
+  },
+  "milestone": "m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit",
+  "next_blocker": "m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_hf3_reset_execution_materialization_route_to_result_synthesis",
+  "public_gates": [
+    "M2565 must audit M2564 summary reset-execution candidate backend availability reset request reset plan reset outcome claim-boundary and gate matrix artifacts",
+    "M2565 must verify M2564 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "M2565 must verify two reset candidates four backend checks two reset request contracts two reset plans eight outcome schema rows eight claim-boundary rows and nine gates pass",
+    "M2565 must verify stable avoidable/AEB-feasible and stable AES/AEB-infeasible reset candidates preserve P0 observation shape 72 action shape 3",
+    "M2565 must verify M2564 did not grant pilot admission silently upgrade candidates or allow reset success claims",
+    "M2565 must verify M2564 did not install import or run external high-fidelity simulation and did not mutate dependencies",
+    "M2565 must verify M2564 did not execute reset policy actions environment steps rollouts training replay PPO ranking winner selection checkpoint promotion success-rate computation validation driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims",
+    "M2565 must register result synthesis repair branch synthesis pivot or stop as the next route without validation or performance claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_hf3_reset_execution_materialization_route_to_result_synthesis",
+    "milestone": "m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit",
+    "reason": "M2565 accepts M2564 HF3 reset-feasibility execution materialization status_pass true 2 reset candidates 4 backend checks 2 reset request contracts 2 reset plans 8 outcome rows 8 claim rows and 9 gates pass no pilot admission reset execution reset success validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md exists",
+    "audit verifies M2564 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "audit verifies M2564 reset candidate backend availability reset request reset plan reset outcome claim-boundary and gate artifacts exist",
+    "audit verifies two reset candidates four backend checks two request contracts two reset plans eight outcome rows eight claim rows and nine gates pass",
+    "audit verifies M2564 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "audit verifies M2564 made no pilot admission reset success external simulation dependency mutation policy action reset step rollout training replay PPO ranking winner success-rate promotion validation driver-performance or verdict claim",
+    "audit registers result synthesis execution design artifact repair contract repair mapping repair or branch synthesis without validation or performance claims"
+  ],
+  "type": "gate"
+}
