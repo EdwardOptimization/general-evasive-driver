@@ -45319,3 +45319,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2498: `false`
 - follow-up manifest: `experiments/manifests/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.json`
 - next: `m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit`
+
+## M2499 Engineering Controller Parameterized Source-Only Role Metric Panel Result Audit
+
+- status: completed
+- decision: `accept_parameterized_role_metric_panel_route_to_baseline_comparison_design`
+- manifest: `experiments/manifests/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.json`
+- doc: `docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md`
+- audited summary: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json`
+- audited telemetry rows: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv`
+- audited role metric panel: `runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv`
+- accepted evidence: M2498 parameterized source-only panel pass with 300 telemetry rows, 3 role rows, checkpoint obs/action `72/3`, actor encoder `human_view_online_gru`, action sequence horizon `1`, parameterized fixture rows `true`, unique role reset observation digest count `3`, and all observation/action/backend/wheel diagnostic gates passing
+- accepted claim: source-only role telemetry is now dynamically differentiated and usable as diagnostic engineering telemetry
+- rejected claims: no driver performance, role-specific success, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: design a bounded source-only baseline comparison protocol before any new comparison implementation or claim escalation
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2499: `false`
+- follow-up manifest: `experiments/manifests/m2500-engineering-controller-source-only-baseline-comparison-design.json`
+- next: `m2500-engineering-controller-source-only-baseline-comparison-design`

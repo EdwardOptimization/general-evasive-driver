@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
+m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
+m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit
+m2500-engineering-controller-source-only-baseline-comparison-design
 ```
 
 Current route:
 
 ```text
-M2498 reruns the source-only role metric panel on the M2496 differentiated
-fixtures. It produces 300 deterministic policy-action telemetry rows and 3
-diagnostic-only role metric rows with differentiated reset digests and
-nonidentical role metrics. The next task should audit this before any
-comparison, repair, synthesis, or claim escalation.
+M2499 accepts M2498 as diagnostic-only parameterized source-only role telemetry:
+300 deterministic policy-action rows, 3 diagnostic-only role metric rows,
+differentiated reset digests, and nonidentical role metrics. The next task is a
+design-only source-only baseline comparison protocol before any new comparison
+implementation or claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,15 +47,14 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2498 did not install, import, or run an external high-fidelity simulator. It
-did not run measured validation, training, replay, PPO, controller ranking,
-winner selection, success-rate computation, or any paper/FW-vs-GRU/self-ID/
-current-sim/high-fidelity validation verdict.
+M2499 did not install, import, or run an external high-fidelity simulator. It
+did not execute new policy actions, measured validation, training, replay, PPO,
+controller ranking, winner selection, success-rate computation, or any paper/
+FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2499: audit M2498 parameterized telemetry and
-nonidentical role metrics. It must not execute new policy actions, train, rank,
-select a winner, compute success-rate verdicts, or claim performance or
-validation.
+The active next task is M2500: design a bounded source-only baseline comparison
+protocol. It must not execute policy actions, train, rank, select a winner,
+compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -334,6 +333,15 @@ M2498:
   rejected claims: performance validation ranking paper FW-vs-GRU self-ID
   route: result audit before comparison repair synthesis or claim escalation
   external simulation installed/imported/executed: false
+
+M2499:
+  decision: accept_parameterized_role_metric_panel_route_to_baseline_comparison_design
+  accepted evidence: M2498 parameterized source-only diagnostic telemetry
+  accepted scope: differentiated source-only engineering diagnostics only
+  rejected claims: behavior performance success-rate validation ranking paper FW-vs-GRU self-ID
+  route: source-only baseline comparison protocol design
+  new policy action: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -362,7 +370,9 @@ the next step reset-only. M2496 implements that reset-only differentiation.
 M2497 audits and accepts the reset-only differentiation. These do not prove
 driver capability. M2498 reruns the nonverdict role metric panel on the
 differentiated fixtures, producing role telemetry that is now interpretable as
-source-only engineering diagnostics but still not performance evidence.
+source-only engineering diagnostics but still not performance evidence. M2499
+audits and accepts that boundary, then routes to baseline comparison protocol
+design rather than direct ranking or verdict claims.
 ```
 
 Blocked claims:
@@ -382,19 +392,22 @@ training repair success
 
 ## Immediate Next Step
 
-M2499 should audit the parameterized source-only role metric panel from:
+M2500 should design a bounded source-only baseline comparison protocol from:
 
 ```text
+docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md
 docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md
 runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json
 runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv
 runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv
+docs/post-m2470-route-plan.md
 ```
 
-The audit should verify parameterized fixture usage, differentiated reset
-digests, row gates, and nonverdict claim boundaries. It must preserve the
-actor/input contract and must not install, import, or run external high-fidelity
-simulation, execute new policy action, train, replay, use PPO, rank controllers,
-select a winner, promote a checkpoint, compute success-rate verdicts, or claim
-high-fidelity validation, current-sim verdict, paper-level evidence,
-finite-window-vs-GRU evidence, or level-3 self-identification.
+The design should define comparison subjects, fixtures, horizons, telemetry
+fields, nonverdict metrics, row gates, audit gates, and rejected
+interpretations before any implementation executes new actions. It must
+preserve the actor/input contract and must not install, import, or run external
+high-fidelity simulation, execute policy action, train, replay, use PPO, rank
+controllers, select a winner, promote a checkpoint, compute success-rate
+verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
