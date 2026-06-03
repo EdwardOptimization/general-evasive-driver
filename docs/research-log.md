@@ -46067,3 +46067,30 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - mandatory route after M2537: protected proof pass routes to fresh/generalization design; proof failure or retained-gate washout routes to synthesis/pivot rather than another public-gate repair
 - follow-up manifest: `experiments/manifests/m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight.json`
 - next: `m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight`
+
+## M2537 Engineering Controller Failure-Surface Mitigation-Preserving Repair Execution
+
+- status: completed
+- result class: `engineering_controller_failure_surface_mitigation_preserving_repair_execution_pass`
+- run dir: `runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution`
+- source checkpoint: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt`
+- repaired checkpoint: `runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt`
+- selected repair trace candidate: `m2537_relax_m2532_bias_8`
+- candidate sweep rows: `7`
+- selected repair trace rows: `1`
+- telemetry rows: `4500`
+- post-repair protected/reference rows: `45`
+- protected gate evaluations: `7`
+- status/proof separation: `status_pass=true`, `protected_proof_gates_all_passed=false`
+- retained road-boundary proof: pass `10/10` improved `0` regressed
+- retained command-conflict proof: pass `15/15` improved `0` regressed
+- mitigation-preserving proof: fail `4/5` improved `1/5` regressed
+- repeated mitigation regression: seed `254302`, max mitigation severity delta `+0.6744265506945788`
+- all mitigation primary rows considered: `true`
+- actor contract: observation shape `72`, action shape `3`, no hidden/oracle actor inputs
+- immutable lineage: M2532 checkpoint, M2528 candidate config, and active configs were not overwritten or mutated
+- claim boundary: no external high-fidelity simulation, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- interpretation: M2537 used the one bounded execution approved by M2536 and preserved retained gains, but did not fix mitigation severity non-regression
+- failure classes: `behavior_regression`, `proof_washout`
+- follow-up manifest: `experiments/manifests/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.json`
+- next: `m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit`

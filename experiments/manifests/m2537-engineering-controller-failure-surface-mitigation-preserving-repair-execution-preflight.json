@@ -261,5 +261,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2537 passes if it runs bounded mitigation-preserving source-only repair execution and writes traceable artifacts with actor contract preserved, regardless of whether protected proof gates pass, while explicitly recording retained proof and mitigation-preserving outcomes and avoiding promotion, ranking, success-rate, validation, or performance claims.",
-  "next_blocker": "m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight"
+  "next_blocker": "m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit"
 }
