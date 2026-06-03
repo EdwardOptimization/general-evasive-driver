@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2484,
+    "completed": 2485,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight",
+    "task_id": "m2479-high-fidelity-interface-scenario-taxonomy-mapping-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight",
-    "command_log": "runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md"
   },
   "next_task": {
-    "id": "m2479-high-fidelity-interface-scenario-taxonomy-mapping-design",
+    "id": "m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 24740,
+    "priority": 24750,
     "status": "pending",
-    "hypothesis": "Design HF0 scenario taxonomy mapping across current-sim and source-only four-wheel adapter surfaces.",
-    "command": "see experiments/manifests/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.json",
-    "success_artifact": "docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md",
-    "notes": "Pending: map stable avoidable stable AES drift-required hidden-dynamics robustness and mitigation roles without oracle actor inputs no simulation training ranking winner verdict claims"
+    "hypothesis": "Materialize checked HF0 surface role matrix across current-sim and source-only four-wheel adapter surfaces.",
+    "command": "see experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json",
+    "success_artifact": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json",
+    "notes": "Pending: generate surface role matrix preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T070602Z"
+  "updated_at_utc": "20260603T071144Z"
 }

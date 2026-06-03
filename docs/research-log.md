@@ -44985,3 +44985,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2478: `false`
 - follow-up manifest: `experiments/manifests/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.json`
 - next: `m2479-high-fidelity-interface-scenario-taxonomy-mapping-design`
+
+## M2479 High-Fidelity Interface Scenario Taxonomy Mapping Design
+
+- status: completed
+- decision: `scenario_taxonomy_mapping_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.json`
+- doc: `docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md`
+- taxonomy roles: `stable_avoidable`, `stable_aes`, `drift_required_recovery`, `hidden_dynamics_robustness`, `unavoidable_mitigation`
+- surface mapping: `current_sim_autodrift_hf0` supports the richer scenario-role surface; `source_only_four_wheel_hf0` supports four-contact-patch dynamics with stable/hidden-dynamics roles and limited fixture-only obstacle roles
+- actor boundary: scenario labels, feasibility classes, hidden dynamics, per-wheel forces, fault scales, TTC, required clearance, reward terms, and success labels remain metadata-only and cannot enter actor input
+- materialization route: M2480 must generate `surface_role_matrix.csv` and `summary.json` with all rows preserving observation shape `72` and action shape `3`
+- interpretation: scenario taxonomy mapping design only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2479: `false`
+- follow-up manifest: `experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json`
+- next: `m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight`
