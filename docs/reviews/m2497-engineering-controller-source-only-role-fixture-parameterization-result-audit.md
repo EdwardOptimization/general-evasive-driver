@@ -1,0 +1,110 @@
+# m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T092301Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_reset_only_fixture_parameterization_route_to_differentiated_role_metric_panel
+- Decision reason: M2497 accepts M2496 reset-only fixture differentiation and routes to parameterized source-only nonverdict role metric panel rerun no new policy action training ranking success-rate verdict claims
+
+## Hypothesis
+
+Auditing M2496 can determine whether source-only role fixture differentiation is accepted and choose a bounded nonverdict follow-up without overstating reset-only evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md, runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json, runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv, runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv, docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md
+- parent_config: experiments/manifests/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.json
+- parent_objective: audit reset-only source-only role fixture parameterization before metric panel rerun
+- derived_from: m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight, m2495-engineering-controller-source-only-role-fixture-parameterization-design
+- blocked_by: M2496 must be audited before rerunning role metric panels, reset-only fixture differentiation must not be mistaken for driver performance, follow-up must preserve actor/action contracts and avoid verdict claims
+- supersedes: direct role metric rerun without auditing M2496, direct driver-performance claim from reset-only fixture differentiation
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md exists
+- audit checks M2496 summary fixture_parameterization_rows and reset_differentiation_rows
+- audit verifies exactly three differentiated role fixture specs
+- audit verifies P0/action contract and actor-input leak gates
+- audit verifies policy_action and policy_rollout_run are false
+- audit registers a bounded follow-up milestone
+- no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2497 installs imports or runs Chrono or another external simulator
+- M2497 changes actor input or action contract
+- M2497 injects hidden or oracle actor features
+- M2497 executes new policy action or rollout
+- M2497 treats reset-only fixture parameterization as driver performance
+- M2497 ranks controller families or selects a winner
+- M2497 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2497 must audit M2496 summary fixture_parameterization_rows and reset_differentiation_rows artifacts
+- M2497 must verify exactly three source-only role fixture specs were produced
+- M2497 must verify all reset observations have shape 72 and action shape remains 3
+- M2497 must verify pairwise reset observation L2 min exceeds 1e-3 and state obstacle fault-scale and road digests are differentiated
+- M2497 must verify role labels fixture labels hidden diagnostics oracle labels TTC required clearance reward terms and success labels stay out of actor input
+- M2497 must verify policy_action and policy_rollout_run are false
+- M2497 must decide whether to route to a differentiated source-only role metric panel rerun or repair without success-rate ranking winner validation or driver-performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not run measured validation
+- do not execute new policy actions in the audit milestone
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from source-only fixture parameterization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
+- type: gate
+- checkpoint: docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_reset_only_fixture_parameterization_route_to_differentiated_role_metric_panel
+- reason: M2497 accepts M2496 reset-only fixture differentiation and routes to parameterized source-only nonverdict role metric panel rerun no new policy action training ranking success-rate verdict claims
+
+## Next Blocker
+
+m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit

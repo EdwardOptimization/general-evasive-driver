@@ -16,30 +16,29 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight
+m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight
+m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit
+m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun
 ```
 
 Current route:
 
 ```text
-M2496 implements the reset-only source-only role fixture parameterization
-preflight. It produces three differentiated source-only role fixtures with
-unique initial-state/fault/road/obstacle/reset-observation digests and pairwise
-reset observation L2 min `0.3037872612476349`. The next task should audit these
-reset-only artifacts before rerunning any source-only role metric panel.
+M2497 accepts the M2496 reset-only source-only role fixture parameterization
+artifacts and routes to a parameterized nonverdict source-only role metric panel
+rerun. The reset-only fixture differentiation blocker is resolved at the
+infrastructure level, but no behavior or performance claim is supported yet.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,15 +46,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2496 did not install, import, or run an external high-fidelity simulator. It
-did not run policy action, measured validation, training, replay, PPO,
+M2497 did not install, import, or run an external high-fidelity simulator. It
+did not run new policy action, measured validation, training, replay, PPO,
 controller ranking, winner selection, success-rate computation, or any paper/
 FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2497: audit the reset-only source-only role fixture
-parameterization artifacts. It must not execute new policy actions, train, rank,
-select a winner, compute success-rate verdicts, or claim performance or
-validation.
+The active next task is M2498: rerun the source-only role metric panel on the
+M2496 differentiated fixtures. It may execute deterministic policy actions only
+to write telemetry and nonverdict role metrics. It must not train, rank, select
+a winner, compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -313,6 +312,14 @@ M2496:
   actor-input leak flags: false
   route: result audit before differentiated role metric panel rerun
   external simulation installed/imported/executed: false
+
+M2497:
+  decision: accept_reset_only_fixture_parameterization_route_to_differentiated_role_metric_panel
+  accepted evidence: M2496 reset-only differentiated source-only fixtures
+  accepted scope: fixture differentiation infrastructure only
+  rejected claims: behavior performance success-rate validation ranking paper FW-vs-GRU self-ID
+  route: parameterized source-only nonverdict role metric panel rerun
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -338,7 +345,8 @@ M2493 implements that panel and exposes that source-only role fixture dynamics
 are not yet differentiated. M2494 audits that finding and routes to fixture
 parameterization design. M2495 defines that parameterization contract and keeps
 the next step reset-only. M2496 implements that reset-only differentiation.
-These do not prove driver capability.
+M2497 audits and accepts the reset-only differentiation. These do not prove
+driver capability.
 ```
 
 Blocked claims:
@@ -358,19 +366,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2497 should audit source-only role fixture parameterization from:
+M2498 should rerun the source-only role metric panel from:
 
 ```text
-docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md
-runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json
-runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv
-runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv
+docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md
+experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json
+src/autodrift/hf0_source_only_role_metric_panel.py
+src/autodrift/hf0_source_only_role_fixture_parameterization.py
 ```
 
-The audit should verify reset-only differentiation and route either to repair
-or to a bounded differentiated nonverdict role metric panel rerun. It must
-preserve the actor/input contract and must not install, import, or run external
-high-fidelity simulation, execute new policy actions, train, replay, use PPO,
-rank controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
-evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
+The rerun should use `--use-parameterized-role-fixtures`, write telemetry and a
+diagnostic role metric panel, and verify reset digests are differentiated. It
+must preserve the actor/input contract and must not install, import, or run
+external high-fidelity simulation, train, replay, use PPO, rank controllers,
+select a winner, promote a checkpoint, compute success-rate verdicts, or claim
+high-fidelity validation, current-sim verdict, paper-level evidence,
+finite-window-vs-GRU evidence, or level-3 self-identification.

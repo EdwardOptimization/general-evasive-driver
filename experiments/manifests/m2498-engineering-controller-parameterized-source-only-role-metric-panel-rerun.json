@@ -1,0 +1,218 @@
+{
+  "id": "m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md",
+      "docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv",
+      "docs/m2493-engineering-controller-source-only-role-metric-panel.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.json"
+    ],
+    "parent_objective": [
+      "rerun nonverdict source-only role metric panel on differentiated role fixtures"
+    ],
+    "derived_from": [
+      "m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit",
+      "m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight",
+      "m2493-engineering-controller-source-only-role-metric-panel"
+    ],
+    "blocked_by": [
+      "M2493 role panel used metadata-only fixtures",
+      "M2496/M2497 now admit reset-differentiated source-only role fixtures",
+      "rerun must remain nonverdict telemetry and must not claim driver performance"
+    ],
+    "supersedes": [
+      "rerunning source-only role metric panel on metadata-only fixtures",
+      "direct driver-performance claim from reset-only fixture parameterization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md",
+  "public_gates": [
+    "M2498 must reuse the admitted checkpoint path and same-contract 72 observation 3 action admission gate",
+    "M2498 must run the three differentiated M2496 source-only role fixture specs",
+    "M2498 must execute deterministic deployable policy actions through FourWheelHF0Backend and record telemetry rows",
+    "M2498 must preserve P0 observation shape 72 and action shape 3 at every reset and step",
+    "M2498 must verify role reset digests and reset observations are differentiated before interpreting role telemetry",
+    "M2498 must keep role labels fixture labels hidden diagnostics oracle labels TTC required clearance reward terms and success labels out of actor input",
+    "M2498 must write summary.json telemetry_rows.csv role_metric_panel.csv and must not train replay run PPO rank select a winner promote a checkpoint compute success rate or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics in this panel",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from parameterized source-only metrics"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_source_only_metric_panel",
+    "evidence_axis": "parameterized_source_only_role_metric_panel",
+    "evidence_increment": "reruns source-only role telemetry on reset-differentiated fixtures after M2496/M2497 audit",
+    "claim_scope": "parameterized source-only nonverdict role metric panel only; no external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if checkpoint admission fails the 72/3 actor contract",
+      "stop if actor-input leak flags fail",
+      "stop if role reset digests are identical or parameterized fixtures are not used",
+      "stop if telemetry would be interpreted as success rate or performance verdict"
+    ],
+    "fallback_plan": [
+      "route to fixture parameterization repair if reset differentiation is missing",
+      "route to instrumentation repair if telemetry fields are insufficient",
+      "route to result audit if parameterized role metrics are written"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2497 admitted differentiated source-only role fixtures for nonverdict telemetry rerun",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "parameterized source-only role metric panel rerun",
+    "admission_evidence": [
+      "M2497 audit accepts M2496 reset-only role fixture differentiation",
+      "M2496 summary and reset differentiation artifacts",
+      "M2493 established the original role metric panel path"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/hf0_source_only_role_metric_panel.py",
+      "tests/test_hf0_source_only_role_metric_panel.py",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+      "docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md",
+      "M2498 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary telemetry and role metric artifacts exist",
+      "role metric panel covers all three parameterized source-only roles",
+      "role reset digests are differentiated",
+      "observation action and actor-input leak gates pass",
+      "success-rate performance ranking winner and verdict flags remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2498 produces parameterized source-only role metrics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2498; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "One bounded parameterized source-only role metric panel over the admitted fixtures.",
+    "negative_result_policy": "If the parameterized role panel remains uninterpretable, record it as engineering diagnostic evidence and route to repair or synthesis rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "parameterized source-only engineering telemetry and nonverdict role metric panel",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "adds closed-loop telemetry and nonverdict role metrics on differentiated source-only fixtures",
+    "paper_verdict_delta": "does not decide paper verdict but repairs source-only role telemetry interpretability before fair comparisons",
+    "must_synthesize_if": [
+      "parameterized role metrics are accepted and the next task would claim performance",
+      "parameterized role metrics expose repeated behavior or contract failures",
+      "another metric-only milestone is proposed without route value"
+    ]
+  },
+  "hypothesis": "A parameterized source-only role metric panel can produce nonverdict closed-loop telemetry on dynamically differentiated fixtures without changing actor inputs or overstating driver performance.",
+  "success_criteria": [
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json exists",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv exists",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv exists",
+    "role metric panel covers stable_aes drift_required_recovery and unavoidable_mitigation",
+    "role reset digests are differentiated",
+    "checkpoint loads and is admitted as obs_dim 72 action_dim 3 allowed recurrent actor",
+    "all reset and step observations have shape 72",
+    "all actions have shape 3 finite values and stay within deployed bounds",
+    "all actor-input leak flags are false",
+    "no external high-fidelity simulation install import execution training replay PPO ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2498 installs imports or runs Chrono or another external simulator",
+    "M2498 changes actor input or action contract",
+    "M2498 injects hidden or oracle actor features",
+    "M2498 trains replays runs PPO promotes ranks or selects a winner",
+    "M2498 computes success rate or claims driver performance",
+    "M2498 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "parameterized_role_metric_panel",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_role_metric_panel --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel --horizon-steps 100 --use-parameterized-role-fixtures"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md",
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv",
+    "docs/m2493-engineering-controller-source-only-role-metric-panel.md",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2498 passes if it writes parameterized source-only telemetry and role metric panel artifacts over the three differentiated fixtures while preserving actor-input/action contracts and making no success-rate, ranking, promotion, performance, validation, or paper claims.",
+  "next_blocker": "m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun"
+}

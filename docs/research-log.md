@@ -45283,3 +45283,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2496: `false`
 - follow-up manifest: `experiments/manifests/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.json`
 - next: `m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit`
+
+## M2497 Engineering Controller Source-Only Role Fixture Parameterization Result Audit
+
+- status: completed
+- decision: `accept_reset_only_fixture_parameterization_route_to_differentiated_role_metric_panel`
+- manifest: `experiments/manifests/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.json`
+- doc: `docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md`
+- audited summary: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json`
+- audited fixture parameterization rows: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv`
+- audited reset differentiation rows: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv`
+- accepted evidence: M2496 reset-only parameterization pass with 3 specs, 3 resets, reset observation shape `72`, action shape `3`, unique initial-state/fault-scale/road/obstacle/reset-observation digests all `3`, pairwise reset observation L2 min `0.3037872612476349`
+- accepted claim: source-only role fixture differentiation blocker is resolved at reset-preflight level while preserving actor/action contract
+- rejected claims: no driver performance, role-specific recovery quality, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: admit parameterized source-only nonverdict role metric panel rerun before any behavior or performance claim
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2497: `false`
+- follow-up manifest: `experiments/manifests/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.json`
+- next: `m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun`
