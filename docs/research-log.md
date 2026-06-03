@@ -46253,3 +46253,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: design HF0 P0 parity checks plus runtime/inference-cost report fields and M2548 materialization gates
 - follow-up manifest: `experiments/manifests/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.json`
 - next: `m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design`
+
+## M2547 Engineering Controller Route A Baseline HF0 Parity And Runtime Design
+
+- status: completed
+- decision: `route_to_route_a_hf0_parity_and_runtime_materialization_preflight`
+- manifest: `experiments/manifests/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.json`
+- design doc: `docs/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.md`
+- parent synthesis: `docs/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.md`
+- source contracts: `P0ObservationExtractor`, `validate_actor_action`, `physical_control_from_action`, `CurrentSimDynamicsBackend`, `FourWheelHF0Backend`, `DIAGNOSTIC_ONLY_KEYS`
+- M2548 required artifacts: summary, `hf0_p0_parity_checks.csv`, `action_mapping_checks.csv`, `runtime_report_schema.csv`, `actor_inference_cost_rows.csv`, `materialization_gate_matrix.csv`, milestone doc
+- runtime denominator design: 3 policy checkpoints, batch sizes `1/8/32`, warmup `10`, measured iterations `30`, expected actor inference cost rows `270`
+- contract boundary: preserve P0 observation shape `72`, action shape `3`, no hidden/oracle actor inputs, no deployed action contract change
+- claim boundary: no external simulation, policy rollout, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json`
+- next: `m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight`
