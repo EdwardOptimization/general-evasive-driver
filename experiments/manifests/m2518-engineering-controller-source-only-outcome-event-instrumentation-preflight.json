@@ -224,5 +224,5 @@
     "src/autodrift/high_fidelity_interface.py"
   ],
   "decision_rule": "M2518 passes if it materializes source-only evaluator-side outcome event rows and metric-gap deltas from existing telemetry and fixture specs while preserving actor/action contracts, explicit remaining gaps, no-ranking flags, and false claim flags.",
-  "next_blocker": "m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight"
+    "next_blocker": "m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit"
 }

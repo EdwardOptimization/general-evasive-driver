@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2523,
+    "completed": 2524,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit",
+    "task_id": "m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.md"
+    "run_dir": "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation",
+    "command_log": "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json"
   },
   "next_task": {
-    "id": "m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight",
-    "kind": "infrastructure",
-    "priority": 25130,
+    "id": "m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit",
+    "kind": "gate",
+    "priority": 25140,
     "status": "pending",
-    "hypothesis": "Derive evaluator-side obstacle and road event instrumentation from source-only fixture specs and existing telemetry to fill concrete M2516 outcome gaps.",
-    "command": "see experiments/manifests/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.json",
-    "success_artifact": "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json",
-    "notes": "Pending: materialize source-only evaluator-side outcome event rows and metric-gap deltas from existing telemetry and fixture specs no rollout simulation new policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Audit M2518 source-only outcome event instrumentation before measured behavior or validation routing.",
+    "command": "see experiments/manifests/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.json",
+    "success_artifact": "docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md",
+    "notes": "Pending: audit M2518 12 event rows 40 gap deltas 10 filled unsupported metrics 2 remaining unsupported metrics false claim flags source_only_diagnostic no-ranking actor contract 72/3 no rollout simulation new policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T121235Z"
+  "updated_at_utc": "20260603T122424Z"
 }

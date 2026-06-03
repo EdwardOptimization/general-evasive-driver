@@ -45667,3 +45667,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2517: `false`
 - follow-up manifest: `experiments/manifests/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.json`
 - next: `m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight`
+
+## M2518 Engineering Controller Source-Only Outcome Event Instrumentation Preflight
+
+- status: completed
+- result_class: `engineering_controller_source_only_outcome_event_instrumentation_pass`
+- manifest: `experiments/manifests/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.json`
+- doc: `docs/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.md`
+- implementation: `src/autodrift/engineering_controller_source_only_outcome_events.py`
+- summary: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json`
+- outcome event rows: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_event_rows.csv`
+- outcome metric gap delta: `runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/outcome_metric_gap_delta.csv`
+- source artifacts: M2516 behavior/outcome rows plus M2498/M2501 telemetry and M2496 fixture parameterization specs
+- row counts: outcome event rows `12`, metric gap delta rows `40`
+- filled M2516 unsupported metrics: `10` (`collision_event`, `obstacle_passed_event`, `road_departure_event`, `minimum_obstacle_clearance_m`, `minimum_road_margin_m`, `final_road_margin_m`, `recovery_time_proxy_s`, `collision_speed_proxy`, `impact_angle_proxy`, `severity_proxy`)
+- remaining unsupported metrics: `2` (`mitigation_delta_against_reference`, `seed`)
+- accepted gates: required artifacts present, source artifacts exist, missing source artifacts `[]`, actor contract `72/3`, no hidden/oracle actor inputs, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, no ranking or winner fields, false claim flags preserved
+- accepted scope: source-only evaluator-side outcome event instrumentation only
+- rejected claims: no behavior quality, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: audit M2518 event instrumentation artifacts before any measured behavior or validation route
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2518: `false`
+- follow-up manifest: `experiments/manifests/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.json`
+- next: `m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit`
