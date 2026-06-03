@@ -1,0 +1,260 @@
+{
+  "id": "m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_validation_platform_candidate_rows.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_validation_dependency_import_policy_rows.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_validation_protocol_skeleton_rows.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_source_only_adapter_prerequisite_rows.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_platform_protocol_actor_action_guard_rows.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_platform_protocol_claim_boundary_checks.csv",
+      "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/validation_platform_protocol_readiness_gate_matrix.csv",
+      "docs/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.md",
+      "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.json",
+      "experiments/manifests/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.json",
+      "experiments/manifests/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.json"
+    ],
+    "parent_objective": [
+      "synthesize accepted M2584/M2585 HF3 validation platform/protocol readiness materialization evidence before choosing source-only adapter readiness blocker design repair pivot or stop"
+    ],
+    "derived_from": [
+      "m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit",
+      "m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight",
+      "m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design",
+      "m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis"
+    ],
+    "blocked_by": [
+      "M2585 accepts M2584 as platform/protocol readiness design materialization evidence but rejects platform selection validation protocol readiness validation admission readiness result and driver-performance claims",
+      "M2584 records external state extraction time-step/actuator latency failure/status taxonomy and source-only fixture smoke lineage as missing before platform/protocol readiness",
+      "Route C requires synthesis before any source-only adapter readiness repair or external validation execution design is selected"
+    ],
+    "supersedes": [
+      "starting external validation execution directly from M2584 platform/protocol rows",
+      "claiming validation protocol readiness from protocol skeleton rows alone",
+      "selecting a validation platform from candidate rows without source-only adapter blockers resolved",
+      "continuing HF3 infrastructure without a concrete synthesis decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+  "synthesis_artifact": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2586 must synthesize M2584 and M2585 HF3 validation platform/protocol readiness materialization evidence before any source-only adapter or platform-dependency route decision",
+    "M2586 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2586 must separate accepted platform/protocol materialization evidence from platform selection validation protocol readiness validation admission validation readiness validation result HF4 answers driver-performance controller ranking paper finite-window-vs-GRU current-sim and self-ID claims",
+    "M2586 must decide whether the next step is source-only adapter readiness blocker design platform-dependency repair artifact repair contract repair branch synthesis pivot or stop",
+    "M2586 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2586 must not run resets policy actions steps rollouts train replay PPO install import or run external simulators rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute reset in the synthesis milestone",
+    "do not execute policy actions in the synthesis milestone",
+    "do not step environments in the synthesis milestone",
+    "do not execute rollout in the synthesis milestone",
+    "do not execute validation in the synthesis milestone",
+    "do not train in the synthesis milestone",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection or protocol status to actor input",
+    "do not silently upgrade protocol skeleton rows to validation-ready rows",
+    "do not select a validation platform",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim validation admission",
+    "do not claim validation protocol readiness",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from platform/protocol synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_validation_platform_protocol_readiness_materialization_result_synthesis",
+    "evidence_increment": "synthesizes accepted platform/protocol readiness materialization evidence and chooses the next bounded source-only adapter readiness or repair route",
+    "claim_scope": "HF3 validation platform/protocol readiness materialization result synthesis only; design materialization may be accepted, but no platform selection validation protocol readiness validation admission readiness result external simulator execution training ranking winner selection success-rate verdict paper verdict finite-window-vs-GRU self-ID driver-performance current-sim high-fidelity or validation verdict claim",
+    "stop_condition": [
+      "stop if M2584 or M2585 artifacts are missing or inconsistent",
+      "stop if synthesis would claim platform selection validation protocol readiness validation admission readiness result or driver performance",
+      "stop if synthesis would rank or promote controllers from platform/protocol rows",
+      "stop if no bounded source-only adapter readiness design repair pivot or stop route remains after accepted platform/protocol evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are incomplete",
+      "route to contract repair if actor/action or claim boundaries are not accepted",
+      "route to platform-dependency repair if platform candidate or dependency rows are ambiguous",
+      "route to source-only adapter readiness blocker design if platform/protocol materialization evidence is accepted",
+      "route to branch synthesis pivot or stop if additional infrastructure would not change validation readiness"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2585 accepts M2584 platform/protocol readiness materialization evidence and requires a next-route decision",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 validation platform/protocol readiness materialization result synthesis",
+    "admission_evidence": [
+      "M2584 materialized status_pass true HF3 validation platform/protocol readiness artifacts",
+      "M2585 accepts M2584 while rejecting platform selection validation protocol readiness validation admission readiness/result ranking and driver-performance claims",
+      "M2584 marks four source-only adapter prerequisites as missing before platform/protocol readiness",
+      "M2583/M2584/M2585 keep Route C validation-layer evidence separate from paper self-ID and driver-performance claims"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no reset execution in synthesis",
+      "no policy action in synthesis",
+      "no environment stepping in synthesis",
+      "no rollout execution in synthesis",
+      "no validation execution in synthesis",
+      "no platform selection",
+      "no training in synthesis",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from platform/protocol synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+      "M2586 status queue scoreboard research log and review",
+      "one follow-up source-only adapter readiness blocker design platform-dependency repair artifact repair contract repair branch synthesis pivot or stop manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "supported and rejected claim boundaries are explicit",
+      "next route is selected without platform selection validation protocol readiness validation admission readiness result or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2586 synthesizes engineering HF3 platform/protocol readiness materialization evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2586; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2585 platform/protocol readiness materialization audit.",
+    "negative_result_policy": "If synthesis finds platform/protocol materialization evidence insufficient for source-only adapter readiness planning route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 validation platform/protocol readiness materialization result synthesis",
+      "platform/protocol readiness design materialization accepted",
+      "no platform selection validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes newly materialized platform/protocol readiness evidence before selecting the next source-only adapter or repair route",
+    "paper_verdict_delta": "does not decide paper verdict but clarifies whether platform/protocol materialization can continue toward source-only adapter readiness gates before external validation",
+    "must_synthesize_if": [
+      "M2586 would claim platform selection validation protocol readiness validation admission readiness result or driver performance",
+      "M2586 would rank or promote controllers",
+      "M2586 cannot select a bounded next route",
+      "another infrastructure step is proposed after M2586 without concrete evidence increment"
+    ]
+  },
+  "hypothesis": "A bounded synthesis can convert accepted HF3 validation platform/protocol readiness materialization evidence into a clear next source-only adapter readiness blocker design or repair route decision without claiming platform selection validation protocol readiness validation admission validation result driver performance paper evidence finite-window-vs-GRU or self-ID.",
+  "success_criteria": [
+    "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis separates platform/protocol materialization evidence from platform selection validation protocol readiness validation admission validation readiness validation result driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims",
+    "synthesis registers source-only adapter readiness blocker design platform-dependency repair artifact repair contract repair branch synthesis pivot or stop without validation or performance claims",
+    "no external high-fidelity simulation install import execution reset policy action rollout validation training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2586 installs imports or runs Chrono or another external simulator",
+    "M2586 changes actor input or action contract",
+    "M2586 injects hidden or oracle actor features",
+    "M2586 executes reset policy action rollout validation or environment step",
+    "M2586 starts training",
+    "M2586 treats platform/protocol synthesis as driver performance",
+    "M2586 ranks controller families or selects a winner",
+    "M2586 claims platform selection validation protocol readiness validation admission validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.md",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_validation_platform_candidate_rows.csv",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_validation_protocol_skeleton_rows.csv",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_source_only_adapter_prerequisite_rows.csv",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/hf3_platform_protocol_claim_boundary_checks.csv",
+    "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/validation_platform_protocol_readiness_gate_matrix.csv",
+    "docs/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.md",
+    "experiments/manifests/m2585-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-audit.json",
+    "experiments/manifests/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2586 passes if it synthesizes accepted HF3 validation platform/protocol readiness materialization evidence answers the six synthesis questions and registers a bounded next route without external simulation validation execution training ranking winner selection success-rate promotion platform selection validation protocol readiness validation admission readiness result driver-performance rollout-success paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design"
+}
