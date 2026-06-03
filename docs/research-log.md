@@ -45629,3 +45629,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2515: `false`
 - follow-up manifest: `experiments/manifests/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.json`
 - next: `m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight`
+
+## M2516 Engineering Controller Source-Only Behavior/Outcome Row Completeness Preflight
+
+- status: completed
+- result_class: `engineering_controller_source_only_behavior_outcome_row_completeness_pass`
+- manifest: `experiments/manifests/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.json`
+- doc: `docs/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md`
+- implementation: `src/autodrift/engineering_controller_source_only_behavior_outcome_rows.py`
+- summary: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json`
+- behavior outcome rows: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv`
+- metric gap summary: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv`
+- source artifacts: M2498 role panel plus telemetry, M2501 controller-role panel plus telemetry, M2514 row schema and metric registry
+- row counts: behavior/outcome rows `12`, metric gap rows `40`, M2498 source rows `3`, M2501 source rows `9`
+- unsupported metrics: `12` (`collision_event`, `obstacle_passed_event`, `road_departure_event`, `minimum_obstacle_clearance_m`, `minimum_road_margin_m`, `final_road_margin_m`, `recovery_time_proxy_s`, `collision_speed_proxy`, `impact_angle_proxy`, `severity_proxy`, `mitigation_delta_against_reference`, `seed`)
+- accepted gates: required artifacts present, source artifacts exist, missing source artifacts `[]`, all required M2514 row fields present, actor contract `72/3`, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, metric gaps explicit, false claim flags preserved
+- accepted scope: source-only behavior/outcome row-completeness preflight only
+- rejected claims: no behavior quality, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: audit M2516 row-completeness artifacts before any measured behavior or validation route
+- external high-fidelity simulation install/import/execution/environment rollout/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2516: `false`
+- follow-up manifest: `experiments/manifests/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.json`
+- next: `m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit`

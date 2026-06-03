@@ -16,32 +16,31 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit
+m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit
+m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight
+m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit
 ```
 
 Current route:
 
 ```text
-M2515 accepts the M2514 Route A engineering-controller behavior/outcome protocol
-materialization as a valid no-rollout schema and registry artifact set. The
-accepted artifacts include protocol schema, row schema, metric registry, audit
-gate registry, layer registry, and forbidden shortcut registry while preserving
-the bounded claim boundary. The active next task is source-only row completeness
-against the accepted protocol before any measured behavior, ranking,
-success-rate, validation, or performance route.
+M2516 materializes source-only behavior/outcome row-completeness artifacts
+against the accepted M2514 protocol. It maps existing M2498/M2501 source-only
+panels plus telemetry into 12 diagnostic rows and a 40-row metric gap summary,
+with 12 unsupported metrics kept explicit. The active next task is a result
+audit before any measured behavior, ranking, success-rate, validation, or
+performance route.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -49,17 +48,16 @@ and the rule that scenario labels, feasibility classes, hidden dynamics,
 per-wheel forces, fault scales, TTC, required clearance, reward terms, and
 success labels remain metadata-only.
 
-M2515 did not install, import, or run an external high-fidelity simulator. It
-did not step a simulator, execute policy rollouts, run measured validation,
+M2516 did not install, import, or run an external high-fidelity simulator. It
+did not step a simulator, execute new policy actions, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
 computation, or any driver-performance, paper/FW-vs-GRU/self-ID/current-sim/
 high-fidelity validation verdict.
 
-The active next task is M2516: materialize a source-only behavior/outcome row
-completeness preflight against the M2514 protocol. It must use existing
-source-only artifacts only, preserve explicit metric gaps, and must not step an
-environment, execute new policy actions, train, rank, select a winner, compute
-success-rate verdicts, or claim performance or validation.
+The active next task is M2517: audit the M2516 summary, behavior/outcome rows,
+and metric gap summary. It must verify row count, required fields, explicit
+gaps, source-only no-ranking scope, actor contract `72/3`, and false claim
+flags before any measured behavior route.
 
 ## Latest Evidence
 
@@ -547,6 +545,24 @@ M2515:
   route: source-only row completeness preflight against existing artifacts and M2514 protocol
   environment rollout in M2515: false
   external simulation installed/imported/executed: false
+
+M2516:
+  result_class: engineering_controller_source_only_behavior_outcome_row_completeness_pass
+  summary: runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json
+  behavior outcome rows: runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv
+  metric gap summary: runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv
+  behavior/outcome rows: 12
+  metric gap rows: 40
+  unsupported metrics: 12
+  unsupported examples: collision_event minimum_obstacle_clearance_m mitigation_delta_against_reference seed
+  source rows: M2498 role panel 3 plus M2501 controller-role panel 9
+  actor contract: P0 observation 72 action 3 human_view_online_gru horizon 1
+  accepted gates: required artifacts present source artifacts exist missing [] required M2514 fields present source_only_diagnostic rows diagnostic_only_no_ranking metric gaps explicit false claim flags
+  accepted scope: source-only row-completeness preflight only
+  rejected claims: behavior quality performance success-rate ranking winner validation paper FW-vs-GRU self-ID
+  route: result audit before measured behavior or validation route
+  environment rollout in M2516: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -607,7 +623,8 @@ defines that evaluator-side protocol and routes to no-rollout materialization
 before any measured behavior or validation execution. M2514 materializes the
 protocol into schema and registry artifacts. M2515 audits and accepts that
 materialization, then routes to source-only row completeness against existing
-artifacts before any measured behavior or validation execution.
+artifacts. M2516 materializes those row-completeness artifacts with explicit
+metric gaps, still before any measured behavior or validation execution.
 ```
 
 Blocked claims:
@@ -627,21 +644,23 @@ training repair success
 
 ## Immediate Next Step
 
-M2516 should materialize source-only behavior/outcome row-completeness artifacts
-against the accepted M2514 protocol:
+M2517 should audit the M2516 source-only behavior/outcome row-completeness
+artifacts:
 
 ```text
 runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json
 runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv
 runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv
 docs/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md
+docs/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.md
 ```
 
-The preflight should use existing M2498/M2501 source-only artifacts only,
-preserve actor contract `72/3`, mark every row as source-only diagnostic,
-report metric gaps explicitly, and keep diagnostic-only no-ranking claim flags.
-It must not install, import, or run external high-fidelity simulation, step a
-simulator, execute new policy action, train, replay, use PPO, rank controllers,
-select a winner, promote a checkpoint, compute success-rate verdicts, or claim
-driver performance, high-fidelity validation, current-sim verdict, paper-level
-evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
+The audit should verify M2516 `status_pass`, 12 behavior/outcome rows, 40 metric
+gap rows, required M2514 fields, actor contract `72/3`, source-only diagnostic
+layer, diagnostic-only no-ranking flags, explicit unsupported metrics, and
+false claim flags. It must not install, import, or run external high-fidelity
+simulation, step a simulator, execute new policy action, train, replay, use
+PPO, rank controllers, select a winner, promote a checkpoint, compute
+success-rate verdicts, or claim driver performance, high-fidelity validation,
+current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
+level-3 self-identification.

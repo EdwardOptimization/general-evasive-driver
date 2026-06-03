@@ -1,0 +1,41 @@
+metric_name,metric_family,supported_row_count,missing_row_count,total_row_count,support_status,gap_reason,claim_boundary
+observation_shape,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+action_shape,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+actor_contract_id,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+actor_input_leak_flags,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+action_finite,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+action_within_bounds,contract,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+episode_started,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+episode_completed,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+terminal_status,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+step_count,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+reset_status,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+backend_status,episode_status,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+collision_event,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+obstacle_passed_event,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+road_departure_event,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+minimum_obstacle_clearance_m,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+minimum_road_margin_m,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+final_road_margin_m,avoidance_boundary,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+maximum_abs_lateral_velocity,response_recovery,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+maximum_abs_yaw_rate,response_recovery,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+maximum_abs_lateral_position,response_recovery,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+final_abs_lateral_velocity,response_recovery,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+final_abs_yaw_rate,response_recovery,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+recovery_time_proxy_s,response_recovery,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+steering_saturation_fraction,actuator_smoothness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+throttle_saturation_fraction,actuator_smoothness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+brake_saturation_fraction,actuator_smoothness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+command_delta_l1_mean,actuator_smoothness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+simultaneous_throttle_brake_fraction,actuator_smoothness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+collision_speed_proxy,mitigation,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+impact_angle_proxy,mitigation,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+severity_proxy,mitigation,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+mitigation_delta_against_reference,mitigation,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+evidence_layer,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+scenario_role,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+subject_id,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+fixture_id,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+seed,metadata_completeness,0,12,12,unsupported_by_existing_source_artifacts,not present in M2498/M2501 source-only panel or telemetry,diagnostic completeness only; not a behavior verdict
+metric_completeness_flags,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict
+diagnostic_only_no_ranking_claim,metadata_completeness,12,0,12,supported_by_existing_source_artifacts,present in source-only panel or derived from existing telemetry,diagnostic completeness only; not a behavior verdict

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2521,
+    "completed": 2522,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit",
+    "task_id": "m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md"
+    "run_dir": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness",
+    "command_log": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json"
   },
   "next_task": {
-    "id": "m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight",
-    "kind": "infrastructure",
-    "priority": 25110,
+    "id": "m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit",
+    "kind": "gate",
+    "priority": 25120,
     "status": "pending",
-    "hypothesis": "Materialize a source-only row-completeness preflight against the accepted M2514 behavior/outcome protocol artifacts.",
-    "command": "see experiments/manifests/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.json",
-    "success_artifact": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json",
-    "notes": "Pending: use existing source-only artifacts only to populate M2514 protocol rows and explicit metric gaps no environment rollout policy action simulation training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Audit M2516 source-only behavior/outcome row-completeness artifacts before any measured behavior or validation route.",
+    "command": "see experiments/manifests/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.json",
+    "success_artifact": "docs/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.md",
+    "notes": "Pending: audit M2516 summary behavior rows and metric gap summary for row count required fields explicit gaps source-only no-ranking scope actor contract 72/3 and false claim flags no rollout simulation new policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T115119Z"
+  "updated_at_utc": "20260603T120420Z"
 }

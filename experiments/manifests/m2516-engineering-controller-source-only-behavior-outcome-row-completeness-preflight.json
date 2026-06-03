@@ -26,8 +26,10 @@
       "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/forbidden_registry.csv",
       "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
       "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv",
       "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
       "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv",
       "docs/m2513-engineering-controller-behavior-outcome-protocol-design.md",
       "docs/observation-contract.md"
     ],
@@ -221,8 +223,10 @@
     "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv",
     "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
     "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/telemetry_rows.csv",
     "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
     "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv",
     "docs/observation-contract.md"
   ],
   "decision_rule": "M2516 passes if it materializes source-only diagnostic row-completeness artifacts against the M2514 protocol while preserving actor/action contracts, explicit metric gaps, no-ranking flags, and false claim flags.",
