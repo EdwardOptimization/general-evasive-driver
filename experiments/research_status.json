@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2566,
+    "completed": 2567,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2560-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-preflight",
+    "task_id": "m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json",
-    "command_log": "runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json"
+    "run_dir": "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
+    "command_log": "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit",
+    "id": "m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis",
     "kind": "gate",
-    "priority": 25560,
+    "priority": 25570,
     "status": "pending",
-    "hypothesis": "Audit the M2560 Route A HF3 low-cost pilot materialization preflight before pilot execution or validation interpretation.",
-    "command": "see experiments/manifests/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.json",
-    "success_artifact": "docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md",
-    "notes": "Pending: audit M2560 candidate reset rollout external-boundary claim-boundary and gate artifacts without external simulation policy actions reset rollout execution validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Synthesize accepted M2560/M2561 HF3 low-cost pilot preflight evidence before choosing reset-feasibility execution design repair pivot or stop.",
+    "command": "see experiments/manifests/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.json",
+    "success_artifact": "docs/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.md",
+    "notes": "Pending: synthesize HF3 preflight evidence and choose reset-feasibility execution design artifact repair contract repair mapping repair branch synthesis pivot or stop without validation driver-performance ranking or self-ID claims"
   },
-  "updated_at_utc": "20260603T201048Z"
+  "updated_at_utc": "20260603T201402Z"
 }

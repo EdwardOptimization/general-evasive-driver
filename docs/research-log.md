@@ -46482,3 +46482,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.json`
 - next: `m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit`
+
+## M2561 Engineering Controller Route A Baseline HF3 Low-Cost Pilot Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_low_cost_pilot_preflight_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.json`
+- audit doc: `docs/m2561-engineering-controller-route-a-baseline-hf3-low-cost-pilot-materialization-result-audit.md`
+- parent summary: `runs/m2560_engineering_controller_route_a_hf3_low_cost_pilot_materialization/summary.json`
+- accepted evidence: M2560 status_pass true result_class pass with source artifacts present and materialization gates all pass
+- accepted counts: 2 pilot candidate rows 2 reset-feasibility rows 2 rollout-feasibility rows 6 external-boundary rows 7 claim-boundary rows and 8 gates pass
+- guard boundary: no pilot admission no external simulator install/import/run no policy action no reset/step/rollout execution no validation ranking driver-performance or self-ID claim P0 `72/3`
+- supported claim: source-level HF3 low-cost pilot preflight is internally consistent and can route to result synthesis
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2560/M2561 do not repair behavior or evaluate scenario success
+- follow-up manifest: `experiments/manifests/m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis.json`
+- next: `m2562-engineering-controller-route-a-baseline-hf3-low-cost-pilot-result-synthesis`
