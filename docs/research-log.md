@@ -45543,3 +45543,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2511: `false`
 - follow-up manifest: `experiments/manifests/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.json`
 - next: `m2512-engineering-controller-route-a-artifact-set-branch-synthesis`
+
+## M2512 Engineering Controller Route A Artifact-Set Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_engineering_controller_behavior_outcome_protocol`
+- manifest: `experiments/manifests/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.json`
+- doc: `docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md`
+- parent evidence window: `m2493` through `m2511`
+- evidence summary: Route A now has source-only role diagnostics, baseline comparison diagnostics, public diagnostic pack, actor-only runtime/inference-cost report, and structured known failure taxonomy under the same P0 `72/3` actor/action contract
+- public pack evidence: M2505/M2506 accepted required files, artifact manifest rows `14`, source references, actor contract `72/3`, claim boundaries, and false claim flags
+- runtime evidence: M2508/M2509 accepted actor-only timing rows `300`, batch sizes `1/8/32`, model parameter count `164679`, and synthetic shape-only observation scope
+- taxonomy evidence: M2510/M2511 accepted `10` taxonomy rows across `9` categories with source references, forbidden interpretations, and false performance/validation/paper claim flags
+- supported claims: Route A engineering artifacts are coherent and claim-bounded enough for later export/release review and behavior/outcome protocol design
+- rejected claims: no driver performance, behavior verdict, success-rate benchmark, controller ranking, winner, checkpoint promotion, deployment certification, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- failure taxonomy summary: contract violation, lineage invalid, and metric-artifact risks are controlled; objective-overfit risk is reduced by stopping static Route A artifact accumulation; behavior regression, scenario sampling failure, and high-fidelity validation remain unresolved
+- public-gate overfit risk: `medium`; another static artifact/export task would likely add process overhead over fixed public surfaces
+- route decision: close `engineering_controller_route_a_artifact_set` and open `engineering_controller_behavior_outcome_protocol`
+- external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2512: `false`
+- follow-up manifest: `experiments/manifests/m2513-engineering-controller-behavior-outcome-protocol-design.json`
+- next: `m2513-engineering-controller-behavior-outcome-protocol-design`

@@ -16,46 +16,47 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2511-engineering-controller-known-failure-taxonomy-result-audit
+m2512-engineering-controller-route-a-artifact-set-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2511-engineering-controller-known-failure-taxonomy-result-audit
+m2512-engineering-controller-route-a-artifact-set-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2512-engineering-controller-route-a-artifact-set-branch-synthesis
+m2513-engineering-controller-behavior-outcome-protocol-design
 ```
 
 Current route:
 
 ```text
-M2511 accepts the structured known failure taxonomy from existing Route A
-artifacts. Route A now has public diagnostic pack, runtime/inference-cost
-report, known failure taxonomy, source-only role diagnostics, and baseline
-comparison artifacts. The active next task is a branch synthesis before public
-export preparation or another engineering route.
+M2512 synthesizes the Route A engineering-controller artifact set and closes
+the static artifact branch. Route A now has public diagnostic pack,
+runtime/inference-cost report, known failure taxonomy, source-only role
+diagnostics, and baseline comparison artifacts under a bounded claim boundary.
+The active next task is design-only behavior/outcome protocol work before any
+measured behavior, ranking, success-rate, validation, or performance claim.
 ```
 
-The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
-that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
-fault scales, TTC, required clearance, reward terms, and success labels remain
-metadata-only.
+The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
+and the rule that scenario labels, feasibility classes, hidden dynamics,
+per-wheel forces, fault scales, TTC, required clearance, reward terms, and
+success labels remain metadata-only.
 
-M2511 did not install, import, or run an external high-fidelity simulator. It
+M2512 did not install, import, or run an external high-fidelity simulator. It
 did not step a simulator, execute policy rollouts, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
-computation, or any paper/FW-vs-GRU/self-ID/current-sim/high-fidelity
-validation verdict.
+computation, or any driver-performance, paper/FW-vs-GRU/self-ID/current-sim/
+high-fidelity validation verdict.
 
-The active next task is M2512: synthesize the Route A artifact set. It must not
-step an environment, execute policy rollouts, train, rank, select a winner,
-compute success-rate verdicts, or claim performance or validation.
+The active next task is M2513: design a non-oracle behavior/outcome protocol.
+It must not step an environment, execute policy rollouts, train, rank, select a
+winner, compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -479,6 +480,20 @@ M2511:
   route: Route A artifact-set branch synthesis
   environment rollout in M2511: false
   external simulation installed/imported/executed: false
+
+M2512:
+  synthesis decision: promote_to_next_branch
+  decision: promote_to_engineering_controller_behavior_outcome_protocol
+  evidence window: M2493-M2511
+  supported scope: coherent Route A engineering artifacts under a bounded claim boundary
+  public pack evidence: required files present artifact manifest rows 14 source references actor contract 72/3 claim flags false
+  runtime evidence: actor-only timing rows 300 batch sizes 1/8/32 params 164679 synthetic shape-only observation scope
+  taxonomy evidence: 10 rows 9 categories source references forbidden interpretations false claim flags
+  rejected claims: performance behavior verdict success-rate ranking winner validation paper FW-vs-GRU self-ID
+  public-gate overfit risk: medium
+  route: behavior/outcome protocol design before measured behavior or validation claims
+  environment rollout in M2512: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -532,7 +547,9 @@ claim escalation. M2510 materializes that taxonomy from existing M2498/M2501/
 M2505/M2508 artifacts without new rollout or performance interpretation.
 M2511 audits and accepts the taxonomy, then routes to Route A artifact-set
 synthesis so the project does not continue static artifact work without a route
-decision.
+decision. M2512 closes the Route A artifact-set branch and promotes to
+engineering-controller behavior/outcome protocol design because behavior
+regression and outcome semantics remain the limiting unresolved gap.
 ```
 
 Blocked claims:
@@ -552,20 +569,24 @@ training repair success
 
 ## Immediate Next Step
 
-M2512 should synthesize the Route A artifact set:
+M2513 should design the engineering-controller behavior/outcome protocol from
+the existing Route A limitations:
 
 ```text
+docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md
 docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md
-runs/m2510_engineering_controller_known_failure_taxonomy/summary.json
+runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv
 runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json
 public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json
-docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md
+docs/post-m2470-route-plan.md
+docs/observation-contract.md
 ```
 
-The synthesis should decide whether the next route is public export
-preparation, behavior/outcome protocol, high-fidelity validation preparation,
-paper-route bridging, or stop. It must not install, import, or run external
-high-fidelity simulation, step a simulator, train, replay, use PPO, rank
-controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
-evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
+The design should define admissible metrics, forbidden metrics/oracle signals,
+row schema, audit gates, source-only versus future high-fidelity validation
+layers, and claim boundaries. It must not install, import, or run external
+high-fidelity simulation, step a simulator, execute policy action, train,
+replay, use PPO, rank controllers, select a winner, promote a checkpoint,
+compute success-rate verdicts, or claim driver performance, high-fidelity
+validation, current-sim verdict, paper-level evidence, finite-window-vs-GRU
+evidence, or level-3 self-identification.

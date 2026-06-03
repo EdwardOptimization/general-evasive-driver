@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2517,
+    "completed": 2518,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2511-engineering-controller-known-failure-taxonomy-result-audit",
+    "task_id": "m2512-engineering-controller-route-a-artifact-set-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md"
+    "command_log": "docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2512-engineering-controller-route-a-artifact-set-branch-synthesis",
-    "kind": "gate",
-    "priority": 25070,
+    "id": "m2513-engineering-controller-behavior-outcome-protocol-design",
+    "kind": "infrastructure",
+    "priority": 25080,
     "status": "pending",
-    "hypothesis": "Synthesize the Route A engineering-controller artifact set before export preparation or another route.",
-    "command": "see experiments/manifests/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.json",
-    "success_artifact": "docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md",
-    "notes": "Pending: synthesize public pack runtime report known failure taxonomy role diagnostics and baseline comparison artifacts no environment rollout external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Design a non-oracle behavior/outcome protocol after Route A artifact-set synthesis.",
+    "command": "see experiments/manifests/m2513-engineering-controller-behavior-outcome-protocol-design.json",
+    "success_artifact": "docs/m2513-engineering-controller-behavior-outcome-protocol-design.md",
+    "notes": "Pending: design admissible metrics forbidden metrics row schema audit gates and source-only vs future HF validation layers no environment rollout policy action simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T111316Z"
+  "updated_at_utc": "20260603T111833Z"
 }
