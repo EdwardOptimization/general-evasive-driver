@@ -45336,3 +45336,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2499: `false`
 - follow-up manifest: `experiments/manifests/m2500-engineering-controller-source-only-baseline-comparison-design.json`
 - next: `m2500-engineering-controller-source-only-baseline-comparison-design`
+
+## M2500 Engineering Controller Source-Only Baseline Comparison Design
+
+- status: completed
+- decision: `source_only_baseline_comparison_design_route_to_implementation_preflight`
+- manifest: `experiments/manifests/m2500-engineering-controller-source-only-baseline-comparison-design.json`
+- doc: `docs/m2500-engineering-controller-source-only-baseline-comparison-design.md`
+- parent audit: `docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md`
+- route constraint: `docs/post-m2470-route-plan.md`
+- design: bounded source-only diagnostic comparison protocol across `m1154_policy_actor`, `coast_open_loop`, and `straight_full_brake_open_loop`
+- fixture/horizon contract: 3 parameterized roles, 3 comparison subjects, 100 steps per role-subject pair, expected 900 telemetry rows and 9 role-subject panel rows
+- action mapping: `coast_open_loop=[0.0,-1.0,-1.0]` maps to zero steer/throttle/brake; `straight_full_brake_open_loop=[0.0,-1.0,1.0]` maps to zero steer/throttle/full brake
+- required gates: reset digests match within role across subjects, reset digests differentiated across roles, observation shape `72`, action shape `3`, finite/bounded actions, diagnostic-only panel rows, no success-rate/ranking/winner/verdict fields
+- rejected claims: no driver performance, role-specific success, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2500: `false`
+- follow-up manifest: `experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json`
+- next: `m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight`
