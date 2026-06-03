@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2584,
+    "completed": 2585,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis",
+    "task_id": "m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis.md",
-    "command_log": "docs/m2578-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-result-synthesis.md"
+    "run_dir": "docs/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.md",
+    "command_log": "docs/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.md"
   },
   "next_task": {
-    "id": "m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design",
+    "id": "m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25740,
+    "priority": 25750,
     "status": "pending",
-    "hypothesis": "Design bounded Route A HF3 validation-admission artifacts and gates after accepted M2578 synthesis.",
-    "command": "see experiments/manifests/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.json",
-    "success_artifact": "docs/m2579-engineering-controller-route-a-baseline-hf3-validation-admission-design.md",
-    "notes": "Pending: design validation-admission request criteria external-platform evidence-sufficiency actor/action guard claim-boundary and gate artifacts without external simulation validation execution validation readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Materialize bounded Route A HF3 validation-admission artifacts and gates after M2579 design.",
+    "command": "see experiments/manifests/m2580-engineering-controller-route-a-baseline-hf3-validation-admission-materialization-preflight.json",
+    "success_artifact": "runs/m2580_engineering_controller_route_a_hf3_validation_admission/summary.json",
+    "notes": "Pending: materialize validation-admission request criteria external-platform readiness evidence-sufficiency actor/action guard claim-boundary and gate artifacts without external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T222443Z"
+  "updated_at_utc": "20260603T222904Z"
 }
