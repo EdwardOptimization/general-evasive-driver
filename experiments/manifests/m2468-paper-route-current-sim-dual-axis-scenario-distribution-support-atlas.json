@@ -1,0 +1,215 @@
+{
+  "id": "m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_scenario_distribution_support_atlas"
+    ],
+    "parent_dataset": [
+      "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/variant_summary_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/classification_rows.csv",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/summary.json",
+      "runs/m2455_paper_route_current_sim_dual_axis_scenario_quality_redesign_protocol_materialization_preflight/candidate_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.json"
+    ],
+    "parent_objective": [
+      "move from fixed R1 reset rows to a broad reset-only scenario-distribution support atlas"
+    ],
+    "derived_from": [
+      "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit",
+      "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
+      "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2467 pivots away from fixed public R1 reset-row repair",
+      "M2466 classified the concrete R1 stable-AES overlay family as seed-fragile",
+      "distribution-level sampler support is unknown across role families and parameter bins",
+      "measured rollout remains blocked until reset/scenario readiness is broader than fixed-row diagnostics"
+    ],
+    "supersedes": [
+      "another fixed-row R1 reset-sampling diagnostic",
+      "direct measured rollout from M2466 seed-fragile reset evidence",
+      "direct overlay repair without distribution-level support evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.md",
+  "public_gates": [
+    "M2468 must build broad reset-only sampler-support evidence across role families or parameter bins rather than optimizing the three M2464 R1 rows",
+    "M2468 must preserve the P0 human-view actor contract and keep labels/hidden dynamics as diagnostic metadata only",
+    "M2468 may reset environments for atlas rows but must not step, execute policy actions, run rollout, repair overlays, train, rank variants, or select winners",
+    "M2468 must summarize distribution support and failure classes without claiming driver performance or verdict evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not repair the M2464 R1 fixed rows",
+    "do not retry M2466 as repair",
+    "do not overwrite active configs",
+    "do not run environment steps",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign as a repair",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_distribution_support_atlas",
+    "evidence_axis": "E_distribution_level_reset_sampler_support",
+    "evidence_increment": "replaces fixed-row R1 reset local search with a broad reset-only support atlas across scenario families or parameter bins",
+    "claim_scope": "distribution-level reset-sampling support only; no rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if the atlas cannot preserve the P0 actor-input contract",
+      "stop if atlas evidence requires environment steps or policy actions",
+      "stop if atlas rows become repaired overlays or ranking candidates",
+      "stop if results collapse back into fixed public-row optimization"
+    ],
+    "fallback_plan": [
+      "route to result audit if the atlas writes broad support evidence",
+      "route to branch synthesis if support remains too sparse for reset-readiness repair",
+      "stop for user review if distribution-level evidence cannot be generated without claim-boundary violations"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2467 pivot from fixed-row R1 reset-sampling seed fragility",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "scenario-distribution reset-sampler support atlas",
+    "admission_evidence": [
+      "M2467 decision accept_seed_fragility_pivot_to_scenario_distribution_support_atlas",
+      "M2466 diagnostic_classification seed_fragility",
+      "M2466 baseline_reset_success_count 5",
+      "M2466 baseline_reset_failure_count 19",
+      "M2466 guardrail_violation_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no fixed-row repair",
+      "no measured rollout",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_scenario_distribution_support_atlas.py",
+      "tests/test_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas.py",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/*",
+      "docs/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.md",
+      "M2468 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "distribution-level atlas rows exist",
+      "reset attempts stay reset-only",
+      "scenario-support failure classes are summarized",
+      "fixed public-row repair, policy action, rollout, training, ranking, winner, and verdict claims remain blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2468 maps reset sampler support and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2468; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2467 pivot and M2466 reset-only seed-fragility artifacts.",
+    "negative_result_policy": "Sampler support failures are scenario-quality infrastructure evidence only and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "distribution-level reset-sampler support atlas",
+      "no actual success improvement, controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "expands from three fixed R1 rows to distribution-level scenario support bins before any measured execution",
+    "paper_verdict_delta": "can improve current-sim scenario-quality readiness but cannot establish driver performance, paper verdict, or self-ID evidence",
+    "must_synthesize_if": [
+      "atlas evidence cannot be generated without optimizing fixed public rows",
+      "atlas rows cannot preserve actor-input and reset-only boundaries",
+      "the next route would repair fixed rows instead of using distribution-level evidence",
+      "the branch accumulates process-only work without new atlas evidence"
+    ]
+  },
+  "hypothesis": "A broad reset-only scenario-distribution support atlas can identify which role families and parameter bins have sampler support before any repair, measured rollout, training, ranking, winner selection, or verdict claim.",
+  "success_criteria": [
+    "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json exists",
+    "M2468 builds distribution-level atlas rows beyond the three fixed M2464 R1 targets",
+    "environment_step_count equals 0",
+    "policy_action_executed rollout_started repair_execution_started training_started replay_started ppo_used are false",
+    "active_config_overwrite_count equals 0",
+    "ranking_admissible_count and winner_selected_count are 0",
+    "actual-success paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "atlas only retries or repairs the three fixed M2464 R1 rows",
+    "M2468 changes actor inputs or injects hidden/oracle actor features",
+    "environment step or policy action occurs",
+    "active config overwrite occurs",
+    "repair execution or training starts",
+    "ranking or winner selection occurs",
+    "any actual-success paper-level self-ID or current-sim verdict claim is made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas.py"
+    },
+    {
+      "name": "support_atlas",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_scenario_distribution_support_atlas --output-dir runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas --seed-base 246800 --seeds-per-cell 8 --next-blocker m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_scenario_distribution_support_atlas"
+  ],
+  "baseline_artifacts": [
+    "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+    "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json"
+  ],
+  "decision_rule": "M2468 passes if it writes a reset-only distribution-level sampler support atlas beyond fixed R1 rows without environment steps, policy actions, repair execution, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit"
+}

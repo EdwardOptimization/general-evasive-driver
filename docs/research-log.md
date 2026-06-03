@@ -44786,3 +44786,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2466: `false`
 - follow-up manifest: `experiments/manifests/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.json`
 - next: `m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit`
+
+## M2467 Paper-Route Current-Sim Dual-Axis Scenario-Quality R1 Reset Sampling Diagnostic Panel Result Audit
+
+- status: completed
+- decision: `accept_seed_fragility_pivot_to_scenario_distribution_support_atlas`
+- synthesis decision: `pivot`
+- manifest: `experiments/manifests/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.json`
+- doc: `docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md`
+- audited summary: `runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json`
+- accepted evidence: M2466 complete, `120` reset-only attempts, `20` successes, `100` failures, baseline `5/24`, classification `seed_fragility`, guardrail violations `0`
+- rejected explanations: threshold relaxation, geometry widening, and combined relaxation did not improve over baseline; nominal hidden dynamics was worse at `0/24`
+- interpretation: fixed-row R1 reset-sampling repair/retry is local-search risk after M2464-M2466; the next route must expand to distribution-level sampler support evidence
+- reset rerun/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2467: `false`
+- follow-up manifest: `experiments/manifests/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.json`
+- next: `m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas`
