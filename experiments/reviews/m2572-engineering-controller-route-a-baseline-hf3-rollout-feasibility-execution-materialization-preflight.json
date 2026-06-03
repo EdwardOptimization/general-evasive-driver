@@ -1,0 +1,144 @@
+{
+  "decision_reason": "M2572 materializes bounded repo-local HF3 rollout-feasibility execution artifacts status_pass true 2 rollout requests 1 fixed M1154 policy source 2 rollout plans 16 policy-action rows 16 backend-step rows 18 actor-view rows 9 claim rows and 10 gates pass no external simulation rollout success validation success-rate ranking promotion driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+  "failure_criteria": [
+    "M2572 installs imports or runs Chrono or another external simulator",
+    "M2572 changes actor input or action contract",
+    "M2572 injects hidden or oracle actor features",
+    "M2572 exposes labels feasibility classes backend statuses diagnostics reset outcomes or rollout outcomes to actor input",
+    "M2572 silently upgrades candidate rows to admitted pilots",
+    "M2572 starts training",
+    "M2572 ranks controller families or selects a winner",
+    "M2572 computes success rate or promotes a checkpoint",
+    "M2572 claims rollout success high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes or rollout outcomes to actor input",
+    "do not silently upgrade candidate rows to pilot-admitted rows",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from rollout-feasibility artifacts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260603T214232Z",
+  "hypothesis": "The Route A baseline can materialize bounded HF3 rollout-feasibility execution artifacts through the repo-local backend and a fixed M1154 policy while preserving the 72/3 no-oracle actor contract candidate-status honesty and no validation claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2571 design requires materialized rollout request fixed policy source rollout plan policy action audit backend step/outcome actor-view contract claim-boundary and gate artifacts",
+      "M2570 accepted reset-only execution evidence but rejected rollout success validation and driver-performance claims",
+      "Route C requires rollout feasibility after reset feasibility and before any high-fidelity validation or controller-family verdict"
+    ],
+    "derived_from": [
+      "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
+      "m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis",
+      "m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit",
+      "m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.json",
+      "experiments/manifests/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.json",
+      "experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
+      "docs/m2570-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-result-synthesis.md",
+      "docs/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.md",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_request_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_measured_reset_execution_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_actor_view_contract_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_reset_outcome_rows.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/hf3_claim_boundary_checks.csv",
+      "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/measured_reset_gate_matrix.csv",
+      "src/autodrift/high_fidelity_interface.py",
+      "src/autodrift/checkpoints.py",
+      "src/autodrift/rollout.py",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "materialize bounded HF3 rollout-feasibility execution artifacts after M2571 design"
+    ],
+    "supersedes": [
+      "another rollout design-only milestone without materialized action/step artifacts",
+      "claiming rollout success or validation readiness from reset-only rows",
+      "ranking or promoting controllers from rollout-feasibility execution",
+      "executing external high-fidelity simulation before the repo-local feasibility boundary is audited"
+    ]
+  },
+  "milestone": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight",
+  "next_blocker": "m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "engineering_controller_route_a_hf3_rollout_feasibility_execution_materialization_preflight_pass",
+  "public_gates": [
+    "M2572 must materialize summary rollout request fixed policy source rollout plan policy action audit backend step/outcome actor-view contract claim-boundary gate matrix and milestone doc artifacts",
+    "M2572 must include exactly stable avoidable/AEB-feasible and stable AES/AEB-infeasible rollout requests without granting pilot admission",
+    "M2572 must use the fixed M1154 promoted public-base checkpoint as the only rollout policy source without ranking or promotion",
+    "M2572 may execute repo-local backend reset policy actions and backend steps only through CurrentSimDynamicsBackend and the P0 actor observation",
+    "M2572 must preserve P0 observation shape 72 action shape 3 and deployed action contract [steer throttle brake]",
+    "M2572 must keep taxonomy labels feasibility classes backend statuses diagnostics reset outcomes and rollout outcomes out of actor-visible inputs",
+    "M2572 must record termination truncation and backend statuses as outcomes only and must not compute success rate or controller-family verdict metrics",
+    "M2572 must not install import or run external high-fidelity simulation packages",
+    "M2572 must not train replay PPO rank select winners promote checkpoints or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "engineering_controller_route_a_hf3_rollout_feasibility_execution_materialization_preflight_pass",
+    "milestone": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight",
+    "reason": "M2572 materializes bounded repo-local HF3 rollout-feasibility execution artifacts status_pass true 2 rollout requests 1 fixed M1154 policy source 2 rollout plans 16 policy-action rows 16 backend-step rows 18 actor-view rows 9 claim rows and 10 gates pass no external simulation rollout success validation success-rate ranking promotion driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_rollout_request_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_fixed_policy_source_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_rollout_plan_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_policy_action_audit_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_backend_step_outcome_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_rollout_actor_view_contract_rows.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/hf3_claim_boundary_checks.csv exists",
+    "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/rollout_feasibility_gate_matrix.csv exists",
+    "docs/m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight.md exists",
+    "exactly stable avoidable/AEB-feasible and stable AES/AEB-infeasible rollout requests are represented with P0 72/3",
+    "fixed M1154 policy source is used without ranking promotion or family comparison",
+    "bounded policy action and backend step rows are recorded without exposing hidden or oracle actor inputs",
+    "no external high-fidelity simulation install import execution training replay PPO ranking winner success-rate promotion validation or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

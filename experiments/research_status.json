@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2577,
+    "completed": 2578,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design",
+    "task_id": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md",
-    "command_log": "docs/m2571-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-design.md"
+    "run_dir": "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json",
+    "command_log": "docs/m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight.md"
   },
   "next_task": {
-    "id": "m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25670,
+    "id": "m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit",
+    "kind": "gate",
+    "priority": 25680,
     "status": "pending",
-    "hypothesis": "Materialize bounded Route A HF3 rollout-feasibility execution artifacts and gates after M2571 design.",
-    "command": "see experiments/manifests/m2572-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-preflight.json",
-    "success_artifact": "runs/m2572_engineering_controller_route_a_hf3_rollout_feasibility_execution/summary.json",
-    "notes": "Pending: materialize two rollout requests fixed M1154 policy source short-horizon policy action audit backend step/outcome actor-view contract claim-boundary and gate artifacts through repo-local backend only without external simulation validation success-rate ranking promotion driver-performance or self-ID claims"
+    "hypothesis": "Audit the M2572 Route A HF3 rollout-feasibility execution materialization preflight before rollout success validation ranking or performance interpretation.",
+    "command": "see experiments/manifests/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.json",
+    "success_artifact": "docs/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.md",
+    "notes": "Pending: audit M2572 summary rollout request fixed policy source rollout plan policy-action backend-step actor-view claim-boundary and gate evidence without executing new rollout external simulation validation success-rate ranking promotion driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T212213Z"
+  "updated_at_utc": "20260603T213816Z"
 }
