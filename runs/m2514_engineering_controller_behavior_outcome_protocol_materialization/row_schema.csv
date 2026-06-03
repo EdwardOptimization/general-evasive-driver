@@ -1,0 +1,52 @@
+field_name,field_family,dtype,required,nullable,actor_visible,allowed_values,claim_boundary,description
+protocol_version,identity,string,True,False,False,,evaluator_side_only_not_actor_input,protocol registry version
+milestone_id,identity,string,True,False,False,,evaluator_side_only_not_actor_input,emitting milestone id
+run_id,identity,string,True,False,False,,evaluator_side_only_not_actor_input,run or artifact id
+row_id,identity,string,True,False,False,,evaluator_side_only_not_actor_input,stable row id
+evidence_layer,layer,enum,True,False,False,source_only_diagnostic|current_sim_diagnostic_mining|future_high_fidelity_validation,evaluator_side_only_not_actor_input,protocol evidence layer
+surface_id,layer,string,True,False,False,,evaluator_side_only_not_actor_input,source surface or backend id
+scenario_role,metadata,enum,True,False,False,stable_avoidable|stable_aes|drift_required_recovery|hidden_dynamics_robustness|unavoidable_mitigation,evaluator_side_only_not_actor_input,"metadata role, never actor input"
+fixture_id,metadata,string,True,True,False,,evaluator_side_only_not_actor_input,fixture id when applicable
+seed,metadata,integer,True,True,False,,evaluator_side_only_not_actor_input,seed when applicable
+subject_id,metadata,string,True,False,False,,evaluator_side_only_not_actor_input,policy or diagnostic reference id
+checkpoint_path,metadata,string,True,True,False,,evaluator_side_only_not_actor_input,checkpoint path when applicable
+actor_contract_id,contract,string,True,False,False,P0_human_view_72_action_3_no_oracle,evaluator_side_only_not_actor_input,actor contract id
+observation_shape,contract,integer,True,False,False,72,evaluator_side_only_not_actor_input,P0 observation shape
+action_shape,contract,integer,True,False,False,3,evaluator_side_only_not_actor_input,deployed action shape
+actor_encoder,contract,string,True,False,False,human_view_online_gru,evaluator_side_only_not_actor_input,actor encoder
+action_horizon,contract,integer,True,False,False,1,evaluator_side_only_not_actor_input,executed action horizon
+actor_input_leak_flags,contract,string,True,False,False,,evaluator_side_only_not_actor_input,serialized leak flags; empty means none
+reset_status,episode_status,string,True,False,False,,evaluator_side_only_not_actor_input,reset status
+backend_status,episode_status,string,True,False,False,,evaluator_side_only_not_actor_input,backend status
+episode_started,episode_status,boolean,True,False,False,true|false,evaluator_side_only_not_actor_input,whether episode started
+episode_completed,episode_status,boolean,True,False,False,true|false,evaluator_side_only_not_actor_input,whether episode completed
+step_count,episode_status,integer,True,False,False,,evaluator_side_only_not_actor_input,attempted step count
+terminal_status,episode_status,string,True,True,False,,evaluator_side_only_not_actor_input,terminal status if any
+action_finite,contract,boolean,True,False,False,true|false,evaluator_side_only_not_actor_input,all action values finite
+action_within_bounds,contract,boolean,True,False,False,true|false,evaluator_side_only_not_actor_input,all action values within bounds
+collision_event,avoidance_boundary,boolean,True,True,False,true|false,evaluator_side_only_not_actor_input,collision event
+obstacle_passed_event,avoidance_boundary,boolean,True,True,False,true|false,evaluator_side_only_not_actor_input,obstacle passed event
+road_departure_event,avoidance_boundary,boolean,True,True,False,true|false,evaluator_side_only_not_actor_input,road departure event
+minimum_obstacle_clearance_m,avoidance_boundary,float,True,True,False,,evaluator_side_only_not_actor_input,"posthoc logged clearance, not actor input"
+minimum_road_margin_m,avoidance_boundary,float,True,True,False,,evaluator_side_only_not_actor_input,posthoc road margin
+final_road_margin_m,avoidance_boundary,float,True,True,False,,evaluator_side_only_not_actor_input,final road margin
+maximum_abs_lateral_velocity,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,maximum absolute lateral velocity
+maximum_abs_yaw_rate,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,maximum absolute yaw rate
+maximum_abs_lateral_position,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,maximum absolute lateral position
+final_abs_lateral_velocity,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,final absolute lateral velocity
+final_abs_yaw_rate,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,final absolute yaw rate
+recovery_time_proxy_s,response_recovery,float,True,True,False,,evaluator_side_only_not_actor_input,"logged recovery proxy, no path-error oracle"
+steering_saturation_fraction,actuator_smoothness,float,True,True,False,,evaluator_side_only_not_actor_input,steering saturation fraction
+throttle_saturation_fraction,actuator_smoothness,float,True,True,False,,evaluator_side_only_not_actor_input,throttle saturation fraction
+brake_saturation_fraction,actuator_smoothness,float,True,True,False,,evaluator_side_only_not_actor_input,brake saturation fraction
+command_delta_l1_mean,actuator_smoothness,float,True,True,False,,evaluator_side_only_not_actor_input,mean command delta L1
+simultaneous_throttle_brake_fraction,actuator_smoothness,float,True,True,False,,evaluator_side_only_not_actor_input,simultaneous pedal fraction
+collision_speed_proxy,mitigation,float,True,True,False,,evaluator_side_only_not_actor_input,collision speed proxy
+impact_angle_proxy,mitigation,float,True,True,False,,evaluator_side_only_not_actor_input,impact angle proxy
+severity_proxy,mitigation,float,True,True,False,,evaluator_side_only_not_actor_input,mitigation severity proxy
+mitigation_delta_against_reference,mitigation,float,True,True,False,,evaluator_side_only_not_actor_input,pre-registered diagnostic reference delta only
+metric_completeness_flags,metadata_completeness,string,True,False,False,,evaluator_side_only_not_actor_input,explicit missing metric flags
+diagnostic_only_no_ranking_claim,claim_boundary,boolean,True,False,False,true,evaluator_side_only_not_actor_input,must remain true before ranking admission
+claim_scope,claim_boundary,string,True,False,False,,evaluator_side_only_not_actor_input,row-level claim scope
+forbidden_interpretation,claim_boundary,string,True,False,False,,evaluator_side_only_not_actor_input,forbidden interpretation
+source_artifact,lineage,string,True,False,False,,evaluator_side_only_not_actor_input,source artifact path

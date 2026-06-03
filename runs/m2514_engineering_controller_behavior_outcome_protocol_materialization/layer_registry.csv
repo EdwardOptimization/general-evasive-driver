@@ -1,0 +1,4 @@
+evidence_layer,purpose,allowed_claim_scope,permitted_now,requires_future_manifest,forbidden_interpretation
+source_only_diagnostic,debug schema completeness and behavior instrumentation on source-only artifacts,diagnostic behavior instrumentation only,True,False,driver performance or scenario generalization
+current_sim_diagnostic_mining,fast diagnostic/mining layer after explicit admission,diagnostic/mining evidence only,False,True,current-sim benchmark readiness
+future_high_fidelity_validation,external high-fidelity validation after parity and admission gates,validation evidence only after later validation audit,False,True,high-fidelity validation readiness

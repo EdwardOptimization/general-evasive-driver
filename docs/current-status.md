@@ -16,32 +16,32 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2513-engineering-controller-behavior-outcome-protocol-design
+m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2513-engineering-controller-behavior-outcome-protocol-design
+m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight
+m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit
 ```
 
 Current route:
 
 ```text
-M2513 designs the Route A engineering-controller behavior/outcome protocol.
-The protocol separates source-only diagnostics, current-sim diagnostic/mining,
-and future high-fidelity validation layers; defines admissible metric families,
-forbidden metric shortcuts, row schema, and audit gates; and preserves the
-bounded claim boundary. The active next task is no-rollout materialization of
-the protocol as schema and registry artifacts before any measured behavior,
-ranking, success-rate, validation, or performance claim.
+M2514 materializes the Route A engineering-controller behavior/outcome protocol
+as no-rollout schema and registry artifacts. The artifacts include protocol
+schema, row schema, metric registry, audit gate registry, layer registry, and
+forbidden shortcut registry while preserving the bounded claim boundary. The
+active next task is an explicit result audit before any source-only row
+completeness, measured behavior, ranking, success-rate, validation, or
+performance route.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -49,16 +49,15 @@ and the rule that scenario labels, feasibility classes, hidden dynamics,
 per-wheel forces, fault scales, TTC, required clearance, reward terms, and
 success labels remain metadata-only.
 
-M2513 did not install, import, or run an external high-fidelity simulator. It
+M2514 did not install, import, or run an external high-fidelity simulator. It
 did not step a simulator, execute policy rollouts, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
 computation, or any driver-performance, paper/FW-vs-GRU/self-ID/current-sim/
 high-fidelity validation verdict.
 
-The active next task is M2514: materialize the behavior/outcome protocol as
-machine-readable no-rollout artifacts. It must not step an environment, execute
-policy rollouts, train, rank, select a winner, compute success-rate verdicts,
-or claim performance or validation.
+The active next task is M2515: audit the M2514 materialized protocol artifacts.
+It must not step an environment, execute policy rollouts, train, rank, select a
+winner, compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -510,6 +509,25 @@ M2513:
   route: no-rollout behavior/outcome protocol materialization preflight
   environment rollout in M2513: false
   external simulation installed/imported/executed: false
+
+M2514:
+  result_class: engineering_controller_behavior_outcome_protocol_materialization_pass
+  protocol version: engineering_controller_behavior_outcome_v0
+  summary: runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json
+  protocol schema: runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/protocol_schema.json
+  row schema fields: 51
+  metric registry rows: 40
+  audit gates: 15
+  layer registry rows: 3
+  forbidden registry rows: 39
+  actor contract: P0 observation 72 action 3 human_view_online_gru horizon 1
+  layer separation: source_only_diagnostic current_sim_diagnostic_mining future_high_fidelity_validation
+  gates: required artifacts present source artifacts exist missing [] actor contract 72/3 forbidden actor inputs encoded forbidden outcome shortcuts encoded false claim flags
+  accepted scope: no-rollout protocol materialization only
+  rejected claims: performance behavior verdict success-rate ranking winner validation paper FW-vs-GRU self-ID
+  route: result audit before source-only row completeness or measured behavior route
+  environment rollout in M2514: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -567,7 +585,9 @@ decision. M2512 closes the Route A artifact-set branch and promotes to
 engineering-controller behavior/outcome protocol design because behavior
 regression and outcome semantics remain the limiting unresolved gap. M2513
 defines that evaluator-side protocol and routes to no-rollout materialization
-before any measured behavior or validation execution.
+before any measured behavior or validation execution. M2514 materializes the
+protocol into schema and registry artifacts, then routes to result audit before
+any source-only row completeness or measured behavior execution.
 ```
 
 Blocked claims:
@@ -587,19 +607,8 @@ training repair success
 
 ## Immediate Next Step
 
-M2514 should materialize the M2513 engineering-controller behavior/outcome
-protocol as no-rollout schema and registry artifacts:
-
-```text
-docs/m2513-engineering-controller-behavior-outcome-protocol-design.md
-docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md
-docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md
-runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv
-docs/observation-contract.md
-docs/post-m2470-route-plan.md
-```
-
-The materialization should write:
+M2515 should audit the M2514 engineering-controller behavior/outcome protocol
+materialization artifacts:
 
 ```text
 runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json
@@ -608,13 +617,14 @@ runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_
 runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv
 runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/audit_gate_registry.csv
 runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/layer_registry.csv
+runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/forbidden_registry.csv
 ```
 
-It must preserve actor contract `72/3`, layer separation, forbidden actor input
-and forbidden outcome shortcut registries, false claim flags, and no-rollout
-scope. It must not install, import, or run external high-fidelity simulation,
-step a simulator, execute policy action, train, replay, use PPO, rank
-controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim driver performance, high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The audit should verify required artifacts, actor contract `72/3`, no-oracle
+boundary, source-only/current-sim/high-fidelity layer separation, forbidden
+actor input and forbidden outcome shortcut coverage, and false claim flags. It
+must not install, import, or run external high-fidelity simulation, step a
+simulator, execute policy action, train, replay, use PPO, rank controllers,
+select a winner, promote a checkpoint, compute success-rate verdicts, or claim
+driver performance, high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

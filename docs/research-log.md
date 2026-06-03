@@ -45584,3 +45584,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2513: `false`
 - follow-up manifest: `experiments/manifests/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.json`
 - next: `m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight`
+
+## M2514 Engineering Controller Behavior/Outcome Protocol Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_behavior_outcome_protocol_materialization_pass`
+- manifest: `experiments/manifests/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.json`
+- doc: `docs/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.md`
+- implementation: `src/autodrift/engineering_controller_behavior_outcome_protocol.py`
+- summary: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json`
+- protocol schema: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/protocol_schema.json`
+- row schema: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_schema.csv`
+- metric registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv`
+- audit gate registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/audit_gate_registry.csv`
+- layer registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/layer_registry.csv`
+- forbidden registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/forbidden_registry.csv`
+- protocol version: `engineering_controller_behavior_outcome_v0`
+- summary gates: status pass, required artifacts present, source artifacts exist, missing source artifacts `[]`, actor contract `72/3`, no hidden/oracle actor input encoded, forbidden actor input and forbidden outcome shortcut registries encoded, claim boundary encoded, required layers present, no-rollout scope
+- artifact sizes: row schema fields `51`, metric registry rows `40`, audit gates `15`, layers `3`, forbidden registry rows `39`
+- layers: `source_only_diagnostic`, `current_sim_diagnostic_mining`, `future_high_fidelity_validation`
+- accepted scope: machine-readable protocol materialization only; no behavior execution, behavior verdict, performance claim, ranking, validation, paper, finite-window-vs-GRU, or self-ID evidence
+- external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2514: `false`
+- follow-up manifest: `experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json`
+- next: `m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit`

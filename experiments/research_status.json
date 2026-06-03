@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2519,
+    "completed": 2520,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2513-engineering-controller-behavior-outcome-protocol-design",
+    "task_id": "m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2513-engineering-controller-behavior-outcome-protocol-design.md"
+    "command_log": "docs/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.md"
   },
   "next_task": {
-    "id": "m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 25090,
+    "id": "m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit",
+    "kind": "gate",
+    "priority": 25100,
     "status": "pending",
-    "hypothesis": "Materialize the engineering-controller behavior/outcome protocol as no-rollout schema and registry artifacts.",
-    "command": "see experiments/manifests/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.json",
-    "success_artifact": "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json",
-    "notes": "Pending: materialize protocol_schema row_schema metric_registry audit_gate_registry layer_registry and summary no environment rollout policy action simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit the materialized engineering-controller behavior/outcome protocol artifacts before any measured behavior route.",
+    "command": "see experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json",
+    "success_artifact": "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md",
+    "notes": "Pending: audit M2514 summary protocol_schema row_schema metric_registry audit_gate_registry layer_registry forbidden_registry actor contract layer separation and false claim flags no environment rollout policy action simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T112659Z"
+  "updated_at_utc": "20260603T114351Z"
 }

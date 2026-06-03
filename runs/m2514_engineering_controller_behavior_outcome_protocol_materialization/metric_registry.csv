@@ -1,0 +1,41 @@
+metric_name,metric_family,dtype,actor_visible,aggregation_allowed_initially,requires_future_manifest_for_claim,forbidden_as_claim,description
+observation_shape,contract,integer,False,True,True,False,required actor contract check
+action_shape,contract,integer,False,True,True,False,required action contract check
+actor_contract_id,contract,string,False,True,True,False,contract lineage id
+actor_input_leak_flags,contract,string,False,True,True,False,no hidden/oracle actor input flags
+action_finite,contract,boolean,False,True,True,False,finite action check
+action_within_bounds,contract,boolean,False,True,True,False,bounded action check
+episode_started,episode_status,boolean,False,True,True,True,episode started flag
+episode_completed,episode_status,boolean,False,True,True,True,episode completed flag
+terminal_status,episode_status,string,False,True,True,True,terminal status
+step_count,episode_status,integer,False,True,True,True,attempted step count
+reset_status,episode_status,string,False,True,True,True,reset status
+backend_status,episode_status,string,False,True,True,True,backend status
+collision_event,avoidance_boundary,boolean,False,False,True,True,collision event
+obstacle_passed_event,avoidance_boundary,boolean,False,False,True,True,obstacle passed event
+road_departure_event,avoidance_boundary,boolean,False,False,True,True,road departure event
+minimum_obstacle_clearance_m,avoidance_boundary,float,False,False,True,True,posthoc clearance
+minimum_road_margin_m,avoidance_boundary,float,False,False,True,True,road margin
+final_road_margin_m,avoidance_boundary,float,False,False,True,True,final road margin
+maximum_abs_lateral_velocity,response_recovery,float,False,False,True,True,response envelope
+maximum_abs_yaw_rate,response_recovery,float,False,False,True,True,response envelope
+maximum_abs_lateral_position,response_recovery,float,False,False,True,True,response envelope
+final_abs_lateral_velocity,response_recovery,float,False,False,True,True,recovery proxy
+final_abs_yaw_rate,response_recovery,float,False,False,True,True,recovery proxy
+recovery_time_proxy_s,response_recovery,float,False,False,True,True,recovery timing proxy
+steering_saturation_fraction,actuator_smoothness,float,False,False,True,True,steering saturation
+throttle_saturation_fraction,actuator_smoothness,float,False,False,True,True,throttle saturation
+brake_saturation_fraction,actuator_smoothness,float,False,False,True,True,brake saturation
+command_delta_l1_mean,actuator_smoothness,float,False,False,True,True,command smoothness
+simultaneous_throttle_brake_fraction,actuator_smoothness,float,False,False,True,True,pedal conflict diagnostic
+collision_speed_proxy,mitigation,float,False,False,True,True,mitigation proxy
+impact_angle_proxy,mitigation,float,False,False,True,True,mitigation proxy
+severity_proxy,mitigation,float,False,False,True,True,mitigation proxy
+mitigation_delta_against_reference,mitigation,float,False,False,True,True,diagnostic reference delta
+evidence_layer,metadata_completeness,enum,False,True,True,True,layer id
+scenario_role,metadata_completeness,enum,False,True,True,True,metadata role
+subject_id,metadata_completeness,string,False,True,True,True,subject id
+fixture_id,metadata_completeness,string,False,True,True,True,fixture id
+seed,metadata_completeness,integer,False,True,True,True,seed id
+metric_completeness_flags,metadata_completeness,string,False,True,True,True,explicit missing metrics
+diagnostic_only_no_ranking_claim,metadata_completeness,boolean,False,True,True,True,claim boundary flag

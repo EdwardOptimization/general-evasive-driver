@@ -1,0 +1,112 @@
+# m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T114524Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: engineering_controller_behavior_outcome_protocol_materialization_pass
+- Decision reason: M2514 materializes behavior outcome protocol schema and registries row schema 51 metric registry 40 audit gates 15 layers 3 forbidden rows 39 actor contract 72/3 false claim flags no environment rollout policy action simulation training ranking success-rate verdict claims
+
+## Hypothesis
+
+The M2513 behavior/outcome protocol can be materialized as no-rollout schema and registry artifacts while preserving actor contract, layer separation, forbidden metric boundaries, and false claim flags.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: docs/m2513-engineering-controller-behavior-outcome-protocol-design.md, docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md, docs/m2511-engineering-controller-known-failure-taxonomy-result-audit.md, runs/m2510_engineering_controller_known_failure_taxonomy/summary.json, runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv, runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json, public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json, docs/observation-contract.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2513-engineering-controller-behavior-outcome-protocol-design.json
+- parent_objective: materialize the engineering-controller behavior/outcome protocol as no-rollout schema and registry artifacts
+- derived_from: m2513-engineering-controller-behavior-outcome-protocol-design, m2512-engineering-controller-route-a-artifact-set-branch-synthesis
+- blocked_by: M2513 defines the protocol but it is not yet machine-readable, future measured behavior work needs schema row registry metric registry and audit gate artifacts before rollout, protocol materialization must preserve no-oracle actor input and no-ranking boundaries
+- supersedes: ad hoc behavior rollout without protocol materialization, manual outcome rows without schema or forbidden interpretation registry
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json exists
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/protocol_schema.json exists
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_schema.csv exists
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv exists
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/audit_gate_registry.csv exists
+- runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/layer_registry.csv exists
+- summary verifies actor contract 72/3 and no hidden/oracle actor input boundary
+- summary verifies no simulation rollout policy action training ranking winner success-rate performance validation and paper claim flags
+- docs/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.md exists
+
+## Failure Criteria
+
+- M2514 installs imports or runs Chrono or another external simulator
+- M2514 changes actor input or action contract
+- M2514 injects hidden or oracle actor features
+- M2514 steps an environment or runs policy rollout
+- M2514 treats protocol materialization as driver performance
+- M2514 ranks controller families or selects a winner
+- M2514 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2514 must materialize M2513 behavior/outcome protocol as no-rollout schema and registry artifacts
+- M2514 must write protocol_schema.json row_schema.csv metric_registry.csv audit_gate_registry.csv layer_registry.csv and summary.json
+- M2514 must verify actor contract 72/3 and no hidden/oracle actor input boundary are encoded
+- M2514 must verify forbidden actor inputs forbidden outcome shortcuts and claim boundaries are encoded
+- M2514 must preserve source-only diagnostic current-sim diagnostic/mining and future high-fidelity validation layer separation
+- M2514 must not run simulation environment rollout policy action training replay PPO ranking winner selection success-rate verdict or validation verdict
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not run environment rollout
+- do not step a simulator
+- do not execute policy actions
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from protocol materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: engineering_controller_behavior_outcome_protocol_materialization_pass
+- reason: M2514 materializes behavior outcome protocol schema and registries row schema 51 metric registry 40 audit gates 15 layers 3 forbidden rows 39 actor contract 72/3 false claim flags no environment rollout policy action simulation training ranking success-rate verdict claims
+
+## Next Blocker
+
+m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight
