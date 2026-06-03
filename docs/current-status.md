@@ -16,29 +16,29 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2483-high-fidelity-interface-source-only-fixture-smoke-design
+m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2483-high-fidelity-interface-source-only-fixture-smoke-design
+m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight
+m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit
 ```
 
 Current route:
 
 ```text
-M2483 designed a bounded source-only fixture smoke protocol for the three
+M2484 executed the bounded source-only fixture smoke protocol for the three
 source-only four-wheel rows admitted by the M2482 fixture catalog. The smoke
-protocol uses canned actions only to exercise the adapter boundary; it is not
-policy evaluation, controller ranking, or validation evidence.
+uses canned actions only to exercise the adapter boundary; it is not policy
+evaluation, controller ranking, or validation evidence.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,17 +46,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2483 did not install, import, or run an external high-fidelity simulator. It
+M2484 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2484: implement the bounded source-only fixture smoke
-preflight. M2484 must preserve observation shape `72`, action shape `3`, and
-metadata-only role/fixture labels while keeping four-wheel diagnostics outside
-actor input. It must not install, import, or run external high-fidelity
-simulation, train, rank controllers, select winners, or make validation/paper
-verdict claims.
+The active next task is M2485: audit the M2484 source-only fixture smoke result
+before pilot design, synthesis, or repair. M2485 must preserve the evidence
+scope and must not treat canned source-only smoke actions as policy
+performance, validation, ranking, or winner evidence.
 
 ## Latest Evidence
 
@@ -186,6 +184,18 @@ M2483:
   role labels feasibility classes fixture labels hidden diagnostics and oracle verdicts: metadata only
   next route: source-only fixture smoke implementation preflight
   external simulation installed/imported/executed: false
+
+M2484:
+  result_class: hf0_source_only_fixture_smoke_pass
+  admitted source-only fixtures: 3
+  resets/steps: 3 / 6
+  observation/action shape: 72 / 3
+  diagnostic wheel force counts: 4 4 4 4 4 4
+  canned actions only: true
+  policy action: false
+  fixture labels scenario labels feasibility classes hidden values oracle labels enter actor input: false
+  next route: source-only fixture smoke result audit
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -199,8 +209,8 @@ branch synthesis, source-only four-wheel adapter preflight, and scenario
 taxonomy mapping design/materialization. These preserve the canonical P0
 actor/action contract and keep diagnostics outside actor input. M2481 also
 designs fixture admissions for limited rows, and M2482 materializes a checked
-fixture catalog. M2483 designs a bounded source-only fixture smoke protocol,
-but these do not prove driver capability.
+fixture catalog. M2483 designs and M2484 executes a bounded source-only fixture
+smoke protocol, but these do not prove driver capability.
 ```
 
 Blocked claims:
@@ -220,7 +230,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2484 should implement bounded source-only fixture smoke from:
+M2485 should audit bounded source-only fixture smoke from:
 
 ```text
 docs/post-m2470-route-plan.md
@@ -235,9 +245,12 @@ docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md
 runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json
 runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv
 docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md
+runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json
+runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv
+docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md
 ```
 
-The implementation must smoke the three source-only
+The audit must verify that M2484 smoked the three source-only
 `admitted_for_materialization` rows while preserving observation shape `72`,
 action shape `3`, explicit metadata-only labels, diagnostics-only wheel forces,
 and no validation/ranking/winner claims. It must not install, import, or run

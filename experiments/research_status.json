@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2489,
+    "completed": 2490,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2483-high-fidelity-interface-source-only-fixture-smoke-design",
+    "task_id": "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md"
+    "run_dir": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight",
+    "command_log": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
-    "kind": "infrastructure",
-    "priority": 24790,
+    "id": "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+    "kind": "gate",
+    "priority": 24800,
     "status": "pending",
-    "hypothesis": "Implement bounded source-only fixture smoke preflight for admitted M2482 rows.",
-    "command": "see experiments/manifests/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.json",
-    "success_artifact": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
-    "notes": "Pending: execute bounded source-only fixture smoke preserving obs 72 action 3 fixture labels metadata-only no simulation training ranking winner verdict claims"
+    "hypothesis": "Audit M2484 source-only fixture smoke result before pilot design synthesis or repair.",
+    "command": "see experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json",
+    "success_artifact": "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+    "notes": "Pending: audit source-only fixture smoke result preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T074307Z"
+  "updated_at_utc": "20260603T075323Z"
 }

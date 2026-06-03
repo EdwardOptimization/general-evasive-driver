@@ -1,0 +1,190 @@
+{
+  "id": "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_only_fixture_smoke_result_audit"
+    ],
+    "parent_dataset": [
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+      "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
+      "docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md",
+      "docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.json"
+    ],
+    "parent_objective": [
+      "audit bounded source-only fixture smoke before pilot design, synthesis, or further interface milestones"
+    ],
+    "derived_from": [
+      "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
+      "m2483-high-fidelity-interface-source-only-fixture-smoke-design"
+    ],
+    "blocked_by": [
+      "M2484 source-only fixture smoke result must be audited before it is used to justify pilot design",
+      "bounded smoke evidence must not be confused with validation or driver performance",
+      "branch may need synthesis if another interface step would add no executable evidence"
+    ],
+    "supersedes": [
+      "direct pilot design from unaudited source-only fixture smoke",
+      "direct high-fidelity validation route from source-only adapter smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+  "public_gates": [
+    "M2485 must audit M2484 summary and fixture smoke rows",
+    "M2485 must decide whether to route to bounded pilot design synthesis or stop",
+    "M2485 must preserve P0 observation shape 72 and action shape 3 as admission criteria",
+    "M2485 must not treat canned source-only smoke actions as policy performance",
+    "M2485 must not install import or run external high-fidelity simulation",
+    "M2485 must not train rank controllers select winners or make paper self-ID finite-window-vs-GRU current-sim or high-fidelity validation claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "high_fidelity_interface_preparation",
+    "evidence_axis": "source_only_fixture_smoke_audit",
+    "evidence_increment": "audits executable source-only fixture smoke before pilot design or branch synthesis",
+    "claim_scope": "source-only fixture smoke result audit only; no external simulation, measured validation, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop if M2484 changed actor/action contracts",
+      "stop if M2484 leaked fixture labels or diagnostics into actor input",
+      "stop if M2484 is being interpreted as driver performance or validation evidence",
+      "stop if another interface milestone would add no executable backend evidence"
+    ],
+    "fallback_plan": [
+      "route to fixture smoke repair if actor/action or metadata boundary fails",
+      "route to branch synthesis if process overhead dominates evidence expansion",
+      "route to bounded pilot design only if smoke evidence is complete and correctly scoped"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2484 produced executable source-only fixture smoke evidence after multiple HF0 interface milestones",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "HF0 source-only fixture smoke result audit",
+    "admission_evidence": [
+      "M2484 summary JSON",
+      "M2484 fixture smoke rows CSV",
+      "M2483 smoke design"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no policy rollout",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+      "M2485 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2484 contract flags are checked",
+      "bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2485 audits source-only fixture smoke and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2485; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2478 through M2484 HF0 interface preparation evidence.",
+    "negative_result_policy": "If smoke evidence is incomplete, route to repair or synthesis instead of weakening claims.",
+    "allowed_claims": [
+      "HF0 source-only fixture smoke audit",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new executable source-only fixture smoke evidence before further route selection",
+    "paper_verdict_delta": "can prepare validation infrastructure but cannot itself establish paper or high-fidelity evidence",
+    "must_synthesize_if": [
+      "M2484 smoke result is incomplete or ambiguous",
+      "another interface milestone would not add executable evidence",
+      "process overhead exceeds evidence expansion after source-only smoke"
+    ]
+  },
+  "hypothesis": "Auditing the M2484 source-only fixture smoke can determine whether the branch should route to bounded pilot design, repair, or synthesis without overstating evidence.",
+  "success_criteria": [
+    "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md exists",
+    "audit checks M2484 summary and fixture smoke rows",
+    "audit verifies observation shape 72 and action shape 3 remain preserved",
+    "audit verifies no fixture labels diagnostics or oracle values enter actor input",
+    "audit registers a bounded follow-up milestone",
+    "no external high-fidelity simulation install import execution training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2485 installs imports or runs Chrono or another external simulator",
+    "M2485 changes actor input or action contract",
+    "M2485 injects hidden or oracle actor features",
+    "M2485 treats canned actions as policy performance",
+    "M2485 ranks controller families or selects a winner",
+    "M2485 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_only_fixture_smoke_result_audit"
+  ],
+  "baseline_artifacts": [
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+    "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2485 passes if it audits M2484 source-only fixture smoke evidence and chooses a bounded next route without external simulation, training, ranking, or verdict claims.",
+  "next_blocker": "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit"
+}

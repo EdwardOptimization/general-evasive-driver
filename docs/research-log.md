@@ -45065,3 +45065,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2483: `false`
 - follow-up manifest: `experiments/manifests/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.json`
 - next: `m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight`
+
+## M2484 High-Fidelity Interface Source-Only Fixture Smoke Implementation Preflight
+
+- status: completed
+- result_class: `hf0_source_only_fixture_smoke_pass`
+- manifest: `experiments/manifests/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.json`
+- doc: `docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md`
+- implementation: `src/autodrift/hf0_source_only_fixture_smoke.py`
+- focused tests: `tests/test_hf0_source_only_fixture_smoke.py`
+- summary: `runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json`
+- smoke rows: `runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv`
+- smoke result: admitted source-only fixtures `3`, resets `3`, steps `6`, observation shape `72`, action shape `3`, all wheel force diagnostic counts `4`
+- contract flags: fixture labels enter actor input `false`, scenario labels enter actor input `false`, feasibility classes enter actor input `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`, policy action `false`
+- interpretation: source-only fixture smoke preflight only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2484: `false`
+- follow-up manifest: `experiments/manifests/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.json`
+- next: `m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit`

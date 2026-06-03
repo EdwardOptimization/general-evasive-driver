@@ -1,0 +1,4 @@
+fixture_id,surface_id,role_family,reset_observation_shape,step_observation_shapes,action_shape,action_count,backend_statuses,diagnostic_wheel_force_counts,fixture_labels_enter_actor_input,scenario_labels_enter_actor_input,feasibility_classes_enter_actor_input,hidden_values_enter_actor_input,oracle_labels_enter_actor_input,policy_action
+hf0_four_wheel_stable_aes_fixture,source_only_four_wheel_hf0,stable_aes,72,72;72,3,2,running;running,4;4,False,False,False,False,False,False
+hf0_four_wheel_drift_required_recovery_fixture,source_only_four_wheel_hf0,drift_required_recovery,72,72;72,3,2,running;running,4;4,False,False,False,False,False,False
+hf0_four_wheel_unavoidable_mitigation_fixture,source_only_four_wheel_hf0,unavoidable_mitigation,72,72;72,3,2,running;running,4;4,False,False,False,False,False,False
