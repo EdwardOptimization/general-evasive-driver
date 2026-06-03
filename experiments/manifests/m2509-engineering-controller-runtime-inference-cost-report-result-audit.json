@@ -1,0 +1,197 @@
+{
+  "id": "m2509-engineering-controller-runtime-inference-cost-report-result-audit",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md",
+      "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+      "runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv",
+      "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+      "docs/observation-contract.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json"
+    ],
+    "parent_objective": [
+      "audit the runtime/inference-cost report before deployability or export interpretation"
+    ],
+    "derived_from": [
+      "m2508-engineering-controller-runtime-inference-cost-report-preflight",
+      "m2507-engineering-controller-public-benchmark-pack-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2508 generated runtime measurements but they have not been audited for claim boundaries",
+      "timing artifacts can be misread as controller quality or deployment certification",
+      "runtime report route needs result audit before another measurement or export task"
+    ],
+    "supersedes": [
+      "using M2508 timings without audit",
+      "claiming deployability from local actor forward timings alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+  "public_gates": [
+    "M2509 must audit the M2508 runtime summary and runtime_measurements.csv",
+    "M2509 must verify checkpoint admission preserves observation shape 72 action shape 3 actor encoder human_view_online_gru and horizon 1",
+    "M2509 must verify measurement rows cover expected batch sizes and repeat counts with positive timings",
+    "M2509 must verify actor forward-pass timing is separated from environment rollout simulator step policy rollout and driver performance",
+    "M2509 must verify summary flags keep environment rollout simulation training ranking winner success-rate performance validation paper finite-window-vs-GRU and self-ID claims false",
+    "M2509 must not run external high-fidelity simulation train replay run PPO rank select a winner promote a checkpoint compute success rate or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from runtime measurements"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_runtime_inference_cost_report",
+    "evidence_axis": "runtime_inference_cost_report_result_audit",
+    "evidence_increment": "audits the M2508 runtime/inference-cost report before route escalation",
+    "claim_scope": "engineering-controller runtime/inference-cost result audit only; no environment rollout, external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if runtime report artifacts are missing",
+      "stop if measurement rows are incomplete or timing values are invalid",
+      "stop if timing outputs are interpreted as behavior quality or driver performance",
+      "stop if actor/action contract was changed"
+    ],
+    "fallback_plan": [
+      "route to runtime report repair if rows or summary gates are invalid",
+      "route to branch synthesis if audit passes and another runtime microbenchmark is proposed",
+      "route to next engineering artifact only if audit accepts the runtime report"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2508 generated runtime/inference-cost report artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller runtime/inference-cost report result audit",
+    "admission_evidence": [
+      "M2508 runtime report summary and measurements",
+      "M2507 public benchmark pack branch synthesis",
+      "Route A in docs/post-m2470-route-plan.md lists runtime/inference-cost report"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+      "M2509 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "runtime summary and measurement rows are accepted or rejected explicitly",
+      "claim-boundary flags are accepted or rejected explicitly",
+      "bounded follow-up route is registered if audit passes"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2509 audits runtime/inference cost and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2509; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2508 runtime report artifacts.",
+    "negative_result_policy": "If audit rejects the runtime report, route to bounded repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller runtime/inference-cost result audit",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the deployability cost artifact before another engineering route",
+    "paper_verdict_delta": "does not decide paper verdict but protects runtime evidence interpretation",
+    "must_synthesize_if": [
+      "another runtime microbenchmark is proposed after audit",
+      "runtime timings are mistaken for driver performance",
+      "runtime route needs multiple repairs without new artifact"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject the M2508 runtime report without turning local actor timings into performance or validation claims.",
+  "success_criteria": [
+    "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md exists",
+    "audit verifies M2508 summary status_pass true and result_class pass",
+    "audit verifies runtime_measurements.csv has expected rows and positive timing values",
+    "audit verifies actor/action contract 72/3 human_view_online_gru horizon 1",
+    "audit verifies false flags for environment rollout simulation training ranking winner success-rate performance validation and paper claims",
+    "no external high-fidelity simulation install import execution environment rollout training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2509 installs imports or runs Chrono or another external simulator",
+    "M2509 changes actor input or action contract",
+    "M2509 injects hidden or oracle actor features",
+    "M2509 steps an environment or treats timing as policy rollout",
+    "M2509 treats runtime measurements as driver performance",
+    "M2509 ranks controller families or selects a winner",
+    "M2509 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md",
+    "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+    "runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv",
+    "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2509 passes if it audits the runtime report artifacts and confirms contract, measurement rows, timing validity, and false claim flags without external simulation, environment rollout, training, ranking, winner selection, success-rate, or verdict claims.",
+  "next_blocker": "m2509-engineering-controller-runtime-inference-cost-report-result-audit"
+}

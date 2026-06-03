@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2507-engineering-controller-public-benchmark-pack-branch-synthesis
+m2508-engineering-controller-runtime-inference-cost-report-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2507-engineering-controller-public-benchmark-pack-branch-synthesis
+m2508-engineering-controller-runtime-inference-cost-report-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2508-engineering-controller-runtime-inference-cost-report-preflight
+m2509-engineering-controller-runtime-inference-cost-report-result-audit
 ```
 
 Current route:
 
 ```text
-M2507 closes the public benchmark pack branch and promotes to a runtime/
-inference-cost report route. M2504 designed, M2505 materialized, and M2506
-audited the source-only public diagnostic pack. The pack remains useful for
-later export preparation, but the active next task is a deployability artifact
-for actor forward-pass cost rather than another packaging milestone.
+M2508 produces a bounded runtime/inference-cost report for the admitted
+engineering-controller checkpoint. It measures actor-only forward-pass cost on
+seeded synthetic 72-shape observations for batch sizes 1, 8, and 32. The report
+is a deployability artifact, not an environment rollout, simulator throughput
+result, controller-quality metric, or performance benchmark.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,15 +47,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2507 did not install, import, or run an external high-fidelity simulator. It
-did not execute policy actions, measured validation, training, replay, PPO,
-controller ranking, winner selection, success-rate computation, or any paper/
-FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
+M2508 did not install, import, or run an external high-fidelity simulator. It
+did not step a simulator, execute policy rollouts, run measured validation,
+training, replay, PPO, controller ranking, winner selection, success-rate
+computation, or any paper/FW-vs-GRU/self-ID/current-sim/high-fidelity
+validation verdict.
 
-The active next task is M2508: produce a bounded runtime/inference-cost report
-for the admitted checkpoint. It must not step an environment, execute policy
-rollouts, train, rank, select a winner, compute success-rate verdicts, or claim
-performance or validation.
+The active next task is M2509: audit the runtime/inference-cost report. It must
+not step an environment, execute policy rollouts, train, rank, select a winner,
+compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -432,6 +432,21 @@ M2507:
   route: runtime/inference-cost report preflight
   new policy action in M2507: false
   external simulation installed/imported/executed: false
+
+M2508:
+  result_class: engineering_controller_runtime_inference_cost_report_pass
+  timed path: recurrent_features_tensor_plus_actor_mean_tanh
+  synthetic observation source: seeded_normal_shape_only
+  device: cpu
+  batch sizes: 1 8 32
+  measured rows: 300
+  checkpoint contract: obs/action/encoder/horizon 72 / 3 / human_view_online_gru / 1
+  model parameter count: 164679
+  p50 forward time: batch1 42.13us batch8 76.355us batch32 124.291us
+  accepted scope: actor-only runtime/inference cost
+  rejected claims: performance success-rate ranking winner validation paper FW-vs-GRU self-ID
+  environment rollout in M2508: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -477,7 +492,8 @@ the pack as a public source-only diagnostic artifact, then routes to branch
 synthesis instead of another packaging task. M2507 closes the public pack branch
 and promotes to a runtime/inference-cost report route, because Route A still
 needs deployability cost evidence and another packaging task would be local
-process work.
+process work. M2508 adds that deployability artifact by measuring actor-only
+forward-pass cost without environment rollout or performance interpretation.
 ```
 
 Blocked claims:
@@ -497,19 +513,17 @@ training repair success
 
 ## Immediate Next Step
 
-M2508 should produce a bounded runtime/inference-cost report:
+M2509 should audit the runtime/inference-cost report:
 
 ```text
-runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
-docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md
-docs/observation-contract.md
-docs/post-m2470-route-plan.md
+runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json
+runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv
+docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md
 ```
 
-The report should measure actor forward-pass cost and deployment assumptions
-without environment rollout or behavior-quality interpretation. It must not
-install, import, or run external high-fidelity simulation, step a simulator,
-train, replay, use PPO, rank controllers, select a winner, promote a checkpoint,
-compute success-rate verdicts, or claim high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The audit should accept or reject the runtime artifact before any deployability
+or export interpretation. It must not install, import, or run external
+high-fidelity simulation, step a simulator, train, replay, use PPO, rank
+controllers, select a winner, promote a checkpoint, compute success-rate
+verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

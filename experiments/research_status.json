@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2513,
+    "completed": 2514,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
+    "task_id": "m2508-engineering-controller-runtime-inference-cost-report-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md"
+    "run_dir": "runs/m2508_engineering_controller_runtime_inference_cost_report",
+    "command_log": "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json"
   },
   "next_task": {
-    "id": "m2508-engineering-controller-runtime-inference-cost-report-preflight",
-    "kind": "infrastructure",
-    "priority": 25030,
+    "id": "m2509-engineering-controller-runtime-inference-cost-report-result-audit",
+    "kind": "gate",
+    "priority": 25040,
     "status": "pending",
-    "hypothesis": "Produce a bounded runtime and inference-cost report for the admitted engineering-controller checkpoint without simulator rollout or performance claims.",
-    "command": "see experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json",
-    "success_artifact": "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
-    "notes": "Pending: write runtime/inference cost report artifacts for actor forward-pass cost no environment rollout external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit the runtime and inference-cost report before deployability or export interpretation.",
+    "command": "see experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json",
+    "success_artifact": "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+    "notes": "Pending: audit M2508 summary and runtime rows for contract timing validity and false claim flags no environment rollout external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T103927Z"
+  "updated_at_utc": "20260603T104844Z"
 }

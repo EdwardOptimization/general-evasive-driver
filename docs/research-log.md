@@ -45472,3 +45472,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2507: `false`
 - follow-up manifest: `experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json`
 - next: `m2508-engineering-controller-runtime-inference-cost-report-preflight`
+
+## M2508 Engineering Controller Runtime Inference Cost Report Preflight
+
+- status: completed
+- result_class: `engineering_controller_runtime_inference_cost_report_pass`
+- manifest: `experiments/manifests/m2508-engineering-controller-runtime-inference-cost-report-preflight.json`
+- doc: `docs/m2508-engineering-controller-runtime-inference-cost-report-preflight.md`
+- implementation: `src/autodrift/engineering_controller_runtime_report.py`
+- summary: `runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json`
+- runtime measurements: `runs/m2508_engineering_controller_runtime_inference_cost_report/runtime_measurements.csv`
+- checkpoint: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- measured path: `recurrent_features_tensor_plus_actor_mean_tanh`
+- measurement scope: local CPU actor-only forward-pass timing on seeded synthetic 72-shape observations; no environment rollout or behavior-quality interpretation
+- measurement rows: `300` across batch sizes `1`, `8`, and `32`; warmup `20`, measured iterations per batch `100`
+- contract gates: checkpoint admitted, obs/action `72/3`, actor encoder `human_view_online_gru`, action sequence horizon `1`, model parameter count `164679`
+- timing p50: batch 1 `42.13 us`, batch 8 `76.35499999999999 us`, batch 32 `124.291 us`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2508: `false`
+- follow-up manifest: `experiments/manifests/m2509-engineering-controller-runtime-inference-cost-report-result-audit.json`
+- next: `m2509-engineering-controller-runtime-inference-cost-report-result-audit`
