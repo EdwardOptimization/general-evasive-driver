@@ -45032,3 +45032,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2481: `false`
 - follow-up manifest: `experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json`
 - next: `m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight`
+
+## M2482 High-Fidelity Interface Scenario Taxonomy Fixture Materialization Preflight
+
+- status: completed
+- result_class: `hf0_scenario_taxonomy_fixture_materialization_pass`
+- manifest: `experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json`
+- doc: `docs/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.md`
+- implementation: `src/autodrift/hf0_scenario_taxonomy_fixtures.py`
+- focused tests: `tests/test_hf0_scenario_taxonomy_fixtures.py`
+- summary: `runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json`
+- catalog: `runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv`
+- catalog result: `10` rows; `baseline_reference: 5`, `diagnostic_reference_only: 2`, `admitted_for_materialization: 3`
+- guardrail result: limited rows silently upgraded `false`; current-sim limited references `2`; source-only admitted fixtures `3`
+- contract flags: observation shape `72`, action shape `3`, scenario labels enter actor input `false`, feasibility classes enter actor input `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`
+- interpretation: fixture catalog materialization only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2482: `false`
+- follow-up manifest: `experiments/manifests/m2483-high-fidelity-interface-source-only-fixture-smoke-design.json`
+- next: `m2483-high-fidelity-interface-source-only-fixture-smoke-design`

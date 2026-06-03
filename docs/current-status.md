@@ -16,29 +16,28 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
+m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
+m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight
+m2483-high-fidelity-interface-source-only-fixture-smoke-design
 ```
 
 Current route:
 
 ```text
-M2481 designed bounded HF0 fixture admissions for the limited rows from the
-M2480 surface-role matrix. Current-sim limited rows stay diagnostic/reference
-only; source-only four-wheel limited rows are admitted for fixture catalog
-materialization with explicit metadata-only labels.
+M2482 materialized a checked HF0 fixture catalog from the M2481 fixture design.
+The catalog keeps current-sim limited rows diagnostic/reference only and admits
+three source-only four-wheel limited rows for a bounded fixture smoke design.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,14 +45,14 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2481 did not install, import, or run an external high-fidelity simulator. It
+M2482 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2482: materialize a checked fixture catalog from the
-M2481 design. M2482 must preserve observation shape `72`, action shape `3`,
-explicit limited-row admissions, and metadata-only role labels. It must not
+The active next task is M2483: design a bounded source-only fixture smoke
+protocol for the three admitted M2482 rows. M2483 must preserve observation
+shape `72`, action shape `3`, and metadata-only role labels. It must not
 install, import, or run external high-fidelity simulation, train, rank
 controllers, select winners, or make validation/paper verdict claims.
 
@@ -163,6 +162,18 @@ M2481:
   role labels feasibility classes hidden diagnostics and oracle verdicts: metadata only
   next route: checked fixture catalog materialization
   external simulation installed/imported/executed: false
+
+M2482:
+  result_class: hf0_scenario_taxonomy_fixture_materialization_pass
+  catalog rows: 10
+  fixture admission statuses: baseline_reference 5 diagnostic_reference_only 2 admitted_for_materialization 3
+  limited rows silently upgraded: false
+  current-sim limited references: 2
+  source-only admitted fixtures: 3
+  observation/action shape: 72 / 3
+  role labels feasibility classes hidden diagnostics and oracle verdicts: metadata only
+  next route: source-only fixture smoke design
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -175,8 +186,8 @@ adapter smoke, a bounded external-backend route design, a dependency/API audit,
 branch synthesis, source-only four-wheel adapter preflight, and scenario
 taxonomy mapping design/materialization. These preserve the canonical P0
 actor/action contract and keep diagnostics outside actor input. M2481 also
-designs fixture admissions for limited rows, but it does not prove driver
-capability.
+designs fixture admissions for limited rows, and M2482 materializes a checked
+fixture catalog, but these do not prove driver capability.
 ```
 
 Blocked claims:
@@ -196,7 +207,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2482 should materialize a checked fixture catalog from:
+M2483 should design bounded source-only fixture smoke from:
 
 ```text
 docs/post-m2470-route-plan.md
@@ -208,11 +219,13 @@ docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md
 runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json
 runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv
 docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md
+runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json
+runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv
 ```
 
-The materialization must generate a checked `fixture_catalog.csv` and
-`summary.json` while preserving observation shape `72`, action shape `3`,
-explicit limited-row admissions, and metadata-only role labels. It must not
+The smoke design must cover the three source-only `admitted_for_materialization`
+rows while preserving observation shape `72`, action shape `3`, explicit
+metadata-only labels, and no validation/ranking/winner claims. It must not
 install, import, or run external high-fidelity simulation, execute policy
 rollout, train, replay, use PPO, rank controllers, select a winner, or claim
 high-fidelity validation, current-sim verdict, paper-level evidence,

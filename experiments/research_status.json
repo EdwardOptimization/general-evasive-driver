@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2487,
+    "completed": 2488,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2481-high-fidelity-interface-scenario-taxonomy-fixture-design",
+    "task_id": "m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md"
+    "run_dir": "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight",
+    "command_log": "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight",
+    "id": "m2483-high-fidelity-interface-source-only-fixture-smoke-design",
     "kind": "infrastructure",
-    "priority": 24770,
+    "priority": 24780,
     "status": "pending",
-    "hypothesis": "Materialize checked HF0 fixture catalog from M2481 design.",
-    "command": "see experiments/manifests/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.json",
-    "success_artifact": "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json",
-    "notes": "Pending: generate fixture catalog preserving obs 72 action 3 explicit limited admissions labels metadata-only no simulation training ranking winner verdict claims"
+    "hypothesis": "Design bounded source-only fixture smoke protocol for admitted M2482 rows.",
+    "command": "see experiments/manifests/m2483-high-fidelity-interface-source-only-fixture-smoke-design.json",
+    "success_artifact": "docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md",
+    "notes": "Pending: design bounded source-only smoke for three admitted fixture rows preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T072837Z"
+  "updated_at_utc": "20260603T073444Z"
 }
