@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2572,
+    "completed": 2573,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis",
+    "task_id": "m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md",
-    "command_log": "docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md"
+    "run_dir": "docs/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.md",
+    "command_log": "docs/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.md"
   },
   "next_task": {
-    "id": "m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design",
+    "id": "m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25620,
+    "priority": 25630,
     "status": "pending",
-    "hypothesis": "Design bounded Route A HF3 measured reset-feasibility execution artifacts and gates after accepted M2566 synthesis.",
-    "command": "see experiments/manifests/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.json",
-    "success_artifact": "docs/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.md",
-    "notes": "Pending: design measured reset request backend probe reset-only execution actor-view contract outcome claim-boundary and gate artifacts without external simulation policy action rollout validation driver-performance ranking or self-ID claims"
+    "hypothesis": "Materialize Route A HF3 measured reset-feasibility execution artifacts and gates after M2567 design.",
+    "command": "see experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json",
+    "success_artifact": "runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json",
+    "notes": "Pending: materialize reset request backend probe reset-only execution actor-view contract reset outcome claim-boundary and gate artifacts allowing repo-local reset only with no policy action rollout validation driver-performance ranking or self-ID claims"
   },
-  "updated_at_utc": "20260603T205311Z"
+  "updated_at_utc": "20260603T205751Z"
 }

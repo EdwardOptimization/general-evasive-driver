@@ -46579,3 +46579,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because reset plans can be overclaimed if reset-only execution is treated as rollout or validation evidence
 - follow-up manifest: `experiments/manifests/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.json`
 - next: `m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design`
+
+## M2567 Engineering Controller Route A Baseline HF3 Measured Reset-Feasibility Execution Design
+
+- status: completed
+- decision: `route_to_hf3_measured_reset_feasibility_execution_materialization_preflight`
+- manifest: `experiments/manifests/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.json`
+- design doc: `docs/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.md`
+- parent synthesis: `docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md`
+- designed artifacts: M2568 summary measured reset request rows backend probe rows reset-only execution rows actor-view contract rows reset outcome rows claim-boundary checks and gate matrix
+- reset candidates: stable avoidable/AEB-feasible and stable AES/AEB-infeasible as reset-only execution candidates
+- guard boundary: M2568 may execute repo-local backend reset only; no external simulator install/import/run no policy action no environment step no rollout no validation ranking driver-performance or self-ID claim
+- supported claim: HF3 measured reset-feasibility execution can now be materialized as reset-only request/backend/execution/actor-view/outcome artifacts
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json`
+- next: `m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight`
