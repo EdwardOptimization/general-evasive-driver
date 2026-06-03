@@ -44899,3 +44899,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - high-fidelity simulation/import/current-sim measured rollout/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2473: `false`
 - follow-up manifest: `experiments/manifests/m2474-high-fidelity-interface-current-sim-adapter-smoke.json`
 - next: `m2474-high-fidelity-interface-current-sim-adapter-smoke`
+
+## M2474 High-Fidelity Interface Current-Sim Adapter Smoke
+
+- status: completed
+- result_class: `current_sim_adapter_smoke_pass`
+- manifest: `experiments/manifests/m2474-high-fidelity-interface-current-sim-adapter-smoke.json`
+- doc: `docs/m2474-high-fidelity-interface-current-sim-adapter-smoke.md`
+- implementation: `src/autodrift/high_fidelity_interface.py`
+- smoke CLI: `src/autodrift/high_fidelity_interface_adapter_smoke.py`
+- focused tests: `tests/test_high_fidelity_interface.py`
+- summary: `runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json`
+- smoke result: seed count `3`, seeds `2474 2475 2476`, bounded canned steps `6`, reset observation shape `72`, step observation shapes all `72`, action shape `3`, max extractor parity error `5.960464477539063e-08`
+- contract flags: actor input changed `false`, action contract changed `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`, diagnostics available to actor `false`
+- diagnostic split: current-sim `info` exposed `29` diagnostic-only keys during adapter smoke, but `CurrentSimDynamicsBackend` kept them in diagnostics and `P0ObservationExtractor` consumed only `ActorView`
+- interpretation: HF0 current-sim adapter smoke only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- high-fidelity simulation/import/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2474: `false`
+- follow-up manifest: `experiments/manifests/m2475-high-fidelity-interface-external-backend-route-design.json`
+- next: `m2475-high-fidelity-interface-external-backend-route-design`

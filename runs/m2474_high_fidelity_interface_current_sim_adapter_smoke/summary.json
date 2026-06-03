@@ -1,0 +1,146 @@
+{
+  "action_contract_changed": false,
+  "action_shape": 3,
+  "actions_per_seed": 2,
+  "actor_input_contract_changed": false,
+  "actor_view_source": "current_sim_p0_observation_denormalization",
+  "backend_id": "current_sim_autodrift_hf0",
+  "canned_action_count": 2,
+  "canonical_p0_config": true,
+  "current_sim_reset_count": 3,
+  "current_sim_step_count": 6,
+  "diagnostic_hidden_key_count": 29,
+  "diagnostic_hidden_keys_seen": [
+    "beta_target",
+    "brake_scale",
+    "cg_shift",
+    "collision",
+    "completion_reason",
+    "curvature",
+    "drive_scale",
+    "drive_tau_scale",
+    "friction_step_applied",
+    "friction_step_at",
+    "front_tire_stiffness_scale",
+    "heading_error",
+    "inertia_scale",
+    "initial_mu",
+    "lateral_error",
+    "mass",
+    "mass_scale",
+    "mu",
+    "obstacle_completed",
+    "obstacle_label",
+    "obstacle_required_lateral_offset",
+    "obstacle_threshold_score",
+    "obstacle_time_after_friction_step",
+    "rear_tire_stiffness_scale",
+    "reward_terms",
+    "speed_ref",
+    "steer_tau_scale",
+    "termination_reason",
+    "tire_stiffness_scale"
+  ],
+  "diagnostic_only_keys_checked": [
+    "aeb_stop_distance",
+    "beta_target",
+    "brake_scale",
+    "cg_shift",
+    "collision",
+    "completion_reason",
+    "curvature",
+    "drive_scale",
+    "drive_tau_scale",
+    "feasibility_label",
+    "friction_step_applied",
+    "friction_step_at",
+    "front_tire_stiffness_scale",
+    "heading_error",
+    "inertia_scale",
+    "initial_mu",
+    "lateral_error",
+    "mass",
+    "mass_scale",
+    "mu",
+    "obstacle_completed",
+    "obstacle_label",
+    "obstacle_required_lateral_offset",
+    "obstacle_threshold_score",
+    "obstacle_time_after_friction_step",
+    "rear_tire_stiffness_scale",
+    "required_clearance",
+    "reward_terms",
+    "speed_ref",
+    "steer_tau_scale",
+    "success",
+    "termination_reason",
+    "tire_stiffness_scale"
+  ],
+  "diagnostics_available_to_actor": false,
+  "external_high_fidelity_imported": false,
+  "external_high_fidelity_required": false,
+  "generated_at_utc": "20260603T062943Z",
+  "hidden_values_enter_actor_input": false,
+  "high_fidelity_simulation_run": false,
+  "max_extractor_parity_abs_error": 5.960464477539063e-08,
+  "measured_validation_run": false,
+  "milestone": "m2474-high-fidelity-interface-current-sim-adapter-smoke",
+  "next_blocker": "m2475-high-fidelity-interface-external-backend-route-design",
+  "observation_shape": 72,
+  "oracle_labels_enter_actor_input": false,
+  "p0_extractor_shape": 72,
+  "policy_rollout_run": false,
+  "ranking_run": false,
+  "result_class": "current_sim_adapter_smoke_pass",
+  "seed_count": 3,
+  "seed_reports": [
+    {
+      "reset_observation_shape": 72,
+      "seed": 2474,
+      "step_observation_shapes": [
+        72,
+        72
+      ],
+      "step_statuses": [
+        "running",
+        "running"
+      ],
+      "terminated_or_truncated": false
+    },
+    {
+      "reset_observation_shape": 72,
+      "seed": 2475,
+      "step_observation_shapes": [
+        72,
+        72
+      ],
+      "step_statuses": [
+        "running",
+        "running"
+      ],
+      "terminated_or_truncated": false
+    },
+    {
+      "reset_observation_shape": 72,
+      "seed": 2476,
+      "step_observation_shapes": [
+        72,
+        72
+      ],
+      "step_statuses": [
+        "running",
+        "running"
+      ],
+      "terminated_or_truncated": false
+    }
+  ],
+  "seeds": [
+    2474,
+    2475,
+    2476
+  ],
+  "status_pass": true,
+  "training_run": false,
+  "verdict_claim_made": false,
+  "winner_selected": false
+}

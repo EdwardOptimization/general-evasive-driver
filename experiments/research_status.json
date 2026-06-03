@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2479,
+    "completed": 2480,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2473-high-fidelity-interface-hf0-contract-implementation-preflight",
+    "task_id": "m2474-high-fidelity-interface-current-sim-adapter-smoke",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight",
-    "command_log": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json"
+    "run_dir": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke",
+    "command_log": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json"
   },
   "next_task": {
-    "id": "m2474-high-fidelity-interface-current-sim-adapter-smoke",
+    "id": "m2475-high-fidelity-interface-external-backend-route-design",
     "kind": "infrastructure",
-    "priority": 24690,
+    "priority": 24700,
     "status": "pending",
-    "hypothesis": "Exercise current-sim through the HF0 DynamicsBackend boundary across a bounded seed set without external high-fidelity simulation.",
-    "command": "see experiments/manifests/m2474-high-fidelity-interface-current-sim-adapter-smoke.json",
-    "success_artifact": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json",
-    "notes": "Pending: implement current-sim adapter smoke proving obs 72 action 3 diagnostics separation no external simulation training ranking winner verdict claims"
+    "hypothesis": "Design the next bounded external-backend implementation route after HF0 current-sim adapter smoke without installing or running external simulation.",
+    "command": "see experiments/manifests/m2475-high-fidelity-interface-external-backend-route-design.json",
+    "success_artifact": "docs/m2475-high-fidelity-interface-external-backend-route-design.md",
+    "notes": "Pending: select bounded external-backend route preserving obs 72 action 3 diagnostics separation no external simulation import training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T061538Z"
+  "updated_at_utc": "20260603T062954Z"
 }
