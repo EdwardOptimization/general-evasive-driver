@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2493,
+    "completed": 2494,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2487-source-only-closed-loop-fixture-pilot-design",
+    "task_id": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2487-source-only-closed-loop-fixture-pilot-design.md"
+    "run_dir": "runs/m2488_source_only_closed_loop_fixture_pilot_preflight",
+    "command_log": "docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md"
   },
   "next_task": {
-    "id": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight",
-    "kind": "infrastructure",
-    "priority": 24830,
+    "id": "m2489-source-only-closed-loop-fixture-pilot-result-audit",
+    "kind": "gate",
+    "priority": 24840,
     "status": "pending",
-    "hypothesis": "Run bounded same-contract source-only closed-loop fixture pilot preflight.",
-    "command": "see experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json",
-    "success_artifact": "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
-    "notes": "Pending: load admitted 72-by-3 actor and run three source-only fixtures for 20 deterministic policy-action steps no external simulation training ranking winner verdict claims"
+    "hypothesis": "Audit M2488 source-only closed-loop fixture pilot result before longer pilot or claim escalation.",
+    "command": "see experiments/manifests/m2489-source-only-closed-loop-fixture-pilot-result-audit.json",
+    "success_artifact": "docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md",
+    "notes": "Pending: audit M2488 summary and 60 rollout rows no new policy action external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T081144Z"
+  "updated_at_utc": "20260603T081843Z"
 }

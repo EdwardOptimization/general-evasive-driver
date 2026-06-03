@@ -45127,3 +45127,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy action/policy rollout/training/replay/PPO/ranking/winner/verdict claims in M2487: `false`
 - follow-up manifest: `experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json`
 - next: `m2488-source-only-closed-loop-fixture-pilot-implementation-preflight`
+
+## M2488 Source-Only Closed-Loop Fixture Pilot Implementation Preflight
+
+- status: completed
+- result_class: `source_only_closed_loop_fixture_pilot_pass`
+- manifest: `experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json`
+- doc: `docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md`
+- implementation: `src/autodrift/hf0_source_only_closed_loop_fixture_pilot.py`
+- focused tests: `tests/test_hf0_source_only_closed_loop_fixture_pilot.py`
+- summary: `runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json`
+- rollout rows: `runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv`
+- checkpoint admission: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`, obs dim `72`, action dim `3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- pilot result: fixtures `3`, resets `3`, deterministic policy-action steps `60`, horizon `20` per fixture, all observations shape `72`, all actions shape `3`, all actions finite and within bounds, all backend statuses `running`, wheel diagnostic count `4` on every row
+- actor-input leak flags: fixture labels, scenario labels, feasibility classes, hidden values, oracle labels, diagnostics, reward terms, success labels, TTC, and required clearance enter actor input `false`
+- interpretation: source-only same-contract policy-action path smoke only, not driver performance, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2488: `false`
+- follow-up manifest: `experiments/manifests/m2489-source-only-closed-loop-fixture-pilot-result-audit.json`
+- next: `m2489-source-only-closed-loop-fixture-pilot-result-audit`

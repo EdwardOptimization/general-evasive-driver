@@ -16,29 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2487-source-only-closed-loop-fixture-pilot-design
+m2488-source-only-closed-loop-fixture-pilot-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2487-source-only-closed-loop-fixture-pilot-design
+m2488-source-only-closed-loop-fixture-pilot-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2488-source-only-closed-loop-fixture-pilot-implementation-preflight
+m2489-source-only-closed-loop-fixture-pilot-result-audit
 ```
 
 Current route:
 
 ```text
-M2487 designs the bounded source_only_closed_loop_fixture_pilot implementation
-preflight. The next task is to load an admitted same-contract 72-by-3 actor and
-run deterministic policy actions for 20 steps on each of the three M2484
-source-only fixtures.
+M2488 implements and runs the bounded source_only_closed_loop_fixture_pilot
+preflight. It admits a same-contract 72-observation / 3-action recurrent actor
+checkpoint and executes 60 deterministic policy-action steps over the three
+M2484 source-only fixtures. The next task is a result audit before any longer
+pilot or claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,15 +47,14 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2487 did not install, import, or run an external high-fidelity simulator. It
-did not run measured validation, policy action, policy rollout, training, replay, PPO,
+M2488 did not install, import, or run an external high-fidelity simulator. It
+did not run measured validation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2488: implement the bounded source-only closed-loop
-fixture pilot preflight. It may execute deterministic deployable policy actions
-only within the registered source-only pilot scope. It must not train, rank,
-select a winner, or claim performance or validation.
+The active next task is M2489: audit the M2488 summary and 60 rollout rows. It
+must not execute new policy actions, train, rank, select a winner, or claim
+performance or validation.
 
 ## Latest Evidence
 
@@ -219,6 +219,17 @@ M2487:
   planned horizon: 20 deterministic policy-action steps per fixture
   route: implementation preflight with summary and pilot_rollout_rows artifacts
   external simulation installed/imported/executed: false
+
+M2488:
+  result_class: source_only_closed_loop_fixture_pilot_pass
+  checkpoint_admitted: true
+  checkpoint obs/action/encoder/horizon: 72 / 3 / human_view_online_gru / 1
+  fixtures/resets/steps: 3 / 3 / 60
+  all actions finite and within bounds: true
+  all actor-input leak flags: false
+  policy_action and policy_rollout_run: true
+  route: result audit before longer pilot or claim escalation
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -236,8 +247,8 @@ fixture catalog. M2483 designs and M2484 executes a bounded source-only fixture
 smoke protocol. M2485 audits that smoke and explicitly rejects performance
 overclaims. M2486 closes the HF0 interface branch and promotes to a bounded
 source-only closed-loop pilot design. M2487 defines the same-contract actor
-admission and source-only pilot implementation preflight. These do not prove
-driver capability.
+admission and source-only pilot implementation preflight. M2488 runs that
+bounded policy-action path smoke. These do not prove driver capability.
 ```
 
 Blocked claims:
@@ -257,24 +268,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2488 should implement the bounded source-only closed-loop fixture pilot from:
+M2489 should audit the bounded source-only closed-loop fixture pilot from:
 
 ```text
-docs/post-m2470-route-plan.md
-runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv
-runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json
-runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv
-docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md
-docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md
-docs/m2487-source-only-closed-loop-fixture-pilot-design.md
+runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json
+runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv
+docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md
 runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
 ```
 
-The implementation must load and admit the candidate checkpoint as a canonical
-72-observation / 3-action actor before use, reset recurrent hidden state once
-per fixture, run 20 deterministic policy-action steps per admitted source-only
-fixture, and write summary plus rollout-row artifacts. It must not install,
-import, or run external high-fidelity simulation, train, replay, use PPO, rank
-controllers, select a winner, promote a checkpoint, compute success-rate
+The audit must verify checkpoint admission, row counts, observation/action
+shape gates, action finiteness/bounds, backend statuses, wheel diagnostic
+counts, and actor-input leak flags. It must not install, import, or run external
+high-fidelity simulation, execute new policy action, train, replay, use PPO,
+rank controllers, select a winner, promote a checkpoint, compute success-rate
 verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
 evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
