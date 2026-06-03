@@ -45564,3 +45564,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2512: `false`
 - follow-up manifest: `experiments/manifests/m2513-engineering-controller-behavior-outcome-protocol-design.json`
 - next: `m2513-engineering-controller-behavior-outcome-protocol-design`
+
+## M2513 Engineering Controller Behavior/Outcome Protocol Design
+
+- status: completed
+- decision: `behavior_outcome_protocol_design_admit_no_rollout_materialization_preflight`
+- manifest: `experiments/manifests/m2513-engineering-controller-behavior-outcome-protocol-design.json`
+- doc: `docs/m2513-engineering-controller-behavior-outcome-protocol-design.md`
+- parent synthesis: `docs/m2512-engineering-controller-route-a-artifact-set-branch-synthesis.md`
+- design scope: evaluator-side engineering behavior/outcome protocol only, not driver performance, controller ranking, validation, paper, finite-window-vs-GRU, or self-ID evidence
+- actor contract: preserves P0 observation shape `72`, action shape `3`, `human_view_online_gru`, action horizon `1`, and no hidden/oracle actor input boundary
+- protocol layers: `source_only_diagnostic`, `current_sim_diagnostic_mining`, `future_high_fidelity_validation`
+- scenario roles: `stable_avoidable`, `stable_aes`, `drift_required_recovery`, `hidden_dynamics_robustness`, `unavoidable_mitigation`
+- admissible metrics: contract, episode status, avoidance/boundary, response/recovery, actuator/smoothness, mitigation, metadata/completeness families
+- forbidden shortcuts: no hidden dynamics/oracle actor inputs, no TTC/required-clearance/oracle stopping-distance actor input, no single scalar driver score, no mixed-role success-rate aggregate, no ranking/winner, no source-only validation claim
+- row schema: defines protocol version, layer, surface, role, subject, checkpoint, actor contract, episode status, outcome metrics, completeness flags, claim scope, forbidden interpretation, and source artifact fields
+- audit gates: pre-execution actor/row/registry/claim-boundary gates, future execution denominator/completeness gates, and layer-specific claim gates
+- failure taxonomy handling: converts behavior_regression into a future measurable protocol gap while preserving scenario_sampling_failure and validation_boundary as unresolved limits
+- external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2513: `false`
+- follow-up manifest: `experiments/manifests/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.json`
+- next: `m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight`
