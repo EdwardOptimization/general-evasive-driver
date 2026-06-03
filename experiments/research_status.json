@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2476,
+    "completed": 2478,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design",
+    "task_id": "m2472-high-fidelity-interface-hf0-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md"
+    "command_log": "docs/m2472-high-fidelity-interface-hf0-design.md"
   },
   "next_task": {
-    "id": "m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight",
+    "id": "m2473-high-fidelity-interface-hf0-contract-implementation-preflight",
     "kind": "infrastructure",
-    "priority": 24660,
+    "priority": 24680,
     "status": "pending",
-    "hypothesis": "Static materialization of the M2470 stable-AES support contract can produce three guardrailed overlay rows covering all partial stable-AES atlas cells without fixed-row reuse, actor-input leakage, reset, repair execution, ranking, or verdict claims.",
-    "command": "see experiments/manifests/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.json",
-    "success_artifact": "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/summary.json",
-    "notes": "Pending: static materialization/preflight for three stable-AES support contract rows no reset rollout policy action repair execution training ranking winner verdict claims"
+    "hypothesis": "Implement HF0 contract and local current-sim P0 parity preflight without external high-fidelity simulation.",
+    "command": "see experiments/manifests/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.json",
+    "success_artifact": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json",
+    "notes": "Pending: implement contract module focused tests and summary proving obs 72 action 3 no hidden/oracle actor leak no external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T014219Z"
+  "updated_at_utc": "20260603T060242Z"
 }

@@ -1,0 +1,230 @@
+{
+  "id": "m2471-current-sim-readiness-route-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_current_sim_readiness_route_synthesis"
+    ],
+    "parent_dataset": [
+      "docs/post-m2470-route-plan.md",
+      "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md",
+      "experiments/manifests/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.json",
+      "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md",
+      "docs/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.md",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/cell_summary_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/reset_failure_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the M2452-M2470 current-sim readiness route before executing another static stable-AES support materialization milestone"
+    ],
+    "derived_from": [
+      "m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design",
+      "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
+      "m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas",
+      "post-m2470-route-plan"
+    ],
+    "blocked_by": [
+      "M2470 selected static materialization but the route plan identifies that another static artifact cannot change driver capability or paper verdict evidence",
+      "M2468 stable_aes_support remains partial at 14/24 reset success",
+      "current-sim scenario readiness work has accumulated repeated design materialization audit and reset-only artifacts",
+      "high-fidelity interface preparation is blocked only by route discipline rather than by needing one more current-sim static artifact"
+    ],
+    "supersedes": [
+      "direct execution of m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight",
+      "another M2471/M2472/M2473 static current-sim materialization and audit chain",
+      "direct controller-family comparison from reset-only or static current-sim readiness evidence",
+      "direct high-fidelity validation without first defining an interface-design milestone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2471-current-sim-readiness-route-synthesis.md",
+  "public_gates": [
+    "M2471 must answer the standard synthesis questions",
+    "M2471 must classify M2452-M2470 evidence under engineering driver performance mechanism evidence scenario task-quality high-fidelity readiness and workflow complexity",
+    "M2471 must explicitly decide whether to continue cap freeze pivot or stop current-sim stable-AES micro-repair",
+    "M2471 must preserve the P0 human-view actor contract and keep labels hidden dynamics and oracle values out of actor input",
+    "M2471 must not execute reset rollout policy action scenario redesign repair training replay PPO ranking winner selection or verdict claims",
+    "M2471 must select one bounded next route or stop"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset environment",
+    "do not retry failed reset seeds",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank atlas cells",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_distribution_support_atlas",
+    "evidence_axis": "E_current_sim_readiness_route_synthesis",
+    "evidence_increment": "synthesizes M2452-M2470 and the post-M2470 route plan to stop another static current-sim micro-repair chain and select a high-fidelity interface preparation branch",
+    "claim_scope": "route synthesis only; no reset rollout policy action repair execution training ranking winner selection paper verdict finite-window-vs-GRU level3 self-ID training-repair or current-sim verdict claim",
+    "stop_condition": [
+      "stop if synthesis treats M2470 design or the old M2471 materialization plan as driver capability evidence",
+      "stop if synthesis routes to measured rollout or controller comparison from reset-only or static evidence",
+      "stop if synthesis cannot choose continue pivot stop or promote_to_next_branch",
+      "stop if synthesis changes actor inputs or claim boundaries to bypass current-sim scenario readiness"
+    ],
+    "fallback_plan": [
+      "pivot to high-fidelity interface preparation if current-sim static materialization cannot change the next admission decision",
+      "allow at most one bounded reset-readiness attempt only if a later synthesis explicitly proves it can produce new evidence",
+      "freeze current-sim as a diagnostic layer if further micro-repair remains static or reset-only",
+      "stop for user review if the branch cannot separate scenario sampler artifacts from controller evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "post-M2470 route plan and user instruction to continue research after stopping the stale M2471 materialization path",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2471-current-sim-readiness-route-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "synthesis_artifact": "docs/m2471-current-sim-readiness-route-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "current-sim readiness route synthesis",
+    "admission_evidence": [
+      "M2468 distribution atlas reset success 109/120 and stable_aes_support 14/24",
+      "M2469 accepts broad distribution support but keeps measured readiness blocked by stable-AES partial support",
+      "M2470 writes a design-only stable-AES support contract but executes no reset rollout repair training or verdict",
+      "docs/post-m2470-route-plan.md recommends pausing direct M2471 materialization and pivoting to parallel high-fidelity interface preparation"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no rollout",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict",
+      "no paper self-ID or finite-window-vs-GRU claim"
+    ],
+    "allowed_updates": [
+      "docs/m2471-current-sim-readiness-route-synthesis.md",
+      "experiments/manifests/m2472-high-fidelity-interface-hf0-design.json",
+      "M2471 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "standard synthesis questions are answered",
+      "M2470 and the stale materialization route are kept separate from driver evidence",
+      "current-sim continuation cap is explicit",
+      "a bounded high-fidelity interface design milestone is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2471 is a route synthesis over scenario readiness evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2471; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2452-M2470 current-sim scenario-quality readiness and reset-only artifacts plus the post-M2470 route plan.",
+    "negative_result_policy": "If current-sim readiness remains blocked, classify it as scenario/task-quality and workflow blocker rather than driver or self-ID failure.",
+    "allowed_claims": [
+      "current-sim readiness route synthesis",
+      "workflow pivot to high-fidelity interface preparation",
+      "no actual success improvement, controller ranking, candidate ranking, paper-level result, finite-window-vs-GRU result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "high",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts the stale M2471 static materialization route into a branch-level pivot decision and registers a new high-fidelity interface preparation branch",
+    "paper_verdict_delta": "does not establish paper evidence but reduces verdict distance by preventing more static current-sim micro-repair from blocking interface validation preparation",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "hypothesis": "Synthesizing the post-M2470 current-sim readiness route will prevent another static micro-repair chain and select a bounded high-fidelity interface preparation milestone without making driver or paper claims.",
+  "success_criteria": [
+    "docs/m2471-current-sim-readiness-route-synthesis.md exists",
+    "the synthesis answers all required synthesis questions",
+    "the synthesis decision is pivot",
+    "direct M2471 static materialization is explicitly superseded rather than executed",
+    "a bounded high-fidelity interface design follow-up manifest is selected",
+    "no reset rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2471 executes reset rollout scenario redesign repair training replay PPO or private holdout",
+    "M2471 ranks scenario candidates atlas cells support policies controllers or checkpoints",
+    "M2471 treats M2470 design or old M2471 static materialization as driver performance evidence",
+    "M2471 makes current-sim paper finite-window-vs-GRU self-ID scenario-redesign or training-repair verdict claims",
+    "M2471 fails to select a bounded next route or stop"
+  ],
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "write docs/m2471-current-sim-readiness-route-synthesis.md from docs/post-m2470-route-plan.md and M2452-M2470 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2471-current-sim-readiness-route-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_current_sim_readiness_route_synthesis"
+  ],
+  "baseline_artifacts": [
+    "docs/post-m2470-route-plan.md",
+    "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md",
+    "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md",
+    "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json"
+  ],
+  "decision_rule": "M2471 passes if it writes a route synthesis that supersedes direct static materialization, chooses pivot to a bounded high-fidelity interface design milestone, and makes no reset, rollout, repair, training, ranking, or verdict claims.",
+  "next_blocker": "m2472-high-fidelity-interface-hf0-design"
+}

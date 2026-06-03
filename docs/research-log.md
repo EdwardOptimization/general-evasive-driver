@@ -44849,3 +44849,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2470: `false`
 - follow-up manifest: `experiments/manifests/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.json`
 - next: `m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight`
+
+## M2471 Current-Sim Readiness Route Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- decision: `pivot_to_high_fidelity_interface_preparation`
+- manifest: `experiments/manifests/m2471-current-sim-readiness-route-synthesis.json`
+- doc: `docs/m2471-current-sim-readiness-route-synthesis.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- superseded route: `m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight`
+- accepted evidence: M2468 distribution atlas `109/120` reset successes with stable_aes_support `14/24`, M2469 stable-AES partial-support audit, and M2470 design-only support contract
+- finding: direct static materialization would not change driver capability, paper self-ID, finite-window-vs-GRU, or current-sim verdict evidence
+- route decision: freeze current-sim as diagnostic, allow at most one later synthesis-approved bounded reset-readiness attempt, and start HF0 high-fidelity interface preparation
+- interpretation: process synthesis and route discipline, not driver performance or validation evidence
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2471: `false`
+- follow-up manifest: `experiments/manifests/m2472-high-fidelity-interface-hf0-design.json`
+- next: `m2472-high-fidelity-interface-hf0-design`
+
+## M2472 High-Fidelity Interface HF0 Design
+
+- status: completed
+- decision: `hf0_contract_route_to_implementation_preflight`
+- manifest: `experiments/manifests/m2472-high-fidelity-interface-hf0-design.json`
+- doc: `docs/m2472-high-fidelity-interface-hf0-design.md`
+- parent synthesis: `docs/m2471-current-sim-readiness-route-synthesis.md`
+- current surface audit: `AutoDriftEnv.reset(seed, options) -> (obs, info)`, `AutoDriftEnv.step(action) -> (obs, reward, terminated, truncated, info)`, canonical P0 observation `72`, action shape `3`
+- design output: internal `DynamicsBackend` reset/step/close boundary, actor-visible `ActorView`, diagnostics boundary, deterministic `P0ObservationExtractor`, backend status taxonomy, and scenario-role mapping
+- route decision: implement local HF0 contract and current-sim P0 parity preflight before any external high-fidelity backend or validation run
+- interpretation: interface-design infrastructure only, not high-fidelity validation, driver performance, or paper evidence
+- high-fidelity simulation/current-sim reset/rollout/policy action/training/replay/PPO/ranking/winner/verdict claims in M2472: `false`
+- follow-up manifest: `experiments/manifests/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.json`
+- next: `m2473-high-fidelity-interface-hf0-contract-implementation-preflight`
