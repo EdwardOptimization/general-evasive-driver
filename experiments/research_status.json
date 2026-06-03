@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2535,
+    "completed": 2536,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight",
+    "task_id": "m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke",
-    "command_log": "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json"
+    "run_dir": "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md",
+    "command_log": "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md"
   },
   "next_task": {
-    "id": "m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit",
-    "kind": "gate",
-    "priority": 25250,
+    "id": "m2531-engineering-controller-failure-surface-guarded-repair-execution-design",
+    "kind": "infrastructure",
+    "priority": 25260,
     "status": "pending",
-    "hypothesis": "Audit the M2529 negative no-update repair smoke before any candidate tuning training continuation promotion ranking or validation claim.",
-    "command": "see experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json",
-    "success_artifact": "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md",
-    "notes": "Pending: audit M2529 status_pass versus protected_proof_gates_all_passed false classify proof-gate failures and select bounded follow-up no new policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Design the minimal guarded repair execution step after M2529 negative no-update smoke before actual repair training or proof claims.",
+    "command": "see experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json",
+    "success_artifact": "docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md",
+    "notes": "Pending: design bounded guarded repair execution with proof-first gates rollback and direct route to new closed-loop repair evidence no policy action training ranking winner success-rate verdict validation or driver-performance claims in design"
   },
-  "updated_at_utc": "20260603T145452Z"
+  "updated_at_utc": "20260603T150830Z"
 }

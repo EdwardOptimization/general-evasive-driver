@@ -45913,3 +45913,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json`
 - next: `m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit`
+
+## M2530 Engineering Controller Failure-Surface Intervention Repair Smoke Result Audit
+
+- status: completed
+- decision: `accept_negative_no_update_smoke_route_to_guarded_repair_execution_design`
+- manifest: `experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json`
+- audit doc: `docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md`
+- audited summary: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json`
+- audited repair smoke rows: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv`
+- audited protected gate evaluation: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv`
+- accepted evidence: M2529 `status_pass` true proves artifact execution and traceability, not proof-gate success
+- negative evidence: `protected_proof_gates_all_passed` false with `3` proof gate failures
+- passed gates: `contract_p0_72_3`, `no_oracle_actor_inputs`, `no_ranking_no_success_rate`
+- failed proof gates: `road_boundary_proof`, `mitigation_proof`, `command_conflict_proof`
+- deferred gate: `fresh_seed_generalization`
+- row audit: `45` repair smoke rows, `45` protected rows matched, `7` gate evaluation rows
+- interpretation: candidate config materialization plus no-update smoke is executable and auditable but not an applied repair
+- route: guarded repair execution design; stop producing config-only or no-update milestones before behavior-changing repair evidence
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json`
+- next: `m2531-engineering-controller-failure-surface-guarded-repair-execution-design`

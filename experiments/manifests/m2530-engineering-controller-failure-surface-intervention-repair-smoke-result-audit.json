@@ -207,5 +207,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2530 passes if it audits M2529 source-only repair smoke artifacts, explicitly separates artifact execution success from protected proof-gate failure, classifies the negative no-update evidence, and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
-  "next_blocker": "m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit"
+  "next_blocker": "m2531-engineering-controller-failure-surface-guarded-repair-execution-design"
 }

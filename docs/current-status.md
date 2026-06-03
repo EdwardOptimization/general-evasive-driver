@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
+m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
+m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
+m2531-engineering-controller-failure-surface-guarded-repair-execution-design
 ```
 
 Current route:
@@ -54,6 +54,8 @@ without overwriting active configs, training, or running policy actions.
 M2529 runs the first bounded source-only no-update repair smoke from that
 candidate config, matches all `45` protected/reference rows, and records a
 negative proof-gate result while preserving contract and claim boundaries.
+M2530 audits and accepts that negative no-update smoke, then routes away from
+config-only/no-update artifacts toward guarded repair execution design.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -108,10 +110,15 @@ compute success-rate, or claim performance, validation, paper, FW-vs-GRU,
 self-ID, current-sim, or high-fidelity verdict evidence. Its artifact execution
 status passed, but protected proof gates did not pass.
 
-The active next task is M2530: audit the M2529 negative no-update repair smoke,
-classify the proof-gate failures, and select a bounded follow-up without new
-policy action, training, ranking, promotion, success-rate, validation, or
-driver-performance claims.
+M2530 did not execute new policy actions or train. It audited M2529 and
+accepted the negative no-update evidence: `status_pass=true` means execution
+and traceability passed, while `protected_proof_gates_all_passed=false` means
+the actual repair proof remains absent.
+
+The active next task is M2531: design the minimal guarded repair execution step
+that can produce behavior-changing closed-loop repair evidence while preserving
+the `72/3` actor contract and avoiding ranking, promotion, success-rate,
+validation, or driver-performance claims.
 
 ## Latest Evidence
 
@@ -814,6 +821,17 @@ M2529:
   config boundary: candidate config loaded true candidate config mutated false active config overwritten false
   rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
   route: repair smoke result audit
+
+M2530:
+  decision: accept_negative_no_update_smoke_route_to_guarded_repair_execution_design
+  audit doc: docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md
+  accepted evidence: M2529 status_pass true proves execution and traceability only
+  negative proof evidence: protected_proof_gates_all_passed false protected_proof_gate_fail_count 3
+  passed gates: contract_p0_72_3 no_oracle_actor_inputs no_ranking_no_success_rate
+  failed proof gates: road_boundary_proof mitigation_proof command_conflict_proof
+  deferred gate: fresh_seed_generalization
+  route: guarded repair execution design
+  boundary: no new policy action training ranking winner promotion success-rate verdict validation or driver-performance claims
 ```
 
 ## Current Interpretation Boundary
@@ -920,7 +938,10 @@ first repair smoke. M2529 runs that bounded source-only repair smoke and
 records negative no-update proof evidence: artifact execution and traceability
 pass, but road-boundary, mitigation, and command-conflict proof gates remain
 unimproved, so the next step is result audit before any actual guarded repair
-training or candidate tuning.
+training or candidate tuning. M2530 accepts that negative evidence and closes
+the no-update path: the next milestone must design a guarded repair execution
+that leads directly to new closed-loop behavior evidence or to branch
+synthesis, not another config-only artifact.
 ```
 
 Blocked claims:
@@ -940,21 +961,16 @@ training repair success
 
 ## Immediate Next Step
 
-M2530 should audit the M2529 failure-surface intervention repair smoke:
+M2531 should design the guarded repair execution:
 
 ```text
-runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json
-runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv
-runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv
-runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json
-experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json
-experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json
 docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md
+experiments/manifests/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.json
+docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md
 ```
 
-The audit must separate `status_pass=true` from protected proof-gate success:
-M2529 passed execution/traceability gates but failed road-boundary, mitigation,
-and command-conflict proof gates as a negative no-update smoke. M2530 must not
-run new policy action, train, rank/select a winner, promote a checkpoint,
-compute success-rate, or claim performance, validation, paper, FW-vs-GRU,
-self-ID, or current-sim/high-fidelity verdict evidence.
+The design must route directly to a future execution milestone that produces
+new closed-loop repair evidence or to branch synthesis. It must not run policy
+action, train, rank/select a winner, promote a checkpoint, compute success-rate,
+or claim performance, validation, paper, FW-vs-GRU, self-ID, or current-sim/
+high-fidelity verdict evidence in the design milestone.
