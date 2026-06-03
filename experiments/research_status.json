@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2511,
+    "completed": 2512,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2505-engineering-controller-public-benchmark-pack-materialization-preflight",
+    "task_id": "m2506-engineering-controller-public-benchmark-pack-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505",
-    "command_log": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md"
   },
   "next_task": {
-    "id": "m2506-engineering-controller-public-benchmark-pack-result-audit",
+    "id": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
     "kind": "gate",
-    "priority": 25010,
+    "priority": 25020,
     "status": "pending",
-    "hypothesis": "Audit the materialized source-only public benchmark pack before any public export or route escalation.",
-    "command": "see experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json",
-    "success_artifact": "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
-    "notes": "Pending: audit M2505 required files source references actor contract claim boundaries and false claim flags no policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Synthesize the public benchmark pack branch after design materialization and audit before another packaging or route milestone.",
+    "command": "see experiments/manifests/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.json",
+    "success_artifact": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+    "notes": "Pending: synthesize M2504-M2506 public pack branch and choose bounded next route no policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T102745Z"
+  "updated_at_utc": "20260603T103317Z"
 }

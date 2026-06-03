@@ -45440,3 +45440,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2505: `false`
 - follow-up manifest: `experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json`
 - next: `m2506-engineering-controller-public-benchmark-pack-result-audit`
+
+## M2506 Engineering Controller Public Benchmark Pack Result Audit
+
+- status: completed
+- decision: `accept_public_benchmark_pack_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json`
+- doc: `docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md`
+- audited pack: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/`
+- audited summary: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json`
+- audited artifact manifest: `public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/artifact_manifest.csv`
+- accepted gates: result class pass, required files present, artifact manifest rows `14`, source artifacts exist, missing source artifacts `[]`, actor contract shape `72/3`, claim boundary and known limitations present, false claim flags preserved
+- accepted scope: source-only public engineering diagnostic artifact only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2506: `false`
+- follow-up manifest: `experiments/manifests/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.json`
+- next: `m2507-engineering-controller-public-benchmark-pack-branch-synthesis`

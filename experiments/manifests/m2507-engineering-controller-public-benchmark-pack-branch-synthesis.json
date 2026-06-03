@@ -1,0 +1,219 @@
+{
+  "id": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
+      "docs/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.md",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/artifact_manifest.csv",
+      "docs/m2504-engineering-controller-public-benchmark-pack-design.md",
+      "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2506-engineering-controller-public-benchmark-pack-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize public benchmark pack branch after design materialization and audit"
+    ],
+    "derived_from": [
+      "m2506-engineering-controller-public-benchmark-pack-result-audit",
+      "m2505-engineering-controller-public-benchmark-pack-materialization-preflight",
+      "m2504-engineering-controller-public-benchmark-pack-design"
+    ],
+    "blocked_by": [
+      "M2504-M2506 completed the public pack design materialization and audit loop",
+      "continuing with another packaging milestone would add local process work without new evidence",
+      "the next route should choose between export preparation runtime report high-fidelity validation preparation or engineering evidence branch"
+    ],
+    "supersedes": [
+      "another public benchmark pack packaging task before synthesis",
+      "direct public export without branch decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2507 must synthesize M2504-M2506 public benchmark pack evidence",
+    "M2507 must explicitly separate public diagnostic packaging from driver performance high-fidelity validation paper evidence controller ranking and self-ID evidence",
+    "M2507 must decide continue pivot stop or promote_to_next_branch",
+    "M2507 must answer whether the next branch should do public export preparation runtime/inference-cost reporting high-fidelity validation preparation paper-route comparison or stop",
+    "M2507 must not install import or run external high-fidelity simulation",
+    "M2507 must not execute new policy action train rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not execute new policy actions in the synthesis milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics in this synthesis",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from the public benchmark pack"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_public_benchmark_pack",
+    "evidence_axis": "public_benchmark_pack_branch_synthesis",
+    "evidence_increment": "synthesizes public benchmark pack design materialization and audit before selecting the next engineering route",
+    "claim_scope": "engineering-controller public benchmark pack branch synthesis only; no new policy action, external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if public pack artifacts are being treated as driver performance",
+      "stop if the next proposed milestone is another packaging task without route value",
+      "stop if follow-up would change actor inputs or action contract",
+      "stop if branch cannot identify a route back to engineering validation or paper evidence"
+    ],
+    "fallback_plan": [
+      "continue to public export preparation only if claim boundaries remain explicit",
+      "promote to runtime/inference-cost reporting if engineering artifact readiness is sufficient",
+      "pivot to high-fidelity validation preparation if validation is now the limiting boundary",
+      "stop for user review if no bounded evidence route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2506 accepted the materialized public source-only diagnostic benchmark pack after M2504-M2505 pack design and materialization",
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller public benchmark pack branch synthesis",
+    "admission_evidence": [
+      "M2504 public benchmark pack design",
+      "M2505 pack materialization summary and artifact manifest",
+      "M2506 pack result audit",
+      "post-M2470 route plan identifies public benchmark pack as Route A artifact"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no new policy action in the synthesis milestone",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+      "M2507 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "supported and unsupported claims are explicit",
+      "public-gate overfit and process overhead are assessed",
+      "bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2507 is branch synthesis and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2507; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2504-M2506 public benchmark pack branch artifacts.",
+    "negative_result_policy": "If synthesis finds the public pack branch insufficient for route escalation, state that plainly and stop or route to bounded repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller public benchmark pack branch synthesis",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes public pack artifacts before any more local packaging or export work",
+    "paper_verdict_delta": "may choose a route toward future engineering or paper evidence but cannot itself establish paper or validation verdict",
+    "must_synthesize_if": [
+      "another public pack or export artifact is proposed after M2506",
+      "source-only diagnostic pack is mistaken for performance or validation",
+      "branch cannot identify a route back to engineering validation or paper evidence"
+    ]
+  },
+  "hypothesis": "A branch synthesis can prevent the public benchmark pack work from becoming another packaging loop and choose the next evidence-producing route after design, materialization, and audit pass.",
+  "success_criteria": [
+    "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision",
+    "synthesis distinguishes public diagnostic packaging from performance validation ranking and paper evidence",
+    "synthesis registers a bounded follow-up milestone",
+    "no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2507 installs imports or runs Chrono or another external simulator",
+    "M2507 changes actor input or action contract",
+    "M2507 injects hidden or oracle actor features",
+    "M2507 executes new policy action or rollout",
+    "M2507 treats public pack artifacts as driver performance",
+    "M2507 ranks controller families or selects a winner",
+    "M2507 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2507-engineering-controller-public-benchmark-pack-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
+    "docs/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.md",
+    "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+    "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/artifact_manifest.csv",
+    "docs/m2504-engineering-controller-public-benchmark-pack-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2507 passes if it synthesizes the public benchmark pack branch and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
+  "next_blocker": "m2507-engineering-controller-public-benchmark-pack-branch-synthesis"
+}
