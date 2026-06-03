@@ -45262,3 +45262,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2495: `false`
 - follow-up manifest: `experiments/manifests/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.json`
 - next: `m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight`
+
+## M2496 Engineering Controller Source-Only Role Fixture Parameterization Implementation Preflight
+
+- status: completed
+- result_class: `source_only_role_fixture_parameterization_preflight_pass`
+- manifest: `experiments/manifests/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.json`
+- doc: `docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md`
+- implementation: `src/autodrift/hf0_source_only_role_fixture_parameterization.py`
+- backend update: `src/autodrift/four_wheel_hf0_adapter.py`
+- tests: `tests/test_hf0_source_only_role_fixture_parameterization.py`
+- summary: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json`
+- fixture parameterization rows: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv`
+- reset differentiation rows: `runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv`
+- preflight result: specs `3`, resets `3`, reset observation shape `72` for all roles, action shape `3`, default backend path still no fixture spec, policy action `false`
+- differentiation gates: unique initial-state/fault-scale/road/obstacle/reset-observation digests all `3`, pairwise reset observation L2 min `0.3037872612476349`, pairwise state and obstacle digests unique
+- actor-input gates: role labels fixture labels hidden diagnostics oracle labels TTC required clearance reward terms and success labels enter actor input `false`
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: reset-only fixture differentiation passes and routes to result audit before rerunning any source-only role metric panel
+- external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2496: `false`
+- follow-up manifest: `experiments/manifests/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.json`
+- next: `m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit`

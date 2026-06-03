@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2501,
+    "completed": 2502,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2495-engineering-controller-source-only-role-fixture-parameterization-design",
+    "task_id": "m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md"
+    "run_dir": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight",
+    "command_log": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight",
-    "kind": "infrastructure",
-    "priority": 24910,
+    "id": "m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit",
+    "kind": "gate",
+    "priority": 24920,
     "status": "pending",
-    "hypothesis": "Implement reset-only source-only role fixture parameterization preflight from M2495 design.",
-    "command": "see experiments/manifests/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.json",
-    "success_artifact": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
-    "notes": "Pending: implement three differentiated role fixture specs reset-only no policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit M2496 reset-only source-only role fixture parameterization before metric panel rerun.",
+    "command": "see experiments/manifests/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.json",
+    "success_artifact": "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md",
+    "notes": "Pending: audit reset-only differentiated fixture artifacts and route bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T090527Z"
+  "updated_at_utc": "20260603T091524Z"
 }

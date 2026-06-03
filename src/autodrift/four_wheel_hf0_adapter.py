@@ -8,9 +8,9 @@ external high-fidelity simulator.
 from __future__ import annotations
 
 import argparse
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 import numpy as np
 
@@ -42,6 +42,17 @@ from autodrift.high_fidelity_interface import (
 DEFAULT_DT = 0.02
 
 
+@dataclass(frozen=True)
+class SourceOnlyRoleFixtureDynamicsSpec:
+    fixture_id: str
+    role_family: str
+    initial_state: FourWheelState
+    fault_scales: FourWheelFaultScales
+    road: RoadView
+    obstacles: tuple[ObstacleSlotView, ...]
+    diagnostic_tags: Mapping[str, Any]
+
+
 class FourWheelHF0Backend:
     """HF0 backend adapter over the source-only four-wheel dynamics model."""
 
@@ -53,9 +64,14 @@ class FourWheelHF0Backend:
         params: FourWheelVehicleParams | None = None,
         fault_scales: FourWheelFaultScales | None = None,
         dt: float = DEFAULT_DT,
+        fixture_spec: SourceOnlyRoleFixtureDynamicsSpec | None = None,
     ):
+        self.fixture_spec = fixture_spec
         self.params = params or FourWheelVehicleParams()
-        self.fault_scales = fault_scales or FourWheelFaultScales.nominal()
+        self.fault_scales = (
+            fault_scales
+            or (fixture_spec.fault_scales if fixture_spec is not None else FourWheelFaultScales.nominal())
+        )
         self.model = FourWheelDriftModel(params=self.params, fault_scales=self.fault_scales)
         self.dt = float(dt)
         self.state = self._initial_state()
@@ -76,7 +92,15 @@ class FourWheelHF0Backend:
             "scenario_spec_id": request.scenario_spec_id,
             "role_family": request.role_family,
             "source_only_model": "FourWheelDriftModel",
+            "source_only_fixture_spec_present": self.fixture_spec is not None,
         }
+        if self.fixture_spec is not None:
+            backend_info.update(
+                {
+                    "source_only_fixture_id": self.fixture_spec.fixture_id,
+                    "source_only_fixture_role_family": self.fixture_spec.role_family,
+                }
+            )
         return BackendResetResult(actor_view=actor_view, diagnostics=diagnostics, backend_info=backend_info)
 
     def step(self, action: np.ndarray) -> BackendStepResult:
@@ -113,6 +137,8 @@ class FourWheelHF0Backend:
         return None
 
     def _initial_state(self) -> FourWheelState:
+        if self.fixture_spec is not None:
+            return FourWheelState.from_array(self.fixture_spec.initial_state.as_array())
         return FourWheelState(
             x=0.0,
             y=0.0,
@@ -150,12 +176,12 @@ class FourWheelHF0Backend:
                 previous_throttle_command=float(self._last_physical_control[1]),
                 previous_brake_command=float(self._last_physical_control[2]),
             ),
-            road=_fixture_road(),
-            obstacles=_fixture_obstacles(),
+            road=self._fixture_road(),
+            obstacles=self._fixture_obstacles(),
         )
 
     def _diagnostics(self, *, forces: FourWheelForces | None) -> dict[str, Any]:
-        return {
+        diagnostics = {
             "backend_id": self.backend_id,
             "source_only_model": "FourWheelDriftModel",
             "state": asdict(self.state),
@@ -166,6 +192,22 @@ class FourWheelHF0Backend:
             "drag_force": None if forces is None else float(forces.drag_force),
             "rolling_force": None if forces is None else float(forces.rolling_force),
         }
+        diagnostics["source_only_fixture_spec_present"] = self.fixture_spec is not None
+        if self.fixture_spec is not None:
+            diagnostics["source_only_fixture_id"] = self.fixture_spec.fixture_id
+            diagnostics["source_only_fixture_role_family"] = self.fixture_spec.role_family
+            diagnostics["source_only_fixture_diagnostic_tags"] = dict(self.fixture_spec.diagnostic_tags)
+        return diagnostics
+
+    def _fixture_road(self) -> RoadView:
+        if self.fixture_spec is not None:
+            return self.fixture_spec.road
+        return _fixture_road()
+
+    def _fixture_obstacles(self) -> tuple[ObstacleSlotView, ...]:
+        if self.fixture_spec is not None:
+            return self.fixture_spec.obstacles
+        return _fixture_obstacles()
 
 
 def run_source_only_four_wheel_adapter_preflight(
