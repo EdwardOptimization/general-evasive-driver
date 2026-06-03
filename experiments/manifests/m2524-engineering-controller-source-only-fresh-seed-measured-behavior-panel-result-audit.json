@@ -1,0 +1,217 @@
+{
+  "id": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.md",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv",
+      "docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md",
+      "runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.json"
+    ],
+    "parent_objective": [
+      "audit the fresh source-only seed measured behavior panel before broader interpretation or another source-only panel"
+    ],
+    "derived_from": [
+      "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight",
+      "m2522-engineering-controller-bounded-measured-behavior-panel-result-audit",
+      "m2521-engineering-controller-bounded-measured-behavior-panel-preflight"
+    ],
+    "blocked_by": [
+      "M2523 generated fresh-seed source-only measured behavior artifacts but they have not been independently audited",
+      "fresh-seed diagnostic rows must not become controller rankings success-rate verdicts or driver-performance claims",
+      "future Route A behavior synthesis should not proceed until denominator completeness and false-claim boundaries are accepted or rejected"
+    ],
+    "supersedes": [
+      "using M2523 fresh-seed measured behavior rows without result audit",
+      "controller ranking or claim escalation before fresh-seed panel audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+  "public_gates": [
+    "M2524 must audit M2523 summary seed_panel_spec.csv measured_behavior_rows.csv measured_event_rows.csv metric_completeness_rows.csv and milestone doc",
+    "M2524 must verify M2523 status_pass true and result_class engineering_controller_source_only_fresh_seed_measured_behavior_panel_preflight_pass",
+    "M2524 must verify 15 seed panel spec rows five seeds per role 45 measured behavior rows 45 measured event rows 40 metric completeness rows and 4500 telemetry rows",
+    "M2524 must verify all attempted subject-role-seed rows are retained and denominator_gap_count is zero",
+    "M2524 must verify all forty metric completeness rows have supported_row_count 45 missing_row_count 0 and support_status supported_by_m2523_source_only_fresh_seed_measured_behavior_panel",
+    "M2524 must verify deterministic seed lineage fresh seed variant digests and mitigation_reference_subject straight_full_brake_open_loop",
+    "M2524 must verify actor contract 72/3 no hidden or oracle actor inputs and all actions finite and within deployed bounds",
+    "M2524 must verify M2523 source-only backend policy action policy rollout and open-loop action execution flags are true only for the M2523 diagnostic run",
+    "M2524 must verify M2523 false flags for external simulation measured validation training replay PPO ranking winner success-rate verdict performance validation paper finite-window-vs-GRU current-sim and self-ID claims",
+    "M2524 must not run environment rollout simulator step policy action training replay PPO ranking winner selection success-rate verdict or validation verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute policy actions in the audit",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not use success labels or reward terms as actor inputs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only fresh-seed measured behavior rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_bounded_measured_behavior_panel",
+    "evidence_axis": "source_only_fresh_seed_measured_behavior_panel_result_audit",
+    "evidence_increment": "audits M2523 fresh-seed measured behavior denominator completeness and false-claim boundaries before broader Route A interpretation",
+    "claim_scope": "source-only fresh-seed measured behavior panel result audit only; no new rollout, simulator step, policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if M2523 row counts or seed denominator completeness do not match the pre-registered panel",
+      "stop if fresh seed variant lineage or mitigation reference semantics are not explicit",
+      "stop if fresh-seed measured behavior rows are interpreted as controller ranking success-rate driver performance or validation",
+      "stop if the audit would need to run new policy actions instead of reading M2523 artifacts"
+    ],
+    "fallback_plan": [
+      "route to M2523 artifact repair if row counts summary gates or seed-panel specs are malformed",
+      "route to denominator repair if attempted-row retention or seed lineage is incomplete",
+      "route to branch synthesis if audit accepts the fresh-seed panel and another source-only panel is proposed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2523 materialized the first fresh-seed source-only measured behavior panel",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-only fresh-seed measured behavior panel result audit",
+    "admission_evidence": [
+      "M2523 summary and fresh-seed measured behavior artifacts",
+      "M2522 accepted M2521 fixed-seed measured behavior artifacts",
+      "M2520 branch synthesis promoted to bounded measured behavior"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no new policy action in the audit",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+      "M2524 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2523 fresh-seed measured behavior artifacts are accepted or rejected explicitly",
+      "bounded follow-up route is registered if audit passes"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2524 audits source-only engineering measured behavior rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2524; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2523 fresh source-only seed measured behavior panel artifacts.",
+    "negative_result_policy": "If audit rejects the artifacts, route to bounded repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "source-only fresh-seed measured behavior panel result audit",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the first fresh-seed measured behavior denominator before another source-only panel or Route A synthesis",
+    "paper_verdict_delta": "does not decide paper verdict but protects Route A behavior denominator from unsupported ranking validation or performance interpretations",
+    "must_synthesize_if": [
+      "fresh-seed measured behavior audit fails repeatedly",
+      "another source-only measured behavior panel is proposed after M2524 without branch synthesis",
+      "fresh-seed source-only measured behavior is mistaken for performance validation paper or self-ID evidence"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2523 fresh-seed measured behavior artifacts without treating source-only diagnostic behavior rows as ranking, success-rate, validation, paper, self-ID, or driver-performance evidence.",
+  "success_criteria": [
+    "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md exists",
+    "audit verifies M2523 summary status_pass true and result_class pass",
+    "audit verifies seed_panel_spec.csv row count 15 and five seeds per role",
+    "audit verifies measured_behavior_rows.csv row count 45",
+    "audit verifies measured_event_rows.csv row count 45",
+    "audit verifies metric_completeness_rows.csv row count 40 with no missing values",
+    "audit verifies telemetry_row_count 4500 and expected_telemetry_row_count 4500",
+    "audit verifies all attempted subject-role-seed rows are retained and denominator_gap_count is zero",
+    "audit verifies subject role seed matrix m1154_policy_actor coast_open_loop straight_full_brake_open_loop across stable_aes drift_required_recovery unavoidable_mitigation and five seeds per role",
+    "audit verifies actor contract 72/3 no hidden or oracle actor input boundary all actions finite and within deployed bounds",
+    "audit verifies seed lineage fresh seed variant digests and mitigation reference semantics",
+    "audit verifies no ranking winner success-rate verdict performance validation paper finite-window-vs-GRU current-sim or self-ID claims",
+    "no external high-fidelity simulation install import execution environment rollout new policy action training ranking winner success-rate or verdict claim is made by M2524"
+  ],
+  "failure_criteria": [
+    "M2524 installs imports or runs Chrono or another external simulator",
+    "M2524 changes actor input or action contract",
+    "M2524 injects hidden or oracle actor features",
+    "M2524 steps an environment or runs policy rollout",
+    "M2524 treats source-only fresh-seed measured behavior as driver performance",
+    "M2524 ranks controller families or selects a winner",
+    "M2524 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.md",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv",
+    "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv",
+    "docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md",
+    "runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json"
+  ],
+  "decision_rule": "M2524 passes if it audits M2523 fresh-seed measured behavior artifacts and confirms seed-panel counts, subject-role-seed coverage, telemetry count, metric completeness, seed variant lineage, mitigation reference semantics, actor/action contract, no hidden actor inputs, all-attempted-row retention, zero denominator gaps, and false claim flags without external simulation, rollout, new policy action, training, ranking, winner selection, success-rate, or verdict claims.",
+  "next_blocker": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit"
+}

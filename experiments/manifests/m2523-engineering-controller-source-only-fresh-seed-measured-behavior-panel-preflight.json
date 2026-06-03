@@ -239,5 +239,5 @@
     "docs/observation-contract.md"
   ],
   "decision_rule": "M2523 passes if it writes fresh source-only measured behavior artifacts across three subjects, three roles, and at least five explicit seeds per role while preserving actor/action contracts, explicit denominator accounting, seed/reference semantics, all-attempted-row retention, and no success-rate, ranking, promotion, performance, validation, or paper claims.",
-  "next_blocker": "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight"
+  "next_blocker": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit"
 }

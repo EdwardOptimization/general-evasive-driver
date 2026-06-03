@@ -45766,3 +45766,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2522: `false`
 - follow-up manifest: `experiments/manifests/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.json`
 - next: `m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight`
+
+## M2523 Engineering Controller Source-Only Fresh-Seed Measured Behavior Panel Preflight
+
+- status: completed
+- result_class: `engineering_controller_source_only_fresh_seed_measured_behavior_panel_preflight_pass`
+- manifest: `experiments/manifests/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.json`
+- implementation: `src/autodrift/engineering_controller_source_only_fresh_seed_measured_behavior_panel.py`
+- doc: `docs/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.md`
+- summary: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json`
+- seed panel spec: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv`
+- measured behavior rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv`
+- measured event rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv`
+- metric completeness rows: `runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv`
+- row counts: seed panel `15`, telemetry `4500`, measured behavior `45`, measured events `45`, metric completeness `40`
+- denominator: `5` explicit fresh seeds per accepted role, `3` subjects, `3` roles, zero denominator gaps, all attempted subject-role-seed rows retained
+- subject-role matrix: `m1154_policy_actor`, `coast_open_loop`, and `straight_full_brake_open_loop` across `stable_aes`, `drift_required_recovery`, and `unavoidable_mitigation`
+- accepted gates: status_pass true, required artifacts present, source artifacts exist, missing source artifacts `[]`, role-seed matrix complete, actor contract `72/3`, all actions finite and within bounds, all backend statuses running, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, seed lineage explicit, mitigation reference subject `straight_full_brake_open_loop`, all 40 registered metrics supported with no missing row values
+- diagnostic behavior surface: M1154 avoids collision but leaves road in all 5 `stable_aes` seeds and all 5 `drift_required_recovery` seeds; M1154 collides and leaves road in all 5 `unavoidable_mitigation` seeds; `straight_full_brake_open_loop` has no collision or road departure in all 5 `stable_aes` seeds; this is failure-surface evidence only, not ranking or performance
+- accepted scope: source-only fresh-seed measured behavior panel preflight only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: audit M2523 fresh-seed measured behavior artifacts before another source-only panel, Route A synthesis, or claim escalation
+- external high-fidelity simulation install/import/execution in M2523: `false`
+- source-only backend step/policy action/policy rollout/open-loop action execution in M2523: `true`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2523: `false`
+- follow-up manifest: `experiments/manifests/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.json`
+- next: `m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit`

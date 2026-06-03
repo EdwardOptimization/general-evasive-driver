@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2528,
+    "completed": 2529,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2522-engineering-controller-bounded-measured-behavior-panel-result-audit",
+    "task_id": "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md"
+    "run_dir": "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel",
+    "command_log": "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json"
   },
   "next_task": {
-    "id": "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight",
-    "kind": "infrastructure",
-    "priority": 25180,
+    "id": "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit",
+    "kind": "gate",
+    "priority": 25190,
     "status": "pending",
-    "hypothesis": "Expand the accepted bounded measured behavior protocol to a fresh source-only seed panel without ranking or verdict claims.",
-    "command": "see experiments/manifests/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.json",
-    "success_artifact": "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
-    "notes": "Pending: materialize fresh source-only seed measured behavior panel for three subjects three accepted roles at least five seeds per role with denominator accounting actor contract 72/3 no ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Audit M2523 fresh source-only seed measured behavior artifacts before broader interpretation or another source-only panel.",
+    "command": "see experiments/manifests/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.json",
+    "success_artifact": "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+    "notes": "Pending: audit M2523 15 seed panel rows 45 measured behavior rows 45 measured event rows 40 metric completeness rows 4500 telemetry rows zero denominator gaps actor contract 72/3 no ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T130949Z"
+  "updated_at_utc": "20260603T133002Z"
 }
