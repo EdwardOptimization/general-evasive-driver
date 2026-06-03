@@ -88,7 +88,7 @@
     "fallback_plan": [
       "route to pilot implementation repair if row or contract artifacts fail",
       "route to actor-source inventory if checkpoint admission is invalid",
-      "route to bounded longer pilot design only if M2488 is accepted with correct scope"
+      "route to bounded longer pilot execution only if M2488 is accepted with correct scope"
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2488 produced first source-only same-contract policy-action path smoke evidence",

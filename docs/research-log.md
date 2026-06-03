@@ -45145,3 +45145,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2488: `false`
 - follow-up manifest: `experiments/manifests/m2489-source-only-closed-loop-fixture-pilot-result-audit.json`
 - next: `m2489-source-only-closed-loop-fixture-pilot-result-audit`
+
+## M2489 Source-Only Closed-Loop Fixture Pilot Result Audit
+
+- status: completed
+- decision: `accept_source_only_policy_action_path_smoke_route_to_extended_execution`
+- manifest: `experiments/manifests/m2489-source-only-closed-loop-fixture-pilot-result-audit.json`
+- doc: `docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md`
+- audited summary: `runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json`
+- audited rows: `runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv`
+- audit result: accepts M2488 source-only same-contract policy-action path smoke
+- row audit: rows `60`, roles `20/20/20`, observation shape `72` on every row, action shape `3` on every row, actions finite and within bounds on every row, backend status `running` on every row, wheel diagnostic count `4` on every row
+- accepted claim: admitted same-contract actor can run bounded deterministic policy actions through the three admitted source-only HF0 fixtures for 20 steps without actor-input leakage
+- rejected claims: no driver performance, success-rate improvement, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2489: `false`
+- follow-up manifest: `experiments/manifests/m2490-source-only-closed-loop-fixture-pilot-extended-execution.json`
+- next: `m2490-source-only-closed-loop-fixture-pilot-extended-execution`

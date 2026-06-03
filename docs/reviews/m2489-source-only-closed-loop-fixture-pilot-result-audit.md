@@ -1,0 +1,107 @@
+# m2489-source-only-closed-loop-fixture-pilot-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T082940Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_source_only_policy_action_path_smoke_route_to_extended_execution
+- Decision reason: M2489 accepts M2488 source-only policy-action path smoke rows 60 obs 72 action 3 finite bounded leak flags false and routes to 100-step extended execution without new policy action training ranking winner or verdict claims
+
+## Hypothesis
+
+Auditing M2488 can determine whether the source-only closed-loop policy-action path smoke is accepted and choose a bounded follow-up without overstating evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+- parent_dataset: runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json, runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv, docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md, docs/m2487-source-only-closed-loop-fixture-pilot-design.md
+- parent_config: experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json
+- parent_objective: audit bounded source-only closed-loop fixture pilot preflight before any longer pilot or claim escalation
+- derived_from: m2488-source-only-closed-loop-fixture-pilot-implementation-preflight, m2487-source-only-closed-loop-fixture-pilot-design
+- blocked_by: M2488 closed-loop policy-action path smoke must be audited before any longer pilot or claim escalation, source-only pilot evidence must not be mistaken for driver performance or high-fidelity validation, the row artifact must be checked for contract and leak flags before follow-up route selection
+- supersedes: direct longer source-only pilot without auditing M2488, direct performance claim from M2488 path smoke
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md exists
+- audit checks M2488 summary and pilot_rollout_rows
+- audit verifies checkpoint admission and 60 row policy-action coverage
+- audit verifies observation action and actor-input leak gates
+- audit registers a bounded follow-up milestone
+- no external high-fidelity simulation install import execution new policy action training ranking winner or verdict claim is made
+
+## Failure Criteria
+
+- M2489 installs imports or runs Chrono or another external simulator
+- M2489 changes actor input or action contract
+- M2489 injects hidden or oracle actor features
+- M2489 executes new policy action or rollout
+- M2489 treats source-only path smoke as driver performance
+- M2489 ranks controller families or selects a winner
+- M2489 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2489 must audit M2488 summary and pilot_rollout_rows artifacts
+- M2489 must verify checkpoint admission obs_dim 72 action_dim 3 actor_encoder and action_sequence_horizon
+- M2489 must verify three fixtures reset and 60 policy-action rows were produced
+- M2489 must verify observation action backend status wheel diagnostic and actor-input leak gates
+- M2489 must distinguish source-only policy-action path smoke from driver performance high-fidelity validation paper evidence and controller ranking
+- M2489 must not train replay run PPO rank select a winner promote a checkpoint or make verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not run measured validation
+- do not execute new policy actions in the audit milestone
+- do not train
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from path-smoke rows
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2489-source-only-closed-loop-fixture-pilot-result-audit
+- type: gate
+- checkpoint: docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_source_only_policy_action_path_smoke_route_to_extended_execution
+- reason: M2489 accepts M2488 source-only policy-action path smoke rows 60 obs 72 action 3 finite bounded leak flags false and routes to 100-step extended execution without new policy action training ranking winner or verdict claims
+
+## Next Blocker
+
+m2489-source-only-closed-loop-fixture-pilot-result-audit

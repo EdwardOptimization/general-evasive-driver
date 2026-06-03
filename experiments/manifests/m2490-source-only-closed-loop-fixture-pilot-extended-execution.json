@@ -1,0 +1,202 @@
+{
+  "id": "m2490-source-only-closed-loop-fixture-pilot-extended-execution",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md",
+      "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
+      "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv",
+      "docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2489-source-only-closed-loop-fixture-pilot-result-audit.json"
+    ],
+    "parent_objective": [
+      "run a longer bounded source-only closed-loop fixture pilot after M2489 accepts M2488 path smoke"
+    ],
+    "derived_from": [
+      "m2489-source-only-closed-loop-fixture-pilot-result-audit",
+      "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight"
+    ],
+    "blocked_by": [
+      "M2488 only covered 20 policy-action steps per fixture",
+      "longer source-only execution is needed before any broader route selection",
+      "the follow-up must preserve actor admission and leak gates without claiming performance"
+    ],
+    "supersedes": [
+      "another audit-only source-only pilot milestone after M2489",
+      "direct success-rate or performance claim from M2488"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md",
+  "public_gates": [
+    "M2490 must reuse the admitted checkpoint path and same-contract 72 observation 3 action admission gate",
+    "M2490 must run exactly the three M2484 admitted source-only fixtures unless the manifest is updated before execution",
+    "M2490 must execute deterministic deployable policy actions for 100 steps per fixture through FourWheelHF0Backend",
+    "M2490 must preserve P0 observation shape 72 and action shape 3 at every reset and step",
+    "M2490 must keep fixture labels scenario labels feasibility classes hidden values wheel diagnostics oracle labels TTC required clearance reward terms and success or progress labels out of actor input",
+    "M2490 must write summary.json and pilot_rollout_rows.csv and must not train replay run PPO rank select a winner promote a checkpoint or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not compute success rate or controller-family verdict metrics in this execution"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_only_closed_loop_fixture_pilot",
+    "evidence_axis": "extended_closed_loop_policy_action_execution",
+    "evidence_increment": "extends accepted source-only policy-action path smoke from 20 to 100 deterministic steps per fixture",
+    "claim_scope": "source-only closed-loop extended policy-action execution only; no external simulation, measured validation, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop if checkpoint admission fails the 72/3 actor contract",
+      "stop if any actor-input leak flag is true",
+      "stop if actions are nonfinite or out of deployed bounds",
+      "stop if results are interpreted as driver performance or high-fidelity validation"
+    ],
+    "fallback_plan": [
+      "route to pilot implementation repair if row or contract artifacts fail",
+      "route to source-only backend repair if extended execution exposes backend failures",
+      "route to result audit if extended execution passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2489 accepted M2488 source-only policy-action path smoke and routed to a longer bounded execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "extended source-only closed-loop fixture pilot execution",
+    "admission_evidence": [
+      "M2489 accepts M2488 source-only policy-action path smoke",
+      "M2488 checkpoint admission and leak gates passed",
+      "M2488 implementation can run the registered three-fixture pilot"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json",
+      "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv",
+      "docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md",
+      "M2490 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary and row artifacts exist",
+      "policy_action and policy_rollout_run are true while training ranking winner and verdict flags remain false",
+      "observation action and actor-input leak gates pass",
+      "follow-up result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2490 runs source-only extended policy-action execution and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2490; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "One bounded 100-step source-only fixture pilot per admitted fixture.",
+    "negative_result_policy": "If extended execution fails, record the failure type and route to repair rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "bounded extended source-only same-contract policy-action execution",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "extends bounded policy-action closed-loop data on source-only HF0 fixtures",
+    "paper_verdict_delta": "does not decide paper verdict but expands policy-action evidence after path-smoke acceptance",
+    "must_synthesize_if": [
+      "extended execution fails for contract leakage or backend stability",
+      "follow-up proposes another audit without route selection",
+      "extended source-only rows are mistaken for performance or validation"
+    ]
+  },
+  "hypothesis": "The same admitted actor can continue bounded deterministic policy actions through the three source-only HF0 fixtures for 100 steps per fixture without actor-input leakage or backend path failure.",
+  "success_criteria": [
+    "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json exists",
+    "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv exists",
+    "checkpoint loads and is admitted as obs_dim 72 action_dim 3 allowed recurrent actor",
+    "three admitted source-only fixtures reset and run 100 policy-action steps each",
+    "all reset and step observations have shape 72",
+    "all actions have shape 3 finite values and stay within deployed bounds",
+    "all actor-input leak flags are false",
+    "no external high-fidelity simulation install import execution training replay PPO ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2490 installs imports or runs Chrono or another external simulator",
+    "M2490 changes actor input or action contract",
+    "M2490 injects hidden or oracle actor features",
+    "M2490 trains replays runs PPO promotes ranks or selects a winner",
+    "M2490 computes success rate or claims driver performance",
+    "M2490 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "extended_execution",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_closed_loop_fixture_pilot --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution --horizon-steps 100 --next-blocker m2491-source-only-closed-loop-fixture-pilot-extended-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md",
+    "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
+    "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2490 passes if it runs the accepted source-only same-contract closed-loop pilot for 100 deterministic policy-action steps per fixture without actor-input leakage, external simulation, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2490-source-only-closed-loop-fixture-pilot-extended-execution"
+}
