@@ -1,0 +1,113 @@
+{
+  "decision_reason": "M2487 defines same-contract actor admission and a three-fixture 20-step source-only policy-action pilot implementation preflight without simulation training ranking winner or verdict claims",
+  "failure_criteria": [
+    "M2487 installs imports or runs Chrono or another external simulator",
+    "M2487 changes actor input or action contract",
+    "M2487 injects hidden or oracle actor features",
+    "M2487 executes policy action or rollout in the design milestone",
+    "M2487 treats canned smoke actions as policy performance",
+    "M2487 ranks controller families or selects a winner",
+    "M2487 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not execute policy action in the design milestone",
+    "do not run policy rollout in the design milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260603T081423Z",
+  "hypothesis": "A bounded source-only closed-loop fixture pilot design can move the project from HF0 interface scaffolding back toward deployable policy-action evidence without weakening actor input or claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2484 smoke used canned actions and did not execute deployable policy actions",
+      "HF0 interface preparation is ready enough to require a route back to closed-loop evidence",
+      "the pilot must define actor-source admission and leak checks before implementation"
+    ],
+    "derived_from": [
+      "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
+      "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+      "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+      "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "design bounded source-only closed-loop fixture pilot after HF0 interface branch synthesis"
+    ],
+    "supersedes": [
+      "another HF0 interface catalog milestone after M2486",
+      "direct source-only policy rollout without a bounded pilot design"
+    ]
+  },
+  "milestone": "m2487-source-only-closed-loop-fixture-pilot-design",
+  "next_blocker": "m2487-source-only-closed-loop-fixture-pilot-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "source_only_closed_loop_fixture_pilot_design_route_to_implementation_preflight",
+  "public_gates": [
+    "M2487 must design a bounded closed-loop pilot over the three M2484 admitted source-only fixtures",
+    "M2487 must preserve P0 observation shape 72 and deployed action shape 3",
+    "M2487 must specify the actor source and admission rule before any implementation preflight",
+    "M2487 must keep fixture labels scenario labels feasibility classes hidden values wheel diagnostics oracle labels TTC required clearance reward terms and success or progress labels out of actor input",
+    "M2487 must distinguish closed-loop pilot evidence from high-fidelity validation paper evidence and controller ranking",
+    "M2487 must register a bounded follow-up implementation preflight without training ranking winner selection or verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
+    "clearance_margin_mean": "",
+    "decision": "source_only_closed_loop_fixture_pilot_design_route_to_implementation_preflight",
+    "milestone": "m2487-source-only-closed-loop-fixture-pilot-design",
+    "reason": "M2487 defines same-contract actor admission and a three-fixture 20-step source-only policy-action pilot implementation preflight without simulation training ranking winner or verdict claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2487-source-only-closed-loop-fixture-pilot-design.md exists",
+    "design covers the three M2484 admitted source-only fixtures",
+    "design specifies actor source admission and leak checks",
+    "design preserves observation shape 72 and action shape 3",
+    "design registers a bounded follow-up implementation preflight",
+    "no external high-fidelity simulation install import execution policy action training ranking winner or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

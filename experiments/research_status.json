@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2492,
+    "completed": 2493,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
+    "task_id": "m2487-source-only-closed-loop-fixture-pilot-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md"
+    "command_log": "docs/m2487-source-only-closed-loop-fixture-pilot-design.md"
   },
   "next_task": {
-    "id": "m2487-source-only-closed-loop-fixture-pilot-design",
+    "id": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight",
     "kind": "infrastructure",
-    "priority": 24820,
+    "priority": 24830,
     "status": "pending",
-    "hypothesis": "Design bounded source-only closed-loop fixture pilot after HF0 branch synthesis.",
-    "command": "see experiments/manifests/m2487-source-only-closed-loop-fixture-pilot-design.json",
-    "success_artifact": "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
-    "notes": "Pending: define actor source rollout scope leak checks metrics and follow-up implementation preflight no external simulation policy action training ranking winner verdict claims"
+    "hypothesis": "Run bounded same-contract source-only closed-loop fixture pilot preflight.",
+    "command": "see experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json",
+    "success_artifact": "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
+    "notes": "Pending: load admitted 72-by-3 actor and run three source-only fixtures for 20 deterministic policy-action steps no external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T080619Z"
+  "updated_at_utc": "20260603T081144Z"
 }

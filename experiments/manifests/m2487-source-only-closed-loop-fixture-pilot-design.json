@@ -12,7 +12,7 @@
   ],
   "lineage": {
     "parent_checkpoint": [
-      "not_applicable_source_only_closed_loop_fixture_pilot_design"
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
     ],
     "parent_dataset": [
       "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
@@ -183,7 +183,7 @@
     }
   ],
   "baseline_checkpoints": [
-    "not_applicable_source_only_closed_loop_fixture_pilot_design"
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
   ],
   "baseline_artifacts": [
     "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",

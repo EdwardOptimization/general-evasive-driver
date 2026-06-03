@@ -45112,3 +45112,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2486: `false`
 - follow-up manifest: `experiments/manifests/m2487-source-only-closed-loop-fixture-pilot-design.json`
 - next: `m2487-source-only-closed-loop-fixture-pilot-design`
+
+## M2487 Source-Only Closed-Loop Fixture Pilot Design
+
+- status: completed
+- decision: `source_only_closed_loop_fixture_pilot_design_route_to_implementation_preflight`
+- manifest: `experiments/manifests/m2487-source-only-closed-loop-fixture-pilot-design.json`
+- doc: `docs/m2487-source-only-closed-loop-fixture-pilot-design.md`
+- parent synthesis: `docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md`
+- actor admission candidate: `runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt`
+- pilot fixtures: `hf0_four_wheel_stable_aes_fixture`, `hf0_four_wheel_drift_required_recovery_fixture`, `hf0_four_wheel_unavoidable_mitigation_fixture`
+- implementation design: load same-contract `72` observation / `3` action recurrent actor, reset hidden state once per fixture, run deterministic policy actions for `20` steps per fixture through `FourWheelHF0Backend`, and record summary/row artifacts
+- claim boundary: M2488 may only claim source-only same-contract policy-action path smoke if it passes; no driver performance, ranking, validation, paper, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/measured validation/policy action/policy rollout/training/replay/PPO/ranking/winner/verdict claims in M2487: `false`
+- follow-up manifest: `experiments/manifests/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.json`
+- next: `m2488-source-only-closed-loop-fixture-pilot-implementation-preflight`

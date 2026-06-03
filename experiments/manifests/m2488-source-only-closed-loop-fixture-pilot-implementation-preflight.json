@@ -1,0 +1,206 @@
+{
+  "id": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
+      "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2487-source-only-closed-loop-fixture-pilot-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded source-only closed-loop fixture pilot preflight with same-contract actor policy actions"
+    ],
+    "derived_from": [
+      "m2487-source-only-closed-loop-fixture-pilot-design",
+      "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
+      "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight"
+    ],
+    "blocked_by": [
+      "M2484 used canned actions and did not execute deployable policy actions",
+      "the selected checkpoint must be admitted as a canonical 72-value 3-action actor before use",
+      "source-only fixture pilot must prove the policy-action path without actor-input leakage"
+    ],
+    "supersedes": [
+      "another design-only source-only pilot milestone",
+      "direct performance claim from source-only fixture smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md",
+  "public_gates": [
+    "M2488 must load the actor candidate through load_actor_critic_checkpoint and reject it if obs_dim 72 action_dim 3 and allowed recurrent encoder contract fail",
+    "M2488 must run exactly the three M2484 admitted source-only fixtures unless the manifest is updated before execution",
+    "M2488 must execute deterministic deployable policy actions for 20 steps per fixture through FourWheelHF0Backend",
+    "M2488 must preserve P0 observation shape 72 and action shape 3 at every reset and step",
+    "M2488 must keep fixture labels scenario labels feasibility classes hidden values wheel diagnostics oracle labels TTC required clearance reward terms and success or progress labels out of actor input",
+    "M2488 must write summary.json and pilot_rollout_rows.csv and must not train replay run PPO rank select a winner promote a checkpoint or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not compute success rate or controller-family verdict metrics in this preflight"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_only_closed_loop_fixture_pilot",
+    "evidence_axis": "closed_loop_policy_action_preflight",
+    "evidence_increment": "runs bounded same-contract policy actions through source-only HF0 fixtures after M2487 design",
+    "claim_scope": "source-only closed-loop policy-action preflight only; no external simulation, measured validation, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop if checkpoint admission fails the 72/3 actor contract",
+      "stop if any actor-input leak flag is true",
+      "stop if actions are nonfinite or out of deployed bounds",
+      "stop if results are interpreted as driver performance or high-fidelity validation"
+    ],
+    "fallback_plan": [
+      "route to actor-source inventory if checkpoint admission fails",
+      "route to pilot implementation repair if actor/action shapes or leak flags fail",
+      "route to source-only fixture/backend repair if backend reset or step fails"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2487 design registered a bounded policy-action implementation preflight after source-only fixture smoke",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "bounded source-only closed-loop fixture pilot implementation preflight",
+    "admission_evidence": [
+      "M2487 design defines actor admission and leak gates",
+      "M2484 source-only fixture smoke passed interface checks on three admitted fixtures",
+      "M2486 branch synthesis promotes to source-only closed-loop pilot route"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/hf0_source_only_closed_loop_fixture_pilot.py",
+      "tests/test_hf0_source_only_closed_loop_fixture_pilot.py",
+      "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
+      "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv",
+      "docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md",
+      "M2488 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary and row artifacts exist",
+      "checkpoint admission result is explicit",
+      "policy_action and policy_rollout_run are true while training ranking winner and verdict flags remain false",
+      "observation action and actor-input leak gates pass"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2488 runs a bounded source-only policy-action preflight and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2488; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "One bounded 20-step source-only fixture pilot per admitted fixture.",
+    "negative_result_policy": "If the pilot fails, record the failure type and route to repair or actor-source inventory rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "bounded source-only same-contract policy-action path smoke",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds bounded policy-action closed-loop data on source-only HF0 fixtures",
+    "paper_verdict_delta": "does not decide paper verdict but creates a policy-action evidence path after interface scaffolding",
+    "must_synthesize_if": [
+      "pilot fails for checkpoint admission or actor-input leakage",
+      "follow-up proposes another source-only design-only milestone",
+      "pilot results are mistaken for driver performance or validation"
+    ]
+  },
+  "hypothesis": "A same-contract actor can execute bounded deterministic policy actions through the admitted source-only HF0 fixtures without actor-input leakage, creating a real closed-loop evidence path after interface smoke.",
+  "success_criteria": [
+    "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json exists",
+    "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv exists",
+    "checkpoint loads and is admitted as obs_dim 72 action_dim 3 allowed recurrent actor",
+    "three admitted source-only fixtures reset and run 20 policy-action steps each",
+    "all reset and step observations have shape 72",
+    "all actions have shape 3 finite values and stay within deployed bounds",
+    "all actor-input leak flags are false",
+    "no external high-fidelity simulation install import execution training replay PPO ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2488 installs imports or runs Chrono or another external simulator",
+    "M2488 changes actor input or action contract",
+    "M2488 injects hidden or oracle actor features",
+    "M2488 trains replays runs PPO promotes ranks or selects a winner",
+    "M2488 computes success rate or claims driver performance",
+    "M2488 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "implementation_preflight",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.hf0_source_only_closed_loop_fixture_pilot --checkpoint runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt --output-dir runs/m2488_source_only_closed_loop_fixture_pilot_preflight --horizon-steps 20"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2488-source-only-closed-loop-fixture-pilot-implementation-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2488 passes if it runs a bounded same-contract source-only closed-loop policy-action preflight over the three admitted fixtures without actor-input leakage, external simulation, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2488-source-only-closed-loop-fixture-pilot-implementation-preflight"
+}
