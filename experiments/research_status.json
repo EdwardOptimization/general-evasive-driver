@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2520,
+    "completed": 2521,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight",
+    "task_id": "m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight.md"
+    "command_log": "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit",
-    "kind": "gate",
-    "priority": 25100,
+    "id": "m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight",
+    "kind": "infrastructure",
+    "priority": 25110,
     "status": "pending",
-    "hypothesis": "Audit the materialized engineering-controller behavior/outcome protocol artifacts before any measured behavior route.",
-    "command": "see experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json",
-    "success_artifact": "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md",
-    "notes": "Pending: audit M2514 summary protocol_schema row_schema metric_registry audit_gate_registry layer_registry forbidden_registry actor contract layer separation and false claim flags no environment rollout policy action simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Materialize a source-only row-completeness preflight against the accepted M2514 behavior/outcome protocol artifacts.",
+    "command": "see experiments/manifests/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.json",
+    "success_artifact": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json",
+    "notes": "Pending: use existing source-only artifacts only to populate M2514 protocol rows and explicit metric gaps no environment rollout policy action simulation training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T114351Z"
+  "updated_at_utc": "20260603T115119Z"
 }

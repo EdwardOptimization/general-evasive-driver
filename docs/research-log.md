@@ -45607,3 +45607,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2514: `false`
 - follow-up manifest: `experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json`
 - next: `m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit`
+
+## M2515 Engineering Controller Behavior/Outcome Protocol Materialization Result Audit
+
+- status: completed
+- decision: `accept_protocol_materialization_route_to_source_only_row_completeness_preflight`
+- manifest: `experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json`
+- doc: `docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md`
+- audited summary: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json`
+- audited protocol schema: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/protocol_schema.json`
+- audited row schema: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_schema.csv`
+- audited metric registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv`
+- audited audit gate registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/audit_gate_registry.csv`
+- audited layer registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/layer_registry.csv`
+- audited forbidden registry: `runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/forbidden_registry.csv`
+- accepted evidence: M2514 result_class pass, required artifacts present, source artifacts exist, missing source artifacts `[]`, actor contract `72/3`, no hidden/oracle actor input encoded, forbidden actor inputs and outcome shortcuts encoded, layer separation preserved, false claim flags preserved
+- artifact sizes: row schema fields `51`, metric registry rows `40`, audit gates `15`, layers `3`, forbidden registry rows `39`, taxonomy rows `10`
+- accepted scope: no-rollout protocol materialization audit only
+- rejected claims: no behavior execution, behavior verdict, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: source-only row-completeness preflight against existing M2498/M2501 artifacts and the M2514 protocol
+- external high-fidelity simulation install/import/execution/environment rollout/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2515: `false`
+- follow-up manifest: `experiments/manifests/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.json`
+- next: `m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight`

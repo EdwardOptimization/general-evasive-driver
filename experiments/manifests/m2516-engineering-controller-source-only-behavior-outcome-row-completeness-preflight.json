@@ -1,0 +1,230 @@
+{
+  "id": "m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/protocol_schema.json",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_schema.csv",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/audit_gate_registry.csv",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/layer_registry.csv",
+      "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/forbidden_registry.csv",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+      "docs/m2513-engineering-controller-behavior-outcome-protocol-design.md",
+      "docs/observation-contract.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize a source-only row-completeness preflight against the M2514 behavior/outcome protocol"
+    ],
+    "derived_from": [
+      "m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit",
+      "m2514-engineering-controller-behavior-outcome-protocol-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2514 protocol artifacts are accepted but have not been exercised against existing source-only rows",
+      "future behavior execution should not start until row schema completeness gaps are known",
+      "source-only diagnostics must remain diagnostic and no-ranking"
+    ],
+    "supersedes": [
+      "manual source-only behavior row interpretation without schema completeness check",
+      "measured behavior route before protocol row completeness preflight"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md",
+  "public_gates": [
+    "M2516 must materialize source-only diagnostic row-completeness artifacts against the M2514 row schema and metric registry",
+    "M2516 must use existing source-only artifacts only and must not execute new policy actions or simulator steps",
+    "M2516 must preserve actor contract 72/3 and no hidden/oracle actor input boundary",
+    "M2516 must mark every row evidence_layer source_only_diagnostic and diagnostic_only_no_ranking_claim true",
+    "M2516 must report metric_completeness_flags and unsupported metrics explicitly instead of dropping incomplete rows",
+    "M2516 must not run simulation environment rollout policy action training replay PPO ranking winner selection success-rate verdict or validation verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute new policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only row completeness"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_behavior_outcome_protocol",
+    "evidence_axis": "source_only_behavior_outcome_row_completeness_preflight",
+    "evidence_increment": "checks whether existing source-only Route A artifacts can populate the M2514 behavior/outcome row schema and which metrics remain unsupported",
+    "claim_scope": "source-only behavior/outcome row completeness preflight only; no rollout, simulation, new policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if source artifacts are missing",
+      "stop if rows cannot preserve actor contract 72/3",
+      "stop if row materialization requires hidden/oracle actor inputs",
+      "stop if completeness output is interpreted as behavior quality or ranking"
+    ],
+    "fallback_plan": [
+      "route to protocol row-schema repair if required fields cannot be represented",
+      "route to source-artifact repair if committed source artifacts are missing",
+      "route to result audit if row-completeness artifacts materialize cleanly"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2515 accepted the behavior/outcome protocol materialization artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-only behavior/outcome row completeness preflight",
+    "admission_evidence": [
+      "M2515 accepted M2514 protocol artifacts",
+      "M2514 materialized row schema metric registry layer registry and forbidden registry",
+      "M2498 and M2501 source-only diagnostic artifacts exist"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no new policy action",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_source_only_behavior_outcome_rows.py",
+      "tests for source-only behavior/outcome row completeness materialization",
+      "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json",
+      "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv",
+      "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv",
+      "docs/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md",
+      "M2516 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "source-only row completeness summary exists",
+      "behavior_outcome_rows.csv exists and preserves source_only_diagnostic layer",
+      "metric gap summary exists",
+      "summary false claim flags remain false",
+      "bounded result audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2516 materializes source-only row completeness and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2516; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2498 and M2501 source-only engineering diagnostic artifacts under the M2514 protocol.",
+    "negative_result_policy": "If source-only rows expose metric gaps, record them as gaps rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "source-only behavior/outcome row completeness preflight",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from protocol artifact audit to a source-only row completeness panel against existing Route A artifacts",
+    "paper_verdict_delta": "does not decide paper verdict but creates a bounded prerequisite for future behavior evidence",
+    "must_synthesize_if": [
+      "row completeness materialization requires repeated repairs without producing rows",
+      "source-only completeness is mistaken for performance or validation",
+      "another protocol-only artifact is proposed after M2516 without row evidence"
+    ]
+  },
+  "hypothesis": "Existing source-only Route A artifacts can be mapped into the M2514 behavior/outcome row schema enough to expose explicit metric gaps without running new policy actions or making behavior verdict claims.",
+  "success_criteria": [
+    "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json exists",
+    "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv exists",
+    "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv exists",
+    "rows use evidence_layer source_only_diagnostic and diagnostic_only_no_ranking_claim true",
+    "summary verifies actor contract 72/3 and no hidden/oracle actor input boundary",
+    "summary verifies metric gaps are explicit",
+    "summary flags mark rollout simulation policy action training ranking winner success-rate performance validation and paper claims false",
+    "docs/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md exists"
+  ],
+  "failure_criteria": [
+    "M2516 installs imports or runs Chrono or another external simulator",
+    "M2516 changes actor input or action contract",
+    "M2516 injects hidden or oracle actor features",
+    "M2516 steps an environment or runs new policy rollout",
+    "M2516 treats row completeness as driver performance",
+    "M2516 ranks controller families or selects a winner",
+    "M2516 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "source_only_behavior_outcome_row_completeness_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_source_only_behavior_outcome_rows --output-dir runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness --milestone m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight --next-blocker m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2515-engineering-controller-behavior-outcome-protocol-materialization-result-audit.md",
+    "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/summary.json",
+    "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/row_schema.csv",
+    "runs/m2514_engineering_controller_behavior_outcome_protocol_materialization/metric_registry.csv",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2516 passes if it materializes source-only diagnostic row-completeness artifacts against the M2514 protocol while preserving actor/action contracts, explicit metric gaps, no-ranking flags, and false claim flags.",
+  "next_blocker": "m2516-engineering-controller-source-only-behavior-outcome-row-completeness-preflight"
+}
