@@ -46238,3 +46238,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no external simulation, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.json`
 - next: `m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis`
+
+## M2546 Engineering Controller Route A Baseline Source-Only Execution Readiness Panel Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_route_a_hf0_parity_and_runtime_design`
+- manifest: `experiments/manifests/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.json`
+- synthesis doc: `docs/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.md`
+- parent audit: `docs/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.md`
+- accepted evidence: M2544/M2545 source-only Route A panel is engineering readiness evidence with `5` subjects, `3` policy checkpoints admitted, `2` open-loop references, `3` roles, `5` seeds per role, `75` behavior rows, `7500` telemetry rows, denominator gaps `0`, P0 `72/3`
+- supported claim: complete Route A source-only execution-readiness panel and admissible P0 actor contract for accepted diagnostic policies
+- rejected claims: no ranking, winner, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- public-gate overfit risk: medium because the panel broadens beyond protected rows but remains source-only/current-sim diagnostic evidence
+- next route: design HF0 P0 parity checks plus runtime/inference-cost report fields and M2548 materialization gates
+- follow-up manifest: `experiments/manifests/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.json`
+- next: `m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design`
