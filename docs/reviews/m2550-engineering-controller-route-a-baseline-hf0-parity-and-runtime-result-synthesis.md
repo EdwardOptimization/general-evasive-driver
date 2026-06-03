@@ -1,0 +1,108 @@
+# m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T190751Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_hf1_p0_parity_smoke_design
+- Decision reason: M2550 synthesis decision continue to HF1 P0 parity smoke design accepts M2548/M2549 as source-level HF0 readiness evidence only 5 parity checks pass 7 action checks pass 270 runtime rows 8 gates pass no validation readiness driver-performance ranking paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded synthesis can convert accepted HF0 parity/runtime materialization into a clear next HF0/HF1 route decision without claiming validation driver performance paper evidence finite-window-vs-GRU or self-ID.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/hf0_p0_parity_checks.csv, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/action_mapping_checks.csv, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/actor_inference_cost_rows.csv, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/materialization_gate_matrix.csv, docs/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.md, docs/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.md, docs/m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json, experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json, experiments/manifests/m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design.json
+- parent_objective: synthesize accepted M2548/M2549 HF0 parity and runtime materialization evidence before choosing the next bounded HF0/HF1 route
+- derived_from: m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit, m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight, m2547-engineering-controller-route-a-baseline-hf0-parity-and-runtime-design, m2546-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-synthesis
+- blocked_by: M2549 accepts M2548 as source-level parity/runtime readiness evidence but rejects validation and performance interpretation, Route A needs a synthesis decision before another HF0/HF1 interface step is registered, The post-M2470 route plan requires HF0/HF1 preparation without treating source-level parity as high-fidelity validation
+- supersedes: starting external high-fidelity validation directly after M2548 without synthesis, ranking or promoting Route A policies from runtime artifacts, claiming validation readiness from source-level parity alone, continuing infrastructure steps without a concrete HF0/HF1 route decision
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis separates source-level parity/runtime readiness from validation driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims
+- synthesis registers HF1 parity smoke design HF0 pilot planning artifact repair contract repair runtime-report repair branch synthesis pivot or stop without validation or performance claims
+- no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2550 installs imports or runs Chrono or another external simulator
+- M2550 changes actor input or action contract
+- M2550 injects hidden or oracle actor features
+- M2550 executes new policy action or rollout
+- M2550 starts training
+- M2550 treats parity/runtime synthesis as driver performance
+- M2550 ranks controller families or selects a winner
+- M2550 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2550 must synthesize M2548 and M2549 HF0 parity/runtime evidence before any broader HF0 or HF1 route decision
+- M2550 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2550 must separate accepted interface/runtime readiness evidence from high-fidelity validation driver-performance controller ranking paper finite-window-vs-GRU current-sim and self-ID claims
+- M2550 must decide whether the next step is HF1 P0 parity smoke design HF0 source-level pilot planning artifact repair contract repair runtime-report repair branch synthesis pivot or stop
+- M2550 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode
+- M2550 must not run new policy actions step environments train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the synthesis milestone
+- do not step environments in the synthesis milestone
+- do not train in the synthesis milestone
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from parity/runtime synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis
+- type: gate
+- checkpoint: docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_hf1_p0_parity_smoke_design
+- reason: M2550 synthesis decision continue to HF1 P0 parity smoke design accepts M2548/M2549 as source-level HF0 readiness evidence only 5 parity checks pass 7 action checks pass 270 runtime rows 8 gates pass no validation readiness driver-performance ranking paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design

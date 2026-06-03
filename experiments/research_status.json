@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2555,
+    "completed": 2556,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit",
+    "task_id": "m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md",
-    "command_log": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md"
+    "run_dir": "docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md",
+    "command_log": "docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis",
-    "kind": "gate",
-    "priority": 25450,
+    "id": "m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design",
+    "kind": "infrastructure",
+    "priority": 25460,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2548/M2549 HF0 parity runtime readiness before choosing the next bounded HF0/HF1 route.",
-    "command": "see experiments/manifests/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.json",
-    "success_artifact": "docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md",
-    "notes": "Pending: synthesize accepted source-level HF0 parity/runtime readiness and choose HF1 parity smoke design HF0 pilot planning artifact repair contract repair runtime repair branch synthesis pivot or stop without external simulation new policy action training ranking promotion success-rate validation driver-performance or self-ID claims"
+    "hypothesis": "Design bounded HF1 P0 parity smoke artifacts and gates after accepted HF0 parity/runtime synthesis.",
+    "command": "see experiments/manifests/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.json",
+    "success_artifact": "docs/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.md",
+    "notes": "Pending: design HF1 actor-visible parity rows P0 observation/action mapping/value-range/diagnostic-exclusion checks external-backend boundary checks and M2552 materialization gates no external simulation install import run policy rollout training ranking validation driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T185448Z"
+  "updated_at_utc": "20260603T190414Z"
 }
