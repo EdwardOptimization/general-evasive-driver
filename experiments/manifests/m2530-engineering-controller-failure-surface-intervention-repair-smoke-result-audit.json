@@ -1,0 +1,211 @@
+{
+  "id": "m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit",
+  "type": "gate",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json",
+      "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv",
+      "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv",
+      "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json"
+    ],
+    "parent_objective": [
+      "audit the bounded source-only repair smoke before any candidate tuning, training continuation, promotion, ranking, or validation claim"
+    ],
+    "derived_from": [
+      "m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight",
+      "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
+      "m2527-engineering-controller-failure-surface-intervention-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2529 executed the first bounded source-only repair smoke and recorded negative protected proof-gate evidence",
+      "the three protected proof gates failed without actor contract violation or claim-boundary violation",
+      "the next route must decide whether this is expected no-update smoke evidence, candidate objective weakness, or a need for actual guarded repair training"
+    ],
+    "supersedes": [
+      "interpreting M2529 status_pass as proof-gate success",
+      "training continuation before auditing negative repair smoke gates",
+      "checkpoint promotion or ranking from M2529 repair smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md",
+  "public_gates": [
+    "M2530 must audit M2529 summary repair_smoke_rows protected_gate_evaluation and candidate_config_snapshot artifacts",
+    "M2530 must distinguish M2529 status_pass from protected_proof_gates_all_passed false",
+    "M2530 must verify M2529 wrote 45 repair smoke rows and 7 protected gate evaluation rows with 45 protected rows matched",
+    "M2530 must verify contract_p0_72_3 no_oracle_actor_inputs and no_ranking_no_success_rate gates passed",
+    "M2530 must verify road_boundary_proof mitigation_proof and command_conflict_proof were evaluated as negative no-update smoke with gate_pass false",
+    "M2530 must verify fresh_seed_generalization was deferred and not used for promotion or generalization claims",
+    "M2530 must verify actor contract 72/3 no hidden/oracle actor inputs active_config_overwritten false candidate_config_mutated false and no external simulation",
+    "M2530 must not run new policy actions train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute new policy actions in the audit",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not tune the M2528 candidate config in place",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2529 repair smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_failure_surface_intervention",
+    "evidence_axis": "failure_surface_intervention_repair_smoke_result_audit",
+    "evidence_increment": "audits the first bounded source-only repair smoke and classifies its negative protected proof-gate evidence before selecting a repair or synthesis route",
+    "claim_scope": "engineering-controller failure-surface intervention repair smoke result audit only; no new policy action, measured validation, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if M2529 artifacts are missing or not traceable to M2527/M2528 gates",
+      "stop if status_pass is confused with proof-gate success",
+      "stop if a follow-up would tune protected public rows without fresh evidence expansion",
+      "stop if the audit would require new policy actions instead of reading M2529 artifacts"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2529 row or gate traceability is incomplete",
+      "route to guarded repair design if the negative no-update smoke is accepted as expected",
+      "route to branch synthesis if another no-update or config-only milestone is proposed",
+      "stop for user review if no bounded repair route remains without contract change"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2529 produced the first behavior smoke after M2528 candidate config materialization and recorded negative proof-gate evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller failure-surface intervention repair smoke result audit",
+    "admission_evidence": [
+      "M2529 summary status_pass true with protected_proof_gates_all_passed false",
+      "M2529 repair_smoke_rows.csv contains 45 protected or reference source-only rows",
+      "M2529 protected_gate_evaluation.csv contains 7 traceable gate evaluations",
+      "M2528 immutable candidate config and gate bindings are snapshotted in M2529"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no new policy action in the audit",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md",
+      "M2530 status queue scoreboard research log and review",
+      "one bounded follow-up guarded repair design, repair execution, or synthesis manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2529 negative no-update smoke is accepted or rejected explicitly",
+      "proof-gate failures are classified without weakening claim boundaries",
+      "bounded follow-up route is registered if audit passes"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2530 audits Route A repair smoke artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2530; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2529 source-only repair smoke artifacts.",
+    "negative_result_policy": "If audit rejects M2529 or confirms negative proof-gate evidence, record the failure and route to bounded repair design or synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller repair smoke result audit",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "audits the first post-config behavior smoke before any second repair attempt",
+    "paper_verdict_delta": "does not decide paper verdict but prevents negative repair-smoke evidence from being overclaimed or ignored",
+    "must_synthesize_if": [
+      "M2530 accepts the negative smoke and another config-only milestone is proposed",
+      "repair smoke proof gates fail again after a guarded repair execution",
+      "public source-only rows are optimized without fresh held-out or generalization evidence",
+      "status_pass is used as a proxy for proof-gate success"
+    ]
+  },
+  "hypothesis": "A bounded result audit can classify M2529 negative no-update repair-smoke evidence and select the next Route A repair step without confusing artifact execution success with protected proof-gate success.",
+  "success_criteria": [
+    "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md exists",
+    "audit verifies M2529 summary status_pass true and result_class pass",
+    "audit verifies M2529 smoke_outcome_class negative_no_update_repair_smoke_recorded",
+    "audit verifies 45 repair smoke rows 7 gate evaluation rows and all protected rows matched",
+    "audit verifies contract no-oracle and no-ranking gates pass",
+    "audit verifies road_boundary_proof mitigation_proof and command_conflict_proof fail as negative no-update proof evidence",
+    "audit verifies fresh_seed_generalization is deferred and not used for promotion",
+    "audit verifies actor contract 72/3 hidden_or_oracle_actor_inputs_required false candidate_config_mutated false active_config_overwritten false and false claim flags",
+    "no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made by M2530"
+  ],
+  "failure_criteria": [
+    "M2530 installs imports or runs Chrono or another external simulator",
+    "M2530 changes actor input or action contract",
+    "M2530 injects hidden or oracle actor features",
+    "M2530 steps an environment or runs policy rollout",
+    "M2530 treats M2529 repair smoke as driver performance",
+    "M2530 treats status_pass as protected proof-gate pass",
+    "M2530 ranks controller families or selects a winner",
+    "M2530 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json",
+    "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv",
+    "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv",
+    "runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json",
+    "experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2530 passes if it audits M2529 source-only repair smoke artifacts, explicitly separates artifact execution success from protected proof-gate failure, classifies the negative no-update evidence, and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
+  "next_blocker": "m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit"
+}

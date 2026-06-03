@@ -45890,3 +45890,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json`
 - next: `m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight`
+
+## M2529 Engineering Controller Failure-Surface Intervention Repair Smoke Preflight
+
+- status: completed
+- result_class: `engineering_controller_failure_surface_intervention_repair_smoke_pass`
+- smoke_outcome_class: `negative_no_update_repair_smoke_recorded`
+- manifest: `experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json`
+- implementation: `src/autodrift/engineering_controller_failure_surface_intervention_repair_smoke.py`
+- summary: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json`
+- repair smoke rows: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv`
+- protected gate evaluation: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv`
+- candidate config snapshot: `runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json`
+- materialized rows: `45` repair smoke rows, `45` protected rows matched, `7` protected gate evaluation rows
+- passed gates: `contract_p0_72_3`, `no_oracle_actor_inputs`, `no_ranking_no_success_rate`
+- failed protected proof gates: `road_boundary_proof`, `mitigation_proof`, `command_conflict_proof`
+- deferred gates: `fresh_seed_generalization`
+- interpretation: M2529 status_pass means the bounded source-only smoke executed and artifacts trace to M2527/M2528; it does not mean proof-gate success
+- contract boundary: P0 observation `72`, action `3`, actor input changed `false`, hidden/oracle actor inputs required `false`, rule-switching controller modes allowed `false`
+- execution boundary: source-only backend step run `true`, policy action run `true`, open-loop action rollout run `true`, repair training started `false`
+- config boundary: immutable candidate config loaded `true`, candidate config mutated `false`, active config overwritten `false`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json`
+- next: `m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit`

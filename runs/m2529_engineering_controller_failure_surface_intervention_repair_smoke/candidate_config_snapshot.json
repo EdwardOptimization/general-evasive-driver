@@ -1,0 +1,151 @@
+{
+  "active_config_overwritten": false,
+  "candidate_config": {
+    "active_config_overwritten": false,
+    "actor_contract": {
+      "action_horizon": 1,
+      "action_shape": 3,
+      "actor_contract_id": "P0_human_view_72_action_3_no_oracle",
+      "actor_encoder": "human_view_online_gru",
+      "actor_input_contract_changed": false,
+      "observation_shape": 72,
+      "rule_switching_controller_modes_allowed": false,
+      "single_actor": true
+    },
+    "allowed_actor_signal_families": [
+      "ego_kinematics_and_imu_like_response",
+      "steering_throttle_brake_actuator_state",
+      "previous_physical_commands",
+      "ego_frame_road_free_space_boundary_geometry",
+      "ego_frame_obstacle_geometry_and_relative_motion",
+      "online_gru_recurrent_state"
+    ],
+    "candidate_coefficients": {
+      "mitigation_severity_penalty_scale": 0.5,
+      "protected_seed_mix_probability": 0.35,
+      "road_departure_penalty_scale": 1.0,
+      "road_margin_reward_scale": 1.0,
+      "simultaneous_throttle_brake_penalty_scale": 0.25
+    },
+    "candidate_config_file_written": true,
+    "candidate_patch_families": [
+      {
+        "actor_input_changed": false,
+        "patch_family": "road_boundary_reward_or_constraint",
+        "source": "evaluator/reward only",
+        "target_metric": "minimum_road_margin_m"
+      },
+      {
+        "actor_input_changed": false,
+        "patch_family": "mitigation_severity_shaping",
+        "source": "evaluator/reward only",
+        "target_metric": "severity_proxy"
+      },
+      {
+        "actor_input_changed": false,
+        "patch_family": "simultaneous_throttle_brake_regularizer",
+        "source": "actor output or physical actuator state regularization",
+        "target_metric": "simultaneous_throttle_brake_fraction"
+      },
+      {
+        "actor_input_changed": false,
+        "patch_family": "protected_row_seed_mix",
+        "source": "training curriculum metadata only",
+        "target_metric": "protected_regression_rows"
+      }
+    ],
+    "claim_boundary": "candidate config materialization only; not ranking, success-rate, validation, driver performance, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID",
+    "config_id": "m2528_failure_surface_intervention_candidate_v0",
+    "forbidden_actor_input_fields": [
+      "mu",
+      "mass",
+      "tire_stiffness",
+      "brake_scale",
+      "actuator_tau",
+      "hidden_dynamics",
+      "scenario_role_label",
+      "feasibility_class",
+      "oracle_outcome_label",
+      "slip",
+      "tire_force",
+      "ttc",
+      "required_clearance",
+      "oracle_stopping_distance",
+      "speed_ref",
+      "beta_target",
+      "path_error",
+      "heading_error",
+      "path_curvature",
+      "reward_terms",
+      "success_label",
+      "controller_mode",
+      "rule_switch_state"
+    ],
+    "gate_matrix": {
+      "gate_count": 7,
+      "gate_ids": [
+        "contract_p0_72_3",
+        "no_oracle_actor_inputs",
+        "road_boundary_proof",
+        "mitigation_proof",
+        "command_conflict_proof",
+        "fresh_seed_generalization",
+        "no_ranking_no_success_rate"
+      ],
+      "source_artifact": "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv"
+    },
+    "immutable_candidate_config": true,
+    "intervention_objectives": {
+      "command_conflict": {
+        "allowed_implementation": "reward_or_action_regularization_from_actor_output_or_physical_actuator_state",
+        "direction": "decrease",
+        "primary_metric": "simultaneous_throttle_brake_fraction",
+        "target_subject": "m1154_policy_actor"
+      },
+      "mitigation": {
+        "direction": "reduce_severity_and_road_boundary_loss",
+        "primary_metrics": [
+          "severity_proxy",
+          "minimum_road_margin_m"
+        ],
+        "reference_subject": "straight_full_brake_open_loop",
+        "target_roles": [
+          "unavoidable_mitigation"
+        ]
+      },
+      "road_boundary": {
+        "direction": "increase_toward_nonnegative",
+        "guardrails": [
+          "collision_event_not_regressed",
+          "actor_contract_unchanged"
+        ],
+        "primary_metric": "minimum_road_margin_m",
+        "target_roles": [
+          "stable_aes",
+          "drift_required_recovery"
+        ]
+      }
+    },
+    "next_allowed_route": "source-only repair smoke preflight after config materialization audit",
+    "policy_action_run": false,
+    "protected_dataset": {
+      "primary_protected_row_count": 15,
+      "protected_roles": [
+        "drift_required_recovery",
+        "stable_aes",
+        "unavoidable_mitigation"
+      ],
+      "protected_row_count": 45,
+      "reference_context_row_count": 30,
+      "source_artifact": "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv"
+    },
+    "source_plan_id": "m2527_candidate_config_patch_plan_v0",
+    "training_started": false
+  },
+  "candidate_config_hash": "dc72620e8cd608982ab1445dda034536fd1bb1a029eabd794cd3dcbf6b501dd0",
+  "candidate_config_mutated": false,
+  "candidate_config_source": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json",
+  "claim_scope": "bounded source-only repair smoke preflight only",
+  "loaded_for_evaluator_side_repair_smoke": true,
+  "snapshot_milestone": "m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight"
+}

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
+m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
+m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight
+m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit
 ```
 
 Current route:
@@ -51,6 +51,9 @@ M2527 materializes the intervention spec, protected rows, gate matrix, and
 candidate patch plan as machine-readable artifacts.
 M2528 materializes an immutable candidate config and protected gate bindings
 without overwriting active configs, training, or running policy actions.
+M2529 runs the first bounded source-only no-update repair smoke from that
+candidate config, matches all `45` protected/reference rows, and records a
+negative proof-gate result while preserving contract and claim boundaries.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -98,9 +101,17 @@ M2528 did not execute policy actions or train. It produced candidate config,
 config patch audit, and protected gate binding artifacts from M2527 and routed
 to a bounded source-only repair smoke.
 
-The active next task is M2529: run a bounded source-only repair smoke from the
-immutable M2528 candidate config, producing protected gate evaluations without
-ranking, promotion, success-rate, validation, or driver-performance claims.
+M2529 did execute bounded source-only policy and open-loop actions within the
+pre-registered repair-smoke scope. It did not train, mutate the candidate
+config, overwrite active configs, rank/select a winner, promote a checkpoint,
+compute success-rate, or claim performance, validation, paper, FW-vs-GRU,
+self-ID, current-sim, or high-fidelity verdict evidence. Its artifact execution
+status passed, but protected proof gates did not pass.
+
+The active next task is M2530: audit the M2529 negative no-update repair smoke,
+classify the proof-gate failures, and select a bounded follow-up without new
+policy action, training, ranking, promotion, success-rate, validation, or
+driver-performance claims.
 
 ## Latest Evidence
 
@@ -786,6 +797,23 @@ M2528:
   execution boundary: training started false policy action false external high-fidelity simulation false
   rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
   route: bounded source-only repair smoke preflight
+
+M2529:
+  result_class: engineering_controller_failure_surface_intervention_repair_smoke_pass
+  smoke_outcome_class: negative_no_update_repair_smoke_recorded
+  summary: runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json
+  artifacts: repair_smoke_rows.csv protected_gate_evaluation.csv candidate_config_snapshot.json
+  repair rows: 45
+  protected rows matched: 45
+  gate evaluation rows: 7
+  passed gates: contract_p0_72_3 no_oracle_actor_inputs no_ranking_no_success_rate
+  failed proof gates: road_boundary_proof mitigation_proof command_conflict_proof
+  deferred gate: fresh_seed_generalization
+  contract boundary: P0 observation 72 action 3 actor input changed false hidden/oracle inputs required false rule-switching controller modes allowed false
+  execution boundary: source-only backend step true policy action true open-loop action true repair training false
+  config boundary: candidate config loaded true candidate config mutated false active config overwritten false
+  rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
+  route: repair smoke result audit
 ```
 
 ## Current Interpretation Boundary
@@ -888,7 +916,11 @@ artifacts rather than informal reward/config edits or direct training. M2527
 materializes those artifacts and routes to immutable candidate config
 materialization, still without policy action or training. M2528 materializes
 that candidate config and gate bindings, creating the controlled input for the
-first repair smoke.
+first repair smoke. M2529 runs that bounded source-only repair smoke and
+records negative no-update proof evidence: artifact execution and traceability
+pass, but road-boundary, mitigation, and command-conflict proof gates remain
+unimproved, so the next step is result audit before any actual guarded repair
+training or candidate tuning.
 ```
 
 Blocked claims:
@@ -908,22 +940,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2529 should run the failure-surface intervention repair smoke:
+M2530 should audit the M2529 failure-surface intervention repair smoke:
 
 ```text
-runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json
-runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv
 runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/summary.json
 runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/repair_smoke_rows.csv
 runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/protected_gate_evaluation.csv
 runs/m2529_engineering_controller_failure_surface_intervention_repair_smoke/candidate_config_snapshot.json
 experiments/manifests/m2529-engineering-controller-failure-surface-intervention-repair-smoke-preflight.json
-runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json
-runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv
+experiments/manifests/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.json
+docs/m2530-engineering-controller-failure-surface-intervention-repair-smoke-result-audit.md
 ```
 
-The repair smoke may run bounded source-only repair smoke actions within the
-pre-registered scope, but it must preserve the `72/3` actor contract and must
-not install/import/run external high-fidelity simulation, rank/select a winner,
-promote a checkpoint, compute success-rate, or claim performance, validation,
-paper, FW-vs-GRU, self-ID, or current-sim/high-fidelity verdict evidence.
+The audit must separate `status_pass=true` from protected proof-gate success:
+M2529 passed execution/traceability gates but failed road-boundary, mitigation,
+and command-conflict proof gates as a negative no-update smoke. M2530 must not
+run new policy action, train, rank/select a winner, promote a checkpoint,
+compute success-rate, or claim performance, validation, paper, FW-vs-GRU,
+self-ID, or current-sim/high-fidelity verdict evidence.
