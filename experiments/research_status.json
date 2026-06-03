@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2498,
+    "completed": 2499,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2492-source-only-closed-loop-fixture-pilot-branch-synthesis",
+    "task_id": "m2493-engineering-controller-source-only-role-metric-panel",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md"
+    "run_dir": "runs/m2493_engineering_controller_source_only_role_metric_panel",
+    "command_log": "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json"
   },
   "next_task": {
-    "id": "m2493-engineering-controller-source-only-role-metric-panel",
-    "kind": "infrastructure",
-    "priority": 24880,
+    "id": "m2494-engineering-controller-source-only-role-metric-panel-result-audit",
+    "kind": "gate",
+    "priority": 24890,
     "status": "pending",
-    "hypothesis": "Build source-only role metric panel for engineering-controller diagnostics after M2492 synthesis.",
-    "command": "see experiments/manifests/m2493-engineering-controller-source-only-role-metric-panel.json",
-    "success_artifact": "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json",
-    "notes": "Pending: write telemetry and nonverdict role metric panel over three source-only fixtures no external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit M2493 role metric panel before fixture differentiation repair or claim escalation.",
+    "command": "see experiments/manifests/m2494-engineering-controller-source-only-role-metric-panel-result-audit.json",
+    "success_artifact": "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
+    "notes": "Pending: audit M2493 telemetry and identical role metrics route to bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T084434Z"
+  "updated_at_utc": "20260603T085501Z"
 }

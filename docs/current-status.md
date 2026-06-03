@@ -16,29 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2492-source-only-closed-loop-fixture-pilot-branch-synthesis
+m2493-engineering-controller-source-only-role-metric-panel
 ```
 
 Latest attempted milestone:
 
 ```text
-m2492-source-only-closed-loop-fixture-pilot-branch-synthesis
+m2493-engineering-controller-source-only-role-metric-panel
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2493-engineering-controller-source-only-role-metric-panel
+m2494-engineering-controller-source-only-role-metric-panel-result-audit
 ```
 
 Current route:
 
 ```text
-M2492 closes the source_only_closed_loop_fixture_pilot branch and promotes to
-engineering_controller_source_only_metric_panel. The next task should turn the
-accepted source-only policy-action rows into nonverdict role telemetry and
-failure diagnostics instead of extending horizon length again.
+M2493 implements and runs the engineering source-only role metric panel. It
+passes path and contract gates with 300 telemetry rows and 3 diagnostic-only
+role metric rows, but the three role panels are numerically identical. The next
+task must audit this as a fixture differentiation blocker before repair or
+claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,16 +47,14 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2492 did not install, import, or run an external high-fidelity simulator. It
-did not run new policy action, measured validation, training, replay, PPO,
-controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
-sim/high-fidelity validation verdict.
+M2493 did not install, import, or run an external high-fidelity simulator. It
+did not run measured validation, training, replay, PPO, controller ranking,
+winner selection, success-rate computation, or any paper/FW-vs-GRU/self-ID/
+current-sim/high-fidelity validation verdict.
 
-The active next task is M2493: build a source-only engineering role metric
-panel over the same admitted actor and fixtures. It may execute bounded policy
-actions only to write telemetry and nonverdict role metrics. It must not train,
-rank, select a winner, compute success-rate verdicts, or claim performance or
-validation.
+The active next task is M2494: audit M2493 telemetry and identical role metrics.
+It must not execute new policy actions, train, rank, select a winner, compute
+success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -270,6 +269,18 @@ M2492:
   rejected claims: performance validation ranking paper FW-vs-GRU self-ID
   route: engineering source-only role metric panel before any claim escalation
   external simulation installed/imported/executed: false
+
+M2493:
+  result_class: engineering_controller_source_only_role_metric_panel_pass
+  telemetry rows: 300
+  role metric panel rows: 3
+  checkpoint obs/action/encoder/horizon: 72 / 3 / human_view_online_gru / 1
+  role counts: stable_aes 100 drift_required_recovery 100 unavoidable_mitigation 100
+  row gates: observation 72 action 3 finite bounded running wheel_count_4
+  nonverdict gates: success_rate_computed false verdict_claim_made false ranking_run false winner_selected false
+  key finding: all three role panels are numerically identical so source-only role fixtures remain metadata-only for dynamics
+  route: result audit before fixture differentiation repair or claim escalation
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -291,7 +302,8 @@ admission and source-only pilot implementation preflight. M2488 runs that
 bounded policy-action path smoke. M2489 audits and accepts it with the same
 claim boundary. M2490 extends it to 100 steps per fixture, and M2491 audits and
 accepts those rows. M2492 promotes the branch to an engineering telemetry panel.
-These do not prove driver capability.
+M2493 implements that panel and exposes that source-only role fixture dynamics
+are not yet differentiated. These do not prove driver capability.
 ```
 
 Blocked claims:
@@ -311,18 +323,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2493 should build the engineering source-only role metric panel from:
+M2494 should audit the engineering source-only role metric panel from:
 
 ```text
-docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md
-runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
-src/autodrift/hf0_source_only_closed_loop_fixture_pilot.py
+docs/m2493-engineering-controller-source-only-role-metric-panel.md
+runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json
+runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv
+runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv
 ```
 
-The panel should write summary, telemetry rows, and role metric panel artifacts
-covering all three admitted source-only roles. It must preserve the actor/input
-contract and must not install, import, or run external high-fidelity simulation,
-train, replay, use PPO, rank controllers, select a winner, promote a checkpoint,
-compute success-rate verdicts, or claim high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The audit should classify the identical role metrics as source-only fixture
+differentiation evidence, not as equal role performance. It must preserve the
+actor/input contract and must not install, import, or run external high-fidelity
+simulation, execute new policy actions, train, replay, use PPO, rank
+controllers, select a winner, promote a checkpoint, compute success-rate
+verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

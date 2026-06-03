@@ -45210,3 +45210,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2492: `false`
 - follow-up manifest: `experiments/manifests/m2493-engineering-controller-source-only-role-metric-panel.json`
 - next: `m2493-engineering-controller-source-only-role-metric-panel`
+
+## M2493 Engineering Controller Source-Only Role Metric Panel
+
+- status: completed
+- result_class: `engineering_controller_source_only_role_metric_panel_pass`
+- manifest: `experiments/manifests/m2493-engineering-controller-source-only-role-metric-panel.json`
+- doc: `docs/m2493-engineering-controller-source-only-role-metric-panel.md`
+- implementation: `src/autodrift/hf0_source_only_role_metric_panel.py`
+- summary: `runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json`
+- telemetry rows: `runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv`
+- role metric panel: `runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv`
+- checkpoint admission: obs/action `72/3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- panel result: fixtures `3`, resets `3`, deterministic policy-action telemetry rows `300`, role metric rows `3`, horizon `100` per fixture, all observations shape `72`, all actions shape `3`, all actions finite and within bounds, backend statuses all `running`, wheel diagnostic count `4` on every row
+- nonverdict metrics: backend alive fraction min `1.0`, bounded action fraction min `1.0`, action saturation fraction max `0.0`, role panels diagnostic-only, success-rate computed `false`, verdict claim made `false`
+- key finding: all three role panels are numerically identical, exposing that current source-only role fixtures remain metadata-only for dynamics and are not yet differentiated role behavior evidence
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2493: `false`
+- follow-up manifest: `experiments/manifests/m2494-engineering-controller-source-only-role-metric-panel-result-audit.json`
+- next: `m2494-engineering-controller-source-only-role-metric-panel-result-audit`
