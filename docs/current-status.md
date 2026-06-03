@@ -16,48 +16,47 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2476-high-fidelity-interface-external-backend-dependency-api-audit
+m2477-high-fidelity-interface-preparation-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2476-high-fidelity-interface-external-backend-dependency-api-audit
+m2477-high-fidelity-interface-preparation-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2477-high-fidelity-interface-preparation-branch-synthesis
+m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight
 ```
 
 Current route:
 
 ```text
-M2476 completed the external-backend dependency/API audit selected by M2475.
-The Chrono-family route remains plausible from official/source documentation,
-but the active local environment does not have `pychrono` or `projectchrono`
-installed and this branch currently forbids external simulator installation,
-import, or execution.
+M2477 completed the high-fidelity interface preparation branch synthesis after
+the validator enforced a non-evidence milestone cadence stop. The synthesis
+continues the branch only to executable source-only four-wheel adapter
+evidence, not to another dependency/design-only milestone.
 ```
 
-The route decision is conditional: keep the Chrono-family direction as the
-primary external-backend candidate, but do not implement it while local package
-install/import is absent and forbidden. The branch has reached the
-validator-enforced non-evidence milestone cadence limit, so the next task is
-branch synthesis before any source-only adapter or external backend work.
+The Chrono-family route remains plausible but conditional because the active
+local environment does not have `pychrono` or `projectchrono` installed and
+this branch currently forbids external simulator installation, import, or
+execution. The synthesis therefore routes to source-only `FourWheelDriftModel`
+HF0 adapter preflight as the next bounded executable step.
 
-M2476 did not install, import, or run an external high-fidelity simulator. It
+M2477 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2477: synthesize M2471-M2476 high-fidelity interface
-preparation evidence. M2477 must decide continue, pivot, stop, or promote for
-the branch before any source-only adapter or external backend work. It must not
-install, import, or run external high-fidelity simulation, train, rank
-controllers, select winners, or make validation/paper verdict claims.
+The active next task is M2478: implement the source-only four-wheel model
+through the HF0 adapter boundary. M2478 must preserve P0 observation shape
+`72`, action shape `3`, and diagnostics separation. It must not install,
+import, or run external high-fidelity simulation, train, rank controllers,
+select winners, or make validation/paper verdict claims.
 
 ## Latest Evidence
 
@@ -121,6 +120,14 @@ M2476:
   Chrono route: plausible but conditional
   next route: branch synthesis before source-only adapter preflight
   external simulation installed/imported/executed: false
+
+M2477:
+  synthesis decision: continue
+  decision: continue_to_source_only_four_wheel_adapter_preflight
+  process-overhead risk: high
+  supported driver/paper evidence: none
+  next executable route: source-only FourWheelDriftModel HF0 adapter preflight
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -129,9 +136,9 @@ Allowed claim:
 
 ```text
 The HF0 interface boundary has checked local contract primitives, a current-sim
-adapter smoke, a bounded external-backend route design, and a dependency/API
-audit that preserve the canonical P0 actor/action contract and keep diagnostics
-outside actor input.
+adapter smoke, a bounded external-backend route design, a dependency/API audit,
+and branch synthesis. These preserve the canonical P0 actor/action contract and
+keep diagnostics outside actor input, but they do not prove driver capability.
 ```
 
 Blocked claims:
@@ -151,22 +158,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2477 should synthesize the high-fidelity interface preparation branch from:
+M2478 should implement the source-only four-wheel adapter preflight from:
 
 ```text
-docs/m2471-current-sim-readiness-route-synthesis.md
 docs/m2472-high-fidelity-interface-hf0-design.md
-docs/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.md
-docs/m2474-high-fidelity-interface-current-sim-adapter-smoke.md
-docs/m2475-high-fidelity-interface-external-backend-route-design.md
 docs/m2476-high-fidelity-interface-external-backend-dependency-api-audit.md
+docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md
+src/autodrift/four_wheel_dynamics.py
+src/autodrift/high_fidelity_interface.py
 ```
 
-The synthesis must answer evidence summary, supported claims, falsified claims,
-failure taxonomy, public-gate overfit risk, and next branch decision. If it
-continues, it should explicitly justify source-only four-wheel adapter
-preflight or another bounded follow-up. It must not install, import, or run
-external high-fidelity simulation, execute policy rollout, train, replay, use
-PPO, rank controllers, select a winner, or claim high-fidelity validation,
-current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
-level-3 self-identification.
+The preflight must expose only `ActorView` to `P0ObservationExtractor`, return
+observation shape `72`, accept action shape `3`, and keep four-wheel force,
+slip/load-like, fault, and hidden dynamics values in diagnostics only. It must
+not install, import, or run external high-fidelity simulation, execute policy
+rollout beyond bounded adapter smoke steps, train, replay, use PPO, rank
+controllers, select a winner, or claim high-fidelity validation, current-sim
+verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
+self-identification.

@@ -44951,3 +44951,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2476: `false`
 - follow-up manifest: `experiments/manifests/m2477-high-fidelity-interface-preparation-branch-synthesis.json`
 - next: `m2477-high-fidelity-interface-preparation-branch-synthesis`
+
+## M2477 High-Fidelity Interface Preparation Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- decision: `continue_to_source_only_four_wheel_adapter_preflight`
+- manifest: `experiments/manifests/m2477-high-fidelity-interface-preparation-branch-synthesis.json`
+- synthesis artifact: `docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md`
+- evidence window: M2471 route pivot through M2476 dependency/API audit
+- supported claims: HF0 contracts are machine-checkable, P0 observation shape remains `72`, action shape remains `3`, current-sim can be wrapped through HF0 with parity, and hidden/oracle diagnostics stay outside actor input
+- blocked claims: high-fidelity validation readiness, Chrono local readiness, driver capability improvement, current-sim verdict, finite-window-vs-GRU evidence, and level-3 self-ID evidence
+- risk finding: process-overhead risk is high because M2472-M2477 are mostly design/audit/interface milestones and M2474 is the only executable adapter smoke
+- branch decision: continue only to executable source-only `FourWheelDriftModel` HF0 adapter preflight; do not add another external dependency design/audit milestone before adapter evidence
+- interpretation: process synthesis only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2477: `false`
+- follow-up manifest: `experiments/manifests/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.json`
+- next: `m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight`
