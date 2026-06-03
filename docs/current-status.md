@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2526-engineering-controller-failure-surface-intervention-design
+m2527-engineering-controller-failure-surface-intervention-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2526-engineering-controller-failure-surface-intervention-design
+m2527-engineering-controller-failure-surface-intervention-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2527-engineering-controller-failure-surface-intervention-materialization-preflight
+m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight
 ```
 
 Current route:
@@ -47,6 +47,8 @@ M2525 closes the bounded measured behavior panel branch and routes to a
 failure-surface intervention design rather than another source-only panel.
 M2526 defines that intervention boundary and routes to structured plan
 materialization before implementation or training.
+M2527 materializes the intervention spec, protected rows, gate matrix, and
+candidate patch plan as machine-readable artifacts.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -85,9 +87,14 @@ M2526 did not execute policy actions or train. It designed a no-oracle
 intervention path with protected M2521-M2524 regression rows, preserving the
 P0 `72/3` single-actor contract and routing to structured plan materialization.
 
-The active next task is M2527: materialize intervention spec, protected
-regression rows, implementation gate matrix, and candidate config patch plan
-artifacts before repair implementation or training.
+M2527 did not execute policy actions or train. It materialized `45` protected
+or reference rows, `7` implementation gates, and a candidate patch plan while
+keeping active config overwrite, training, policy action, ranking, success-rate,
+and validation claims false.
+
+The active next task is M2528: materialize an immutable candidate config and
+protected gate bindings from the M2527 intervention plan before repair smoke or
+training.
 
 ## Latest Evidence
 
@@ -750,6 +757,18 @@ M2526:
   new policy action in M2526: false
   external simulation installed/imported/executed in M2526: false
   route: failure-surface intervention plan materialization preflight
+
+M2527:
+  result_class: engineering_controller_failure_surface_intervention_plan_materialization_pass
+  summary: runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json
+  artifacts: intervention_spec.json protected_regression_rows.csv implementation_gate_matrix.csv candidate_config_patch_plan.json
+  protected rows: 45 total 15 primary M1154 rows 30 reference context rows
+  primary counts: road-boundary 10 mitigation 5 command-conflict 15
+  gate matrix rows: 7
+  contract boundary: P0 observation 72 action 3 actor input changed false hidden/oracle inputs required false rule-switching controller modes allowed false
+  config boundary: active config overwritten false candidate config file written false training started false policy action false
+  rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
+  route: failure-surface intervention config materialization preflight
 ```
 
 ## Current Interpretation Boundary
@@ -848,7 +867,9 @@ diagnostics. M2526 must turn that failure surface into a no-oracle intervention
 design with protected regression rows before another measured panel or repair
 implementation. M2526 does that design work and routes to a materialization
 preflight so the next step produces machine-readable intervention-plan
-artifacts rather than informal reward/config edits or direct training.
+artifacts rather than informal reward/config edits or direct training. M2527
+materializes those artifacts and routes to immutable candidate config
+materialization, still without policy action or training.
 ```
 
 Blocked claims:
@@ -868,23 +889,23 @@ training repair success
 
 ## Immediate Next Step
 
-M2527 should materialize the failure-surface intervention plan:
+M2528 should materialize the failure-surface intervention candidate config:
 
 ```text
+runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json
+runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json
+runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv
+runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv
+experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json
 runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json
 runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json
 runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv
 runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv
 runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json
-docs/m2526-engineering-controller-failure-surface-intervention-design.md
-experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json
-runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json
-runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv
 ```
 
-The materialization should write the intervention spec, protected regression
-rows, implementation gate matrix, and candidate config patch plan without
-overwriting active configs. It must not run source-only actions,
+The config materialization should write immutable candidate config and protected
+gate bindings without overwriting active configs. It must not run source-only actions,
 install/import/run external high-fidelity simulation, train, replay/PPO,
 rank/select a winner, compute success-rate, or claim performance, validation,
 paper, FW-vs-GRU, self-ID, or current-sim/high-fidelity verdict evidence.

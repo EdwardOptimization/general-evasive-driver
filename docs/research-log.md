@@ -45850,3 +45850,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2526: `false`
 - follow-up manifest: `experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json`
 - next: `m2527-engineering-controller-failure-surface-intervention-materialization-preflight`
+
+## M2527 Engineering Controller Failure-Surface Intervention Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_failure_surface_intervention_plan_materialization_pass`
+- manifest: `experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_failure_surface_intervention_plan.py`
+- summary: `runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json`
+- intervention spec: `runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json`
+- protected regression rows: `runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv`
+- implementation gate matrix: `runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv`
+- candidate config patch plan: `runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json`
+- materialized rows: `45` protected/reference rows total, `15` primary protected M1154 rows, `30` reference context rows, `10` road-boundary primary rows, `5` mitigation primary rows, `15` command-conflict primary rows
+- gates: `7` implementation gates covering contract, no-oracle actor inputs, road-boundary proof, mitigation proof, command-conflict proof, fresh-seed generalization, and no-ranking/no-success-rate boundary
+- contract boundary: P0 observation `72`, action `3`, actor input changed `false`, hidden/oracle actor inputs required `false`, rule-switching controller modes allowed `false`
+- config boundary: active config overwritten `false`, candidate config file written `false`, training started `false`, policy action run `false`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action in M2527: `false`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2527: `false`
+- follow-up manifest: `experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json`
+- next: `m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight`

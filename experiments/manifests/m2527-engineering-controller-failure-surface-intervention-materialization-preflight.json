@@ -234,5 +234,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2527 passes if it materializes traceable intervention-plan artifacts with no actor contract change, no hidden/oracle actor input, no active config overwrite, no policy action, no training, no ranking, no winner selection, no success-rate verdict, and no validation or performance claim.",
-  "next_blocker": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight"
+  "next_blocker": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight"
 }

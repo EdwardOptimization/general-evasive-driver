@@ -1,0 +1,83 @@
+{
+  "action_horizon": 1,
+  "action_shape": 3,
+  "actor_contract_id": "P0_human_view_72_action_3_no_oracle",
+  "actor_encoder": "human_view_online_gru",
+  "actor_input_contract_changed": false,
+  "allowed_actor_signal_families": [
+    "ego_kinematics_and_imu_like_response",
+    "steering_throttle_brake_actuator_state",
+    "previous_physical_commands",
+    "ego_frame_road_free_space_boundary_geometry",
+    "ego_frame_obstacle_geometry_and_relative_motion",
+    "online_gru_recurrent_state"
+  ],
+  "allowed_reward_or_evaluator_fields": [
+    "minimum_road_margin_m",
+    "road_departure_event",
+    "collision_event",
+    "minimum_obstacle_clearance_m",
+    "severity_proxy",
+    "simultaneous_throttle_brake_fraction",
+    "mitigation_delta_against_reference"
+  ],
+  "claim_boundary": "intervention planning only; not ranking, success-rate, validation, driver performance, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID",
+  "command_conflict_objective": {
+    "allowed_implementation": "reward_or_action_regularization_from_actor_output_or_physical_actuator_state",
+    "direction": "decrease",
+    "primary_metric": "simultaneous_throttle_brake_fraction",
+    "target_subject": "m1154_policy_actor"
+  },
+  "forbidden_actor_input_fields": [
+    "mu",
+    "mass",
+    "tire_stiffness",
+    "brake_scale",
+    "actuator_tau",
+    "hidden_dynamics",
+    "scenario_role_label",
+    "feasibility_class",
+    "oracle_outcome_label",
+    "slip",
+    "tire_force",
+    "ttc",
+    "required_clearance",
+    "oracle_stopping_distance",
+    "speed_ref",
+    "beta_target",
+    "path_error",
+    "heading_error",
+    "path_curvature",
+    "reward_terms",
+    "success_label",
+    "controller_mode",
+    "rule_switch_state"
+  ],
+  "mitigation_objective": {
+    "direction": "reduce_severity_and_road_boundary_loss",
+    "primary_metrics": [
+      "severity_proxy",
+      "minimum_road_margin_m"
+    ],
+    "reference_subject": "straight_full_brake_open_loop",
+    "target_roles": [
+      "unavoidable_mitigation"
+    ]
+  },
+  "observation_shape": 72,
+  "road_boundary_objective": {
+    "direction": "increase_toward_nonnegative",
+    "guardrails": [
+      "collision_event_not_regressed",
+      "actor_contract_unchanged"
+    ],
+    "primary_metric": "minimum_road_margin_m",
+    "target_roles": [
+      "stable_aes",
+      "drift_required_recovery"
+    ]
+  },
+  "rule_switching_controller_modes_allowed": false,
+  "single_actor": true,
+  "spec_id": "engineering_controller_failure_surface_intervention_v0"
+}

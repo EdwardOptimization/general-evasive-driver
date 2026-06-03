@@ -1,0 +1,43 @@
+{
+  "active_config_overwritten": false,
+  "candidate_config_file_written": false,
+  "claim_boundary": "intervention planning only; not ranking, success-rate, validation, driver performance, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID",
+  "must_not_patch": [
+    "actor observation fields",
+    "action dimension",
+    "checkpoint promotion metadata",
+    "active production config",
+    "rule-switch controller mode",
+    "oracle actor inputs"
+  ],
+  "plan_id": "m2527_candidate_config_patch_plan_v0",
+  "policy_action_run": false,
+  "profile_specific_tuning": false,
+  "proposed_patch_families": [
+    {
+      "actor_input_changed": false,
+      "patch_family": "road_boundary_reward_or_constraint",
+      "source": "evaluator/reward only",
+      "target_metric": "minimum_road_margin_m"
+    },
+    {
+      "actor_input_changed": false,
+      "patch_family": "mitigation_severity_shaping",
+      "source": "evaluator/reward only",
+      "target_metric": "severity_proxy"
+    },
+    {
+      "actor_input_changed": false,
+      "patch_family": "simultaneous_throttle_brake_regularizer",
+      "source": "actor output or physical actuator state regularization",
+      "target_metric": "simultaneous_throttle_brake_fraction"
+    },
+    {
+      "actor_input_changed": false,
+      "patch_family": "protected_row_seed_mix",
+      "source": "training curriculum metadata only",
+      "target_metric": "protected_regression_rows"
+    }
+  ],
+  "training_started": false
+}

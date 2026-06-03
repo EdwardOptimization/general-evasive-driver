@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2532,
+    "completed": 2533,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2526-engineering-controller-failure-surface-intervention-design",
+    "task_id": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2526-engineering-controller-failure-surface-intervention-design.md"
+    "run_dir": "runs/m2527_engineering_controller_failure_surface_intervention_plan",
+    "command_log": "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json"
   },
   "next_task": {
-    "id": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+    "id": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25220,
+    "priority": 25230,
     "status": "pending",
-    "hypothesis": "Materialize the M2526 failure-surface intervention design into structured protected rows gate matrix and config patch plan artifacts before implementation or training.",
-    "command": "see experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json",
-    "success_artifact": "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
-    "notes": "Pending: materialize intervention spec protected regression rows implementation gate matrix and candidate config patch plan no policy action training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Materialize immutable candidate config and protected gate bindings from the M2527 intervention plan before repair smoke or training.",
+    "command": "see experiments/manifests/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.json",
+    "success_artifact": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json",
+    "notes": "Pending: materialize candidate_config config_patch_audit and protected_gate_bindings no active config overwrite policy action training ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T135936Z"
+  "updated_at_utc": "20260603T141701Z"
 }

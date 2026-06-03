@@ -1,0 +1,126 @@
+{
+  "decision_reason": "M2527 materializes intervention_spec protected_regression_rows implementation_gate_matrix candidate_config_patch_plan and summary 45 protected rows 15 primary protected 30 reference context 7 gates actor contract 72/3 active config overwrite false training false policy action false no ranking success-rate verdict validation or driver-performance claims",
+  "failure_criteria": [
+    "M2527 installs imports or runs Chrono or another external simulator",
+    "M2527 changes actor input or action contract",
+    "M2527 injects hidden or oracle actor features",
+    "M2527 executes policy action or rollout",
+    "M2527 starts training or overwrites an active config",
+    "M2527 treats intervention materialization as driver performance",
+    "M2527 ranks controller families or selects a winner",
+    "M2527 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute policy actions in the materialization milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not add rule-switching controller modes",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from intervention materialization"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260603T141913Z",
+  "hypothesis": "A materialization preflight can turn the M2526 failure-surface intervention design into traceable protected rows gates and config patch artifacts before any repair implementation or training.",
+  "lineage": {
+    "blocked_by": [
+      "M2526 defines intervention targets but the protected rows gate matrix and config patch plan have not been materialized",
+      "future implementation needs machine-readable artifacts before repair training or source-only execution",
+      "road-departure mitigation and command-conflict targets must remain separated from ranking and performance claims"
+    ],
+    "derived_from": [
+      "m2526-engineering-controller-failure-surface-intervention-design",
+      "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis",
+      "m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2526-engineering-controller-failure-surface-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+      "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
+      "docs/m2524-engineering-controller-source-only-fresh-seed-measured-behavior-panel-result-audit.md",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv",
+      "docs/observation-contract.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "materialize the M2526 failure-surface intervention design as structured plan artifacts before implementation or training"
+    ],
+    "supersedes": [
+      "ad hoc repair training without protected regression rows",
+      "manual config patching without a no-oracle intervention spec",
+      "another measured behavior panel before intervention artifacts exist"
+    ]
+  },
+  "milestone": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+  "next_blocker": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "engineering_controller_failure_surface_intervention_plan_materialization_pass",
+  "public_gates": [
+    "M2527 must materialize M2526 intervention design into structured artifacts",
+    "M2527 must write summary.json intervention_spec.json protected_regression_rows.csv implementation_gate_matrix.csv and candidate_config_patch_plan.json",
+    "M2527 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary",
+    "M2527 must keep active training config overwrite false and training_started false",
+    "M2527 must not install import or run external high-fidelity simulation",
+    "M2527 must not execute policy action train rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "engineering_controller_failure_surface_intervention_plan_materialization_pass",
+    "milestone": "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+    "reason": "M2527 materializes intervention_spec protected_regression_rows implementation_gate_matrix candidate_config_patch_plan and summary 45 protected rows 15 primary protected 30 reference context 7 gates actor contract 72/3 active config overwrite false training false policy action false no ranking success-rate verdict validation or driver-performance claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv exists",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json exists",
+    "summary verifies P0 observation shape 72 and action shape 3 unchanged",
+    "summary verifies training_started false policy_action false active_config_overwritten false and false claim flags",
+    "protected rows trace to M2521-M2524 source artifacts",
+    "no external high-fidelity simulation install import execution environment rollout policy action training ranking winner success-rate or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

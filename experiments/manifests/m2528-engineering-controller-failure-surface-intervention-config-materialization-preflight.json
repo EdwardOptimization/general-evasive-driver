@@ -1,0 +1,230 @@
+{
+  "id": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json",
+      "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+      "docs/m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis.md",
+      "runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2527-engineering-controller-failure-surface-intervention-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize the M2527 candidate config patch plan into immutable candidate config artifacts before any repair training or policy action"
+    ],
+    "derived_from": [
+      "m2527-engineering-controller-failure-surface-intervention-materialization-preflight",
+      "m2526-engineering-controller-failure-surface-intervention-design",
+      "m2525-engineering-controller-bounded-measured-behavior-panel-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2527 produced an intervention plan and candidate patch plan but no candidate config artifact exists",
+      "future repair smoke needs a traceable config artifact and gate bindings before training",
+      "active configs must not be overwritten by intervention planning"
+    ],
+    "supersedes": [
+      "manual config patching from M2527 candidate patch plan",
+      "repair training without immutable candidate config artifact",
+      "active training config overwrite before audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight.md",
+  "public_gates": [
+    "M2528 must materialize an immutable candidate config artifact from the M2527 patch plan",
+    "M2528 must write summary.json candidate_config.json config_patch_audit.csv and protected_gate_bindings.csv",
+    "M2528 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary",
+    "M2528 must keep active_config_overwritten false candidate_config_file_written true and training_started false",
+    "M2528 must not install import or run external high-fidelity simulation",
+    "M2528 must not execute policy action train rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run environment rollout",
+    "do not step a simulator",
+    "do not execute policy actions in the config materialization milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not add rule-switching controller modes",
+    "do not overwrite active training configs",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from candidate config materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_failure_surface_intervention",
+    "evidence_axis": "failure_surface_intervention_config_materialization",
+    "evidence_increment": "materializes an immutable candidate config and gate binding artifacts from the M2527 intervention plan before repair training",
+    "claim_scope": "engineering-controller failure-surface intervention candidate config materialization only; no rollout, simulation, policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if candidate config changes actor observation or action shape",
+      "stop if candidate config injects hidden or oracle actor fields",
+      "stop if active configs would be overwritten",
+      "stop if config materialization implies ranking success-rate or validation verdict claims"
+    ],
+    "fallback_plan": [
+      "route to plan repair if candidate config cannot be materialized without contract change",
+      "route to source-only repair smoke only after config artifact passes",
+      "route to branch synthesis if another config-only milestone is proposed before implementation",
+      "stop for user review if no bounded repair path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2527 materialized intervention plan artifacts and selected config materialization as the next implementation preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "engineering-controller failure-surface intervention candidate config materialization",
+    "admission_evidence": [
+      "M2527 materialized intervention spec protected regression rows gate matrix and candidate patch plan",
+      "M2526 designed the intervention targets and protected regression rows",
+      "M2525 promoted the bounded measured behavior panel branch to failure-surface intervention"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no environment rollout",
+      "no policy action in the config materialization milestone",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_failure_surface_intervention_config_materialization.py",
+      "tests/test_engineering_controller_failure_surface_intervention_config_materialization.py",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv",
+      "M2528 status queue scoreboard research log and review",
+      "one follow-up repair smoke preflight or synthesis manifest selected by the materialization"
+    ],
+    "next_stage_criteria": [
+      "candidate config artifact exists",
+      "protected gate bindings trace to M2527 protected rows",
+      "active config overwrite is false",
+      "training_started false and policy_action false",
+      "actor input and action contracts remain unchanged"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2528 materializes Route A candidate config artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2528; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2521-M2527 measured behavior intervention design and intervention plan artifacts.",
+    "negative_result_policy": "If config materialization requires oracle actor inputs or active config overwrite, fail the milestone and route to plan repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "engineering-controller failure-surface intervention candidate config materialization",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts intervention plan artifacts into an immutable candidate config required for future repair smoke",
+    "paper_verdict_delta": "does not decide paper verdict but prepares a controlled Route A repair smoke path",
+    "must_synthesize_if": [
+      "M2528 cannot materialize config without actor contract change",
+      "another config-only milestone is proposed before repair smoke or new behavior evidence",
+      "road-departure mitigation repair still fails after three same-failure attempts",
+      "public source-only rows are optimized without fresh held-out or generalization evidence"
+    ]
+  },
+  "hypothesis": "A config materialization preflight can convert the M2527 candidate patch plan into immutable candidate config and gate binding artifacts without overwriting active configs, changing actor input, or starting training.",
+  "success_criteria": [
+    "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json exists",
+    "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json exists",
+    "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv exists",
+    "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv exists",
+    "summary verifies P0 observation shape 72 and action shape 3 unchanged",
+    "summary verifies active_config_overwritten false candidate_config_file_written true training_started false policy_action false and false claim flags",
+    "protected gate bindings trace to M2527 protected rows and gates",
+    "no external high-fidelity simulation install import execution environment rollout policy action training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2528 installs imports or runs Chrono or another external simulator",
+    "M2528 changes actor input or action contract",
+    "M2528 injects hidden or oracle actor features",
+    "M2528 executes policy action or rollout",
+    "M2528 starts training or overwrites an active config",
+    "M2528 treats candidate config materialization as driver performance",
+    "M2528 ranks controller families or selects a winner",
+    "M2528 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "materialize_candidate_config",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_failure_surface_intervention_config_materialization --plan-dir runs/m2527_engineering_controller_failure_surface_intervention_plan --output-dir runs/m2528_engineering_controller_failure_surface_intervention_config_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/config_patch_audit.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/summary.json",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/intervention_spec.json",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/implementation_gate_matrix.csv",
+    "runs/m2527_engineering_controller_failure_surface_intervention_plan/candidate_config_patch_plan.json",
+    "docs/m2526-engineering-controller-failure-surface-intervention-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2528 passes if it materializes immutable candidate config and protected gate bindings with no actor contract change, no hidden/oracle actor input, no active config overwrite, no policy action, no training, no ranking, no winner selection, no success-rate verdict, and no validation or performance claim.",
+  "next_blocker": "m2528-engineering-controller-failure-surface-intervention-config-materialization-preflight"
+}
