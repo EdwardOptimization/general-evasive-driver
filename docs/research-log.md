@@ -44818,3 +44818,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2468: `false`
 - follow-up manifest: `experiments/manifests/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.json`
 - next: `m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit`
+
+## M2469 Paper-Route Current-Sim Dual-Axis Scenario-Distribution Support Atlas Result Audit
+
+- status: completed
+- decision: `accept_distribution_support_atlas_route_to_stable_aes_support_repair_design`
+- synthesis decision: `not_applicable`
+- manifest: `experiments/manifests/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.json`
+- doc: `docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md`
+- audited summary: `runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json`
+- accepted evidence: M2468 complete, `15` atlas cells, `120` reset-only attempts, `109` successes, `11` failures, reset success rate `0.9083333333333333`, guardrail violations `0`, fixed M2464 R1 reuse `0`
+- audit finding: broad distribution support is accepted, but stable AES remains the primary distribution-support gap at `14/24`; all three stable-AES cells are partial: broad threshold-free `5/8`, threshold-band `3/8`, and low-mu-near `6/8`
+- measured-readiness decision: blocked because reset-only stable-AES support is not clean enough to separate controller performance from sampler support gaps
+- interpretation: M2469 is scenario/task-quality infrastructure only, not driver performance, actual-success evidence, self-ID evidence, or current-sim verdict evidence
+- reset rerun/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2469: `false`
+- follow-up manifest: `experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json`
+- next: `m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design`

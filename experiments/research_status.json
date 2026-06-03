@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2474,
+    "completed": 2475,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas",
+    "task_id": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas",
-    "command_log": "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md"
   },
   "next_task": {
-    "id": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
-    "kind": "gate",
-    "priority": 24640,
+    "id": "m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design",
+    "kind": "infrastructure",
+    "priority": 24650,
     "status": "pending",
-    "hypothesis": "Auditing M2468 can classify the distribution-support atlas and select a bounded next route without reset rerun, repair execution, training, ranking, winner selection, or verdict claims.",
-    "command": "see experiments/manifests/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.json",
-    "success_artifact": "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md",
-    "notes": "Pending: audit M2468 atlas stable-AES partial support no reset rerun rollout policy action repair training ranking winner verdict claims"
+    "hypothesis": "A design-only stable-AES distribution-support repair contract can define bounded support levers for all three M2468 partial stable-AES cells while preserving guardrails and avoiding fixed-row overfit.",
+    "command": "see experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json",
+    "success_artifact": "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md",
+    "notes": "Pending: design-only stable-AES distribution-support repair contract no reset rollout policy action repair execution training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T011742Z"
+  "updated_at_utc": "20260603T012920Z"
 }

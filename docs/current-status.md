@@ -16,44 +16,46 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas
+m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas
+m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
+m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design
 ```
 
 Current route:
 
 ```text
-M2468 built and ran a broad reset-only scenario-distribution support atlas after
-M2467 pivoted away from fixed-row R1 sampler repair. It generated `15` atlas
-cells across `5` candidate groups, reused `0` fixed M2464 R1 overlays, and ran
-`120` reset-only attempts. The atlas completed with `109` reset successes, `11`
-reset failures, `0` guardrail violations, `0` environment steps, and no policy
+M2469 audited the M2468 reset-only scenario-distribution support atlas and
+accepted it as clean distribution-level scenario/task-quality evidence. M2468
+generated `15` atlas cells across `5` candidate groups, reused `0` fixed M2464
+R1 overlays, and ran `120` reset-only attempts with `109` successes, `11`
+failures, `0` guardrail violations, `0` environment steps, and no policy
 action, rollout, repair, training, ranking, winner selection, or verdict claims.
 
-Distribution support is broad outside the fixed R1 rows: stable feasibility,
-hidden-dynamics, and mitigation groups were full support, and handling-limit
-guardrails were `23/24`. Stable AES remains partial at `14/24`, with three
-partial cells: broad threshold-free `5/8`, threshold-band `3/8`, and low-mu
-near `6/8`. The atlas classification is
-`distribution_support_atlas|seed_fragility`.
+The audit keeps measured readiness blocked because stable AES remains the
+primary distribution-support gap: stable_aes_support is `14/24`, and all three
+stable-AES cells are partial (`5/8` broad threshold-free, `3/8`
+threshold-band, `6/8` low-mu-near). Stable feasibility, hidden-dynamics, and
+mitigation groups are full support, while handling-limit is mostly supported at
+`23/24` with only `drift_required_nominal` partial at `7/8`.
 
-The active next task is M2469: audit the M2468 atlas before any stable-AES
-support repair design, measured-readiness preflight, branch synthesis, or stop
-route. M2469 must not rerun resets, execute policy actions, run measured
-rollout, repair overlays, train, rank cells, select winners, or make verdict
-claims.
+The active next task is M2470: design a bounded stable-AES distribution-support
+repair contract from M2468/M2469 artifacts. M2470 must remain design-only and
+must not reset the environment, retry failed seeds, execute policy actions, run
+measured rollout, execute repair, train, rank cells, select winners, or make
+verdict claims. If it cannot cover all three partial stable-AES cells without
+fixed-row tuning or actor-input leakage, it must route to branch synthesis or
+stop.
 
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six

@@ -1,0 +1,127 @@
+{
+  "decision_reason": "M2469 accepts M2468 broad distribution atlas but keeps measured readiness blocked stable AES partial 14/24 all three AES cells partial routes to design-only support repair no reset rerun rollout policy action repair training ranking winner verdict claims",
+  "failure_criteria": [
+    "M2469 reruns reset diagnostics or retries failed seeds",
+    "M2469 changes overlays, sampler settings, or active configs",
+    "M2469 executes environment rollout, policy action, scenario redesign, repair, training, replay, PPO, or private holdout",
+    "M2469 ranks scenario candidates, atlas cells, support policies, controllers, or checkpoints",
+    "M2469 selects a winner",
+    "M2469 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, training-repair, or actual-success claims"
+  ],
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset diagnostics",
+    "do not retry failed reset seeds",
+    "do not change overlays",
+    "do not change sampler settings",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank atlas cells",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260603T013446Z",
+  "hypothesis": "Auditing M2468 can classify the distribution-support atlas and select a bounded next route without reset rerun, repair execution, training, ranking, winner selection, or verdict claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2468 classified the atlas as distribution_support_atlas|seed_fragility",
+      "stable_aes_support remains partial at 14/24 reset success",
+      "handling_limit_guardrail has one partial drift_required_nominal cell",
+      "measured rollout remains blocked until atlas evidence is audited"
+    ],
+    "derived_from": [
+      "m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas",
+      "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit",
+      "m2455-paper-route-current-sim-dual-axis-scenario-quality-redesign-protocol-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "not_applicable_scenario_distribution_support_atlas_result_audit"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.json"
+    ],
+    "parent_dataset": [
+      "docs/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.md",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/atlas_cell_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/reset_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/reset_failure_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/cell_summary_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/group_summary_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/classification_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/guardrail_rows.csv",
+      "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2468 distribution-level reset-sampler support atlas before repair, measured rollout, training, ranking, or verdict route"
+    ],
+    "supersedes": [
+      "direct measured rollout from M2468 reset-only atlas",
+      "direct stable-AES repair without result audit",
+      "fixed-row R1 repair/retry after M2467 pivot"
+    ]
+  },
+  "milestone": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
+  "next_blocker": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_distribution_support_atlas_route_to_stable_aes_support_repair_design",
+  "public_gates": [
+    "M2469 must audit M2468 summary, cell summaries, group summaries, reset failures, classification rows, guardrails, and claim boundary",
+    "M2469 must decide whether broad reset support admits a bounded stable-AES support repair design, measured-readiness preflight, branch synthesis, or stop",
+    "M2469 must preserve that M2468 is reset-only distribution support evidence, not driver performance or verdict evidence",
+    "M2469 must not rerun resets, execute repair, train, roll out, rank cells, select winners, or make verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_distribution_support_atlas_route_to_stable_aes_support_repair_design",
+    "milestone": "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
+    "reason": "M2469 accepts M2468 broad distribution atlas but keeps measured readiness blocked stable AES partial 14/24 all three AES cells partial routes to design-only support repair no reset rerun rollout policy action repair training ranking winner verdict claims",
+    "reset_success": "0.9083333333333333",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md exists",
+    "M2468 summary, atlas cells, reset rows, cell summaries, group summaries, classification rows, guardrails, and claim boundary are audited",
+    "stable-AES partial support is classified",
+    "a bounded repair design, measured-readiness preflight, branch synthesis, or stop route is selected",
+    "no reset rerun rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "type": "gate"
+}
