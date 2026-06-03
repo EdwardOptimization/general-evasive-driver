@@ -46564,3 +46564,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2564/M2565 do not repair behavior or evaluate scenario success
 - follow-up manifest: `experiments/manifests/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.json`
 - next: `m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis`
+
+## M2566 Engineering Controller Route A Baseline HF3 Reset-Feasibility Execution Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_measured_reset_feasibility_execution_design`
+- manifest: `experiments/manifests/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2566-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-synthesis.md`
+- parent audit: `docs/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.md`
+- accepted evidence: M2564/M2565 source-level HF3 reset-feasibility materialization artifacts with 2 reset candidates 4 backend checks 2 request contracts 2 reset plans 8 outcome rows 8 claim rows and 9 gates pass
+- guard boundary: no pilot admission no reset execution no reset success no external simulator install/import/run no dependency mutation no policy action no reset/step/rollout execution no validation ranking driver-performance or self-ID claim P0 `72/3`
+- supported claim: HF3 reset-feasibility materialization can route to design-only measured reset-feasibility execution with explicit reset request backend probe actor-view outcome and claim-boundary artifacts
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset execution, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- public-gate overfit risk: medium because reset plans can be overclaimed if reset-only execution is treated as rollout or validation evidence
+- follow-up manifest: `experiments/manifests/m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design.json`
+- next: `m2567-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-design`
