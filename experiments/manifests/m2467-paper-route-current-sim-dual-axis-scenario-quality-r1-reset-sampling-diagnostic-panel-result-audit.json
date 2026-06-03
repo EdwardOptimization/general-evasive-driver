@@ -1,0 +1,229 @@
+{
+  "id": "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_r1_reset_sampling_diagnostic_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.md",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/diagnostic_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/reset_failure_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/variant_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/variant_summary_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/classification_rows.csv",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/guardrail_rows.csv",
+      "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json"
+    ],
+    "parent_objective": [
+      "audit M2466 seed-fragility reset-sampling diagnostic result before repair, reset retry, rollout, training, ranking, or verdict route"
+    ],
+    "derived_from": [
+      "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
+      "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
+      "m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation"
+    ],
+    "blocked_by": [
+      "M2466 classified the R1 stable-AES reset blocker as seed_fragility",
+      "M2466 baseline reset success is 5/24 and reset failure is 19/24",
+      "threshold, geometry, and combined diagnostic variants did not improve reset success over baseline",
+      "nominal hidden-dynamics diagnostic produced 0/24 reset success",
+      "reset admissibility is still not clean enough for measured rollout or verdict claims",
+      "the same scenario_sampling_failure surface has appeared across M2464, M2465, and M2466"
+    ],
+    "supersedes": [
+      "direct measured rollout after seed-fragile reset diagnostics",
+      "direct overlay repair without result audit",
+      "another narrow reset-sampling process milestone without synthesis or new evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+  "public_gates": [
+    "M2467 must audit M2466 summary, variant summaries, classification rows, guardrails, reset failures, and claim boundary",
+    "M2467 must decide whether the seed-fragility result supports a bounded evidence-expanding sampler route, branch synthesis, or stop",
+    "M2467 must respect the local-search guard: a fourth consecutive scenario_sampling_failure milestone is not admissible without synthesis or new evidence",
+    "M2467 must not rerun reset diagnostics, execute repair, train, roll out, rank variants, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset diagnostics",
+    "do not retry failed reset seeds",
+    "do not change overlays",
+    "do not change sampler settings",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank diagnostic variants",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_r1_reset_sampling_diagnostic_panel_result_audit",
+    "evidence_increment": "audits M2466's 120-attempt reset-only seed-fragility panel before repair or measured execution",
+    "claim_scope": "result audit only; no reset retry, rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if M2466 artifacts cannot be audited without rerun",
+      "stop if next route would treat reset-only seed fragility as driver performance",
+      "stop if next route would repair fixed public reset rows without synthesis or new evidence",
+      "stop if next route would execute measured rollout before clean reset admissibility"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if seed fragility is not enough for a bounded evidence-expanding route",
+      "route to bounded sampler-readiness design only if it produces new non-redundant evidence and does not optimize fixed public rows",
+      "stop for user review if claim boundaries are ambiguous or violated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2466 produced the third consecutive scenario_sampling_failure-related milestone in this local branch",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "R1 reset-sampling diagnostic result audit",
+    "admission_evidence": [
+      "M2466 result_class scenario_quality_r1_reset_sampling_diagnostic_panel_complete",
+      "M2466 diagnostic_attempt_count 120",
+      "M2466 baseline_reset_success_count 5",
+      "M2466 baseline_reset_failure_count 19",
+      "M2466 diagnostic_classification seed_fragility",
+      "M2466 guardrail_violation_count 0",
+      "M2466 environment_step_count 0",
+      "M2466 ranking_admissible_count 0",
+      "M2466 winner_selected_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset rerun",
+      "no overlay repair inside audit",
+      "no measured rollout",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+      "M2467 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2466 seed-fragility evidence is accepted or rejected",
+      "local-search guard is explicitly handled",
+      "a bounded evidence-expanding sampler route, branch synthesis, or stop route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2467 audits scenario reset sampling and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2467; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2466 reset-only diagnostic rows.",
+    "negative_result_policy": "Seed-fragile reset sampling is scenario-quality infrastructure evidence only and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "M2466 reset-sampling diagnostic result audit",
+      "no actual success improvement, controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2466's reset-only seed-fragility panel into a route decision before any repair or measured execution",
+    "paper_verdict_delta": "can improve scenario-quality readiness routing but cannot establish driver performance, paper verdict, or self-ID evidence",
+    "must_synthesize_if": [
+      "M2467 would require another scenario_sampling_failure milestone without new evidence",
+      "M2467 cannot select a bounded evidence-expanding route",
+      "the next route would repair fixed public reset rows without synthesis",
+      "the branch continues process-only work without new data or panel evidence"
+    ]
+  },
+  "hypothesis": "Auditing M2466 can accept or reject the seed-fragility reset-only diagnostic result and choose a bounded next route without reset rerun, repair execution, training, ranking, winner selection, or verdict claims.",
+  "success_criteria": [
+    "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md exists",
+    "M2466 summary, diagnostic rows, variant summaries, classification rows, guardrails, and claim boundary are audited",
+    "the seed-fragility classification is accepted or rejected",
+    "the local-search guard is handled explicitly",
+    "a bounded evidence-expanding route, branch synthesis, or stop route is selected",
+    "no reset rerun rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2467 reruns reset diagnostics or retries failed seeds",
+    "M2467 changes overlays, sampler settings, or active configs",
+    "M2467 executes environment rollout, policy action, scenario redesign, repair, training, replay, PPO, or private holdout",
+    "M2467 ranks scenario candidates, support policies, controllers, or checkpoints",
+    "M2467 selects a winner",
+    "M2467 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, training-repair, or actual-success claims",
+    "M2467 ignores the same-failure repeat count and routes to another narrow scenario_sampling_failure process milestone"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md from M2466 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_r1_reset_sampling_diagnostic_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.md",
+    "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+    "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/classification_rows.csv"
+  ],
+  "decision_rule": "M2467 passes if it audits M2466 and selects a bounded evidence-expanding route, branch synthesis, or stop route without reset rerun, rollout, repair execution, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit"
+}

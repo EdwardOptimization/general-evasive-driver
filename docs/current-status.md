@@ -16,39 +16,49 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit
+m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel
 ```
 
 Latest attempted milestone:
 
 ```text
-m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit
+m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel
+m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit
 ```
 
 Current route:
 
 ```text
-M2465 audited the M2464 reset-only result and accepted it as complete
-fail-closed evidence: all `6` concrete-overlay targets passed static validation,
-all `6` effective env configs stayed inside the run dir, all `6` resets were
-attempted, and `4` reset attempts succeeded. The only accepted blocker is
-R1 stable-AES scenario sampling: seeds `246403` and `246405` failed with
-`RuntimeError: failed to sample an obstacle scenario matching the configured
-filters`, while seed `246404` succeeded under the same R1 overlay hash.
+M2466 implemented and ran the reset-only R1 stable-AES sampler diagnostic panel.
+It admitted the three M2464 R1 reset targets with one shared overlay hash and
+one shared effective env config, then ran `5` diagnostic-only variants across
+`24` seeds each. The panel completed with `120` reset attempts, `20` reset
+successes, `100` reset failures, `0` guardrail violations, `0` environment
+steps, and no policy action, rollout, repair, training, ranking, winner
+selection, or verdict claims.
 
-The active next task is M2466: a reset-only R1 sampler diagnostic panel to
-classify seed fragility, hidden-dynamics randomization fragility, threshold
-strictness, geometry-range fragility, or broader scenario-spec incompatibility.
-No reset retry as repair, measured rollout, policy action, scenario redesign
-execution, repair, training, ranking, winner selection, paper/FW-vs-GRU/
-self-ID/training-repair verdict, or current-sim verdict is supported.
+The accepted diagnostic classification is `seed_fragility`: the baseline R1
+config reset `5/24`, threshold relaxation reset `5/24`, geometry widening reset
+`5/24`, combined threshold/geometry relaxation reset `5/24`, and nominal hidden
+dynamics reset `0/24`. M2466 therefore does not support a threshold-strictness,
+geometry-range, hidden-dynamics, or coupled repair claim. It is reset-sampling
+scenario-readiness evidence only, not driver performance, actual-success,
+paper, FW-vs-GRU, level3 self-ID, training-repair, or current-sim verdict
+evidence.
+
+The active next task is M2467: audit M2466 before any sampler repair, overlay
+repair, reset-validation retry, measured rollout, training, ranking, winner
+selection, or verdict route. Because the scenario-sampling blocker has now
+appeared across M2464, M2465, and M2466, M2467 must explicitly handle the
+local-search guard and either choose a bounded evidence-expanding route or
+synthesize/pivot instead of continuing another narrow scenario-sampling
+process milestone.
 
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six

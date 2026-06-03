@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2471,
+    "completed": 2472,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
+    "task_id": "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md"
+    "run_dir": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel",
+    "command_log": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json"
   },
   "next_task": {
-    "id": "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
-    "kind": "infrastructure",
-    "priority": 24610,
+    "id": "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit",
+    "kind": "gate",
+    "priority": 24620,
     "status": "pending",
-    "hypothesis": "A bounded reset-only diagnostic panel can classify the R1 stable-AES scenario-sampling blocker before any overlay repair, measured rollout, training, ranking, winner selection, or verdict claim.",
-    "command": "see experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json",
-    "success_artifact": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
-    "notes": "Pending: reset-only R1 sampler diagnostic no env step rollout policy action repair training ranking winner verdict claims"
+    "hypothesis": "Auditing M2466 can accept or reject the seed-fragility reset-only diagnostic result and choose a bounded next route without reset rerun, repair execution, training, ranking, winner selection, or verdict claims.",
+    "command": "see experiments/manifests/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.json",
+    "success_artifact": "docs/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.md",
+    "notes": "Pending: audit M2466 seed_fragility and local-search guard no reset rerun rollout policy action repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T003026Z"
+  "updated_at_utc": "20260603T004635Z"
 }

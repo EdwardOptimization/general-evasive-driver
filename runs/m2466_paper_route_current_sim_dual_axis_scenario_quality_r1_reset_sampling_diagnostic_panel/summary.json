@@ -1,0 +1,93 @@
+{
+  "active_config_overwrite_count": 0,
+  "actor_contract_failure_count": 0,
+  "actual_success_improvement_claim_made": false,
+  "artifacts": {
+    "claim_boundary": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/claim_boundary.csv",
+    "classification_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/classification_rows.csv",
+    "decision_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/decision_rows.csv",
+    "diagnostic_env_configs": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/diagnostic_env_configs",
+    "diagnostic_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/diagnostic_rows.csv",
+    "guardrail_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/guardrail_rows.csv",
+    "reset_failure_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/reset_failure_rows.csv",
+    "run_state": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/run_state.json",
+    "summary": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+    "variant_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/variant_rows.csv",
+    "variant_summary_rows": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/variant_summary_rows.csv"
+  },
+  "baseline_reset_failure_count": 19,
+  "baseline_reset_success_count": 5,
+  "baseline_reset_success_rate": 0.20833333333333334,
+  "current_sim_verdict_claim_made": false,
+  "diagnostic_attempt_count": 120,
+  "diagnostic_classification": "seed_fragility",
+  "environment_rollout_started": false,
+  "environment_step_count": 0,
+  "eval_seed_base": 246600,
+  "expected_diagnostic_attempt_count": 120,
+  "expected_observation_dim": 72,
+  "expected_variant_count": 5,
+  "failure_types_observed": [
+    "scenario_sampling_failure",
+    "seed_fragility"
+  ],
+  "finite_window_vs_gru_conclusion_made": false,
+  "generated_at_utc": "20260603T004441Z",
+  "guardrail_violation_count": 0,
+  "level3_self_id_claim_made": false,
+  "measured_rollout_started": false,
+  "next_blocker": "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit",
+  "output_dir": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel",
+  "paper_level_claim_made": false,
+  "policy_action_executed": false,
+  "ppo_used": false,
+  "private_holdout_used": false,
+  "promoted": false,
+  "r1_source_target_count": 3,
+  "ranking_admissible_count": 0,
+  "repair_execution_started": false,
+  "replay_started": false,
+  "reset_failure_count": 100,
+  "reset_seed_count": 24,
+  "reset_success_count": 20,
+  "result_class": "scenario_quality_r1_reset_sampling_diagnostic_panel_complete",
+  "scenario_redesign_executed": false,
+  "scenario_redesign_executed_claim_made": false,
+  "source_admission_failure_count": 0,
+  "source_admission_failures": [],
+  "source_artifacts": {
+    "m2464_reset_failure_rows": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_failure_rows.csv",
+    "m2464_reset_target_rows": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_target_rows.csv",
+    "m2464_reset_validation_rows": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_validation_rows.csv",
+    "m2464_summary": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json"
+  },
+  "source_candidate_ids": [
+    "m2455_stable_aes_support_001",
+    "m2455_stable_aes_support_002",
+    "m2455_stable_aes_support_003"
+  ],
+  "source_effective_config_hashes": [
+    "7ab9fa96faaabee58d903a788c9410d6b1d5204fef29df1280bbccce9335cd1d"
+  ],
+  "source_overlay_hash": "0688da6aec7f7314b7a46bbeb62af90313abddffea344d5d1ad1363f5acd678b",
+  "source_overlay_hash_count": 1,
+  "source_reset_target_ids": [
+    "m2464_reset_target_004",
+    "m2464_reset_target_005",
+    "m2464_reset_target_006"
+  ],
+  "source_result_class": "scenario_quality_concrete_overlay_reset_validation_fail",
+  "source_unique_effective_config_count": 1,
+  "target_overlay_family": "R1_aeb_infeasible_stable_aes",
+  "training_repair_success_claim_made": false,
+  "training_started": false,
+  "variant_count": 5,
+  "variant_success_rates": {
+    "baseline_r1_original": 0.20833333333333334,
+    "geometry_wider_same_threshold": 0.20833333333333334,
+    "nominal_hidden_dynamics": 0.0,
+    "threshold_and_geometry_relaxed": 0.20833333333333334,
+    "threshold_relaxed": 0.20833333333333334
+  },
+  "winner_selected_count": 0
+}

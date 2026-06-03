@@ -1,0 +1,9 @@
+claim_key,claim_value,admissible,reason
+r1_reset_sampling_diagnostic_classification,seed_fragility,True,M2466 may classify reset-sampling diagnostics for the R1 stable-AES overlay family only.
+diagnostic_variant_repair_or_promotion,blocked,False,"Diagnostic-only variants are not repaired overlays, rankings, winners, or promoted configs."
+environment_step_or_policy_action,false,True,M2466 stops after reset.
+measured_rollout_started,false,True,No rollout is run.
+repair_training_started,false,True,No repair or training is executed.
+actual_success_improvement,blocked,False,Reset-only diagnostics do not measure driver performance.
+paper_or_self_id_verdict,blocked,False,No controller-family or history-necessity verdict is run.
+current_sim_verdict,blocked,False,"M2466 is a reset diagnostic panel, not a current-sim verdict."

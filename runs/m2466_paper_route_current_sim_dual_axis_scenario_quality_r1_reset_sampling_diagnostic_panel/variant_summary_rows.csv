@@ -1,0 +1,6 @@
+variant_id,variant_class,diagnostic_only,reset_attempt_count,reset_success_count,reset_failure_count,reset_success_rate,observation_dimension_failure_count,obstacle_initialized_count,failure_type_counts,obstacle_label_counts
+baseline_r1_original,baseline,True,24,5,19,0.20833333333333334,0,5,{'scenario_sampling_failure': 19},{'aes_feasible': 5}
+geometry_wider_same_threshold,geometry_range_fragility_diagnostic,True,24,5,19,0.20833333333333334,0,5,{'scenario_sampling_failure': 19},{'aes_feasible': 5}
+nominal_hidden_dynamics,hidden_dynamics_randomization_diagnostic,True,24,0,24,0.0,0,0,{'scenario_sampling_failure': 24},{}
+threshold_and_geometry_relaxed,coupled_threshold_geometry_diagnostic,True,24,5,19,0.20833333333333334,0,5,{'scenario_sampling_failure': 19},{'aes_feasible': 5}
+threshold_relaxed,threshold_strictness_diagnostic,True,24,5,19,0.20833333333333334,0,5,{'scenario_sampling_failure': 19},{'aes_feasible': 5}

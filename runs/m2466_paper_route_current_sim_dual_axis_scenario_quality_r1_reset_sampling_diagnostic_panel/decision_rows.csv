@@ -1,0 +1,5 @@
+decision_key,decision_value,admissible,reason
+r1_reset_sampling_diagnostic_complete,true,True,The diagnostic panel wrote reset-only evidence and classification rows.
+diagnostic_classification,seed_fragility,True,Classification is diagnostic only and must be audited before repair or measured execution.
+repair_training_ranking_or_winner_selection,false,True,"No repair, training, ranking, or winner selection is executed."
+next_route,m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit,True,Route diagnostic output to result audit.

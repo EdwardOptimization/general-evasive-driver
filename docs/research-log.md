@@ -1,6 +1,6 @@
 # AutoDrift Research Log
 
-Last updated: 2026-06-01
+Last updated: 2026-06-03
 
 
 ## 20260601T182028Z m2269-midcourse-corridor-containment-failure-slice-diagnosis
@@ -44768,3 +44768,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset retry/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2465: `false`
 - follow-up manifest: `experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json`
 - next: `m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel`
+
+## M2466 Paper-Route Current-Sim Dual-Axis Scenario-Quality R1 Reset Sampling Diagnostic Panel
+
+- status: completed
+- result_class: `scenario_quality_r1_reset_sampling_diagnostic_panel_complete`
+- manifest: `experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json`
+- doc: `docs/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel.py`
+- summary: `runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json`
+- source admission: R1 target count `3`, source overlay hash count `1`, source unique effective config count `1`, admission failure count `0`
+- result: `5` diagnostic-only variants, `24` seeds per variant, `120` reset-only attempts, `20` reset successes, `100` reset failures, guardrail violations `0`
+- baseline outcome: `5/24` reset successes and `19/24` `scenario_sampling_failure` rows
+- variant outcome: threshold relaxed, geometry widened, and combined variants stayed at `5/24`; nominal hidden dynamics was `0/24`
+- diagnostic classification: `seed_fragility`
+- interpretation: reset-sampling scenario readiness remains seed-fragile; no hidden-dynamics, threshold, geometry, or coupled diagnostic improvement was observed
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2466: `false`
+- follow-up manifest: `experiments/manifests/m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit.json`
+- next: `m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit`
