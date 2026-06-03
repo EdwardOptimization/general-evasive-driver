@@ -1,0 +1,115 @@
+# m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T194945Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_hf2_scenario_taxonomy_mapping_route_to_result_synthesis
+- Decision reason: M2557 accepts M2556 HF2 taxonomy mapping status_pass true 5 role rows 10 binding rows 7 metadata rows 5 pilot guard rows and 7 gates pass no limited/reference upgrade label leakage pilot admission validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2556 HF2 scenario taxonomy mapping while preserving actor contract integrity support-status honesty and no-ranking or validation boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json, runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_route_role_mapping.csv, runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_surface_fixture_binding.csv, runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_metadata_boundary_checks.csv, runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/hf2_pilot_admission_guard_rows.csv, runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/materialization_gate_matrix.csv, docs/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.md, docs/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.md, docs/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight.json, experiments/manifests/m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design.json, experiments/manifests/m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis.json
+- parent_objective: audit the M2556 Route A HF2 scenario taxonomy mapping artifacts before HF3 pilot design or validation interpretation
+- derived_from: m2556-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-preflight, m2555-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-design, m2554-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-result-synthesis, m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight, m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight
+- blocked_by: M2556 materialized Route A HF2 taxonomy mapping artifacts that must be audited before HF3 pilot planning, taxonomy rows are metadata/interface artifacts and must not become validation readiness or controller ranking, support-status honesty and pilot-admission guards must be audited before any low-cost pilot route
+- supersedes: interpreting M2556 taxonomy rows as high-fidelity validation, ranking or promoting Route A policies from taxonomy artifacts, starting HF3 pilots before HF2 materialization is audited, claiming pilot readiness from route-role mapping alone
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md exists
+- audit verifies M2556 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- audit verifies M2556 route-role surface/fixture metadata-boundary pilot-guard and gate artifacts exist
+- audit verifies five role rows ten binding rows seven metadata rows five pilot guard rows and seven gates pass
+- audit verifies M2556 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- audit verifies M2556 made no external simulation policy rollout training replay PPO ranking winner success-rate promotion validation driver-performance or verdict claim
+- audit registers result synthesis HF3 pilot design artifact repair contract repair mapping repair or branch synthesis without validation or performance claims
+
+## Failure Criteria
+
+- M2557 installs imports or runs Chrono or another external simulator
+- M2557 changes actor input or action contract
+- M2557 injects hidden or oracle actor features
+- M2557 steps an environment or runs policy rollout
+- M2557 starts training
+- M2557 treats M2556 taxonomy rows as driver performance
+- M2557 ranks controller families or selects a winner
+- M2557 computes success rate or promotes a checkpoint
+- M2557 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2557 must audit M2556 summary route-role mapping surface/fixture binding metadata-boundary pilot-admission guard and gate matrix artifacts
+- M2557 must verify M2556 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- M2557 must verify five Route C role rows ten surface/fixture binding rows seven metadata checks five pilot guards and seven gates pass
+- M2557 must verify M2556 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- M2557 must verify M2556 did not silently upgrade limited/reference rows and did not claim HF3 pilot admission
+- M2557 must verify M2556 did not install import or run external high-fidelity simulation packages
+- M2557 must verify M2556 did not run policy rollouts train replay PPO rank select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+- M2557 must register result synthesis HF3 pilot design artifact repair contract repair mapping repair branch synthesis pivot or stop as the next route without validation or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the audit
+- do not step environments in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose scenario labels feasibility classes or pilot-admission labels to actor input
+- do not silently upgrade limited/reference rows
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from M2556 artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_hf2_scenario_taxonomy_mapping_route_to_result_synthesis
+- reason: M2557 accepts M2556 HF2 taxonomy mapping status_pass true 5 role rows 10 binding rows 7 metadata rows 5 pilot guard rows and 7 gates pass no limited/reference upgrade label leakage pilot admission validation ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis

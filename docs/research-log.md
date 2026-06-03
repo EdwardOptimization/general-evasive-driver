@@ -46417,3 +46417,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity validation, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.json`
 - next: `m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit`
+
+## M2557 Engineering Controller Route A Baseline HF2 Scenario Taxonomy Mapping Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf2_scenario_taxonomy_mapping_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.json`
+- audit doc: `docs/m2557-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-materialization-result-audit.md`
+- parent summary: `runs/m2556_engineering_controller_route_a_hf2_scenario_taxonomy_mapping/summary.json`
+- accepted evidence: M2556 status_pass true result_class pass with source artifacts present and materialization gates all pass
+- accepted counts: 5 route-role rows 10 surface/fixture binding rows 7 metadata-boundary rows 5 pilot guard rows and 7 gates pass
+- guard boundary: no limited/reference row upgrade no metadata label actor leakage no HF3 pilot admission claim P0 `72/3`
+- supported claim: source-level HF2 taxonomy mapping is internally consistent and can route to result synthesis
+- rejected claims: no high-fidelity validation readiness/result, HF3 pilot admission, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- open limitation: earlier mitigation-primary behavior proof issue remains unresolved; M2556/M2557 do not repair behavior or evaluate scenario success
+- follow-up manifest: `experiments/manifests/m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis.json`
+- next: `m2558-engineering-controller-route-a-baseline-hf2-scenario-taxonomy-mapping-result-synthesis`
