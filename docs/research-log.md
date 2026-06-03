@@ -44934,3 +44934,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2475: `false`
 - follow-up manifest: `experiments/manifests/m2476-high-fidelity-interface-external-backend-dependency-api-audit.json`
 - next: `m2476-high-fidelity-interface-external-backend-dependency-api-audit`
+
+## M2476 High-Fidelity Interface External Backend Dependency API Audit
+
+- status: completed
+- decision: `conditional_external_backend_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2476-high-fidelity-interface-external-backend-dependency-api-audit.json`
+- doc: `docs/m2476-high-fidelity-interface-external-backend-dependency-api-audit.md`
+- local audit: Python `3.12.12`, conda present, CMake `3.28.3`, g++ `13.3.0`, ninja present, git `2.43.0`, but `pychrono`/`projectchrono` not found by pip or conda in the active environment
+- source audit: official Chrono/PyChrono docs and source repository make a Chrono-family route plausible for driver inputs and vehicle progression APIs
+- route decision: keep Chrono-family external backend as primary conditional route, but do not implement it while package install/import is absent and forbidden
+- cadence decision: branch synthesis is required before another interface milestone because the high-fidelity interface preparation branch reached the non-evidence milestone cadence limit
+- recommended post-synthesis route: source-only `FourWheelDriftModel` HF0 adapter preflight to add executable four-wheel adapter evidence without external dependency installation
+- admission boundary: preserve P0 observation shape `72`, action shape `3`, actor-visible `ActorView` extraction only, and diagnostics-only hidden/oracle/backend state
+- interpretation: dependency/API audit only, not external backend installation/importability, high-fidelity validation readiness, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2476: `false`
+- follow-up manifest: `experiments/manifests/m2477-high-fidelity-interface-preparation-branch-synthesis.json`
+- next: `m2477-high-fidelity-interface-preparation-branch-synthesis`

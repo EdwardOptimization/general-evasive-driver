@@ -16,49 +16,48 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2475-high-fidelity-interface-external-backend-route-design
+m2476-high-fidelity-interface-external-backend-dependency-api-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2475-high-fidelity-interface-external-backend-route-design
+m2476-high-fidelity-interface-external-backend-dependency-api-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2476-high-fidelity-interface-external-backend-dependency-api-audit
+m2477-high-fidelity-interface-preparation-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2475 completed the external-backend route design selected after the M2474
-current-sim adapter smoke. It chooses a dependency/API audit before any
-external backend adapter implementation, install, import, simulation, or
-validation route.
+M2476 completed the external-backend dependency/API audit selected by M2475.
+The Chrono-family route remains plausible from official/source documentation,
+but the active local environment does not have `pychrono` or `projectchrono`
+installed and this branch currently forbids external simulator installation,
+import, or execution.
 ```
 
-The selected primary direction is an open, auditable high-fidelity vehicle
-dynamics layer, with the Chrono/Chrono::Vehicle family as the preferred
-candidate direction from `docs/post-m2470-route-plan.md`. M2475 does not claim
-that Chrono is installed, importable, API-compatible, or selected for
-validation. The selected fallback is a source-only `FourWheelDriftModel`
-adapter preflight if external dependency/API audit is not locally admissible.
+The route decision is conditional: keep the Chrono-family direction as the
+primary external-backend candidate, but do not implement it while local package
+install/import is absent and forbidden. The branch has reached the
+validator-enforced non-evidence milestone cadence limit, so the next task is
+branch synthesis before any source-only adapter or external backend work.
 
-M2475 did not install, import, or run an external high-fidelity simulator. It
+M2476 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2476: audit external backend dependency, licensing,
-build, import, and API feasibility before implementation. M2476 must preserve
-P0 observation shape `72`, action shape `3`, and diagnostics separation as
-admission criteria. It must not install, import, or run external high-fidelity
-simulation, train, rank controllers, select winners, or make validation/paper
-verdict claims.
+The active next task is M2477: synthesize M2471-M2476 high-fidelity interface
+preparation evidence. M2477 must decide continue, pivot, stop, or promote for
+the branch before any source-only adapter or external backend work. It must not
+install, import, or run external high-fidelity simulation, train, rank
+controllers, select winners, or make validation/paper verdict claims.
 
 ## Latest Evidence
 
@@ -115,6 +114,13 @@ M2475:
   primary direction: open auditable high-fidelity backend route
   fallback direction: source-only four-wheel adapter preflight
   external simulation installed/imported/executed: false
+
+M2476:
+  decision: conditional_external_backend_route_to_branch_synthesis
+  local pychrono/projectchrono package: absent
+  Chrono route: plausible but conditional
+  next route: branch synthesis before source-only adapter preflight
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -123,8 +129,9 @@ Allowed claim:
 
 ```text
 The HF0 interface boundary has checked local contract primitives, a current-sim
-adapter smoke, and a bounded external-backend route design that preserve the
-canonical P0 actor/action contract and keep diagnostics outside actor input.
+adapter smoke, a bounded external-backend route design, and a dependency/API
+audit that preserve the canonical P0 actor/action contract and keep diagnostics
+outside actor input.
 ```
 
 Blocked claims:
@@ -144,22 +151,22 @@ training repair success
 
 ## Immediate Next Step
 
-M2476 should audit external backend dependency/API feasibility from:
+M2477 should synthesize the high-fidelity interface preparation branch from:
 
 ```text
-docs/post-m2470-route-plan.md
+docs/m2471-current-sim-readiness-route-synthesis.md
 docs/m2472-high-fidelity-interface-hf0-design.md
 docs/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.md
-runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json
 docs/m2474-high-fidelity-interface-current-sim-adapter-smoke.md
-runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json
 docs/m2475-high-fidelity-interface-external-backend-route-design.md
+docs/m2476-high-fidelity-interface-external-backend-dependency-api-audit.md
 ```
 
-The audit must answer dependency, licensing, build, import, and API feasibility
-for the selected external backend route and register either a bounded external
-adapter scaffold/preflight or source-only fallback. It must not install, import,
-or run external high-fidelity simulation, execute policy rollout, train, replay,
-use PPO, rank controllers, select a winner, or claim high-fidelity validation,
+The synthesis must answer evidence summary, supported claims, falsified claims,
+failure taxonomy, public-gate overfit risk, and next branch decision. If it
+continues, it should explicitly justify source-only four-wheel adapter
+preflight or another bounded follow-up. It must not install, import, or run
+external high-fidelity simulation, execute policy rollout, train, replay, use
+PPO, rank controllers, select a winner, or claim high-fidelity validation,
 current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
 level-3 self-identification.
