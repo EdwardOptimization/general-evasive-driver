@@ -46286,3 +46286,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json`
 - next: `m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit`
+
+## M2549 Engineering Controller Route A Baseline HF0 Parity And Runtime Materialization Result Audit
+
+- status: completed
+- decision: `accept_route_a_hf0_parity_runtime_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json`
+- audit doc: `docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md`
+- audited summary: `runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json`
+- accepted materialization: M2548 `status_pass=true`, result class `engineering_controller_route_a_hf0_parity_runtime_materialization_pass`
+- parity/action audit: `5` HF0 P0 parity checks pass, `7` action mapping checks pass, no hidden/oracle actor input detected
+- runtime audit: `270` actor inference cost rows, `3` policy checkpoints admitted, P0 `72/3`, `human_view_online_gru`, action sequence horizon `1`
+- gate audit: `8` materialization gates pass, source artifacts exist
+- claim boundary: no external simulation, policy rollout, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.json`
+- next: `m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis`

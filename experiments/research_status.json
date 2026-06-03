@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2554,
+    "completed": 2555,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight",
+    "task_id": "m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
-    "command_log": "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json"
+    "run_dir": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md",
+    "command_log": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit",
+    "id": "m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis",
     "kind": "gate",
-    "priority": 25440,
+    "priority": 25450,
     "status": "pending",
-    "hypothesis": "Audit the M2548 Route A HF0 parity and runtime materialization before any HF0 validation routing or performance interpretation.",
-    "command": "see experiments/manifests/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.json",
-    "success_artifact": "docs/m2549-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-result-audit.md",
-    "notes": "Pending: audit M2548 parity action mapping runtime rows gate matrix and no-claim boundaries verify 5 parity checks 7 action checks 270 runtime rows 8 gates pass 3 policy checkpoints admitted P0 72/3 no external simulation policy rollout training ranking promotion success-rate validation driver-performance or self-ID claims"
+    "hypothesis": "Synthesize accepted M2548/M2549 HF0 parity runtime readiness before choosing the next bounded HF0/HF1 route.",
+    "command": "see experiments/manifests/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.json",
+    "success_artifact": "docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md",
+    "notes": "Pending: synthesize accepted source-level HF0 parity/runtime readiness and choose HF1 parity smoke design HF0 pilot planning artifact repair contract repair runtime repair branch synthesis pivot or stop without external simulation new policy action training ranking promotion success-rate validation driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T185123Z"
+  "updated_at_utc": "20260603T185448Z"
 }
