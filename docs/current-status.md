@@ -16,46 +16,46 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2479-high-fidelity-interface-scenario-taxonomy-mapping-design
+m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2479-high-fidelity-interface-scenario-taxonomy-mapping-design
+m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight
+m2481-high-fidelity-interface-scenario-taxonomy-fixture-design
 ```
 
 Current route:
 
 ```text
-M2479 completed the HF0 scenario taxonomy mapping design across current-sim and
-source-only four-wheel adapter surfaces. It defines stable avoidable, stable
-AES, drift-required recovery, hidden-dynamics robustness, and unavoidable
-mitigation roles as metadata-only taxonomy labels.
+M2480 materialized the HF0 scenario taxonomy mapping across current-sim and
+source-only four-wheel adapter surfaces as a checked surface-role matrix. It
+covers stable avoidable, stable AES, drift-required recovery, hidden-dynamics
+robustness, and unavoidable mitigation roles as metadata-only taxonomy labels.
 ```
 
-The design preserves P0 observation shape `72`, action shape `3`, and the rule
+The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
 that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2479 did not install, import, or run an external high-fidelity simulator. It
+M2480 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2480: materialize the scenario taxonomy mapping as a
-checked surface-role matrix and summary artifact. M2480 must preserve
-observation shape `72`, action shape `3`, and metadata-only role labels. It
-must not install, import, or run external high-fidelity simulation, train, rank
-controllers, select winners, or make validation/paper verdict claims.
+The active next task is M2481: design bounded fixture requirements for the
+limited HF0 scenario taxonomy rows. M2481 must preserve observation shape `72`,
+action shape `3`, and metadata-only role labels. It must not install, import,
+or run external high-fidelity simulation, train, rank controllers, select
+winners, or make validation/paper verdict claims.
 
 ## Latest Evidence
 
@@ -143,6 +143,16 @@ M2479:
   role labels and feasibility classes: metadata only
   next route: materialized surface role matrix
   external simulation installed/imported/executed: false
+
+M2480:
+  result_class: hf0_scenario_taxonomy_mapping_materialization_pass
+  matrix rows: 10
+  surfaces: current_sim_autodrift_hf0 source_only_four_wheel_hf0
+  support statuses: supported 5 limited_fixture 5 blocked 0
+  observation/action shape: 72 / 3
+  role labels and feasibility classes enter actor input: false
+  next route: bounded fixture design for limited rows
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -153,9 +163,9 @@ Allowed claim:
 The HF0 interface boundary has checked local contract primitives, a current-sim
 adapter smoke, a bounded external-backend route design, a dependency/API audit,
 branch synthesis, source-only four-wheel adapter preflight, and scenario
-taxonomy mapping design. These preserve the canonical P0 actor/action contract
-and keep diagnostics outside actor input, but they do not prove driver
-capability.
+taxonomy mapping design/materialization. These preserve the canonical P0
+actor/action contract and keep diagnostics outside actor input, but they do not
+prove driver capability.
 ```
 
 Blocked claims:
@@ -175,7 +185,7 @@ training repair success
 
 ## Immediate Next Step
 
-M2480 should materialize the scenario taxonomy mapping from:
+M2481 should design bounded fixture requirements from:
 
 ```text
 docs/post-m2470-route-plan.md
@@ -184,13 +194,13 @@ docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md
 docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md
 runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json
 docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md
+runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json
+runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv
 ```
 
-The materialization must generate a checked `surface_role_matrix.csv` and
-`summary.json` covering current-sim and source-only four-wheel HF0 surfaces,
-with all rows preserving observation shape `72`, action shape `3`, and
-metadata-only role labels. It must not install, import, or run external
-high-fidelity simulation, execute policy rollout, train, replay, use PPO, rank
-controllers, select a winner, or claim high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The fixture design must cover M2480 limited rows while preserving observation
+shape `72`, action shape `3`, and metadata-only role labels. It must not
+install, import, or run external high-fidelity simulation, execute policy
+rollout, train, replay, use PPO, rank controllers, select a winner, or claim
+high-fidelity validation, current-sim verdict, paper-level evidence,
+finite-window-vs-GRU evidence, or level-3 self-identification.

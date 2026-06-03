@@ -45000,3 +45000,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2479: `false`
 - follow-up manifest: `experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json`
 - next: `m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight`
+
+## M2480 High-Fidelity Interface Scenario Taxonomy Mapping Materialization Preflight
+
+- status: completed
+- result_class: `hf0_scenario_taxonomy_mapping_materialization_pass`
+- manifest: `experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json`
+- doc: `docs/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.md`
+- implementation: `src/autodrift/hf0_scenario_taxonomy_mapping.py`
+- focused tests: `tests/test_hf0_scenario_taxonomy_mapping.py`
+- summary: `runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json`
+- matrix: `runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv`
+- matrix result: `10` rows covering `2` surfaces and `5` role families; support statuses `supported: 5`, `limited_fixture: 5`, `blocked: 0`
+- contract flags: observation shape `72`, action shape `3`, scenario labels enter actor input `false`, feasibility classes enter actor input `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`
+- interpretation: scenario taxonomy mapping materialization only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2480: `false`
+- follow-up manifest: `experiments/manifests/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.json`
+- next: `m2481-high-fidelity-interface-scenario-taxonomy-fixture-design`

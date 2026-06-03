@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2485,
+    "completed": 2486,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2479-high-fidelity-interface-scenario-taxonomy-mapping-design",
+    "task_id": "m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md"
+    "run_dir": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight",
+    "command_log": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight",
+    "id": "m2481-high-fidelity-interface-scenario-taxonomy-fixture-design",
     "kind": "infrastructure",
-    "priority": 24750,
+    "priority": 24760,
     "status": "pending",
-    "hypothesis": "Materialize checked HF0 surface role matrix across current-sim and source-only four-wheel adapter surfaces.",
-    "command": "see experiments/manifests/m2480-high-fidelity-interface-scenario-taxonomy-mapping-materialization-preflight.json",
-    "success_artifact": "runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json",
-    "notes": "Pending: generate surface role matrix preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
+    "hypothesis": "Design bounded fixture requirements for limited HF0 scenario taxonomy rows.",
+    "command": "see experiments/manifests/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.json",
+    "success_artifact": "docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md",
+    "notes": "Pending: design fixture requirements for limited rows preserving obs 72 action 3 labels metadata-only no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T071144Z"
+  "updated_at_utc": "20260603T072126Z"
 }
