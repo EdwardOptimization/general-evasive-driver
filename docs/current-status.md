@@ -16,32 +16,31 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit
+m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit
+m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis
+m2521-engineering-controller-bounded-measured-behavior-panel-preflight
 ```
 
 Current route:
 
 ```text
-M2519 accepts the M2518 evaluator-side source-only outcome event
-instrumentation. The accepted evidence is 12 diagnostic outcome event rows and
-a 40-row metric-gap delta panel under the M2514 protocol and P0 `72/3`
-actor/action contract. It fills 10 of the 12 M2516 unsupported metrics and
-leaves `mitigation_delta_against_reference` and `seed` explicit as still
-unsupported. The active next task is branch synthesis before any measured
-behavior, validation, or another source-only diagnostic artifact.
+M2520 closes the behavior/outcome protocol branch with synthesis decision
+`promote_to_next_branch` and decision `promote_to_bounded_measured_behavior_panel`.
+M2513-M2519 produced accepted protocol schema, row-completeness, and
+evaluator-side event instrumentation, but not measured behavior evidence. The
+active next task is a bounded source-only measured behavior panel preflight
+under the accepted protocol.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -49,15 +48,16 @@ and the rule that scenario labels, feasibility classes, hidden dynamics,
 per-wheel forces, fault scales, TTC, required clearance, reward terms, and
 success labels remain metadata-only.
 
-M2519 did not install, import, or run an external high-fidelity simulator. It
+M2520 did not install, import, or run an external high-fidelity simulator. It
 did not step a simulator, execute new policy actions, run measured validation,
 training, replay, PPO, controller ranking, winner selection, success-rate
 computation, or any driver-performance, paper/FW-vs-GRU/self-ID/current-sim/
 high-fidelity validation verdict.
 
-The active next task is M2520: synthesize the behavior/outcome protocol branch.
-It should decide whether to promote to a bounded measured behavior route,
-repair a specific protocol gap, pivot to validation preparation, or stop.
+The active next task is M2521: run a bounded source-only measured behavior
+panel across the admitted M1154 actor and two open-loop references on the three
+accepted role fixtures, with explicit seed/reference semantics and no ranking
+or verdict claims.
 
 ## Latest Evidence
 
@@ -607,6 +607,17 @@ M2519:
   route: behavior/outcome protocol branch synthesis before measured behavior or validation route
   environment rollout in M2519: false
   external simulation installed/imported/executed: false
+
+M2520:
+  synthesis decision: promote_to_next_branch
+  decision: promote_to_bounded_measured_behavior_panel
+  evidence window: M2513-M2519 behavior/outcome protocol branch
+  accepted evidence: row schema 51 metric registry 40 audit gates 15 layer registry 3 forbidden registry 39 behavior/outcome rows 12 event rows 12 gap delta rows 40 filled unsupported metrics 10 remaining unsupported metrics 2 actor contract 72/3 source-only diagnostic no-ranking false claim flags
+  supported claim: protocol branch is coherent enough to admit bounded source-only measured behavior panel
+  rejected claims: measured behavior verdict performance success-rate ranking winner validation paper FW-vs-GRU self-ID
+  route: bounded source-only measured behavior panel preflight
+  environment rollout in M2520: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -673,8 +684,9 @@ evaluator-side source-only outcome event instrumentation. M2518 materializes
 that instrumentation as 12 diagnostic event rows and a 40-row gap-delta panel,
 filling 10 M2516 unsupported outcome metrics while leaving mitigation reference
 delta and seed unsupported. M2519 audits and accepts that instrumentation, then
-routes to behavior/outcome protocol branch synthesis before any measured
-behavior or validation execution.
+routes to behavior/outcome protocol branch synthesis. M2520 closes that branch
+and promotes to a bounded source-only measured behavior panel because measured
+behavior evidence remains absent.
 ```
 
 Blocked claims:
@@ -694,19 +706,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2520 should synthesize the behavior/outcome protocol branch:
+M2521 should materialize a bounded source-only measured behavior panel:
 
 ```text
-docs/m2519-engineering-controller-source-only-outcome-event-instrumentation-result-audit.md
-docs/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.md
+runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json
+runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_behavior_rows.csv
+runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_event_rows.csv
+runs/m2521_engineering_controller_bounded_measured_behavior_panel/metric_completeness_rows.csv
+docs/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.md
 ```
 
-The synthesis should answer what M2513-M2519 changed, how much process overhead
-remains, whether public/source-only gates are becoming local search, and whether
-the next branch should run bounded measured behavior, repair a specific gap,
-pivot to validation preparation, or stop. It must not install, import, or run
-external high-fidelity simulation, step a simulator, execute new policy action,
-train, replay, use PPO, rank controllers, select a winner, promote a
-checkpoint, compute success-rate verdicts, or claim driver performance,
-high-fidelity validation, current-sim verdict, paper-level evidence,
-finite-window-vs-GRU evidence, or level-3 self-identification.
+The preflight may execute bounded source-only policy actions and open-loop
+reference actions as diagnostic behavior data. It must preserve the `72/3`
+actor/action contract, retain all attempted subject-role rows, record seed
+lineage and mitigation reference semantics, and must not install/import/run
+external high-fidelity simulation, train, replay, use PPO, rank controllers,
+select a winner, promote a checkpoint, compute success-rate verdicts, or claim
+driver performance, high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

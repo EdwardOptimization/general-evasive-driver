@@ -114,7 +114,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2519 accepted source-only outcome event instrumentation after M2513-M2519 behavior/outcome protocol branch milestones",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -226,5 +226,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2520 passes if it synthesizes behavior/outcome protocol branch evidence and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
-  "next_blocker": "m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis"
+  "next_blocker": "m2521-engineering-controller-bounded-measured-behavior-panel-preflight"
 }

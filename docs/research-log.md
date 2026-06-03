@@ -45707,3 +45707,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2519: `false`
 - follow-up manifest: `experiments/manifests/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.json`
 - next: `m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis`
+
+## M2520 Engineering Controller Behavior/Outcome Protocol Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_bounded_measured_behavior_panel`
+- manifest: `experiments/manifests/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.json`
+- doc: `docs/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.md`
+- evidence window: M2513-M2519 behavior/outcome protocol design materialization row completeness event instrumentation and audits
+- accepted evidence: protocol row schema `51`, metric registry `40`, audit gates `15`, layer registry `3`, forbidden registry `39`, behavior/outcome rows `12`, event rows `12`, gap delta rows `40`, filled M2516 unsupported metrics `10`, remaining unsupported metrics `2`, actor contract `72/3`, source-only diagnostic no-ranking false claim flags
+- supported claim: protocol branch is coherent enough to admit a bounded source-only measured behavior panel
+- rejected claims: no measured behavior verdict, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: close behavior/outcome protocol branch and promote to bounded measured behavior panel preflight
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2520: `false`
+- follow-up manifest: `experiments/manifests/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.json`
+- next: `m2521-engineering-controller-bounded-measured-behavior-panel-preflight`
