@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2588,
+    "completed": 2589,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis",
+    "task_id": "m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis.md",
-    "command_log": "docs/m2582-engineering-controller-route-a-baseline-hf3-validation-admission-result-synthesis.md"
+    "run_dir": "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md",
+    "command_log": "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md"
   },
   "next_task": {
-    "id": "m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design",
+    "id": "m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25780,
+    "priority": 25790,
     "status": "pending",
-    "hypothesis": "Design bounded HF3 validation platform/protocol readiness artifacts after accepted validation-admission materialization synthesis.",
-    "command": "see experiments/manifests/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.json",
-    "success_artifact": "docs/m2583-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-design.md",
-    "notes": "Pending: design platform candidate dependency/import policy validation protocol source-only adapter actor/action guard claim-boundary and gate artifacts without external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Materialize bounded HF3 validation platform/protocol readiness artifacts and gates after M2583 design.",
+    "command": "see experiments/manifests/m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight.json",
+    "success_artifact": "runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json",
+    "notes": "Pending: materialize platform candidate dependency/import policy validation protocol skeleton source-only adapter prerequisite actor/action guard claim-boundary and gate artifacts without platform selection external simulation validation execution validation admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260603T225944Z"
+  "updated_at_utc": "20260603T230823Z"
 }
