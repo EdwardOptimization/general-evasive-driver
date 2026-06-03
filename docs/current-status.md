@@ -16,35 +16,37 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
+m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation
 ```
 
 Latest attempted milestone:
 
 ```text
-m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
-result: completed
+m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation
+result: completed fail-closed
 ```
 
 Current next task:
 
 ```text
-m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation
+m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit
 ```
 
 Current route:
 
 ```text
-M2463 completed the reset-only validation design for the six M2461 concrete
-overlay stable/AES rows. M2464 may instantiate and reset environments for
-exactly `6` targets with expected observation dim `72`, using temporary
-effective env configs under its run directory and a P0 human-view contract base
-(`history_length` `1`, `action_history_mode` `full`,
-`include_privileged_params` `false`, `wheel_observation_mode` `none`,
-`obstacle_relative_velocity_mode` `zero`). It must stop after reset: no env
-step, rollout, policy action, scenario redesign execution, repair, training,
-ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair verdict, or
-current-sim verdict is supported.
+M2464 implemented and ran reset-only validation for the six M2461 concrete
+overlay stable/AES rows. It statically validated all `6` targets, wrote `6`
+temporary effective env configs under its run directory, attempted `6` resets,
+and got `4` reset successes. The three R0 stable-avoidable rows reset
+successfully; two of the three R1 AEB-infeasible stable-AES rows failed obstacle
+scenario sampling. This is reset-readiness evidence only, not driver
+performance or actual-success evidence.
+
+M2465 must audit the M2464 result before any overlay/sampler repair design,
+reset retry, measured rollout, policy action, scenario redesign execution,
+repair, training, ranking, winner selection, paper/FW-vs-GRU/self-ID/
+training-repair verdict, or current-sim verdict route.
 
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six

@@ -1,0 +1,10 @@
+claim_key,claim_value,admissible,reason
+concrete_overlay_reset_only_validation,failed,True,M2464 may claim reset-only validation over the six concrete overlay rows.
+environment_step_or_policy_action,false,True,M2464 stops after reset.
+measured_rollout_started,false,True,No rollout is run.
+scenario_redesign_executed,false,True,M2464 validates existing overlays only.
+repair_training_started,false,True,No repair or training is executed.
+ranking_or_winner,false,True,No ranking or winner is selected.
+actual_success_improvement,blocked,False,Reset-only evidence is not measured controller performance.
+paper_or_self_id_verdict,blocked,False,No controller-family or history-necessity verdict is run.
+current_sim_verdict,blocked,False,"M2464 is a reset preflight, not a current-sim verdict."

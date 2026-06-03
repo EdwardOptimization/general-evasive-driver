@@ -1,0 +1,3 @@
+reset_target_id,preflight_id,source_candidate_id,candidate_group,failure_type,failure_reason
+m2464_reset_target_004,m2458_preflight_004,m2455_stable_aes_support_001,stable_aes_support,scenario_sampling_failure,RuntimeError:failed to sample an obstacle scenario matching the configured filters
+m2464_reset_target_006,m2458_preflight_006,m2455_stable_aes_support_003,stable_aes_support,scenario_sampling_failure,RuntimeError:failed to sample an obstacle scenario matching the configured filters

@@ -1,0 +1,5 @@
+decision_key,decision_value,admissible,reason
+reset_only_validation_complete,false,True,Reset-only validation artifacts were written.
+measured_validation_or_repair,blocked_until_m2465_audit,False,M2465 must audit reset evidence before any measured route.
+repair_training_ranking_or_winner_selection,false,True,"No repair, training, ranking, or winner selection is executed."
+next_route,m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit,True,Route both pass and fail outcomes to result audit.

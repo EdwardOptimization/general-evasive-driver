@@ -1,0 +1,20 @@
+guardrail_id,guardrail_class,source_role_or_axis,failure_mode_to_preserve,metric_to_watch,value,violation,reason
+m2464_source_admission_pass,lineage,m2461_summary,lineage_invalid,source_admission_failure_count,0,False,M2464 requires a passing M2461 source with no prior reset execution.
+m2464_exact_six_reset_targets,target_selection,adapter_preflight_work_items,lineage_invalid,target_reset_count,6,False,Exactly six stable/AES concrete-overlay reset targets must be admitted.
+m2464_static_validation_clean,static_validation,static_validation_rows,contract_violation,static_validation_failure_count,0,False,Static validation must pass before environment loading.
+m2464_effective_configs_bounded,effective_config,effective_env_config_rows,lineage_invalid,effective_env_config_outside_run_dir_count,0,False,Effective env config files must stay under the M2464 run directory.
+m2464_effective_config_count,effective_config,effective_env_config_rows,lineage_invalid,effective_env_config_written_count,6,False,One effective env config must be written for each admitted reset target.
+m2464_environment_load_attempt_count,reset,reset_validation_rows,scenario_sampling_failure,environment_load_attempt_count,6,False,Each target must attempt environment load only after static/effective validation passes.
+m2464_environment_reset_attempt_count,reset,reset_validation_rows,scenario_sampling_failure,environment_reset_attempt_count,6,False,Each target must attempt reset exactly once.
+m2464_environment_reset_success_count,reset,reset_validation_rows,scenario_sampling_failure,environment_reset_success_count,4,True,Every target reset must succeed without repair inside M2464.
+m2464_observation_finite,reset,reset_validation_rows,behavior_regression,observation_finite_count,4,False,Every successful reset observation must be finite.
+m2464_observation_dimension_expected,actor_contract,reset_validation_rows,contract_violation,observation_dimension_failure_count,0,False,Successful reset observation length must match the expected human-view dimension.
+m2464_obstacle_initialized,scenario_sampling,reset_validation_rows,behavior_regression,obstacle_initialized_count,4,False,Every successful reset must initialize an obstacle scenario.
+m2464_no_environment_steps,execution_boundary,reset_validation_rows,contract_violation,environment_step_count,0,False,M2464 must not step the environment.
+m2464_no_policy_or_rollout,execution_boundary,summary,contract_violation,policy_or_rollout,0,False,M2464 must not execute policy actions or rollouts.
+m2464_no_active_config_overwrite,execution_boundary,summary,lineage_invalid,active_config_overwrite_count,0,False,M2464 must not overwrite active scenario configs.
+m2464_no_repair_training_replay_promotion,execution_boundary,summary,contract_violation,repair_training_replay_promotion,0,False,"M2464 must not run repair, training, replay, PPO, or promotion."
+m2464_no_private_holdout,execution_boundary,summary,contract_violation,private_holdout_used,False,False,M2464 does not use private holdout data.
+m2464_actor_input_contract_clear,actor_contract,static_validation_rows,contract_violation,actor_input_contract_changed_count,0,False,Labels and actor-input contract flags must remain outside actor input.
+m2464_no_ranking_or_winner,claim_boundary,summary,metric_artifact,ranking_or_winner_count,0,False,M2464 must not rank candidates or select winners.
+m2464_no_verdict_claims,claim_boundary,summary,metric_artifact,verdict_claims,0,False,"M2464 may not claim paper, self-ID, scenario-redesign, training-repair, or current-sim verdicts."

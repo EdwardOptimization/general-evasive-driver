@@ -44739,3 +44739,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2463: `false`
 - follow-up manifest: `experiments/manifests/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.json`
 - next: `m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation`
+
+## M2464 Paper-Route Current-Sim Dual-Axis Scenario-Quality Concrete Overlay Reset Validation Implementation
+
+- status: completed
+- result_class: `scenario_quality_concrete_overlay_reset_validation_fail`
+- manifest: `experiments/manifests/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.json`
+- doc: `docs/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation.py`
+- summary: `runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json`
+- result: `6` reset targets, `6` static passes, `6` effective env configs written inside run dir, `6` reset attempts, `4` reset successes, `2` reset failures, `1` guardrail violation
+- reset failure rows: `m2455_stable_aes_support_001` and `m2455_stable_aes_support_003` failed with `RuntimeError: failed to sample an obstacle scenario matching the configured filters`
+- interpretation: R0 stable-avoidable rows reset successfully; R1 stable-AES overlay/sampler compatibility is not clean and must be audited before any repair or retry
+- reset boundary: environment reset attempted only; `environment_step_count` `0`, policy action/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims `false`
+- follow-up manifest: `experiments/manifests/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.json`
+- next: `m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit`

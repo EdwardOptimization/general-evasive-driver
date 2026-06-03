@@ -1,0 +1,209 @@
+{
+  "id": "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_concrete_overlay_reset_validation_result_audit"
+    ],
+    "parent_dataset": [
+      "docs/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.md",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/static_validation_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_target_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/effective_env_config_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_validation_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_failure_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/guardrail_rows.csv",
+      "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.json"
+    ],
+    "parent_objective": [
+      "audit M2464 reset-only validation before overlay repair, sampler repair, retry, rollout, or verdict route"
+    ],
+    "derived_from": [
+      "m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation",
+      "m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design",
+      "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2464 reset validation failed with 4/6 reset successes",
+      "two stable-AES concrete-overlay targets failed obstacle scenario sampling",
+      "M2464 result must be audited before any overlay/sampler repair, retry, measured rollout, training, ranking, or verdict route"
+    ],
+    "supersedes": [
+      "direct repair after M2464 without result audit",
+      "direct measured rollout from partial reset success",
+      "direct paper/current-sim verdict from reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+  "public_gates": [
+    "M2465 must audit M2464 summary, reset target rows, effective config rows, reset validation rows, reset failures, guardrails, and claim boundary",
+    "M2465 must classify the 4/6 reset result without treating reset-only evidence as driver performance",
+    "M2465 must choose a bounded next route: overlay/sampler repair design, branch synthesis, or stop",
+    "M2465 must not execute reset retries, rollout, policy actions, scenario redesign, repair, training, replay, PPO, ranking, winner selection, or verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset validation",
+    "do not retry failed reset seeds",
+    "do not change concrete overlays",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_concrete_overlay_reset_validation_result_audit",
+    "evidence_increment": "audits M2464 reset-only evidence: six targets statically valid, six effective configs written, six reset attempts, four reset successes, two stable-AES scenario-sampling failures",
+    "claim_scope": "result audit only; no reset retry, rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if the M2464 evidence cannot be classified without rerun",
+      "stop if next route would treat reset-only failure as driver performance",
+      "stop if next route would repair overlays or sampler settings inside the audit",
+      "stop if next route would execute measured rollout before a clean reset-admissibility result"
+    ],
+    "fallback_plan": [
+      "route to bounded R1 stable-AES overlay/sampler repair design if M2464 evidence supports a narrow scenario-sampling blocker",
+      "route to branch synthesis if partial reset success indicates local-search risk",
+      "stop for user review if claim boundaries are ambiguous or violated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2464 produced reset-only failure evidence after bounded reset implementation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "concrete overlay reset-validation result audit",
+    "admission_evidence": [
+      "M2464 result_class scenario_quality_concrete_overlay_reset_validation_fail",
+      "M2464 target_reset_count 6",
+      "M2464 static_validation_pass_count 6",
+      "M2464 effective_env_config_written_count 6",
+      "M2464 environment_reset_attempt_count 6",
+      "M2464 environment_reset_success_count 4",
+      "M2464 guardrail_violation_count 1",
+      "M2464 failure_types_observed scenario_sampling_failure"
+    ],
+    "blocked_shortcuts": [
+      "no reset retry",
+      "no overlay repair inside audit",
+      "no measured rollout",
+      "no policy action",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+      "M2465 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2464 reset-only evidence is accepted or rejected",
+      "the two stable-AES scenario-sampling failures are classified",
+      "a bounded overlay/sampler repair design, branch synthesis, or stop route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2465 audits scenario reset compatibility and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2465; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2464 reset-only validation over M2461 concrete overlays.",
+    "negative_result_policy": "The 4/6 reset result is scenario-sampling evidence only and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "M2464 reset-only result audit",
+      "no actual success improvement, controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2464 reset-only implementation output into a branch decision before repair or measured execution",
+    "paper_verdict_delta": "can admit a narrow reset-readiness repair design or synthesis, but cannot establish driver performance or verdict claims",
+    "must_synthesize_if": [
+      "M2465 cannot select a bounded next route",
+      "M2465 proposes repeated reset retries without design",
+      "M2465 proposes measured rollout from partial reset success",
+      "the scenario-quality discriminant branch reaches cadence again before new reset-admissibility evidence"
+    ]
+  },
+  "hypothesis": "Auditing M2464 can classify the 4/6 reset-only result and choose a bounded next route without reset retry, repair execution, training, ranking, winner selection, or verdict claims.",
+  "success_criteria": [
+    "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md exists",
+    "M2464 summary, reset target rows, effective config rows, reset validation rows, reset failures, guardrails, and claim boundary are audited",
+    "the 4/6 reset result and two stable-AES scenario-sampling failures are classified",
+    "a bounded overlay/sampler repair design, branch synthesis, or stop route is selected",
+    "no reset retry rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2465 reruns reset validation or retries failed seeds",
+    "M2465 changes overlays, sampler settings, or active configs",
+    "M2465 executes environment rollout, policy action, scenario redesign, repair, training, replay, PPO, or private holdout",
+    "M2465 ranks scenario candidates, support policies, controllers, or checkpoints",
+    "M2465 selects a winner",
+    "M2465 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, training-repair, or actual-success claims"
+  ],
+  "commands": [
+    {
+      "name": "audit",
+      "command": "write docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md from M2464 artifacts"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_concrete_overlay_reset_validation_result_audit"
+  ],
+  "baseline_artifacts": [
+    "docs/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.md",
+    "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+    "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2465 passes if it audits M2464 and selects a bounded overlay/sampler repair design, branch synthesis, or stop route without reset retry, rollout, repair execution, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit"
+}
