@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2526,
+    "completed": 2527,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis",
+    "task_id": "m2521-engineering-controller-bounded-measured-behavior-panel-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2520-engineering-controller-behavior-outcome-protocol-branch-synthesis.md"
+    "run_dir": "runs/m2521_engineering_controller_bounded_measured_behavior_panel",
+    "command_log": "runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json"
   },
   "next_task": {
-    "id": "m2521-engineering-controller-bounded-measured-behavior-panel-preflight",
-    "kind": "infrastructure",
-    "priority": 25160,
+    "id": "m2522-engineering-controller-bounded-measured-behavior-panel-result-audit",
+    "kind": "gate",
+    "priority": 25170,
     "status": "pending",
-    "hypothesis": "Run a bounded source-only measured behavior panel under the accepted behavior/outcome protocol without ranking or verdict claims.",
-    "command": "see experiments/manifests/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.json",
-    "success_artifact": "runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json",
-    "notes": "Pending: materialize bounded source-only measured behavior rows for m1154 policy and two open-loop references across three accepted role fixtures with seed/reference semantics no external simulation training ranking winner success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Audit M2521 bounded source-only measured behavior artifacts before broader behavior routing or claim escalation.",
+    "command": "see experiments/manifests/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.json",
+    "success_artifact": "docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md",
+    "notes": "Pending: audit M2521 nine measured behavior rows nine measured event rows forty metric completeness rows nine hundred telemetry rows explicit seeds mitigation reference straight_full_brake_open_loop actor contract 72/3 no ranking winner success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T124022Z"
+  "updated_at_utc": "20260603T130105Z"
 }

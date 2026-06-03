@@ -235,5 +235,5 @@
     "docs/observation-contract.md"
   ],
   "decision_rule": "M2521 passes if it writes bounded source-only measured behavior artifacts across three subjects and three roles while preserving actor/action contracts, explicit seed/reference semantics, all-attempted-row retention, and no success-rate, ranking, promotion, performance, validation, or paper claims.",
-  "next_blocker": "m2521-engineering-controller-bounded-measured-behavior-panel-preflight"
+  "next_blocker": "m2522-engineering-controller-bounded-measured-behavior-panel-result-audit"
 }

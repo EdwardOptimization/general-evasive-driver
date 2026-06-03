@@ -45723,3 +45723,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2520: `false`
 - follow-up manifest: `experiments/manifests/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.json`
 - next: `m2521-engineering-controller-bounded-measured-behavior-panel-preflight`
+
+## M2521 Engineering Controller Bounded Measured Behavior Panel Preflight
+
+- status: completed
+- result_class: `engineering_controller_bounded_measured_behavior_panel_preflight_pass`
+- manifest: `experiments/manifests/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.json`
+- implementation: `src/autodrift/engineering_controller_bounded_measured_behavior_panel.py`
+- doc: `docs/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.md`
+- summary: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json`
+- measured behavior rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_behavior_rows.csv`
+- measured event rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_event_rows.csv`
+- metric completeness rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/metric_completeness_rows.csv`
+- row counts: telemetry `900`, measured behavior `9`, measured events `9`, metric completeness `40`
+- subject-role matrix: `m1154_policy_actor`, `coast_open_loop`, and `straight_full_brake_open_loop` across `stable_aes`, `drift_required_recovery`, and `unavoidable_mitigation`
+- accepted gates: status_pass true, required artifacts present, source artifacts exist, missing source artifacts `[]`, all attempted subject-role rows retained, actor contract `72/3`, all actions finite and within bounds, all backend statuses running, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, seed lineage explicit, mitigation reference subject `straight_full_brake_open_loop`, all 40 registered metrics supported with no missing row values
+- accepted scope: bounded source-only measured behavior panel preflight only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: audit M2521 measured behavior artifacts before any broader behavior route or claim escalation
+- external high-fidelity simulation install/import/execution in M2521: `false`
+- source-only backend step/policy action/policy rollout/open-loop action execution in M2521: `true`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2521: `false`
+- follow-up manifest: `experiments/manifests/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.json`
+- next: `m2522-engineering-controller-bounded-measured-behavior-panel-result-audit`
