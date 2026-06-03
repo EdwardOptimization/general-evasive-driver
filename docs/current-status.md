@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2531-engineering-controller-failure-surface-guarded-repair-execution-design
+m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2531-engineering-controller-failure-surface-guarded-repair-execution-design
+m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight
+m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
 ```
 
 Current route:
@@ -58,6 +58,11 @@ M2530 audits and accepts that negative no-update smoke, then routes away from
 config-only/no-update artifacts toward guarded repair execution design.
 M2531 designs that guarded repair execution and registers M2532 as the next
 behavior-changing closed-loop repair evidence milestone.
+M2532 executes that guarded source-only repair, writes a repaired checkpoint
+under its run directory, and records partial protected proof evidence:
+road-boundary and command-conflict proof pass, while mitigation proof still
+fails on one regressed mitigation row. M2533 must audit this partial result
+before any further repair, generalization, or promotion interpretation.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -850,6 +855,26 @@ M2531:
   rollback boundary: source checkpoint unchanged M2528 candidate config unchanged active configs unchanged no promotion metadata
   route: guarded source-only repair execution preflight
   boundary: no policy action training ranking winner promotion success-rate verdict validation or driver-performance claims in M2531 design
+
+M2532:
+  result: engineering_controller_failure_surface_guarded_repair_execution_pass
+  outcome: post_repair_partial_or_negative_proof_recorded
+  summary: runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json
+  artifacts: repair_training_trace.csv repaired_checkpoint_manifest.json post_repair_smoke_rows.csv protected_gate_evaluation.csv candidate_config_snapshot.json
+  repaired checkpoint: runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt
+  checkpoint behavior changed: true
+  post-repair rows: 45
+  protected rows matched: 45
+  gate evaluation rows: 7
+  passed gates: contract_p0_72_3 no_oracle_actor_inputs road_boundary_proof command_conflict_proof no_ranking_no_success_rate
+  failed proof gates: mitigation_proof
+  deferred gate: fresh_seed_generalization
+  proof detail: road-boundary improved 10/10 command-conflict improved 15/15 mitigation improved 4/5 and regressed 1/5
+  failure classification: behavior_regression proof_washout
+  contract boundary: P0 observation 72 action 3 actor input changed false hidden/oracle inputs required false rule-switching controller modes allowed false
+  rollback boundary: source checkpoint unchanged M2528 candidate config unchanged active configs unchanged no promotion metadata
+  route: guarded repair execution result audit
+  boundary: no ranking winner promotion success-rate verdict validation or driver-performance claims
 ```
 
 ## Current Interpretation Boundary
@@ -962,7 +987,14 @@ that leads directly to new closed-loop behavior evidence or to branch
 synthesis, not another config-only artifact. M2531 writes that design and
 registers M2532 as the next behavior-changing preflight. The design still makes
 no repair-success claim; it only fixes the execution boundary so M2532 can run
-a bounded guarded repair with traceable proof gates and rollback.
+a bounded guarded repair with traceable proof gates and rollback. M2532 runs
+that bounded guarded source-only repair and writes the repaired checkpoint plus
+post-repair evidence. It is progress beyond config-only work: road-boundary
+and command-conflict protected proof gates pass, but mitigation proof still
+fails on one regressed mitigation row, so protected proof is partial and
+fresh/generalization evidence remains deferred. M2532 therefore does not
+support promotion, ranking, success-rate, validation, or driver-performance
+claims; M2533 must audit the partial proof and mitigation regression first.
 ```
 
 Blocked claims:
@@ -982,11 +1014,11 @@ training repair success
 
 ## Immediate Next Step
 
-M2532 should run the guarded repair execution:
+M2533 should audit the partial M2532 guarded repair result:
 
 ```text
-docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md
-experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json
+experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json
+docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repair_training_trace.csv
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repaired_checkpoint_manifest.json
@@ -995,9 +1027,9 @@ runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/prote
 runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/candidate_config_snapshot.json
 ```
 
-The execution may run bounded source-only guarded repair training inside the
-M2532 run directory. It must preserve the `72/3` actor contract, keep hidden
-and oracle fields out of actor input, keep the source checkpoint and M2528
-candidate config immutable, evaluate protected proof gates before any
-generalization, and avoid ranking, winner selection, promotion, success-rate,
-validation, or driver-performance claims.
+The audit must separate M2532 execution success from full protected proof
+success. It should accept or reject the partial result, classify the remaining
+mitigation regression/proof-washout, keep fresh/generalization deferred until
+all protected proof gates pass, and avoid new policy action, training, ranking,
+winner selection, promotion, success-rate, validation, or driver-performance
+claims.

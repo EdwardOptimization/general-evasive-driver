@@ -237,5 +237,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2532 passes if it runs bounded guarded source-only repair execution and writes traceable post-repair artifacts with actor contract preserved, regardless of whether proof gates pass, while explicitly recording proof-gate outcomes and avoiding promotion, ranking, success-rate, validation, or performance claims.",
-  "next_blocker": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight"
+  "next_blocker": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit"
 }

@@ -1,0 +1,29 @@
+{
+  "active_config_overwritten": false,
+  "actor_contract_shape_72_action_3": true,
+  "behavior_changed": true,
+  "candidate_config_mutated": false,
+  "checkpoint_promoted": false,
+  "claim_scope": "guarded source-only repair execution preflight only",
+  "finite_update": true,
+  "forbidden_interpretation": "driver performance, controller ranking, winner selection, success-rate verdict, validation, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID claim",
+  "hidden_or_oracle_actor_inputs_required": false,
+  "manifest_id": "m2532_repaired_checkpoint_manifest_v0",
+  "milestone": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight",
+  "promotion_metadata_written": false,
+  "repair_execution_started": true,
+  "repair_training_started": true,
+  "repaired_checkpoint": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+  "repaired_checkpoint_hash": "f176982523c21dd77668d65e5db18948b3f15914d0b11d1db0ed46172c8b7b4b",
+  "repaired_checkpoint_written": true,
+  "repaired_model_state_hash": "8dbf513bf6646adc238b2f51713521636a659650433ec092c9d10c5046099965",
+  "source_checkpoint": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+  "source_checkpoint_hash": "86b665064e9a1d8d37851d04f39ff30b129552d3debcbf3cc55c85a37d90906b",
+  "source_model_state_hash": "3ce5de933c435946456024974a49f97d22244d5ebfce5f7e2da2ed7dfa705fdc",
+  "trainable_parameter_names": [
+    "actor_mean.bias[1]",
+    "actor_mean.bias[2]"
+  ],
+  "training_observation_count": 15,
+  "update_method": "deterministic_guarded_actor_head_bias_projection"
+}

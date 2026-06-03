@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2537,
+    "completed": 2538,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2531-engineering-controller-failure-surface-guarded-repair-execution-design",
+    "task_id": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md",
-    "command_log": "docs/m2531-engineering-controller-failure-surface-guarded-repair-execution-design.md"
+    "run_dir": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution",
+    "command_log": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json"
   },
   "next_task": {
-    "id": "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight",
-    "kind": "infrastructure",
-    "priority": 25270,
+    "id": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit",
+    "kind": "gate",
+    "priority": 25280,
     "status": "pending",
-    "hypothesis": "Run bounded guarded source-only repair execution and post-repair protected proof smoke from the M2528 candidate config.",
-    "command": "see experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json",
-    "success_artifact": "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json",
-    "notes": "Pending: execute bounded guarded repair and post-repair proof smoke writing training trace repaired checkpoint manifest post_repair_smoke_rows protected_gate_evaluation candidate snapshot no ranking winner promotion success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Audit M2532 partial guarded repair execution before further repair promotion ranking or generalization claim.",
+    "command": "see experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json",
+    "success_artifact": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
+    "notes": "Pending: audit M2532 status_pass true but protected_proof_gates_all_passed false road-boundary and command-conflict proof pass mitigation proof fails one row classify proof_washout no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T151540Z"
+  "updated_at_utc": "20260603T155216Z"
 }

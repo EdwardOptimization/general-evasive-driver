@@ -45951,3 +45951,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json`
 - next: `m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight`
+
+## M2532 Engineering Controller Failure-Surface Guarded Repair Execution Preflight
+
+- status: completed
+- result_class: `engineering_controller_failure_surface_guarded_repair_execution_pass`
+- post_repair_outcome_class: `post_repair_partial_or_negative_proof_recorded`
+- manifest: `experiments/manifests/m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_failure_surface_guarded_repair_execution.py`
+- summary: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json`
+- repair training trace: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repair_training_trace.csv`
+- repaired checkpoint manifest: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/repaired_checkpoint_manifest.json`
+- repaired checkpoint: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt`
+- post-repair smoke rows: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv`
+- protected gate evaluation: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv`
+- candidate config snapshot: `runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/candidate_config_snapshot.json`
+- materialized rows: `45` post-repair smoke rows, `45` protected rows matched, `7` protected gate evaluation rows
+- repaired checkpoint evidence: behavior changed `true`, repaired checkpoint written `true`, source checkpoint unchanged by rollback boundary
+- passed gates: `contract_p0_72_3`, `no_oracle_actor_inputs`, `road_boundary_proof`, `command_conflict_proof`, `no_ranking_no_success_rate`
+- failed proof gates: `mitigation_proof`
+- deferred gates: `fresh_seed_generalization`
+- proof summary: `protected_proof_gates_all_passed` false with `1` proof gate failure; road-boundary and command-conflict proof passed, mitigation proof improved `4/5` rows and regressed `1/5` rows
+- failure classification: `behavior_regression`, `proof_washout`
+- interpretation: M2532 status_pass means the guarded source-only repair execution and artifacts are complete and traceable; it does not mean full proof-gate success or promotion readiness
+- contract boundary: P0 observation `72`, action `3`, actor input changed `false`, hidden/oracle actor inputs required `false`, rule-switching controller modes allowed `false`
+- execution boundary: source-only backend step run `true`, policy action run `true`, open-loop action rollout run `true`, repair training started `true`
+- rollback boundary: repaired checkpoint stays under the M2532 run directory, source checkpoint and M2528 candidate config are not overwritten, checkpoint promotion `false`
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.json`
+- next: `m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit`
