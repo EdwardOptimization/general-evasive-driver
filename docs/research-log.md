@@ -44881,3 +44881,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - high-fidelity simulation/current-sim reset/rollout/policy action/training/replay/PPO/ranking/winner/verdict claims in M2472: `false`
 - follow-up manifest: `experiments/manifests/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.json`
 - next: `m2473-high-fidelity-interface-hf0-contract-implementation-preflight`
+
+## M2473 High-Fidelity Interface HF0 Contract Implementation Preflight
+
+- status: completed
+- result_class: `hf0_contract_preflight_pass`
+- manifest: `experiments/manifests/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.json`
+- doc: `docs/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.md`
+- implementation: `src/autodrift/high_fidelity_interface.py`
+- preflight CLI: `src/autodrift/high_fidelity_interface_preflight.py`
+- focused tests: `tests/test_high_fidelity_interface.py`
+- summary: `runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json`
+- preflight result: reset observation shape `72`, step observation shape `72`, action shape `3`, P0 extractor shape `72`, canonical P0 config `true`, invalid action shape rejected `true`
+- contract flags: actor input changed `false`, action contract changed `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`, diagnostics available to actor `false`
+- diagnostic split: current-sim `info` exposed `29` diagnostic-only keys during the bounded reset/step sample, but `P0ObservationExtractor` consumed only `ActorView`
+- interpretation: HF0 interface implementation/preflight only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- high-fidelity simulation/import/current-sim measured rollout/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2473: `false`
+- follow-up manifest: `experiments/manifests/m2474-high-fidelity-interface-current-sim-adapter-smoke.json`
+- next: `m2474-high-fidelity-interface-current-sim-adapter-smoke`

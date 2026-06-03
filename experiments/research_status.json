@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2478,
+    "completed": 2479,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2472-high-fidelity-interface-hf0-design",
+    "task_id": "m2473-high-fidelity-interface-hf0-contract-implementation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2472-high-fidelity-interface-hf0-design.md"
+    "run_dir": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight",
+    "command_log": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2473-high-fidelity-interface-hf0-contract-implementation-preflight",
+    "id": "m2474-high-fidelity-interface-current-sim-adapter-smoke",
     "kind": "infrastructure",
-    "priority": 24680,
+    "priority": 24690,
     "status": "pending",
-    "hypothesis": "Implement HF0 contract and local current-sim P0 parity preflight without external high-fidelity simulation.",
-    "command": "see experiments/manifests/m2473-high-fidelity-interface-hf0-contract-implementation-preflight.json",
-    "success_artifact": "runs/m2473_high_fidelity_interface_hf0_contract_implementation_preflight/summary.json",
-    "notes": "Pending: implement contract module focused tests and summary proving obs 72 action 3 no hidden/oracle actor leak no external simulation training ranking winner verdict claims"
+    "hypothesis": "Exercise current-sim through the HF0 DynamicsBackend boundary across a bounded seed set without external high-fidelity simulation.",
+    "command": "see experiments/manifests/m2474-high-fidelity-interface-current-sim-adapter-smoke.json",
+    "success_artifact": "runs/m2474_high_fidelity_interface_current_sim_adapter_smoke/summary.json",
+    "notes": "Pending: implement current-sim adapter smoke proving obs 72 action 3 diagnostics separation no external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T060242Z"
+  "updated_at_utc": "20260603T061538Z"
 }

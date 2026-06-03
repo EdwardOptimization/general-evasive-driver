@@ -16,107 +16,58 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2472-high-fidelity-interface-hf0-design
+m2473-high-fidelity-interface-hf0-contract-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2472-high-fidelity-interface-hf0-design
+m2473-high-fidelity-interface-hf0-contract-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2473-high-fidelity-interface-hf0-contract-implementation-preflight
+m2474-high-fidelity-interface-current-sim-adapter-smoke
 ```
 
 Current route:
 
 ```text
-M2472 completed the HF0 high-fidelity interface design selected by the M2471
-pivot. It audits the current surface (`AutoDriftEnv.reset`, `AutoDriftEnv.step`,
-the canonical P0 observation contract, vector env shape checks, and the existing
-source-only four-wheel dynamics module) and designs a narrow internal
-`DynamicsBackend` boundary plus a deterministic `P0ObservationExtractor`. The
-design preserves the canonical P0 human-view/no-oracle `72`-value observation
-frame and the deployed three-dimensional `[steer, throttle, brake]` action
-contract. Hidden physics, labels, oracle feasibility, tire/slip/force details,
-backend solver status, and high-fidelity internals are diagnostics only and
-must not enter actor input.
+M2473 completed the HF0 contract implementation/preflight selected by the M2472
+design. It adds the internal DynamicsBackend data boundary, actor-visible
+ActorView structures, deterministic P0ObservationExtractor, deployed action
+validator/mapping, a focused test file, and a preflight CLI.
+```
 
-M2472 did not run high-fidelity simulation, current-sim reset/rollout, policy
-action, training, replay, PPO, controller ranking, winner selection, or any
-paper/FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict. The
-active next task is M2473: implement the HF0 contract module and a local
-current-sim P0 parity preflight. M2473 must prove by tests and a summary
-artifact that canonical observation shape is `72`, action shape is `3`, actor
-and action contracts are unchanged, hidden/oracle diagnostics do not enter the
-P0 extractor, and no external high-fidelity simulator is required.
+The M2473 summary reports canonical reset observation shape `72`, step
+observation shape `72`, action shape `3`, P0 extractor shape `72`, canonical
+P0 config `true`, invalid action shape rejected `true`, and all contract flags
+false: actor input unchanged, action contract unchanged, hidden values excluded,
+oracle labels excluded, and diagnostics unavailable to actor observation
+extraction.
 
-M2471 completed a process synthesis after the post-M2470 route plan. It
-supersedes direct execution of the old pending static materialization route
-`m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-
-materialization-preflight`. The synthesis decision is `pivot`: freeze
-current-sim as a diagnostic/mining layer, allow at most one later bounded
-reset-readiness attempt only after synthesis approval, and start HF0
-high-fidelity interface preparation now.
+M2473 did not import or run an external high-fidelity simulator. It did not run
+measured validation, policy evaluation, training, replay, PPO, controller
+ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-sim/high-
+fidelity validation verdict. The bounded current-sim reset/step in M2473 is
+only a local shape and parity preflight.
 
-M2471 accepts the M2452-M2470 scenario-readiness lineage as useful workflow and
-task-quality evidence, but not as driver capability evidence. M2468 still has
-`109/120` reset-only successes overall, stable_aes_support remains `14/24`,
-stable-AES failures remain `10/11` total reset failures, and all three stable-
-AES support cells remain partial: broad threshold-free `5/8`, threshold-band
-`3/8`, and low-mu near `6/8`. M2470 remains design-only and did not execute
-reset, rollout, policy action, repair, training, ranking, winner selection, or
-verdict claims. The old M2471 materialization plan would also have been static-
-only, so it is superseded rather than executed.
+The active next task is M2474: exercise current-sim through the HF0
+`DynamicsBackend` boundary across a small bounded seed set. M2474 must preserve
+the P0 `72`-value observation contract, the three-dimensional
+`[steer, throttle, brake]` action contract, and the diagnostics/actor-input
+split. It must not import or require external high-fidelity simulation, train,
+rank controllers, select winners, or make validation/paper verdict claims.
 
-The active next task is M2472: design the HF0 high-fidelity interface boundary.
-M2472 must specify the `DynamicsBackend` reset/step/time contract, P0
-observation extractor parity requirements, `[steer, throttle, brake]` action
-mapping, actuator latency/command-hold semantics, state extraction and hidden/
-oracle exclusion boundary, scenario taxonomy mapping, failure/status taxonomy,
-and artifact/review boundaries. M2472 must not run high-fidelity simulation,
-current-sim reset or rollout, policy action, training, replay, PPO, controller
-ranking, winner selection, paper/FW-vs-GRU/self-ID, current-sim, or validation
-verdict claims.
-
-M2470 completed a design-only stable-AES distribution-support repair contract
-from the M2468/M2469 atlas evidence. It keeps measured readiness blocked and
-does not execute reset, rollout, policy action, repair, training, ranking,
-winner selection, or verdict claims. The design covers all three partial
-stable-AES atlas cells: broad threshold-free `5/8`, threshold-band `3/8`, and
-low-mu near `6/8`, while preserving the M2468 fact that stable_aes_support is
-`14/24` and stable-AES failures account for `10/11` reset failures.
-
-The M2470 support contract defines three static materialization families:
-`R1_AES_balanced_support`, `R1_AES_threshold_band_relief`, and
-`R1_AES_low_mu_reaction_support`. The contract uses only deployable-safe
-environment support levers such as speed range, obstacle distance/lateral/width
-ranges, AEB-infeasible sampling metadata, threshold-score cap, sample attempts,
-and existing randomization buckets as simulator metadata. It explicitly avoids
-the exact fixed M2464 R1 signature, keeps labels and hidden dynamics out of
-actor input, and preserves handling-limit, hidden-dynamics, and mitigation rows
-as guardrails.
-
-The active next task is M2471: materialize the M2470 design into static
-support-contract and overlay rows before any reset-readiness route. M2471 must
-not reset the environment, retry failed seeds, execute policy actions, run
-measured rollout, execute repair, train, rank cells, select winners, or make
-verdict claims. A later audit must decide whether the materialized rows admit
-reset validation, branch synthesis, or stop.
-
-M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
-decision is `continue` only to bounded reset-validation design: M2461's six
-concrete overlay rows resolve the missing-overlay blocker at preflight level,
-but no reset, rollout, policy action, scenario redesign execution, repair,
-training, ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair
-verdict, or current-sim verdict is supported. M2463 must design reset-only
-validation for exactly the six M2461 stable/AES concrete-overlay rows, keep
-geometry/timing, handling-limit, hidden-dynamics, and mitigation guardrails
-static-only, and route to a result audit before any measured rollout.
+M2471 remains the route pivot that froze current-sim as a diagnostic/mining
+layer and started high-fidelity interface preparation instead of another static
+current-sim materialization chain. M2468 still has `109/120` reset-only
+successes overall, stable_aes_support remains `14/24`, stable-AES failures
+remain `10/11` total reset failures, and all three stable-AES support cells
+remain partial: broad threshold-free `5/8`, threshold-band `3/8`, and low-mu
+near `6/8`.
 
 M2461 materialized the M2460 overlays and reran adapter preflight. It produced
 `6` concrete overlays, with `3` `R0_stable_avoidable` rows and `3`
