@@ -46594,3 +46594,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json`
 - next: `m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight`
+
+## M2568 Engineering Controller Route A Baseline HF3 Measured Reset-Feasibility Execution Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_measured_reset_feasibility_execution_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_measured_reset_feasibility_execution.py`
+- summary: `runs/m2568_engineering_controller_route_a_hf3_measured_reset_feasibility_execution/summary.json`
+- doc: `docs/m2568-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-preflight.md`
+- measured reset requests: `2`, stable avoidable/AEB-feasible and stable AES/AEB-infeasible
+- backend probes: `2`, repo-local backend reset allowed and backend step false
+- reset-only executions: `2`, both reset observed with actor view available
+- actor-view contract rows: `2`, P0 `72/3`, no hidden/oracle input, no actor-visible diagnostics or labels
+- reset outcome rows: `2`, reset attempted and actor view available, reset success claim false, validation claim false
+- claim-boundary checks: `8`, only reset execution observed is allowed in M2568; forbidden claims false
+- materialization gates: `9`, all pass
+- guard boundary: repo-local reset only; no external simulator install/import/run no policy action no environment step no rollout no reset success no validation ranking driver-performance or self-ID claim
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit.json`
+- next: `m2569-engineering-controller-route-a-baseline-hf3-measured-reset-feasibility-execution-materialization-result-audit`
