@@ -46206,3 +46206,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no external high-fidelity simulation, new policy action in design, replay, PPO, training, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json`
 - next: `m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight`
+
+## M2544 Engineering Controller Route A Baseline Source-Only Execution Readiness Panel Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_execution_readiness_panel_preflight_pass`
+- manifest: `experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json`
+- summary: `runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json`
+- output dir: `runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel`
+- panel subjects: `5` total, `3` policy checkpoints admitted, `2` open-loop references
+- policy checkpoint subjects: M1154 original, M2532 guarded repair, M2537 mitigation-preserving repair
+- open-loop references: coast open-loop and straight full brake open-loop
+- denominator: `3` roles, `5` fresh seeds per role, `75` measured behavior rows, `75` measured event rows, `40` metric completeness rows, `7500` telemetry rows
+- denominator gaps: `0`, reset count `75`, all attempted subject-role-seed rows retained
+- actor contract: P0 observation shape `72`, action shape `3`, no hidden/oracle actor inputs, all actions finite and within bounds
+- source-only boundary: no external high-fidelity simulation import/install/run; policy and open-loop rollouts are diagnostic source-only rows
+- claim boundary: no training, replay, PPO, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit.json`
+- next: `m2545-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-result-audit`
