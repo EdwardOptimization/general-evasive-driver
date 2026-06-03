@@ -214,5 +214,5 @@
     "runs/m2518_engineering_controller_source_only_outcome_event_instrumentation/summary.json"
   ],
   "decision_rule": "M2522 passes if it audits M2521 measured behavior artifacts and confirms row counts, subject-role coverage, telemetry count, metric completeness, seed lineage, mitigation reference semantics, actor/action contract, no hidden actor inputs, all-attempted-row retention, and false claim flags without external simulation, rollout, new policy action, training, ranking, winner selection, success-rate, or verdict claims.",
-  "next_blocker": "m2522-engineering-controller-bounded-measured-behavior-panel-result-audit"
+  "next_blocker": "m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2521-engineering-controller-bounded-measured-behavior-panel-preflight
+m2522-engineering-controller-bounded-measured-behavior-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2521-engineering-controller-bounded-measured-behavior-panel-preflight
+m2522-engineering-controller-bounded-measured-behavior-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2522-engineering-controller-bounded-measured-behavior-panel-result-audit
+m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight
 ```
 
 Current route:
@@ -38,10 +38,11 @@ Current route:
 M2520 closes the behavior/outcome protocol branch with synthesis decision
 `promote_to_next_branch` and decision `promote_to_bounded_measured_behavior_panel`.
 M2513-M2519 produced accepted protocol schema, row-completeness, and
-evaluator-side event instrumentation, but not measured behavior evidence. The
+evaluator-side event instrumentation, but not measured behavior evidence.
 M2521 materializes the first bounded source-only measured behavior panel under
-the accepted protocol. The active next task is an audit of those M2521 artifacts
-before any broader behavior route or claim escalation.
+the accepted protocol, and M2522 accepts those artifacts as source-only
+diagnostics. The active next task expands the denominator to a fresh source-only
+seed panel before any broader behavior route or claim escalation.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -56,9 +57,13 @@ replay, PPO, controller ranking, winner selection, success-rate computation, or
 any driver-performance, paper/FW-vs-GRU/self-ID/current-sim/high-fidelity
 validation verdict.
 
-The active next task is M2522: audit the M2521 measured behavior artifacts,
-metric completeness, seed/reference semantics, actor contract, and false-claim
-flags before any broader behavior route or claim escalation.
+M2522 did not execute new source-only actions. It audited M2521 artifacts and
+routed to M2523 because one fixed seed per role is too narrow for broader
+interpretation.
+
+The active next task is M2523: materialize a fresh source-only seed measured
+behavior panel over the same accepted role families, preserving the actor
+contract and no-ranking/no-verdict claim boundary.
 
 ## Latest Evidence
 
@@ -643,6 +648,18 @@ M2521:
   external simulation installed/imported/executed in M2521: false
   measured validation training replay PPO ranking winner verdict claims in M2521: false
   route: result audit before broader behavior route or claim escalation
+
+M2522:
+  decision: accept_bounded_measured_behavior_panel_route_to_fresh_seed_panel_preflight
+  audited summary: runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json
+  audited rows: measured behavior 9 measured events 9 metric completeness 40 telemetry 900
+  accepted gates: status_pass true result_class pass all attempted rows retained actor contract 72/3 all actions finite/bounded all metrics supported seed lineage explicit mitigation reference straight_full_brake_open_loop false claim flags
+  diagnostic surface: M1154 avoids collision but leaves road in stable_aes and drift_required_recovery; M1154 collides and leaves road in unavoidable_mitigation
+  accepted scope: source-only measured behavior artifact audit only
+  rejected claims: ranking success-rate performance validation paper FW-vs-GRU self-ID current-sim high-fidelity validation
+  new policy action in M2522: false
+  external simulation installed/imported/executed in M2522: false
+  route: fresh source-only seed measured behavior panel before broader interpretation
 ```
 
 ## Current Interpretation Boundary
@@ -718,7 +735,11 @@ admitted actor and two open-loop references. It creates an engineering
 behavior-evidence substrate for Route A, but it remains source-only diagnostic
 evidence and does not prove driver capability, validation readiness,
 controller ranking, success-rate, paper evidence, finite-window-vs-GRU, or
-self-identification.
+self-identification. M2522 audits and accepts the M2521 artifacts as complete
+for their bounded source-only scope, while explicitly preserving the same
+blocked claims. M2522 also identifies the fixed one-seed-per-role denominator
+as the next limitation and routes to a fresh source-only seed panel before
+broader interpretation.
 ```
 
 Blocked claims:
@@ -738,25 +759,24 @@ training repair success
 
 ## Immediate Next Step
 
-M2522 should audit the bounded source-only measured behavior panel:
+M2523 should materialize a fresh source-only seed measured behavior panel:
 
 ```text
-docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md
-runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json
-runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_behavior_rows.csv
-runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_event_rows.csv
-runs/m2521_engineering_controller_bounded_measured_behavior_panel/metric_completeness_rows.csv
-docs/m2521-engineering-controller-bounded-measured-behavior-panel-preflight.md
+runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/summary.json
+runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/seed_panel_spec.csv
+runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_behavior_rows.csv
+runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/measured_event_rows.csv
+runs/m2523_engineering_controller_source_only_fresh_seed_measured_behavior_panel/metric_completeness_rows.csv
+docs/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.md
 ```
 
-The audit should accept or reject M2521's 900 telemetry rows, 9 measured
-behavior rows, 9 measured event rows, and 40 metric-completeness rows. It must
-verify all-attempted-row retention, `72/3` actor/action contract preservation,
-explicit seed lineage, mitigation reference subject
-`straight_full_brake_open_loop`, metric completeness, and false-claim flags.
-M2522 must not execute new source-only policy actions or open-loop actions,
-install/import/run external high-fidelity simulation, train, replay, use PPO,
-rank controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim driver performance, high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The preflight may execute bounded source-only policy actions and open-loop
+reference actions as diagnostic behavior data. It should cover the accepted
+roles with at least five explicit fresh seeds per role-family slice, preserve
+the `72/3` actor/action contract, keep hidden/oracle diagnostics out of actor
+input, retain all attempted subject-role-seed rows or record denominator gaps,
+and preserve seed/reference semantics. It must not install/import/run external
+high-fidelity simulation, train, replay, use PPO, rank controllers, select a
+winner, promote a checkpoint, compute success-rate verdicts, or claim driver
+performance, high-fidelity validation, current-sim verdict, paper-level
+evidence, finite-window-vs-GRU evidence, or level-3 self-identification.

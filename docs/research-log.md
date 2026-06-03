@@ -45746,3 +45746,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - measured validation/training/replay/PPO/ranking/winner/verdict claims in M2521: `false`
 - follow-up manifest: `experiments/manifests/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.json`
 - next: `m2522-engineering-controller-bounded-measured-behavior-panel-result-audit`
+
+## M2522 Engineering Controller Bounded Measured Behavior Panel Result Audit
+
+- status: completed
+- decision: `accept_bounded_measured_behavior_panel_route_to_fresh_seed_panel_preflight`
+- manifest: `experiments/manifests/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.json`
+- doc: `docs/m2522-engineering-controller-bounded-measured-behavior-panel-result-audit.md`
+- audited summary: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/summary.json`
+- audited measured behavior rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_behavior_rows.csv`
+- audited measured event rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/measured_event_rows.csv`
+- audited metric completeness rows: `runs/m2521_engineering_controller_bounded_measured_behavior_panel/metric_completeness_rows.csv`
+- accepted evidence: M2521 result_class pass, status_pass true, telemetry rows `900`, measured behavior rows `9`, measured event rows `9`, metric completeness rows `40`, all metrics supported with missing row count `0`, all attempted subject-role rows retained, actor contract `72/3`, all actions finite and within bounds, all backend statuses running, seed lineage explicit, mitigation reference subject `straight_full_brake_open_loop`, false claim flags preserved
+- diagnostic behavior surface: M1154 avoids collision but leaves road in `stable_aes` and `drift_required_recovery`; M1154 collides and leaves road in `unavoidable_mitigation`; this is failure-surface evidence only, not ranking or performance
+- accepted scope: bounded source-only measured behavior panel result audit only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: expand the denominator to a fresh source-only seed measured behavior panel before broader interpretation
+- external high-fidelity simulation install/import/execution/environment rollout/simulator step/new policy action in M2522: `false`
+- measured validation/training/replay/PPO/ranking/winner/verdict claims in M2522: `false`
+- follow-up manifest: `experiments/manifests/m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight.json`
+- next: `m2523-engineering-controller-source-only-fresh-seed-measured-behavior-panel-preflight`
