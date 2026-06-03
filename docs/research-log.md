@@ -44834,3 +44834,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset rerun/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2469: `false`
 - follow-up manifest: `experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json`
 - next: `m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design`
+
+## M2470 Paper-Route Current-Sim Dual-Axis Stable-AES Distribution-Support Repair Design
+
+- status: completed
+- decision: `stable_aes_distribution_support_design_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json`
+- doc: `docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md`
+- parent audit: `docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md`
+- design input: M2468 stable_aes_support partial at `14/24`, with broad threshold-free `5/8`, threshold-band `3/8`, low-mu-near `6/8`, and stable-AES accounting for `10/11` reset failures
+- design output: three support-contract families `R1_AES_balanced_support`, `R1_AES_threshold_band_relief`, and `R1_AES_low_mu_reaction_support`, covering all three partial stable-AES atlas cells without exact fixed M2464 R1 signature reuse
+- guardrails: labels and hidden dynamics remain metadata-only; P0 human-view actor contract unchanged; handling-limit, hidden-dynamics, and mitigation groups remain guardrails; no ranking or winner selection
+- interpretation: design-only scenario/task-quality infrastructure, not driver performance, actual-success evidence, self-ID evidence, or current-sim verdict evidence
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2470: `false`
+- follow-up manifest: `experiments/manifests/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.json`
+- next: `m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight`

@@ -1,0 +1,238 @@
+{
+  "id": "m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "seed_fragility",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_stable_aes_distribution_support_materialization_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md",
+      "docs/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.md",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/cell_summary_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/reset_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/reset_failure_rows.csv",
+      "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/guardrail_rows.csv",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.json"
+    ],
+    "parent_objective": [
+      "materialize the M2470 stable-AES distribution-support repair design into static preflight artifacts without reset, rollout, repair execution, training, ranking, or verdict claims"
+    ],
+    "derived_from": [
+      "m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design",
+      "m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit",
+      "m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas"
+    ],
+    "blocked_by": [
+      "M2470 design must be materialized before reset-readiness validation can be admitted",
+      "M2468 stable_aes_support remains partial at 14/24 reset success",
+      "all three stable-AES atlas cells must be covered without fixed-row tuning",
+      "measured rollout remains blocked until materialization and reset-readiness audit"
+    ],
+    "supersedes": [
+      "manual untracked stable-AES overlay edits",
+      "direct reset from M2470 design",
+      "direct measured rollout from M2470 design",
+      "fixed M2464 R1 repair/retry"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.md",
+  "public_gates": [
+    "M2471 must materialize exactly three stable-AES support-contract rows from M2470",
+    "M2471 must cover stable_aes_broad_threshold_free stable_aes_threshold_band and stable_aes_low_mu_near",
+    "M2471 must reject any exact M2464 R1 signature reuse",
+    "M2471 must preserve the P0 human-view actor contract and keep labels and hidden dynamics metadata-only",
+    "M2471 must write guardrail and claim-boundary artifacts before any reset-readiness route",
+    "M2471 must not reset, roll out, execute policy action, execute repair, train, rank rows, select winners, or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset environment",
+    "do not retry failed reset seeds",
+    "do not change overlays based on rerun outcomes",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign as repair",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank atlas cells",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_scenario_distribution_support_atlas",
+    "evidence_axis": "E_stable_aes_distribution_support_materialization_preflight",
+    "evidence_increment": "turns the M2470 stable-AES support design into static materialized contract and overlay artifacts before any reset-readiness validation",
+    "claim_scope": "materialization/preflight only; no reset, rollout, policy action, scenario-redesign execution, repair execution, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if all three stable-AES partial cells are not covered",
+      "stop if any materialized overlay matches the fixed M2464 R1 signature",
+      "stop if labels or hidden dynamics enter actor input",
+      "stop if guardrail or claim-boundary rows are violated",
+      "stop if the next route would execute measured rollout before reset-readiness audit"
+    ],
+    "fallback_plan": [
+      "route to result audit if materialization/preflight passes",
+      "route back to design repair if overlay schema is incomplete",
+      "route to branch synthesis if static materialization cannot preserve boundaries",
+      "stop for user review if claim boundaries are violated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2470 selected materialization/preflight as the bounded next route after stable-AES support design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "stable-AES distribution-support materialization preflight",
+    "admission_evidence": [
+      "M2470 defines exactly three stable-AES support contract families",
+      "M2468 stable_aes_support reset_success_count 14",
+      "M2468 stable_aes_support reset_failure_count 10",
+      "M2468 guardrail_violation_count 0",
+      "M2468 fixed_m2464_r1_reuse_count 0"
+    ],
+    "blocked_shortcuts": [
+      "no reset",
+      "no measured rollout",
+      "no policy action",
+      "no scenario redesign execution",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight.py",
+      "tests/test_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight.py",
+      "docs/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.md",
+      "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/*",
+      "M2471 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the implementation"
+    ],
+    "next_stage_criteria": [
+      "support_contract_rows.csv and stable_aes_overlay_rows.csv exist",
+      "all three stable-AES partial cells are covered",
+      "fixed M2464 R1 reuse count is 0",
+      "guardrail violation count is 0",
+      "bounded result-audit route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2471 materializes scenario-support rows and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2471; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2468 reset-only atlas rows and M2470 support design.",
+    "negative_result_policy": "If materialization fails, classify it as scenario-support infrastructure failure rather than driver failure.",
+    "allowed_claims": [
+      "stable-AES distribution-support materialization/preflight",
+      "bounded next-route decision",
+      "no actual success improvement, controller ranking, candidate ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns design-only stable-AES support ranges into materialized static artifacts that can be audited before reset validation",
+    "paper_verdict_delta": "can admit reset-readiness audit route or force synthesis/stop, but cannot establish driver performance, paper verdict, or self-ID evidence",
+    "must_synthesize_if": [
+      "M2471 fails to cover all stable-AES partial cells",
+      "M2471 reuses the fixed M2464 R1 signature",
+      "another implementation-only route is proposed without result audit",
+      "the next route would execute measured rollout directly"
+    ]
+  },
+  "hypothesis": "Static materialization of the M2470 stable-AES support contract can produce three guardrailed overlay rows covering all partial stable-AES atlas cells without fixed-row reuse, actor-input leakage, reset, repair execution, ranking, or verdict claims.",
+  "success_criteria": [
+    "implementation and focused tests exist",
+    "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/summary.json exists",
+    "support_contract_row_count is 3",
+    "stable_aes_overlay_row_count is 3",
+    "stable_aes_partial_cell_coverage_count is 3",
+    "fixed_m2464_r1_reuse_count is 0",
+    "guardrail_violation_count is 0",
+    "no reset rollout policy-action scenario-redesign execution repair training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2471 resets environment or retries failed seeds",
+    "M2471 executes policy action, rollout, scenario redesign, repair, replay, PPO, or training",
+    "M2471 changes actor inputs or injects hidden/oracle actor features",
+    "M2471 ranks scenario candidates, atlas cells, controllers, support policies, or checkpoints",
+    "M2471 selects a winner",
+    "M2471 makes current-sim, paper, FW-vs-GRU, self-ID, scenario-redesign, training-repair, or actual-success claims"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight.py"
+    },
+    {
+      "name": "run_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight --output-dir runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight --next-blocker m2472-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/support_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2471_paper_route_current_sim_dual_axis_stable_aes_distribution_support_materialization_preflight/stable_aes_overlay_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_stable_aes_distribution_support_materialization_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design.md",
+    "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json",
+    "runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/cell_summary_rows.csv"
+  ],
+  "decision_rule": "M2471 passes if it materializes three stable-AES support-contract rows covering all partial stable-AES atlas cells, rejects fixed M2464 R1 reuse, preserves guardrails, and selects a result-audit route without reset, rollout, repair execution, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight"
+}

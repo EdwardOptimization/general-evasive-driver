@@ -16,46 +16,49 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
+m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
+m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2470-paper-route-current-sim-dual-axis-stable-aes-distribution-support-repair-design
+m2471-paper-route-current-sim-dual-axis-stable-aes-distribution-support-materialization-preflight
 ```
 
 Current route:
 
 ```text
-M2469 audited the M2468 reset-only scenario-distribution support atlas and
-accepted it as clean distribution-level scenario/task-quality evidence. M2468
-generated `15` atlas cells across `5` candidate groups, reused `0` fixed M2464
-R1 overlays, and ran `120` reset-only attempts with `109` successes, `11`
-failures, `0` guardrail violations, `0` environment steps, and no policy
-action, rollout, repair, training, ranking, winner selection, or verdict claims.
+M2470 completed a design-only stable-AES distribution-support repair contract
+from the M2468/M2469 atlas evidence. It keeps measured readiness blocked and
+does not execute reset, rollout, policy action, repair, training, ranking,
+winner selection, or verdict claims. The design covers all three partial
+stable-AES atlas cells: broad threshold-free `5/8`, threshold-band `3/8`, and
+low-mu near `6/8`, while preserving the M2468 fact that stable_aes_support is
+`14/24` and stable-AES failures account for `10/11` reset failures.
 
-The audit keeps measured readiness blocked because stable AES remains the
-primary distribution-support gap: stable_aes_support is `14/24`, and all three
-stable-AES cells are partial (`5/8` broad threshold-free, `3/8`
-threshold-band, `6/8` low-mu-near). Stable feasibility, hidden-dynamics, and
-mitigation groups are full support, while handling-limit is mostly supported at
-`23/24` with only `drift_required_nominal` partial at `7/8`.
+The M2470 support contract defines three static materialization families:
+`R1_AES_balanced_support`, `R1_AES_threshold_band_relief`, and
+`R1_AES_low_mu_reaction_support`. The contract uses only deployable-safe
+environment support levers such as speed range, obstacle distance/lateral/width
+ranges, AEB-infeasible sampling metadata, threshold-score cap, sample attempts,
+and existing randomization buckets as simulator metadata. It explicitly avoids
+the exact fixed M2464 R1 signature, keeps labels and hidden dynamics out of
+actor input, and preserves handling-limit, hidden-dynamics, and mitigation rows
+as guardrails.
 
-The active next task is M2470: design a bounded stable-AES distribution-support
-repair contract from M2468/M2469 artifacts. M2470 must remain design-only and
-must not reset the environment, retry failed seeds, execute policy actions, run
+The active next task is M2471: materialize the M2470 design into static
+support-contract and overlay rows before any reset-readiness route. M2471 must
+not reset the environment, retry failed seeds, execute policy actions, run
 measured rollout, execute repair, train, rank cells, select winners, or make
-verdict claims. If it cannot cover all three partial stable-AES cells without
-fixed-row tuning or actor-input leakage, it must route to branch synthesis or
-stop.
+verdict claims. A later audit must decide whether the materialized rows admit
+reset validation, branch synthesis, or stop.
 
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six
