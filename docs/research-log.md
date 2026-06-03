@@ -46696,3 +46696,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public-gate overfit risk: medium because short-horizon repo-local feasibility rows can be overclaimed as rollout success or validation evidence
 - follow-up manifest: `experiments/manifests/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.json`
 - next: `m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis`
+
+## M2574 Engineering Controller Route A Baseline HF3 Rollout-Feasibility Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_validation_readiness_boundary_design`
+- manifest: `experiments/manifests/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.json`
+- synthesis doc: `docs/m2574-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-result-synthesis.md`
+- parent audit: `docs/m2573-engineering-controller-route-a-baseline-hf3-rollout-feasibility-execution-materialization-result-audit.md`
+- accepted evidence: M2572/M2573 reset/action/step feasibility evidence with 2 rollout requests 1 fixed M1154 policy source 2 rollout plans 16 policy-action rows 16 backend-step rows 18 actor-view rows 9 claim rows and 10 gates pass
+- supported operational claims: reset execution observed and rollout-feasibility execution observed
+- rejected claims: no rollout success validation readiness/result success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: medium because short-horizon repo-local feasibility evidence can be overclaimed as rollout success or validation readiness
+- next route: validation-readiness boundary design only, not validation execution
+- follow-up manifest: `experiments/manifests/m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design.json`
+- next: `m2575-engineering-controller-route-a-baseline-hf3-validation-readiness-boundary-design`
