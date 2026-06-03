@@ -1,0 +1,197 @@
+{
+  "id": "m2487-source-only-closed-loop-fixture-pilot-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_only_closed_loop_fixture_pilot_design"
+    ],
+    "parent_dataset": [
+      "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+      "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "design bounded source-only closed-loop fixture pilot after HF0 interface branch synthesis"
+    ],
+    "derived_from": [
+      "m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis",
+      "m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit",
+      "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight"
+    ],
+    "blocked_by": [
+      "M2484 smoke used canned actions and did not execute deployable policy actions",
+      "HF0 interface preparation is ready enough to require a route back to closed-loop evidence",
+      "the pilot must define actor-source admission and leak checks before implementation"
+    ],
+    "supersedes": [
+      "another HF0 interface catalog milestone after M2486",
+      "direct source-only policy rollout without a bounded pilot design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2487-source-only-closed-loop-fixture-pilot-design.md",
+  "public_gates": [
+    "M2487 must design a bounded closed-loop pilot over the three M2484 admitted source-only fixtures",
+    "M2487 must preserve P0 observation shape 72 and deployed action shape 3",
+    "M2487 must specify the actor source and admission rule before any implementation preflight",
+    "M2487 must keep fixture labels scenario labels feasibility classes hidden values wheel diagnostics oracle labels TTC required clearance reward terms and success or progress labels out of actor input",
+    "M2487 must distinguish closed-loop pilot evidence from high-fidelity validation paper evidence and controller ranking",
+    "M2487 must register a bounded follow-up implementation preflight without training ranking winner selection or verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not execute policy action in the design milestone",
+    "do not run policy rollout in the design milestone",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "source_only_closed_loop_fixture_pilot",
+    "evidence_axis": "closed_loop_pilot_design",
+    "evidence_increment": "designs bounded source-only closed-loop fixture pilot after HF0 interface synthesis",
+    "claim_scope": "closed-loop pilot design only; no external simulation, measured validation, policy action, rollout, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop if the design cannot specify an actor source without changing actor inputs",
+      "stop if the design would use fixture labels or oracle fields as actor inputs",
+      "stop if the implementation route would only repeat canned adapter smoke",
+      "stop if the design claims driver performance or validation before policy action evidence exists"
+    ],
+    "fallback_plan": [
+      "route to actor-source inventory if no deployable same-contract actor can be admitted",
+      "route to source-only pilot implementation preflight if actor admission and leak gates are explicit",
+      "return to current-sim diagnostic mining only if source-only fixtures cannot support bounded closed-loop execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2486 promoted the project from HF0 interface preparation to a source-only closed-loop pilot branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-only closed-loop fixture pilot design",
+    "admission_evidence": [
+      "M2486 branch synthesis promotes to source-only closed-loop pilot route",
+      "M2484 source-only fixture smoke passed interface checks but used canned actions only",
+      "M2482 fixture catalog admits three source-only fixtures for materialization"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no policy action in the design milestone",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
+      "M2487 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "pilot design artifact exists",
+      "actor source and admission rule are explicit",
+      "observation/action and actor-input leak gates are explicit",
+      "bounded follow-up implementation preflight is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2487 is pilot design and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2487; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2484 through M2486 source-only fixture and branch synthesis evidence.",
+    "negative_result_policy": "If no same-contract actor can be admitted, record that blocker and route to actor-source inventory rather than weakening actor input gates.",
+    "allowed_claims": [
+      "source-only closed-loop fixture pilot design",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares first bounded policy-action route after source-only fixture smoke without changing actor inputs",
+    "paper_verdict_delta": "prepares future closed-loop evidence but cannot itself establish paper or validation verdict",
+    "must_synthesize_if": [
+      "the next task is another design or metadata-only milestone",
+      "no admitted same-contract actor source is found",
+      "source-only pilot implementation cannot run policy actions without leaking labels or diagnostics"
+    ]
+  },
+  "hypothesis": "A bounded source-only closed-loop fixture pilot design can move the project from HF0 interface scaffolding back toward deployable policy-action evidence without weakening actor input or claim boundaries.",
+  "success_criteria": [
+    "docs/m2487-source-only-closed-loop-fixture-pilot-design.md exists",
+    "design covers the three M2484 admitted source-only fixtures",
+    "design specifies actor source admission and leak checks",
+    "design preserves observation shape 72 and action shape 3",
+    "design registers a bounded follow-up implementation preflight",
+    "no external high-fidelity simulation install import execution policy action training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2487 installs imports or runs Chrono or another external simulator",
+    "M2487 changes actor input or action contract",
+    "M2487 injects hidden or oracle actor features",
+    "M2487 executes policy action or rollout in the design milestone",
+    "M2487 treats canned smoke actions as policy performance",
+    "M2487 ranks controller families or selects a winner",
+    "M2487 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2487-source-only-closed-loop-fixture-pilot-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_only_closed_loop_fixture_pilot_design"
+  ],
+  "baseline_artifacts": [
+    "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+    "docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+    "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2487 passes if it designs a bounded source-only closed-loop fixture pilot and registers an implementation preflight without external simulation, policy action in the design milestone, training, ranking, or verdict claims.",
+  "next_blocker": "m2487-source-only-closed-loop-fixture-pilot-design"
+}

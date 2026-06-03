@@ -101,7 +101,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2485 accepted executable source-only fixture smoke after the post-M2477 interface branch accumulated multiple infrastructure milestones",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "promote_to_next_branch",
+    "synthesis_artifact": "docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "infrastructure",

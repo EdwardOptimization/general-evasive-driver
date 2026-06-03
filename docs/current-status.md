@@ -16,29 +16,29 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit
+m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit
+m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis
+m2487-source-only-closed-loop-fixture-pilot-design
 ```
 
 Current route:
 
 ```text
-M2485 audited the M2484 source-only fixture smoke result. It accepts the smoke
-as complete interface evidence, rejects any driver-performance or validation
-interpretation, and routes to branch synthesis before another high-fidelity
-interface milestone.
+M2486 closes the high_fidelity_interface_preparation branch as ready-enough
+infrastructure and promotes to a new source_only_closed_loop_fixture_pilot
+branch. The next task is a bounded design gate for a source-only closed-loop
+fixture pilot, not another HF0 interface catalog or static current-sim task.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,16 +46,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2485 did not install, import, or run an external high-fidelity simulator. It
+M2486 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2486: synthesize M2477-M2485 high-fidelity interface
-preparation after source-only fixture smoke. M2486 must decide whether to pivot
-back toward closed-loop driver evidence, run one bounded source-only pilot,
-continue external backend work, freeze HF0 as ready-enough infrastructure, or
-stop the branch.
+The active next task is M2487: design a bounded source-only closed-loop fixture
+pilot over the M2484 admitted fixtures. M2487 must define actor source, rollout
+scope, leak checks, metrics, and follow-up implementation preflight while
+preserving the actor/action contract.
 
 ## Latest Evidence
 
@@ -204,6 +203,14 @@ M2485:
   rejected claims: driver performance policy rollout training ranking winner validation paper FW-vs-GRU self-ID
   route: branch synthesis before another interface milestone
   external simulation installed/imported/executed: false
+
+M2486:
+  synthesis decision: promote_to_next_branch
+  decision: promote_to_source_only_closed_loop_fixture_pilot_branch
+  accepted evidence: HF0 interface branch is ready-enough infrastructure for bounded pilot design
+  rejected claims: driver performance policy rollout training ranking winner validation paper FW-vs-GRU self-ID
+  route: close high_fidelity_interface_preparation and open source_only_closed_loop_fixture_pilot
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -219,7 +226,8 @@ actor/action contract and keep diagnostics outside actor input. M2481 also
 designs fixture admissions for limited rows, and M2482 materializes a checked
 fixture catalog. M2483 designs and M2484 executes a bounded source-only fixture
 smoke protocol. M2485 audits that smoke and explicitly rejects performance
-overclaims. These do not prove driver capability.
+overclaims. M2486 closes the HF0 interface branch and promotes to a bounded
+source-only closed-loop pilot design. These do not prove driver capability.
 ```
 
 Blocked claims:
@@ -239,31 +247,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2486 should synthesize high-fidelity interface preparation from:
+M2487 should design a bounded source-only closed-loop fixture pilot from:
 
 ```text
 docs/post-m2470-route-plan.md
-docs/m2472-high-fidelity-interface-hf0-design.md
-docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md
-docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md
-runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json
-docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md
-runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/summary.json
-runs/m2480_high_fidelity_interface_scenario_taxonomy_mapping_materialization_preflight/surface_role_matrix.csv
-docs/m2481-high-fidelity-interface-scenario-taxonomy-fixture-design.md
-runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json
 runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv
-docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md
 runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json
 runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv
-docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md
 docs/m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit.md
+docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md
 ```
 
-The synthesis must answer evidence summary, supported claims, falsified claims,
-failure taxonomy, public-gate overfit risk, process overhead, and next branch
-decision. It must not install, import, or run external high-fidelity
-simulation, execute policy rollout, train, replay, use PPO, rank controllers,
-select a winner, or claim high-fidelity validation, current-sim verdict,
-paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The design must specify actor source and admission, fixture scope, rollout
+horizon, action clipping, leak checks, metrics, and the exact follow-up
+implementation preflight. It must not install, import, or run external high-
+fidelity simulation, execute policy action in the design milestone, train,
+replay, use PPO, rank controllers, select a winner, or claim high-fidelity
+validation, current-sim verdict, paper-level evidence, finite-window-vs-GRU
+evidence, or level-3 self-identification.

@@ -45097,3 +45097,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2485: `false`
 - follow-up manifest: `experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json`
 - next: `m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis`
+
+## M2486 High-Fidelity Interface Preparation Post-Smoke Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- decision: `promote_to_source_only_closed_loop_fixture_pilot_branch`
+- manifest: `experiments/manifests/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.json`
+- doc: `docs/m2486-high-fidelity-interface-preparation-post-smoke-branch-synthesis.md`
+- parent evidence window: `m2477` through `m2485`
+- accepted evidence: HF0 interface contract preserved, source-only fixture smoke passed on `3` admitted fixtures with `3` resets and `6` bounded canned steps, observation shape `72`, action shape `3`, and actor-label leak flags `false`
+- rejected claims: no driver performance, deployable policy rollout, training, ranking, winner, validation, current-sim verdict, paper, finite-window-vs-GRU, or self-ID evidence
+- route decision: close the `high_fidelity_interface_preparation` branch as ready-enough infrastructure and open a bounded `source_only_closed_loop_fixture_pilot` branch
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2486: `false`
+- follow-up manifest: `experiments/manifests/m2487-source-only-closed-loop-fixture-pilot-design.json`
+- next: `m2487-source-only-closed-loop-fixture-pilot-design`
