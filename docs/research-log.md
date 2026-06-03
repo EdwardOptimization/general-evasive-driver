@@ -45229,3 +45229,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2493: `false`
 - follow-up manifest: `experiments/manifests/m2494-engineering-controller-source-only-role-metric-panel-result-audit.json`
 - next: `m2494-engineering-controller-source-only-role-metric-panel-result-audit`
+
+## M2494 Engineering Controller Source-Only Role Metric Panel Result Audit
+
+- status: completed
+- decision: `accept_panel_path_identical_roles_route_to_fixture_parameterization_design`
+- manifest: `experiments/manifests/m2494-engineering-controller-source-only-role-metric-panel-result-audit.json`
+- doc: `docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md`
+- audited summary: `runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json`
+- audited telemetry rows: `runs/m2493_engineering_controller_source_only_role_metric_panel/telemetry_rows.csv`
+- audited role metric panel: `runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv`
+- accepted evidence: M2493 telemetry infrastructure passes checkpoint admission obs/action `72/3`, actor encoder `human_view_online_gru`, 300 telemetry rows, 3 diagnostic-only role rows, all observation/action/backend/wheel/leak gates pass
+- key audit finding: all role metric values are identical across stable_aes drift_required_recovery and unavoidable_mitigation, so source-only role fixtures are metadata-only for dynamics and cannot support role-specific behavior interpretation yet
+- rejected claims: no role-specific driver performance, equal role capability, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: source-only fixture differentiation blocker routes to role fixture parameterization design before another metric panel or claim escalation
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2494: `false`
+- follow-up manifest: `experiments/manifests/m2495-engineering-controller-source-only-role-fixture-parameterization-design.json`
+- next: `m2495-engineering-controller-source-only-role-fixture-parameterization-design`

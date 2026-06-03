@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2499,
+    "completed": 2500,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2493-engineering-controller-source-only-role-metric-panel",
+    "task_id": "m2494-engineering-controller-source-only-role-metric-panel-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2493_engineering_controller_source_only_role_metric_panel",
-    "command_log": "runs/m2493_engineering_controller_source_only_role_metric_panel/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md"
   },
   "next_task": {
-    "id": "m2494-engineering-controller-source-only-role-metric-panel-result-audit",
-    "kind": "gate",
-    "priority": 24890,
+    "id": "m2495-engineering-controller-source-only-role-fixture-parameterization-design",
+    "kind": "infrastructure",
+    "priority": 24900,
     "status": "pending",
-    "hypothesis": "Audit M2493 role metric panel before fixture differentiation repair or claim escalation.",
-    "command": "see experiments/manifests/m2494-engineering-controller-source-only-role-metric-panel-result-audit.json",
-    "success_artifact": "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
-    "notes": "Pending: audit M2493 telemetry and identical role metrics route to bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Design source-only role fixture parameterization after M2494 identical-role audit.",
+    "command": "see experiments/manifests/m2495-engineering-controller-source-only-role-fixture-parameterization-design.json",
+    "success_artifact": "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md",
+    "notes": "Pending: design role-specific reset road obstacle fault overlays preserving actor contract no policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T085501Z"
+  "updated_at_utc": "20260603T090052Z"
 }
