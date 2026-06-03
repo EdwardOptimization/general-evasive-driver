@@ -46332,3 +46332,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.json`
 - next: `m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight`
+
+## M2552 Engineering Controller Route A Baseline HF1 P0 Parity Smoke Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf1_p0_parity_smoke_materialization_pass`
+- manifest: `experiments/manifests/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf1_p0_parity_smoke_materialization.py`
+- summary: `runs/m2552_engineering_controller_route_a_hf1_p0_parity_smoke_materialization/summary.json`
+- doc: `docs/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.md`
+- actor-visible field parity rows: `7`, P0 coverage `72/72`, all pass
+- observation value-range checks: `5`, all pass
+- action mapping checks: `7`, all pass
+- external-backend boundary checks: `6`, all pass with external package imported/run false
+- diagnostics-exclusion checks: `33`, all pass
+- materialization gates: `8`, all pass
+- actor contract: P0 observation shape `72`, action shape `3`, hidden/oracle actor input detected `false`
+- rejected claims: no external high-fidelity simulation, policy rollout, training, replay, PPO, ranking, winner, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity validation, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit.json`
+- next: `m2553-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-result-audit`
