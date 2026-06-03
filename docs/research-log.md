@@ -45353,3 +45353,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2500: `false`
 - follow-up manifest: `experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json`
 - next: `m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight`
+
+## M2501 Engineering Controller Source-Only Baseline Comparison Implementation Preflight
+
+- status: completed
+- result_class: `engineering_controller_source_only_baseline_comparison_preflight_pass`
+- manifest: `experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json`
+- doc: `docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md`
+- implementation: `src/autodrift/hf0_source_only_baseline_comparison_panel.py`
+- summary: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json`
+- telemetry rows: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv`
+- controller-role metric panel: `runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv`
+- comparison result: 3 subjects (`m1154_policy_actor`, `coast_open_loop`, `straight_full_brake_open_loop`), 3 roles, 9 resets, 900 telemetry rows, 9 role-subject panel rows, horizon `100` per role-subject pair
+- checkpoint admission: obs/action `72/3`, actor encoder `human_view_online_gru`, action sequence horizon `1`
+- reset digest gates: digests match within role across subjects and differ across roles, unique role reset observation digest count `3`
+- row gates: observations `72`, actions `3`, actions finite/bounded, backend statuses all `running`, wheel diagnostic count `4`, diagnostic-only rows
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2501: `false`
+- follow-up manifest: `experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json`
+- next: `m2502-engineering-controller-source-only-baseline-comparison-result-audit`

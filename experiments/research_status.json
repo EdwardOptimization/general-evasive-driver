@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2506,
+    "completed": 2507,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2500-engineering-controller-source-only-baseline-comparison-design",
+    "task_id": "m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2500-engineering-controller-source-only-baseline-comparison-design.md"
+    "run_dir": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight",
+    "command_log": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight",
-    "kind": "infrastructure",
-    "priority": 24960,
+    "id": "m2502-engineering-controller-source-only-baseline-comparison-result-audit",
+    "kind": "gate",
+    "priority": 24970,
     "status": "pending",
-    "hypothesis": "Implement a bounded source-only baseline comparison preflight from M2500 design.",
-    "command": "see experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json",
-    "success_artifact": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
-    "notes": "Pending: produce diagnostic source-only comparison telemetry across policy coast and straight-brake subjects no external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Audit M2501 source-only baseline comparison artifacts before repair synthesis or claim escalation.",
+    "command": "see experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json",
+    "success_artifact": "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md",
+    "notes": "Pending: audit diagnostic comparison telemetry and route bounded follow-up no new policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T094935Z"
+  "updated_at_utc": "20260603T100204Z"
 }

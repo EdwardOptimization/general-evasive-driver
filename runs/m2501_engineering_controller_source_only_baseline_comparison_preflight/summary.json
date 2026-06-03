@@ -1,0 +1,142 @@
+{
+  "action_shape": 3,
+  "all_action_shapes_3": true,
+  "all_actions_finite": true,
+  "all_actions_within_bounds": true,
+  "all_backend_statuses_running": true,
+  "all_diagnostic_wheel_force_counts_4": true,
+  "all_reset_observations_shape_72": true,
+  "all_rows_are_diagnostic_only": true,
+  "all_rows_use_parameterized_fixtures": true,
+  "all_step_observations_shape_72": true,
+  "backend_id": "source_only_four_wheel_hf0",
+  "checkpoint_action_dim": 3,
+  "checkpoint_action_sequence_horizon": 1,
+  "checkpoint_actor_encoder": "human_view_online_gru",
+  "checkpoint_admission_reason": "admitted",
+  "checkpoint_admitted": true,
+  "checkpoint_obs_dim": 72,
+  "checkpoint_path": "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+  "checkpoint_promoted": false,
+  "comparison_subject_count": 3,
+  "comparison_subjects": [
+    "m1154_policy_actor",
+    "coast_open_loop",
+    "straight_full_brake_open_loop"
+  ],
+  "controller_family_verdict_computed": false,
+  "controller_role_metric_panel": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+  "current_sim_verdict_claim_made": false,
+  "diagnostic_only_panel": true,
+  "diagnostics_available_to_actor": false,
+  "driver_performance_claim_made": false,
+  "expected_reset_count": 9,
+  "expected_role_subject_panel_row_count": 9,
+  "expected_telemetry_row_count": 900,
+  "external_high_fidelity_imported": false,
+  "external_high_fidelity_required": false,
+  "feasibility_classes_enter_actor_input": false,
+  "finite_window_vs_gru_claim_made": false,
+  "fixture_count": 3,
+  "fixture_labels_enter_actor_input": false,
+  "generated_at_utc": "20260603T100131Z",
+  "hidden_values_enter_actor_input": false,
+  "high_fidelity_simulation_run": false,
+  "high_fidelity_validation_claim_made": false,
+  "horizon_steps_per_role_subject": 100,
+  "level3_self_id_claim_made": false,
+  "measured_validation_run": false,
+  "milestone": "m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight",
+  "next_blocker": "m2502-engineering-controller-source-only-baseline-comparison-result-audit",
+  "observation_shape": 72,
+  "open_loop_action_rollout_run": true,
+  "open_loop_subjects": [
+    "coast_open_loop",
+    "straight_full_brake_open_loop"
+  ],
+  "oracle_labels_enter_actor_input": false,
+  "panel_rows_are_diagnostic_only": true,
+  "paper_claim_made": false,
+  "parameterized_role_fixtures": true,
+  "policy_action": true,
+  "policy_action_subjects": [
+    "m1154_policy_actor"
+  ],
+  "policy_rollout_run": true,
+  "ppo_run": false,
+  "ranking_run": false,
+  "replay_run": false,
+  "required_clearance_enter_actor_input": false,
+  "reset_count": 9,
+  "reset_observation_shapes": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72
+  ],
+  "result_class": "engineering_controller_source_only_baseline_comparison_preflight_pass",
+  "reward_terms_enter_actor_input": false,
+  "role_count": 3,
+  "role_counts": {
+    "drift_required_recovery": 300,
+    "stable_aes": 300,
+    "unavoidable_mitigation": 300
+  },
+  "role_families": [
+    "stable_aes",
+    "drift_required_recovery",
+    "unavoidable_mitigation"
+  ],
+  "role_reset_digest_sets_by_role": {
+    "drift_required_recovery": [
+      "ca4fed8c6285ef14"
+    ],
+    "stable_aes": [
+      "be74fec0227f041e"
+    ],
+    "unavoidable_mitigation": [
+      "eff1d7f164d537cb"
+    ]
+  },
+  "role_reset_digests_differentiated": true,
+  "role_reset_digests_match_across_subjects": true,
+  "role_reset_observation_digests": {
+    "drift_required_recovery": "ca4fed8c6285ef14",
+    "stable_aes": "be74fec0227f041e",
+    "unavoidable_mitigation": "eff1d7f164d537cb"
+  },
+  "role_subject_counts": {
+    "coast_open_loop:drift_required_recovery": 100,
+    "coast_open_loop:stable_aes": 100,
+    "coast_open_loop:unavoidable_mitigation": 100,
+    "m1154_policy_actor:drift_required_recovery": 100,
+    "m1154_policy_actor:stable_aes": 100,
+    "m1154_policy_actor:unavoidable_mitigation": 100,
+    "straight_full_brake_open_loop:drift_required_recovery": 100,
+    "straight_full_brake_open_loop:stable_aes": 100,
+    "straight_full_brake_open_loop:unavoidable_mitigation": 100
+  },
+  "role_subject_panel_covers_expected": true,
+  "role_subject_panel_row_count": 9,
+  "scenario_labels_enter_actor_input": false,
+  "status_pass": true,
+  "subject_counts": {
+    "coast_open_loop": 300,
+    "m1154_policy_actor": 300,
+    "straight_full_brake_open_loop": 300
+  },
+  "success_labels_enter_actor_input": false,
+  "success_rate_computed": false,
+  "telemetry_row_count": 900,
+  "telemetry_rows": "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv",
+  "training_run": false,
+  "ttc_enter_actor_input": false,
+  "unique_role_reset_observation_digest_count": 3,
+  "verdict_claim_made": false,
+  "winner_selected": false
+}

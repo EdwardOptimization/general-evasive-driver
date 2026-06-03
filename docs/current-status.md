@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2500-engineering-controller-source-only-baseline-comparison-design
+m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2500-engineering-controller-source-only-baseline-comparison-design
+m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight
+m2502-engineering-controller-source-only-baseline-comparison-result-audit
 ```
 
 Current route:
 
 ```text
-M2500 designs a bounded source-only diagnostic comparison protocol across the
-admitted policy actor, coast open-loop, and straight full-brake open-loop
-subjects over the three parameterized role fixtures. The next task is an
-implementation preflight that may write diagnostic telemetry only, not ranking,
-success-rate, winner, performance, validation, or paper evidence.
+M2501 implements the bounded source-only diagnostic comparison protocol across
+the admitted policy actor, coast open-loop, and straight full-brake open-loop
+subjects over the three parameterized role fixtures. It writes 900 telemetry
+rows and 9 role-subject panel rows. The next task must audit those artifacts
+before any repair, synthesis, or claim escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,14 +47,14 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2500 did not install, import, or run an external high-fidelity simulator. It
-did not execute policy actions, measured validation, training, replay, PPO,
-controller ranking, winner selection, success-rate computation, or any paper/
-FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
+M2501 did not install, import, or run an external high-fidelity simulator. It
+did not run measured validation, training, replay, PPO, controller ranking,
+winner selection, success-rate computation, or any paper/FW-vs-GRU/self-ID/
+current-sim/high-fidelity validation verdict.
 
-The active next task is M2501: implement the bounded source-only baseline
-comparison preflight from M2500. It must not train, rank, select a winner,
-compute success-rate verdicts, or claim performance or validation.
+The active next task is M2502: audit the M2501 source-only baseline comparison
+artifacts. It must not execute new policy actions, train, rank, select a
+winner, compute success-rate verdicts, or claim performance or validation.
 
 ## Latest Evidence
 
@@ -354,6 +354,18 @@ M2500:
   route: implementation preflight before result audit
   policy action in M2500: false
   external simulation installed/imported/executed: false
+
+M2501:
+  result_class: engineering_controller_source_only_baseline_comparison_preflight_pass
+  comparison subjects: m1154_policy_actor coast_open_loop straight_full_brake_open_loop
+  roles: stable_aes drift_required_recovery unavoidable_mitigation
+  telemetry rows / role-subject panel rows: 900 / 9
+  checkpoint obs/action/encoder/horizon: 72 / 3 / human_view_online_gru / 1
+  reset digest gates: match within role across subjects and differ across roles
+  row gates: observation 72 action 3 finite bounded running wheel_count_4 diagnostic-only
+  rejected claims: performance validation ranking paper FW-vs-GRU self-ID
+  route: result audit before repair synthesis or claim escalation
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -385,7 +397,9 @@ differentiated fixtures, producing role telemetry that is now interpretable as
 source-only engineering diagnostics but still not performance evidence. M2499
 audits and accepts that boundary, then routes to baseline comparison protocol
 design rather than direct ranking or verdict claims. M2500 defines that
-protocol and keeps the next implementation preflight diagnostic-only.
+protocol and keeps the next implementation preflight diagnostic-only. M2501
+implements the diagnostic comparison artifact but still does not rank
+controllers or prove driver performance.
 ```
 
 Blocked claims:
@@ -405,22 +419,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2501 should implement the bounded source-only baseline comparison preflight from:
+M2502 should audit the bounded source-only baseline comparison preflight from:
 
 ```text
+docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md
+runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json
+runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv
+runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv
 docs/m2500-engineering-controller-source-only-baseline-comparison-design.md
-docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md
-docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-rerun.md
-runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json
-runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/role_metric_panel.csv
-experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json
+experiments/manifests/m2502-engineering-controller-source-only-baseline-comparison-result-audit.json
 ```
 
-The preflight should compare `m1154_policy_actor`, `coast_open_loop`, and
-`straight_full_brake_open_loop` across the three parameterized role fixtures,
-writing 900 telemetry rows and 9 role-subject panel rows if horizon 100 is
-used. It must preserve the actor/input contract and must not install, import,
-or run external high-fidelity simulation, train, replay, use PPO, rank
-controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
-evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
+The audit should verify row counts, reset digest gates, actor/action contract
+gates, diagnostic-only panel rows, and rejected interpretations. It must not
+install, import, or run external high-fidelity simulation, execute new policy
+action, train, replay, use PPO, rank controllers, select a winner, promote a
+checkpoint, compute success-rate verdicts, or claim high-fidelity validation,
+current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
+level-3 self-identification.
