@@ -1,0 +1,43 @@
+{
+  "action_contract_changed": false,
+  "action_shape": 3,
+  "actor_input_contract_changed": false,
+  "backend_id": "source_only_four_wheel_hf0",
+  "backend_statuses": [
+    "running",
+    "running"
+  ],
+  "diagnostic_wheel_force_counts": [
+    4,
+    4
+  ],
+  "diagnostics_available_to_actor": false,
+  "external_high_fidelity_imported": false,
+  "external_high_fidelity_required": false,
+  "fault_scales_diagnostic_only": true,
+  "four_wheel_hidden_diagnostics_present": true,
+  "generated_at_utc": "20260603T070550Z",
+  "hidden_values_enter_actor_input": false,
+  "high_fidelity_simulation_run": false,
+  "measured_validation_run": false,
+  "milestone": "m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight",
+  "next_blocker": "m2479-high-fidelity-interface-scenario-taxonomy-mapping-design",
+  "observation_shape": 72,
+  "oracle_labels_enter_actor_input": false,
+  "p0_extractor_shape": 72,
+  "policy_rollout_run": false,
+  "ranking_run": false,
+  "reset_count": 1,
+  "result_class": "source_only_four_wheel_adapter_preflight_pass",
+  "source_only_model": "FourWheelDriftModel",
+  "status_pass": true,
+  "step_count": 2,
+  "step_observation_shapes": [
+    72,
+    72
+  ],
+  "training_run": false,
+  "verdict_claim_made": false,
+  "wheel_forces_diagnostic_only": true,
+  "winner_selected": false
+}

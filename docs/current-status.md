@@ -16,45 +16,44 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2477-high-fidelity-interface-preparation-branch-synthesis
+m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2477-high-fidelity-interface-preparation-branch-synthesis
+m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight
+m2479-high-fidelity-interface-scenario-taxonomy-mapping-design
 ```
 
 Current route:
 
 ```text
-M2477 completed the high-fidelity interface preparation branch synthesis after
-the validator enforced a non-evidence milestone cadence stop. The synthesis
-continues the branch only to executable source-only four-wheel adapter
-evidence, not to another dependency/design-only milestone.
+M2478 completed the source-only four-wheel adapter preflight selected by M2477
+synthesis. It wraps the repository-local `FourWheelDriftModel` through the HF0
+adapter boundary and keeps four-wheel force/fault diagnostics out of actor
+input.
 ```
 
-The Chrono-family route remains plausible but conditional because the active
-local environment does not have `pychrono` or `projectchrono` installed and
-this branch currently forbids external simulator installation, import, or
-execution. The synthesis therefore routes to source-only `FourWheelDriftModel`
-HF0 adapter preflight as the next bounded executable step.
+The M2478 summary reports reset count `1`, bounded step count `2`, observation
+shape `72`, step observation shapes `72 72`, action shape `3`, and diagnostic
+wheel force counts `4 4`. Actor/action contract flags remain false and wheel
+forces/fault scales are diagnostic-only.
 
-M2477 did not install, import, or run an external high-fidelity simulator. It
+M2478 did not install, import, or run an external high-fidelity simulator. It
 did not run measured validation, policy evaluation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2478: implement the source-only four-wheel model
-through the HF0 adapter boundary. M2478 must preserve P0 observation shape
-`72`, action shape `3`, and diagnostics separation. It must not install,
+The active next task is M2479: design HF0 scenario taxonomy mapping across
+current-sim and source-only four-wheel adapter surfaces. M2479 must keep
+scenario labels and feasibility classes out of actor input and must not install,
 import, or run external high-fidelity simulation, train, rank controllers,
 select winners, or make validation/paper verdict claims.
 
@@ -128,6 +127,15 @@ M2477:
   supported driver/paper evidence: none
   next executable route: source-only FourWheelDriftModel HF0 adapter preflight
   external simulation installed/imported/executed: false
+
+M2478:
+  result_class: source_only_four_wheel_adapter_preflight_pass
+  backend: source_only_four_wheel_hf0
+  model: FourWheelDriftModel
+  reset/step count: 1 / 2
+  observation/action shape: 72 / 3
+  wheel forces and fault scales: diagnostics only
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -137,8 +145,9 @@ Allowed claim:
 ```text
 The HF0 interface boundary has checked local contract primitives, a current-sim
 adapter smoke, a bounded external-backend route design, a dependency/API audit,
-and branch synthesis. These preserve the canonical P0 actor/action contract and
-keep diagnostics outside actor input, but they do not prove driver capability.
+branch synthesis, and source-only four-wheel adapter preflight. These preserve
+the canonical P0 actor/action contract and keep diagnostics outside actor
+input, but they do not prove driver capability.
 ```
 
 Blocked claims:
@@ -158,21 +167,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2478 should implement the source-only four-wheel adapter preflight from:
+M2479 should design scenario taxonomy mapping from:
 
 ```text
+docs/post-m2470-route-plan.md
 docs/m2472-high-fidelity-interface-hf0-design.md
-docs/m2476-high-fidelity-interface-external-backend-dependency-api-audit.md
 docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md
-src/autodrift/four_wheel_dynamics.py
-src/autodrift/high_fidelity_interface.py
+docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md
+runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json
 ```
 
-The preflight must expose only `ActorView` to `P0ObservationExtractor`, return
-observation shape `72`, accept action shape `3`, and keep four-wheel force,
-slip/load-like, fault, and hidden dynamics values in diagnostics only. It must
-not install, import, or run external high-fidelity simulation, execute policy
-rollout beyond bounded adapter smoke steps, train, replay, use PPO, rank
-controllers, select a winner, or claim high-fidelity validation, current-sim
-verdict, paper-level evidence, finite-window-vs-GRU evidence, or level-3
-self-identification.
+The design must map stable avoidable, stable AES, drift-required recovery,
+hidden-dynamics robustness, and unavoidable mitigation roles across HF0 adapter
+surfaces while keeping labels/feasibility classes metadata-only. It must not
+install, import, or run external high-fidelity simulation, execute policy
+rollout, train, replay, use PPO, rank controllers, select a winner, or claim
+high-fidelity validation, current-sim verdict, paper-level evidence,
+finite-window-vs-GRU evidence, or level-3 self-identification.

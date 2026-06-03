@@ -44968,3 +44968,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2477: `false`
 - follow-up manifest: `experiments/manifests/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.json`
 - next: `m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight`
+
+## M2478 High-Fidelity Interface Source-Only Four-Wheel Adapter Preflight
+
+- status: completed
+- result_class: `source_only_four_wheel_adapter_preflight_pass`
+- manifest: `experiments/manifests/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.json`
+- doc: `docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md`
+- implementation: `src/autodrift/four_wheel_hf0_adapter.py`
+- focused tests: `tests/test_four_wheel_hf0_adapter.py`
+- summary: `runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json`
+- preflight result: backend `source_only_four_wheel_hf0`, model `FourWheelDriftModel`, reset count `1`, bounded step count `2`, observation shape `72`, step observation shapes `72 72`, action shape `3`, diagnostic wheel force counts `4 4`
+- contract flags: actor input changed `false`, action contract changed `false`, hidden values enter actor input `false`, oracle labels enter actor input `false`, diagnostics available to actor `false`
+- diagnostic split: four-wheel forces and fault scales are present only as diagnostics and do not enter `ActorView` or `P0ObservationExtractor`
+- interpretation: source-only four-wheel adapter preflight only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2478: `false`
+- follow-up manifest: `experiments/manifests/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.json`
+- next: `m2479-high-fidelity-interface-scenario-taxonomy-mapping-design`

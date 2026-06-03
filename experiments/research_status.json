@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2483,
+    "completed": 2484,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2477-high-fidelity-interface-preparation-branch-synthesis",
+    "task_id": "m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2477-high-fidelity-interface-preparation-branch-synthesis.md"
+    "run_dir": "runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight",
+    "command_log": "runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json"
   },
   "next_task": {
-    "id": "m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight",
+    "id": "m2479-high-fidelity-interface-scenario-taxonomy-mapping-design",
     "kind": "infrastructure",
-    "priority": 24730,
+    "priority": 24740,
     "status": "pending",
-    "hypothesis": "Exercise source-only FourWheelDriftModel through HF0 adapter after branch synthesis.",
-    "command": "see experiments/manifests/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.json",
-    "success_artifact": "runs/m2478_high_fidelity_interface_source_only_four_wheel_adapter_preflight/summary.json",
-    "notes": "Pending: implement source-only four-wheel HF0 adapter preflight obs 72 action 3 diagnostics separated no external simulation training ranking winner verdict claims"
+    "hypothesis": "Design HF0 scenario taxonomy mapping across current-sim and source-only four-wheel adapter surfaces.",
+    "command": "see experiments/manifests/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.json",
+    "success_artifact": "docs/m2479-high-fidelity-interface-scenario-taxonomy-mapping-design.md",
+    "notes": "Pending: map stable avoidable stable AES drift-required hidden-dynamics robustness and mitigation roles without oracle actor inputs no simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T065939Z"
+  "updated_at_utc": "20260603T070602Z"
 }
