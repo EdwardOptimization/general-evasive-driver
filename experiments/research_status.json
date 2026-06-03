@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2539,
+    "completed": 2540,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit",
+    "task_id": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
-    "command_log": "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md"
+    "run_dir": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
+    "command_log": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json"
   },
   "next_task": {
-    "id": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight",
-    "kind": "gate",
-    "priority": 25290,
+    "id": "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design",
+    "kind": "infrastructure",
+    "priority": 25300,
     "status": "pending",
-    "hypothesis": "Localize the single M2532 mitigation regression before another repair attempt or generalization claim.",
-    "command": "see experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json",
-    "success_artifact": "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
-    "notes": "Pending: artifact-only localization of m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302 compare against four improved mitigation rows classify objective/metric/scenario risk no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
+    "hypothesis": "Design a bounded mitigation-preserving repair objective before any second repair execution.",
+    "command": "see experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json",
+    "success_artifact": "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md",
+    "notes": "Pending: design-only mitigation-preserving repair objective from M2534 localization preserving M2532 road-boundary and command-conflict gains preventing mitigation severity regression avoiding seed-only public-gate tuning no new policy action training ranking promotion success-rate verdict validation or driver-performance claims"
   },
-  "updated_at_utc": "20260603T160621Z"
+  "updated_at_utc": "20260603T162653Z"
 }

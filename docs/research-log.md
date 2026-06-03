@@ -46003,3 +46003,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json`
 - next: `m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight`
+
+## M2534 Engineering Controller Failure-Surface Mitigation Regression Localization Preflight
+
+- status: completed
+- result_class: `engineering_controller_failure_surface_mitigation_regression_localization_pass`
+- manifest: `experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_failure_surface_mitigation_regression_localization.py`
+- summary: `runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json`
+- mitigation regression rows: `runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/mitigation_regression_rows.csv`
+- localization findings: `runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/localization_findings.json`
+- source artifacts: M2532 `post_repair_smoke_rows.csv`, `protected_gate_evaluation.csv`, and `summary.json`
+- localization scope: artifact-only reanalysis; no environment step, new policy action, training, replay, PPO, ranking, winner selection, promotion, success-rate, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- mitigation rows: `5` total, `4` improved, `1` regressed
+- regressed row: `m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302`
+- regressed seed: `254302`
+- regressed row metrics: severity delta `+0.674427724901157`, road margin delta `+4.456761035401987`, command conflict delta `-1.0`, collision regressed `false`
+- all mitigation rows road-margin improved: `true`
+- all mitigation rows command-conflict improved: `true`
+- single low-baseline regression: `true`
+- failure classification: `behavior_regression`, `proof_washout`, `objective_overfit`
+- rejected failure classification: metric artifact `false`; scenario sampling is only risk because the panel is five mitigation seeds without fresh generalization
+- gate interpretation: M2532 `road_boundary_proof` and `command_conflict_proof` remain passed; `mitigation_proof` remains failed and must not be washed out by margin/conflict improvements
+- route: design a mitigation-preserving repair objective before another repair execution so the next step preserves road-boundary and command-conflict gains while guarding mitigation severity
+- follow-up manifest: `experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json`
+- next: `m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design`

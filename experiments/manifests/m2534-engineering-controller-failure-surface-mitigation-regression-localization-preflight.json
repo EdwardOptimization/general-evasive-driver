@@ -225,5 +225,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2534 passes if it localizes the M2532 mitigation regression from existing artifacts, classifies the failure without weakening proof gates, and registers a bounded follow-up without new policy actions, external simulation, training, ranking, winner selection, success-rate, promotion, or verdict claims.",
-  "next_blocker": "m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight"
+  "next_blocker": "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design"
 }

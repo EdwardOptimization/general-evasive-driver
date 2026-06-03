@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
+m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit
+m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight
+m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
 ```
 
 Current route:
@@ -61,12 +61,12 @@ behavior-changing closed-loop repair evidence milestone.
 M2532 executes that guarded source-only repair, writes a repaired checkpoint
 under its run directory, and records partial protected proof evidence:
 road-boundary and command-conflict proof pass, while mitigation proof still
-fails on one regressed mitigation row. M2533 must audit this partial result
-before any further repair, generalization, or promotion interpretation.
-M2533 accepts M2532 as valid partial guarded repair evidence, classifies the
-remaining mitigation row as `behavior_regression`/`proof_washout`, and routes
-to mitigation-regression localization before another repair or generalization
-step.
+fails on one regressed mitigation row. M2533 accepts that partial result as
+valid Route A evidence but rejects promotion, generalization, or performance
+interpretation. M2534 localizes the remaining mitigation failure: all five
+mitigation rows improve road margin and command conflict after M2532, but seed
+`254302` has a low-baseline severity regression. M2534 therefore routes to a
+mitigation-preserving repair design before another repair execution.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -131,11 +131,25 @@ repair execution contract with proof-first gates, rollback, failure taxonomy,
 and required artifacts, then routed directly to M2532 for new closed-loop repair
 evidence.
 
-The active next task is M2532: run the bounded guarded source-only repair
-execution and post-repair protected proof smoke from the M2528 candidate config.
-M2532 may train only inside the pre-registered guarded repair scope, and still
-must not rank, select a winner, promote, compute success-rate, or claim
-performance, validation, paper, FW-vs-GRU, self-ID, current-sim, or
+M2532 executed bounded guarded source-only repair training only inside the
+pre-registered scope and did not rank, select a winner, promote, compute
+success-rate, or claim performance, validation, paper, FW-vs-GRU, self-ID,
+current-sim, or high-fidelity verdict evidence.
+
+M2533 did not execute new policy actions or train. It accepted M2532 as partial
+guarded repair evidence and routed to mitigation-regression localization.
+
+M2534 did not execute new policy actions or train. It reanalyzed existing
+M2532 artifacts only, found `4/5` mitigation rows improved and `1/5` regressed
+on severity, classified the remaining issue as `behavior_regression`,
+`proof_washout`, and `objective_overfit`, rejected metric-artifact
+interpretation, and routed to M2535.
+
+The active next task is M2535: write a design-only mitigation-preserving repair
+objective that preserves M2532 road-boundary and command-conflict gains while
+guarding mitigation severity. It must not tune only seed `254302`, execute new
+policy actions, train, rank, select a winner, promote, compute success-rate, or
+claim performance, validation, paper, FW-vs-GRU, self-ID, current-sim, or
 high-fidelity verdict evidence.
 
 ## Latest Evidence
