@@ -46136,3 +46136,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - pivot artifacts to design next: baseline checkpoint list, actor I/O contract, public benchmark pack, known failure taxonomy, runtime/inference-cost report, scenario-role metric report, DynamicsBackend boundary, reset/step API mapping, time-step and actuator-latency contract, state extraction boundary, failure/status taxonomy
 - follow-up manifest: `experiments/manifests/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.json`
 - next: `m2540-engineering-controller-route-a-baseline-and-interface-pivot-design`
+
+## M2540 Engineering Controller Route A Baseline And Interface Pivot Design
+
+- status: completed
+- decision: `route_to_route_a_baseline_and_interface_materialization_preflight`
+- manifest: `experiments/manifests/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.json`
+- design doc: `docs/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.md`
+- parent synthesis: `docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md`
+- branch: `engineering_controller_route_a_baseline_interface_pivot`
+- design scope: Route A baseline/failure taxonomy plus Route C HF0 interface preparation, no new execution
+- baseline checkpoint candidates: M1154 original, M2532 guarded repair, M2537 mitigation-preserving repair; all diagnostic, no winner or promotion
+- actor contract preserved: P0 observation shape `72`, action shape `3`, no hidden/oracle actor input boundary
+- M2541 required artifacts: `summary.json`, `baseline_checkpoint_list.csv`, `actor_io_contract_snapshot.md/json`, `route_a_artifact_map.csv`, `known_failure_taxonomy_extension.csv`, `scenario_role_metric_report_plan.csv`, `hf0_interface_boundary_map.csv`, `hf0_interface_contract.md`, `materialization_gate_plan.md`
+- HF0 scope: interface boundary only; no external high-fidelity simulator install/import/run
+- forbidden claims: no ranking, winner, promotion, success-rate, validation, driver performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json`
+- next: `m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight`
+
+## M2541 Engineering Controller Route A Baseline And Interface Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_baseline_interface_materialization_pass`
+- manifest: `experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json`
+- summary: `runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json`
+- output dir: `runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization`
+- baseline checkpoints: `3`, all exist `true`, all admitted `true`
+- actor contract: observation shape `72`, action shape `3`, no hidden/oracle actor inputs
+- required artifacts present: `true`
+- route A artifact map rows: `9`
+- known failure taxonomy extension rows: `2`
+- scenario-role metric report plan rows: `7`
+- HF0 interface boundary rows: `17`, HF0 sources exist `true`
+- M2537 proof boundary preserved: M2537 `status_pass=true`, `m2537_protected_proof_gates_all_passed=false`
+- claim boundary: no external high-fidelity simulation, new policy action, replay, PPO, training, ranking, winner selection, checkpoint promotion, success-rate verdict, validation, driver-performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit.json`
+- next: `m2542-engineering-controller-route-a-baseline-and-interface-materialization-result-audit`
