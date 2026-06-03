@@ -45508,3 +45508,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2509: `false`
 - follow-up manifest: `experiments/manifests/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.json`
 - next: `m2510-engineering-controller-known-failure-taxonomy-materialization-preflight`
+
+## M2510 Engineering Controller Known Failure Taxonomy Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_known_failure_taxonomy_materialization_pass`
+- manifest: `experiments/manifests/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.json`
+- doc: `docs/m2510-engineering-controller-known-failure-taxonomy-materialization-preflight.md`
+- implementation: `src/autodrift/engineering_controller_failure_taxonomy.py`
+- summary: `runs/m2510_engineering_controller_known_failure_taxonomy/summary.json`
+- taxonomy CSV: `runs/m2510_engineering_controller_known_failure_taxonomy/failure_taxonomy.csv`
+- taxonomy rows: `10`
+- failure categories: baseline_scope behavior_regression deployability_scope diagnostic_behavior_envelope metric_artifact objective_overfit scenario_sampling_failure self_id_evidence_gap validation_boundary
+- severity counts: high `4`, medium `5`, low `1`
+- gates: required fields present, source artifacts exist, missing source artifacts `[]`, actor contract `72/3`, source-only diagnostic scope, false claim flags preserved
+- accepted scope: structured known limitations and route implications only
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/environment rollout/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2510: `false`
+- follow-up manifest: `experiments/manifests/m2511-engineering-controller-known-failure-taxonomy-result-audit.json`
+- next: `m2511-engineering-controller-known-failure-taxonomy-result-audit`
