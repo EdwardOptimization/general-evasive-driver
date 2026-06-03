@@ -46316,3 +46316,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: HF1 P0 parity smoke design with actor-visible field parity rows, P0 value-range/action mapping/diagnostics-exclusion checks, external-backend boundary checks without install/import/run, and M2552 materialization gates
 - follow-up manifest: `experiments/manifests/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.json`
 - next: `m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design`
+
+## M2551 Engineering Controller Route A Baseline HF1 P0 Parity Smoke Design
+
+- status: completed
+- decision: `route_to_hf1_p0_parity_smoke_materialization_preflight`
+- manifest: `experiments/manifests/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.json`
+- design doc: `docs/m2551-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-design.md`
+- parent synthesis: `docs/m2550-engineering-controller-route-a-baseline-hf0-parity-and-runtime-result-synthesis.md`
+- route-plan binding: HF1 P0 parity smoke from `docs/post-m2470-route-plan.md`
+- designed artifacts: M2552 summary actor-visible field parity rows observation value-range checks action mapping parity checks external-backend boundary checks diagnostics exclusion checks and gate matrix
+- actor contract: P0 `72/3` with 5 ego values 7 actuator/previous-command values 16 left-road values 16 right-road values and 28 obstacle-slot values
+- diagnostics boundary: all 33 `DIAGNOSTIC_ONLY_KEYS` remain outside actor input
+- external-backend boundary: adapter checks only; no external simulator install/import/run
+- rejected claims: no high-fidelity validation readiness/result, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight.json`
+- next: `m2552-engineering-controller-route-a-baseline-hf1-p0-parity-smoke-materialization-preflight`
