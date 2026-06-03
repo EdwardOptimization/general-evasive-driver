@@ -44724,3 +44724,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims: `false`
 - follow-up manifest: `experiments/manifests/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.json`
 - next: `m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design`
+
+## M2463 Paper-Route Current-Sim Dual-Axis Scenario-Quality Concrete Overlay Reset Validation Design
+
+- status: completed
+- decision: `concrete_overlay_reset_validation_design_admit_reset_only_implementation`
+- manifest: `experiments/manifests/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.json`
+- doc: `docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md`
+- parent synthesis: `docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md`
+- parent preflight: `runs/m2461_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_materialization_preflight/summary.json`
+- design target: exactly `6` concrete-overlay reset targets, expected_observation_dim `72`, eval_seed_base `246400`
+- implementation boundary: temporary effective env configs under M2464 run dir, base P0 human-view contract plus M2461 overlay JSON, `env.reset` allowed, `env.step` and policy action forbidden
+- pass criteria: reset_success_count `6`, observation_dimension_failure_count `0`, obstacle_initialized_count `6`, environment_step_count `0`, policy_action_executed `false`, guardrail_violation_count `0`
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2463: `false`
+- follow-up manifest: `experiments/manifests/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.json`
+- next: `m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation`

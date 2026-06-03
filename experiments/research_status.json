@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2468,
+    "completed": 2469,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis",
+    "task_id": "m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis.md"
+    "command_log": "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md"
   },
   "next_task": {
-    "id": "m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design",
-    "kind": "gate",
-    "priority": 24580,
+    "id": "m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation",
+    "kind": "infrastructure",
+    "priority": 24590,
     "status": "pending",
-    "hypothesis": "A bounded reset-validation design can test the six M2461 concrete-overlay stable/AES rows while preserving actor-input, no-ranking, and no-verdict claim boundaries.",
-    "command": "see experiments/manifests/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.json",
-    "success_artifact": "docs/m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design.md",
-    "notes": "Pending: design only no reset rollout policy action redesign execution repair training ranking winner verdict claims"
+    "hypothesis": "A bounded validator can statically validate six concrete-overlay reset targets and reset-test temporary effective configs without active config overwrite, environment steps, policy actions, repair execution, ranking, or training-success claims.",
+    "command": "see experiments/manifests/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.json",
+    "success_artifact": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+    "notes": "Pending: reset-only validation no env step rollout policy action redesign execution repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260602T235421Z"
+  "updated_at_utc": "20260603T000347Z"
 }

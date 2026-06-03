@@ -16,25 +16,36 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
+m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2462-paper-route-current-sim-dual-axis-scenario-quality-discriminant-branch-synthesis
+m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2463-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-design
+m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation
 ```
 
 Current route:
 
 ```text
+M2463 completed the reset-only validation design for the six M2461 concrete
+overlay stable/AES rows. M2464 may instantiate and reset environments for
+exactly `6` targets with expected observation dim `72`, using temporary
+effective env configs under its run directory and a P0 human-view contract base
+(`history_length` `1`, `action_history_mode` `full`,
+`include_privileged_params` `false`, `wheel_observation_mode` `none`,
+`obstacle_relative_velocity_mode` `zero`). It must stop after reset: no env
+step, rollout, policy action, scenario redesign execution, repair, training,
+ranking, winner selection, paper/FW-vs-GRU/self-ID/training-repair verdict, or
+current-sim verdict is supported.
+
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six
 concrete overlay rows resolve the missing-overlay blocker at preflight level,
