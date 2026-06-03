@@ -45178,3 +45178,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2490: `false`
 - follow-up manifest: `experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json`
 - next: `m2491-source-only-closed-loop-fixture-pilot-extended-result-audit`
+
+## M2491 Source-Only Closed-Loop Fixture Pilot Extended Result Audit
+
+- status: completed
+- decision: `accept_extended_source_only_policy_action_execution_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json`
+- doc: `docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md`
+- audited summary: `runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json`
+- audited rows: `runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv`
+- audit result: accepts M2490 extended source-only same-contract policy-action execution
+- row audit: rows `300`, roles `100/100/100`, observation shape `72` on every row, action shape `3` on every row, actions finite and within bounds on every row, backend status `running` on every row, wheel diagnostic count `4` on every row
+- accepted claim: admitted same-contract actor can run bounded deterministic policy actions through the three admitted source-only HF0 fixtures for 100 steps per fixture without actor-input leakage or backend path failure
+- rejected claims: no driver performance, success-rate improvement, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2491: `false`
+- follow-up manifest: `experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json`
+- next: `m2492-source-only-closed-loop-fixture-pilot-branch-synthesis`

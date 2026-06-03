@@ -16,29 +16,29 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2490-source-only-closed-loop-fixture-pilot-extended-execution
+m2491-source-only-closed-loop-fixture-pilot-extended-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2490-source-only-closed-loop-fixture-pilot-extended-execution
+m2491-source-only-closed-loop-fixture-pilot-extended-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2491-source-only-closed-loop-fixture-pilot-extended-result-audit
+m2492-source-only-closed-loop-fixture-pilot-branch-synthesis
 ```
 
 Current route:
 
 ```text
-M2490 runs the bounded extended source-only execution accepted by M2489: the
-same admitted actor on the same three fixtures for 100 deterministic
-policy-action steps per fixture, with no performance or validation verdict. The
-next task is a result audit before any route escalation.
+M2491 accepts the M2490 extended source-only execution: 300 deterministic
+policy-action rows over the same three fixtures with observation/action/leak
+gates passing. The next task is branch synthesis before another source-only
+extension or route escalation.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -46,14 +46,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2490 did not install, import, or run an external high-fidelity simulator. It
-did not run measured validation, training, replay, PPO,
+M2491 did not install, import, or run an external high-fidelity simulator. It
+did not run new policy action, measured validation, training, replay, PPO,
 controller ranking, winner selection, or any paper/FW-vs-GRU/self-ID/current-
 sim/high-fidelity validation verdict.
 
-The active next task is M2491: audit the M2490 summary and 300 rollout rows. It
-must not execute new policy actions, train, rank, select a winner, compute
-success-rate verdicts, or claim performance or validation.
+The active next task is M2492: synthesize M2487-M2491 source-only closed-loop
+evidence and choose the next bounded route. It must not execute new policy
+actions, train, rank, select a winner, compute success-rate verdicts, or claim
+performance or validation.
 
 ## Latest Evidence
 
@@ -251,6 +252,15 @@ M2490:
   policy_action and policy_rollout_run: true
   route: extended result audit before route escalation
   external simulation installed/imported/executed: false
+
+M2491:
+  decision: accept_extended_source_only_policy_action_execution_route_to_branch_synthesis
+  audited rows: 300
+  row gates: observation 72 action 3 finite bounded running wheel_count_4
+  accepted scope: extended source-only policy-action execution
+  rejected claims: performance validation ranking paper FW-vs-GRU self-ID
+  route: branch synthesis before another extension or route escalation
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -270,8 +280,8 @@ overclaims. M2486 closes the HF0 interface branch and promotes to a bounded
 source-only closed-loop pilot design. M2487 defines the same-contract actor
 admission and source-only pilot implementation preflight. M2488 runs that
 bounded policy-action path smoke. M2489 audits and accepts it with the same
-claim boundary. M2490 extends it to 100 steps per fixture. These do not prove
-driver capability.
+claim boundary. M2490 extends it to 100 steps per fixture, and M2491 audits and
+accepts those rows. These do not prove driver capability.
 ```
 
 Blocked claims:
@@ -291,19 +301,24 @@ training repair success
 
 ## Immediate Next Step
 
-M2491 should audit the bounded extended source-only closed-loop fixture pilot from:
+M2492 should synthesize the source-only closed-loop fixture pilot branch from:
 
 ```text
+docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md
 runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/summary.json
 runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution/pilot_rollout_rows.csv
 docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md
-runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt
+docs/m2489-source-only-closed-loop-fixture-pilot-result-audit.md
+runs/m2488_source_only_closed_loop_fixture_pilot_preflight/summary.json
+runs/m2488_source_only_closed_loop_fixture_pilot_preflight/pilot_rollout_rows.csv
+docs/post-m2470-route-plan.md
 ```
 
-The audit must verify checkpoint admission, 300-row coverage, observation/action
-shape gates, action finiteness/bounds, backend statuses, wheel diagnostic
-counts, and actor-input leak flags. It must not install, import, or run external
-high-fidelity simulation, execute new policy action, train, replay, use PPO,
-rank controllers, select a winner, promote a checkpoint, compute success-rate
-verdicts, or claim high-fidelity validation, current-sim verdict, paper-level
-evidence, finite-window-vs-GRU evidence, or level-3 self-identification.
+The synthesis must decide whether source-only should continue, pivot to
+engineering-controller evidence, return to external high-fidelity backend work,
+or bridge to paper-route comparison. It must not install, import, or run
+external high-fidelity simulation, execute new policy action, train, replay, use
+PPO, rank controllers, select a winner, promote a checkpoint, compute
+success-rate verdicts, or claim high-fidelity validation, current-sim verdict,
+paper-level evidence, finite-window-vs-GRU evidence, or level-3
+self-identification.

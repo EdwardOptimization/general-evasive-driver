@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2496,
+    "completed": 2497,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2490-source-only-closed-loop-fixture-pilot-extended-execution",
+    "task_id": "m2491-source-only-closed-loop-fixture-pilot-extended-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2490_source_only_closed_loop_fixture_pilot_extended_execution",
-    "command_log": "docs/m2490-source-only-closed-loop-fixture-pilot-extended-execution.md"
+    "run_dir": "docs",
+    "command_log": "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md"
   },
   "next_task": {
-    "id": "m2491-source-only-closed-loop-fixture-pilot-extended-result-audit",
+    "id": "m2492-source-only-closed-loop-fixture-pilot-branch-synthesis",
     "kind": "gate",
-    "priority": 24860,
+    "priority": 24870,
     "status": "pending",
-    "hypothesis": "Audit M2490 extended source-only closed-loop fixture pilot result before route escalation.",
-    "command": "see experiments/manifests/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.json",
-    "success_artifact": "docs/m2491-source-only-closed-loop-fixture-pilot-extended-result-audit.md",
-    "notes": "Pending: audit M2490 summary and 300 rollout rows no new policy action external simulation training ranking winner verdict claims"
+    "hypothesis": "Synthesize source-only closed-loop fixture pilot branch before another extension or route escalation.",
+    "command": "see experiments/manifests/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.json",
+    "success_artifact": "docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md",
+    "notes": "Pending: synthesize M2487-M2491 source-only closed-loop evidence and choose next bounded route no new policy action external simulation training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T083216Z"
+  "updated_at_utc": "20260603T083605Z"
 }
