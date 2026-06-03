@@ -45050,3 +45050,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2482: `false`
 - follow-up manifest: `experiments/manifests/m2483-high-fidelity-interface-source-only-fixture-smoke-design.json`
 - next: `m2483-high-fidelity-interface-source-only-fixture-smoke-design`
+
+## M2483 High-Fidelity Interface Source-Only Fixture Smoke Design
+
+- status: completed
+- decision: `source_only_fixture_smoke_design_route_to_implementation_preflight`
+- manifest: `experiments/manifests/m2483-high-fidelity-interface-source-only-fixture-smoke-design.json`
+- doc: `docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md`
+- parent catalog: `runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv`
+- admitted rows covered: `hf0_four_wheel_stable_aes_fixture`, `hf0_four_wheel_drift_required_recovery_fixture`, `hf0_four_wheel_unavoidable_mitigation_fixture`
+- design decision: use `FourWheelHF0Backend` with one reset and two canned actions per admitted row, treating actions as adapter smoke only and not policy performance
+- contract boundary: observation shape `72`, action shape `3`, actor source `ActorView` only, role/feasibility/fixture labels/hidden dynamics/wheel diagnostics/oracle verdicts metadata-only or diagnostics-only
+- interpretation: source-only fixture smoke design only, not high-fidelity validation, driver performance, current-sim benchmark readiness, paper evidence, finite-window-vs-GRU evidence, or self-ID evidence
+- external high-fidelity simulation install/import/execution/measured validation/policy evaluation/training/replay/PPO/ranking/winner/verdict claims in M2483: `false`
+- follow-up manifest: `experiments/manifests/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.json`
+- next: `m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight`

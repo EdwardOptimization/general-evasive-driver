@@ -1,0 +1,208 @@
+{
+  "id": "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_source_only_fixture_smoke_preflight"
+    ],
+    "parent_dataset": [
+      "docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json",
+      "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+      "docs/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.md",
+      "docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2483-high-fidelity-interface-source-only-fixture-smoke-design.json"
+    ],
+    "parent_objective": [
+      "implement bounded source-only fixture smoke preflight without actor input leakage"
+    ],
+    "derived_from": [
+      "m2483-high-fidelity-interface-source-only-fixture-smoke-design",
+      "m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight",
+      "m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight"
+    ],
+    "blocked_by": [
+      "source-only fixture smoke protocol is designed but not executable",
+      "admitted source-only fixture rows need an adapter smoke before pilot design",
+      "fixture metadata and diagnostic four-wheel state must remain outside actor input"
+    ],
+    "supersedes": [
+      "manual source-only fixture smoke inspection",
+      "direct pilot design without bounded source-only fixture smoke"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
+  "public_gates": [
+    "M2484 must execute a bounded source-only fixture smoke over admitted M2482 source-only rows",
+    "M2484 must preserve P0 observation shape 72 and action shape 3 for every reset and step",
+    "M2484 must keep scenario labels feasibility classes fixture labels hidden dynamics wheel forces and oracle verdicts out of actor input",
+    "M2484 must generate summary JSON and fixture_smoke_rows CSV",
+    "M2484 must not install import or run external high-fidelity simulation",
+    "M2484 must not train rank controllers select winners or make paper self-ID finite-window-vs-GRU current-sim or high-fidelity validation claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not run policy rollout",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "high_fidelity_interface_preparation",
+    "evidence_axis": "source_only_fixture_smoke_preflight",
+    "evidence_increment": "executes bounded source-only fixture smoke for admitted fixture catalog rows",
+    "claim_scope": "source-only fixture smoke preflight only; no external simulation, measured validation, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, self-ID, or validation verdict claim",
+    "stop_condition": [
+      "stop if smoke requires scenario labels or feasibility classes in actor input",
+      "stop if any reset or step observation changes shape 72 or any action changes shape 3",
+      "stop if wheel forces fault scales or model state enter ActorView/P0 input",
+      "stop if the next step would be controller ranking or high-fidelity validation rather than bounded source-only smoke audit or pilot design"
+    ],
+    "fallback_plan": [
+      "repair fixture smoke schema if metadata boundaries are ambiguous",
+      "reduce smoke to stable_avoidable baseline if admitted limited rows cannot be executed without leaking metadata",
+      "route to branch synthesis if smoke cannot produce executable evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2483 selected executable source-only fixture smoke as the bounded next step",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "HF0 source-only fixture smoke implementation preflight",
+    "admission_evidence": [
+      "M2483 designs bounded smoke protocol",
+      "M2482 fixture catalog admits three source-only limited rows",
+      "M2478 proves FourWheelHF0Backend emits P0 observation shape 72"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no measured validation",
+      "no policy rollout",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/hf0_source_only_fixture_smoke.py",
+      "tests/test_hf0_source_only_fixture_smoke.py",
+      "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/*",
+      "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
+      "M2484 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the preflight"
+    ],
+    "next_stage_criteria": [
+      "summary JSON exists",
+      "fixture_smoke_rows CSV exists",
+      "all admitted source-only rows are smoked",
+      "actor/action contracts are preserved",
+      "metadata-only role labels are verified",
+      "bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2484 is source-only fixture smoke and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2484; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2478 through M2483 HF0 interface preparation evidence.",
+    "negative_result_policy": "If fixture smoke cannot keep labels metadata-only, stop or pivot instead of weakening the actor contract.",
+    "allowed_claims": [
+      "HF0 source-only fixture smoke preflight",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds executable source-only fixture smoke evidence after catalog materialization",
+    "paper_verdict_delta": "can prepare validation infrastructure but cannot itself establish paper or high-fidelity evidence",
+    "must_synthesize_if": [
+      "source-only fixture smoke requires oracle actor inputs",
+      "source-only fixture smoke cannot preserve P0 shape 72/action shape 3",
+      "two more high-fidelity interface milestones add no executable backend evidence"
+    ]
+  },
+  "hypothesis": "The admitted source-only fixture rows can be smoke-tested through FourWheelHF0Backend while preserving actor/action contracts and keeping fixture labels diagnostics-only.",
+  "success_criteria": [
+    "src/autodrift/hf0_source_only_fixture_smoke.py exists",
+    "tests/test_hf0_source_only_fixture_smoke.py exists and focused tests pass",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json exists",
+    "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/fixture_smoke_rows.csv exists",
+    "summary reports all admitted source-only fixture rows smoked",
+    "summary reports observation_shape 72 and action_shape 3 preserved for all reset and step observations/actions",
+    "summary reports scenario_labels_enter_actor_input false feasibility_classes_enter_actor_input false and fixture_labels_enter_actor_input false",
+    "no external high-fidelity simulation install import execution training ranking winner or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2484 installs imports or runs Chrono or another external simulator",
+    "M2484 changes actor input or action contract",
+    "M2484 injects hidden or oracle actor features",
+    "M2484 treats canned actions as policy performance",
+    "M2484 ranks controller families or selects a winner",
+    "M2484 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_hf0_source_only_fixture_smoke.py"
+    },
+    {
+      "name": "run_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.hf0_source_only_fixture_smoke --output-dir runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight --next-blocker m2485-high-fidelity-interface-source-only-fixture-smoke-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2484_high_fidelity_interface_source_only_fixture_smoke_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_source_only_fixture_smoke_preflight"
+  ],
+  "baseline_artifacts": [
+    "docs/m2483-high-fidelity-interface-source-only-fixture-smoke-design.md",
+    "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/summary.json",
+    "runs/m2482_high_fidelity_interface_scenario_taxonomy_fixture_materialization_preflight/fixture_catalog.csv",
+    "docs/m2478-high-fidelity-interface-source-only-four-wheel-adapter-preflight.md",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2484 passes if it executes bounded source-only fixture smoke artifacts preserving actor/action contracts and metadata boundaries without external simulation, training, ranking, or verdict claims.",
+  "next_blocker": "m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight"
+}
