@@ -46094,3 +46094,45 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - failure classes: `behavior_regression`, `proof_washout`
 - follow-up manifest: `experiments/manifests/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.json`
 - next: `m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit`
+
+## M2538 Engineering Controller Failure-Surface Mitigation-Preserving Repair Execution Result Audit
+
+- status: completed
+- decision: `accept_partial_mitigation_preserving_repair_evidence_route_to_branch_synthesis`
+- manifest: `experiments/manifests/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.json`
+- audit doc: `docs/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.md`
+- audited summary: `runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/summary.json`
+- audited candidate sweep: `runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/repair_candidate_sweep.csv`
+- audited selected trace: `runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/selected_repair_trace.csv`
+- accepted evidence: M2537 is traceable partial mitigation-preserving repair evidence, not full protected proof
+- status/proof separation: `status_pass=true`, `protected_proof_gates_all_passed=false`
+- selected trace: `m2537_relax_m2532_bias_8`, behavior changed and retained road-boundary/command-conflict gates
+- retained gates: road-boundary proof pass `10/10`, command-conflict proof pass `15/15`
+- failed gate: mitigation proof fail `4/5` improved `1/5` regressed
+- repeated mitigation regression: seed `254302`, max mitigation severity delta `+0.6744265506945788`
+- candidate sweep interpretation: `12` and `16` changed behavior but washed out command-conflict retained proof; `8` was the best traceable behavior-changing retained-gate candidate but still failed mitigation proof
+- failure classes: `behavior_regression`, `proof_washout`
+- rejected explanations: no actor contract violation, lineage invalidity, metric artifact, training instability, ranking, promotion, success-rate, validation, or driver-performance claim
+- route decision: direct public protected-row repair loop should not continue; synthesize/pivot before any new evidence-producing route
+- follow-up manifest: `experiments/manifests/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json`
+- next: `m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis`
+
+## M2539 Engineering Controller Failure-Surface Mitigation-Preserving Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- operational decision: `pivot_to_route_a_baseline_and_interface_preparation`
+- manifest: `experiments/manifests/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json`
+- synthesis doc: `docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md`
+- synthesized window: M2526-M2538 failure-surface intervention design/materialization/config/no-update smoke/guarded repair/audit/localization/mitigation-preserving design/synthesis/execution/audit
+- behavior-changing evidence: M2532 and M2537 wrote finite repaired checkpoints under their own run directories
+- latest proof result: M2537 retained road-boundary proof pass `10/10`, retained command-conflict proof pass `15/15`, mitigation proof fail `4/5` improved `1/5` regressed
+- repeated failure: mitigation severity non-regression remains unresolved after the one M2536-approved mitigation-preserving repair execution
+- public-gate overfit risk: high; continuing the same public protected-row repair loop would likely tune seed `254302`/narrow protected rows rather than create broader driver-like evidence
+- process overhead: high; only M2532 and M2537 changed actor behavior, while surrounding milestones were mostly design/materialization/audit/localization/synthesis
+- supported claim: current branch is useful failure-surface diagnostic evidence and retains two proof surfaces
+- rejected claim: no full protected proof, fresh/generalization, promotion, ranking, validation, driver performance, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID conclusion
+- pivot branch: Route A baseline/failure taxonomy plus Route C HF0 interface preparation
+- pivot artifacts to design next: baseline checkpoint list, actor I/O contract, public benchmark pack, known failure taxonomy, runtime/inference-cost report, scenario-role metric report, DynamicsBackend boundary, reset/step API mapping, time-step and actuator-latency contract, state extraction boundary, failure/status taxonomy
+- follow-up manifest: `experiments/manifests/m2540-engineering-controller-route-a-baseline-and-interface-pivot-design.json`
+- next: `m2540-engineering-controller-route-a-baseline-and-interface-pivot-design`

@@ -1,0 +1,254 @@
+{
+  "id": "m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "training_instability",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.md",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/summary.json",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/repair_candidate_sweep.csv",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/selected_repair_trace.csv",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/protected_gate_evaluation.csv",
+      "docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+      "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md",
+      "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
+      "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json",
+      "runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv",
+      "runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.json",
+      "experiments/manifests/m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight.json",
+      "experiments/manifests/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "synthesize the failure-surface mitigation-preserving repair branch after M2537 used the one bounded execution approved by M2536 and M2538 accepted the repeated mitigation proof failure"
+    ],
+    "derived_from": [
+      "m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit",
+      "m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight",
+      "m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis",
+      "m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design",
+      "m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2537 preserved retained road-boundary and command-conflict proof gates but mitigation_proof still failed",
+      "M2538 accepted M2537 as partial repair evidence and rejected another direct public protected-row repair",
+      "M2536 required synthesis or pivot if M2537 failed mitigation proof or washed out retained gates"
+    ],
+    "supersedes": [
+      "another M2537-style public protected-row repair execution",
+      "fresh/generalization interpretation before protected proof gates all pass",
+      "checkpoint promotion or controller ranking from partial protected proof",
+      "continuing the failure-surface intervention branch without public-gate overfit synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2539 must synthesize M2526-M2538 failure-surface intervention and mitigation-preserving repair evidence after the one approved M2537 execution failed mitigation proof",
+    "M2539 must separate actual behavior-changing evidence from process overhead design audit localization and candidate-sweep bookkeeping",
+    "M2539 must decide whether to pivot stop or route to a broader evidence-expanding branch rather than another public protected-row repair",
+    "M2539 must assess public-gate overfit risk after M2529 no-update smoke M2532 guarded repair M2537 mitigation-preserving repair and M2538 audit",
+    "M2539 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2539 must not run new policy actions train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute new policy actions in the synthesis milestone",
+    "do not train in the synthesis milestone",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not add rule-switching controller modes",
+    "do not continue tuning seed 254302 or the same public protected proof panel",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from branch synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_failure_surface_intervention",
+    "evidence_axis": "failure_surface_mitigation_preserving_repair_branch_synthesis_after_repeated_mitigation_failure",
+    "evidence_increment": "synthesizes the M2526-M2538 failure-surface branch after two behavior-changing repair executions preserved parts of the proof surface but left mitigation proof failing",
+    "claim_scope": "engineering-controller failure-surface intervention branch synthesis only; no new policy action, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, current-sim, high-fidelity, or validation verdict claim",
+    "stop_condition": [
+      "stop if the branch evidence shows another public protected-row repair would mostly tune a narrow public panel",
+      "stop if mitigation proof failure repeats without adding broader evidence or a new controller architecture route",
+      "stop if another repair would require actor contract change or hidden/oracle inputs",
+      "stop if the branch cannot route to fresh/generalization because protected proof gates remain incomplete"
+    ],
+    "fallback_plan": [
+      "pivot to a broader Route A engineering-controller baseline and failure taxonomy branch if protected-row repair has saturated",
+      "pivot to high-fidelity interface preparation if current-sim protected rows are no longer the highest-leverage blocker",
+      "route to artifact repair only if synthesis finds lineage or metric evidence inconsistent",
+      "route to fresh/generalization design only if synthesis verifies all protected proof gates passed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2538 accepted M2537 status_pass true but protected_proof_gates_all_passed false after the one bounded mitigation-preserving repair execution approved by M2536",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "failure-surface mitigation-preserving repair branch synthesis after repeated mitigation proof failure",
+    "admission_evidence": [
+      "M2532 generated behavior-changing guarded repair evidence with road_boundary_proof and command_conflict_proof passing but mitigation_proof failing",
+      "M2534 localized the remaining mitigation failure to one low-baseline severity regression without metric artifact",
+      "M2536 approved exactly one bounded mitigation-preserving repair execution and required synthesis or pivot after proof failure",
+      "M2537 selected a behavior-changing mitigation-preserving repair trace but retained only road-boundary and command-conflict proof while mitigation_proof still failed",
+      "M2538 accepted M2537 partial evidence and routed away from direct public-gate repair"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no new policy action in synthesis",
+      "no training in synthesis",
+      "no ranking",
+      "no validation verdict",
+      "no another protected-row repair without a new synthesis decision"
+    ],
+    "allowed_updates": [
+      "docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+      "M2539 status queue scoreboard research log and review",
+      "one follow-up pivot stop artifact repair broad Route A baseline or high-fidelity interface manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "actual behavior evidence and process overhead are separated",
+      "public-gate overfit risk is explicit",
+      "next branch decision is pivot stop artifact repair broad Route A baseline or high-fidelity interface preparation",
+      "no bounded follow-up repair is registered unless synthesis explicitly justifies a new evidence-expanding route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2539 is Route A branch synthesis and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2539; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2526-M2538 failure-surface intervention design materialization repair execution audit localization branch synthesis mitigation-preserving execution and result audit artifacts.",
+    "negative_result_policy": "If synthesis finds the branch is overfitting public proof rows, route to pivot stop or broader evidence rather than weakening self-ID validation or proof gates.",
+    "allowed_claims": [
+      "engineering-controller failure-surface mitigation-preserving repair branch synthesis",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "synthesizes the branch after repeated mitigation proof failure instead of continuing protected-row repair",
+    "paper_verdict_delta": "does not decide paper verdict but can close a public-gate repair loop and redirect work toward broader driver-like evidence",
+    "must_synthesize_if": [
+      "M2537 mitigation_proof failure is accepted",
+      "another protected-row repair execution is proposed",
+      "public-gate overfit risk increases after M2537",
+      "fresh/generalization remains blocked because protected proof gates are not all passed"
+    ]
+  },
+  "hypothesis": "A branch synthesis after M2538 can close the mitigation-preserving protected-row repair loop and choose a higher-leverage pivot toward broader Route A driver evidence without weakening proof or generalization gates.",
+  "success_criteria": [
+    "docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision",
+    "synthesis separates behavior-changing M2532 and M2537 evidence from design audit localization and process overhead milestones",
+    "synthesis decides pivot stop artifact repair broad Route A baseline high-fidelity interface preparation or fresh/generalization only if proof gates pass",
+    "synthesis registers a bounded follow-up route that is not another direct public protected-row repair unless a new evidence-expanding rationale is explicit",
+    "no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2539 installs imports or runs Chrono or another external simulator",
+    "M2539 changes actor input or action contract",
+    "M2539 injects hidden or oracle actor features",
+    "M2539 executes new policy action or rollout",
+    "M2539 starts training",
+    "M2539 treats synthesis as driver performance",
+    "M2539 ranks controller families or selects a winner",
+    "M2539 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result",
+    "M2539 registers another M2537-like public-gate repair without a new evidence-expanding branch"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2539-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.md",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/summary.json",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/repair_candidate_sweep.csv",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/selected_repair_trace.csv",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/protected_gate_evaluation.csv",
+    "docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md",
+    "docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md",
+    "runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json",
+    "docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv",
+    "experiments/manifests/m2538-engineering-controller-failure-surface-mitigation-preserving-repair-execution-result-audit.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2539 passes if it synthesizes M2526-M2538 failure-surface evidence, explicitly assesses behavior evidence process overhead public-gate overfit and repeated mitigation proof failure, and registers a pivot stop artifact repair broad Route A baseline or high-fidelity interface route without new policy actions, external simulation, training, ranking, winner selection, success-rate, promotion, or verdict claims.",
+  "next_blocker": "m2540-engineering-controller-route-a-baseline-and-interface-pivot-design"
+}
