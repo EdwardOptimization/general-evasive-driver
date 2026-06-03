@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2470,
+    "completed": 2471,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation",
+    "task_id": "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation",
-    "command_log": "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md"
   },
   "next_task": {
-    "id": "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
-    "kind": "gate",
-    "priority": 24600,
+    "id": "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
+    "kind": "infrastructure",
+    "priority": 24610,
     "status": "pending",
-    "hypothesis": "Auditing M2464 can classify the 4/6 reset-only result and choose a bounded next route without reset retry, repair execution, training, ranking, winner selection, or verdict claims.",
-    "command": "see experiments/manifests/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.json",
-    "success_artifact": "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
-    "notes": "Pending: audit 4/6 reset result and two stable-AES scenario-sampling failures no reset retry rollout policy action repair training ranking winner verdict claims"
+    "hypothesis": "A bounded reset-only diagnostic panel can classify the R1 stable-AES scenario-sampling blocker before any overlay repair, measured rollout, training, ranking, winner selection, or verdict claim.",
+    "command": "see experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json",
+    "success_artifact": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+    "notes": "Pending: reset-only R1 sampler diagnostic no env step rollout policy action repair training ranking winner verdict claims"
   },
-  "updated_at_utc": "20260603T002034Z"
+  "updated_at_utc": "20260603T003026Z"
 }

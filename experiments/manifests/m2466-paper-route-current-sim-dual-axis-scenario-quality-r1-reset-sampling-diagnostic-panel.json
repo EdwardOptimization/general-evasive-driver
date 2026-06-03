@@ -1,0 +1,221 @@
+{
+  "id": "m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "scenario_sampling_failure",
+    "metric_artifact",
+    "contract_violation",
+    "lineage_invalid",
+    "behavior_regression",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "not_applicable_r1_reset_sampling_diagnostic"
+    ],
+    "parent_dataset": [
+      "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+      "docs/m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation.md",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_target_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_validation_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_failure_rows.csv",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/effective_env_configs/m2464_reset_target_004.json",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/effective_env_configs/m2464_reset_target_005.json",
+      "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/effective_env_configs/m2464_reset_target_006.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.json"
+    ],
+    "parent_objective": [
+      "diagnose why the R1 stable-AES reset-only overlay family produced 1/3 reset successes in M2464"
+    ],
+    "derived_from": [
+      "m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit",
+      "m2464-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-implementation",
+      "m2461-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2464 R1 stable-AES rows have partial reset success: 1/3 successful, 2/3 scenario-sampling failures",
+      "the M2464 evidence cannot distinguish seed fragility, hidden-dynamics randomization fragility, threshold strictness, geometry range fragility, or broader scenario-spec incompatibility",
+      "measured rollout and overlay repair remain blocked until reset-sampling diagnostics are audited"
+    ],
+    "supersedes": [
+      "direct overlay repair from three R1 reset seeds",
+      "direct measured rollout from partial reset success",
+      "direct current-sim or paper verdict from reset-only evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.md",
+  "public_gates": [
+    "M2466 must read the M2464 R1 effective configs and preserve the P0 human-view contract",
+    "M2466 may run reset-only sampler diagnostics but must not step the environment or execute policy actions",
+    "M2466 must report baseline R1 reset success/failure across a larger seed panel and classify seed fragility",
+    "M2466 may create diagnostic-only sampler/overlay variants inside its run directory, but they are not repair candidates, rankings, winners, or promoted configs",
+    "M2466 must preserve no active-config overwrite, no repair execution, no training, no ranking, no winner selection, and no verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment steps",
+    "do not run environment rollout",
+    "do not execute policy actions",
+    "do not execute measured validation",
+    "do not execute scenario redesign",
+    "do not execute repair levers",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not overwrite active configs",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not rank scenario candidates",
+    "do not rank support policies or controller families",
+    "do not select a winner",
+    "do not treat diagnostic variants as repaired overlays",
+    "do not claim actual success improvement",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim scenario redesign executed",
+    "do not claim training repair success",
+    "do not claim current-sim verdict"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_current_sim_dual_axis_scenario_quality_discriminant",
+    "evidence_axis": "E_r1_reset_sampling_diagnostic_panel",
+    "evidence_increment": "expands M2464's three-seed R1 stable-AES reset-only failure into a bounded reset-sampling diagnostic panel without measured rollout or repair execution",
+    "claim_scope": "reset-sampling diagnostic evidence only; no rollout, policy action, scenario-redesign execution, repair, training, ranking, winner selection, paper verdict, finite-window-vs-GRU, level3 self-ID, training-repair, or current-sim verdict claim",
+    "stop_condition": [
+      "stop if the diagnostic cannot preserve the P0 actor-input contract",
+      "stop if reset diagnostics require environment steps or policy actions",
+      "stop if diagnostic variants would be treated as repaired overlays without a result audit",
+      "stop if the panel cannot classify the M2464 R1 blocker without ranking winners"
+    ],
+    "fallback_plan": [
+      "route to result audit if the panel classifies seed fragility or sampler-range fragility",
+      "route to branch synthesis if the panel shows broad scenario-spec incompatibility or repeated process overhead",
+      "stop for user review if the diagnostic would require active config overwrite or actor-contract changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2465 audits M2464 and selects reset-sampling diagnostics before repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "R1 stable-AES reset-sampling diagnostic panel",
+    "admission_evidence": [
+      "M2465 decision accept_reset_sampling_failure_route_to_r1_reset_sampling_diagnostic_panel",
+      "M2464 R1 stable-AES reset_success_count 1",
+      "M2464 R1 stable-AES reset_failure_count 2",
+      "M2464 static_validation_pass_count 6",
+      "M2464 effective_env_config_written_count 6",
+      "M2464 failure_types_observed scenario_sampling_failure"
+    ],
+    "blocked_shortcuts": [
+      "no environment step",
+      "no rollout",
+      "no policy action",
+      "no measured validation",
+      "no repair execution",
+      "no training",
+      "no ranking",
+      "no current-sim verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel.py",
+      "tests/test_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel.py",
+      "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/*",
+      "docs/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.md",
+      "M2466 status queue scoreboard research log and review",
+      "one follow-up manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "baseline R1 reset-seed panel exists",
+      "diagnostic-only variant panel, if used, is clearly marked non-promotional",
+      "reset failures are classified into seed fragility, hidden-dynamics fragility, threshold strictness, geometry range fragility, or broader scenario-spec incompatibility",
+      "no environment step, policy action, repair, training, ranking, winner, or verdict claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2466 diagnoses scenario reset sampling and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2466; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2464 R1 reset-only rows and M2465 audit.",
+    "negative_result_policy": "Reset-sampling failure is scenario-quality infrastructure evidence only and cannot be interpreted as driver capability or self-ID evidence.",
+    "allowed_claims": [
+      "R1 stable-AES reset-sampling diagnostic classification",
+      "no actual success improvement, controller ranking, paper-level result, finite-window-vs-GRU result, scenario-redesign-executed result, training-repair result, current-sim verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "expands a two-failure R1 reset-only result into a broader diagnostic panel before selecting repair or synthesis",
+    "paper_verdict_delta": "can improve current-sim scenario-quality readiness but cannot establish driver performance, paper verdict, or self-ID evidence",
+    "must_synthesize_if": [
+      "M2466 again cannot distinguish R1 reset-sampling failure modes",
+      "M2466 produces broad scenario-spec incompatibility",
+      "a third consecutive scenario_sampling_failure milestone would be needed",
+      "the next route would repair fixed public reset rows without diagnostic evidence"
+    ]
+  },
+  "hypothesis": "A bounded reset-only diagnostic panel can classify the R1 stable-AES scenario-sampling blocker before any overlay repair, measured rollout, training, ranking, winner selection, or verdict claim.",
+  "success_criteria": [
+    "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json exists",
+    "M2466 reads the M2464 R1 effective configs and preserves the P0 actor-input contract",
+    "baseline R1 reset-only seed panel is written",
+    "environment_step_count equals 0",
+    "policy_action_executed rollout_started repair_execution_started training_started replay_started ppo_used are false",
+    "active_config_overwrite_count equals 0",
+    "ranking_admissible_count and winner_selected_count are 0",
+    "actual-success paper-level finite-window-vs-GRU level3 self-ID scenario-redesign-executed training-repair-success and current-sim verdict claims are false"
+  ],
+  "failure_criteria": [
+    "summary is missing",
+    "M2466 changes actor inputs or injects hidden/oracle actor features",
+    "environment step or policy action occurs",
+    "active config overwrite occurs",
+    "repair execution or training starts",
+    "diagnostic variants are promoted as repaired overlays",
+    "ranking or winner selection occurs",
+    "any actual-success paper-level self-ID or current-sim verdict claim is made"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel.py"
+    },
+    {
+      "name": "diagnostic_panel",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel --m2464-dir runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation --output-dir runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel --target-overlay-family R1_aeb_infeasible_stable_aes --eval-seed-base 246600 --reset-seed-count 24 --next-blocker m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2466_paper_route_current_sim_dual_axis_scenario_quality_r1_reset_sampling_diagnostic_panel/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "not_applicable_r1_reset_sampling_diagnostic"
+  ],
+  "baseline_artifacts": [
+    "docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md",
+    "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json",
+    "runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/reset_failure_rows.csv"
+  ],
+  "decision_rule": "M2466 passes if it writes a reset-only R1 diagnostic panel that classifies the M2464 sampling blocker without environment steps, policy actions, repair execution, training, ranking, winner selection, or verdict claims.",
+  "next_blocker": "m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit"
+}

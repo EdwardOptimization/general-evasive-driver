@@ -44754,3 +44754,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset boundary: environment reset attempted only; `environment_step_count` `0`, policy action/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims `false`
 - follow-up manifest: `experiments/manifests/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.json`
 - next: `m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit`
+
+## M2465 Paper-Route Current-Sim Dual-Axis Scenario-Quality Concrete Overlay Reset Validation Result Audit
+
+- status: completed
+- decision: `accept_reset_sampling_failure_route_to_r1_reset_sampling_diagnostic_panel`
+- manifest: `experiments/manifests/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.json`
+- doc: `docs/m2465-paper-route-current-sim-dual-axis-scenario-quality-concrete-overlay-reset-validation-result-audit.md`
+- audited summary: `runs/m2464_paper_route_current_sim_dual_axis_scenario_quality_concrete_overlay_reset_validation/summary.json`
+- accepted evidence: M2464 target `6`, static passes `6`, effective env configs written `6`, reset attempts `6`, reset successes `4`, reset failures `2`, guardrail violations `1`, failure type `scenario_sampling_failure`
+- audit finding: R0 stable-avoidable reset readiness is clean at `3/3`; R1 stable-AES reset readiness is partial at `1/3`; failed R1 seeds are `246403` and `246405`, while seed `246404` succeeds under the same overlay hash
+- interpretation: this is scenario-sampling readiness evidence, not driver performance, actual-success evidence, self-ID evidence, or current-sim verdict evidence
+- reset retry/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2465: `false`
+- follow-up manifest: `experiments/manifests/m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel.json`
+- next: `m2466-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel`
