@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2509,
+    "completed": 2510,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2503-engineering-controller-source-only-metric-panel-branch-synthesis",
+    "task_id": "m2504-engineering-controller-public-benchmark-pack-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md"
+    "command_log": "docs/m2504-engineering-controller-public-benchmark-pack-design.md"
   },
   "next_task": {
-    "id": "m2504-engineering-controller-public-benchmark-pack-design",
+    "id": "m2505-engineering-controller-public-benchmark-pack-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 24990,
+    "priority": 25000,
     "status": "pending",
-    "hypothesis": "Design a bounded public benchmark pack for engineering-controller source-only diagnostic evidence.",
-    "command": "see experiments/manifests/m2504-engineering-controller-public-benchmark-pack-design.json",
-    "success_artifact": "docs/m2504-engineering-controller-public-benchmark-pack-design.md",
-    "notes": "Pending: design public benchmark pack contents exclusions and claim boundaries no policy action external simulation training ranking winner success-rate or verdict claims"
+    "hypothesis": "Materialize a bounded public benchmark pack from M2504 design without creating performance claims.",
+    "command": "see experiments/manifests/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.json",
+    "success_artifact": "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+    "notes": "Pending: write benchmark pack files and validators no policy action external simulation training ranking winner success-rate or verdict claims"
   },
-  "updated_at_utc": "20260603T101228Z"
+  "updated_at_utc": "20260603T101746Z"
 }

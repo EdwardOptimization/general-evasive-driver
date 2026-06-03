@@ -16,30 +16,30 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2503-engineering-controller-source-only-metric-panel-branch-synthesis
+m2504-engineering-controller-public-benchmark-pack-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2503-engineering-controller-source-only-metric-panel-branch-synthesis
+m2504-engineering-controller-public-benchmark-pack-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2504-engineering-controller-public-benchmark-pack-design
+m2505-engineering-controller-public-benchmark-pack-materialization-preflight
 ```
 
 Current route:
 
 ```text
-M2503 synthesizes M2493-M2502 and promotes the source-only metric diagnostics
-branch to `engineering_controller_public_benchmark_pack`. The next task is
-design-only public benchmark pack planning for checkpoint lineage, actor I/O
-contract, source-only role metrics, baseline comparison diagnostics, known
-limitations, exclusions, and claim boundaries.
+M2504 designs a bounded public benchmark pack for the source-only engineering
+diagnostics. The pack scope includes checkpoint lineage, actor I/O contract,
+source-only role metrics, baseline comparison diagnostics, known limitations,
+artifact manifest, reproduction notes, and claim boundaries. The next task is a
+materialization preflight that writes pack files and validators only.
 ```
 
 The materialization preserves P0 observation shape `72`, action shape `3`, and the rule
@@ -47,15 +47,15 @@ that scenario labels, feasibility classes, hidden dynamics, per-wheel forces,
 fault scales, TTC, required clearance, reward terms, and success labels remain
 metadata-only.
 
-M2503 did not install, import, or run an external high-fidelity simulator. It
-did not execute new policy actions, measured validation, training, replay, PPO,
+M2504 did not install, import, or run an external high-fidelity simulator. It
+did not execute policy actions, measured validation, training, replay, PPO,
 controller ranking, winner selection, success-rate computation, or any paper/
 FW-vs-GRU/self-ID/current-sim/high-fidelity validation verdict.
 
-The active next task is M2504: design a bounded public benchmark pack for the
-engineering-controller source-only diagnostics. It must not execute policy
-actions, train, rank, select a winner, compute success-rate verdicts, or claim
-performance or validation.
+The active next task is M2505: materialize the public benchmark pack and run
+pack-structure validators. It must not execute policy actions, train, rank,
+select a winner, compute success-rate verdicts, or claim performance or
+validation.
 
 ## Latest Evidence
 
@@ -387,6 +387,16 @@ M2503:
   route: public benchmark pack design
   new policy action: false
   external simulation installed/imported/executed: false
+
+M2504:
+  decision: public_benchmark_pack_design_route_to_materialization_preflight
+  pack scope: source-only engineering diagnostics
+  required files: README artifact_manifest claim_boundary actor_contract checkpoint_lineage scenario_role_diagnostics baseline_comparison_diagnostics known_limitations reproduce summary
+  required contract: P0 observation 72 action 3 no hidden/oracle actor input
+  rejected claims: performance validation ranking paper FW-vs-GRU self-ID
+  route: materialization preflight before result audit
+  policy action in M2504: false
+  external simulation installed/imported/executed: false
 ```
 
 ## Current Interpretation Boundary
@@ -423,7 +433,9 @@ implements the diagnostic comparison artifact but still does not rank
 controllers or prove driver performance. M2502 audits and accepts the artifact
 only as engineering diagnostics, then routes to branch synthesis. M2503 closes
 the source-only metric branch and promotes to public benchmark-pack design
-instead of adding another local metric artifact.
+instead of adding another local metric artifact. M2504 defines the benchmark
+pack contract and preserves it as an engineering diagnostic artifact, not a
+driver-performance benchmark.
 ```
 
 Blocked claims:
@@ -443,9 +455,10 @@ training repair success
 
 ## Immediate Next Step
 
-M2504 should design the public benchmark pack from:
+M2505 should materialize the public benchmark pack from:
 
 ```text
+docs/m2504-engineering-controller-public-benchmark-pack-design.md
 docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md
 docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md
 docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md
@@ -457,10 +470,11 @@ docs/m2498-engineering-controller-parameterized-source-only-role-metric-panel-re
 docs/post-m2470-route-plan.md
 ```
 
-The design should define pack contents, artifact manifest, exclusions, tests,
-audit gates, known limitations, and public claim boundaries. It must not
-install, import, or run external high-fidelity simulation, execute policy
-action, train, replay, use PPO, rank controllers, select a winner, promote a
-checkpoint, compute success-rate verdicts, or claim high-fidelity validation,
-current-sim verdict, paper-level evidence, finite-window-vs-GRU evidence, or
-level-3 self-identification.
+The materialization should create
+`public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/`
+with the required files, artifact manifest, claim boundary, and summary gates.
+It must not install, import, or run external high-fidelity simulation, execute
+policy action, train, replay, use PPO, rank controllers, select a winner,
+promote a checkpoint, compute success-rate verdicts, or claim high-fidelity
+validation, current-sim verdict, paper-level evidence, finite-window-vs-GRU
+evidence, or level-3 self-identification.

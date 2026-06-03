@@ -45406,3 +45406,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2503: `false`
 - follow-up manifest: `experiments/manifests/m2504-engineering-controller-public-benchmark-pack-design.json`
 - next: `m2504-engineering-controller-public-benchmark-pack-design`
+
+## M2504 Engineering Controller Public Benchmark Pack Design
+
+- status: completed
+- decision: `public_benchmark_pack_design_route_to_materialization_preflight`
+- manifest: `experiments/manifests/m2504-engineering-controller-public-benchmark-pack-design.json`
+- doc: `docs/m2504-engineering-controller-public-benchmark-pack-design.md`
+- parent synthesis: `docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md`
+- pack scope: public source-only engineering diagnostic artifact pack, not a performance benchmark, leaderboard, paper result, high-fidelity validation, finite-window-vs-GRU result, or self-ID proof
+- required pack files: `README.md`, `artifact_manifest.csv`, `claim_boundary.md`, `actor_contract.md`, `checkpoint_lineage.md`, `scenario_role_diagnostics.md`, `baseline_comparison_diagnostics.md`, `known_limitations.md`, `reproduce.md`, `summary.json`
+- required contract: P0 observation shape `72`, action shape `3`, actor encoder `human_view_online_gru`, action sequence horizon `1`, no hidden/oracle actor inputs
+- required materialization gates: source artifact references exist, claim boundaries reject performance/ranking/success-rate/validation/paper/self-ID interpretations, summary claim flags remain false
+- rejected claims: no driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2504: `false`
+- follow-up manifest: `experiments/manifests/m2505-engineering-controller-public-benchmark-pack-materialization-preflight.json`
+- next: `m2505-engineering-controller-public-benchmark-pack-materialization-preflight`
