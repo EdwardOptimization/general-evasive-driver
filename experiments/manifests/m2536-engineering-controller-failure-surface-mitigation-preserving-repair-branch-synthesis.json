@@ -241,5 +241,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "M2536 passes if it synthesizes the failure-surface intervention branch, explicitly assesses evidence/process overhead/public-gate overfit, and registers a bounded follow-up or pivot without new policy actions, external simulation, training, ranking, winner selection, success-rate, promotion, or verdict claims.",
-  "next_blocker": "m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis"
+  "next_blocker": "m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
+m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design
+m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
+m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight
 ```
 
 Current route:
@@ -71,6 +71,9 @@ defines that design: keep M2532 road-boundary and command-conflict gains as
 retained proof gates, add all-mitigation-row severity non-regression, treat seed
 `254302` as a sentinel rather than a sole tuning target, and route to M2536
 branch synthesis before any bounded execution.
+M2536 synthesizes M2526-M2535 and approves exactly one bounded M2537
+mitigation-preserving repair execution because M2532 reduced three failed proof
+surfaces to one, while public-gate overfit risk is now medium-high.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -156,13 +159,18 @@ its synthesis cadence. It treats seed `254302` as a sentinel for
 objective-level mitigation severity non-regression, not as a seed-only
 public-gate patch.
 
-The active next task is M2536: synthesize the M2526-M2535 failure-surface
-intervention branch before approving any second mitigation-preserving repair
-execution. It must separate actual behavior evidence from process overhead,
-assess public-gate overfit risk, and decide continue, pivot, stop, or promote
-to a new branch. It must not execute new policy actions, train, rank, select a
-winner, promote, compute success-rate, or claim performance, validation, paper,
-FW-vs-GRU, self-ID, current-sim, or high-fidelity verdict evidence.
+M2536 did not execute new policy actions or train. It separated actual behavior
+evidence from process overhead, rated public-gate overfit risk medium-high, and
+continued to exactly one bounded M2537 execution before any fresh/generalization
+or promotion route.
+
+The active next task is M2537: run one bounded mitigation-preserving source-only
+repair execution from the M2532 repaired checkpoint. It must retain road-boundary
+and command-conflict proof gains, prevent all mitigation-primary severity
+regression, write candidate-sweep evidence, and preserve the P0 `72/3`
+no-oracle actor contract. It must not rank, select a winner, promote, compute
+success-rate, or claim performance, validation, paper, FW-vs-GRU, self-ID,
+current-sim, or high-fidelity verdict evidence.
 
 ## Latest Evidence
 

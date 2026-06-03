@@ -46048,3 +46048,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - failure policy: if synthesis cannot justify another bounded repair execution, pivot/stop/artifact repair rather than a third protected public-gate repair loop
 - follow-up manifest: `experiments/manifests/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json`
 - next: `m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis`
+
+## M2536 Engineering Controller Failure-Surface Mitigation-Preserving Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- operational decision: `continue_to_mitigation_preserving_repair_execution_preflight`
+- manifest: `experiments/manifests/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.json`
+- synthesis doc: `docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md`
+- synthesized window: M2526-M2535 failure-surface intervention design/materialization/config/no-update smoke/guarded repair/audit/localization/design
+- actual behavior evidence: M2532 guarded repair execution, `4500` telemetry rows, `45` post-repair rows, checkpoint behavior changed `true`
+- proof-gate result: road-boundary proof pass `10/10`, command-conflict proof pass `15/15`, mitigation proof fail `4/5` improved `1/5` regressed
+- process overhead: medium-high; only M2532 changed driver behavior, while M2526-M2531 and M2533-M2535 were mostly design/materialization/audit/localization/synthesis
+- public-gate overfit risk: medium-high because the next repair would still target a narrow public protected panel
+- supported claim: one bounded mitigation-preserving execution is justified because M2532 reduced three failed proof surfaces to one and M2535 added all-mitigation-row retained-gate constraints
+- rejected claims: no driver performance, ranking, winner, promotion, success-rate, fresh/generalization, validation, paper, FW-vs-GRU, current-sim, high-fidelity, or self-ID claim
+- M2537 admission: one bounded source-only execution from the M2532 repaired checkpoint with candidate sweep evidence and retained proof gates
+- mandatory route after M2537: protected proof pass routes to fresh/generalization design; proof failure or retained-gate washout routes to synthesis/pivot rather than another public-gate repair
+- follow-up manifest: `experiments/manifests/m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight.json`
+- next: `m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight`

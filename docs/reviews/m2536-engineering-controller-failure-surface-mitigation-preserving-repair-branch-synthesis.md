@@ -1,0 +1,113 @@
+# m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260603T164841Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_mitigation_preserving_repair_execution_preflight
+- Decision reason: M2536 synthesizes M2526-M2535 failure-surface intervention branch separates M2532 behavior evidence from process overhead assesses public-gate overfit risk medium-high and approves exactly one bounded M2537 mitigation-preserving repair execution before fresh/generalization promotion or another repair no new policy action training ranking promotion success-rate verdict validation or driver-performance claims
+
+## Hypothesis
+
+A branch synthesis can prevent the failure-surface intervention work from becoming a public-gate repair loop and decide whether M2535's mitigation-preserving objective justifies one bounded execution milestone.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt
+- parent_dataset: docs/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.md, runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json, runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/mitigation_regression_rows.csv, runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/localization_findings.json, docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv, runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/candidate_config.json, runs/m2528_engineering_controller_failure_surface_intervention_config_materialization/protected_gate_bindings.csv, runs/m2527_engineering_controller_failure_surface_intervention_plan/protected_regression_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design.json, experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json
+- parent_objective: synthesize the M2526-M2535 failure-surface intervention branch before another mitigation-preserving repair execution
+- derived_from: m2535-engineering-controller-failure-surface-mitigation-preserving-repair-design, m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight, m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit, m2532-engineering-controller-failure-surface-guarded-repair-execution-preflight, m2526-engineering-controller-failure-surface-intervention-design
+- blocked_by: workflow cadence requires synthesis after 10 non-synthesis milestones in the engineering_controller_failure_surface_intervention branch, M2534 localized the remaining protected proof failure and M2535 designed a mitigation-preserving repair route, another execution milestone would be a second public-gate repair and must be explicitly approved or rejected by synthesis
+- supersedes: direct M2536 mitigation-preserving repair execution without branch synthesis, another protected public-gate repair without public-gate overfit review, fresh/generalization route before all protected proof gates pass, promotion ranking or validation from partial protected proof
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision
+- synthesis separates behavior-changing M2532 evidence from design audit localization and process overhead milestones
+- synthesis decides continue pivot stop or promote_to_next_branch
+- synthesis registers a bounded follow-up milestone or stop/pivot route
+- no external high-fidelity simulation install import execution new policy action training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2536 installs imports or runs Chrono or another external simulator
+- M2536 changes actor input or action contract
+- M2536 injects hidden or oracle actor features
+- M2536 executes new policy action or rollout
+- M2536 starts training
+- M2536 treats synthesis as driver performance
+- M2536 ranks controller families or selects a winner
+- M2536 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result
+
+## Evidence Gates
+
+- M2536 must synthesize M2526-M2535 failure-surface intervention evidence before another repair execution
+- M2536 must separate actual behavior evidence from design audit localization and process overhead
+- M2536 must answer whether M2535's mitigation-preserving repair objective is enough to continue to bounded execution or whether the branch should pivot stop or repair artifacts
+- M2536 must assess public-gate overfit risk after M2529 no-update smoke M2532 guarded repair M2534 localization and M2535 design
+- M2536 must decide continue pivot stop or promote_to_next_branch
+- M2536 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode
+- M2536 must not run new policy actions train replay PPO rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute new policy actions in the synthesis milestone
+- do not train in the synthesis milestone
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not skip public-gate overfit review before another repair execution
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim level3 self-identification
+- do not claim driver performance from branch synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- training_instability
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
+- type: gate
+- checkpoint: docs/m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_mitigation_preserving_repair_execution_preflight
+- reason: M2536 synthesizes M2526-M2535 failure-surface intervention branch separates M2532 behavior evidence from process overhead assesses public-gate overfit risk medium-high and approves exactly one bounded M2537 mitigation-preserving repair execution before fresh/generalization promotion or another repair no new policy action training ranking promotion success-rate verdict validation or driver-performance claims
+
+## Next Blocker
+
+m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight
