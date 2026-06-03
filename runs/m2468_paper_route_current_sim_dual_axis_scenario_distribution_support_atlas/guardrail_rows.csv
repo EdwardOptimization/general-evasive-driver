@@ -1,0 +1,14 @@
+guardrail_id,guardrail_class,source_role_or_axis,failure_mode_to_preserve,metric_to_watch,value,violation,reason
+m2468_source_admission,lineage,m2455_m2466_m2467,lineage_invalid,source_admission_failure_count,0,False,"M2468 requires M2455 candidates, M2466 seed-fragility evidence, and M2467 pivot audit."
+m2468_broad_atlas_cell_count,atlas_design,atlas_cell_rows,lineage_invalid,atlas_cell_count,15,False,"M2468 must generate a broad atlas, not a fixed-row retry."
+m2468_candidate_group_coverage,atlas_design,atlas_cell_rows,lineage_invalid,candidate_group_coverage_count,5,False,"M2468 must cover stable, AES, handling-limit, hidden-dynamics, and mitigation groups."
+m2468_no_fixed_m2464_r1_reuse,local_search_guard,atlas_cell_rows,objective_overfit,fixed_m2464_r1_reuse_count,0,False,M2468 must not retry or repair the exact fixed M2464 R1 overlay rows.
+m2468_diagnostic_attempt_count,diagnostic_execution,reset_rows,lineage_invalid,diagnostic_attempt_count,120,False,Every atlas cell must run the requested reset seed panel.
+m2468_actor_contract_clear,actor_contract,effective_env_configs,contract_violation,actor_contract_failure_count,0,False,All atlas cells must preserve the P0 human-view actor contract.
+m2468_no_active_config_overwrite,execution_boundary,effective_env_configs,lineage_invalid,active_config_overwrite_count,0,False,M2468 must write only run-dir effective configs.
+m2468_no_environment_steps,execution_boundary,reset_rows,contract_violation,environment_step_count,0,False,M2468 must stop after reset.
+m2468_no_policy_or_rollout,execution_boundary,reset_rows,contract_violation,policy_or_rollout,0,False,M2468 must not execute policy actions or rollouts.
+m2468_no_repair_training_replay_promotion,execution_boundary,summary,contract_violation,repair_training_replay_promotion,0,False,"Atlas cells are not repair execution, training, replay, PPO, or promotion."
+m2468_no_private_holdout,execution_boundary,summary,contract_violation,private_holdout_used,False,False,M2468 does not use private holdout data.
+m2468_no_ranking_or_winner,claim_boundary,summary,metric_artifact,ranking_or_winner_count,0,False,M2468 must not rank atlas cells or select winners.
+m2468_no_verdict_claims,claim_boundary,summary,metric_artifact,verdict_claim_count,0,False,"M2468 may not claim paper, self-ID, scenario-redesign, training-repair, or current-sim verdicts."

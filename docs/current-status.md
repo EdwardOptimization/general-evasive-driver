@@ -16,45 +16,44 @@ remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit
+m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas
 ```
 
 Latest attempted milestone:
 
 ```text
-m2467-paper-route-current-sim-dual-axis-scenario-quality-r1-reset-sampling-diagnostic-panel-result-audit
+m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas
+m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit
 ```
 
 Current route:
 
 ```text
-M2467 audited the M2466 reset-only R1 stable-AES sampler diagnostic panel and
-accepted the `seed_fragility` classification. M2466 admitted the three M2464 R1
-targets with one shared overlay hash and one shared effective config, then ran
-`5` diagnostic-only variants across `24` seeds each. The panel completed with
-`120` reset attempts, `20` successes, `100` failures, `0` guardrail violations,
-`0` environment steps, and no policy action, rollout, repair, training,
-ranking, winner selection, or verdict claims.
+M2468 built and ran a broad reset-only scenario-distribution support atlas after
+M2467 pivoted away from fixed-row R1 sampler repair. It generated `15` atlas
+cells across `5` candidate groups, reused `0` fixed M2464 R1 overlays, and ran
+`120` reset-only attempts. The atlas completed with `109` reset successes, `11`
+reset failures, `0` guardrail violations, `0` environment steps, and no policy
+action, rollout, repair, training, ranking, winner selection, or verdict claims.
 
-M2467 rejects direct threshold, geometry, hidden-dynamics, or coupled repair
-claims: threshold relaxation stayed at `5/24`, geometry widening stayed at
-`5/24`, combined threshold/geometry relaxation stayed at `5/24`, and nominal
-hidden dynamics was `0/24`. The audit decision is a pivot away from fixed-row
-R1 reset repair/retry. This remains scenario/task-quality infrastructure only,
-not driver performance, actual-success, paper, FW-vs-GRU, level3 self-ID,
-training-repair, or current-sim verdict evidence.
+Distribution support is broad outside the fixed R1 rows: stable feasibility,
+hidden-dynamics, and mitigation groups were full support, and handling-limit
+guardrails were `23/24`. Stable AES remains partial at `14/24`, with three
+partial cells: broad threshold-free `5/8`, threshold-band `3/8`, and low-mu
+near `6/8`. The atlas classification is
+`distribution_support_atlas|seed_fragility`.
 
-The active next task is M2468: build a broad reset-only scenario-distribution
-support atlas across role families and parameter bins. M2468 must not optimize
-the three fixed M2464 R1 rows, execute policy actions, run measured rollout,
-repair overlays, train, rank variants, select winners, or make verdict claims.
+The active next task is M2469: audit the M2468 atlas before any stable-AES
+support repair design, measured-readiness preflight, branch synthesis, or stop
+route. M2469 must not rerun resets, execute policy actions, run measured
+rollout, repair overlays, train, rank cells, select winners, or make verdict
+claims.
 
 M2462 synthesized the M2452-M2461 scenario-quality discriminant branch. The
 decision is `continue` only to bounded reset-validation design: M2461's six

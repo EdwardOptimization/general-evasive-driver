@@ -1,0 +1,6 @@
+candidate_group,cell_count,reset_attempt_count,reset_success_count,reset_failure_count,reset_success_rate,support_classes
+handling_limit_guardrail,3,24,23,1,0.9583333333333334,reset_support_full|reset_support_partial
+hidden_dynamics_guardrail,3,24,24,0,1.0,reset_support_full
+mitigation_guardrail,3,24,24,0,1.0,reset_support_full
+stable_aes_support,3,24,14,10,0.5833333333333334,reset_support_partial
+stable_feasibility_support,3,24,24,0,1.0,reset_support_full

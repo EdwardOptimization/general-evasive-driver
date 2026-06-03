@@ -44801,3 +44801,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - reset rerun/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2467: `false`
 - follow-up manifest: `experiments/manifests/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.json`
 - next: `m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas`
+
+## M2468 Paper-Route Current-Sim Dual-Axis Scenario-Distribution Support Atlas
+
+- status: completed
+- result_class: `scenario_distribution_support_atlas_complete`
+- manifest: `experiments/manifests/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.json`
+- doc: `docs/m2468-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas.md`
+- implementation: `src/autodrift/paper_route_current_sim_dual_axis_scenario_distribution_support_atlas.py`
+- summary: `runs/m2468_paper_route_current_sim_dual_axis_scenario_distribution_support_atlas/summary.json`
+- source admission: candidate rows `30`, atlas cells `15`, candidate group coverage `5`, fixed M2464 R1 reuse `0`
+- result: `120` reset-only attempts, `109` reset successes, `11` reset failures, reset success rate `0.9083333333333333`, guardrail violations `0`
+- support classes: `11` full-support cells, `4` partial-support cells, `0` absent-support cells
+- partial-support cells: stable AES broad threshold-free `5/8`, stable AES threshold-band `3/8`, stable AES low-mu near `6/8`, drift-required nominal `7/8`
+- interpretation: distribution support is broad outside fixed R1 rows, but stable AES remains seed-fragile at distribution level
+- reset/rollout/scenario-redesign execution/repair/training/replay/PPO/ranking/winner/verdict claims in M2468: `false`
+- follow-up manifest: `experiments/manifests/m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit.json`
+- next: `m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit`

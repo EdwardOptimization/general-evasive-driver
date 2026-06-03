@@ -1,0 +1,16 @@
+atlas_cell_id,role_family,candidate_group,parameter_bin,hidden_dynamics_bucket,sampled_obstacle_label_scope,reset_attempt_count,reset_success_count,reset_failure_count,reset_success_rate,observation_dimension_failure_count,obstacle_initialized_count,failure_type_counts,obstacle_label_counts,support_class
+drift_required_late_boundary,R3_recovery_after_limit,handling_limit_guardrail,drift_required_late_boundary,mixed,drift_required,8,8,0,1.0,0,8,{},{'drift_required': 8},reset_support_full
+drift_required_low_mu,R5_hidden_dynamics_robustness,handling_limit_guardrail,drift_required_low_mu,low_mu,drift_required,8,8,0,1.0,0,8,{},{'drift_required': 8},reset_support_full
+drift_required_nominal,R2_handling_limit_drift_capable_avoidance,handling_limit_guardrail,drift_required_nominal,nominal,drift_required,8,7,1,0.875,0,7,{'scenario_sampling_failure': 1},{'drift_required': 7},reset_support_partial
+hidden_nominal_neighbor,R5_hidden_dynamics_robustness,hidden_dynamics_guardrail,all_labels_nominal_neighbor,nominal_neighbor,all_labels,8,8,0,1.0,0,8,{},{'aeb_feasible': 8},reset_support_full
+hidden_slow_steer,R5_hidden_dynamics_robustness,hidden_dynamics_guardrail,all_labels_slow_steer,slow_steer_actuator,all_labels,8,8,0,1.0,0,8,{},{'aeb_feasible': 8},reset_support_full
+hidden_weak_brake,R5_hidden_dynamics_robustness,hidden_dynamics_guardrail,all_labels_weak_brake,weak_brake,all_labels,8,8,0,1.0,0,8,{},"{'aeb_feasible': 7, 'aes_feasible': 1}",reset_support_full
+stable_aes_broad_threshold_free,R1_aeb_infeasible_stable_aes,stable_aes_support,aes_broad_threshold_free,mixed,aes_feasible,8,5,3,0.625,0,5,{'scenario_sampling_failure': 3},{'aes_feasible': 5},reset_support_partial
+stable_aes_low_mu_near,R1_aeb_infeasible_stable_aes,stable_aes_support,aes_low_mu_near,low_mu,aes_feasible,8,6,2,0.75,0,6,{'scenario_sampling_failure': 2},{'aes_feasible': 6},reset_support_partial
+stable_aes_threshold_band,R1_aeb_infeasible_stable_aes,stable_aes_support,aes_threshold_band_0p6,mixed,aes_feasible,8,3,5,0.375,0,3,{'scenario_sampling_failure': 5},{'aes_feasible': 3},reset_support_partial
+stable_avoidable_lateral_span,R0_stable_avoidable,stable_feasibility_support,stable_lateral_offset_span,mixed,aeb_feasible,8,8,0,1.0,0,8,{},{'aeb_feasible': 8},reset_support_full
+stable_avoidable_low_mu,R0_stable_avoidable,stable_feasibility_support,stable_low_mu_long_distance,low_mu,aeb_feasible,8,8,0,1.0,0,8,{},{'aeb_feasible': 8},reset_support_full
+stable_avoidable_nominal_center,R0_stable_avoidable,stable_feasibility_support,stable_center_reaction_distance,nominal,aeb_feasible,8,8,0,1.0,0,8,{},{'aeb_feasible': 8},reset_support_full
+unavoidable_close,R4_unavoidable_mitigation,mitigation_guardrail,unavoidable_close,mixed,unavoidable,8,8,0,1.0,0,8,{},{'unavoidable': 8},reset_support_full
+unavoidable_high_speed,R4_unavoidable_mitigation,mitigation_guardrail,unavoidable_high_speed,mixed,unavoidable,8,8,0,1.0,0,8,{},{'unavoidable': 8},reset_support_full
+unavoidable_low_mu,R4_unavoidable_mitigation,mitigation_guardrail,unavoidable_low_mu,low_mu,unavoidable,8,8,0,1.0,0,8,{},{'unavoidable': 8},reset_support_full

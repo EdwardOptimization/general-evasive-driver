@@ -1,0 +1,10 @@
+claim_key,claim_value,admissible,reason
+distribution_reset_sampler_support_atlas,distribution_support_atlas|seed_fragility,True,M2468 may claim distribution-level reset sampler support only.
+environment_step_or_policy_action,false,True,M2468 stops after reset.
+measured_rollout_started,false,True,No rollout is run.
+scenario_redesign_executed,false,True,Atlas rows are diagnostic-only support bins.
+repair_training_started,false,True,No repair or training is executed.
+ranking_or_winner,false,True,Atlas cells are not ranked and no winner is selected.
+actual_success_improvement,blocked,False,Reset-only support is not measured controller performance.
+paper_or_self_id_verdict,blocked,False,No controller-family or history-necessity verdict is run.
+current_sim_verdict,blocked,False,"M2468 is a reset support atlas, not a current-sim verdict."

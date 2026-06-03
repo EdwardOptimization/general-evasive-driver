@@ -1,0 +1,6 @@
+classification_key,classification_value,admissible,reason
+distribution_cell_count,15,True,atlas cells were generated beyond fixed R1 rows
+reset_support_full_cell_count,11,True,full-support cells reset for every seed
+reset_support_partial_cell_count,4,True,partial-support cells identify seed-fragile bins
+reset_support_absent_cell_count,0,True,absent-support cells identify unsupported bins
+seed_fragility,drift_required_nominal|stable_aes_broad_threshold_free|stable_aes_low_mu_near|stable_aes_threshold_band,True,some distribution cells have partial reset support

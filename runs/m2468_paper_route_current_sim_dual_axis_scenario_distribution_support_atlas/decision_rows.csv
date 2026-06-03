@@ -1,0 +1,5 @@
+decision_key,decision_value,admissible,reason
+distribution_support_atlas_complete,true,True,The atlas wrote reset-only support evidence and classification rows.
+atlas_classification,distribution_support_atlas|seed_fragility,True,Classification is diagnostic only and must be audited before repair or measured execution.
+repair_training_ranking_or_winner_selection,false,True,"No repair, training, ranking, or winner selection is executed."
+next_route,m2469-paper-route-current-sim-dual-axis-scenario-distribution-support-atlas-result-audit,True,Route atlas output to result audit.
