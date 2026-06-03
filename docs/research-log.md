@@ -46528,3 +46528,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no high-fidelity validation readiness/result, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.json`
 - next: `m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight`
+
+## M2564 Engineering Controller Route A Baseline HF3 Reset-Feasibility Execution Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_reset_feasibility_execution_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_reset_feasibility_execution_materialization.py`
+- summary: `runs/m2564_engineering_controller_route_a_hf3_reset_feasibility_execution/summary.json`
+- doc: `docs/m2564-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-preflight.md`
+- reset candidates: `2`, stable avoidable/AEB-feasible and stable AES/AEB-infeasible
+- backend availability checks: `4`, all pass with no install/import/run/dependency mutation
+- reset request contracts: `2`, no actor input mutation, no oracle field, no actor-visible metadata
+- reset execution plans: `2`, no reset execution, policy action, environment step, or rollout execution in M2564
+- reset outcome schema rows: `8`, no actor-visible outcome and no validation support in M2564
+- claim-boundary checks: `8`, all pass with no claim allowed in M2564
+- materialization gates: `9`, all pass
+- guard boundary: candidate rows pilot-admitted `false`, reset success claim allowed `false`, P0 `72/3`
+- rejected claims: no high-fidelity validation readiness/result, pilot admission, reset success, rollout success, driver-performance, ranking, promotion, success-rate, paper, FW-vs-GRU, current-sim, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit.json`
+- next: `m2565-engineering-controller-route-a-baseline-hf3-reset-feasibility-execution-materialization-result-audit`
