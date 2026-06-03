@@ -45650,3 +45650,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/environment rollout/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2516: `false`
 - follow-up manifest: `experiments/manifests/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.json`
 - next: `m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit`
+
+## M2517 Engineering Controller Source-Only Behavior/Outcome Row Completeness Result Audit
+
+- status: completed
+- decision: `accept_source_only_row_completeness_route_to_outcome_event_instrumentation_preflight`
+- manifest: `experiments/manifests/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.json`
+- doc: `docs/m2517-engineering-controller-source-only-behavior-outcome-row-completeness-result-audit.md`
+- audited summary: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/summary.json`
+- audited behavior outcome rows: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/behavior_outcome_rows.csv`
+- audited metric gap summary: `runs/m2516_engineering_controller_source_only_behavior_outcome_row_completeness/metric_gap_summary.csv`
+- accepted evidence: M2516 result_class pass, required artifacts present, source artifacts exist, missing source artifacts `[]`, behavior/outcome rows `12`, metric gap rows `40`, unsupported metrics `12`, row schema fields `51`, all required fields present, all rows `source_only_diagnostic`, all rows `diagnostic_only_no_ranking_claim`, actor contract `72/3`, false claim flags preserved
+- accepted scope: source-only row-completeness result audit only
+- rejected claims: no behavior quality, driver performance, success-rate benchmark, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: source-only outcome event instrumentation preflight using evaluator-side fixture specs and existing telemetry
+- external high-fidelity simulation install/import/execution/environment rollout/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2517: `false`
+- follow-up manifest: `experiments/manifests/m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight.json`
+- next: `m2518-engineering-controller-source-only-outcome-event-instrumentation-preflight`
