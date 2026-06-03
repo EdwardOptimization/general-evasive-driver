@@ -1,0 +1,219 @@
+{
+  "id": "m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md",
+      "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
+      "runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2495-engineering-controller-source-only-role-fixture-parameterization-design.json"
+    ],
+    "parent_objective": [
+      "implement reset-only source-only role fixture parameterization preflight"
+    ],
+    "derived_from": [
+      "m2495-engineering-controller-source-only-role-fixture-parameterization-design",
+      "m2494-engineering-controller-source-only-role-metric-panel-result-audit"
+    ],
+    "blocked_by": [
+      "source-only role fixtures need dynamic differentiation before role metric panel rerun",
+      "implementation must preserve P0 actor input and action contracts",
+      "preflight must verify differentiation without policy actions or verdict claims"
+    ],
+    "supersedes": [
+      "another role metric panel over metadata-only fixtures",
+      "direct source-only performance claim from identical role metrics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md",
+  "public_gates": [
+    "M2496 must implement the M2495 source-only role fixture parameterization design",
+    "M2496 must preserve the default FourWheelHF0Backend behavior when no fixture spec is supplied",
+    "M2496 must create exactly three role fixture specs for stable_aes drift_required_recovery and unavoidable_mitigation",
+    "M2496 must run reset-only preflight over the three specs and must not execute policy actions",
+    "M2496 must verify P0 observation shape 72 and action shape 3 remain unchanged",
+    "M2496 must verify role labels fixture labels hidden diagnostics oracle labels TTC required clearance reward terms and success labels stay out of actor input",
+    "M2496 must verify reset observations state digests fault-scale digests and obstacle digests are differentiated by role",
+    "M2496 must write summary.json fixture_parameterization_rows.csv reset_differentiation_rows.csv and a milestone doc without success-rate ranking winner validation or driver-performance claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not run measured validation",
+    "do not execute policy actions",
+    "do not train",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only fixture parameterization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_source_only_metric_panel",
+    "evidence_axis": "source_only_role_fixture_parameterization_preflight",
+    "evidence_increment": "implements reset-only differentiated source-only role fixtures after M2495 design",
+    "claim_scope": "source-only role fixture parameterization reset preflight only; no policy action, external simulation, measured validation, training, ranking, winner selection, success-rate verdict, paper verdict, finite-window-vs-GRU, self-ID, driver-performance, or validation verdict claim",
+    "stop_condition": [
+      "stop if P0 observation shape or action shape changes",
+      "stop if role or fixture labels enter actor input",
+      "stop if reset observations remain identical across role fixtures",
+      "stop if implementation executes policy actions or computes success rate"
+    ],
+    "fallback_plan": [
+      "route to backend reset API repair if fixture specs cannot be applied",
+      "route to fixture design repair if role specs are not differentiated",
+      "route to result audit if reset-only differentiation passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2495 designed source-only role fixture parameterization and admitted implementation preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-only role fixture parameterization reset-only implementation preflight",
+    "admission_evidence": [
+      "M2495 parameterization design",
+      "M2494 identical role metric audit",
+      "M2493 telemetry panel artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no policy action",
+      "no training",
+      "no ranking",
+      "no validation verdict"
+    ],
+    "allowed_updates": [
+      "src/autodrift/hf0_source_only_role_fixture_parameterization.py",
+      "src/autodrift/four_wheel_hf0_adapter.py",
+      "tests/test_hf0_source_only_role_fixture_parameterization.py",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv",
+      "docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md",
+      "M2496 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary fixture parameterization and reset differentiation artifacts exist",
+      "three role specs are present",
+      "reset observations are differentiated by role",
+      "actor-input and action-contract gates pass",
+      "policy_action and policy_rollout_run remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2496 implements reset-only source-only fixture parameterization and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2496; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2495 design and M2494/M2493 source-only role metric artifacts.",
+    "negative_result_policy": "If reset observations remain identical or actor-input gates fail, record the failure and route to repair rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "source-only role fixture parameterization reset preflight",
+      "no high-fidelity validation result, controller ranking, paper-level result, finite-window-vs-GRU result, current-sim verdict, driver-performance verdict, or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "implements reset-only role fixture differentiation infrastructure before rerunning metric panels",
+    "paper_verdict_delta": "does not decide paper verdict but can unblock differentiated source-only role telemetry needed before fair comparisons",
+    "must_synthesize_if": [
+      "M2496 reset differentiation fails",
+      "M2496 passes and the next task would claim performance",
+      "another implementation repair is proposed without audit"
+    ]
+  },
+  "hypothesis": "A reset-only source-only role fixture parameterization preflight can verify dynamically differentiated role fixtures while preserving actor/action contracts and avoiding performance overclaims.",
+  "success_criteria": [
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json exists",
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv exists",
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv exists",
+    "exactly three role fixture specs exist",
+    "all reset observations have shape 72",
+    "action shape remains 3",
+    "pairwise reset observation L2 min is greater than 1e-3",
+    "state obstacle and fault-scale digests show role differentiation",
+    "all actor-input leak flags are false",
+    "policy_action and policy_rollout_run are false",
+    "no external high-fidelity simulation install import execution training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2496 installs imports or runs Chrono or another external simulator",
+    "M2496 changes actor input or action contract",
+    "M2496 injects hidden or oracle actor features",
+    "M2496 executes policy actions or rollout",
+    "M2496 leaves role reset observations identical",
+    "M2496 treats fixture parameterization as driver performance",
+    "M2496 ranks controller families or selects a winner",
+    "M2496 claims high-fidelity validation paper finite-window-vs-GRU or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "parameterization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.hf0_source_only_role_fixture_parameterization --output-dir runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/fixture_parameterization_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/reset_differentiation_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md",
+    "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
+    "runs/m2493_engineering_controller_source_only_role_metric_panel/role_metric_panel.csv",
+    "docs/observation-contract.md"
+  ],
+  "decision_rule": "M2496 passes if it implements reset-only source-only role fixture parameterization with differentiated reset observations and preserved actor/action contracts without policy actions, external simulation, training, ranking, winner selection, success-rate, or verdict claims.",
+  "next_blocker": "m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight"
+}

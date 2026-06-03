@@ -45246,3 +45246,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - external high-fidelity simulation install/import/execution/new policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2494: `false`
 - follow-up manifest: `experiments/manifests/m2495-engineering-controller-source-only-role-fixture-parameterization-design.json`
 - next: `m2495-engineering-controller-source-only-role-fixture-parameterization-design`
+
+## M2495 Engineering Controller Source-Only Role Fixture Parameterization Design
+
+- status: completed
+- decision: `source_only_role_fixture_parameterization_design_route_to_implementation_preflight`
+- manifest: `experiments/manifests/m2495-engineering-controller-source-only-role-fixture-parameterization-design.json`
+- doc: `docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md`
+- parent audit: `docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md`
+- design problem: M2494 accepted M2493 telemetry infrastructure but found all role metric values identical, so source-only role fixtures are metadata-only for dynamics
+- design contract: introduce source-only role fixture dynamics spec with role-specific initial state, fault scales, road, obstacles, and diagnostic tags while preserving P0 observation shape `72` and action shape `3`
+- M2496 preflight scope: reset-only three specs, no policy action, verify unique initial-state/fault/obstacle digests and pairwise reset observation L2 min greater than `1e-3`
+- rejected claims: no driver performance, success-rate, controller ranking, winner, checkpoint promotion, high-fidelity validation, current-sim verdict, paper evidence, finite-window-vs-GRU, or self-ID claim
+- route decision: implementation preflight should verify differentiated role fixtures before rerunning any nonverdict role metric panel
+- external high-fidelity simulation install/import/execution/policy action/measured validation/training/replay/PPO/ranking/winner/verdict claims in M2495: `false`
+- follow-up manifest: `experiments/manifests/m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight.json`
+- next: `m2496-engineering-controller-source-only-role-fixture-parameterization-implementation-preflight`
