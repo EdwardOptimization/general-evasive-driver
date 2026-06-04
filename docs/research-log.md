@@ -48302,3 +48302,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.json`
 - next: `m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight`
+
+## M2673 Paper Route History Vs Current Response Runtime Enforcement Materialization Preflight
+
+- status: completed
+- result_class: `paper_route_history_vs_current_response_runtime_enforcement_materialization_pass`
+- manifest: `experiments/manifests/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_runtime_enforcement_materialization.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_runtime_enforcement_materialization.py`
+- summary: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json`
+- protocol-to-runtime profile rows: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/protocol_to_runtime_profile_rows.csv`
+- runtime enforcement gate rows: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/runtime_enforcement_gate_rows.csv`
+- claim boundary rows: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/claim_boundary_rows.csv`
+- gate matrix: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/gate_matrix.csv`
+- materialized runtime enforcement: 12 runtime profile rows covering 9/9 M2671 protocol controller-family IDs, 15 runtime-enforcement gate rows, 22 claim-boundary rows, and 14 gate-matrix rows
+- required controls: L2 current-tiled runtime transform observed across 4 corrected configs; L3 reset/truncated policy routing observed with `every_step_control`
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- allowed execution scope: no-training runtime smoke only with reset/step fixed smoke action and model-forward shape check
+- supported operational claims: Route B protocol rows map to runtime-enforced profile controls for result audit
+- rejected claims: no policy rollout replay measured validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit.json`
+- next: `m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit`
