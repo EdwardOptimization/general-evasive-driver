@@ -48144,3 +48144,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.json`
 - next: `m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit`
+
+## M2665 Engineering Controller Route A Protected Mitigation Fresh Panel Failure Taxonomy Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2664_route_to_protected_mitigation_fresh_panel_taxonomy_branch_synthesis`
+- manifest: `experiments/manifests/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.json`
+- audit doc: `docs/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- parent summary: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json`
+- parent artifacts: `subject_failure_taxonomy_rows.csv`, `axis_failure_taxonomy_rows.csv`, `metric_failure_taxonomy_rows.csv`, `combined_failure_taxonomy_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2664 `status_pass` true with 3 subject rows, 3 axis rows, 3 metric rows, 9 combined rows, 16 claim-boundary rows, and 37 gate rows
+- protected blocker: 25 protected gate rows block claims with 79 regressed row counts; all policy subjects, all axes, and all metrics block at least one claim row
+- saturated blocker groups: m1154 original policy, close-cut-in axis, fault-delay-noise axis, obstacle penetration metric, and minimum clearance metric
+- mixed blocker groups: m2532 guarded repair policy, m2537 mitigation-preserving policy, nominal axis, and severity metric
+- target/protected split: protected role `unavoidable_mitigation` remains outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: M2664 protected mitigation fresh-panel failure taxonomy accepted for branch synthesis
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.json`
+- next: `m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis`

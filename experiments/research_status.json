@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2670,
+    "completed": 2671,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight",
+    "task_id": "m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy",
-    "command_log": "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit",
+    "id": "m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis",
     "kind": "gate",
-    "priority": 26600,
+    "priority": 26610,
     "status": "pending",
-    "hypothesis": "A bounded result audit can accept or reject M2664 protected mitigation fresh-panel taxonomy artifacts before Route A chooses synthesis stop or another evidence route.",
+    "hypothesis": "A branch synthesis can prevent the M2662-M2665 protected mitigation taxonomy work from becoming another process loop and route the broad blocker to stop pivot or a new evidence axis.",
     "command": "true",
-    "success_artifact": "docs/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.md",
-    "notes": "Pending: audit M2664 taxonomy summary subject axis metric combined claim-boundary and gate-matrix artifacts while preserving protected blocker and actor boundary with no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
+    "success_artifact": "docs/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.md",
+    "notes": "Pending: synthesize M2662-M2665 protected mitigation fresh-panel taxonomy branch and choose stop pivot or new evidence route without reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T115414Z"
+  "updated_at_utc": "20260604T115926Z"
 }
