@@ -49243,3 +49243,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2723
 - follow-up manifest: `experiments/manifests/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.json`
 - next: `m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight`
+
+## M2724 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Design Preflight
+
+- status: completed
+- decision: `admit_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization`
+- manifest: `experiments/manifests/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.json`
+- design doc: `docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md`
+- parent synthesis: `docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md`
+- design premise: 31 offtrack target rows split T4 19 T5 12 with 2 collision caution rows 3 diagnostic success context rows and 12 protected exclusion rows kept separate
+- repair design: shared road-containment overlay using existing track_cost road_margin off_track_penalty clearance reward and collision penalty fields without changing geometry actor input or active config
+- guardrails: collision caution rows diagnostic success context rows and protected exclusions must remain visible and outside execution denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2725 artifact-only repair candidate materialization before any repair execution extension ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2724
+- follow-up manifest: `experiments/manifests/m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight.json`
+- next: `m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight`

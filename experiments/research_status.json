@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2729,
+        "completed": 2730,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md",
+        "command_log": "docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md",
         "returncode": 0,
         "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis"
+        "task_id": "m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight"
     },
     "next_task": {
-        "command": "true",
-        "hypothesis": "Freeze a bounded offtrack repair design from the synthesized M2719-M2723 target evidence before any execution extension ranking validation or performance interpretation.",
-        "id": "m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight",
-        "kind": "gate",
-        "notes": "Pending: design bounded offtrack repair from synthesized target branch 31 offtrack target rows with collision caution protected exclusion and actor-contract guardrails no reset rollout training repair execution ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27190,
+        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization --m2724-design docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md --m2721-dir runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel --output-dir runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization",
+        "hypothesis": "Artifact-only materialization can convert the M2724 design into source-bound repair candidate rows and guardrails without changing actor inputs or executing repair.",
+        "id": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight",
+        "kind": "infrastructure",
+        "notes": "Pending: materialize all 31 offtrack target rows into repair candidate artifacts with shared road containment overlay collision caution protected exclusion actor-contract and claim guardrails no reset rollout training repair execution ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27200,
         "status": "pending",
-        "success_artifact": "docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md"
+        "success_artifact": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json"
     },
-    "updated_at_utc": "20260604T233058Z"
+    "updated_at_utc": "20260604T233744Z"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
+m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
+m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
+m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
 ```
 
 Current route:
@@ -129,6 +129,18 @@ repair success, driver performance, validation, paper, current-sim,
 high-fidelity, full ideal driver, and self-ID claims.
 
 Next is M2724 bounded offtrack repair design preflight before any repair
+execution extension, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
+
+M2724 froze the bounded offtrack repair design and admitted artifact-only
+candidate materialization. The design targets the 31 offtrack rows using shared
+road-containment, clearance, and collision guardrail overlays while preserving
+collision caution rows, diagnostic success context rows, protected exclusions,
+actor 72/action 3, and actor-invisible labels. It does not admit execution,
+training, ranking, validation, performance, paper, current-sim, high-fidelity,
+full ideal driver, or self-ID claims.
+
+Next is M2725 artifact-only repair candidate materialization before any repair
 execution extension, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
 ```
