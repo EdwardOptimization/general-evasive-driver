@@ -47454,3 +47454,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform source-build/adapter-probe execution-attempt design only, not source build execution adapter probe execution backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation result or performance
 - follow-up manifest: `experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json`
 - next: `m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design`
+
+## M2630 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Execution Attempt Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_source_build_adapter_probe_execution_attempt_materialization_preflight`
+- manifest: `experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json`
+- design doc: `docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md`
+- parent synthesis: `docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md`
+- accepted evidence: M2627/M2628/M2629 selected-platform source-build/adapter-probe execution design materialization evidence with 2 source-build command rows 2 adapter-probe command rows 4 isolation rows 4 artifact rows 4 trace rows 10 taxonomy rows 2 actor/action rows 28 claim rows and 13 gates pass
+- designed artifacts: M2631 source-build execution attempt admission rows adapter-probe execution attempt admission rows dependency/runtime guard rows execution-attempt log capture rows backend-discovery evidence capture rows execution failure taxonomy rows actor/action guard rows claim-boundary rows and gate matrix
+- selected-platform boundary: execution-attempt protocol artifacts are static preparation evidence only; install/import/runtime execution dependency mutation source-tree mutation network access source build adapter probe backend start reset step policy action rollout replay validation training PPO ranking winner selection success-rate promotion and validation verdict remain forbidden
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses build/probe/reset/rollout/validation outcomes selected platform or protocol status actor-visible
+- rejected claims: no dependency execution readiness source build adapter probe backend discovery backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.json`
+- next: `m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight`
