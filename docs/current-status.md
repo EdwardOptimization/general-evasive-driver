@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
+m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
+m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
+m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
 ```
 
 Current route:
@@ -61,7 +61,14 @@ The diagnostic snapshot is 3/36 success rows and 2/36 collision rows. These
 aggregates are not ranking, validation, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID evidence until M2717 audits them.
 
-Next is M2717 result audit before any interpretation or branch decision.
+M2717 audited and accepted M2716 as complete and claim-safe, while rejecting
+direct interpretation of the profile aggregates as ranking, repair, validation,
+performance, paper, current-sim, high-fidelity, full ideal driver, or self-ID
+evidence. The active blockers are off-track dominated diagnostic outcomes and
+the still-excluded protected proposal surface.
+
+Next is M2718 branch synthesis before any same-surface execution extension,
+targeted repair design, pivot, or stop decision.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

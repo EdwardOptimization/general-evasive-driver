@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2722,
+        "completed": 2723,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json",
+        "command_log": "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight",
+        "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight"
+        "task_id": "m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Audit M2716 bounded diagnostic execution artifacts before any profile comparison interpretation or branch decision.",
-        "id": "m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit",
+        "hypothesis": "Synthesize M2713-M2717 exact-executable reentry evidence before selecting any same-surface continuation targeted repair pivot or stop route.",
+        "id": "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis",
         "kind": "gate",
-        "notes": "Pending: audit M2716 status_pass true 36 exact execution rows 0 failure rows 4 profile aggregates 9 anchor aggregates 12 protected proposal exclusions still not executed actor 72/action 3 labels actor-invisible protected rows outside denominators no training validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27120,
+        "notes": "Pending: synthesize M2713-M2717 after M2717 accepts M2716 complete claim-safe diagnostic execution 36/36 rows 0 failures 3/36 diagnostic success 2/36 collision 4 non-ranking profile aggregates 12 protected exclusions not run actor 72/action 3 labels actor-invisible no validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27130,
         "status": "pending",
-        "success_artifact": "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md"
+        "success_artifact": "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md"
     },
-    "updated_at_utc": "20260604T222301Z"
+    "updated_at_utc": "20260604T222608Z"
 }

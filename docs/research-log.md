@@ -49117,3 +49117,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2716
 - follow-up manifest: `experiments/manifests/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.json`
 - next: `m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit`
+
+## M2717 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2716_route_to_current_m1690_exact_executable_reentry_branch_synthesis`
+- manifest: `experiments/manifests/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.json`
+- audit doc: `docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md`
+- parent summary: `runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json`
+- accepted parent result: M2716 `status_pass` true with 36/36 exact execution rows 0 failure rows 4 profile aggregates 9 anchor aggregates 12 protected proposal exclusion audit rows 12 actor joins 33 claim rows and 20 gate rows all pass
+- diagnostic outcome snapshot: 3/36 diagnostic success rows 2/36 collision rows termination reasons include off_track and obstacle_collision
+- interpretation boundary: profile aggregate rows remain diagnostic non-ranking rows and are not controller-family ranking winner selection success-rate verdict repair validation performance paper current-sim high-fidelity full ideal driver or self-ID evidence
+- protected proposal boundary: 12 M2710 protected proposal exclusions remain not execution candidates not execution-admitted not run and outside success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible profile/blocker/route/verdict labels actor-invisible
+- route decision: route to M2718 exact-executable reentry branch synthesis before any same-surface execution extension targeted repair pivot or stop decision
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2717
+- follow-up manifest: `experiments/manifests/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.json`
+- next: `m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis`
