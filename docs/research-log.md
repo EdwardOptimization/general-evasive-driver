@@ -48547,3 +48547,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no training PPO replay private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2684
 - follow-up manifest: `experiments/manifests/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.json`
 - next: `m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit`
+
+## M2685 Paper Route History Vs Current Response Task Quality Role Semantics Bounded Subset Execution Result Audit
+
+- status: completed
+- decision: `accept_m2684_route_to_bounded_subset_branch_synthesis`
+- manifest: `experiments/manifests/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.json`
+- audit doc: `docs/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.md`
+- parent summary: `runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/summary.json`
+- accepted parent result: M2684 `status_pass` true with 216/216 episode rows 0 failure rows 12 profiles 18 specs 9 candidate aggregates 9 source-edge aggregates 2 role-semantics aggregate groups 30 gate rows and 37 claim-boundary rows
+- audit finding: M2684 is complete and claim-safe as bounded subset execution but cannot support direct interpretation
+- subset boundary: executed 216/216 M2682 subset rows and did not expand to the 864-row full public matrix
+- runtime boundary: 12/12 runtime joins pass and preserve L2 current-tiled plus L3 reset/truncated controls
+- role semantics boundary: analysis-only actor-invisible no hidden/oracle actor input required
+- active blocker: off-track remains dominant with 202/216 off-track outcomes and 203/216 off-track terminations
+- diagnostic profile caveat: L3 reset/truncated control has 7/18 successes while L3 online GRU has 1/18 and all L2 rows have 0/18, but these rows are non-verdict because the subset is bounded and off-track dominated
+- route decision: accept M2684 artifact pack and route to bounded subset branch synthesis rather than ranking profiles or launching another narrow repair/execution loop
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2685
+- follow-up manifest: `experiments/manifests/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.json`
+- next: `m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis`
