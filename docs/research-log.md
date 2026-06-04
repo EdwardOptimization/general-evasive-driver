@@ -46965,3 +46965,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: platform-selection criteria design only, not actual platform selection or validation execution
 - follow-up manifest: `experiments/manifests/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.json`
 - next: `m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design`
+
+## M2599 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Design
+
+- status: completed
+- decision: `route_to_hf3_after_closure_platform_selection_criteria_materialization_preflight`
+- manifest: `experiments/manifests/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.json`
+- design doc: `docs/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.md`
+- parent synthesis: `docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md`
+- accepted evidence: M2596/M2597/M2598 after-closure platform/protocol readiness evidence with 3 platform candidate rows 3 dependency/import rows 2 protocol skeleton rows 4 source-only closure evidence rows 2 actor/action guard rows 14 claim rows and 12 gates pass
+- designed artifacts: M2600 platform-selection criteria rows auditability rows dependency/import risk rows validation-role compatibility rows actor/action guard rows claim-boundary rows and gate matrix
+- platform boundary: preferred future validation direction remains open/auditable backend such as Chrono or equivalent while black-box backends stay demonstration-only and repo-local current-sim stays diagnostic-only
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria or protocol status actor-visible
+- rejected claims: no actual platform selection selection decision external install/import/runtime execution validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight.json`
+- next: `m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight`
