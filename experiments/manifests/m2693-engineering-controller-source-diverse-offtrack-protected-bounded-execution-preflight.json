@@ -1,0 +1,275 @@
+{
+  "id": "m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/source_diversity_plan_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/actor_contract_guard_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/claim_boundary_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/gate_matrix.csv",
+      "runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/episode_rows.csv",
+      "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.json",
+      "experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute one bounded source-diverse off-track/protected target-panel preflight after M2692 accepts M2691"
+    ],
+    "derived_from": [
+      "m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit",
+      "m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight",
+      "m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2691 target panel is materialized but not measured evidence",
+      "current-sim off-track and protected mitigation blockers remain active",
+      "M2693 must produce new closed-loop diagnostic data before any repair success or performance interpretation"
+    ],
+    "supersedes": [
+      "another target-panel materialization or audit without measured data",
+      "direct interpretation of M2691 target rows as repair success or driver-performance evidence",
+      "another same public gate repair loop without a source-diverse execution surface"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2693 must consume the accepted M2691 target panel and M2692 audit before execution",
+    "M2693 may execute reset step rollout and policy actions only for the bounded M2691 source-diverse target panel or explicit failure rows",
+    "M2693 must write target execution rows offtrack aggregate protected aggregate source-diversity aggregate failure rows actor-contract join rows claim-boundary rows gate-matrix run-state summary and doc artifacts",
+    "M2693 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and the deployed steer throttle brake action contract",
+    "M2693 must keep off-track protected target blocker route verdict success progress and taxonomy labels actor-invisible",
+    "M2693 must keep protected rows outside success denominators and distinguish diagnostic execution metrics from validation or performance evidence",
+    "M2693 must not train run PPO replay use private holdout tune profile-specific hyperparameters build/probe high-fidelity dependencies rank controllers select winners promote checkpoints compute success-rate verdicts or claim repair success driver-performance validation paper current-sim high-fidelity full ideal driver or self-ID evidence",
+    "M2693 must register one result-audit route before any interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not publish package artifacts as a release",
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not run replay",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels objective rows gate outcomes route decisions package labels blocker labels controller-family labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not drop failed target cells silently",
+    "do not expand beyond the M2691 target panel silently",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from bounded execution preflight"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_source_diverse_offtrack_protected_bounded_execution",
+    "evidence_axis": "source_diverse_offtrack_protected_closed_loop_diagnostic_execution",
+    "evidence_increment": "moves from target-panel materialization into bounded closed-loop diagnostic execution on the accepted off-track/protected panel",
+    "claim_scope": "Bounded execution preflight only; reset step rollout and policy actions allowed for the M2691 panel, but no replay validation training PPO source build adapter probe external simulation package publication ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2691 target panel or M2692 audit artifacts are missing",
+      "stop if execution cannot record failed target cells as failure rows",
+      "stop if the runner requires private holdout profile-specific tuning actor-input changes hidden/oracle inputs or actor-visible target labels",
+      "stop if protected rows are collapsed into ordinary success denominators",
+      "stop if M2693 would claim repair success driver performance validation paper current-sim high-fidelity or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact audit if M2691 or M2692 artifacts are incomplete",
+      "route to runner repair if failure-row recording or actor-boundary guards fail",
+      "route to result audit if bounded execution completes with clean guardrails",
+      "route to synthesis if execution repeats off-track/protected washout without actionable evidence expansion"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2692 accepts M2691 target-panel artifacts and admits one bounded measured-execution preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-diverse off-track/protected bounded execution preflight",
+    "admission_evidence": [
+      "M2692 accepts M2691 target panel as complete and claim-safe",
+      "M2691 target panel contains 9 current-sim off-track target rows and 10 protected mitigation target rows",
+      "M2691 source-diversity plan rejects another same public gate repair loop",
+      "actor labels and target labels remain actor-invisible"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO private holdout source build adapter probe external simulation",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight.py",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/*",
+      "docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md",
+      "M2693 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "bounded target cells complete or failures are recorded",
+      "target execution and aggregate rows exist",
+      "actor-contract join rows pass",
+      "guardrails are clean",
+      "diagnostic metrics remain non-ranking and non-verdict",
+      "result audit route is explicit before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2693 may create closed-loop diagnostic data but is not a history-necessity or self-ID test.",
+    "history_necessity_tests": [
+      "None in M2693; any controller-family or history-dependence comparison must be separately pre-registered with proof/generalization separation."
+    ],
+    "temporal_evidence_window": "M2691 target-panel rows and M2692 audit decision only.",
+    "negative_result_policy": "If execution remains off-track/protected washed out, preserve that as a blocker and route to audit or synthesis rather than forcing performance or self-ID claims.",
+    "allowed_claims": [
+      "bounded source-diverse off-track/protected execution preflight completed or failed with recorded artifacts",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces bounded closed-loop diagnostic data from the source-diverse off-track/protected target panel rather than another static artifact or package-process milestone",
+    "paper_verdict_delta": "no paper verdict; can create auditable evidence for later blocker repair or branch synthesis without self-ID claims",
+    "must_synthesize_if": [
+      "M2693 cannot produce bounded execution rows with clean guardrails or recorded failures",
+      "M2693 requires private holdout profile-specific tuning actor-input changes hidden/oracle actor inputs or actor-visible labels",
+      "M2693 would claim ranking repair success finite-window-vs-GRU current-response current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2693 repeats off-track/protected washout without actionable evidence expansion"
+    ]
+  },
+  "hypothesis": "A bounded source-diverse off-track/protected execution preflight can produce new closed-loop diagnostic evidence from the accepted M2691 target panel without changing actor inputs or claiming performance.",
+  "success_criteria": [
+    "docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md exists",
+    "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json exists",
+    "target_execution_rows.csv exists and covers the bounded M2691 target panel or recorded failure rows",
+    "offtrack_target_aggregate.csv protected_target_aggregate.csv source_diversity_aggregate.csv and failure_rows.csv exist",
+    "actor_contract_join_rows.csv verifies P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible target labels",
+    "claim_boundary_rows.csv blocks repair success ranking driver-performance validation paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver and self-ID claims",
+    "gate_matrix.csv passes only if guardrails are clean failed cells are recorded and the execution stays bounded to the M2691 target panel",
+    "run_state.json exists and records completion or failure rows",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible target labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2693 trains runs PPO replay uses private holdout promotes or changes actor input/action contract",
+    "M2693 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels or verdicts to actor input",
+    "M2693 drops failed target cells silently or expands beyond the M2691 target panel silently",
+    "M2693 treats protected rows as ordinary success denominators",
+    "M2693 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2693 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2693 fails to write bounded execution artifacts or recorded failure rows"
+  ],
+  "commands": [
+    {
+      "name": "bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --output-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/target_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/offtrack_target_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/protected_target_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/source_diversity_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/actor_contract_join_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/source_diversity_plan_rows.csv",
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/gate_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2693 writes bounded source-diverse off-track/protected execution artifacts with clean actor-boundary and claim-boundary guardrails while keeping target labels actor-invisible and making no ranking validation training repair-success performance paper current-sim high-fidelity full ideal driver or self-ID claim."
+}

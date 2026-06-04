@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2697,
+    "completed": 2698,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+    "command_log": "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight"
+    "task_id": "m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Audit the M2691 source-diverse off-track/protected target panel before any measured execution repair validation ranking promotion or performance claim.",
-    "id": "m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2691 summary blocker source target panel source-diversity actor-contract claim-boundary and gate artifacts verify off-track/protected sources actor-invisible labels source diversity no same public gate loop and no execution validation training ranking promotion package publication performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26870,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --output-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight",
+    "hypothesis": "Execute a bounded source-diverse off-track/protected target-panel preflight after M2692 accepts M2691, producing closed-loop diagnostic data without validation, ranking, performance, paper, current-sim, high-fidelity, full ideal driver, or self-ID claims.",
+    "id": "m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run only the bounded M2691 off-track/protected target panel with actor 72/action 3 no hidden oracle labels actor-invisible failures recorded protected rows outside success denominators and no replay validation training PPO private holdout ranking winner promotion verdict performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26880,
     "status": "pending",
-    "success_artifact": "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md"
+    "success_artifact": "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260604T165524Z"
+  "updated_at_utc": "20260604T170728Z"
 }
