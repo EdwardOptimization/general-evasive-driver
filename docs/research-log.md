@@ -47876,3 +47876,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.json`
 - next: `m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight`
+
+## M2653 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Objective Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization.py`
+- summary: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json`
+- objective family rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/objective_family_rows.csv`
+- protected component gate rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/protected_component_gate_rows.csv`
+- target preservation gate rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/target_preservation_gate_rows.csv`
+- abort rule rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/abort_rule_rows.csv`
+- actor contract guard rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/actor_contract_guard_rows.csv`
+- claim boundary rows: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/claim_boundary_rows.csv`
+- gate matrix: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/gate_matrix.csv`
+- materialized rows: 3 objective families, 4 protected component gates, 2 target preservation gates, 9 abort rules, 6 actor contract guards, 25 claim boundary rows, and 10 gate matrix rows
+- protected component gates: `severity_proxy_non_regression`, `obstacle_penetration_non_regression`, `minimum_obstacle_clearance_preservation`, and `event_transition_guard`
+- gate result: gate_matrix_pass true with follow-up manifest registered
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input and taxonomy/repair labels actor-invisible
+- supported operational claims: deterministic mitigation-preserving objective/gate artifact bundle is ready for branch synthesis before another repair route
+- rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json`
+- next: `m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis`

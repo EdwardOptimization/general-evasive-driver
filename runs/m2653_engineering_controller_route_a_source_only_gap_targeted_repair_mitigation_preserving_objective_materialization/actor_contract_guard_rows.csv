@@ -1,0 +1,7 @@
+guard_id,guard_family,expected,observed_or_materialized,status_pass,actor_visible_allowed,claim_scope
+observation_shape_72,actor_contract,72,72,True,True,Route A mitigation-preserving objective materialization only
+action_shape_3,actor_contract,3,3,True,True,Route A mitigation-preserving objective materialization only
+actor_input_leak_flags_none,actor_contract,none,none,True,True,Route A mitigation-preserving objective materialization only
+taxonomy_labels_actor_visible_false,actor_visibility,false,false,True,False,Route A mitigation-preserving objective materialization only
+repair_target_labels_actor_visible_false,actor_visibility,false,false,True,False,Route A mitigation-preserving objective materialization only
+route_metadata_actor_visible_false,actor_visibility,false,false,True,False,Route A mitigation-preserving objective materialization only

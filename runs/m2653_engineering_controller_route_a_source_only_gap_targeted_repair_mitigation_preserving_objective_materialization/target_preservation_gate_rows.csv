@@ -1,0 +1,3 @@
+target_gate_id,target_family,source_roles,m2648_evaluated_rows,m2648_improved_rows,m2648_regressed_rows,required_future_condition,target_only_sufficient_for_promotion,blocks_claims,claim_scope
+target_road_boundary_margin_control,road_departure_dominant_gap,stable_avoidable;stable_aes,16,16,0,future candidate preserves no-regression against M2641 and preferably preserves M2648 16/16 improvement,False,True,Route A mitigation-preserving objective materialization only
+target_drift_collision_recovery_tradeoff,drift_recovery_mixed_gap,drift_required_recovery,8,8,0,future candidate preserves no-regression against M2641 and preferably preserves M2648 8/8 improvement,False,True,Route A mitigation-preserving objective materialization only

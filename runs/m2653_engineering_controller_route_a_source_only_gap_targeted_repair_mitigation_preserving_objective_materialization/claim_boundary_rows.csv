@@ -1,0 +1,26 @@
+claim_id,claim_family,allowed,status_pass,reason,claim_scope
+repair_execution_started,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+repair_training_started,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+training_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+source_only_backend_reset_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+source_only_backend_step_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+policy_action_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+external_high_fidelity_simulation_included,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+high_fidelity_simulation_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+measured_validation_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+replay_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+ppo_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+ranking_run,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+winner_selected,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+checkpoint_promoted,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+success_rate_computed,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+success_rate_verdict_field_emitted,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+controller_family_verdict_computed,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+driver_performance_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+verdict_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+paper_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+finite_window_vs_gru_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+level3_self_id_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+current_sim_verdict_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+high_fidelity_validation_claim_made,forbidden_claim_or_execution,False,True,M2653 is objective materialization only,Route A mitigation-preserving objective materialization only
+protected_rows_not_success_denominator,proof_boundary,False,True,mitigation_collision_saturated_reference remains protected reference only,Route A mitigation-preserving objective materialization only
