@@ -46936,3 +46936,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
 - follow-up manifest: `experiments/manifests/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.json`
 - next: `m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit`
+
+## M2597 Engineering Controller Route A Baseline HF3 Platform/Protocol Readiness After Source-Only Closure Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_after_closure_platform_protocol_readiness_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.json`
+- audit doc: `docs/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.md`
+- parent summary: `runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/summary.json`
+- accepted evidence: M2596 status_pass true 3 platform candidate rows 3 dependency/import policy rows 2 validation protocol skeleton rows 4 source-only closure evidence rows 2 actor/action guard rows 14 claim rows and 12 gates pass
+- closure boundary: after-closure source-only evidence accepted while platform_selected_in_m2596 false validation_protocol_ready_in_m2596 false external_validation_execution_allowed_in_m2596 false and driver_performance_claim_allowed_in_m2596 false
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.json`
+- next: `m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis`
