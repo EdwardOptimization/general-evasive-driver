@@ -48367,3 +48367,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay measured validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.json`
 - next: `m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit`
+
+## M2676 Paper Route History Vs Current Response Bounded Comparison Execution Result Audit
+
+- status: completed
+- decision: `accept_m2675_route_to_full_t4_t5_public_comparison_execution_preflight`
+- manifest: `experiments/manifests/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.json`
+- audit doc: `docs/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.md`
+- parent doc: `docs/m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight.md`
+- parent summary: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/summary.json`
+- parent artifacts: `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `runtime_enforcement_join_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2675 `status_pass` true with 48 episode rows across 12/12 profiles and 4/4 selected public T4/T5 specs
+- runtime joins: 12/12 runtime joins pass and map 9/9 protocol controller-family IDs
+- required controls: L2 current-tiled runtime transform observed across 4 corrected configs; L3 reset/truncated policy routing observed with `every_step_control`
+- claim boundary: 26/26 claim-boundary rows pass with 9 allowed diagnostic/materialization claims and 17 blocked overclaim rows
+- gate matrix: 18/18 gate rows pass with selected metrics finite and required artifacts present
+- outcome caveat: diagnostic success-rate columns are not verdict fields and raw aggregate success remains insufficient for ranking or paper interpretation
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- supported operational claims: M2675 bounded execution preflight artifacts are complete and clean enough to admit one full public T4/T5 execution preflight
+- rejected claims: no reset step rollout policy action replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2676
+- follow-up manifest: `experiments/manifests/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.json`
+- next: `m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight`
