@@ -47798,3 +47798,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no ranking winner promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim; target-gate pass is not performance because protected mitigation failed
 - follow-up manifest: `experiments/manifests/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.json`
 - next: `m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit`
+
+## M2649 Engineering Controller Route A Source-Only Gap-Targeted Repair Execution Result Audit
+
+- status: completed
+- decision: `accept_m2648_route_to_protected_mitigation_regression_localization`
+- manifest: `experiments/manifests/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.json`
+- audit doc: `docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md`
+- parent summary: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json`
+- parent gate rows: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv`
+- accepted evidence: M2648 status_pass true result_class `engineering_controller_route_a_source_only_gap_targeted_repair_execution_preflight_pass` with repaired checkpoint written behavior changed 1 repair trace row 160 post-repair behavior rows 12800 telemetry rows and 7 repair gate rows
+- target gates accepted: `target_road_boundary_margin_control` passed with 16/16 improved rows and `target_drift_collision_recovery_tradeoff` passed with 8/8 improved rows
+- protected blocker confirmed: `protected_mitigation_reference` failed with 7 improved and 1 regressed row
+- regressed row: subject `m2537_mitigation_preserving_policy`, role `unavoidable_mitigation`, seed `267101`, axis `fresh_fault_delay_noise`, severity_proxy `3.953864 -> 3.987916`, collision_speed_proxy `3.359023 -> 3.322625`, minimum_road_margin_m `0.899620 -> 0.949128`
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input and taxonomy/repair labels actor-invisible
+- supported operational claims: M2648 source-only repair-execution evidence is accepted for next-route selection and protected mitigation regression localization
+- rejected claims: no ranking winner promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim; target-gate pass does not override protected mitigation regression
+- follow-up manifest: `experiments/manifests/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.json`
+- next: `m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight`

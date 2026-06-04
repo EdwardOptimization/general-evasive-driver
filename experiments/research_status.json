@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2654,
+    "completed": 2655,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight",
+    "task_id": "m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution",
-    "command_log": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md"
   },
   "next_task": {
-    "id": "m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit",
-    "kind": "gate",
-    "priority": 26440,
+    "id": "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
+    "kind": "infrastructure",
+    "priority": 26450,
     "status": "pending",
-    "hypothesis": "Audit M2648 repair execution evidence and route the protected mitigation reference regression without performance or promotion claims.",
-    "command": "true",
-    "success_artifact": "docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md",
-    "notes": "Pending: audit M2648 status_pass true target gates pass but protected_mitigation_reference fails 1/8 before any further repair or interpretation"
+    "hypothesis": "Localize the single M2648 protected mitigation regression to row and metric-component deltas without another repair execution or performance claim.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization",
+    "success_artifact": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+    "notes": "Pending: materialize row-level and metric-component localization for seed 267101 fresh_fault_delay_noise protected mitigation regression"
   },
-  "updated_at_utc": "20260604T083712Z"
+  "updated_at_utc": "20260604T084444Z"
 }
