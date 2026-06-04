@@ -46903,3 +46903,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: after-closure platform/protocol readiness design only, not platform selection or validation execution
 - follow-up manifest: `experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json`
 - next: `m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design`
+
+## M2595 Engineering Controller Route A Baseline HF3 Platform/Protocol Readiness After Source-Only Closure Design
+
+- status: completed
+- decision: `route_to_hf3_platform_protocol_readiness_after_source_only_closure_materialization_preflight`
+- manifest: `experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json`
+- design doc: `docs/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.md`
+- parent synthesis: `docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md`
+- accepted evidence: M2592/M2593/M2594 repo-local source-only adapter blocker closure evidence with 4 external-state closure rows 4 timing closure rows 4 failure/status closure rows 4 fixture closure rows 4 actor-visibility rows 15 claim rows and 13 gates pass
+- designed artifacts: M2596 platform candidate rows dependency/import policy rows validation protocol skeleton rows source-only closure evidence rows actor/action guard rows claim-boundary rows and gate matrix
+- closure boundary: source-only closure evidence can clear the prior M2584 missing prerequisite rows but does not select a platform or define validation protocol readiness
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.json`
+- next: `m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight`
+
+## M2596 Engineering Controller Route A Baseline HF3 Platform/Protocol Readiness After Source-Only Closure Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure.py`
+- summary: `runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/summary.json`
+- milestone doc: `docs/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.md`
+- materialized evidence: 3 platform candidate rows 3 dependency/import policy rows 2 validation protocol skeleton rows 4 source-only closure evidence rows 2 actor/action guard rows 14 claim rows and 12 gates pass
+- closure boundary: source_only_closure_accepted_in_m2596 true source_only_closure_missing_after_m2596 false while platform_selected_in_m2596 false validation_protocol_ready_in_m2596 false external_validation_execution_allowed_in_m2596 false and driver_performance_claim_allowed_in_m2596 false
+- actor/action contract: P0 observation shape `72` action shape `3` and deployed `[steer, throttle, brake]` mapping preserved
+- allowed operational claim: after-closure platform/protocol readiness design artifacts materialized
+- rejected claims: no platform selection validation protocol readiness validation admission validation execution validation readiness/result rollout success success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- follow-up manifest: `experiments/manifests/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.json`
+- next: `m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit`

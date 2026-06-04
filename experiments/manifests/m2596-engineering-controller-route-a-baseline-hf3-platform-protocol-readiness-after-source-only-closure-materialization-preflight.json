@@ -1,0 +1,298 @@
+{
+  "id": "m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.md",
+      "docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md",
+      "docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md",
+      "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/summary.json",
+      "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/hf3_source_only_adapter_closure_claim_boundary_checks.csv",
+      "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/source_only_adapter_blocker_closure_gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json",
+      "experiments/manifests/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.json",
+      "experiments/manifests/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize bounded after-closure platform/protocol readiness design artifacts after M2595 design"
+    ],
+    "derived_from": [
+      "m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design",
+      "m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis",
+      "m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit",
+      "m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2595 designs M2596 after-closure platform/protocol readiness artifacts and gates without claiming platform selection validation readiness validation execution or driver performance",
+      "M2594 accepts M2592/M2593 only as repo-local source-only closure evidence and requires after-closure platform/protocol materialization before validation interpretation",
+      "M2592 keeps validation_protocol_ready_in_m2592 false and external_validation_execution_allowed_in_m2592 false",
+      "Route C requires after-closure platform/protocol readiness materialization before platform selection external validation execution or HF4 discrepancy reports"
+    ],
+    "supersedes": [
+      "another after-closure readiness design-only milestone without materialized artifacts",
+      "claiming platform/protocol readiness directly from M2595 design rows",
+      "selecting a validation platform before after-closure readiness evidence is audited",
+      "starting external validation execution directly from M2595 design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.md",
+  "public_gates": [
+    "M2596 must materialize summary platform candidate dependency/import policy validation protocol skeleton source-only closure evidence actor/action guard claim-boundary gate matrix and milestone doc artifacts",
+    "M2596 must materialize after-closure platform/protocol readiness design rows using accepted M2592/M2593/M2594 source-only closure evidence",
+    "M2596 may only claim after-closure platform/protocol readiness design materialized if all rows and gates pass",
+    "M2596 must distinguish after-closure readiness design materialization from platform selection validation protocol readiness validation admission validation readiness validation result external validation execution and driver-performance claims",
+    "M2596 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2596 must keep taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection and protocol status out of actor-visible inputs",
+    "M2596 must not install import or run external high-fidelity simulation train replay PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute reset in the materialization preflight",
+    "do not execute policy actions in the materialization preflight",
+    "do not step environments in the materialization preflight",
+    "do not execute rollout in the materialization preflight",
+    "do not execute validation in the materialization preflight",
+    "do not train in the materialization preflight",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection or protocol status to actor input",
+    "do not select a validation platform",
+    "do not silently upgrade after-closure design materialization to validation-ready rows",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim validation admission",
+    "do not claim validation protocol readiness",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from after-closure platform/protocol readiness materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_platform_protocol_readiness_after_source_only_closure_materialization_preflight",
+    "evidence_increment": "materializes after-closure platform/protocol readiness design artifacts instead of adding another design-only milestone",
+    "claim_scope": "HF3 after-closure platform/protocol readiness materialization preflight only; design artifacts may be materialized, but no platform selection validation protocol readiness validation admission readiness result external simulator execution training ranking winner selection success-rate verdict paper verdict finite-window-vs-GRU self-ID driver-performance current-sim high-fidelity or validation verdict claim",
+    "stop_condition": [
+      "stop if materialization requires actor input or action contract changes",
+      "stop if labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection or protocol status would enter actor-visible inputs",
+      "stop if after-closure readiness design rows are interpreted as validation readiness",
+      "stop if materialization would install import or run external high-fidelity simulation",
+      "stop if materialization would select a platform or claim validation protocol readiness validation admission readiness result ranking or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if P0 72/3 or no-label boundaries fail",
+      "route to artifact repair if M2592/M2594/M2595 source evidence is incomplete",
+      "route to platform-schema repair if readiness criteria cannot be represented without readiness claims",
+      "route to result audit if all M2596 materialized artifacts pass",
+      "route to branch synthesis pivot or stop if no bounded readiness path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2595 selected after-closure platform/protocol readiness materialization preflight after bounded design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 platform/protocol readiness after source-only closure materialization preflight",
+    "admission_evidence": [
+      "M2595 designs bounded after-closure platform/protocol readiness rows and gates for M2596 without claiming platform selection validation readiness/result or performance",
+      "M2594 synthesis continues to after-closure platform/protocol readiness design without platform selection validation protocol readiness validation admission readiness/result or performance claims",
+      "M2593 audit accepts M2592 source-only closure materialization while rejecting readiness/result/ranking and driver-performance claims",
+      "Post-M2470 Route C requires after-closure platform/protocol readiness materialization before validation layers can be interpreted"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no reset execution",
+      "no policy action",
+      "no environment stepping",
+      "no rollout execution",
+      "no validation execution",
+      "no platform selection",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from after-closure readiness materialization"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure.py",
+      "tests/test_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure.py",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/summary.json",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_platform_candidate_rows.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_dependency_import_policy_rows.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_validation_protocol_skeleton_rows.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_source_only_evidence_rows.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_actor_action_guard_rows.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_claim_boundary_checks.csv",
+      "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/after_closure_platform_protocol_readiness_gate_matrix.csv",
+      "docs/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.md",
+      "M2596 status queue scoreboard research log and review",
+      "one follow-up result audit contract repair artifact repair platform-schema repair branch synthesis pivot or stop manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "summary and all M2596 CSV/MD artifacts exist",
+      "platform candidate rows exist without platform selection external install import or runtime execution",
+      "dependency/import policy rows exist without dependency mutation",
+      "validation protocol skeleton rows exist without validation execution or readiness/result claims",
+      "source-only closure evidence rows exist without weakening M2592 boundaries",
+      "actor/action guard and claim-boundary rows are complete",
+      "after-closure platform/protocol readiness design materialized claim is scoped and no platform selection validation admission validation protocol readiness readiness result performance ranking success-rate or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2596 materializes HF3 after-closure platform/protocol readiness design artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2596; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2595 after-closure platform/protocol readiness design.",
+    "negative_result_policy": "If after-closure platform/protocol readiness materialization cannot preserve actor or claim boundaries route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 after-closure platform/protocol readiness materialization preflight",
+      "after-closure platform/protocol readiness design materialized if all M2596 rows and gates pass",
+      "no platform selection validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes after-closure platform/protocol readiness design artifacts rather than adding another design-only milestone",
+    "paper_verdict_delta": "does not decide paper verdict but can create after-closure validation-layer readiness artifacts required before platform selection or external validation can be proposed or interpreted",
+    "must_synthesize_if": [
+      "M2596 cannot materialize readiness design artifacts without actor input or action contract changes",
+      "M2596 would claim platform selection validation protocol readiness validation admission readiness result or driver performance",
+      "M2596 would rank or promote controllers",
+      "another design-only or repair-only milestone is proposed after M2596 without audit or evidence-expanding validation preparation"
+    ]
+  },
+  "hypothesis": "The Route A baseline can materialize bounded after-closure HF3 platform/protocol readiness design artifacts while preserving the 72/3 no-oracle actor contract platform-selection honesty validation-readiness honesty and no external validation or performance claims.",
+  "success_criteria": [
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/summary.json exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_platform_candidate_rows.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_dependency_import_policy_rows.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_validation_protocol_skeleton_rows.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_source_only_evidence_rows.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_actor_action_guard_rows.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_claim_boundary_checks.csv exists",
+    "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/after_closure_platform_protocol_readiness_gate_matrix.csv exists",
+    "docs/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.md exists",
+    "after-closure platform candidate dependency/import validation protocol skeleton source-only closure evidence and actor/action guard rows are represented",
+    "every source-only closure evidence row marks accepted closure true while platform_selected_in_m2596 false validation_protocol_ready_in_m2596 false and external_validation_execution_allowed_in_m2596 false",
+    "actor/action guard rows preserve P0 72/3 and no hidden/oracle actor inputs",
+    "claim-boundary rows allow only after-closure platform/protocol readiness design materialization and keep platform selection validation protocol readiness validation admission validation readiness/result external execution ranking driver-performance paper self-ID finite-window-vs-GRU current-sim and high-fidelity validation verdict claims false",
+    "no external high-fidelity simulation install import execution policy action training replay PPO ranking winner success-rate promotion validation admission readiness result or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2596 installs imports or runs Chrono or another external simulator",
+    "M2596 changes actor input or action contract",
+    "M2596 injects hidden or oracle actor features",
+    "M2596 exposes labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection or protocol status to actor input",
+    "M2596 silently upgrades after-closure readiness design rows to validation-admitted validation-ready or validation-result rows",
+    "M2596 executes policy rollout reset step validation or interprets readiness design artifacts as performance",
+    "M2596 starts training",
+    "M2596 ranks controller families or selects a winner",
+    "M2596 computes success rate or promotes a checkpoint",
+    "M2596 claims platform selection validation admission validation protocol readiness validation readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure.py"
+    },
+    {
+      "name": "route_a_hf3_platform_protocol_readiness_after_source_only_closure_materialization_preflight",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure --output-dir runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure --milestone m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight --next-blocker m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_platform_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_dependency_import_policy_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_validation_protocol_skeleton_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_source_only_evidence_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_actor_action_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/hf3_after_closure_claim_boundary_checks.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2596_engineering_controller_route_a_hf3_platform_protocol_readiness_after_source_only_closure/after_closure_platform_protocol_readiness_gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2596-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.md",
+    "docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md",
+    "docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md",
+    "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/summary.json",
+    "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/hf3_source_only_adapter_closure_claim_boundary_checks.csv",
+    "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/source_only_adapter_blocker_closure_gate_matrix.csv",
+    "experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json",
+    "experiments/manifests/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2596 passes if it materializes bounded after-closure HF3 platform/protocol readiness design artifacts and gates while preserving actor/action boundaries platform-selection honesty protocol-readiness honesty and making no external simulation reset policy action rollout validation training ranking winner selection success-rate promotion platform selection validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit"
+}
