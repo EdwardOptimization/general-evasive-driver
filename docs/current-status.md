@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
+m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
+m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
+m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
 ```
 
 Current route:
@@ -100,6 +100,16 @@ protected_excluded rows. Profile context is diagnostic and non-ranking.
 Next is M2721 no-rollout offtrack repair target-panel materialization before
 any repair design, execution extension, validation, ranking, performance,
 paper, current-sim, high-fidelity, full ideal driver, or self-ID claim.
+
+M2721 materialized that target panel. It wrote 31 offtrack target rows, 2
+collision caution rows, 3 diagnostic success context rows, 12 protected
+exclusion rows, 5 aggregate rows, 8 actor joins, 20 claim rows, and 16 gate
+rows, all passing. Target rows are admitted for later repair planning but no
+execution is scheduled; profile context remains non-ranking.
+
+Next is M2722 result audit before repair design, execution extension,
+validation, ranking, performance, paper, current-sim, high-fidelity, full ideal
+driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

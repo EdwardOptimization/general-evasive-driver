@@ -49188,3 +49188,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2720
 - follow-up manifest: `experiments/manifests/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.json`
 - next: `m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight`
+
+## M2721 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Target Panel Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization_pass`
+- manifest: `experiments/manifests/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization.py`
+- summary: `runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json`
+- doc: `docs/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.md`
+- materialized rows: 31 offtrack target rows 2 collision caution rows 3 diagnostic success context rows 12 protected exclusion rows 5 aggregate rows 8 actor joins 20 claim rows and 16 gate rows
+- target panel finding: all 31 M2719 off_track rows are admitted as no-rollout target-panel rows with execution_scheduled false
+- caution/context boundary: 2 obstacle_collision rows remain collision caution rows and 3 diagnostic_success rows remain context rows rather than winner evidence
+- protected proposal boundary: 12 protected_excluded rows remain not target-panel admitted not executed and outside success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2722 offtrack target-panel materialization result audit before repair design execution extension ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2721
+- follow-up manifest: `experiments/manifests/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.json`
+- next: `m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit`
