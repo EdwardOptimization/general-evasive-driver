@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2634,
+    "completed": 2635,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit",
+    "task_id": "m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md",
-    "command_log": "docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md"
+    "run_dir": "docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md",
+    "command_log": "docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 26240,
+    "id": "m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design",
+    "kind": "infrastructure",
+    "priority": 26250,
     "status": "pending",
-    "hypothesis": "Synthesize accepted selected-platform source-build and adapter-probe execution design materialization evidence before choosing execution-attempt design repair pivot or stop.",
-    "command": "see experiments/manifests/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.json",
-    "success_artifact": "docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize M2627/M2628 source-build/adapter-probe design materialization evidence while keeping dependency readiness source build adapter probe backend availability reset validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Design bounded selected-platform source-build and adapter-probe execution-attempt artifacts after accepted design materialization synthesis.",
+    "command": "see experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json",
+    "success_artifact": "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
+    "notes": "Pending: design M2631 source-build/adapter-probe execution-attempt materialization artifacts while keeping install import mutation source build adapter probe backend reset validation ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T053437Z"
+  "updated_at_utc": "20260604T054225Z"
 }

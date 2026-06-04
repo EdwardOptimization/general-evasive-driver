@@ -47438,3 +47438,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.json`
 - next: `m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis`
+
+## M2629 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Execution Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_selected_platform_source_build_adapter_probe_execution_attempt_design`
+- manifest: `experiments/manifests/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md`
+- parent audit: `docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md`
+- parent summary: `runs/m2627_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution/summary.json`
+- accepted evidence: M2627/M2628 selected-platform source-build/adapter-probe execution design materialization evidence with 2 source-build command rows 2 adapter-probe command rows 4 dependency/environment isolation guard rows 4 source-build artifact capture rows 4 adapter-probe trace capture rows 10 outcome taxonomy rows 2 actor/action guard rows 28 claim-boundary rows and 13 gates pass
+- supported operational claims: selected-platform source-build/adapter-probe execution design materialization accepted for future bounded execution-attempt protocol design only
+- rejected claims: no dependency execution readiness source build adapter probe backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: medium-high because M2627-M2629 improve validation-preparation hygiene without new closed-loop driver behavior evidence; M2629 narrows the next route to execution-attempt design with an M2631 materialization handoff
+- next route: selected-platform source-build/adapter-probe execution-attempt design only, not source build execution adapter probe execution backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation result or performance
+- follow-up manifest: `experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json`
+- next: `m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design`
