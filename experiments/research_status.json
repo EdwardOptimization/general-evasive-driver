@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2688,
+    "completed": 2689,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/summary.json",
+    "command_log": "docs/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight"
+    "task_id": "m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Audit M2682 no-rollout repair candidate materialization artifacts before any measured execution interpretation planning training promotion or paper claim.",
-    "id": "m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2682 summary blocker candidate excluded proposed-subset claim-boundary gate-matrix run-state and doc artifacts verify diagnostic-only subset smaller than full public matrix role semantics actor-invisible no reset rollout replay validation training PPO ranking winner promotion verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26780,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight --m2682-dir runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization --runtime-enforcement-dir runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization --m1674-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight",
+    "hypothesis": "Execute the M2682 bounded role/task-quality measured subset as a diagnostic closed-loop preflight before any interpretation or paper claim.",
+    "id": "m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: execute only the 216-row M2682 proposed subset or record failure rows preserve M2673 runtime controls M1674 corrected profiles actor 72/action 3 role semantics actor-invisible no training PPO replay private holdout ranking winner promotion verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26790,
     "status": "pending",
-    "success_artifact": "docs/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.md"
+    "success_artifact": "runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260604T152752Z"
+  "updated_at_utc": "20260604T153528Z"
 }

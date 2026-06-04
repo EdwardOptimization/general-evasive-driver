@@ -48509,3 +48509,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2682
 - follow-up manifest: `experiments/manifests/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.json`
 - next: `m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit`
+
+## M2683 Paper Route History Vs Current Response Task Quality Role Semantics Repair Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2682_route_to_bounded_subset_execution_preflight`
+- manifest: `experiments/manifests/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.json`
+- audit doc: `docs/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.md`
+- parent summary: `runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/summary.json`
+- accepted parent result: M2682 `status_pass` true with 15 blocker rows 9 repair candidates 6 excluded candidate rows 216 proposed measured-subset rows 31 claim-boundary rows and 23 gate rows
+- audit finding: M2682 is complete and claim-safe as repair admission materialization but cannot support direct interpretation
+- subset admission: 216/864 rows across 18 specs 12 profiles and 2 task families not identical to full public matrix and not selected from success rows only
+- role semantics boundary: analysis-only actor-invisible no hidden/oracle actor input required
+- source blockers preserved: off-track dominance 793/864 outcomes and 794/864 terminations hidden-dynamics buckets missing and 0 ranking-interpretable comparison rows
+- route decision: accept one bounded subset execution preflight to produce new closed-loop data instead of another static artifact or same full public rollout
+- rejected claims: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2683
+- follow-up manifest: `experiments/manifests/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.json`
+- next: `m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight`
