@@ -48740,3 +48740,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2695
 - follow-up manifest: `experiments/manifests/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.json`
 - next: `m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit`
+
+## M2696 Engineering Controller Protected Mitigation Target Executable Surface Bridge Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2695_route_to_protected_runner_spec_generation_materialization`
+- manifest: `experiments/manifests/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.json`
+- audit doc: `docs/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.md`
+- parent summary: `runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json`
+- accepted parent result: M2695 `status_pass` true with 10 protected bridge rows 0 exact current-runner executable candidate rows 10 unbridgeable target rows 9 actor-contract guard rows 30 claim-boundary rows and 16 gate rows all pass
+- bridge finding: M2695 accounts for every protected target but none has an exact current executable workload row under the existing `runs/m1690` executable workload index
+- protected blocker: all 10 protected rows remain explicit unbridgeable rows requiring protected runner-spec generation before any bounded protected execution route
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible and protected rows outside success denominators
+- audit finding: M2695 is complete and claim-safe materialization evidence only not protected mitigation preservation repair success driver performance validation current-sim high-fidelity paper full ideal driver or self-ID evidence
+- route decision: route to M2697 protected mitigation runner-spec generation materialization using M2695 unbridgeable rows and M2662 protected panel specs
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2696
+- follow-up manifest: `experiments/manifests/m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight.json`
+- next: `m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight`
