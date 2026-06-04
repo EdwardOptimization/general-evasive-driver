@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2704,
+    "completed": 2705,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md",
+    "command_log": "docs/m2699-engineering-controller-protected-runner-adapter-contract-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit"
+    "task_id": "m2699-engineering-controller-protected-runner-adapter-contract-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Design the protected runner adapter contract required after M2698 accepts M2697 but blocks direct protected execution because protected candidates are not exact M1690 workload rows.",
-    "id": "m2699-engineering-controller-protected-runner-adapter-contract-design",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_runner_adapter_contract_materialization --m2697-dir runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2700_engineering_controller_protected_runner_adapter_contract",
+    "hypothesis": "Materialize the protected runner adapter contract rows required after M2699 admits adapter materialization from M2697 protected candidates that are not exact M1690 workload rows.",
+    "id": "m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight",
     "kind": "infrastructure",
-    "notes": "Pending: design adapter input sources output rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gates for M2697 protected runner specs while preserving actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26940,
+    "notes": "Pending: materialize adapter input source rows candidate mapping rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gates for M2697 protected candidates while preserving 0 exact M1690 match boundary actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26950,
     "status": "pending",
-    "success_artifact": "docs/m2699-engineering-controller-protected-runner-adapter-contract-design.md"
+    "success_artifact": "runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json"
   },
-  "updated_at_utc": "20260604T182936Z"
+  "updated_at_utc": "20260604T183522Z"
 }

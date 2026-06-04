@@ -48792,3 +48792,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2698
 - follow-up manifest: `experiments/manifests/m2699-engineering-controller-protected-runner-adapter-contract-design.json`
 - next: `m2699-engineering-controller-protected-runner-adapter-contract-design`
+
+## M2699 Engineering Controller Protected Runner Adapter Contract Design
+
+- status: completed
+- decision: `admit_protected_runner_adapter_contract_materialization_preflight`
+- manifest: `experiments/manifests/m2699-engineering-controller-protected-runner-adapter-contract-design.json`
+- design doc: `docs/m2699-engineering-controller-protected-runner-adapter-contract-design.md`
+- parent audit: `docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md`
+- design finding: M2697 produced 12 protected runner spec rows and 12 protected workload candidate rows but 0 exact M1690 workload matches, so adapter contract materialization is required before any protected execution admission
+- adapter contract: defines input source rows candidate mapping rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gate rows for M2700
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input protected labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2700 protected runner adapter contract materialization preflight before any result audit or protected execution route
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2699
+- follow-up manifest: `experiments/manifests/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.json`
+- next: `m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight`
