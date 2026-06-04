@@ -1,0 +1,125 @@
+# m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T021315Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_hf3_after_closure_platform_selection_decision_design_materialization_route_to_result_synthesis
+- Decision reason: M2605 accepts M2604 after-closure HF3 platform-selection decision-design materialization status_pass true 2 decision request rows 8 evidence-admission rows 3 candidate-comparison rows 3 dependency guard rows 2 validation-role compatibility rows 2 actor/action guard rows 19 claim rows and 12 gates pass no actual platform selection selection decision selected platform validation protocol readiness/admission/readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2604 HF3 after-closure platform-selection decision-design materialization while preserving actor contract integrity platform-selection honesty protocol-readiness honesty and no validation ranking or performance boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/summary.json, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_request_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_evidence_admission_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_candidate_comparison_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_dependency_guard_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_validation_role_compatibility_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_actor_action_guard_rows.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_claim_boundary_checks.csv, runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/after_closure_platform_selection_decision_gate_matrix.csv, docs/m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight.md, docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md, docs/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.md, runs/m2600_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight.json, experiments/manifests/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.json, experiments/manifests/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.json
+- parent_objective: audit the M2604 after-closure platform-selection decision-design materialization before platform selection selection decision validation protocol readiness validation admission readiness result or performance interpretation
+- derived_from: m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight, m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design, m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis, m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight
+- blocked_by: M2604 materialized platform-selection decision-design artifacts that must be audited before interpretation, M2604 supports only after-closure platform-selection decision-design materialization and rejects actual platform selection selection decision selected platform family validation protocol readiness validation admission readiness result ranking and driver-performance claims, Route C requires audited decision-design boundaries before any actual platform-selection decision dependency mutation external validation execution or HF4 discrepancy result
+- supersedes: interpreting M2604 decision request rows as an actual platform-selection decision, claiming validation readiness or driver performance from M2604 decision-design artifacts, starting external high-fidelity validation before M2604 decision-design evidence is audited, silently selecting a validation platform from candidate-comparison rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md exists
+- audit verifies M2604 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- audit verifies M2604 decision request evidence-admission candidate-comparison dependency guard validation-role compatibility actor/action guard claim-boundary and gate artifacts exist
+- audit verifies two decision request rows eight evidence-admission rows three candidate-comparison rows three dependency guard rows two validation-role compatibility rows two actor/action guard rows nineteen claim rows and twelve gates pass
+- audit verifies M2604 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- audit verifies M2604 made no actual platform selection selection decision selected-platform validation protocol readiness validation admission validation execution external simulation training replay PPO ranking winner success-rate promotion validation result driver-performance or verdict claim
+- audit registers result synthesis repair platform-selection preparation platform-schema route branch synthesis pivot or stop without actual platform selection selection decision validation protocol readiness validation admission readiness result or performance claims
+
+## Failure Criteria
+
+- M2605 installs imports or runs Chrono or another external simulator
+- M2605 changes actor input or action contract
+- M2605 injects hidden or oracle actor features
+- M2605 steps an environment runs policy action or executes rollout
+- M2605 starts training
+- M2605 treats M2604 platform-selection decision-design rows as driver performance
+- M2605 ranks controller families or selects a winner
+- M2605 computes success rate or promotes a checkpoint
+- M2605 claims actual platform selection selection decision validation protocol readiness validation admission readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2605 must audit M2604 summary decision request evidence-admission candidate-comparison dependency guard validation-role compatibility actor/action guard claim-boundary and gate matrix artifacts
+- M2605 must verify M2604 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- M2605 must verify two decision request rows eight evidence-admission rows three candidate-comparison rows three dependency guard rows two validation-role compatibility rows two actor/action guard rows nineteen claim-boundary rows and twelve gates pass
+- M2605 must verify M2604 keeps platform_selected_in_m2604 false selection_decision_made_in_m2604 false selected_platform_family_in_m2604 none validation_protocol_ready_in_m2604 false external_validation_execution_allowed_in_m2604 false and driver_performance_claim_allowed_in_m2604 false
+- M2605 must verify M2604 preserved P0 observation shape 72 action shape 3 no hidden or oracle actor input and no actor-visible diagnostics labels backend status reset outcome rollout outcome validation outcome platform selection platform-selection criteria platform-selection decision or protocol status
+- M2605 must verify M2604 did not select a platform make a selection decision install import run mutate dependencies execute reset/action/step/rollout/validation train replay PPO rank controllers select winners promote checkpoints compute success rates or claim driver performance
+- M2605 must register result synthesis artifact repair contract repair platform-schema repair branch synthesis pivot or stop as the next route without actual platform selection selection decision validation protocol readiness validation admission readiness result or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute reset in the audit
+- do not execute policy actions in the audit
+- do not step environments in the audit
+- do not execute rollout in the audit
+- do not execute validation in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision or protocol status to actor input
+- do not silently upgrade decision-design rows to selection-ready validation-ready or validation-result rows
+- do not select a validation platform
+- do not make a selection decision
+- do not answer HF4 discrepancy questions
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim rollout success
+- do not claim validation admission
+- do not claim validation protocol readiness
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2604 platform-selection decision-design artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_hf3_after_closure_platform_selection_decision_design_materialization_route_to_result_synthesis
+- reason: M2605 accepts M2604 after-closure HF3 platform-selection decision-design materialization status_pass true 2 decision request rows 8 evidence-admission rows 3 candidate-comparison rows 3 dependency guard rows 2 validation-role compatibility rows 2 actor/action guard rows 19 claim rows and 12 gates pass no actual platform selection selection decision selected platform validation protocol readiness/admission/readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis
+
+## Next Blocker
+
+m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis

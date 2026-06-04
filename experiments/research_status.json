@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2610,
+    "completed": 2611,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight",
+    "task_id": "m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/summary.json",
-    "command_log": "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/summary.json"
+    "run_dir": "docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md",
+    "command_log": "docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit",
+    "id": "m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 26000,
+    "priority": 26010,
     "status": "pending",
-    "hypothesis": "Audit the M2604 after-closure HF3 platform-selection decision-design materialization before platform selection validation interpretation.",
-    "command": "see experiments/manifests/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.json",
-    "success_artifact": "docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md",
-    "notes": "Pending: audit M2604 decision-design materialization artifacts without actual platform selection selection decision validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Synthesize accepted M2604/M2605 after-closure HF3 platform-selection decision-design materialization evidence before actual platform-selection decision materialization repair pivot or stop.",
+    "command": "see experiments/manifests/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize M2604/M2605 decision-design materialization evidence without validation readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T020322Z"
+  "updated_at_utc": "20260604T020953Z"
 }
