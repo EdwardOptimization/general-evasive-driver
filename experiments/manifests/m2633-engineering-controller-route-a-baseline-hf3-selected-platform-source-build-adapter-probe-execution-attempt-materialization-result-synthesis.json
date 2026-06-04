@@ -1,0 +1,291 @@
+{
+  "id": "m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_source_build_execution_attempt_admission_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_adapter_probe_execution_attempt_admission_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_dependency_runtime_execution_guard_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_log_capture_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_backend_discovery_evidence_capture_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_failure_taxonomy_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_actor_action_guard_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_claim_boundary_checks.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/selected_platform_source_build_adapter_probe_execution_attempt_gate_matrix.csv",
+      "docs/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.md",
+      "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
+      "docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md",
+      "docs/post-m2470-route-plan.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json",
+      "experiments/manifests/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.json",
+      "experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json",
+      "experiments/manifests/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "synthesize accepted M2631/M2632 HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence before choosing actual execution-attempt command design repair pivot or stop"
+    ],
+    "derived_from": [
+      "m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit",
+      "m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight",
+      "m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design",
+      "m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis"
+    ],
+    "blocked_by": [
+      "M2632 accepts M2631 as bounded selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence but rejects dependency readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success validation readiness/result and driver-performance claims",
+      "M2631 materialized source-build attempt admission adapter-probe attempt admission dependency/runtime guard execution-attempt log capture backend-discovery evidence capture execution failure taxonomy actor/action guard claim-boundary and gate rows for chrono_vehicle_or_equivalent_open_backend",
+      "Route C requires synthesis before any actual source-build adapter-probe backend reset or external validation execution route is selected"
+    ],
+    "supersedes": [
+      "starting actual selected-platform source build adapter probe backend reset execution directly from M2631 protocol rows without result synthesis",
+      "claiming backend discovery backend availability reset success validation readiness validation admission validation result or driver performance from execution-attempt protocol materialization alone",
+      "running external high-fidelity validation before source-build adapter-probe execution evidence backend evidence reset evidence and validation-admission evidence",
+      "continuing HF3 infrastructure without a concrete synthesis decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+  "synthesis_artifact": "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2633 must synthesize M2631 and M2632 HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence before any actual source-build adapter-probe backend reset execution or validation-admission route",
+    "M2633 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2633 must separate accepted selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence from dependency execution readiness source-build attempt/source-build execution/source-build success adapter-probe attempt/adapter-probe execution/adapter-probe success backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness validation result driver-performance controller ranking paper finite-window-vs-GRU current-sim and self-ID claims",
+    "M2633 must decide whether the next step is selected-platform source-build/adapter-probe actual execution-attempt command design/admission artifact repair contract repair platform-schema repair branch synthesis pivot or stop",
+    "M2633 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2633 must not run source builds adapter probes backend starts resets policy actions steps rollouts replay validation train PPO install import or run external simulators rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the synthesis milestone",
+    "do not execute adapter probe in the synthesis milestone",
+    "do not start a backend in the synthesis milestone",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset in the synthesis milestone",
+    "do not execute policy actions in the synthesis milestone",
+    "do not step environments in the synthesis milestone",
+    "do not execute rollout in the synthesis milestone",
+    "do not execute replay in the synthesis milestone",
+    "do not execute validation in the synthesis milestone",
+    "do not train in the synthesis milestone",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics build outcomes probe outcomes reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade selected-platform execution-attempt protocol rows to source-build attempted source-build succeeded adapter-probe attempted adapter-probe succeeded backend-discovered backend-available reset-executed reset-success validation-ready validation-admitted or validation-result rows",
+    "do not make a dependency execution readiness decision",
+    "do not make a source-build attempt execution or success claim",
+    "do not make an adapter-probe attempt execution or success claim",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not make a reset execution or reset success claim",
+    "do not make a validation protocol readiness decision",
+    "do not grant validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout feasibility",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from selected-platform source-build/adapter-probe execution-attempt protocol materialization synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_selected_platform_source_build_adapter_probe_execution_attempt_materialization_result_synthesis",
+    "evidence_increment": "synthesizes accepted selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence and chooses the next bounded actual execution-attempt command design repair pivot or stop route",
+    "claim_scope": "HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization result synthesis only; protocol panels may be accepted for future actual execution-attempt command design, but no dependency execution readiness source-build attempt execution success adapter-probe attempt execution success backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission readiness/result external simulator execution training ranking winner selection success-rate verdict paper verdict finite-window-vs-GRU self-ID driver-performance current-sim high-fidelity or validation verdict claim",
+    "stop_condition": [
+      "stop if M2631 or M2632 artifacts are missing or inconsistent",
+      "stop if synthesis would claim dependency execution readiness source-build attempt source-build execution source-build success adapter-probe attempt adapter-probe execution adapter-probe success backend discovery backend availability reset execution reset success validation protocol readiness validation admission readiness result or driver performance",
+      "stop if synthesis would rank or promote controllers from execution-attempt protocol rows",
+      "stop if no bounded selected-platform source-build/adapter-probe actual execution-attempt command design repair pivot or stop route remains after accepted protocol materialization evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are incomplete",
+      "route to contract repair if actor/action or claim boundaries are not accepted",
+      "route to platform-schema repair if selected-platform source-build/adapter-probe execution-attempt protocol rows are ambiguous",
+      "route to selected-platform source-build/adapter-probe actual execution-attempt command design/admission if protocol materialization evidence is accepted",
+      "route to branch synthesis pivot or stop if additional infrastructure would not change validation preparation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2632 accepts M2631 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence and requires a next-route decision",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization result synthesis",
+    "admission_evidence": [
+      "M2631 materialized status_pass true HF3 selected-platform source-build/adapter-probe execution-attempt protocol artifacts",
+      "M2632 accepts M2631 while rejecting dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success validation readiness/result ranking and driver-performance claims",
+      "M2631 selected_platform_family_in_m2631 chrono_vehicle_or_equivalent_open_backend while keeping external install/import/runtime execution dependency mutation source-tree mutation network source build attempt adapter probe attempt backend start reset/action/step/rollout/replay/validation execution validation_protocol_ready_in_m2631 validation_admission_granted_in_m2631 and external_validation_execution_allowed_in_m2631 false",
+      "M2631/M2632 keep Route C validation-layer evidence separate from paper self-ID and driver-performance claims"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build or adapter probe execution in synthesis",
+      "no backend start in synthesis",
+      "no reset execution in synthesis",
+      "no policy action in synthesis",
+      "no environment stepping in synthesis",
+      "no rollout execution in synthesis",
+      "no replay execution in synthesis",
+      "no validation execution in synthesis",
+      "no validation readiness claim",
+      "no training in synthesis",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from selected-platform source-build/adapter-probe execution-attempt protocol materialization synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+      "M2633 status queue scoreboard research log and review",
+      "one follow-up selected-platform source-build/adapter-probe actual execution-attempt command design/admission artifact repair contract repair platform-schema repair branch synthesis pivot or stop manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "supported and rejected claim boundaries are explicit",
+      "next route is selected without dependency execution readiness source-build execution adapter-probe execution backend discovery backend availability reset execution validation protocol readiness validation admission readiness result or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2633 synthesizes engineering HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2633; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2632 selected-platform source-build/adapter-probe execution-attempt protocol materialization audit.",
+    "negative_result_policy": "If synthesis finds selected-platform source-build/adapter-probe execution-attempt protocol evidence insufficient for actual execution-attempt command design route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization result synthesis",
+      "selected-platform source-build/adapter-probe execution-attempt protocol materialization accepted for future actual execution-attempt command design only",
+      "no dependency execution readiness source-build execution adapter-probe execution backend discovery backend availability reset execution reset success validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes newly materialized selected-platform source-build/adapter-probe execution-attempt protocol evidence before selecting the next actual execution-attempt command design or repair route",
+    "paper_verdict_delta": "does not decide paper verdict but clarifies whether selected-platform execution-attempt protocol materialization can continue toward actual command-attempt design before external validation",
+    "must_synthesize_if": [
+      "M2633 would claim source-build execution adapter-probe execution backend discovery backend availability reset execution reset success validation protocol readiness validation admission readiness result or driver performance",
+      "M2633 would rank or promote controllers",
+      "M2633 cannot select a bounded next route",
+      "another infrastructure step is proposed after M2633 without concrete evidence increment"
+    ]
+  },
+  "hypothesis": "A bounded synthesis can convert accepted HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence into a clear actual execution-attempt command design/admission or repair route decision without claiming dependency readiness source build execution adapter probe execution backend discovery backend availability reset execution reset success validation protocol readiness validation admission validation result driver performance paper evidence finite-window-vs-GRU or self-ID.",
+  "success_criteria": [
+    "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis separates selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence from dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness validation result driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims",
+    "synthesis registers selected-platform source-build/adapter-probe actual execution-attempt command design/admission artifact repair contract repair platform-schema repair branch synthesis pivot or stop without validation or performance claims",
+    "no external high-fidelity simulation install import execution source build adapter probe backend start reset policy action rollout replay validation training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2633 installs imports or runs Chrono or another external simulator",
+    "M2633 changes actor input or action contract",
+    "M2633 injects hidden or oracle actor features",
+    "M2633 mutates dependencies source trees executes source build or runs adapter probe",
+    "M2633 starts a backend executes reset policy action rollout replay validation or environment step",
+    "M2633 starts training",
+    "M2633 treats selected-platform execution-attempt protocol synthesis as driver performance",
+    "M2633 ranks controller families or selects a winner",
+    "M2633 claims source-build execution adapter-probe execution backend discovery backend availability reset execution reset success validation protocol readiness validation admission validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_source_build_execution_attempt_admission_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_adapter_probe_execution_attempt_admission_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_dependency_runtime_execution_guard_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_log_capture_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_backend_discovery_evidence_capture_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_failure_taxonomy_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_actor_action_guard_rows.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_claim_boundary_checks.csv",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/selected_platform_source_build_adapter_probe_execution_attempt_gate_matrix.csv",
+    "docs/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.md",
+    "experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json",
+    "experiments/manifests/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.json",
+    "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
+    "docs/post-m2470-route-plan.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2633 passes if it synthesizes accepted M2631/M2632 HF3 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence, answers the six synthesis questions, and registers a bounded next route without external dependency mutation source build adapter probe backend start reset step simulation replay validation execution training ranking winner selection success-rate promotion backend discovery backend availability reset execution reset success validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design"
+}

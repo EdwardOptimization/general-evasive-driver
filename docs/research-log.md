@@ -47487,3 +47487,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe backend discovery backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json`
 - next: `m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit`
+
+## M2632 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Execution Attempt Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_selected_platform_source_build_adapter_probe_execution_attempt_protocol_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json`
+- audit doc: `docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md`
+- parent summary: `runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json`
+- accepted evidence: M2631 status_pass true 2 source-build attempt admission rows 2 adapter-probe attempt admission rows 5 dependency/runtime guard rows 5 execution-attempt log capture rows 4 backend-discovery evidence capture rows 11 failure taxonomy rows 2 actor/action guard rows 31 claim-boundary rows and 14 gates pass
+- selected-platform boundary: selected_platform_family_in_m2631 `chrono_vehicle_or_equivalent_open_backend` selected_platform_source_build_adapter_probe_execution_attempt_protocol_materialized_in_m2631 true while external install/import/runtime execution dependency mutation source-tree mutation network access source build attempt adapter probe attempt backend start reset/action/step/rollout/replay/validation execution validation_protocol_ready_in_m2631 validation_admission_granted_in_m2631 and external_validation_execution_allowed_in_m2631 remain false
+- guard boundary: P0 `72/3` and deployed `[steer, throttle, brake]` mapping preserved with no hidden/oracle diagnostics taxonomy labels backend statuses build/probe/reset/rollout/validation outcomes selected platform or protocol status actor-visible
+- supported operational claims: selected-platform source-build/adapter-probe execution-attempt protocol materialization accepted for result synthesis and bounded next-route selection only
+- rejected claims: no dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.json`
+- next: `m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis`
