@@ -48989,3 +48989,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2709
 - follow-up manifest: `experiments/manifests/m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight.json`
 - next: `m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight`
+
+## M2710 Engineering Controller Protected Runner Current-M1690 Workload Fixture Support Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_protected_runner_current_m1690_workload_fixture_support_materialization_pass`
+- manifest: `experiments/manifests/m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_protected_runner_current_m1690_workload_fixture_support_materialization.py`
+- focused tests: `tests/test_engineering_controller_protected_runner_current_m1690_workload_fixture_support_materialization.py`
+- summary: `runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/summary.json`
+- doc: `docs/m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight.md`
+- materialized rows: 18 workload fixture input source rows 12 protected workload fixture proposal rows 12 exact-match admission rows 12 workload fixture support blocker rows 160 workload fixture traceability rows 11 actor-contract guard rows 37 claim-boundary rows and 27 gate rows
+- support finding: 12/12 M2706 support-required candidates are materialized as `workload_fixture_support_proposed_new_current_m1690_row`
+- exact-match finding: 0 ready existing current-M1690 rows 0 existing exact M1690 matches 0 fabricated existing M1690 matches and 12 proposed new current-M1690 workload rows
+- execution boundary: preserves 0 execution-admitted rows 0 reset-admitted rows no rollout validation training ranking or performance route
+- traceability finding: 10/10 protected targets remain accounted through 160 workload fixture traceability rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2711 current-M1690 workload fixture support materialization result audit before any protected execution admission validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2710
+- follow-up manifest: `experiments/manifests/m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit.json`
+- next: `m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit`

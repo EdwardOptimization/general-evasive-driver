@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2715,
+        "completed": 2716,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design.md",
+        "command_log": "runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/summary.json",
         "returncode": 0,
         "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design"
+        "task_id": "m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight"
     },
     "next_task": {
-        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_runner_current_m1690_workload_fixture_support_materialization --m2706-dir runs/m2706_engineering_controller_protected_runner_simulator_workload_support --m2708-synthesis docs/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.md --m2709-design docs/m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design.md --m2697-dir runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation --m2700-dir runs/m2700_engineering_controller_protected_runner_adapter_contract --m2703-dir runs/m2703_engineering_controller_protected_runner_execution_admission --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support",
-        "hypothesis": "Materialize no-execution current-M1690 workload fixture support rows for all M2706 support-required protected candidates without fabricating exact matches.",
-        "id": "m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight",
-        "kind": "infrastructure",
-        "notes": "Pending: materialize workload fixture input source proposal exact-match admission blocker traceability actor-contract claim-boundary and gate rows covering 12 M2706 support candidates preserving 0 existing exact M1690 matches 0 execution-admitted rows actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27050,
+        "command": "true",
+        "hypothesis": "Audit the M2710 no-execution current-M1690 workload fixture support materialization pack before any protected execution route.",
+        "id": "m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit",
+        "kind": "gate",
+        "notes": "Pending: audit M2710 summary input source proposal exact-match admission blocker traceability actor-contract claim-boundary and gate rows preserving 12 proposal rows 0 existing exact M1690 matches 0 fabricated matches 0 execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27060,
         "status": "pending",
-        "success_artifact": "runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/summary.json"
+        "success_artifact": "docs/m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit.md"
     },
-    "updated_at_utc": "20260604T201433Z"
+    "updated_at_utc": "20260604T204048Z"
 }
