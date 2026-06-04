@@ -47701,3 +47701,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no controller ranking winner promotion success-rate driver-performance validation result paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json`
 - next: `m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight`
+
+## M2644 Engineering Controller Route A Baseline Source-Only Behavior Gap Taxonomy Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_behavior_gap_taxonomy_preflight_pass`
+- manifest: `experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_behavior_gap_taxonomy.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_behavior_gap_taxonomy.py`
+- summary: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json`
+- role gap rows: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/role_gap_rows.csv`
+- subject gap rows: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/subject_gap_rows.csv`
+- dynamics axis gap rows: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/dynamics_axis_gap_rows.csv`
+- repair target admission rows: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv`
+- claim boundary rows: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv`
+- gate matrix: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/gate_matrix.csv`
+- materialized counts: 4 role gap rows 20 subject-role gap rows 8 dynamics-axis gap rows 4 repair-target admission rows 13 claim-boundary rows and 15 gates all pass
+- taxonomy result: road_departure_dominant_gap and drift_recovery_mixed_gap admitted as repair-target candidates for audit; mitigation_collision_saturated_reference and axis_sensitivity_not_yet_decisive are diagnostic/reference-only and not repair-design targets
+- actor/action boundary: taxonomy labels and repair target labels are artifact metadata only and not actor-visible inputs; P0 observation 72 action 3 preserved
+- supported operational claims: source-only behavior gap taxonomy and repair-target admission map materialized for audit
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.json`
+- next: `m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit`

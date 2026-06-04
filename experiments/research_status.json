@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2649,
+    "completed": 2650,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
+    "task_id": "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md"
+    "run_dir": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy",
+    "command_log": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json"
   },
   "next_task": {
-    "id": "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 26390,
+    "id": "m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit",
+    "kind": "gate",
+    "priority": 26400,
     "status": "pending",
-    "hypothesis": "Materialize a behavior-gap taxonomy from accepted M2641/M2642/M2643 source-only diagnostic evidence before repair training ranking or promotion.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_behavior_gap_taxonomy",
-    "success_artifact": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
-    "notes": "Pending: convert accepted source-only diagnostic rows into gap taxonomy and repair-target admission rows without ranking validation promotion success-rate or driver-performance claims"
+    "hypothesis": "Audit the M2644 source-only behavior-gap taxonomy materialization before repair design or training interpretation.",
+    "command": "true",
+    "success_artifact": "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md",
+    "notes": "Pending: accept or reject M2644 taxonomy and repair-target admission artifacts without ranking validation training promotion or driver-performance claims"
   },
-  "updated_at_utc": "20260604T074944Z"
+  "updated_at_utc": "20260604T075850Z"
 }

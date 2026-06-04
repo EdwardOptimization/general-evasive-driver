@@ -1,0 +1,172 @@
+{
+  "id": "m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/role_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/subject_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/dynamics_axis_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/gate_matrix.csv",
+      "docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md",
+      "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json",
+      "experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit the M2644 source-only behavior-gap taxonomy materialization before repair design or training interpretation"
+    ],
+    "derived_from": [
+      "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
+      "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
+      "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2644 taxonomy artifacts require audit before repair design or training",
+      "Route A must not treat taxonomy rows as ranking promotion validation or performance evidence"
+    ],
+    "supersedes": [
+      "starting repair from M2644 taxonomy rows without audit",
+      "using taxonomy labels as actor-visible inputs",
+      "ranking subjects from repair-target admission rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md",
+  "public_gates": [
+    "M2645 must audit M2644 summary role subject dynamics-axis repair-target claim-boundary and gate artifacts",
+    "M2645 must verify M2644 status_pass true and no ranking winner promotion success-rate validation training or driver-performance claims",
+    "M2645 must verify taxonomy labels repair target labels and gap families remain artifact metadata only and do not enter actor input",
+    "M2645 must register a bounded repair design synthesis pivot or stop manifest without training validation ranking promotion or performance claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO source build adapter probe or external high-fidelity simulation",
+    "do not change actor inputs or action contract",
+    "do not expose taxonomy labels repair target labels route decisions or outcomes to actor input",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim driver performance validation result paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID result"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "evidence_axis": "source_only_behavior_gap_taxonomy_materialization_result_audit",
+    "evidence_increment": "audits the source-only behavior gap taxonomy and repair-target admission map before repair design or training interpretation",
+    "claim_scope": "Route A source-only behavior-gap taxonomy result audit only; no ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2644 artifacts are incomplete or inconsistent",
+      "stop if taxonomy labels are treated as actor inputs",
+      "stop if audit would rank subjects select a winner promote a checkpoint or claim driver performance"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if taxonomy artifacts are missing",
+      "route to contract repair if actor boundary is inconsistent",
+      "route to repair design synthesis pivot or stop if taxonomy materialization is accepted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2644 materializes behavior-gap taxonomy rows and requires audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only behavior gap taxonomy materialization result audit",
+    "admission_evidence": [
+      "M2644 is expected to materialize taxonomy rows from accepted M2641/M2642/M2643 source-only evidence",
+      "M2644 must preserve no ranking validation training promotion or performance claims"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion or performance claim"
+    ],
+    "allowed_updates": [
+      "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md",
+      "M2645 status queue scoreboard research log and review",
+      "one follow-up repair design synthesis pivot or stop manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2644 taxonomy materialization is accepted or rejected explicitly",
+      "follow-up route is registered without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2645 audits engineering taxonomy artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2645; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2644 source-only behavior gap taxonomy materialization.",
+    "negative_result_policy": "If taxonomy evidence is incomplete, route to artifact repair or synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A source-only behavior gap taxonomy result audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a fresh source-only taxonomy materialization before repair design",
+    "paper_verdict_delta": "no paper verdict but preserves engineering claim discipline before repair",
+    "must_synthesize_if": [
+      "M2645 cannot identify repair design synthesis pivot or stop after audit",
+      "M2645 would rank controllers select winner promote checkpoint or claim driver performance",
+      "same taxonomy blocker recurs three times"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2644 taxonomy artifacts before any repair design or training interpretation.",
+  "success_criteria": [
+    "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md exists",
+    "audit verifies M2644 summary status_pass true and required taxonomy artifacts exist",
+    "audit registers a bounded follow-up without ranking validation training promotion or performance claims"
+  ],
+  "failure_criteria": [
+    "M2645 executes reset step rollout replay validation training source build adapter probe or external simulation",
+    "M2645 ranks controller families selects a winner promotes a checkpoint or claims driver performance"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+    "docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md",
+    "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md"
+  ],
+  "decision_rule": "Pass only if M2645 audits M2644 taxonomy materialization and registers a bounded follow-up without ranking validation training promotion performance paper high-fidelity or self-ID claims."
+}
