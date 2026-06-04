@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2674,
+    "completed": 2675,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit",
+    "task_id": "m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md"
+    "command_log": "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis",
-    "kind": "gate",
-    "priority": 26640,
+    "id": "m2670-paper-route-history-vs-current-response-comparison-admission-design",
+    "kind": "infrastructure",
+    "priority": 26650,
     "status": "pending",
-    "hypothesis": "A branch synthesis can prevent the Route A readiness index from becoming another process loop and choose whether to stop pivot package with limitations or open a genuinely new evidence route.",
+    "hypothesis": "A bounded Route B admission design can move the project out of Route A readiness loops and prepare a fair current-response finite-window and recurrent-history comparison without claiming a result prematurely.",
     "command": "true",
-    "success_artifact": "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
-    "notes": "Pending: synthesize M2666-M2668 Route A readiness-after-protected-taxonomy branch and choose stop pivot package-with-limitations or a new evidence route; keep protected blocker outside success denominators actor 72/3 no hidden oracle; no reset rollout replay validation training ranking promotion success-rate driver-performance validation-readiness paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "success_artifact": "docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md",
+    "notes": "Pending: design Route B history-vs-current-response comparison admission matrix across L0/L1/L2/L3 after M2669 pivot; preserve actor 72/action 3 no hidden oracle and forbid reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T123139Z"
+  "updated_at_utc": "20260604T123728Z"
 }

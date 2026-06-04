@@ -48226,3 +48226,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation-readiness validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.json`
 - next: `m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis`
+
+## M2669 Engineering Controller Route A Readiness After Protected Taxonomy Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_b_history_vs_current_response_comparison_admission_design`
+- manifest: `experiments/manifests/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.json`
+- synthesis doc: `docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- Route B governing plans: `docs/self-id-go-no-go-paper-route-plan.md` and `docs/paper-route-finite-window-vs-gru-plan.md`
+- parent audit: `docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md`
+- accepted evidence state: M2667/M2668 changed Route A engineering readiness integration only and did not change driver capability evidence paper evidence validation evidence or self-ID evidence
+- Route A readiness state: M2667 covered 6/6 required artifacts with 3 checkpoint-readiness rows 8 artifact-coverage rows 10 known-failure boundary rows 19 claim-boundary rows and 13 gate-matrix rows
+- protected blocker: protected mitigation remains broad and blocking with 25 protected blocking gate rows and 79 regressed protected row counts; protected rows remain outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/objective/gate/route labels actor-visible
+- supported operational claims: Route A artifacts are packageable with limitations and the branch is ready to pivot out of readiness/process loops
+- rejected claims: no same-row protected repair validation-readiness repair success promotion ranking winner success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2670-paper-route-history-vs-current-response-comparison-admission-design.json`
+- next: `m2670-paper-route-history-vs-current-response-comparison-admission-design`
