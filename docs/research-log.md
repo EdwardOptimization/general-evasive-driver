@@ -47900,3 +47900,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json`
 - next: `m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis`
+
+## M2654 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Objective Materialization Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- next branch decision: `continue_to_mitigation_preserving_repair_execution_preflight`
+- manifest: `experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json`
+- synthesis doc: `docs/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.md`
+- parent execution summary: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json`
+- parent localization summary: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json`
+- parent objective materialization summary: `runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json`
+- accepted behavior evidence: M2648 changed behavior and improved road-boundary target rows 16/16 and drift-recovery target rows 8/8
+- active blocker: M2648 protected_mitigation_reference failed 7 improved / 1 regressed; M2650 localizes the regressed row to unavoidable_mitigation seed `267101` fresh_fault_delay_noise with severity_proxy `3.953864 -> 3.987916` and obstacle penetration `1.436872 -> 1.477159`
+- artifact evidence: M2653 materializes 3 objective families, 4 protected component gates, 2 target preservation gates, 9 abort rules, 6 actor contract guards, 25 claim rows, and 10 gate matrix rows
+- public-gate overfit risk: high for another target-only repair, acceptable for exactly one gate-aware mitigation-preserving repair execution that consumes M2653 protected gates
+- supported operational claims: M2653 gate bundle is ready to drive one bounded mitigation-preserving repair execution preflight
+- rejected claims: target improvements alone do not justify promotion, driver performance, validation, paper evidence, FW-vs-GRU, current-sim, high-fidelity, full ideal driver completion, or self-ID
+- follow-up manifest: `experiments/manifests/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.json`
+- next: `m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight`
