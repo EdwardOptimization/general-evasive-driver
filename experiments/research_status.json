@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2710,
+    "completed": 2711,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.md",
+    "command_log": "docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit"
+    "task_id": "m2705-engineering-controller-protected-runner-simulator-workload-support-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Design the simulator/workload support boundary required after M2704 accepts M2703 but all protected candidates remain blocked by no current M1690 workload match.",
-    "id": "m2705-engineering-controller-protected-runner-simulator-workload-support-design",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_runner_simulator_workload_support_materialization --m2703-dir runs/m2703_engineering_controller_protected_runner_execution_admission --m2704-audit docs/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.md --m2705-design docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2706_engineering_controller_protected_runner_simulator_workload_support",
+    "hypothesis": "Materialize simulator/workload support rows from M2703 blocked protected runner execution-admission rows without execution.",
+    "id": "m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight",
     "kind": "infrastructure",
-    "notes": "Pending: design simulator/workload support source candidate blocker traceability actor-contract guard claim-boundary and gate rows from M2703 blocked rows preserving 0 exact M1690 match and 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27000,
+    "notes": "Pending: materialize simulator/workload support source candidate blocker traceability actor-contract guard claim-boundary and gate rows from M2703 blocked rows preserving 0 exact M1690 match and 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators materialization-only no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27010,
     "status": "pending",
-    "success_artifact": "docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md"
+    "success_artifact": "runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json"
   },
-  "updated_at_utc": "20260604T192412Z"
+  "updated_at_utc": "20260604T193136Z"
 }
