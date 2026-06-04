@@ -46827,3 +46827,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no blocker closure platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis.json`
 - next: `m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis`
+
+## M2590 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_source_only_adapter_readiness_blocker_closure_design`
+- manifest: `experiments/manifests/m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis.md`
+- parent audit: `docs/m2589-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-audit.md`
+- accepted evidence: M2588/M2589 source-only adapter blocker materialization evidence with 4 external-state rows 4 timing rows 4 failure/status taxonomy rows 4 source-only fixture lineage rows 4 actor-visibility rows 15 claim rows and 11 gates pass
+- supported operational claims: blocker definition artifacts materialized and audited without actor/action contract drift
+- rejected claims: no blocker closure platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2587-M2590 are static validation-layer process steps without new closed-loop driver behavior evidence
+- next route: source-only adapter blocker closure design only, not closure materialization or validation execution
+- follow-up manifest: `experiments/manifests/m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design.json`
+- next: `m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design`
