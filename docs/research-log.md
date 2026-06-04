@@ -48341,3 +48341,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no driver performance controller-family ranking winner promotion success-rate verdict paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight.json`
 - next: `m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight`
+
+## M2675 Paper Route History Vs Current Response Bounded Comparison Execution Preflight
+
+- status: completed
+- result_class: `paper_route_history_vs_current_response_bounded_comparison_execution_preflight_pass`
+- manifest: `experiments/manifests/m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_bounded_comparison_execution_preflight.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_bounded_comparison_execution_preflight.py`
+- summary: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/summary.json`
+- measured runner summary: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/measured_routing_smoke_summary.json`
+- episode rows: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/episode_rows.csv`
+- profile aggregate: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/profile_aggregate.csv`
+- spec aggregate: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/spec_aggregate.csv`
+- runtime-enforcement join rows: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/runtime_enforcement_join_rows.csv`
+- claim boundary rows: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/claim_boundary_rows.csv`
+- gate matrix: `runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight/gate_matrix.csv`
+- bounded execution: 48/48 episode rows across 12/12 profiles and 4 selected public T4/T5 specs
+- runtime join: 12/12 joins pass and map 9/9 protocol controller-family IDs
+- required controls: L2 current-tiled runtime transform observed across 4 corrected configs; L3 reset/truncated policy routing observed with `every_step_control`
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- allowed execution scope: bounded public environment rollout and policy action only for diagnostic preflight rows
+- diagnostic metrics: aggregate success-rate columns are recorded as diagnostic metrics only and are not success-rate verdicts
+- supported operational claims: Route B bounded public comparison execution preflight artifacts are ready for result audit
+- rejected claims: no replay measured validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.json`
+- next: `m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit`
