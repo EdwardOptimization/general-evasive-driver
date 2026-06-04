@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2684,
+    "completed": 2685,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md",
+    "command_log": "docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit"
+    "task_id": "m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A branch synthesis can decide whether the complete M2677 public T4/T5 comparison dataset should route to outcome-aware interpretation planning, task-quality calibration, stop, or another evidence axis without converting diagnostic metrics into paper or self-ID claims.",
-    "id": "m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2670-M2678 Route B comparison branch after M2678 accepts M2677 execution completeness but blocks direct interpretation due off-track dominance mixed diagnostic comparison deltas and empty hidden-dynamics bucket artifacts no reset rollout replay validation training PPO ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26740,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration --m2677-dir runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight --output-dir runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration",
+    "hypothesis": "A no-rollout calibration materialization can turn the complete M2677 public comparison rows into explicit outcome-dominance task-quality and comparison-interpretability evidence without converting diagnostic metrics into paper or self-ID claims.",
+    "id": "m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: consume existing M2677 rows only and materialize spec profile task-family comparison-interpretability calibration-gap claim-boundary and gate-matrix rows before interpretation planning or any new execution no reset rollout replay validation training PPO ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26750,
     "status": "pending",
-    "success_artifact": "docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md"
+    "success_artifact": "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json"
   },
-  "updated_at_utc": "20260604T144116Z"
+  "updated_at_utc": "20260604T145135Z"
 }

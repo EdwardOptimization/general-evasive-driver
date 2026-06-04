@@ -48435,3 +48435,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout policy action replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2678
 - follow-up manifest: `experiments/manifests/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.json`
 - next: `m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis`
+
+## M2679 Paper Route History Vs Current Response Full T4/T5 Public Comparison Branch Synthesis
+
+- status: completed
+- decision: `pivot_to_route_b_task_quality_outcome_dominance_calibration_materialization_preflight`
+- manifest: `experiments/manifests/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.json`
+- synthesis doc: `docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md`
+- parent audit: `docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md`
+- governing plan used: `docs/post-m2470-route-plan.md`
+- accepted execution facts: M2677 `status_pass` true with 864/864 episode rows 12/12 profiles 72/72 public T4/T5 specs 0 failure rows and 12/12 runtime joins pass
+- interpretation blocker: off-track dominates 794/864 termination rows and 793/864 outcome rows as off-track noncollision noncompletion
+- hidden-dynamics blocker: hidden-dynamics artifacts exist but contain 0 bucket rows because M2677 episode rows do not materialize `hidden_dynamics_bucket`
+- comparison caveat: all 11 comparison rows remain diagnostic-only and mixed reset-control metrics block finite-window-vs-GRU current-response paper and self-ID conclusions
+- route decision: do not repeat another full public T4/T5 rollout before calibration
+- selected next route: no-rollout task-quality and outcome-dominance calibration materialization from existing M2677 rows
+- follow-up manifest: `experiments/manifests/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.json`
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2679
+- next: `m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight`
