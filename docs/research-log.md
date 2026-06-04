@@ -47560,3 +47560,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.json`
 - next: `m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit`
+
+## M2636 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Bounded Actual Execution Attempt Result Audit
+
+- status: completed
+- decision: `accept_dependency_source_unavailable_blocker_route_to_source_availability_blocker_synthesis`
+- manifest: `experiments/manifests/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.json`
+- audit doc: `docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md`
+- parent summary: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/summary.json`
+- route reference: `docs/post-m2470-route-plan.md`
+- accepted evidence: M2635 status_pass true result_class `dependency_source_unavailable_blocker_recorded` availability_gate_executed true source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true availability_blocker `dependency_source_unavailable`
+- materialized counts: 6 source availability rows 4 command attempt rows 2 backend probe trace rows 27 claim-boundary rows 11 artifact manifest rows and 9 gates all pass
+- command-attempt boundary: configure compile repo-local adapter import and backend metadata probe attempts were all skipped with `dependency_source_unavailable`; this is not source-build failure adapter-probe failure backend discovery backend availability reset feasibility validation readiness validation result or performance evidence
+- actor/action boundary: P0 observation 72 action 3 deployed `[steer, throttle, brake]` mapping preserved with no hidden/oracle actor input and no actor-visible metadata
+- supported operational claims: bounded command-attempt or blocker evidence materialized and dependency_source_unavailable accepted for route selection only
+- rejected claims: no dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability backend start reset execution reset success step rollout replay validation readiness/result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json`
+- next: `m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2641,
+    "completed": 2642,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight",
+    "task_id": "m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt",
-    "command_log": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md"
   },
   "next_task": {
-    "id": "m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit",
+    "id": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
     "kind": "gate",
-    "priority": 26310,
+    "priority": 26320,
     "status": "pending",
-    "hypothesis": "Audit M2635 bounded command-attempt or dependency source blocker artifacts before source availability repair validation admission backend reset or performance interpretation.",
-    "command": "see experiments/manifests/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.json",
-    "success_artifact": "docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md",
-    "notes": "Pending: audit M2635 dependency_source_unavailable blocker evidence and choose source availability repair dependency blocker synthesis pivot or stop without validation or performance claims"
+    "hypothesis": "Synthesize accepted M2635/M2636 dependency_source_unavailable blocker evidence before selecting source availability repair dependency blocker pivot or stop.",
+    "command": "see experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json",
+    "success_artifact": "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md",
+    "notes": "Pending: answer required synthesis questions and choose source availability repair dependency blocker pivot or stop without dependency readiness validation or performance claims"
   },
-  "updated_at_utc": "20260604T064332Z"
+  "updated_at_utc": "20260604T065516Z"
 }
