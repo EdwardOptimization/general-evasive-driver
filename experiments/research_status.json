@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2695,
+    "completed": 2696,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.md",
+    "command_log": "docs/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit"
+    "task_id": "m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Synthesize M2686-M2689 package-with-limitations route evidence before another package-process milestone publication-design repair stop pivot or new evidence route.",
-    "id": "m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize package-with-limitations branch answer evidence summary supported claims falsified claims failure taxonomy public gate overfit risk and next branch decision preserve protected mitigation current-sim off-track and HF3 dependency blockers no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26850,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_source_diverse_offtrack_protected_target_panel_materialization --m2684-dir runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --m2688-dir runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization --output-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel",
+    "hypothesis": "Materialize a source-diverse off-track/protected target panel from existing blockers after M2690 closes the package branch without execution or performance claims.",
+    "id": "m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize blocker source rows target panel rows source-diversity plan actor-contract guards claim-boundary rows and gates from existing M2684 off-track M2664/M2667 protected and M2688 blocker artifacts no reset rollout validation training ranking promotion package publication performance paper current-sim high-fidelity full ideal driver or self-ID claim route to result audit",
+    "priority": 26860,
     "status": "pending",
-    "success_artifact": "docs/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.md"
+    "success_artifact": "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json"
   },
-  "updated_at_utc": "20260604T163317Z"
+  "updated_at_utc": "20260604T164104Z"
 }

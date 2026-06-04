@@ -48631,3 +48631,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2689
 - follow-up manifest: `experiments/manifests/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.json`
 - next: `m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis`
+
+## M2690 Engineering Controller Route A Package With Limitations Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_source_diverse_offtrack_protected_target_panel_materialization`
+- manifest: `experiments/manifests/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.json`
+- synthesis doc: `docs/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.md`
+- parent audit: `docs/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.md`
+- accepted evidence: M2688/M2689 package protocol pack complete and claim-safe as process evidence with 6/6 Route A artifacts 17 schema rows 10 inventory rows 10 provenance rows 4 blocker rows 9 actor/action rows 25 claim-boundary rows and 20 gates all pass
+- active blockers preserved: protected mitigation 25 blocking rows and 79 regressed row count current-sim off-track 202/216 outcomes and 203/216 terminations HF3 `dependency_source_unavailable` blocker and paper/self-ID blocker
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input and no actor-visible package blocker target or verdict labels
+- synthesis finding: package branch should close as the active research branch because another package-process milestone would not change driver capability evidence
+- route decision: pivot to M2691 source-diverse off-track/protected target panel materialization as a bounded admission surface for later measured evidence
+- rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2690
+- follow-up manifest: `experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json`
+- next: `m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight`
