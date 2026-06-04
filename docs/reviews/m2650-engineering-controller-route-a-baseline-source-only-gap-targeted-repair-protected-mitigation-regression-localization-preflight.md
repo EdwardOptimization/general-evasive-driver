@@ -1,0 +1,120 @@
+# m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T090028Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: real_behavior_regression_likely_obstacle_penetration_deepened_route_to_mitigation_preserving_repair_synthesis
+- Decision reason: M2650 localization pass matched 8 protected mitigation pairs confirmed 1 real row-level regression seed 267101 fresh_fault_delay_noise severity_proxy 3.953864 to 3.987916 likely driver obstacle_penetration_proxy_worsened with minimum obstacle clearance -1.436872 to -1.477159 while collision speed impact angle and road margin improve no metric artifact no repair training reset rollout validation ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim routes to M2651 synthesis
+
+## Hypothesis
+
+The single M2648 protected mitigation regression can be localized to row and metric-component deltas from existing source-only behavior artifacts without running another repair or weakening claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt
+- parent_dataset: docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/post_repair_behavior_rows.csv, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_training_trace.csv, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repaired_checkpoint_manifest.json, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv, docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.json, experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json
+- parent_objective: materialize protected mitigation regression localization rows before any second repair execution or mitigation-preserving repair design
+- derived_from: m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit, m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight
+- blocked_by: M2649 confirms protected_mitigation_reference gate failure 1/8, the single regression is seed 267101 fresh_fault_delay_noise with severity_proxy +0.034052, another repair execution would be local search unless the mitigation regression is localized first
+- supersedes: running another repair execution immediately after M2648, treating target-gate pass as sufficient despite protected mitigation regression, claiming performance from M2648 aggregate improvements
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json exists
+- mitigation_regression_rows.csv metric_component_delta_rows.csv localization_findings.json and milestone doc exist
+- localization identifies the regressed row seed 267101 dynamics_axis fresh_fault_delay_noise subject m2537_mitigation_preserving_policy
+- localization records severity_proxy delta and component deltas
+- localization registers one bounded mitigation-preserving repair synthesis implementation repair artifact repair or stop manifest
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made
+
+## Failure Criteria
+
+- M2650 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2650 changes actor input or action contract
+- M2650 exposes taxonomy labels repair target labels source-only outcomes or route decisions to actor input
+- M2650 ranks controller families selects a winner promotes a checkpoint or computes success rate
+- M2650 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2650 must read M2641 baseline rows M2648 post-repair rows M2648 gate rows and M2649 audit doc
+- M2650 must materialize protected mitigation regression localization rows without running repair training reset rollout replay validation ranking or promotion
+- M2650 must identify the regressed row seed dynamics-axis role subject metric deltas and likely severity-proxy component driver
+- M2650 must preserve mitigation_collision_saturated_reference as protected reference only and axis_sensitivity_not_yet_decisive as diagnostic-only
+- M2650 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible taxonomy or repair-target labels
+- M2650 must register a bounded mitigation-preserving repair synthesis implementation repair artifact repair or stop manifest
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose behavior gap labels repair target labels route decisions source-only diagnostic outcomes or artifact audit outcomes to actor input
+- do not treat protected mitigation regression as acceptable collateral damage
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from localization rows
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight
+- type: infrastructure
+- checkpoint: runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: real_behavior_regression_likely_obstacle_penetration_deepened_route_to_mitigation_preserving_repair_synthesis
+- reason: M2650 localization pass matched 8 protected mitigation pairs confirmed 1 real row-level regression seed 267101 fresh_fault_delay_noise severity_proxy 3.953864 to 3.987916 likely driver obstacle_penetration_proxy_worsened with minimum obstacle clearance -1.436872 to -1.477159 while collision speed impact angle and road margin improve no metric artifact no repair training reset rollout validation ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim routes to M2651 synthesis
+
+## Next Blocker
+
+None recorded.

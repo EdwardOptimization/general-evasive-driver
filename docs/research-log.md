@@ -47816,3 +47816,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no ranking winner promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim; target-gate pass does not override protected mitigation regression
 - follow-up manifest: `experiments/manifests/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.json`
 - next: `m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight`
+
+## M2650 Engineering Controller Route A Source-Only Gap-Targeted Repair Protected Mitigation Regression Localization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization_preflight_pass`
+- manifest: `experiments/manifests/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization.py`
+- summary: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json`
+- mitigation regression rows: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/mitigation_regression_rows.csv`
+- metric component delta rows: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/metric_component_delta_rows.csv`
+- localization findings: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json`
+- milestone doc: `docs/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.md`
+- accepted evidence: M2650 reanalyzed M2641 baseline behavior rows M2648 post-repair behavior rows M2648 repair gate rows and M2649 audit doc only
+- protected mitigation localization: matched 8 protected mitigation pairs with 7 improved rows and 1 regressed row matching M2648 protected_mitigation_reference gate
+- regressed row: subject `m2537_mitigation_preserving_policy`, role `unavoidable_mitigation`, seed `267101`, axis `fresh_fault_delay_noise`, severity_proxy `3.953864 -> 3.987916`, severity_delta `+0.034052`
+- component driver: likely `obstacle_penetration_proxy_worsened`; minimum_obstacle_clearance_m changed `-1.436872 -> -1.477159` while collision_speed_proxy improved `3.359023 -> 3.322625`, impact_angle_proxy improved `0.452959 -> 0.443488`, and minimum_road_margin_m improved `0.899620 -> 0.949128`
+- artifact interpretation: metric_artifact_detected false and localization_class `real_behavior_regression_likely_obstacle_penetration_deepened`
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input and taxonomy/repair labels actor-invisible
+- supported operational claims: protected mitigation regression is localized for next-route selection and mitigation-preserving synthesis
+- rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.json`
+- next: `m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis`

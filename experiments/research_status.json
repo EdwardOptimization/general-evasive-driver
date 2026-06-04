@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2655,
+    "completed": 2656,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit",
+    "task_id": "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md"
+    "run_dir": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization",
+    "command_log": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json"
   },
   "next_task": {
-    "id": "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
-    "kind": "infrastructure",
-    "priority": 26450,
+    "id": "m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis",
+    "kind": "gate",
+    "priority": 26460,
     "status": "pending",
-    "hypothesis": "Localize the single M2648 protected mitigation regression to row and metric-component deltas without another repair execution or performance claim.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization",
-    "success_artifact": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
-    "notes": "Pending: materialize row-level and metric-component localization for seed 267101 fresh_fault_delay_noise protected mitigation regression"
+    "hypothesis": "Synthesize M2650 protected mitigation regression localization into a bounded mitigation-preserving repair, artifact repair, stop, or pivot route before any second repair execution.",
+    "command": "true",
+    "success_artifact": "docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md",
+    "notes": "Pending: synthesize real obstacle-penetration-driven protected mitigation regression before any second Route A repair execution"
   },
-  "updated_at_utc": "20260604T084444Z"
+  "updated_at_utc": "20260604T085846Z"
 }
