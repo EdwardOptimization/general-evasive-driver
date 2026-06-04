@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2644,
+    "completed": 2645,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
+    "task_id": "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md"
+    "run_dir": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh",
+    "command_log": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json"
   },
   "next_task": {
-    "id": "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
+    "id": "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
     "kind": "infrastructure",
-    "priority": 26340,
+    "priority": 26350,
     "status": "pending",
-    "hypothesis": "Materialize a current Route A baseline evidence index after HF3 selected-platform source dependency is paused.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_evidence_index_refresh",
-    "success_artifact": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
-    "notes": "Pending: build Route A evidence index gap matrix and next action admission table without ranking validation or performance claims"
+    "hypothesis": "Design the source-only fresh generalization panel admitted by M2639 without ranking validation or performance claims.",
+    "command": "see experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json",
+    "success_artifact": "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+    "notes": "Pending: design role families fresh seeds unseen dynamics delay/noise axes metrics artifacts and gates without execution or performance claims"
   },
-  "updated_at_utc": "20260604T070825Z"
+  "updated_at_utc": "20260604T071558Z"
 }

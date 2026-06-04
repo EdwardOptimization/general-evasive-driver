@@ -1,0 +1,244 @@
+{
+  "id": "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/evidence_index.csv",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/gap_matrix.csv",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/next_action_admission.csv",
+      "docs/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json",
+      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json",
+      "experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json",
+      "experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design the source-only fresh generalization panel admitted by M2639 without ranking validation or performance claims"
+    ],
+    "derived_from": [
+      "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
+      "m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight"
+    ],
+    "blocked_by": [
+      "HF3 selected-platform execution remains paused until source dependency is supplied",
+      "M2639 gap matrix admits a Route A source-only fresh generalization panel design as the next evidence-expanding action",
+      "training repair ranking and promotion remain inadmissible before fresh panel design and materialization gates"
+    ],
+    "supersedes": [
+      "continuing Route A evidence indexing without selecting a measured evidence action",
+      "starting PPO or repair from static evidence inventory",
+      "ranking the M1154 M2532 and M2537 checkpoints from mixed diagnostic artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+  "public_gates": [
+    "M2640 must design a source-only fresh generalization panel from M2639 next-action admission",
+    "M2640 must specify role families fresh seed counts unseen dynamics ranges delay/noise axes checkpoint subjects open-loop references metrics artifact schema and pass/fail gates",
+    "M2640 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible metadata",
+    "M2640 must not execute policy actions environment steps rollouts replay validation training PPO source builds adapter probes external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2640 must separate future diagnostic source-only panel evidence from driver performance paper finite-window-vs-GRU current-sim high-fidelity validation and self-ID claims",
+    "M2640 must register a bounded M2641 materialization preflight or route to synthesis if the panel cannot be designed without overclaiming"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose mu mass tire stiffness brake scale actuator tau slip tire force oracle feasibility AEB AES drift labels controller mode speed_ref beta_target path error heading error path curvature TTC required clearance oracle stopping distance success labels source dependency status build outcomes probe outcomes reset outcomes rollout outcomes validation outcomes or route decisions to actor input",
+    "do not claim dependency execution readiness",
+    "do not claim source build success",
+    "do not claim adapter probe success",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not claim reset execution or reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not grant validation admission",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from a panel design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "evidence_axis": "source_only_fresh_generalization_panel_design",
+    "evidence_increment": "designs the next measured source-only Route A panel admitted by M2639 so future materialization can test fresh role and dynamics coverage without ranking or validation claims",
+    "claim_scope": "Route A source-only fresh generalization panel design only; no policy execution training ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if the panel design would expose hidden dynamics labels or route decisions to actor input",
+      "stop if the panel design would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "stop if fresh seed role or dynamics axes cannot be defined without changing actor contract",
+      "stop if the design cannot route to a bounded materialization preflight"
+    ],
+    "fallback_plan": [
+      "route to contract repair if the P0 72/3 actor/action boundary is inconsistent",
+      "route to artifact repair if M2639 or M2544 source artifacts are missing",
+      "route to branch synthesis if only static design work remains",
+      "route to M2641 source-only panel materialization if the design is admitted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2639 admits a source-only fresh generalization panel as the next evidence-expanding Route A action",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only fresh generalization panel design",
+    "admission_evidence": [
+      "M2639 status_pass true and selected_next_action m2640_route_a_source_only_fresh_generalization_panel_design",
+      "M2544 provides a source-only readiness panel with 75 measured behavior rows and 7500 telemetry rows",
+      "M2639 keeps HF3 paused until source dependency is supplied",
+      "Route A needs measured fresh generalization evidence before training repair ranking or promotion"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external source fetch",
+      "no external simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build or adapter probe",
+      "no backend start",
+      "no reset execution",
+      "no policy action",
+      "no environment stepping",
+      "no rollout execution",
+      "no replay execution",
+      "no validation execution",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from panel design"
+    ],
+    "allowed_updates": [
+      "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+      "M2640 status queue scoreboard research log and review",
+      "one follow-up M2641 source-only fresh generalization panel materialization manifest or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "panel design document exists",
+      "role families and fresh seed counts are explicit",
+      "unseen dynamics delay and noise axes are explicit",
+      "metrics and artifact schema are explicit",
+      "next route is selected without ranking validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2640 designs an engineering source-only panel and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2640; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2639 evidence index refresh.",
+    "negative_result_policy": "If source-only fresh panel design is impossible route to synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A source-only fresh generalization panel design",
+      "future diagnostic panel admission if design gates pass",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs a fresh source-only generalization panel that can produce new measured Route A evidence after M2639 indexing",
+    "paper_verdict_delta": "no paper verdict but creates the next measured engineering evidence surface needed before training repair ranking or promotion",
+    "must_synthesize_if": [
+      "M2640 cannot define fresh seeds role families or dynamics axes without actor-contract changes",
+      "M2640 would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "M2640 cannot register a bounded measured materialization preflight",
+      "another static Route A design is proposed after M2640 without materialization or synthesis"
+    ]
+  },
+  "hypothesis": "A bounded source-only fresh generalization panel design can convert the M2639 Route A evidence index into a measured evidence-producing next step without overclaiming validation or performance.",
+  "success_criteria": [
+    "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md exists",
+    "design specifies role families fresh seed counts unseen dynamics delay/noise axes checkpoint subjects open-loop references metrics artifact schema and gates",
+    "design preserves P0 observation shape 72 action shape 3 and no hidden/oracle actor inputs",
+    "design registers M2641 materialization preflight or synthesis without ranking validation or performance claims",
+    "no external simulation source build adapter probe reset rollout replay validation training ranking winner promotion success-rate verdict driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2640 executes policy actions environment steps rollouts replay validation source build adapter probe or external simulation",
+    "M2640 trains or runs PPO",
+    "M2640 changes actor input or action contract",
+    "M2640 injects hidden or oracle actor features",
+    "M2640 ranks controller families selects a winner promotes a checkpoint or computes a success-rate verdict",
+    "M2640 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+    "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/next_action_admission.csv",
+    "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2640 designs a bounded source-only fresh generalization panel and registers a materialization or synthesis follow-up while preserving actor contract and making no ranking validation performance paper high-fidelity or self-ID claims."
+}

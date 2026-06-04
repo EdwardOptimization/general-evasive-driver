@@ -47608,3 +47608,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset feasibility validation protocol readiness validation admission validation result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json`
 - next: `m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight`
+
+## M2639 Engineering Controller Route A Baseline Evidence Index Refresh Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_baseline_evidence_index_refresh_pass`
+- manifest: `experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_baseline_evidence_index_refresh.py`
+- focused tests: `tests/test_engineering_controller_route_a_baseline_evidence_index_refresh.py`
+- summary: `runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json`
+- evidence index: `runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/evidence_index.csv`
+- gap matrix: `runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/gap_matrix.csv`
+- next-action admission: `runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/next_action_admission.csv`
+- milestone doc: `docs/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md`
+- materialized evidence: 7 evidence rows 5 gap rows 4 next-action admission rows and 6 artifact manifest rows pass
+- route decision: admits only `m2640_route_a_source_only_fresh_generalization_panel_design`; HF3 selected-platform availability preflight remains blocked until a source dependency is explicitly supplied
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input
+- supported operational claims: current Route A evidence and gap index materialized from M2541 M2544 M2505 M2548 and M2638 artifacts for next-action admission only
+- rejected claims: no source build adapter probe backend start reset step rollout replay validation training ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json`
+- next: `m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design`
