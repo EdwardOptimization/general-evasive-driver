@@ -49027,3 +49027,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2711
 - follow-up manifest: `experiments/manifests/m2712-engineering-controller-protected-runner-current-m1690-workload-fixture-support-branch-synthesis.json`
 - next: `m2712-engineering-controller-protected-runner-current-m1690-workload-fixture-support-branch-synthesis`
+
+## M2712 Engineering Controller Protected Runner Current-M1690 Workload Fixture Support Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_current_m1690_exact_executable_reentry_panel_design`
+- manifest: `experiments/manifests/m2712-engineering-controller-protected-runner-current-m1690-workload-fixture-support-branch-synthesis.json`
+- synthesis doc: `docs/m2712-engineering-controller-protected-runner-current-m1690-workload-fixture-support-branch-synthesis.md`
+- parent audit: `docs/m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit.md`
+- parent summary: `runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/summary.json`
+- accepted evidence: M2708-M2711 complete one bounded workload fixture support extension with M2710 status_pass true 18 source rows 12 proposal rows 12 exact-match admission rows 12 blocker rows 160 traceability rows 11 actor guard rows 37 claim rows and 27 gate rows
+- protected support finding: all 12 protected workload fixture rows remain `workload_fixture_support_proposed_new_current_m1690_row` with 0 ready-existing current-M1690 rows 0 exact existing M1690 matches 0 fabricated matches and 0 execution-admitted rows
+- branch closure finding: M2710/M2711 changed protected support accounting but not execution admission or driver behavior evidence so another same-surface support design materialization or audit would be local search
+- route decision: close protected workload fixture support branch and pivot to M2713 current-M1690 exact-executable reentry panel design that admits only existing M1690 workload ids and keeps all M2710 proposed protected rows blocked
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2712
+- follow-up manifest: `experiments/manifests/m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design.json`
+- next: `m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design`
