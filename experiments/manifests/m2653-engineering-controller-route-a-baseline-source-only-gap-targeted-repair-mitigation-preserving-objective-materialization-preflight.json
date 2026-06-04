@@ -1,0 +1,238 @@
+{
+  "id": "m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md",
+      "docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/mitigation_regression_rows.csv",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/metric_component_delta_rows.csv",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json",
+      "experiments/manifests/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.json",
+      "experiments/manifests/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize objective/gate rows for mitigation-preserving repair before any second repair execution"
+    ],
+    "derived_from": [
+      "m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design",
+      "m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis",
+      "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight"
+    ],
+    "blocked_by": [
+      "M2652 objective design must be converted into deterministic objective and gate rows before implementation or repair execution",
+      "protected mitigation non-regression must be represented as artifact rows and gate rows",
+      "target-only repair execution is superseded by mitigation-preserving objective materialization"
+    ],
+    "supersedes": [
+      "running a second repair without a materialized protected gate matrix",
+      "keeping mitigation preservation as prose-only guidance",
+      "treating obstacle penetration proxy as an optional note rather than a protected gate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.md",
+  "public_gates": [
+    "M2653 must materialize objective family rows protected component gate rows target preservation gate rows abort rule rows actor contract guards claim boundary rows and a gate matrix from M2652 design",
+    "M2653 must include obstacle penetration proxy and severity proxy as protected mitigation components",
+    "M2653 must preserve mitigation_collision_saturated_reference as protected reference only and axis_sensitivity_not_yet_decisive as diagnostic-only",
+    "M2653 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible taxonomy or repair-target labels",
+    "M2653 must register a bounded implementation repair repair-execution preflight artifact repair synthesis stop or pivot manifest",
+    "M2653 must not run repair training reset rollout replay validation PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels route decisions source-only diagnostic outcomes or artifact audit outcomes to actor input",
+    "do not treat protected mitigation regression as acceptable collateral damage",
+    "do not use protected mitigation rows as ordinary success denominators",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from objective materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_gap_targeted_repair_execution",
+    "evidence_axis": "mitigation_preserving_objective_materialization",
+    "evidence_increment": "materializes the M2652 objective and protected gate design as deterministic rows before implementation or repair execution",
+    "claim_scope": "Route A mitigation-preserving objective materialization only; no repair execution training ranking success-rate verdict validation driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2653 cannot materialize protected mitigation gates",
+      "stop if obstacle penetration and severity are omitted from protected components",
+      "stop if actor/action or no-oracle guard rows fail",
+      "stop if the next route would execute repair without preserving protected gates"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2652 design is inconsistent",
+      "route to implementation repair if executor support is missing",
+      "route to synthesis or stop if mitigation preservation cannot be encoded",
+      "route to bounded repair execution preflight only after the gate matrix passes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2652 designs mitigation-preserving objective/gate matrix before second repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "mitigation-preserving objective materialization",
+    "admission_evidence": [
+      "M2652 objective design exists and routes to materialization",
+      "M2650 localizes real protected mitigation regression likely driven by obstacle penetration",
+      "M2648 target gates pass but protected mitigation reference fails",
+      "actor contract and no-oracle boundaries remain preserved"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from objective materialization"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization.py",
+      "tests/test_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization.py",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/objective_family_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/protected_component_gate_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/target_preservation_gate_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/abort_rule_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/actor_contract_guard_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/claim_boundary_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/gate_matrix.csv",
+      "docs/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.md",
+      "M2653 status queue scoreboard research log and review",
+      "one follow-up bounded implementation repair repair-execution preflight artifact repair synthesis stop or pivot manifest"
+    ],
+    "next_stage_criteria": [
+      "summary and all row artifacts exist",
+      "gate matrix passes",
+      "protected mitigation component gates include severity and obstacle penetration",
+      "actor/action and no-oracle guards pass",
+      "next route is selected without training validation ranking promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2653 materializes Route A repair objectives and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2653; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2652 mitigation-preserving objective design.",
+    "negative_result_policy": "If protected gates cannot be materialized, route to artifact repair or stop rather than weakening proof gates.",
+    "allowed_claims": [
+      "Route A mitigation-preserving objective materialization",
+      "bounded next-route decision from M2652 design",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "turns objective design into deterministic artifacts and gates before any repair execution",
+    "paper_verdict_delta": "no paper verdict but prevents Route A repair from hiding protected mitigation regression behind target improvements",
+    "must_synthesize_if": [
+      "M2653 cannot materialize protected component gates",
+      "M2653 would claim driver performance validation readiness paper evidence or self-ID from materialized objective rows",
+      "M2653 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another repair attempt is proposed without protected component gates"
+    ]
+  },
+  "hypothesis": "A deterministic artifact materialization can encode M2652 mitigation-preserving objectives and gates before any second repair execution.",
+  "success_criteria": [
+    "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json exists",
+    "objective_family_rows protected_component_gate_rows target_preservation_gate_rows abort_rule_rows actor_contract_guard_rows claim_boundary_rows and gate_matrix exist",
+    "protected component rows include severity_proxy_non_regression obstacle_penetration_non_regression minimum_obstacle_clearance_preservation and event_transition_guard",
+    "target preservation rows include road-boundary and drift-recovery target gates",
+    "actor contract guard rows preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible taxonomy or repair target labels",
+    "M2653 registers one bounded follow-up implementation repair repair-execution preflight artifact repair synthesis stop or pivot manifest",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2653 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2653 changes actor input or action contract",
+    "M2653 exposes taxonomy labels repair target labels source-only outcomes or route decisions to actor input",
+    "M2653 treats protected mitigation rows as ordinary success denominators",
+    "M2653 ranks controller families selects a winner promotes a checkpoint or computes success rate",
+    "M2653 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result",
+    "M2653 fails to register a bounded follow-up route or stop decision"
+  ],
+  "commands": [
+    {
+      "name": "materialize_objective",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md",
+    "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+    "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2653 materializes deterministic mitigation-preserving objective and gate artifacts and registers a bounded follow-up or stop route without repair execution training ranking validation promotion performance paper high-fidelity or self-ID claims."
+}

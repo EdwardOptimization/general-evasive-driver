@@ -47857,3 +47857,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no immediate second repair execution target-only repair promotion ranking success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json`
 - next: `m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design`
+
+## M2652 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Objective Design
+
+- status: completed
+- decision: `route_to_mitigation_preserving_objective_materialization_preflight`
+- manifest: `experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json`
+- design doc: `docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md`
+- parent synthesis: `docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md`
+- parent localization: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json`
+- accepted evidence: M2648 target road-boundary 16/16 and drift-recovery 8/8 improvements plus M2650 real protected mitigation regression likely driven by obstacle penetration deepening
+- objective families: `road_boundary_margin_target`, `drift_collision_recovery_target`, and `mitigation_non_regression_protected`
+- protected component gates: `severity_proxy_non_regression`, `obstacle_penetration_non_regression`, `minimum_obstacle_clearance_preservation`, and `event_transition_guard`
+- target preservation gates: retain road-boundary and drift-recovery no-regression target behavior while treating them as insufficient without protected mitigation gates
+- abort rules: abort or route to artifact/implementation repair if protected mitigation severity or obstacle penetration regresses, actor 72/3 or no-oracle boundaries fail, labels become actor-visible, or ranking validation promotion success-rate fields appear
+- actor/action boundary: P0 observation 72 action 3 preserved; objective metadata protected components and route decisions remain artifact metadata only and not actor input
+- supported operational claims: a mitigation-preserving objective/gate design exists for deterministic materialization before any second Route A repair execution
+- rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.json`
+- next: `m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight`

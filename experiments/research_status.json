@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2657,
+    "completed": 2658,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis",
+    "task_id": "m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md"
+    "command_log": "docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md"
   },
   "next_task": {
-    "id": "m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design",
+    "id": "m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 26470,
+    "priority": 26480,
     "status": "pending",
-    "hypothesis": "Design a mitigation-preserving repair objective that keeps road-boundary and drift target improvements while adding protected obstacle-penetration and severity non-regression gates.",
-    "command": "true",
-    "success_artifact": "docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md",
-    "notes": "Pending: design protected mitigation-preserving objective/gate matrix before any second Route A repair execution"
+    "hypothesis": "Materialize deterministic mitigation-preserving objective and gate artifacts before any second Route A repair execution.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization",
+    "success_artifact": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+    "notes": "Pending: materialize objective family rows protected component gates target preservation gates abort rules actor guards claim boundaries and gate matrix"
   },
-  "updated_at_utc": "20260604T090309Z"
+  "updated_at_utc": "20260604T091140Z"
 }
