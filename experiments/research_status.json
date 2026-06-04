@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2723,
+        "completed": 2724,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+        "command_log": "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md",
         "returncode": 0,
         "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit"
+        "task_id": "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Synthesize M2713-M2717 exact-executable reentry evidence before selecting any same-surface continuation targeted repair pivot or stop route.",
-        "id": "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis",
-        "kind": "gate",
-        "notes": "Pending: synthesize M2713-M2717 after M2717 accepts M2716 complete claim-safe diagnostic execution 36/36 rows 0 failures 3/36 diagnostic success 2/36 collision 4 non-ranking profile aggregates 12 protected exclusions not run actor 72/action 3 labels actor-invisible no validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27130,
+        "hypothesis": "Materialize a no-rollout row-level failure taxonomy over M2716 exact executable reentry diagnostics before any same-panel repeat repair design or profile interpretation.",
+        "id": "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight",
+        "kind": "infrastructure",
+        "notes": "Pending: materialize taxonomy from M2716 36 exact execution rows 31 off_track 2 obstacle_collision 3 diagnostic success and 12 protected exclusions not run; preserve profile non-ranking actor 72/action 3 labels actor-invisible no execution validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27140,
         "status": "pending",
-        "success_artifact": "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md"
+        "success_artifact": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json"
     },
-    "updated_at_utc": "20260604T222608Z"
+    "updated_at_utc": "20260604T223208Z"
 }

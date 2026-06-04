@@ -1,0 +1,237 @@
+{
+  "id": "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md",
+      "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/profile_aggregate.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/anchor_aggregate.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/protected_proposal_exclusion_audit_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.json",
+      "experiments/manifests/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.json",
+      "experiments/manifests/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize no-rollout failure taxonomy rows from M2716 exact executable reentry diagnostics after M2718 selects taxonomy before another execution or repair route"
+    ],
+    "derived_from": [
+      "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis",
+      "m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit",
+      "m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2716 exact execution rows are diagnostic and need failure taxonomy before repair or extension",
+      "M2716 outcomes are off-track dominated with 31/36 off_track rows and 2/36 collision rows",
+      "profile aggregates are non-ranking and cannot select a winner",
+      "M2710 protected proposal rows remain excluded from execution"
+    ],
+    "supersedes": [
+      "direct same-panel execution repeat before taxonomy",
+      "profile ranking from M2716 aggregates",
+      "unclassified repair design from raw M2716 rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md",
+  "public_gates": [
+    "M2719 must consume M2718 synthesis M2717 audit M2716 summary execution aggregate protected-exclusion and gate artifacts before writing taxonomy",
+    "M2719 must not execute reset step rollout replay validation training PPO private holdout or profile-specific tuning",
+    "M2719 must classify all 36 exact execution rows and all 12 protected proposal exclusion rows without dropping success collision off_track or protected-excluded rows",
+    "M2719 must keep profile rows diagnostic and non-ranking",
+    "M2719 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators",
+    "M2719 must write source accounting taxonomy aggregate actor-contract claim-boundary gate summary and doc artifacts",
+    "M2719 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide success rows",
+    "do not hide off_track rows",
+    "do not hide collision rows",
+    "do not hide protected proposal exclusions",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2719 taxonomy materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_current_m1690_exact_executable_reentry",
+    "evidence_axis": "current_m1690_exact_executable_reentry_failure_taxonomy_materialization",
+    "evidence_increment": "materializes no-rollout failure taxonomy over M2716 exact execution rows and protected exclusions before any repair design or execution extension",
+    "claim_scope": "Materialization only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2716 source rows are missing or inconsistent with M2717/M2718",
+      "stop if taxonomy would rank profiles or select a winner",
+      "stop if protected exclusions would enter execution or denominators",
+      "stop if any taxonomy label would be actor-visible"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2716 or M2718 artifacts are absent",
+      "route to branch synthesis if taxonomy cannot identify a bounded evidence-changing follow-up",
+      "route to targeted off-track or collision repair design only after result audit accepts taxonomy",
+      "route to protected executable-surface implementation only if taxonomy preserves protected exclusion boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2718 selects failure taxonomy materialization before any execution extension or repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-M1690 exact-executable reentry failure taxonomy materialization",
+    "admission_evidence": [
+      "M2718 selects no-rollout taxonomy before another execution or repair route",
+      "M2717 accepts M2716 complete claim-safe diagnostic execution",
+      "M2716 has 36 exact execution rows 0 failure rows 3/36 diagnostic success 2/36 collision and 31/36 off_track terminations",
+      "M2716 keeps 12 protected proposal rows excluded and not run"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in materialization",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization.py",
+      "tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization.py",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+      "docs/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md",
+      "M2719 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "taxonomy artifacts exist and account for 36 exact execution rows and 12 protected exclusion rows",
+      "taxonomy separates off_track obstacle_collision diagnostic_success and protected_excluded rows",
+      "profile context remains non-ranking",
+      "actor and claim boundaries are preserved",
+      "one bounded result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2719 materializes Route A failure taxonomy and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2719; any controller-family or history-dependence comparison must be separately pre-registered after taxonomy audit."
+    ],
+    "temporal_evidence_window": "M2716 diagnostic execution rows and M2718 synthesis only.",
+    "negative_result_policy": "If taxonomy is dominated by off-track or collision blockers, preserve those blockers and route to repair design or synthesis instead of forcing self-ID interpretation.",
+    "allowed_claims": [
+      "M2716 row-level failure taxonomy materialized",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts raw M2716 execution rows into a row-level failure taxonomy before any same-panel repeat or repair design",
+    "paper_verdict_delta": "no paper verdict; can identify whether future paper-route evidence remains blocked by off-track/collision/protected-exclusion taxonomy",
+    "must_synthesize_if": [
+      "M2719 cannot account for all exact execution and protected exclusion rows",
+      "M2719 would rank profiles or claim validation performance paper current-sim high-fidelity or self-ID evidence",
+      "M2719 proposes another same-panel execution without taxonomy result audit"
+    ]
+  },
+  "hypothesis": "A no-rollout taxonomy materialization can turn M2716 diagnostic rows into an auditable failure surface without ranking profiles or overclaiming performance.",
+  "success_criteria": [
+    "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json exists",
+    "docs/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md exists",
+    "taxonomy artifacts account for 36 exact execution rows and 12 protected proposal exclusions",
+    "off_track obstacle_collision diagnostic_success and protected_excluded rows remain separate",
+    "profile context remains diagnostic and non-ranking",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2719 executes reset step rollout replay validation training PPO or private holdout",
+    "M2719 changes actor input or action contract",
+    "M2719 exposes taxonomy labels target labels protected labels profile labels blocker labels route labels success labels or verdicts to actor input",
+    "M2719 drops success off_track collision failure or protected exclusion rows",
+    "M2719 treats profile aggregates as ranking winner selection promotion or success-rate verdict evidence",
+    "M2719 treats protected proposal rows as execution rows or ordinary denominators",
+    "M2719 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2719 fails to register a bounded result-audit follow-up"
+  ],
+  "commands": [
+    {
+      "name": "current_m1690_exact_executable_reentry_failure_taxonomy_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization --m2716-dir runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight --m2718-synthesis docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md --output-dir runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md",
+    "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/profile_aggregate.csv",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/anchor_aggregate.csv",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/protected_proposal_exclusion_audit_rows.csv"
+  ],
+  "decision_rule": "Pass only if M2719 materializes complete claim-safe row-level taxonomy without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_current_m1690_exact_executable_reentry_failure_taxonomy_result_audit",
+    "fail": "reject_current_m1690_exact_executable_reentry_failure_taxonomy_materialization"
+  },
+  "scoreboard_checkpoint": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+  "next_blocker": "current-M1690 exact-executable reentry failure taxonomy result audit"
+}

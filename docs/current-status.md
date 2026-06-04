@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
+m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
+m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
+m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
 ```
 
 Current route:
@@ -69,6 +69,16 @@ the still-excluded protected proposal surface.
 
 Next is M2718 branch synthesis before any same-surface execution extension,
 targeted repair design, pivot, or stop decision.
+
+M2718 synthesized the branch and chose to continue to no-rollout failure
+taxonomy materialization. The active facts are 36/36 exact execution rows, 0
+failure rows, 3/36 diagnostic success rows, 2/36 obstacle collision rows, and
+31/36 off_track termination rows. Profile aggregates remain non-ranking, and
+12 M2710 protected proposal exclusions remain not run and outside denominators.
+
+Next is M2719 failure taxonomy materialization before any same-panel repeat,
+repair design, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

@@ -49134,3 +49134,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2717
 - follow-up manifest: `experiments/manifests/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.json`
 - next: `m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis`
+
+## M2718 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- next branch decision: `continue_to_current_m1690_exact_executable_reentry_failure_taxonomy_materialization_preflight`
+- manifest: `experiments/manifests/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.json`
+- synthesis doc: `docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md`
+- parent audit: `docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md`
+- accepted branch result: M2713-M2717 produced a complete claim-safe exact-executable reentry branch with M2716 36/36 exact execution rows 0 failure rows 4 profile aggregates 9 anchor aggregates 12 protected proposal exclusions not run 20 gate rows all pass
+- diagnostic outcome synthesis: 3/36 diagnostic success rows 2/36 collision rows 31/36 off_track termination rows across 9 anchors x 4 profiles
+- interpretation boundary: profile aggregate rows remain diagnostic non-ranking rows and cannot select a winner or support validation performance paper current-sim high-fidelity full ideal driver or self-ID claims
+- protected proposal boundary: 12 M2710 protected proposal exclusions remain not execution candidates not execution-admitted not run and outside success denominators
+- public-gate risk: medium before synthesis and medium-low only if the branch moves to no-rollout failure taxonomy instead of direct same-panel repetition or profile ranking
+- route decision: continue to M2719 no-rollout failure taxonomy materialization over M2716 exact execution rows and protected exclusions before repair design execution extension pivot or stop
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2718
+- follow-up manifest: `experiments/manifests/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.json`
+- next: `m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight`
