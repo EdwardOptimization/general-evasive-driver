@@ -48453,3 +48453,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.json`
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2679
 - next: `m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight`
+
+## M2680 Paper Route History Vs Current Response Task Quality Outcome Dominance Calibration Materialization Preflight
+
+- status: completed
+- result class: `paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration_pass`
+- manifest: `experiments/manifests/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration.py`
+- summary: `runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json`
+- doc: `docs/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.md`
+- source: existing M2677 artifacts only; no reset step rollout replay validation training PPO source build adapter probe external simulation or policy action
+- materialized rows: 72 spec outcome-dominance rows, 12 profile outcome-dominance rows, 2 task-family rows, 11 comparison-interpretability rows, 9 calibration-gap rows, 29 claim-boundary rows, and 17 gate rows
+- blocker evidence: off-track dominance remains active with 793/864 off-track outcome rows and 794/864 off-track termination rows
+- blocked slices: 68/72 specs, 9/12 profiles, and 2/2 task families are outcome-dominance blocked
+- comparison evidence: all 11 comparison rows are diagnostic-only and allowed for synthesis only; 0 rows interpretable for ranking
+- hidden-dynamics blocker: hidden-dynamics bucket artifacts are present but empty, and M2677 episode rows still have no materialized hidden bucket
+- reset-control blocker: L3 reset/truncated control raw success is 0.263889 versus L3 online GRU 0.194444, so this remains conditional or negative self-ID evidence rather than GRU proof
+- L2 current-response blocker: 4 current-tiled comparison rows have zero success delta and remain diagnostic-only
+- claim boundary: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim
+- follow-up manifest: `experiments/manifests/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.json`
+- next: `m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit`
