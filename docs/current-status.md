@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
+m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
+m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
+m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
 ```
 
 Current route:
@@ -110,6 +110,17 @@ execution is scheduled; profile context remains non-ranking.
 Next is M2722 result audit before repair design, execution extension,
 validation, ranking, performance, paper, current-sim, high-fidelity, full ideal
 driver, or self-ID claim.
+
+M2722 audited and accepted M2721 as complete and claim-safe. The accepted
+target surface is 31 offtrack rows admitted for repair planning with no
+execution scheduled, plus 2 collision caution rows, 3 diagnostic success context
+rows, and 12 protected exclusion rows kept separate. Actor 72/action 3 and
+actor-invisible labels are preserved, and the audit rejects current-sim,
+performance, paper, high-fidelity, full ideal driver, and self-ID claims.
+
+Next is M2723 offtrack repair branch synthesis before any repair design,
+execution extension, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

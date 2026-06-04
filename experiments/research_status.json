@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2727,
+        "completed": 2728,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json",
+        "command_log": "docs/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel",
+        "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight"
+        "task_id": "m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Audit M2721 offtrack repair target-panel artifacts before any targeted repair design execution extension ranking validation or performance interpretation.",
-        "id": "m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit",
+        "hypothesis": "Synthesize M2719-M2722 offtrack repair target evidence before admitting repair design or stopping the branch.",
+        "id": "m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis",
         "kind": "gate",
-        "notes": "Pending: audit M2721 status_pass true 31 offtrack target rows 2 collision caution rows 3 diagnostic success context rows 12 protected exclusion rows 5 aggregates 16 gate rows all pass target rows no execution scheduled profile non-ranking actor 72/action 3 labels actor-invisible protected rows outside denominators no validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27170,
+        "notes": "Pending: synthesize M2719-M2722 target-panel branch after M2722 acceptance and cadence gate before any repair design execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27180,
         "status": "pending",
-        "success_artifact": "docs/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.md"
+        "success_artifact": "docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md"
     },
-    "updated_at_utc": "20260604T231205Z"
+    "updated_at_utc": "20260604T231954Z"
 }

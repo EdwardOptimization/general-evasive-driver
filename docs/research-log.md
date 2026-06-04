@@ -49207,3 +49207,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2721
 - follow-up manifest: `experiments/manifests/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.json`
 - next: `m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit`
+
+## M2722 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Target Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2721_route_to_current_m1690_exact_executable_reentry_offtrack_repair_branch_synthesis`
+- manifest: `experiments/manifests/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.json`
+- audit doc: `docs/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.md`
+- parent summary: `runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json`
+- accepted parent result: M2721 `status_pass` true with 31 offtrack target rows 2 collision caution rows 3 diagnostic success context rows 12 protected exclusion rows 5 aggregate rows 8 actor joins 20 claim rows and 16 gates all pass
+- target panel audit: all 31 offtrack rows are target-panel admitted for repair planning while `execution_scheduled` remains false and target labels remain actor-invisible
+- caution/context boundary: 2 collision caution rows and 3 diagnostic success context rows remain non-admitted diagnostic rows rather than winner evidence
+- protected proposal boundary: 12 protected exclusion rows remain not targets not executed and outside success denominators
+- post-M2470 route-plan check: accepted as Route A repair-design input only and not as a current-sim static verdict or performance claim
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2723 offtrack repair branch synthesis before any repair design execution extension ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2722
+- follow-up manifest: `experiments/manifests/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.json`
+- next: `m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis`
