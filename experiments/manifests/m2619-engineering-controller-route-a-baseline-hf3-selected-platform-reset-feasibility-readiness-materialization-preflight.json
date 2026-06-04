@@ -1,0 +1,323 @@
+{
+  "id": "m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.md",
+      "docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md",
+      "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/summary.json",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_reset_step_api_readiness_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_actor_extractor_parity_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_action_mapping_parity_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_scenario_role_binding_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_result_export_replay_readiness_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_actor_action_guard_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_claim_boundary_checks.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/selected_platform_executable_protocol_readiness_gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.json",
+      "experiments/manifests/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.json",
+      "experiments/manifests/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize bounded selected-platform reset-feasibility readiness design artifacts after M2618 design"
+    ],
+    "derived_from": [
+      "m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design",
+      "m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis",
+      "m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit",
+      "m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2618 designs reset-feasibility readiness rows while rejecting reset execution validation readiness result and driver-performance claims",
+      "M2617 selects reset-feasibility readiness design after accepted selected-platform executable-protocol readiness materialization evidence",
+      "Route C requires reset-feasibility readiness materialization and audit before reset execution or validation admission can be proposed"
+    ],
+    "supersedes": [
+      "another selected-platform reset-feasibility readiness design-only milestone without materialization",
+      "executing reset directly from M2618 design",
+      "claiming reset feasibility validation admission or validation readiness from design rows",
+      "starting external validation execution directly from M2618 design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight.md",
+  "public_gates": [
+    "M2619 must materialize summary reset request schema initial-state admission actor-view parity deterministic seed/lineage reset outcome taxonomy guard reset-execution precondition actor/action guard claim-boundary gate matrix and milestone doc artifacts",
+    "M2619 must keep selected_platform_family chrono_vehicle_or_equivalent_open_backend and must not select black-box or repo-local current-sim as validation authority",
+    "M2619 must distinguish selected-platform reset-feasibility readiness materialization from source build adapter probe reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness validation result and driver-performance claims",
+    "M2619 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2619 must keep taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform and protocol status out of actor-visible inputs",
+    "M2619 must not install import or run external high-fidelity simulation execute source build adapter probe reset step policy action rollout replay validation train PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the materialization preflight",
+    "do not execute adapter probe in the materialization preflight",
+    "do not mutate selected-platform dependencies",
+    "do not execute reset in the materialization preflight",
+    "do not execute policy actions in the materialization preflight",
+    "do not step environments in the materialization preflight",
+    "do not execute rollout in the materialization preflight",
+    "do not execute replay in the materialization preflight",
+    "do not execute validation in the materialization preflight",
+    "do not train in the materialization preflight",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade reset-feasibility readiness rows to reset execution validation-ready or validation-result rows",
+    "do not claim dependency execution readiness",
+    "do not claim source build execution",
+    "do not claim adapter probe execution",
+    "do not claim reset execution",
+    "do not claim reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not claim validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a controller winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from selected-platform reset-feasibility readiness materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_selected_platform_reset_feasibility_readiness_materialization_preflight",
+    "evidence_increment": "materializes selected-platform reset-feasibility readiness design artifacts instead of adding another design-only artifact",
+    "claim_scope": "HF3 selected-platform reset-feasibility readiness design materialization only; reset-feasibility readiness panels may be represented, but no source build adapter probe reset step rollout replay validation training ranking winner selection success-rate promotion dependency execution readiness validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims",
+    "stop_condition": [
+      "stop if materialization requires actor input or action contract changes",
+      "stop if labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status would enter actor-visible inputs",
+      "stop if reset-feasibility readiness rows are interpreted as reset execution reset success validation readiness or validation result",
+      "stop if materialization would install import or run external high-fidelity simulation",
+      "stop if materialization would execute source build adapter probe reset policy action environment step rollout replay or validation",
+      "stop if materialization would claim validation protocol readiness validation admission readiness result ranking or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if P0 72/3 or no-label boundaries fail",
+      "route to artifact repair if M2615/M2616/M2617/M2618 source evidence is incomplete",
+      "route to platform-schema repair if reset-feasibility readiness rows cannot be represented without execution or readiness claims",
+      "route to result audit if all M2619 materialized artifacts pass",
+      "route to branch synthesis pivot or stop if no bounded reset-feasibility preparation path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2618 designed selected-platform reset-feasibility readiness artifacts after accepted executable-protocol readiness synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 selected-platform reset-feasibility readiness materialization preflight",
+    "admission_evidence": [
+      "M2618 design specifies selected-platform reset-feasibility readiness artifacts without source build adapter probe reset execution validation protocol readiness validation admission readiness/result or performance claims",
+      "M2617 synthesis continues to selected-platform reset-feasibility readiness design after accepted selected-platform executable-protocol evidence",
+      "M2616 audit accepts M2615 while rejecting readiness/result/ranking and driver-performance claims",
+      "M2615 selected chrono_vehicle_or_equivalent_open_backend while keeping install/import/runtime execution dependency mutation source build adapter probe reset/action/step/rollout/replay/validation false"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no source build or adapter probe",
+      "no reset execution",
+      "no policy action",
+      "no environment stepping",
+      "no rollout execution",
+      "no replay execution",
+      "no validation execution",
+      "no validation readiness or result claim",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from selected-platform reset-feasibility readiness materialization"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness.py",
+      "tests/test_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness.py",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_request_schema_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_initial_state_admission_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_actor_view_parity_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_seed_lineage_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_outcome_taxonomy_guard_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_execution_precondition_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_actor_action_guard_rows.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_claim_boundary_checks.csv",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/selected_platform_reset_feasibility_readiness_gate_matrix.csv",
+      "docs/m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight.md",
+      "M2619 status queue scoreboard research log and review",
+      "one follow-up result audit contract repair artifact repair platform-schema repair branch synthesis pivot or stop manifest selected by the result"
+    ],
+    "next_stage_criteria": [
+      "summary and all M2619 CSV/MD artifacts exist",
+      "reset request schema initial-state admission actor-view parity seed/lineage outcome taxonomy precondition actor/action guard claim-boundary and gate rows exist",
+      "rows preserve selected platform P0 72/3 no-oracle actor boundary and no metadata actor visibility",
+      "reset source build adapter probe step action rollout replay validation execution remain false",
+      "validation readiness/result reset success rollout success performance ranking success-rate paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims remain false"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2619 materializes HF3 selected-platform reset-feasibility readiness artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2619; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2618 selected-platform reset-feasibility readiness design.",
+    "negative_result_policy": "If reset-feasibility readiness materialization cannot preserve actor or claim boundaries route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 selected-platform reset-feasibility readiness design materialization preflight",
+      "selected-platform reset-feasibility readiness static panels materialized if all M2619 rows and gates pass",
+      "no reset execution reset success validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes selected-platform reset-feasibility readiness rows and gates rather than adding another design or synthesis-only milestone",
+    "paper_verdict_delta": "does not decide paper verdict but can create the reset-feasibility readiness evidence needed before reset execution or external validation can be proposed or interpreted",
+    "must_synthesize_if": [
+      "M2619 cannot materialize reset-feasibility readiness rows without actor input or action contract changes",
+      "M2619 would claim reset execution reset success validation protocol readiness validation admission readiness result or driver performance",
+      "M2619 would rank or promote controllers",
+      "another design-only or repair-only milestone is proposed after M2619 without audit or evidence-expanding validation preparation"
+    ]
+  },
+  "hypothesis": "The Route A baseline can materialize bounded HF3 selected-platform reset-feasibility readiness design artifacts for chrono_vehicle_or_equivalent_open_backend while preserving the 72/3 no-oracle actor contract reset-readiness honesty and no external execution validation or performance claims.",
+  "success_criteria": [
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_request_schema_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_initial_state_admission_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_actor_view_parity_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_seed_lineage_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_outcome_taxonomy_guard_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_execution_precondition_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_actor_action_guard_rows.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_claim_boundary_checks.csv exists",
+    "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/selected_platform_reset_feasibility_readiness_gate_matrix.csv exists",
+    "docs/m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight.md exists",
+    "selected-platform reset-feasibility readiness rows keep external install import runtime execution dependency mutation source build adapter probe reset step action rollout replay validation false",
+    "actor-view and actor/action rows preserve P0 72/3 and keep metadata/outcomes/statuses actor-invisible",
+    "claim-boundary rows keep reset execution reset success validation protocol readiness validation admission validation readiness/result external execution ranking driver-performance paper self-ID finite-window-vs-GRU current-sim and high-fidelity validation verdict claims false",
+    "no external high-fidelity simulation install import execution source build adapter probe reset policy action training replay PPO ranking winner success-rate promotion validation admission readiness result or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2619 installs imports or runs Chrono or another external simulator",
+    "M2619 changes actor input or action contract",
+    "M2619 injects hidden or oracle actor features",
+    "M2619 exposes labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "M2619 silently upgrades reset-feasibility readiness rows to reset-executed reset-success validation-admitted validation-ready or validation-result rows",
+    "M2619 mutates dependencies executes source build adapter probe reset policy rollout step replay validation or interprets materialization artifacts as performance",
+    "M2619 starts training",
+    "M2619 ranks controller families or selects a controller winner",
+    "M2619 computes success rate or promotes a checkpoint",
+    "M2619 claims reset execution reset success validation protocol readiness validation admission validation readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "focused_tests",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m pytest -q tests/test_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness.py"
+    },
+    {
+      "name": "route_a_hf3_selected_platform_reset_feasibility_readiness_materialization_preflight",
+      "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 PYTHONPATH=src python -m autodrift.engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness --output-dir runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness --milestone m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight --next-blocker m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_request_schema_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_initial_state_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_actor_view_parity_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_seed_lineage_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_outcome_taxonomy_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_execution_precondition_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_actor_action_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/hf3_selected_platform_reset_feasibility_claim_boundary_checks.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/selected_platform_reset_feasibility_readiness_gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.md",
+    "docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md",
+    "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md",
+    "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/summary.json",
+    "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_reset_step_api_readiness_rows.csv",
+    "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_actor_extractor_parity_rows.csv",
+    "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_action_mapping_parity_rows.csv",
+    "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/selected_platform_executable_protocol_readiness_gate_matrix.csv",
+    "experiments/manifests/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.json",
+    "experiments/manifests/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2619 passes if it materializes bounded HF3 selected-platform reset-feasibility readiness artifacts and gates with M2620 follow-up while preserving actor/action boundaries reset-readiness honesty and making no external simulation source build adapter probe reset policy action rollout replay validation training ranking winner selection success-rate promotion dependency execution readiness validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit"
+}
