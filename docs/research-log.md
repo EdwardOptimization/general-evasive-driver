@@ -47942,3 +47942,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.json`
 - next: `m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis`
+
+## M2656 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Repair Execution Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_source_only_target_protected_tradeoff_report`
+- manifest: `experiments/manifests/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.json`
+- synthesis doc: `docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md`
+- parent execution summary: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json`
+- parent gate evaluation: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv`
+- accepted behavior evidence: M2648 and M2655 both produce traceable source-only closed-loop repair evidence under actor contract 72/3 and no hidden/oracle input
+- target/protected split: M2655 target preservation gates pass but protected component gates fail; target_and_protected_gates_all_passed is false
+- repeated failure trigger: same protected mitigation behavior_regression count 3 and same public repair loop count 3
+- failed protected gates: `severity_proxy_non_regression`, `obstacle_penetration_non_regression`, and `minimum_obstacle_clearance_preservation`
+- selected M2655 candidate status: `m2655_softened_gap_bias` is diagnostic only and not a winner or promoted checkpoint
+- public-gate overfit risk: high for another same-row source-only candidate sweep or target repair loop
+- synthesis decision: close the repair branch and pivot to a non-repair scenario-role target/protected tradeoff report
+- supported operational claims: Route A target/protected tradeoff evidence should be materialized before any further repair or baseline readiness claim
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight.json`
+- next: `m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight`

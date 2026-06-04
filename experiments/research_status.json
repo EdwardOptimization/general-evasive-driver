@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2661,
+    "completed": 2662,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+    "task_id": "m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution",
-    "command_log": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis",
-    "kind": "gate",
-    "priority": 26510,
+    "id": "m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26520,
     "status": "pending",
-    "hypothesis": "A branch synthesis can prevent the M2648-M2655 mitigation-preserving repair work from becoming a public-gate local-search loop and route the repeated protected mitigation regression to stop, pivot, or non-repair evidence expansion.",
-    "command": "true",
-    "success_artifact": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
-    "notes": "Pending: synthesize M2648-M2655 after M2655 passes target preservation but fails protected severity obstacle-penetration and clearance gates; same failure and public repair loop counts reach three"
+    "hypothesis": "A source-only scenario-role target/protected tradeoff report can preserve the M2655 negative result and convert the Route A repair branch evidence into a non-overfit baseline artifact.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_target_protected_tradeoff_report --baseline-behavior-rows runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv --m2648-post-repair-rows runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/post_repair_behavior_rows.csv --m2648-gates runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv --m2655-post-repair-rows runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/post_repair_behavior_rows.csv --m2655-candidate-sweep runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv --m2655-gates runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv --m2650-localization runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json --output-dir runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report",
+    "success_artifact": "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json",
+    "notes": "Pending: materialize non-repair scenario-role target protected tradeoff report from M2641 M2648 M2650 and M2655 source-only evidence with no repair training ranking promotion validation or performance claim"
   },
-  "updated_at_utc": "20260604T095534Z"
+  "updated_at_utc": "20260604T100429Z"
 }
