@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2608,
+    "completed": 2609,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis",
+    "task_id": "m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.md",
-    "command_log": "docs/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.md"
+    "run_dir": "docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md",
+    "command_log": "docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md"
   },
   "next_task": {
-    "id": "m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design",
+    "id": "m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 25980,
+    "priority": 25990,
     "status": "pending",
-    "hypothesis": "Design bounded after-closure HF3 platform-selection decision artifacts after accepted criteria materialization synthesis.",
-    "command": "see experiments/manifests/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.json",
-    "success_artifact": "docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md",
-    "notes": "Pending: design platform-selection decision request evidence-admission candidate-comparison dependency/install/import guard validation-role compatibility actor/action guard claim-boundary and gate artifacts without actual platform selection selection decision validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Materialize bounded after-closure HF3 platform-selection decision-design artifacts after M2603 design.",
+    "command": "see experiments/manifests/m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight.json",
+    "success_artifact": "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/summary.json",
+    "notes": "Pending: materialize decision request evidence-admission candidate-comparison dependency/install/import guard validation-role compatibility actor/action guard claim-boundary and gate artifacts without actual platform selection selection decision validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T014124Z"
+  "updated_at_utc": "20260604T015241Z"
 }

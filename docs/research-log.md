@@ -47026,3 +47026,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: platform-selection decision design only, not actual platform selection or validation execution
 - follow-up manifest: `experiments/manifests/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.json`
 - next: `m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design`
+
+## M2603 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Decision Design
+
+- status: completed
+- decision: `route_to_hf3_after_closure_platform_selection_decision_materialization_preflight`
+- manifest: `experiments/manifests/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.json`
+- design doc: `docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md`
+- parent synthesis: `docs/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.md`
+- accepted evidence: M2600/M2601/M2602 after-closure platform-selection criteria materialization evidence with 3 criteria rows 3 auditability rows 3 dependency/import risk rows 2 validation-role compatibility rows 2 actor/action guard rows 18 claim rows and 11 gates pass
+- designed artifacts: M2604 decision request rows evidence-admission rows candidate-comparison rows dependency/install/import guard rows validation-role compatibility rows actor/action guard rows claim-boundary rows and gate matrix
+- selection boundary: decision-design artifacts prepare a future selection decision request but do not select a platform make a selection decision define validation protocol readiness grant validation admission run validation or claim validation result
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision or protocol status actor-visible
+- rejected claims: no actual platform selection selection decision external install/import/runtime execution validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight.json`
+- next: `m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight`
