@@ -49081,3 +49081,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2714
 - follow-up manifest: `experiments/manifests/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.json`
 - next: `m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit`
+
+## M2715 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2714_route_to_current_m1690_exact_executable_reentry_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.json`
+- audit doc: `docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md`
+- parent summary: `runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json`
+- accepted parent result: M2714 `status_pass` true with 12 input source rows 36 exact executable candidate rows 36 profile context rows 12 protected proposal exclusion rows 1 HF3 blocker row 12 actor-contract guard rows 28 claim-boundary rows and 35 gate rows all pass
+- exact executable finding: 36/36 candidate rows are source-backed existing M1690 workload ids from 9 M2693 anchors x 4 selected profiles with 0 missing selected profile rows and 36 unique workload ids
+- protected proposal finding: all 12 M2710 protected proposal rows remain excluded with `exact_executable_reentry_excluded_m2710_proposed_protected_row`
+- protected execution boundary: preserves 0 protected execution-admitted rows 0 ready-existing protected rows 0 exact protected M1690 matches 0 fabricated protected matches and protected rows outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible
+- route decision: route to M2716 bounded execution preflight over the 36 exact executable candidate rows only before any validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2715
+- follow-up manifest: `experiments/manifests/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.json`
+- next: `m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2720,
+        "completed": 2721,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json",
+        "command_log": "docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel",
+        "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight"
+        "task_id": "m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit"
     },
     "next_task": {
-        "command": "true",
-        "hypothesis": "Audit the M2714 exact-executable reentry panel materialization pack before any bounded execution preflight.",
-        "id": "m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit",
-        "kind": "gate",
-        "notes": "Pending: audit M2714 status_pass true artifact pack with 36 source-backed exact executable candidate rows 12 protected proposal exclusion rows 0 protected execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators and route to bounded execution preflight branch synthesis stop or repair without execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27100,
+        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight --m2714-dir runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel --output-dir runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight",
+        "hypothesis": "A bounded current-M1690 exact-executable reentry execution preflight can produce new closed-loop diagnostic evidence from the M2714 panel without changing actor inputs or overclaiming profile outcomes.",
+        "id": "m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight",
+        "kind": "infrastructure",
+        "notes": "Pending: implement and run bounded diagnostic execution over 36 M2714 exact executable candidate rows only preserve 12 M2710 protected proposal exclusions 0 protected execution rows actor 72/action 3 labels actor-invisible protected rows outside denominators no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27110,
         "status": "pending",
-        "success_artifact": "docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md"
+        "success_artifact": "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json"
     },
-    "updated_at_utc": "20260604T214123Z"
+    "updated_at_utc": "20260604T214729Z"
 }

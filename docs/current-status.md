@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight
+m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight
+m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
+m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
 ```
 
 Current route:
@@ -45,15 +45,17 @@ matches, 0 fabricated matches, and 0 execution-admitted rows.
 M2713 admitted a bounded exact-executable reentry panel design that selects 9
 M2693 anchor task_source_ids and 4 existing M1690 profiles for 36 candidate
 rows, while keeping all M2710 protected proposal rows excluded from execution.
-M2714 materialized that panel successfully: 36/36 exact executable candidate
-rows are source-backed existing M1690 workload ids, 12/12 M2710 protected
-proposal rows are exclusion rows, protected execution-admitted rows remain 0,
-actor 72/action 3 is preserved, labels remain actor-invisible, protected rows
-remain outside ordinary success denominators, and no reset, rollout,
-validation, training, ranking, performance, paper, current-sim, high-fidelity,
-full ideal driver, or self-ID claim is made.
+M2714 materialized that panel successfully. M2715 audited and accepted it:
+36/36 exact executable candidate rows are source-backed existing M1690 workload
+ids, 12/12 M2710 protected proposal rows are exclusion rows, protected
+execution-admitted rows remain 0, actor 72/action 3 is preserved, labels remain
+actor-invisible, protected rows remain outside ordinary success denominators,
+and no reset, rollout, validation, training, ranking, performance, paper,
+current-sim, high-fidelity, full ideal driver, or self-ID claim is made.
 
-Next is M2715 result audit before any bounded execution preflight.
+Next is M2716 bounded execution preflight over the 36 exact executable candidate
+rows only. It must remain diagnostic and exclude all M2710 protected proposal
+rows from execution and denominators.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
