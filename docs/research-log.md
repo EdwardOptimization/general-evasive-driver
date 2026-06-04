@@ -47669,3 +47669,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no external high-fidelity simulation source build adapter probe replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.json`
 - next: `m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit`
+
+## M2642 Engineering Controller Route A Baseline Source-Only Fresh Generalization Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2641_route_to_source_only_fresh_generalization_panel_result_synthesis`
+- manifest: `experiments/manifests/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.json`
+- audit doc: `docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json`
+- accepted evidence: M2641 status_pass true result_class `engineering_controller_route_a_source_only_fresh_generalization_panel_preflight_pass` with 4 role families 4 fresh seeds per role 2 dynamics axes 5 subjects 160 measured behavior rows 160 measured event rows and 12800 telemetry rows
+- materialized counts accepted: 32 seed/axis rows 32 dynamics-axis rows 19 actor visibility guard rows 40 metric completeness rows and 19 gate rows all pass
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input and all actor visibility guard rows pass
+- dynamics-axis boundary: `fresh_fault_delay_noise` source-only fault scales are applied through the local four-wheel backend while actuator delay and sensor-noise values remain diagnostic metadata and actor-visibility guard targets only
+- supported operational claims: M2641 source-only diagnostic panel materialization accepted for Route A synthesis
+- rejected claims: no ranking winner promotion success-rate driver-performance validation readiness/result source build adapter probe external high-fidelity simulation paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json`
+- next: `m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis`

@@ -1,0 +1,238 @@
+{
+  "id": "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/seed_panel_spec.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/dynamics_axis_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/actor_visibility_guard_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_event_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/metric_completeness_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+      "docs/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.md",
+      "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.json",
+      "experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json",
+      "experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json"
+    ],
+    "parent_objective": [
+      "synthesize accepted M2641/M2642 source-only fresh generalization panel evidence before choosing repair design ranking preparation pivot or stop"
+    ],
+    "derived_from": [
+      "m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit",
+      "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight",
+      "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design"
+    ],
+    "blocked_by": [
+      "M2642 accepts M2641 as source-only diagnostic materialization only",
+      "M2641 rows must be synthesized before repair ranking promotion validation or performance interpretation",
+      "HF3 selected-platform execution remains paused until source dependency is supplied"
+    ],
+    "supersedes": [
+      "continuing directly from M2641 audit into repair or PPO without synthesis",
+      "ranking controller checkpoints from source-only diagnostic rows without a synthesis decision",
+      "claiming driver performance or validation readiness from accepted source-only materialization alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+  "public_gates": [
+    "M2643 must synthesize accepted M2641/M2642 source-only fresh generalization panel evidence before any repair ranking promotion validation or performance interpretation",
+    "M2643 must summarize supported claims falsified claims failure taxonomy public-gate overfit risk and next branch decision",
+    "M2643 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible metadata",
+    "M2643 must not execute external high-fidelity simulation source build adapter probe replay validation training PPO ranking winner selection promotion or success-rate verdict computation",
+    "M2643 must decide continue pivot stop or repair route without driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a high-fidelity backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose role labels hidden dynamics route decisions diagnostic axes reset outcomes rollout outcomes validation outcomes or verdict labels to actor input",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only diagnostic panel rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "evidence_axis": "source_only_fresh_generalization_panel_materialization_result_synthesis",
+    "evidence_increment": "synthesizes accepted measured source-only diagnostic panel evidence into a bounded next-branch decision before repair ranking promotion or validation work",
+    "claim_scope": "Route A source-only fresh generalization panel result synthesis only; no ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2641/M2642 evidence is overinterpreted as ranking performance validation or paper evidence",
+      "stop if synthesis cannot identify whether the next action is repair design more source-only coverage pivot or stop",
+      "stop if the next proposed action would expose hidden dynamics or route metadata to actor input",
+      "stop if the next proposed action would use source-only diagnostic rows as a promotion gate"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2641/M2642 evidence is incomplete",
+      "route to contract repair if actor visibility guard interpretation is inconsistent",
+      "route to bounded repair design if synthesis finds a repairable Route A behavior gap without ranking or promotion",
+      "route to branch stop or pivot if source-only panel evidence cannot support a useful next action"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2642 accepts M2641 source-only fresh panel materialization and requires a bounded next-branch decision",
+    "synthesis_decision": "not_applicable"
+  },
+  "synthesis_artifact": "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only fresh generalization panel materialization result synthesis",
+    "admission_evidence": [
+      "M2642 accepts M2641 materialization status_pass true",
+      "M2641 produced 160 measured behavior rows and 12800 telemetry rows across 4 roles 4 seeds 2 dynamics axes and 5 subjects",
+      "M2641 actor visibility guard rows and gate matrix pass",
+      "M2642 preserves the source-only diagnostic claim boundary"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external source fetch",
+      "no external high-fidelity simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build or adapter probe",
+      "no high-fidelity backend start",
+      "no replay execution",
+      "no validation execution",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from source-only diagnostic rows"
+    ],
+    "allowed_updates": [
+      "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+      "M2643 status queue scoreboard research log and review",
+      "one follow-up repair design coverage expansion pivot or stop manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis document exists",
+      "supported and rejected claims are explicit",
+      "public gate overfit risk is assessed",
+      "next branch decision is continue pivot stop or repair-route without ranking validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2643 synthesizes engineering source-only diagnostic rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2643; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2642 accepted source-only fresh panel result audit.",
+    "negative_result_policy": "If source-only panel evidence shows behavior gaps, route to bounded engineering repair design or synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A source-only fresh generalization panel result synthesis",
+      "bounded next-branch decision from accepted diagnostic evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes a newly materialized measured source-only panel into a next-branch decision instead of adding another static artifact",
+    "paper_verdict_delta": "no paper verdict but improves Route A engineering decision discipline after fresh diagnostic materialization",
+    "must_synthesize_if": [
+      "M2643 would continue into repair ranking or promotion without a concrete evidence-supported decision",
+      "M2643 would claim driver performance validation readiness or paper evidence from M2641 source-only rows",
+      "M2643 cannot identify continue pivot stop or repair route",
+      "another static Route A milestone is proposed after M2643 without new evidence or a branch decision"
+    ]
+  },
+  "hypothesis": "A bounded synthesis can convert the accepted M2641/M2642 source-only fresh generalization panel evidence into a useful next Route A decision without overclaiming ranking validation performance paper or self-ID results.",
+  "success_criteria": [
+    "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis explicitly accepts or limits M2641/M2642 source-only diagnostic evidence",
+    "synthesis registers one follow-up repair design coverage expansion pivot or stop manifest without ranking validation or performance claims",
+    "no external simulation source build adapter probe replay validation training ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2643 executes source build adapter probe replay validation training PPO or external high-fidelity simulation",
+    "M2643 changes actor input or action contract",
+    "M2643 injects hidden or oracle actor features",
+    "M2643 ranks controller families selects a winner promotes a checkpoint or computes a success-rate verdict",
+    "M2643 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result",
+    "M2643 fails to register a bounded follow-up route"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+    "docs/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2643 produces a synthesis decision from accepted M2641/M2642 diagnostic evidence and registers a bounded follow-up without ranking validation promotion performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims."
+}
