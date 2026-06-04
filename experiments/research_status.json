@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2675,
+    "completed": 2676,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis",
+    "task_id": "m2670-paper-route-history-vs-current-response-comparison-admission-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md"
+    "command_log": "docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md"
   },
   "next_task": {
-    "id": "m2670-paper-route-history-vs-current-response-comparison-admission-design",
+    "id": "m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 26650,
+    "priority": 26660,
     "status": "pending",
-    "hypothesis": "A bounded Route B admission design can move the project out of Route A readiness loops and prepare a fair current-response finite-window and recurrent-history comparison without claiming a result prematurely.",
-    "command": "true",
-    "success_artifact": "docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md",
-    "notes": "Pending: design Route B history-vs-current-response comparison admission matrix across L0/L1/L2/L3 after M2669 pivot; preserve actor 72/action 3 no hidden oracle and forbid reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "hypothesis": "A machine-auditable protocol pack can convert the M2670 Route B admission design into concrete controller-family task-family fairness gate and claim-boundary rows without prematurely running or ranking controllers.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_comparison_protocol_materialization --output-dir runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization",
+    "success_artifact": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json",
+    "notes": "Pending: materialize Route B comparison protocol rows for L0/L1/L2/L3 controller families T1-T5 task families fairness gates and claim boundaries; preserve actor 72/action 3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T123728Z"
+  "updated_at_utc": "20260604T125256Z"
 }

@@ -48245,3 +48245,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no same-row protected repair validation-readiness repair success promotion ranking winner success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2670-paper-route-history-vs-current-response-comparison-admission-design.json`
 - next: `m2670-paper-route-history-vs-current-response-comparison-admission-design`
+
+## M2670 Paper Route History Vs Current Response Comparison Admission Design
+
+- status: completed
+- decision: `admit_protocol_materialization_preflight`
+- manifest: `experiments/manifests/m2670-paper-route-history-vs-current-response-comparison-admission-design.json`
+- design doc: `docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md`
+- parent synthesis: `docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md`
+- governing plans: `docs/post-m2470-route-plan.md`, `docs/self-id-go-no-go-paper-route-plan.md`, and `docs/paper-route-finite-window-vs-gru-plan.md`
+- historical controls checked: `docs/m1187-paper-route-l0-l1-l2-l3-controller-comparison-design.md`, `docs/m1199-paper-route-fair-comparison-pilot-run.md`, `docs/m1200-paper-route-fair-comparison-pilot-result-audit.md`, and `docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md`
+- admitted matrix: L0 current, L1 one-step, L2 windows 13/25/50/100, L2 current-tiled, L3 online GRU, and L3 reset/truncated control
+- admitted task families: T1 reactive emergency avoidance, T2 delayed actuator/response feedback, T3 diagnostic warmup plus obstacle reveal, T4 same-current same-recent-window different-older-history, and T5 terminal-boundary near-constraint avoidance
+- fairness gates: same actor boundary, same action contract, same train/eval split and public gates, no private holdout tuning, no per-profile post-result tuning, parameter count and inference/runtime reporting, runtime-enforced current-tiled and reset/truncated semantics
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/objective/gate/controller-family/route/paper-verdict labels actor-visible
+- supported operational claims: Route B comparison protocol materialization is admitted under fair matrix and claim-boundary constraints
+- rejected claims: no immediate reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.json`
+- next: `m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight`
