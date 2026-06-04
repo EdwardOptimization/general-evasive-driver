@@ -48323,3 +48323,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no policy rollout replay measured validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit.json`
 - next: `m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit`
+
+## M2674 Paper Route History Vs Current Response Runtime Enforcement Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2673_route_to_bounded_comparison_execution_preflight`
+- manifest: `experiments/manifests/m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit.json`
+- audit doc: `docs/m2674-paper-route-history-vs-current-response-runtime-enforcement-materialization-result-audit.md`
+- parent doc: `docs/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.md`
+- parent summary: `runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json`
+- parent artifacts: `protocol_to_runtime_profile_rows.csv`, `runtime_enforcement_gate_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2673 `status_pass` true with 12 runtime profile rows mapping 9/9 M2671 protocol controller-family IDs, 15/15 runtime-enforcement gates, 22 claim-boundary rows, and 14/14 gate-matrix rows
+- required controls: L2 current-tiled runtime transform observed across 4 corrected configs; L3 reset/truncated policy routing observed with `every_step_control`
+- unresolved before paper interpretation: no T1-T5 behavior comparison, no source-diverse mechanism proof, no ranking, no current-sim verdict, and no self-ID result
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- supported operational claims: M2673 runtime-enforcement pack accepted for bounded public comparison execution preflight
+- rejected claims: no driver performance controller-family ranking winner promotion success-rate verdict paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight.json`
+- next: `m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight`
