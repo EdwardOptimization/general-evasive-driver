@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2651,
+    "completed": 2652,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit",
+    "task_id": "m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md"
+    "command_log": "docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md"
   },
   "next_task": {
-    "id": "m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design",
-    "kind": "infrastructure",
-    "priority": 26410,
+    "id": "m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis",
+    "kind": "gate",
+    "priority": 26420,
     "status": "pending",
-    "hypothesis": "Design a bounded source-only repair objective and intervention plan from accepted behavior-gap taxonomy artifacts without training ranking or promotion.",
+    "hypothesis": "Synthesize the Route A source-only gap-targeted repair branch after M2646 before any further static materialization training ranking validation or performance claims.",
     "command": "true",
-    "success_artifact": "docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md",
-    "notes": "Pending: design bounded repair objective for road-departure and drift-recovery mixed gaps while preserving actor contract and diagnostic/reference rows"
+    "success_artifact": "docs/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.md",
+    "notes": "Pending: synthesize M2639-M2646 source-only evidence taxonomy audit and repair design before deciding materialization measured-evidence pivot or stop"
   },
-  "updated_at_utc": "20260604T080545Z"
+  "updated_at_utc": "20260604T081427Z"
 }

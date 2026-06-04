@@ -1,0 +1,118 @@
+# m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T081921Z
+- Type: infrastructure
+- Gate tier: generalization
+- Promotion decision: route_to_source_only_gap_targeted_repair_branch_synthesis_before_materialization
+- Decision reason: M2646 designs bounded Route A source-only gap-targeted repair objective and intervention plan from accepted M2644/M2645 taxonomy evidence admits road-departure and drift-recovery targets only preserves mitigation collision-saturated and axis-sensitivity rows as protected reference or diagnostic rows preserves actor contract 72/3 registers M2647 repair-branch synthesis before materialization no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded repair objective can be designed from accepted source-only behavior-gap taxonomy evidence while preserving actor-boundary integrity and avoiding ranking validation or performance overclaims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/role_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/subject_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/dynamics_axis_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/gate_matrix.csv, docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md, docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md
+- parent_config: experiments/manifests/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.json, experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json, experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json
+- parent_objective: design a bounded source-only repair objective and intervention plan from accepted behavior-gap taxonomy artifacts without training ranking or promotion
+- derived_from: m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit, m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight, m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis
+- blocked_by: M2645 accepts M2644 taxonomy for repair-design planning only, Route A needs an explicit repair objective before any repair execution or training, taxonomy labels and repair-target labels must not enter actor input
+- supersedes: starting PPO from M2644 repair-target rows without a design, ranking subjects from taxonomy rows, treating mitigation collision-saturated rows as ordinary success denominator
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md exists
+- design targets road_departure_dominant_gap and drift_recovery_mixed_gap only
+- design preserves mitigation_collision_saturated_reference and axis_sensitivity_not_yet_decisive as diagnostic/reference rows
+- design preserves P0 observation shape 72 action shape 3 and no hidden/oracle actor inputs
+- design registers a bounded repair-plan materialization preflight stop or synthesis follow-up
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made
+
+## Failure Criteria
+
+- M2646 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2646 changes actor input or action contract
+- M2646 exposes taxonomy labels repair target labels source-only outcomes or route decisions to actor input
+- M2646 ranks controller families selects a winner promotes a checkpoint or computes success rate
+- M2646 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2646 must design a bounded repair objective and intervention plan using M2644/M2645 taxonomy evidence
+- M2646 must target road_departure_dominant_gap and drift_recovery_mixed_gap only while preserving mitigation_collision_saturated_reference and axis_sensitivity_not_yet_decisive as diagnostic/reference rows
+- M2646 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible taxonomy or repair-target labels
+- M2646 must not execute reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner selection promotion or success-rate verdict computation
+- M2646 must register a bounded repair-plan materialization preflight or stop/synthesis manifest without driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not mutate selected-platform dependencies
+- do not mutate selected-platform source trees
+- do not use network access for dependency resolution
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose behavior gap labels repair target labels route decisions source-only diagnostic outcomes or artifact audit outcomes to actor input
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from a repair design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design
+- type: infrastructure
+- checkpoint: docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_source_only_gap_targeted_repair_branch_synthesis_before_materialization
+- reason: M2646 designs bounded Route A source-only gap-targeted repair objective and intervention plan from accepted M2644/M2645 taxonomy evidence admits road-departure and drift-recovery targets only preserves mitigation collision-saturated and axis-sensitivity rows as protected reference or diagnostic rows preserves actor contract 72/3 registers M2647 repair-branch synthesis before materialization no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim
+
+## Next Blocker
+
+None recorded.

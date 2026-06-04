@@ -47739,3 +47739,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.json`
 - next: `m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design`
+
+## M2646 Engineering Controller Route A Source-Only Gap-Targeted Repair Design
+
+- status: completed
+- decision: `route_to_source_only_gap_targeted_repair_branch_synthesis_before_materialization`
+- manifest: `experiments/manifests/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.json`
+- design doc: `docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md`
+- parent audit: `docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md`
+- parent summary: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json`
+- accepted evidence: M2644/M2645 status_pass true taxonomy evidence with 160 measured behavior rows 4 role gaps 20 subject-role gaps 8 dynamics-axis gaps 4 repair-target rows 13 claim rows and 15 gates pass
+- admitted repair targets: `road_departure_dominant_gap` for stable_aes/stable_avoidable road-boundary margin control and `drift_recovery_mixed_gap` for drift_required_recovery drift-collision-recovery tradeoff
+- protected reference rows: `mitigation_collision_saturated_reference` remains reference-only and `axis_sensitivity_not_yet_decisive` remains diagnostic axis monitoring only
+- objective design: a post-synthesis materialization may write repair objective rows source selection rows protected reference rows actor contract guards intervention boundary rows claim boundary rows and a gate matrix before any repair execution
+- actor/action boundary: taxonomy labels repair target labels source-only outcomes and route decisions remain artifact metadata only and not actor-visible inputs; P0 observation 72 action 3 preserved
+- supported operational claims: bounded Route A source-only gap-targeted repair objective and intervention plan designed for materialization
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.json`
+- next: `m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis`
