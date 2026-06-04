@@ -48952,3 +48952,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2707
 - follow-up manifest: `experiments/manifests/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.json`
 - next: `m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis`
+
+## M2708 Engineering Controller Protected Runner Simulator/Workload Support Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- next branch decision: `continue_to_current_m1690_workload_fixture_support_design`
+- manifest: `experiments/manifests/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.json`
+- synthesis doc: `docs/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.md`
+- parent audit: `docs/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.md`
+- evidence summary: M2691-M2707 turn protected mitigation non-executability into an auditable support boundary but not protected execution behavior evidence
+- support boundary: M2706/M2707 preserve 12 support-required rows 0 support-ready rows 0 exact M1690 workload matches and 0 execution-admitted source rows
+- diagnostic execution boundary: M2693 executed 9 off-track diagnostic rows with 0/9 success 7 off_track and 2 speed_too_low while recording 10 protected rows as non-executable failures
+- traceability finding: 10/10 protected targets remain accounted through runner-spec adapter execution-admission and support traceability rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route-plan finding: another static support hop is not admissible unless it can change exact workload admission or support readiness
+- route decision: route to M2709 current-M1690 workload fixture support design before any support materialization protected execution validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2708
+- follow-up manifest: `experiments/manifests/m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design.json`
+- next: `m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design`
