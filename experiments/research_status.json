@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2686,
+    "completed": 2687,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json",
+    "command_log": "docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight"
+    "task_id": "m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A result audit can decide whether M2680 no-rollout calibration panels are complete and claim-safe enough to route the Route B branch without converting diagnostic blocker rows into paper or self-ID claims.",
-    "id": "m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2680 summary spec profile task-family comparison calibration-gap claim-boundary gate-matrix run-state and doc artifacts verify calibration rows remain diagnostic-only and choose bounded follow-up no reset rollout replay validation training PPO ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26760,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization --m2677-dir runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight --m2680-dir runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration --output-dir runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization",
+    "hypothesis": "A no-rollout role/task-quality repair materialization can convert M2680 blocker evidence into a bounded candidate panel for future Route B measured execution without repeating the same public full matrix or converting diagnostics into paper/self-ID claims.",
+    "id": "m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: consume existing M2677 and M2680 rows only and materialize role/task-quality blocker candidate repair excluded proposed measured-subset claim-boundary and gate rows no reset rollout replay validation training PPO ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26770,
     "status": "pending",
-    "success_artifact": "docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md"
+    "success_artifact": "runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/summary.json"
   },
-  "updated_at_utc": "20260604T150328Z"
+  "updated_at_utc": "20260604T151057Z"
 }

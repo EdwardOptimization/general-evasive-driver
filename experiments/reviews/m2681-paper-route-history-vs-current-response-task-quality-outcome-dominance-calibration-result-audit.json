@@ -1,0 +1,136 @@
+{
+  "decision_reason": "M2681 accepts M2680 complete claim-safe calibration artifacts but rejects direct Route B interpretation because 0 spec 0 profile 0 task-family rows are history-comparison interpretable and 0 comparison rows are ranking-interpretable with offtrack dominance hidden-dynamics missing reset-control ambiguity and role semantics missing active routes to M2682 repair materialization no ranking winner promotion verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+  "failure_criteria": [
+    "M2681 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2681 changes actor input or action contract",
+    "M2681 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress or precomputed answers to actor input",
+    "M2681 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2681 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2681 fails to audit all required M2680 artifacts"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate verdicts",
+    "do not compute finite-window-vs-GRU verdicts",
+    "do not compute current-response sufficiency verdicts",
+    "do not claim paper-level evidence",
+    "do not claim current-sim verdict",
+    "do not claim high-fidelity validation readiness or result",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from calibration audit"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260604T151215Z",
+  "hypothesis": "A result audit can decide whether M2680 no-rollout calibration panels are complete and claim-safe enough to route the Route B branch without converting diagnostic blocker rows into paper or self-ID claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2680 must be audited before calibration rows can route to interpretation planning task-quality repair stop or another evidence axis",
+      "M2680 calibration blockers must remain non-verdict and non-ranking",
+      "M2677 off-track dominance and empty hidden-dynamics bucket artifacts still block paper current-response FW-vs-GRU self-ID and driver-performance claims"
+    ],
+    "derived_from": [
+      "m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight",
+      "m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis",
+      "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit",
+      "m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.json",
+      "experiments/manifests/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.md",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/spec_outcome_dominance_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/profile_outcome_dominance_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/task_family_outcome_dominance_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/comparison_interpretability_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/calibration_gap_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/claim_boundary_rows.csv",
+      "runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/gate_matrix.csv",
+      "docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md",
+      "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json",
+      "docs/post-m2470-route-plan.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2680 calibration materialization artifacts before interpretation planning repair stop or another evidence-axis decision"
+    ],
+    "supersedes": [
+      "direct use of M2680 blocker panels as paper evidence",
+      "direct use of M2677 raw aggregate rows as controller-family rankings"
+    ]
+  },
+  "milestone": "m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2680_pivot_to_task_quality_role_semantics_repair_materialization_preflight",
+  "public_gates": [
+    "M2681 must audit M2680 summary spec profile task-family comparison calibration-gap claim-boundary gate-matrix run-state and doc artifacts before any interpretation planning repair execution validation training promotion or paper claim",
+    "M2681 must verify M2680 consumed existing M2677 artifacts only and did not execute reset step rollout replay validation training PPO source build adapter probe external simulation or policy action",
+    "M2681 must verify spec profile task-family and comparison rows are complete and diagnostic-only",
+    "M2681 must verify off-track dominance hidden-dynamics missing reset-control ambiguity current-tiled diagnostic limits role/task-quality gaps private-holdout absence and missing verdict are recorded as blockers where present",
+    "M2681 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy route comparison verdict or paper labels",
+    "M2681 must select one bounded follow-up route: outcome-semantics interpretation planning task-quality repair design stop current public Route B branch or another evidence-axis synthesis",
+    "M2681 must not rank controller families select a winner promote a checkpoint compute success-rate verdicts or claim driver performance paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2680_pivot_to_task_quality_role_semantics_repair_materialization_preflight",
+    "milestone": "m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit",
+    "reason": "M2681 accepts M2680 complete claim-safe calibration artifacts but rejects direct Route B interpretation because 0 spec 0 profile 0 task-family rows are history-comparison interpretable and 0 comparison rows are ranking-interpretable with offtrack dominance hidden-dynamics missing reset-control ambiguity and role semantics missing active routes to M2682 repair materialization no ranking winner promotion verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md exists",
+    "audit checks M2680 summary spec profile task-family comparison calibration-gap claim-boundary gate-matrix run-state and doc artifacts",
+    "audit verifies M2680 consumed existing M2677 rows only and did not execute reset step rollout replay validation training PPO source build adapter probe external simulation or policy action",
+    "audit verifies diagnostic calibration rows remain non-ranking and non-verdict",
+    "audit accepts rejects or routes repair/synthesis for M2680 artifacts with explicit reasons",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim is made"
+  ],
+  "type": "gate"
+}

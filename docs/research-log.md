@@ -48474,3 +48474,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - claim boundary: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim
 - follow-up manifest: `experiments/manifests/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.json`
 - next: `m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit`
+
+## M2681 Paper Route History Vs Current Response Task Quality Outcome Dominance Calibration Result Audit
+
+- status: completed
+- decision: `accept_m2680_pivot_to_task_quality_role_semantics_repair_materialization_preflight`
+- manifest: `experiments/manifests/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.json`
+- audit doc: `docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md`
+- parent summary: `runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json`
+- accepted parent result: M2680 `status_pass` true with 72 spec rows 12 profile rows 2 task-family rows 11 comparison rows 9 calibration-gap rows 29 claim-boundary rows and 17 gate rows
+- audit finding: M2680 is complete and claim-safe but cannot support direct interpretation
+- interpretation blocker: 0/72 spec rows 0/12 profile rows and 0/2 task-family rows are interpretable for history comparison
+- ranking blocker: 0/11 comparison rows are interpretable for ranking and 11/11 rows are synthesis-only
+- active blockers: off-track dominance 793/864 outcomes and 794/864 terminations hidden-dynamics buckets missing reset-control ambiguity L2 current-tiled zero success deltas role/task-quality semantics missing private holdout absent and paper verdict absent
+- route decision: reject another same public full rollout as the immediate next step
+- selected next route: no-rollout task-quality and role-semantics repair candidate materialization from existing M2677/M2680 rows
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2681
+- follow-up manifest: `experiments/manifests/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.json`
+- next: `m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight`
