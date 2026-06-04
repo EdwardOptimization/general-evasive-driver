@@ -48682,3 +48682,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no package publication replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2692
 - follow-up manifest: `experiments/manifests/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.json`
 - next: `m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight`
+
+## M2693 Engineering Controller Source Diverse Offtrack Protected Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight.py`
+- summary: `runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json`
+- doc: `docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md`
+- policy subject: `m2655_mitigation_preserving_policy`
+- runtime profile: `L3_online_gru`
+- checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- executed target rows: 9 current-sim off-track target rows
+- recorded target failures: 10 protected mitigation targets recorded as explicit non-executable failure rows
+- accounted target rows: 19/19
+- source-diversity aggregates: current-sim off-track diagnostic rows and protected mitigation recorded-failure rows preserved separately
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible blocker labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- gate matrix: 18/18 rows pass
+- route decision: route to M2694 bounded execution result audit before any repair success driver-performance validation ranking current-sim paper high-fidelity full ideal driver or self-ID interpretation
+- rejected claims: no replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2693
+- follow-up manifest: `experiments/manifests/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.json`
+- next: `m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit`
