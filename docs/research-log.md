@@ -48775,3 +48775,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2697
 - follow-up manifest: `experiments/manifests/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.json`
 - next: `m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit`
+
+## M2698 Engineering Controller Protected Mitigation Runner Spec Generation Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2697_route_to_protected_runner_adapter_contract_design`
+- manifest: `experiments/manifests/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.json`
+- audit doc: `docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md`
+- parent summary: `runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/summary.json`
+- accepted parent result: M2697 `status_pass` true with 12 protected runner spec rows 12 protected workload candidate rows 160 traceability rows 0 unmaterialized rows 10 actor-contract guard rows 32 claim-boundary rows and 21 gate rows all pass
+- traceability finding: 10/10 M2695 protected targets are accounted through scenario role subject dynamics-axis and metric traceability rows with no dropped protected targets
+- workload admission finding: M2697 records 0 exact M1690 workload matches and 12 protected candidates outside the current M1690 workload matrix, so direct protected execution is not admitted
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible route labels actor-invisible and protected rows outside success denominators
+- audit finding: M2697 is complete and claim-safe materialization evidence only not protected mitigation preservation repair success driver performance validation current-sim high-fidelity paper full ideal driver or self-ID evidence
+- route decision: route to M2699 protected runner adapter contract design before any protected execution admission
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2698
+- follow-up manifest: `experiments/manifests/m2699-engineering-controller-protected-runner-adapter-contract-design.json`
+- next: `m2699-engineering-controller-protected-runner-adapter-contract-design`

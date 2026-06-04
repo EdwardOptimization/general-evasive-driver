@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2703,
+    "completed": 2704,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/summary.json",
+    "command_log": "docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight"
+    "task_id": "m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "Audit the M2697 protected runner-spec generation pack before protected execution adapter admission interpretation ranking validation or performance claim.",
-    "id": "m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2697 summary protected runner spec workload candidate traceability unmaterialized actor guard claim boundary and gate artifacts verify 10/10 targets accounted actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26930,
+    "hypothesis": "Design the protected runner adapter contract required after M2698 accepts M2697 but blocks direct protected execution because protected candidates are not exact M1690 workload rows.",
+    "id": "m2699-engineering-controller-protected-runner-adapter-contract-design",
+    "kind": "infrastructure",
+    "notes": "Pending: design adapter input sources output rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gates for M2697 protected runner specs while preserving actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26940,
     "status": "pending",
-    "success_artifact": "docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md"
+    "success_artifact": "docs/m2699-engineering-controller-protected-runner-adapter-contract-design.md"
   },
-  "updated_at_utc": "20260604T182017Z"
+  "updated_at_utc": "20260604T182936Z"
 }
