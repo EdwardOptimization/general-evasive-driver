@@ -1,0 +1,40 @@
+{
+  "active_config_overwritten": false,
+  "actor_contract": {
+    "action_shape": 3,
+    "hidden_or_oracle_actor_inputs_required": false,
+    "observation_shape": 72,
+    "repair_target_labels_actor_visible": false,
+    "taxonomy_labels_actor_visible": false
+  },
+  "baseline_behavior_rows": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+  "checkpoint_promoted": false,
+  "claim_scope": "Route A source-only gap-targeted repair execution preflight only",
+  "config_id": "m2648_gap_targeted_repair_execution_v0",
+  "forbidden_interpretation": "driver performance, controller ranking, winner selection, success-rate verdict, validation, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID claim",
+  "generated_at_utc": "20260604T083629Z",
+  "milestone": "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight",
+  "protected_reference_families": [
+    "mitigation_collision_saturated_reference",
+    "axis_sensitivity_not_yet_decisive"
+  ],
+  "ranking_run": false,
+  "repair_design": "docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md",
+  "repair_design_mutated": false,
+  "repair_targets": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv",
+  "repaired_checkpoint": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+  "source_checkpoint": "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+  "success_rate_computed": false,
+  "target_gap_families": [
+    "road_departure_dominant_gap",
+    "drift_recovery_mixed_gap"
+  ],
+  "target_role_families": [
+    "drift_required_recovery",
+    "stable_aes",
+    "stable_avoidable"
+  ],
+  "taxonomy_artifacts_mutated": false,
+  "taxonomy_result_class": "engineering_controller_route_a_source_only_behavior_gap_taxonomy_preflight_pass",
+  "taxonomy_summary": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json"
+}

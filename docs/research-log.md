@@ -47776,3 +47776,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2647 synthesis
 - follow-up manifest: `experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json`
 - next: `m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight`
+
+## M2648 Engineering Controller Route A Source-Only Gap-Targeted Repair Execution Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_gap_targeted_repair_execution_preflight_pass`
+- manifest: `experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_gap_targeted_repair_execution.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_gap_targeted_repair_execution.py`
+- summary: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json`
+- repair training trace: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_training_trace.csv`
+- repaired checkpoint manifest: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repaired_checkpoint_manifest.json`
+- post-repair behavior rows: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/post_repair_behavior_rows.csv`
+- repair gate evaluation: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv`
+- config snapshot: `runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_config_snapshot.json`
+- materialized evidence: repaired checkpoint written under M2648 run directory, 1 repair trace row, 160 post-repair behavior rows, 12800 telemetry rows, and 7 repair gate rows
+- target gates: `target_road_boundary_margin_control` passed with 16/16 improved rows; `target_drift_collision_recovery_tradeoff` passed with 8/8 improved rows
+- protected gates: `protected_mitigation_reference` failed with 7 improved and 1 regressed row; `protected_axis_diagnostic_only` passed
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input and taxonomy/repair labels actor-invisible
+- supported operational claims: bounded source-only gap-targeted repair execution evidence exists for audit
+- rejected claims: no ranking winner promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim; target-gate pass is not performance because protected mitigation failed
+- follow-up manifest: `experiments/manifests/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.json`
+- next: `m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit`

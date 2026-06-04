@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2653,
+    "completed": 2654,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis",
+    "task_id": "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.md"
+    "run_dir": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution",
+    "command_log": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json"
   },
   "next_task": {
-    "id": "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight",
-    "kind": "infrastructure",
-    "priority": 26430,
+    "id": "m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit",
+    "kind": "gate",
+    "priority": 26440,
     "status": "pending",
-    "hypothesis": "Run one bounded source-only gap-targeted repair execution preflight against admitted road-departure and drift-recovery targets while preserving actor-boundary and protected reference rows.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_execution --taxonomy-summary runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json --repair-targets runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv --repair-design docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md --source-checkpoint runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution",
-    "success_artifact": "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json",
-    "notes": "Pending: implement and run bounded source-only gap-targeted repair execution with traceable repair artifacts no ranking promotion success-rate validation or driver-performance claim"
+    "hypothesis": "Audit M2648 repair execution evidence and route the protected mitigation reference regression without performance or promotion claims.",
+    "command": "true",
+    "success_artifact": "docs/m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit.md",
+    "notes": "Pending: audit M2648 status_pass true target gates pass but protected_mitigation_reference fails 1/8 before any further repair or interpretation"
   },
-  "updated_at_utc": "20260604T082639Z"
+  "updated_at_utc": "20260604T083712Z"
 }

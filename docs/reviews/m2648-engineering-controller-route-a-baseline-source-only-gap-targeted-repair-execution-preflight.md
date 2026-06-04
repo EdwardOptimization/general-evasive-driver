@@ -1,0 +1,131 @@
+# m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T083929Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: gap_targeted_repair_execution_preflight_pass_protected_mitigation_failed_route_to_audit
+- Decision reason: M2648 bounded source-only repair execution status_pass true wrote repaired checkpoint trace config snapshot 160 post-repair behavior rows and 7 gate rows target road-boundary 16/16 improved drift tradeoff 8/8 improved protected mitigation reference 7 improved 1 regressed gate fail actor contract 72/3 no hidden oracle no ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim route to M2649 audit
+
+## Hypothesis
+
+One bounded source-only gap-targeted repair execution can produce post-repair closed-loop behavior evidence against admitted road-departure and drift-recovery targets while preserving actor-boundary integrity and protected reference rows.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.md, docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md, docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.json, experiments/manifests/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.json, experiments/manifests/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.json, experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json
+- parent_objective: run one bounded source-only gap-targeted repair execution preflight after M2647 promoted the branch from diagnostic taxonomy/design to repair execution evidence
+- derived_from: m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis, m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design, m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit, m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight
+- blocked_by: M2647 promotes the source-only diagnostic taxonomy/design branch to gap-targeted repair execution, Route A needs post-repair closed-loop behavior evidence rather than another static materialization artifact, repair execution must preserve actor-boundary integrity and protected reference rows
+- supersedes: another no-execution repair-plan materialization before any behavior-changing repair, starting PPO directly without traceable repair gate rows and rollback artifacts, ranking subjects from M2644 taxonomy artifacts, treating mitigation collision-saturated reference rows as ordinary success denominators
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json exists
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_training_trace.csv exists
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repaired_checkpoint_manifest.json exists
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/post_repair_behavior_rows.csv exists
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv exists
+- runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_config_snapshot.json exists
+- summary verifies P0 observation shape 72 and action shape 3 unchanged
+- summary verifies hidden_or_oracle_actor_inputs_required false active_config_overwritten false checkpoint_promoted false
+- summary separates status_pass from target/protected proof gates
+- target/protected gate evaluation rows trace to M2644 repair_target_admission_rows and M2646 design
+- no external high-fidelity simulation ranking winner success-rate promotion validation or performance claim is made
+
+## Failure Criteria
+
+- M2648 installs imports or runs Chrono or another external simulator
+- M2648 changes actor input or action contract
+- M2648 injects hidden or oracle actor features
+- M2648 exposes taxonomy labels repair target labels source-only outcomes or route decisions to actor input
+- M2648 overwrites an active config or mutates M2644/M2646 artifacts in place
+- M2648 promotes a checkpoint or selects a winner
+- M2648 treats repair smoke as driver performance
+- M2648 ranks controller families or computes success-rate verdict
+- M2648 claims validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2648 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary
+- M2648 may run bounded source-only gap-targeted repair training only inside runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution
+- M2648 must target road_departure_dominant_gap and drift_recovery_mixed_gap only while preserving mitigation_collision_saturated_reference and axis_sensitivity_not_yet_decisive as protected reference or diagnostic rows
+- M2648 must write summary repair_training_trace repaired_checkpoint_manifest post_repair_behavior_rows repair_gate_evaluation and repair_config_snapshot artifacts
+- M2648 must keep source checkpoints active configs M2644 taxonomy artifacts and M2646 design artifacts unchanged
+- M2648 must evaluate target/protected proof gates before any fresh/generalization interpretation
+- M2648 must classify proof_washout behavior_regression training_instability objective_overfit contract_violation lineage_invalid metric_artifact and scenario_sampling_failure as applicable
+- M2648 must not rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a high-fidelity backend
+- do not mutate selected-platform dependencies
+- do not mutate selected-platform source trees
+- do not use network access for dependency resolution
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not add rule-switching controller modes
+- do not expose behavior gap labels repair target labels route decisions source-only diagnostic outcomes or artifact audit outcomes to actor input
+- do not treat mitigation_collision_saturated_reference as an ordinary success denominator
+- do not treat axis_sensitivity_not_yet_decisive as a robust-fault or delay/noise verdict
+- do not mutate M2644 or M2646 source artifacts in place
+- do not overwrite active training configs
+- do not promote a checkpoint
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from source-only repair execution preflight
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- training_instability
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight
+- type: infrastructure
+- checkpoint: runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: gap_targeted_repair_execution_preflight_pass_protected_mitigation_failed_route_to_audit
+- reason: M2648 bounded source-only repair execution status_pass true wrote repaired checkpoint trace config snapshot 160 post-repair behavior rows and 7 gate rows target road-boundary 16/16 improved drift tradeoff 8/8 improved protected mitigation reference 7 improved 1 regressed gate fail actor contract 72/3 no hidden oracle no ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim route to M2649 audit
+
+## Next Blocker
+
+m2649-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-result-audit
