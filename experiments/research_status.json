@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2619,
+    "completed": 2620,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis",
+    "task_id": "m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md",
-    "command_log": "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md"
+    "run_dir": "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
+    "command_log": "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md"
   },
   "next_task": {
-    "id": "m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design",
+    "id": "m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 26090,
+    "priority": 26100,
     "status": "pending",
-    "hypothesis": "Design bounded selected-platform executable-protocol readiness artifacts after accepted dependency/protocol readiness synthesis.",
-    "command": "see experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json",
-    "success_artifact": "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
-    "notes": "Pending: design selected-platform executable-protocol readiness rows while keeping source build adapter probe reset step rollout validation execution validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Materialize bounded selected-platform executable-protocol readiness design artifacts after M2614 design.",
+    "command": "see experiments/manifests/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.json",
+    "success_artifact": "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/summary.json",
+    "notes": "Pending: materialize selected-platform executable-protocol readiness rows while keeping source build adapter probe reset step rollout validation execution validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T031845Z"
+  "updated_at_utc": "20260604T032755Z"
 }

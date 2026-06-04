@@ -47197,3 +47197,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform executable-protocol readiness design only, not source build adapter probe dependency execution validation protocol readiness or validation execution
 - follow-up manifest: `experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json`
 - next: `m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design`
+
+## M2614 Engineering Controller Route A Baseline HF3 Selected-Platform Executable-Protocol Readiness Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_executable_protocol_readiness_materialization_preflight`
+- manifest: `experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json`
+- design doc: `docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md`
+- parent synthesis: `docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md`
+- accepted evidence: M2611/M2612/M2613 selected-platform dependency/protocol readiness evidence with selected platform family `chrono_vehicle_or_equivalent_open_backend` and no dependency execution readiness validation readiness/result or performance claims
+- designed artifacts: M2615 source/dependency review admission rows build/probe plan rows reset/step API readiness rows P0 actor extractor parity rows action mapping parity rows scenario-role binding rows result export/replay readiness rows validation-admission prerequisite rows actor/action guard rows claim-boundary rows and selected-platform executable-protocol readiness gate matrix
+- selected-platform boundary: executable-protocol readiness design artifacts are static preparation evidence only; external install/import/runtime execution dependency mutation source build adapter probe reset step policy action rollout validation training replay PPO ranking winner selection success-rate promotion and validation verdict remain forbidden
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status actor-visible
+- rejected claims: no dependency execution readiness source build adapter probe validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.json`
+- next: `m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight`
