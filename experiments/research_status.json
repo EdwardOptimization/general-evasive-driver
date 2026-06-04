@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2639,
+    "completed": 2640,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis",
+    "task_id": "m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
-    "command_log": "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md"
+    "run_dir": "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+    "command_log": "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md"
   },
   "next_task": {
-    "id": "m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design",
+    "id": "m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight",
     "kind": "infrastructure",
-    "priority": 26290,
+    "priority": 26300,
     "status": "pending",
-    "hypothesis": "Design a bounded local/no-network selected-platform source-build and adapter-probe actual execution-attempt command bundle after accepted protocol materialization synthesis.",
-    "command": "see experiments/manifests/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.json",
-    "success_artifact": "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
-    "notes": "Pending: design exact command roots logs artifacts abort criteria and M2635 handoff without executing source build adapter probe backend reset validation or performance claims"
+    "hypothesis": "Execute a bounded local/no-network selected-platform source-build and adapter-probe command-attempt preflight or record explicit source/tool/dependency blockers.",
+    "command": "see experiments/manifests/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.json",
+    "success_artifact": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/summary.json",
+    "notes": "Pending: run M2634 availability gate and bounded command-attempt bundle or record source/tool/dependency blocker with no install external import mutation backend reset validation or performance claims"
   },
-  "updated_at_utc": "20260604T061701Z"
+  "updated_at_utc": "20260604T062813Z"
 }

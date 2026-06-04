@@ -47518,3 +47518,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform source-build/adapter-probe actual execution-attempt command design only, not source build execution adapter probe execution backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation result or performance
 - follow-up manifest: `experiments/manifests/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.json`
 - next: `m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design`
+
+## M2634 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Actual Execution Attempt Command Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt_preflight`
+- manifest: `experiments/manifests/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.json`
+- design doc: `docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md`
+- parent synthesis: `docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md`
+- parent audit: `docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md`
+- route reference: `docs/post-m2470-route-plan.md`
+- local availability audit: no repo-local `third_party` `external` `vendor` `chrono` `Chrono` `pychrono` or `build` directory at maxdepth 2; `pychrono` and `projectchrono` modules not discoverable; Python 3.12.12 CMake 3.28.3 Ninja 1.13.0 and c++ 13.3.0 available; no pychrono/projectchrono dependency entry in pyproject or environment files
+- command design: exact M2635 roots for `RUN_DIR` `LOG_DIR` `ARTIFACT_DIR` `SOURCE_ROOT` `BUILD_ROOT` `PYTHONPATH` and one availability gate before any configure compile adapter import or backend metadata probe attempt
+- source-build bundle: configure attempt and compile attempt are local/no-network and out-of-tree only under M2635 run directory; source root missing CMakeLists missing or toolchain missing routes to blocker without running configure or compile
+- adapter-probe bundle: repo-local `autodrift.four_wheel_hf0_adapter` import and `FourWheelHF0Backend` class metadata probe only; no external simulator import backend instantiation backend start reset step rollout replay or validation
+- supported operational claims: M2634 designed bounded command roots logs artifacts return-code interpretation abort routes claim boundaries and M2635 handoff only
+- rejected claims: no dependency readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability backend start reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.json`
+- next: `m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight`
