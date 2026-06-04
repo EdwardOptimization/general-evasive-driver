@@ -1,0 +1,128 @@
+# m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T204957Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2710_route_to_workload_fixture_support_branch_synthesis
+- Decision reason: M2711 accepts M2710 complete claim-safe workload fixture support materialization with 12 proposal rows 12 exact-match admission rows 12 blocker rows 160 traceability rows and 27 gates all pass but rejects direct protected execution because all rows remain proposed-new with 0 ready-existing rows 0 exact existing M1690 matches 0 fabricated matches and 0 execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators no validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2712 branch synthesis
+
+## Hypothesis
+
+M2710 workload fixture support materialization can be audited as complete and claim-safe before deciding whether protected execution remains blocked by exact current-M1690 workload support.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/summary.json, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/workload_fixture_input_source_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/protected_workload_fixture_proposal_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/exact_match_admission_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/workload_fixture_support_blocker_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/workload_fixture_traceability_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/actor_contract_guard_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/claim_boundary_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/gate_matrix.csv, docs/m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight.md, docs/m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design.md, docs/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.md, runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight.json, experiments/manifests/m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design.json, experiments/manifests/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.json
+- parent_objective: audit the M2710 no-execution current-M1690 workload fixture support materialization pack before any protected execution route
+- derived_from: m2710-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-preflight, m2709-engineering-controller-protected-runner-current-m1690-workload-fixture-support-design, m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis, m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight
+- blocked_by: M2710 may materialize workload fixture support proposals but must not convert proposed rows into protected execution rows, existing exact M1690 workload matches must remain source-backed and visible, 0 execution-admitted rows must remain visible until a later execution-admission route is separately audited, protected labels route decisions blocker labels and verdict labels must remain actor-invisible, protected rows must remain outside ordinary success denominators
+- supersedes: direct protected execution from M2710 workload fixture support rows, treating proposed workload fixture support rows as validation or performance evidence, another workload fixture materialization loop without result audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit.md exists
+- audit cites M2710 summary input source proposal exact-match admission blocker traceability actor-contract claim-boundary and gate rows
+- audit verifies M2710 status_pass gate_matrix_pass required_artifacts_present and proposal/exact-match coverage
+- audit verifies non-ready proposal rows have explicit blocker rows
+- audit preserves no-fabricated-exact-M1690 boundary and expected 0 execution-admitted rows
+- audit preserves P0 observation 72/action 3 actor boundary and no hidden/oracle actor input
+- audit keeps protected labels actor-invisible and protected rows outside ordinary success denominators
+- audit registers one bounded follow-up execution-admission design synthesis stop or repair manifest if continuing
+- no reset step rollout replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible protected labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2711 executes reset step rollout replay validation training PPO or private holdout
+- M2711 changes actor input or action contract
+- M2711 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels route labels or verdicts to actor input
+- M2711 treats M2710 workload fixture support rows as actual protected execution rows
+- M2711 fabricates exact M1690 workload matches or hides zero execution-admitted rows
+- M2711 hides non-exact M1690 candidate rows or treats protected rows as ordinary success denominators
+- M2711 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2711 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2711 fails to select a bounded next route
+
+## Evidence Gates
+
+- M2711 must read M2710 summary input source proposal exact-match admission blocker traceability actor-contract claim-boundary gate rows and doc before any interpretation
+- M2711 must verify every M2706 support candidate has a workload fixture proposal row and exact-match admission row
+- M2711 must verify existing exact M1690 matches are not fabricated and 0 execution-admitted rows remain visible unless source evidence proves otherwise
+- M2711 must verify proposed workload fixture support rows are not marked as protected execution rows and no reset rollout validation training ranking or performance route was run
+- M2711 must verify 10/10 protected target accounting and actor 72/action 3 no hidden/oracle actor input
+- M2711 must keep protected labels actor-invisible protected rows outside denominators and all execution switches off
+- M2711 must select one bounded follow-up route: result acceptance to execution-admission design, taxonomy normalization, branch synthesis, stop, or repair
+- M2711 must not execute reset step rollout replay validation training PPO ranking promotion or claim repair success driver-performance paper current-sim high-fidelity full ideal driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels repair target labels off-track labels protected labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not hide candidate rows that are not exact M1690 workload matches
+- do not hide zero execution-admitted rows
+- do not mark workload fixture support rows as execution rows
+- do not mark workload fixture support rows as behavior evidence
+- do not tune profile-specific hyperparameters
+- do not rank controller families
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from protected runner workload fixture support result audit
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2711-engineering-controller-protected-runner-current-m1690-workload-fixture-support-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2710_route_to_workload_fixture_support_branch_synthesis
+- reason: M2711 accepts M2710 complete claim-safe workload fixture support materialization with 12 proposal rows 12 exact-match admission rows 12 blocker rows 160 traceability rows and 27 gates all pass but rejects direct protected execution because all rows remain proposed-new with 0 ready-existing rows 0 exact existing M1690 matches 0 fabricated matches and 0 execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators no validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2712 branch synthesis
+
+## Next Blocker
+
+bounded route selected by M2711 workload fixture support materialization result audit
