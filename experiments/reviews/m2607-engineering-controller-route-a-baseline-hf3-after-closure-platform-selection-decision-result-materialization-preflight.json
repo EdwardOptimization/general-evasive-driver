@@ -1,0 +1,151 @@
+{
+  "decision_reason": "M2607 materializes bounded after-closure HF3 platform-selection decision result status_pass true 1 decision-result row 12 evidence rows 3 candidate-disposition rows 3 dependency/execution guard rows 2 validation-admission rows 2 actor/action guard rows 17 claim rows and 12 gates pass selected chrono_vehicle_or_equivalent_open_backend no validation protocol readiness admission execution result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+  "failure_criteria": [
+    "M2607 installs imports or runs Chrono or another external simulator",
+    "M2607 changes actor input or action contract",
+    "M2607 injects hidden or oracle actor features",
+    "M2607 exposes labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected-platform or protocol status to actor input",
+    "M2607 silently upgrades platform-selection decision result rows to validation-admitted validation-ready or validation-result rows",
+    "M2607 executes policy rollout reset step validation or interprets decision-result artifacts as performance",
+    "M2607 starts training",
+    "M2607 ranks controller families or selects a controller winner",
+    "M2607 computes success rate or promotes a checkpoint",
+    "M2607 claims validation admission validation protocol readiness validation readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute reset in the materialization preflight",
+    "do not execute policy actions in the materialization preflight",
+    "do not step environments in the materialization preflight",
+    "do not execute rollout in the materialization preflight",
+    "do not execute validation in the materialization preflight",
+    "do not train in the materialization preflight",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected-platform or protocol status to actor input",
+    "do not silently upgrade platform-selection decision result rows to validation-admitted validation-ready or validation-result rows",
+    "do not claim validation protocol readiness",
+    "do not claim validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a controller winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from platform-selection decision result materialization"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260604T023117Z",
+  "hypothesis": "The Route A baseline can materialize a bounded after-closure HF3 platform-selection decision result selecting an open/auditable platform family for future validation preparation while preserving the 72/3 no-oracle actor contract protocol-readiness honesty and no external validation or performance claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2606 selects bounded actual platform-selection decision result materialization while rejecting validation protocol readiness validation admission readiness result and driver-performance claims",
+      "M2605 accepts M2604 decision-design materialization while keeping platform_selected_in_m2604 false selection_decision_made_in_m2604 false and selected_platform_family_in_m2604 none",
+      "Route C allows high-fidelity validation layer preparation but forbids treating platform selection as validation execution or performance evidence"
+    ],
+    "derived_from": [
+      "m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis",
+      "m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit",
+      "m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight",
+      "m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.json",
+      "experiments/manifests/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.json",
+      "experiments/manifests/m2604-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.md",
+      "docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/summary.json",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_request_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_evidence_admission_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_candidate_comparison_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_dependency_guard_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_validation_role_compatibility_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_actor_action_guard_rows.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/hf3_after_closure_platform_selection_decision_claim_boundary_checks.csv",
+      "runs/m2604_engineering_controller_route_a_hf3_after_closure_platform_selection_decision/after_closure_platform_selection_decision_gate_matrix.csv",
+      "docs/m2603-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "materialize a bounded HF3 after-closure platform-selection decision result after accepted decision-design materialization synthesis"
+    ],
+    "supersedes": [
+      "another platform-selection decision-design-only milestone without an actual bounded decision result",
+      "claiming validation readiness from decision-design rows",
+      "installing or importing external simulator dependencies before selection-result audit",
+      "starting external validation execution directly from M2606 synthesis"
+    ]
+  },
+  "milestone": "m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight",
+  "next_blocker": "m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result_materialization_preflight_pass",
+  "public_gates": [
+    "M2607 must materialize summary platform-selection decision result evidence candidate disposition dependency/execution guard validation-admission guard actor/action guard claim-boundary gate matrix and milestone doc artifacts",
+    "M2607 may select only a bounded open/auditable platform family for future validation preparation and must keep black-box backends demonstration-only and repo-local current-sim diagnostic-only",
+    "M2607 must distinguish actual platform-selection decision result materialization from validation protocol readiness validation admission validation readiness validation result external validation execution and driver-performance claims",
+    "M2607 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2607 must keep taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected-platform and protocol status out of actor-visible inputs",
+    "M2607 must not install import or run external high-fidelity simulation train replay PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result_materialization_preflight_pass",
+    "milestone": "m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight",
+    "reason": "M2607 materializes bounded after-closure HF3 platform-selection decision result status_pass true 1 decision-result row 12 evidence rows 3 candidate-disposition rows 3 dependency/execution guard rows 2 validation-admission rows 2 actor/action guard rows 17 claim rows and 12 gates pass selected chrono_vehicle_or_equivalent_open_backend no validation protocol readiness admission execution result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_decision_result_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_decision_evidence_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_candidate_disposition_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_dependency_execution_guard_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_validation_admission_guard_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_decision_result_actor_action_guard_rows.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/hf3_after_closure_platform_selection_decision_result_claim_boundary_checks.csv exists",
+    "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/after_closure_platform_selection_decision_result_gate_matrix.csv exists",
+    "docs/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.md exists",
+    "bounded platform-selection decision result rows select the open/auditable family and keep validation readiness/result false",
+    "actor/action guard rows preserve P0 72/3 and no hidden/oracle actor inputs",
+    "claim-boundary rows keep validation protocol readiness validation admission validation readiness/result external execution ranking driver-performance paper self-ID finite-window-vs-GRU current-sim and high-fidelity validation verdict claims false",
+    "no external high-fidelity simulation install import execution policy action training replay PPO ranking winner success-rate promotion validation admission readiness result or verdict claim is made"
+  ],
+  "type": "infrastructure"
+}

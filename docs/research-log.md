@@ -47087,3 +47087,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: bounded actual platform-selection decision result materialization only, not validation protocol readiness or validation execution
 - follow-up manifest: `experiments/manifests/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.json`
 - next: `m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight`
+
+## M2607 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Decision Result Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result.py`
+- summary: `runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json`
+- milestone doc: `docs/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.md`
+- materialized evidence: 1 decision-result row 12 evidence rows 3 candidate-disposition rows 3 dependency/execution guard rows 2 validation-admission guard rows 2 actor/action guard rows 17 claim-boundary rows and 12 gates pass
+- decision boundary: platform_selection_decision_result_materialized_in_m2607 true platform_selection_decision_made_in_m2607 true selected_platform_family_in_m2607 `chrono_vehicle_or_equivalent_open_backend` selected_platform_family_is_open_auditable true while black_box_backend_selected_in_m2607 false repo_local_current_sim_selected_in_m2607 false validation_protocol_ready_in_m2607 false validation_admission_granted_in_m2607 false external_validation_execution_allowed_in_m2607 false and driver_performance_claim_allowed_in_m2607 false
+- actor/action contract: P0 observation shape `72` action shape `3` and deployed `[steer, throttle, brake]` mapping preserved
+- platform boundary: selected open/auditable platform family is workflow metadata for future validation preparation only; black-box backends remain demonstration-only and repo-local current-sim remains diagnostic-only
+- rejected claims: no validation protocol readiness validation admission external install/import/runtime execution validation readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.json`
+- next: `m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit`

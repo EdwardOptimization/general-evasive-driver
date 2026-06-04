@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2612,
+    "completed": 2613,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis",
+    "task_id": "m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.md",
-    "command_log": "docs/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.md"
+    "run_dir": "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json",
+    "command_log": "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json"
   },
   "next_task": {
-    "id": "m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 26020,
+    "id": "m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit",
+    "kind": "gate",
+    "priority": 26030,
     "status": "pending",
-    "hypothesis": "Materialize a bounded after-closure HF3 platform-selection decision result after accepted decision-design synthesis.",
-    "command": "see experiments/manifests/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.json",
-    "success_artifact": "runs/m2607_engineering_controller_route_a_hf3_after_closure_platform_selection_decision_result/summary.json",
-    "notes": "Pending: materialize bounded platform-selection decision result artifacts while keeping validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Audit the M2607 bounded HF3 after-closure platform-selection decision result before validation readiness admission result or performance interpretation.",
+    "command": "see experiments/manifests/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.json",
+    "success_artifact": "docs/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.md",
+    "notes": "Pending: audit M2607 selected open/auditable platform-family result while keeping validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T021444Z"
+  "updated_at_utc": "20260604T023005Z"
 }
