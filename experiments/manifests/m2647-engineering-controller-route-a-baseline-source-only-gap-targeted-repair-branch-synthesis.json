@@ -138,7 +138,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2646 completes repair design but validation reports the branch has reached the non-evidence local-search guard",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "promote_to_next_branch",
     "synthesis_artifact": "docs/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",

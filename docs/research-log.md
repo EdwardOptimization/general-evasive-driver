@@ -47757,3 +47757,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.json`
 - next: `m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis`
+
+## M2647 Engineering Controller Route A Source-Only Gap-Targeted Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `promote_to_next_branch`
+- next branch decision: `promote_to_source_only_gap_targeted_repair_execution_preflight`
+- manifest: `experiments/manifests/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.json`
+- synthesis doc: `docs/m2647-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-branch-synthesis.md`
+- parent design: `docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md`
+- parent taxonomy summary: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json`
+- accepted evidence: M2639-M2646 source-only Route A branch with M2639 7 evidence rows 5 gap rows 4 next-action rows; M2641 160 measured behavior rows 12800 telemetry rows 19 actor visibility guard rows and 19 gates pass; M2644 4 role gaps 20 subject-role gaps 8 dynamics-axis gaps 4 repair-target rows 13 claim rows and 15 gates pass; M2645 audit accepts taxonomy for repair design only; M2646 designs bounded repair objective
+- admitted repair targets: `road_departure_dominant_gap` for stable_aes/stable_avoidable road-boundary margin control and `drift_recovery_mixed_gap` for drift_required_recovery drift-collision-recovery tradeoff
+- protected reference rows: `mitigation_collision_saturated_reference` remains reference-only and `axis_sensitivity_not_yet_decisive` remains diagnostic axis monitoring only
+- local-search decision: do not continue with another static repair-plan materialization; promote to a new source-only gap-targeted repair execution branch to produce bounded post-repair behavior evidence
+- actor/action boundary: taxonomy labels repair target labels source-only outcomes and route decisions remain artifact metadata only and not actor-visible inputs; P0 observation 72 action 3 preserved
+- supported operational claims: accepted source-only diagnostic taxonomy and repair-design branch is ready for one bounded repair execution preflight
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2647 synthesis
+- follow-up manifest: `experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json`
+- next: `m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight`
