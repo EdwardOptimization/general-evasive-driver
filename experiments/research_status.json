@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2665,
+    "completed": 2666,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight",
+    "task_id": "m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh",
-    "command_log": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit",
+    "id": "m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis",
     "kind": "gate",
-    "priority": 26550,
+    "priority": 26560,
     "status": "pending",
-    "hypothesis": "A bounded result audit can accept or reject M2659 refreshed evidence-index artifacts before Route A chooses synthesis, stop, or a new evidence route.",
+    "hypothesis": "A post-index branch synthesis can convert the M2657-M2660 target/protected evidence chain into a bounded next-route decision without another same-row public repair loop.",
     "command": "true",
-    "success_artifact": "docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md",
-    "notes": "Pending: audit M2659 refreshed evidence index artifacts including M2657/M2658 target protected evidence protected mitigation blocker actor contract 72/3 no hidden oracle and no repair training rollout ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
+    "success_artifact": "docs/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.md",
+    "notes": "Pending: synthesize Route A post-index target protected evidence state answer evidence supported falsified failure taxonomy public-gate overfit and next branch decision without reset rollout training ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
   },
-  "updated_at_utc": "20260604T104901Z"
+  "updated_at_utc": "20260604T105613Z"
 }

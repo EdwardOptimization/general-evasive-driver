@@ -48031,3 +48031,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.json`
 - next: `m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit`
+
+## M2660 Engineering Controller Route A Baseline Evidence Index After Target/Protected Report Refresh Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2659_route_to_post_index_branch_synthesis`
+- manifest: `experiments/manifests/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.json`
+- audit doc: `docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md`
+- parent summary: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json`
+- parent artifacts: `evidence_index.csv`, `gap_matrix.csv`, `claim_boundary_rows.csv`, and `next_action_admission.csv`
+- accepted status: M2659 `status_pass` true with `source_artifacts_reanalyzed_only` true and `new_repair_training_or_rollout_run` false
+- evidence index audit: 12 evidence rows include M2657 target/protected report and M2658 audit
+- gap audit: 6 gap rows keep protected mitigation blocker active and forbid another same-row repair loop
+- claim boundary audit: 16 claim rows pass; allowed claims are only index refresh, target/protected report indexed, protected blocker indexed, and follow-up audit registered
+- next-action audit: only the post-index result audit route was admitted by M2659; after M2660 the next action is branch synthesis
+- protected blocker: M2655 target preservation gates pass but protected severity, obstacle-penetration, and clearance gates fail; target_and_protected_gates_all_passed remains false
+- selected M2655 candidate status: `m2655_softened_gap_bias` is diagnostic trace only and not a winner or promoted checkpoint
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: M2659 is accepted as refreshed Route A baseline evidence index for branch synthesis only
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.json`
+- next: `m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis`
