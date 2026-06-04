@@ -48492,3 +48492,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2681
 - follow-up manifest: `experiments/manifests/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.json`
 - next: `m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight`
+
+## M2682 Paper Route History Vs Current Response Task Quality Role Semantics Repair Materialization Preflight
+
+- status: completed
+- decision: `route_to_task_quality_role_semantics_repair_materialization_result_audit`
+- manifest: `experiments/manifests/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.json`
+- summary: `runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/summary.json`
+- doc: `docs/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.md`
+- source inputs: existing M2677 full public T4/T5 rows and M2680 calibration blocker rows only
+- materialized rows: 15 role/task-quality blocker rows 9 repair candidate rows 6 excluded candidate rows 216 proposed measured-subset rows 31 claim-boundary rows and 23 gate rows
+- proposed measured subset: 216/864 rows across 18 specs 12 profiles and 2 task families
+- subset boundary: not identical to the full public matrix and not selected from success rows only
+- role semantics boundary: analysis-only proxy rows actor-invisible no hidden/oracle actor input required
+- source blockers preserved: M2680 off-track dominance 793/864 outcomes and 794/864 terminations hidden-dynamics buckets missing and 0 ranking-interpretable comparison rows
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2682
+- follow-up manifest: `experiments/manifests/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.json`
+- next: `m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit`
