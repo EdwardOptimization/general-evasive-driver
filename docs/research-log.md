@@ -47294,3 +47294,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.json`
 - next: `m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit`
+
+## M2620 Engineering Controller Route A Baseline HF3 Selected-Platform Reset-Feasibility Readiness Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_selected_platform_reset_feasibility_readiness_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.json`
+- audit doc: `docs/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.md`
+- parent summary: `runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json`
+- accepted evidence: M2619 status_pass true 2 reset request schema rows 2 initial-state admission rows 2 actor-view parity rows 2 reset seed/lineage rows 8 reset outcome taxonomy guard rows 6 reset-execution precondition rows 2 actor/action guard rows 27 claim-boundary rows and 13 gates pass
+- selected-platform boundary: selected_platform_family_in_m2619 `chrono_vehicle_or_equivalent_open_backend` selected_platform_reset_feasibility_readiness_design_materialized_in_m2619 true while external_install_allowed_in_m2619 false external_import_allowed_in_m2619 false runtime_execution_allowed_in_m2619 false dependency_mutation_allowed_in_m2619 false source_build_executed_in_m2619 false adapter_probe_executed_in_m2619 false
+- validation boundary: reset_executed_in_m2619 false environment_step_executed_in_m2619 false policy_action_executed_in_m2619 false rollout_executed_in_m2619 false replay_executed_in_m2619 false external_validation_execution_allowed_in_m2619 false validation_protocol_ready_in_m2619 false validation_admission_granted_in_m2619 false validation_result_claim_allowed false reset_success_claim_allowed_in_m2619 false rollout_feasibility_claim_allowed_in_m2619 false and driver_performance_claim_allowed_in_m2619 false
+- guard boundary: P0 `72/3` and deployed `[steer, throttle, brake]` mapping preserved with no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes validation outcomes selected platform or protocol status actor-visible
+- supported operational claims: selected-platform reset-feasibility readiness materialization accepted for future reset-execution-readiness and validation-preparation synthesis only
+- rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.json`
+- next: `m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis`

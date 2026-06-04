@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2625,
+    "completed": 2626,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight",
+    "task_id": "m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json",
-    "command_log": "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json"
+    "run_dir": "docs/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.md",
+    "command_log": "docs/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit",
+    "id": "m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 26150,
+    "priority": 26160,
     "status": "pending",
-    "hypothesis": "Audit the M2619 bounded selected-platform reset-feasibility readiness materialization before reset execution validation readiness result or performance interpretation.",
-    "command": "see experiments/manifests/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.json",
-    "success_artifact": "docs/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.md",
-    "notes": "Pending: audit M2619 reset-feasibility readiness materialization while keeping reset execution reset success validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Synthesize accepted M2619/M2620 selected-platform reset-feasibility readiness materialization evidence before choosing reset-execution readiness design repair pivot or stop.",
+    "command": "see experiments/manifests/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize M2619/M2620 reset-feasibility readiness evidence while keeping source build adapter probe reset execution reset success validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T041759Z"
+  "updated_at_utc": "20260604T042506Z"
 }
