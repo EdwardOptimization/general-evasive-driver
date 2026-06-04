@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2633,
+    "completed": 2634,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2627-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-preflight",
+    "task_id": "m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2627_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution",
-    "command_log": "runs/m2627_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution/summary.json"
+    "run_dir": "docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md",
+    "command_log": "docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit",
+    "id": "m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 26230,
+    "priority": 26240,
     "status": "pending",
-    "hypothesis": "Audit bounded selected-platform source-build and adapter-probe execution design materialization before backend availability reset execution validation or performance interpretation.",
-    "command": "see experiments/manifests/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.json",
-    "success_artifact": "docs/m2628-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-audit.md",
-    "notes": "Pending: audit M2627 source-build/adapter-probe design materialization while keeping source build adapter probe backend availability reset validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Synthesize accepted selected-platform source-build and adapter-probe execution design materialization evidence before choosing execution-attempt design repair pivot or stop.",
+    "command": "see experiments/manifests/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2629-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize M2627/M2628 source-build/adapter-probe design materialization evidence while keeping dependency readiness source build adapter probe backend availability reset validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T052853Z"
+  "updated_at_utc": "20260604T053437Z"
 }
