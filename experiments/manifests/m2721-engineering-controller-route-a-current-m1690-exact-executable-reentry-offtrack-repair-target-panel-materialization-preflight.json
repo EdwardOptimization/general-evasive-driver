@@ -1,0 +1,234 @@
+{
+  "id": "m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/taxonomy_rows.csv",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/taxonomy_aggregate_rows.csv",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/profile_taxonomy_context_rows.csv",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/anchor_taxonomy_context_rows.csv",
+      "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/gate_matrix.csv",
+      "docs/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md",
+      "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.json",
+      "experiments/manifests/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.json",
+      "experiments/manifests/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "materialize an offtrack-dominant repair target panel from M2719 taxonomy after M2720 accepts taxonomy but before repair design or execution"
+    ],
+    "derived_from": [
+      "m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit",
+      "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight",
+      "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis"
+    ],
+    "blocked_by": [
+      "M2719 identifies 31/36 off_track rows but repair design needs a bounded target panel before any new execution",
+      "obstacle_collision and diagnostic_success rows must remain separate caution/context slices",
+      "protected proposal rows remain excluded from execution and denominators",
+      "profile context remains diagnostic and non-ranking"
+    ],
+    "supersedes": [
+      "direct offtrack repair design from raw taxonomy rows",
+      "same-panel execution repeat before target-panel materialization",
+      "profile ranking or winner selection from taxonomy"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.md",
+  "public_gates": [
+    "M2721 must consume M2720 audit and M2719 summary taxonomy aggregate profile anchor actor-contract claim-boundary and gate artifacts before materializing targets",
+    "M2721 must not execute reset step rollout replay validation training PPO private holdout or profile-specific tuning",
+    "M2721 must materialize all 31 off_track rows into target-panel rows unless explicitly rejected with a visible reason",
+    "M2721 must keep obstacle_collision rows as a separate caution slice and diagnostic_success rows as context rather than winner evidence",
+    "M2721 must keep protected_excluded rows outside execution targets and ordinary denominators",
+    "M2721 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and non-ranking profile context",
+    "M2721 must write source accounting offtrack target rows caution rows context rows protected exclusion rows actor-contract claim-boundary gate summary and doc artifacts",
+    "M2721 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide off_track rows",
+    "do not hide collision caution rows",
+    "do not hide diagnostic success context rows",
+    "do not hide protected proposal exclusions",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2721 target-panel materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_current_m1690_exact_executable_reentry",
+    "evidence_axis": "current_m1690_exact_executable_reentry_offtrack_repair_target_panel",
+    "evidence_increment": "materializes a no-rollout offtrack-dominant target panel from M2719 taxonomy before repair design or execution",
+    "claim_scope": "Materialization only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2719 taxonomy rows are missing or inconsistent with M2720",
+      "stop if off_track target rows are dropped without visible rejection reasons",
+      "stop if profile context would become ranking or winner evidence",
+      "stop if protected_excluded rows would enter execution targets or ordinary denominators",
+      "stop if any target or taxonomy label would be actor-visible"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2719 or M2720 artifacts are absent",
+      "route to taxonomy repair if target panel cannot account for rows cleanly",
+      "route to result audit before any repair design if materialization succeeds",
+      "route to branch synthesis if offtrack target panel cannot support an evidence-changing repair route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2720 accepts M2719 taxonomy and selects offtrack target-panel materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-M1690 exact-executable reentry offtrack repair target-panel materialization",
+    "admission_evidence": [
+      "M2720 accepts M2719 taxonomy complete and claim-safe",
+      "M2719 has 31 off_track rows 2 obstacle_collision rows 3 diagnostic_success rows and 12 protected_excluded rows",
+      "M2719 profile context remains diagnostic and non-ranking"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in materialization",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization.py",
+      "tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization.py",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json",
+      "docs/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.md",
+      "M2721 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "target-panel artifacts account for 31 off_track rows 2 collision caution rows 3 diagnostic success context rows and 12 protected exclusions",
+      "profile context remains non-ranking",
+      "actor and claim boundaries are preserved",
+      "one bounded result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2721 materializes Route A offtrack repair targets and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2721; any profile or history comparison remains separately pre-registered after target-panel audit."
+    ],
+    "temporal_evidence_window": "M2719 taxonomy rows and M2720 audit only.",
+    "negative_result_policy": "If target materialization cannot preserve boundaries, route to repair or synthesis instead of forcing self-ID interpretation.",
+    "allowed_claims": [
+      "offtrack repair target panel materialized",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts accepted taxonomy into a bounded target panel for future repair design rather than repeating execution or ranking profiles",
+    "paper_verdict_delta": "no paper verdict; creates a target panel that may later support repair evidence if audited and executed under a new protocol",
+    "must_synthesize_if": [
+      "M2721 cannot account for all offtrack and protected exclusion rows",
+      "M2721 would rank profiles or claim validation performance paper current-sim high-fidelity or self-ID evidence",
+      "M2721 proposes same-panel execution without result audit"
+    ]
+  },
+  "hypothesis": "A no-rollout target-panel materialization can convert the accepted M2719 offtrack taxonomy into an auditable repair target surface without ranking profiles or overclaiming performance.",
+  "success_criteria": [
+    "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json exists",
+    "docs/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.md exists",
+    "target-panel artifacts account for 31 off_track rows 2 obstacle_collision caution rows 3 diagnostic_success context rows and 12 protected_excluded rows",
+    "profile context remains diagnostic and non-ranking",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2721 executes reset step rollout replay validation training PPO or private holdout",
+    "M2721 changes actor input or action contract",
+    "M2721 exposes taxonomy labels target labels protected labels profile labels blocker labels route labels success labels or verdicts to actor input",
+    "M2721 drops off_track collision diagnostic_success or protected_excluded rows without visible rejection reason",
+    "M2721 treats profile context as ranking winner selection promotion or success-rate verdict evidence",
+    "M2721 treats protected proposal rows as execution rows or ordinary denominators",
+    "M2721 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2721 fails to register a bounded result-audit follow-up"
+  ],
+  "commands": [
+    {
+      "name": "current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization --m2719-dir runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy --m2720-audit docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md --output-dir runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md",
+    "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+    "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/taxonomy_rows.csv",
+    "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/profile_taxonomy_context_rows.csv",
+    "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/anchor_taxonomy_context_rows.csv"
+  ],
+  "decision_rule": "Pass only if M2721 materializes a complete claim-safe offtrack target panel without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_result_audit",
+    "fail": "reject_current_m1690_exact_executable_reentry_offtrack_repair_target_panel_materialization"
+  },
+  "scoreboard_checkpoint": "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json",
+  "next_blocker": "current-M1690 exact-executable reentry offtrack repair target-panel result audit"
+}

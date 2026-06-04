@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
+m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
+m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
+m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight
 ```
 
 Current route:
@@ -91,6 +91,15 @@ not run and outside denominators.
 Next is M2720 result audit before any targeted repair design, execution
 extension, validation, ranking, performance, paper, current-sim, high-fidelity,
 full ideal driver, or self-ID claim.
+
+M2720 audited and accepted M2719 as complete and claim-safe. The accepted
+taxonomy exposes an offtrack-dominant repair surface: 31 off_track rows, 2
+obstacle_collision caution rows, 3 diagnostic_success context rows, and 12
+protected_excluded rows. Profile context is diagnostic and non-ranking.
+
+Next is M2721 no-rollout offtrack repair target-panel materialization before
+any repair design, execution extension, validation, ranking, performance,
+paper, current-sim, high-fidelity, full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

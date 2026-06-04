@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2725,
+        "completed": 2726,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
+        "command_log": "docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy",
+        "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight"
+        "task_id": "m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Audit M2719 failure taxonomy artifacts before any targeted repair design execution extension ranking validation or performance interpretation.",
-        "id": "m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit",
-        "kind": "gate",
-        "notes": "Pending: audit M2719 status_pass true 48 taxonomy rows covering 36 exact execution rows and 12 protected exclusions 31 off_track 2 obstacle_collision 3 diagnostic success 6 aggregates 4 profile contexts 9 anchor contexts 19 gate rows all pass profile rows non-ranking actor 72/action 3 labels actor-invisible no execution validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27150,
+        "hypothesis": "Materialize a no-rollout offtrack-dominant repair target panel from accepted M2719 taxonomy before repair design or execution extension.",
+        "id": "m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight",
+        "kind": "infrastructure",
+        "notes": "Pending: materialize offtrack target panel from M2719 taxonomy after M2720 acceptance; account for 31 off_track rows 2 collision caution rows 3 diagnostic success context rows and 12 protected_excluded rows while keeping profile non-ranking actor 72/action 3 labels actor-invisible no execution validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27160,
         "status": "pending",
-        "success_artifact": "docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md"
+        "success_artifact": "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json"
     },
-    "updated_at_utc": "20260604T224733Z"
+    "updated_at_utc": "20260604T225350Z"
 }
