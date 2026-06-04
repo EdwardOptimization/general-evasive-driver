@@ -49061,3 +49061,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2713
 - follow-up manifest: `experiments/manifests/m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight.json`
 - next: `m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight`
+
+## M2714 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Panel Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_current_m1690_exact_executable_reentry_panel_materialization_pass`
+- manifest: `experiments/manifests/m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_panel_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel_materialization.py`
+- summary: `runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json`
+- doc: `docs/m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight.md`
+- materialized rows: 12 input source rows 36 exact executable candidate rows 36 profile context rows 12 protected proposal exclusion rows 1 HF3 dependency blocker row 12 actor-contract guard rows 28 claim-boundary rows and 35 gate rows
+- exact executable finding: 9 M2693 anchor `task_source_id`s x 4 selected profiles `L0_current_masked` `L2_window_50_current_tiled` `L3_online_gru` `L3_reset_control_corrected` materialized 36/36 source-backed existing M1690 workload rows with 0 missing selected profile rows
+- protected proposal finding: all 12 M2710 protected workload fixture proposal rows are materialized as `exact_executable_reentry_excluded_m2710_proposed_protected_row`
+- protected execution boundary: preserves 0 protected execution-admitted rows 0 ready-existing protected rows 0 exact protected M1690 matches 0 fabricated protected matches and protected rows outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible
+- HF3 boundary: M2638 dependency blocker remains present and HF3 selected-platform execution remains paused
+- route decision: route to M2715 exact-executable reentry panel materialization result audit before any bounded execution preflight validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2714
+- follow-up manifest: `experiments/manifests/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.json`
+- next: `m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit`

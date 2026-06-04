@@ -16,64 +16,44 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
+m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2536-engineering-controller-failure-surface-mitigation-preserving-repair-branch-synthesis
+m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2537-engineering-controller-failure-surface-mitigation-preserving-repair-execution-preflight
+m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
 ```
 
 Current route:
 
 ```text
-M2520 closes the behavior/outcome protocol branch with synthesis decision
-`promote_to_next_branch` and decision `promote_to_bounded_measured_behavior_panel`.
-M2513-M2519 produced accepted protocol schema, row-completeness, and
-evaluator-side event instrumentation, but not measured behavior evidence.
-M2521 materializes the first bounded source-only measured behavior panel under
-the accepted protocol, and M2522 accepts those artifacts as source-only
-diagnostics. M2523 expands the denominator to a fresh source-only seed panel,
-and M2524 accepts those artifacts as complete for source-only diagnostic scope.
-M2525 closes the bounded measured behavior panel branch and routes to a
-failure-surface intervention design rather than another source-only panel.
-M2526 defines that intervention boundary and routes to structured plan
-materialization before implementation or training.
-M2527 materializes the intervention spec, protected rows, gate matrix, and
-candidate patch plan as machine-readable artifacts.
-M2528 materializes an immutable candidate config and protected gate bindings
-without overwriting active configs, training, or running policy actions.
-M2529 runs the first bounded source-only no-update repair smoke from that
-candidate config, matches all `45` protected/reference rows, and records a
-negative proof-gate result while preserving contract and claim boundaries.
-M2530 audits and accepts that negative no-update smoke, then routes away from
-config-only/no-update artifacts toward guarded repair execution design.
-M2531 designs that guarded repair execution and registers M2532 as the next
-behavior-changing closed-loop repair evidence milestone.
-M2532 executes that guarded source-only repair, writes a repaired checkpoint
-under its run directory, and records partial protected proof evidence:
-road-boundary and command-conflict proof pass, while mitigation proof still
-fails on one regressed mitigation row. M2533 accepts that partial result as
-valid Route A evidence but rejects promotion, generalization, or performance
-interpretation. M2534 localizes the remaining mitigation failure: all five
-mitigation rows improve road margin and command conflict after M2532, but seed
-`254302` has a low-baseline severity regression. M2534 therefore routes to a
-mitigation-preserving repair design before another repair execution. M2535
-defines that design: keep M2532 road-boundary and command-conflict gains as
-retained proof gates, add all-mitigation-row severity non-regression, treat seed
-`254302` as a sentinel rather than a sole tuning target, and route to M2536
-branch synthesis before any bounded execution.
-M2536 synthesizes M2526-M2535 and approves exactly one bounded M2537
-mitigation-preserving repair execution because M2532 reduced three failed proof
-surfaces to one, while public-gate overfit risk is now medium-high.
+docs/post-m2470-route-plan.md split the work into Route A engineering controller
+mainline, Route B paper evidence, and Route C high-fidelity interface. The
+current branch is Route A. M2712 closed the protected workload fixture support
+extension as process/interface evidence only because all 12 protected rows
+remained proposed-new with 0 ready-existing rows, 0 exact existing M1690
+matches, 0 fabricated matches, and 0 execution-admitted rows.
+
+M2713 admitted a bounded exact-executable reentry panel design that selects 9
+M2693 anchor task_source_ids and 4 existing M1690 profiles for 36 candidate
+rows, while keeping all M2710 protected proposal rows excluded from execution.
+M2714 materialized that panel successfully: 36/36 exact executable candidate
+rows are source-backed existing M1690 workload ids, 12/12 M2710 protected
+proposal rows are exclusion rows, protected execution-admitted rows remain 0,
+actor 72/action 3 is preserved, labels remain actor-invisible, protected rows
+remain outside ordinary success denominators, and no reset, rollout,
+validation, training, ranking, performance, paper, current-sim, high-fidelity,
+full ideal driver, or self-ID claim is made.
+
+Next is M2715 result audit before any bounded execution preflight.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

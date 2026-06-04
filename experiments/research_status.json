@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2719,
+        "completed": 2720,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design.md",
+        "command_log": "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json",
         "returncode": 0,
-        "run_dir": "docs",
+        "run_dir": "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel",
         "status": "completed",
-        "task_id": "m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design"
+        "task_id": "m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight"
     },
     "next_task": {
-        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_panel_materialization --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2693-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2710-dir runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support --m2712-synthesis docs/m2712-engineering-controller-protected-runner-current-m1690-workload-fixture-support-branch-synthesis.md --m2713-design docs/m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design.md --m2638-blocker docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md --output-dir runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel",
-        "hypothesis": "Materialize the M2713 current-M1690 exact-executable reentry panel from existing workload ids while excluding all M2710 protected proposal rows.",
-        "id": "m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight",
-        "kind": "infrastructure",
-        "notes": "Pending: materialize 36 exact executable candidate rows from 9 M2693 anchor task_source_ids and profiles L0_current_masked L2_window_50_current_tiled L3_online_gru L3_reset_control_corrected plus 12 M2710 protected proposal exclusion rows preserve 0 protected exact M1690 matches 0 protected execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27090,
+        "command": "true",
+        "hypothesis": "Audit the M2714 exact-executable reentry panel materialization pack before any bounded execution preflight.",
+        "id": "m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit",
+        "kind": "gate",
+        "notes": "Pending: audit M2714 status_pass true artifact pack with 36 source-backed exact executable candidate rows 12 protected proposal exclusion rows 0 protected execution-admitted rows actor 72/action 3 labels actor-invisible protected rows outside denominators and route to bounded execution preflight branch synthesis stop or repair without execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27100,
         "status": "pending",
-        "success_artifact": "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json"
+        "success_artifact": "docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md"
     },
-    "updated_at_utc": "20260604T210654Z"
+    "updated_at_utc": "20260604T214123Z"
 }
