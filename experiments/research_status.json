@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2682,
+    "completed": 2683,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit",
-    "status": "completed",
+    "command_log": "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.md"
+    "run_dir": "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight",
+    "status": "completed",
+    "task_id": "m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight"
   },
   "next_task": {
-    "id": "m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight",
-    "kind": "infrastructure",
-    "priority": 26720,
+    "command": "true",
+    "hypothesis": "A result audit can decide whether M2677 full public T4/T5 execution rows are complete and claim-safe enough to route toward outcome-semantics or interpretation planning without treating diagnostic metrics as paper or self-ID evidence.",
+    "id": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2677 full public T4/T5 comparison execution artifacts before any ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26730,
     "status": "pending",
-    "hypothesis": "The M1690 864-cell public T4/T5 workload can execute for the accepted Route B controller matrix while preserving M2673 runtime controls and M2675 claim boundaries producing full diagnostic comparison rows before any result audit or interpretation.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight --runtime-enforcement-dir runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization --bounded-preflight-dir runs/m2675_paper_route_history_vs_current_response_bounded_comparison_execution_preflight --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m1674-run-dir runs/m1674_controller_family_one_seed_public_pilot --output-dir runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight",
-    "success_artifact": "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json",
-    "notes": "Pending: execute full 864-cell public T4/T5 comparison preflight with M2673 runtime controls M2675 claim boundary M1690 workload and M1674 corrected checkpoints no training PPO replay private holdout ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim"
+    "success_artifact": "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md"
   },
-  "updated_at_utc": "20260604T140936Z"
+  "updated_at_utc": "20260604T142821Z"
 }

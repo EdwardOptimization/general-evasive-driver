@@ -48388,3 +48388,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout policy action replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2676
 - follow-up manifest: `experiments/manifests/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.json`
 - next: `m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight`
+
+## M2677 Paper Route History Vs Current Response Full T4/T5 Public Comparison Execution Preflight
+
+- status: completed
+- result_class: `paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight_pass`
+- manifest: `experiments/manifests/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight.py`
+- summary: `runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json`
+- full runner summary: `runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/full_rollout_execution_summary.json`
+- episode rows: `runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/episode_rows.csv`
+- aggregate rows: 12 profile, 72 spec, 5 stratum, 11 diagnostic comparison, 4 outcome, 4 termination, and 25 profile-outcome rows
+- hidden-dynamics artifacts: `hidden_dynamics_aggregate.csv` and `profile_hidden_dynamics_worst_bucket.csv` exist with 0 bucket rows because execution rows do not contain `hidden_dynamics_bucket`
+- full public execution: 864/864 episode rows across 12/12 profiles and 72/72 public T4/T5 specs
+- failure rows: 0
+- runtime joins: 12/12 pass and map 9/9 protocol controller-family IDs
+- required controls: L2 current-tiled runtime transform observed across 4 corrected configs; L3 reset/truncated policy routing observed with `every_step_control`
+- claim boundary: 36/36 claim-boundary rows pass with 17 allowed execution/artifact/diagnostic/follow-up rows and 19 blocked overclaim rows
+- gate matrix: 26/26 gate rows pass with selected metrics finite and required artifacts present
+- diagnostic caveat: aggregate success-rate columns and comparison deltas are recorded as diagnostic metrics only, not verdicts or rankings
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- allowed execution scope: full public T4/T5 environment rollout and policy action only for diagnostic preflight rows
+- rejected claims: no replay measured validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.json`
+- next: `m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit`
