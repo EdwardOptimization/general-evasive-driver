@@ -1,0 +1,129 @@
+# m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T102639Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: route_to_target_protected_tradeoff_report_result_audit
+- Decision reason: M2657 materializes Route A source-only target protected tradeoff report status_pass true from existing M2641 M2648 M2650 and M2655 artifacts with 4 scenario-role metric rows 9 target protected tradeoff rows 8 protected focus rows and 8 report gates preserves target preservation pass protected component failure selected candidate diagnostic only not winner actor contract 72/3 no hidden oracle no repair training rollout ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim routes to M2658 result audit
+
+## Hypothesis
+
+A source-only scenario-role target/protected tradeoff report can preserve the M2655 negative result and convert the Route A repair branch evidence into a non-overfit baseline artifact.
+
+## Lineage
+
+- parent_checkpoint: runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/post_repair_behavior_rows.csv, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/post_repair_behavior_rows.csv, runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json, runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.json, experiments/manifests/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.json, experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json, experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json
+- parent_objective: materialize a Route A source-only scenario-role target/protected tradeoff report after M2656 pivots away from the repeated repair loop
+- derived_from: m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis, m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight, m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight, m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight
+- blocked_by: M2656 closes the same-row repair loop after protected mitigation regression repeats three times, Route A still needs the scenario-role metric report named by docs/post-m2470-route-plan.md, target improvements and protected mitigation regressions must be shown in one report before another repair or baseline claim
+- supersedes: another same-row source-only repair execution, another same public candidate sweep against M2655 protected rows, treating M2655 selected diagnostic candidate as repair success, claiming Route A baseline readiness without a scenario-role target/protected tradeoff report
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json exists
+- scenario_role_metric_report target_protected_tradeoff_rows protected_regression_focus_rows and report_gate_evaluation exist
+- summary records source_artifacts_reanalyzed_only true and new_repair_training_or_rollout_run false
+- report separates target roles stable_avoidable stable_aes drift_required_recovery from protected role unavoidable_mitigation
+- report records M2655 target preservation pass and protected component failure
+- report preserves actor contract P0 observation 72 action 3 and no hidden/oracle actor input
+- M2657 registers one bounded follow-up artifact repair evidence index refresh synthesis stop or pivot manifest
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made
+
+## Failure Criteria
+
+- M2657 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2657 changes actor input or action contract
+- M2657 exposes taxonomy labels repair target labels objective rows gate outcomes or route decisions to actor input
+- M2657 treats M2655 selected diagnostic candidate as a winner or promoted checkpoint
+- M2657 weakens protected mitigation gates or treats protected rows as success denominators
+- M2657 ranks controller families selects a winner promotes a checkpoint or computes success rate
+- M2657 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+- M2657 fails to register a bounded follow-up route or stop decision
+
+## Evidence Gates
+
+- M2657 must consume M2641 baseline behavior rows M2648 target-only repair rows and M2655 mitigation-preserving repair rows without running new repair training or rollout
+- M2657 must write summary scenario_role_metric_report target_protected_tradeoff_rows protected_regression_focus_rows and report_gate_evaluation artifacts
+- M2657 must explicitly separate target roles stable_avoidable stable_aes drift_required_recovery from protected role unavoidable_mitigation
+- M2657 must report M2655 target preservation pass and protected component failure without selecting a winner or promoting a checkpoint
+- M2657 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target objective gate or route-decision labels
+- M2657 must not execute repair training reset rollout replay validation PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2657 must not claim driver performance repair success paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose behavior gap labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not treat M2655 selected diagnostic candidate as a winner
+- do not weaken protected mitigation gates
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from a scenario-role report
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_target_protected_tradeoff_report_result_audit
+- reason: M2657 materializes Route A source-only target protected tradeoff report status_pass true from existing M2641 M2648 M2650 and M2655 artifacts with 4 scenario-role metric rows 9 target protected tradeoff rows 8 protected focus rows and 8 report gates preserves target preservation pass protected component failure selected candidate diagnostic only not winner actor contract 72/3 no hidden oracle no repair training rollout ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim routes to M2658 result audit
+
+## Next Blocker
+
+None recorded.

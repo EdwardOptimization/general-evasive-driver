@@ -47963,3 +47963,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight.json`
 - next: `m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight`
+
+## M2657 Engineering Controller Route A Source-Only Target/Protected Tradeoff Report Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_target_protected_tradeoff_report_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_target_protected_tradeoff_report.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_target_protected_tradeoff_report.py`
+- summary: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json`
+- scenario-role report: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/scenario_role_metric_report.csv`
+- target/protected tradeoff rows: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/target_protected_tradeoff_rows.csv`
+- protected regression focus rows: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/protected_regression_focus_rows.csv`
+- report gates: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/report_gate_evaluation.csv`
+- materialized rows: 4 scenario-role metric rows, 9 target/protected tradeoff rows, 8 protected regression focus rows, and 8 report gate rows
+- target/protected split: target roles `stable_avoidable`, `stable_aes`, and `drift_required_recovery` remain separate from protected role `unavoidable_mitigation`
+- source evidence: reanalyzes existing M2641 baseline rows, M2648 target-only repair rows/gates, M2650 localization, and M2655 mitigation-preserving rows/candidates/gates only
+- M2655 result preserved: target preservation gates pass but protected component gates fail; target_and_protected_gates_all_passed remains false
+- failed protected gates: `severity_proxy_non_regression`, `obstacle_penetration_non_regression`, and `minimum_obstacle_clearance_preservation`
+- protected focus: M2650 localized the protected regression to `unavoidable_mitigation` seed `267101` fresh_fault_delay_noise with likely driver `obstacle_penetration_proxy_worsened`; M2657 keeps this as blocking evidence
+- selected M2655 candidate status: `m2655_softened_gap_bias` is diagnostic trace only and not a winner or promoted checkpoint
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: Route A source-only target/protected tradeoff report is materialized and ready for result audit
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.json`
+- next: `m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit`
