@@ -47118,3 +47118,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no validation protocol readiness validation admission validation execution readiness/result success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.json`
 - next: `m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis`
+
+## M2609 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Decision Result Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_selected_platform_dependency_protocol_readiness_design`
+- manifest: `experiments/manifests/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.md`
+- parent audit: `docs/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.md`
+- accepted evidence: M2607/M2608 after-closure platform-selection decision-result materialization evidence with 1 decision-result row 12 evidence rows 3 candidate-disposition rows 3 dependency/execution guard rows 2 validation-admission guard rows 2 actor/action guard rows 17 claim rows and 12 gates pass
+- supported operational claims: bounded selected-platform decision-result artifacts materialized and audited without actor/action contract drift
+- rejected claims: no validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2607-M2609 are validation-layer process steps without new closed-loop driver behavior evidence
+- next route: selected-platform dependency/protocol readiness design only, not dependency mutation validation protocol readiness or validation execution
+- follow-up manifest: `experiments/manifests/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.json`
+- next: `m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design`

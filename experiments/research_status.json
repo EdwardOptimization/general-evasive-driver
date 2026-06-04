@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2614,
+    "completed": 2615,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit",
+    "task_id": "m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.md",
-    "command_log": "docs/m2608-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-audit.md"
+    "run_dir": "docs/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.md",
+    "command_log": "docs/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 26040,
+    "id": "m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design",
+    "kind": "infrastructure",
+    "priority": 26050,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2607/M2608 HF3 after-closure platform-selection decision result materialization evidence before selected-platform dependency/protocol readiness design repair pivot or stop.",
-    "command": "see experiments/manifests/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.json",
-    "success_artifact": "docs/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize accepted selected-platform decision-result evidence while keeping validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Design bounded selected-platform dependency/protocol readiness artifacts after accepted platform-selection decision-result synthesis.",
+    "command": "see experiments/manifests/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.json",
+    "success_artifact": "docs/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.md",
+    "notes": "Pending: design selected-platform dependency/protocol readiness artifact contract while keeping dependency mutation external execution validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T023649Z"
+  "updated_at_utc": "20260604T024304Z"
 }
