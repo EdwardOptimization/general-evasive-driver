@@ -46997,3 +46997,17 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no actual platform selection selection decision external install/import/runtime execution validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.json`
 - next: `m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit`
+
+## M2601 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Criteria Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_after_closure_platform_selection_criteria_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.json`
+- audit doc: `docs/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.md`
+- parent summary: `runs/m2600_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria/summary.json`
+- accepted evidence: M2600 status_pass true 3 platform-selection criteria rows 3 auditability rows 3 dependency/import risk rows 2 validation-role compatibility rows 2 actor/action guard rows 18 claim-boundary rows and 11 gates pass
+- selection boundary: platform_selection_criteria_materialized_in_m2600 true while platform_selected_in_m2600 false selection_decision_allowed_in_m2600 false validation_protocol_ready_in_m2600 false external_validation_execution_allowed_in_m2600 false and driver_performance_claim_allowed_in_m2600 false
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria or protocol status actor-visible
+- rejected claims: no actual platform selection selection decision validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.json`
+- next: `m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis`

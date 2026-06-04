@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2606,
+    "completed": 2607,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight",
+    "task_id": "m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2600_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria/summary.json",
-    "command_log": "runs/m2600_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria/summary.json"
+    "run_dir": "docs/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.md",
+    "command_log": "docs/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit",
+    "id": "m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 25960,
+    "priority": 25970,
     "status": "pending",
-    "hypothesis": "Audit the M2600 after-closure HF3 platform-selection criteria materialization before platform selection validation interpretation.",
-    "command": "see experiments/manifests/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.json",
-    "success_artifact": "docs/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.md",
-    "notes": "Pending: audit M2600 criteria materialization status rows gates actor/action and claim boundaries without actual platform selection selection decision validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
+    "hypothesis": "Synthesize accepted M2600/M2601 after-closure HF3 platform-selection criteria materialization evidence before platform-selection decision design repair pivot or stop.",
+    "command": "see experiments/manifests/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2602-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize accepted criteria materialization evidence and decide platform-selection decision design repair pivot or stop without actual platform selection selection decision validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T012837Z"
+  "updated_at_utc": "20260604T013530Z"
 }
