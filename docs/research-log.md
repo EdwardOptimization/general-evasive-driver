@@ -47389,3 +47389,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform source-build/adapter-probe execution design only, not source build execution adapter probe execution reset execution reset success rollout feasibility validation protocol readiness validation admission or validation execution
 - follow-up manifest: `experiments/manifests/m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design.json`
 - next: `m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design`
+
+## M2626 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Execution Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_source_build_adapter_probe_execution_materialization_preflight`
+- manifest: `experiments/manifests/m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design.json`
+- design doc: `docs/m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design.md`
+- parent synthesis: `docs/m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis.md`
+- accepted evidence: M2623/M2624/M2625 selected-platform reset-execution readiness evidence with 4 source-build/adapter-probe evidence admission rows 2 backend availability fixture rows 2 reset invocation dry-run rows 2 reset request binding rows 2 actor-view after-reset rows 10 reset outcome audit schema rows 2 actor/action guard rows 27 claim-boundary rows and 13 gates pass
+- designed artifacts: M2627 source-build command contract rows adapter-probe command contract rows dependency/environment isolation guard rows source-build artifact capture rows adapter-probe trace capture rows source-build/adapter-probe outcome taxonomy rows actor/action guard rows claim-boundary rows and gate matrix
+- selected-platform boundary: source-build/adapter-probe execution design artifacts are static preparation evidence only; install/import/runtime execution dependency mutation source-tree mutation network access source build adapter probe backend start reset step policy action rollout replay validation training PPO ranking winner selection success-rate promotion and validation verdict remain forbidden
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses build/probe/reset/rollout/validation outcomes selected platform or protocol status actor-visible
+- rejected claims: no dependency execution readiness source build adapter probe backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2627-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-preflight.json`
+- next: `m2627-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-materialization-preflight`
