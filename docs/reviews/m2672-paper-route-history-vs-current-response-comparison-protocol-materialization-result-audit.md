@@ -1,0 +1,117 @@
+# m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T132246Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2671_route_to_runtime_enforcement_materialization_preflight
+- Decision reason: M2672 accepts M2671 protocol pack for runtime-enforcement materialization verifies 9 controller-family rows 5 task-family rows 15 fairness-gate rows 21 claim-boundary rows and gate matrix pass with L2 current-tiled and L3 reset/truncated controls actor 72/action 3 no hidden oracle rejects execution ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims routes to M2673 runtime-enforcement materialization
+
+## Hypothesis
+
+A result audit can decide whether the M2671 protocol pack is complete enough to route toward implementation design without overclaiming protocol materialization as driver or paper evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.md, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/controller_family_rows.csv, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/task_family_rows.csv, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/fairness_gate_rows.csv, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/claim_boundary_rows.csv, runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/gate_matrix.csv, docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.json, experiments/manifests/m2670-paper-route-history-vs-current-response-comparison-admission-design.json
+- parent_objective: audit the M2671 protocol pack before implementation execution synthesis or stop decision
+- derived_from: m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight, m2670-paper-route-history-vs-current-response-comparison-admission-design
+- blocked_by: M2671 protocol rows must be audited before any comparison implementation or execution, protocol materialization does not itself prove driver performance finite-window-vs-GRU evidence paper result current-sim verdict or self-ID
+- supersedes: direct controller-family execution from M2670 admission without M2671 artifact audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md exists
+- audit checks M2671 summary controller_family_rows task_family_rows fairness_gate_rows claim_boundary_rows and gate_matrix
+- audit verifies actor 72/action 3 no hidden-oracle boundary remains preserved
+- audit accepts rejects or routes repair for the protocol pack with explicit reasons
+- audit registers one bounded follow-up implementation audit synthesis or stop route if continuing
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2672 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2672 changes actor input or action contract
+- M2672 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress or precomputed answers to actor input
+- M2672 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2672 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2672 fails to audit all required M2671 artifacts
+
+## Evidence Gates
+
+- M2672 must audit M2671 summary controller_family_rows task_family_rows fairness_gate_rows claim_boundary_rows and gate_matrix before any implementation execution synthesis or stop decision
+- M2672 must verify M2671 included L0-current L1-one-step L2-window-13 L2-window-25 L2-window-50 L2-window-100 L2-current-tiled L3-online-GRU and L3-reset-truncated-control rows
+- M2672 must verify M2671 included T1 through T5 task family rows with source-diversity and stop rules
+- M2672 must verify M2671 fairness gates block private holdout tuning profile-specific post-result tuning missing runtime cost reporting missing current-tiled runtime enforcement and missing reset/truncated runtime enforcement
+- M2672 must verify M2671 claim-boundary rows keep driver-performance paper finite-window-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims false
+- M2672 must preserve actor 72/action 3 no hidden-oracle boundary and no actor-visible controller-family taxonomy route or paper-verdict labels
+- M2672 must register one bounded follow-up implementation audit synthesis or stop route if continuing
+- M2672 must not execute reset rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion success-rate verdict or performance measurement
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from audit
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2671_route_to_runtime_enforcement_materialization_preflight
+- reason: M2672 accepts M2671 protocol pack for runtime-enforcement materialization verifies 9 controller-family rows 5 task-family rows 15 fairness-gate rows 21 claim-boundary rows and gate matrix pass with L2 current-tiled and L3 reset/truncated controls actor 72/action 3 no hidden oracle rejects execution ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims routes to M2673 runtime-enforcement materialization
+
+## Next Blocker
+
+None recorded.

@@ -1,0 +1,258 @@
+{
+  "id": "m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md",
+      "docs/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.md",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/controller_family_rows.csv",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/task_family_rows.csv",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/fairness_gate_rows.csv",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/claim_boundary_rows.csv",
+      "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/gate_matrix.csv",
+      "docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md",
+      "docs/m1205-paper-route-finite-window-gru-evidence-synthesis.md",
+      "src/autodrift/controller_profile_runtime.py",
+      "src/autodrift/controller_profile_runtime_smoke.py",
+      "src/autodrift/corrected_profile_configs.py",
+      "configs/paper_route_profiles",
+      "configs/paper_route_corrected_profiles"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.json",
+      "experiments/manifests/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize runtime-enforcement evidence for the accepted M2671 protocol before comparison execution"
+    ],
+    "derived_from": [
+      "m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit",
+      "m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight",
+      "m2670-paper-route-history-vs-current-response-comparison-admission-design"
+    ],
+    "blocked_by": [
+      "M2671 protocol rows are accepted but not yet mapped to runtime/profile config enforcement evidence",
+      "current-tiled L2 and reset/truncated L3 controls must be runtime-verified before comparison execution",
+      "historical M1199/M1200/M1205 evidence blocks another public pilot without corrected runtime controls"
+    ],
+    "supersedes": [
+      "direct controller-family execution from protocol rows without runtime-enforcement materialization",
+      "ranking from profile metadata without runtime transform and reset semantics checks"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.md",
+  "public_gates": [
+    "M2673 must materialize a runtime-enforcement contract pack mapping M2671 controller-family IDs to existing or required profile configs",
+    "M2673 must verify L2 current-tiled runtime transform support through profile config metadata and runtime mask semantics before admitting comparison execution",
+    "M2673 must verify L3 reset/truncated runtime semantics support through profile config metadata and ActorPolicy reset-hidden semantics before admitting comparison execution",
+    "M2673 must materialize profile-runtime rows fairness-enforcement rows claim-boundary rows and a gate matrix",
+    "M2673 may run no-training runtime smoke only if it does not compute success-rate verdicts rank controllers select winners promote checkpoints use private holdout or claim driver performance",
+    "M2673 must preserve actor 72/action 3 no hidden-oracle boundary and no actor-visible controller-family taxonomy route or paper-verdict labels",
+    "M2673 must register one bounded follow-up implementation audit execution design synthesis or stop route if continuing",
+    "M2673 must not train run PPO replay measured validation rank select winners promote compute success-rate verdicts or claim finite-window-vs-GRU paper current-sim high-fidelity full ideal driver or self-ID results"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not tune profile-specific hyperparameters",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from runtime-enforcement materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_history_vs_current_response_comparison",
+    "evidence_axis": "history_vs_current_response_runtime_enforcement_materialization",
+    "evidence_increment": "materializes whether the accepted protocol rows have actual runtime/profile enforcement for current-tiled L2 and reset/truncated L3 controls before comparison execution",
+    "claim_scope": "Runtime-enforcement materialization only; no training PPO replay measured validation ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2671 controller-family IDs cannot be mapped to existing or required runtime profile configs",
+      "stop if current-tiled L2 controls are metadata-only and not runtime-enforced",
+      "stop if reset/truncated L3 controls are metadata-only and not ActorPolicy-enforced",
+      "stop if runtime-enforcement materialization would require changing actor inputs or exposing hidden/oracle fields"
+    ],
+    "fallback_plan": [
+      "route to profile-config repair if required profile configs are missing",
+      "route to runtime-mask repair if current-tiled transform is not enforced by wrapper paths",
+      "route to reset-semantics repair if ActorPolicy reset/truncated semantics cannot be verified",
+      "route to synthesis if runtime enforcement is blocked after materialization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2672 accepts M2671 protocol rows but requires runtime-enforcement evidence before execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route B history-vs-current-response runtime-enforcement materialization",
+    "admission_evidence": [
+      "M2672 accepts M2671 protocol materialization for runtime-enforcement materialization",
+      "M2671 protocol pack includes L2 current-tiled and L3 reset/truncated controls",
+      "M1205 blocks another public pilot without corrected current-tiled and reset runtime controls"
+    ],
+    "blocked_shortcuts": [
+      "no policy rollout replay measured validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance finite-window-vs-GRU current-sim paper high-fidelity or self-ID claim from runtime-enforcement materialization"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_history_vs_current_response_runtime_enforcement_materialization.py",
+      "tests/test_paper_route_history_vs_current_response_runtime_enforcement_materialization.py",
+      "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json",
+      "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/protocol_to_runtime_profile_rows.csv",
+      "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/runtime_enforcement_gate_rows.csv",
+      "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/claim_boundary_rows.csv",
+      "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/gate_matrix.csv",
+      "docs/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.md",
+      "M2673 status queue scoreboard research log and review",
+      "one bounded follow-up implementation audit execution design synthesis or stop route manifest"
+    ],
+    "next_stage_criteria": [
+      "summary and all required CSV rows exist",
+      "profile-runtime rows map all M2671 controller families to existing or required profile configs",
+      "current-tiled L2 runtime enforcement is accepted or blocks execution with explicit reason",
+      "reset/truncated L3 runtime enforcement is accepted or blocks execution with explicit reason",
+      "claim-boundary rows block driver-performance paper finite-window-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims",
+      "follow-up route is selected without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2673 checks whether current-response and current-tiled controls are runtime-enforced before any history or GRU interpretation.",
+    "history_necessity_tests": [
+      "Runtime-enforcement only: no same-current same-recent-window different-older-history behavior test is run.",
+      "Runtime-enforcement only: reset/truncated controls are checked as execution prerequisites, not self-ID evidence."
+    ],
+    "temporal_evidence_window": "M2671/M2672 protocol artifacts and runtime profile enforcement only; no behavior comparison in M2673.",
+    "negative_result_policy": "If runtime enforcement is incomplete, route to repair or synthesis rather than forcing comparison execution.",
+    "allowed_claims": [
+      "runtime-enforcement materialization readiness",
+      "accepted or rejected protocol-to-runtime profile mapping",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from protocol rows to runtime-enforcement evidence needed before executable comparison",
+    "paper_verdict_delta": "no verdict; can unblock a future fair comparison implementation only if runtime controls are enforced",
+    "must_synthesize_if": [
+      "M2673 cannot verify current-tiled L2 or reset/truncated L3 runtime enforcement",
+      "M2673 would claim a finite-window-vs-GRU current-sim paper validation driver-performance or self-ID result",
+      "M2673 would train validate rank promote or compute performance verdicts",
+      "M2673 would expose hidden or oracle variables to actor input"
+    ]
+  },
+  "hypothesis": "A runtime-enforcement materialization can verify whether the accepted Route B protocol rows map to actual profile config and runtime semantics before any controller-family comparison execution.",
+  "success_criteria": [
+    "docs/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.md exists",
+    "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json exists",
+    "protocol_to_runtime_profile_rows.csv maps all M2671 controller-family IDs to existing or required runtime profile configs",
+    "runtime_enforcement_gate_rows.csv verifies or blocks current-tiled L2 and reset/truncated L3 runtime enforcement",
+    "claim_boundary_rows.csv blocks driver-performance paper finite-window-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims",
+    "gate_matrix.csv passes only if runtime-enforcement materialization is complete",
+    "no policy rollout replay measured validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2673 runs policy rollout replay measured validation training PPO source build adapter probe or external simulation",
+    "M2673 changes actor input or action contract",
+    "M2673 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress or precomputed answers to actor input",
+    "M2673 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2673 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2673 fails to materialize runtime-enforcement rows and claim boundaries"
+  ],
+  "commands": [
+    {
+      "name": "materialize_runtime_enforcement",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_runtime_enforcement_materialization --protocol-dir runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization --output-dir runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/protocol_to_runtime_profile_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/runtime_enforcement_gate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/gate_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md",
+    "docs/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.md",
+    "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json",
+    "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/controller_family_rows.csv",
+    "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/fairness_gate_rows.csv",
+    "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/claim_boundary_rows.csv",
+    "src/autodrift/controller_profile_runtime.py",
+    "src/autodrift/controller_profile_runtime_smoke.py",
+    "src/autodrift/corrected_profile_configs.py",
+    "configs/paper_route_profiles",
+    "configs/paper_route_corrected_profiles"
+  ],
+  "decision_rule": "Pass only if M2673 materializes protocol-to-runtime enforcement rows for all accepted controller families while preserving actor/action contracts and making no ranking validation training performance paper current-sim high-fidelity full ideal driver or self-ID claim."
+}

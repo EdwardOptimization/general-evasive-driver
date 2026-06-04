@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2677,
+    "completed": 2678,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight",
+    "task_id": "m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization",
-    "command_log": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit",
-    "kind": "gate",
-    "priority": 26670,
+    "id": "m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26680,
     "status": "pending",
-    "hypothesis": "A result audit can decide whether the M2671 protocol pack is complete enough to route toward implementation design without overclaiming protocol materialization as driver or paper evidence.",
-    "command": "true",
-    "success_artifact": "docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md",
-    "notes": "Pending: audit M2671 protocol pack summary controller-family task-family fairness-gate claim-boundary and gate-matrix rows before implementation execution synthesis or stop; preserve actor 72/action 3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "hypothesis": "A runtime-enforcement materialization can verify whether the accepted Route B protocol rows map to actual profile config and runtime semantics before any controller-family comparison execution.",
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_runtime_enforcement_materialization --protocol-dir runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization --output-dir runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization",
+    "success_artifact": "runs/m2673_paper_route_history_vs_current_response_runtime_enforcement_materialization/summary.json",
+    "notes": "Pending: materialize protocol-to-runtime enforcement rows for accepted Route B controller families including L2 current-tiled and L3 reset/truncated controls; no policy rollout replay measured validation training PPO ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T131243Z"
+  "updated_at_utc": "20260604T131747Z"
 }

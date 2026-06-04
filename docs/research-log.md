@@ -48284,3 +48284,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.json`
 - next: `m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit`
+
+## M2672 Paper Route History Vs Current Response Comparison Protocol Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2671_route_to_runtime_enforcement_materialization_preflight`
+- manifest: `experiments/manifests/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.json`
+- audit doc: `docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md`
+- parent doc: `docs/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.md`
+- parent summary: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json`
+- parent artifacts: `controller_family_rows.csv`, `task_family_rows.csv`, `fairness_gate_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2671 `status_pass` true with 9/9 controller-family rows, 5/5 task-family rows, 15 fairness-gate rows, 21 claim-boundary rows, and 15 gate-matrix rows
+- required controls: L2 current-tiled and L3 reset/truncated controls present and accepted as protocol rows
+- unresolved before execution: runtime/profile config enforcement for current-tiled transform and reset/truncated semantics still needs materialization
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- supported operational claims: M2671 protocol pack accepted for runtime-enforcement materialization preflight
+- rejected claims: no reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight.json`
+- next: `m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight`
