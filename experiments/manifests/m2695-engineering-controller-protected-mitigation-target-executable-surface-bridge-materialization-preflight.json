@@ -33,6 +33,8 @@
       "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
       "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv",
       "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
       "docs/post-m2470-route-plan.md"
     ],
     "parent_config": [
@@ -67,6 +69,7 @@
     "M2695 must consume M2694 M2693 M2691 M2664 and M2667 artifacts before materialization",
     "M2695 must materialize one protected bridge row per M2691 protected mitigation target",
     "Each protected bridge row must map to an executable candidate spec or an explicit unbridgeable reason",
+    "M2695 must use the current executable task-spec and workload index only to check exact current-runner mappings and must not execute those mappings",
     "M2695 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and the deployed steer throttle brake action contract",
     "M2695 must keep taxonomy target blocker verdict success progress and route labels actor-invisible",
     "M2695 must keep protected rows outside success denominators and distinguish materialization rows from execution or validation evidence",
@@ -210,7 +213,7 @@
   "commands": [
     {
       "name": "protected_executable_surface_bridge_materialization",
-      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization --m2693-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --output-dir runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge"
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization --m2693-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge"
     }
   ],
   "required_artifacts": [
@@ -257,6 +260,8 @@
     "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
     "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv",
     "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
     "docs/post-m2470-route-plan.md"
   ],
   "decision_rule": "Pass only if M2695 writes protected executable-surface bridge artifacts that cover all protected targets with executable candidates or explicit unbridgeable reasons while preserving actor/action contracts protected-row denominator boundaries and making no execution ranking validation training repair-success performance paper current-sim high-fidelity full ideal driver or self-ID claim.",

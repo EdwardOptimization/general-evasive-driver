@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2700,
+    "completed": 2701,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md",
+    "command_log": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge",
     "status": "completed",
-    "task_id": "m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit"
+    "task_id": "m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization --m2693-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --output-dir runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge",
-    "hypothesis": "Materialize a protected mitigation target executable-surface bridge after M2694 accepts M2693 but finds 10/10 protected targets non-executable in the current runner.",
-    "id": "m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: map every M2691 protected target to an executable candidate spec or explicit unbridgeable reason preserve actor 72/action 3 no hidden oracle protected labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26900,
+    "command": "true",
+    "hypothesis": "Audit the M2695 protected executable-surface bridge pack before any protected execution interpretation ranking validation promotion or performance claim.",
+    "id": "m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2695 summary bridge candidate unbridgeable actor-contract claim-boundary and gate artifacts verify 10/10 protected targets accounted 0 exact current-runner candidates 10 unbridgeable rows visible outside denominators actor 72/action 3 labels actor-invisible no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26910,
     "status": "pending",
-    "success_artifact": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json"
+    "success_artifact": "docs/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260604T173551Z"
+  "updated_at_utc": "20260604T175055Z"
 }

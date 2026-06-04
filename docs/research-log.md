@@ -48722,3 +48722,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2694
 - follow-up manifest: `experiments/manifests/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.json`
 - next: `m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight`
+
+## M2695 Engineering Controller Protected Mitigation Target Executable Surface Bridge Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization_pass`
+- manifest: `experiments/manifests/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization.py`
+- focused tests: `tests/test_engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization.py`
+- summary: `runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json`
+- doc: `docs/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.md`
+- materialized rows: 10 protected bridge rows 0 exact current-runner executable candidate rows 10 unbridgeable target rows 9 actor-contract guard rows 30 claim-boundary rows and 16 gate rows
+- bridge finding: every M2691 protected mitigation target is accounted but none has an exact current executable workload row for `route_a_protected` taxonomy axes under `L3_online_gru`
+- protected blocker: M2693 protected `source_not_executable_in_current_runner` rows remain visible as explicit unbridgeable rows requiring protected taxonomy normalization or protected runner-spec generation before execution
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2696 protected executable-surface bridge materialization result audit before any protected execution or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2695
+- follow-up manifest: `experiments/manifests/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.json`
+- next: `m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit`
