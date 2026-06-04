@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2636,
+    "completed": 2637,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design",
+    "task_id": "m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
-    "command_log": "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md"
+    "run_dir": "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
+    "command_log": "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json"
   },
   "next_task": {
-    "id": "m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 26260,
+    "id": "m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit",
+    "kind": "gate",
+    "priority": 26270,
     "status": "pending",
-    "hypothesis": "Materialize bounded selected-platform source-build and adapter-probe execution-attempt protocol artifacts after M2630 design.",
-    "command": "see experiments/manifests/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.json",
-    "success_artifact": "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
-    "notes": "Pending: materialize M2631 execution-attempt protocol rows while keeping install import mutation source build adapter probe backend reset validation ranking driver-performance and self-ID claims false"
+    "hypothesis": "Audit bounded selected-platform source-build and adapter-probe execution-attempt protocol materialization before backend reset validation or performance interpretation.",
+    "command": "see experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json",
+    "success_artifact": "docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md",
+    "notes": "Pending: audit M2631 execution-attempt protocol materialization while keeping source build adapter probe backend reset validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T054857Z"
+  "updated_at_utc": "20260604T060303Z"
 }
