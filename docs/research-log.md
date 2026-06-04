@@ -46842,3 +46842,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: source-only adapter blocker closure design only, not closure materialization or validation execution
 - follow-up manifest: `experiments/manifests/m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design.json`
 - next: `m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design`
+
+## M2591 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Closure Design
+
+- status: completed
+- decision: `route_to_hf3_source_only_adapter_blocker_closure_materialization_preflight`
+- manifest: `experiments/manifests/m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design.json`
+- design doc: `docs/m2591-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-design.md`
+- parent synthesis: `docs/m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis.md`
+- accepted evidence: M2588/M2589/M2590 source-only adapter blocker definition/materialization evidence with 4 external-state rows 4 timing rows 4 failure/status rows 4 fixture rows 4 actor-visibility rows 15 claim rows and 11 gates pass
+- designed artifacts: M2592 external-state extraction closure rows time-step/actuator latency closure rows failure/status taxonomy closure rows source-only fixture smoke closure rows actor-visibility guard rows claim-boundary rows and gate matrix
+- allowed future narrow claim after M2592 only if all gates pass: repo-local source-only adapter blocker closure materialized
+- rejected claims in M2591: no blocker closure in design platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight.json`
+- next: `m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight`
+
+## M2592 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Closure Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_source_only_adapter_blocker_closure_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_source_only_adapter_blocker_closure.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure.py`
+- summary: `runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/summary.json`
+- milestone doc: `docs/m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight.md`
+- materialized evidence: 4 external-state closure rows 4 time-step/actuator latency closure rows 4 failure/status taxonomy closure rows 4 source-only fixture smoke closure rows 4 actor-visibility rows 15 claim rows and 13 gates pass
+- closure boundary: repo-local source-only adapter blocker closure materialized true while validation_protocol_ready_in_m2592 false external_validation_execution_allowed_in_m2592 false platform_selected_in_m2592 false and driver_performance_claim_allowed_in_m2592 false
+- actor/action contract: P0 observation shape `72` action shape `3` and deployed `[steer, throttle, brake]` mapping preserved
+- allowed operational claim: repo-local source-only adapter blocker closure materialized
+- rejected claims: no platform selection validation protocol readiness validation admission validation execution validation readiness/result rollout success success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- follow-up manifest: `experiments/manifests/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.json`
+- next: `m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit`
