@@ -47839,3 +47839,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair execution training reset rollout replay validation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.json`
 - next: `m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis`
+
+## M2651 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Repair Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_mitigation_preserving_objective_design`
+- next branch decision: `route_to_mitigation_preserving_repair_objective_design`
+- manifest: `experiments/manifests/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.json`
+- synthesis doc: `docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md`
+- parent summary: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json`
+- parent findings: `runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json`
+- accepted evidence: M2648 target road-boundary 16/16 and drift-recovery 8/8 improvements plus M2650 localization of one real protected mitigation regression
+- protected regression accepted: `m2537_mitigation_preserving_policy` unavoidable_mitigation seed `267101` fresh_fault_delay_noise severity_proxy `3.953864 -> 3.987916`, likely `obstacle_penetration_proxy_worsened`
+- synthesis decision: do not run an immediate second repair; design a mitigation-preserving objective and protected gate matrix first
+- objective requirements for next route: retain road-boundary and drift-recovery target improvements, add protected mitigation non-regression, make obstacle penetration a first-class protected component, keep mitigation_collision_saturated_reference protected, keep axis_sensitivity_not_yet_decisive diagnostic-only, and preserve actor contract
+- supported operational claims: the next safe Route A step is mitigation-preserving objective design
+- rejected claims: no immediate second repair execution target-only repair promotion ranking success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json`
+- next: `m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design`

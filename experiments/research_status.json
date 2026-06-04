@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2656,
+    "completed": 2657,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
+    "task_id": "m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization",
-    "command_log": "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md"
   },
   "next_task": {
-    "id": "m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis",
-    "kind": "gate",
-    "priority": 26460,
+    "id": "m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design",
+    "kind": "infrastructure",
+    "priority": 26470,
     "status": "pending",
-    "hypothesis": "Synthesize M2650 protected mitigation regression localization into a bounded mitigation-preserving repair, artifact repair, stop, or pivot route before any second repair execution.",
+    "hypothesis": "Design a mitigation-preserving repair objective that keeps road-boundary and drift target improvements while adding protected obstacle-penetration and severity non-regression gates.",
     "command": "true",
-    "success_artifact": "docs/m2651-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-synthesis.md",
-    "notes": "Pending: synthesize real obstacle-penetration-driven protected mitigation regression before any second Route A repair execution"
+    "success_artifact": "docs/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.md",
+    "notes": "Pending: design protected mitigation-preserving objective/gate matrix before any second Route A repair execution"
   },
-  "updated_at_utc": "20260604T085846Z"
+  "updated_at_utc": "20260604T090309Z"
 }
