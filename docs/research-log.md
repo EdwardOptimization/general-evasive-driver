@@ -48185,3 +48185,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.json`
 - next: `m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight`
+
+## M2667 Engineering Controller Route A Engineering Baseline Readiness Index After Protected Taxonomy Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_baseline_readiness_index_after_protected_taxonomy_pass`
+- manifest: `experiments/manifests/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy.py`
+- focused tests: `tests/test_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy.py`
+- summary: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json`
+- checkpoint readiness rows: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/checkpoint_readiness_rows.csv`
+- artifact coverage rows: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/artifact_coverage_rows.csv`
+- known failure boundary rows: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv`
+- next action admission rows: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/next_action_admission_rows.csv`
+- claim boundary rows: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/claim_boundary_rows.csv`
+- gate matrix: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/gate_matrix.csv`
+- Route A required artifacts covered: 6/6 baseline checkpoint list actor contract public benchmark pack known failure taxonomy runtime report and scenario-role metric report
+- materialized rows: 3 checkpoint readiness rows, 8 artifact coverage rows, 10 known failure boundary rows, 6 next-action rows, 19 claim-boundary rows, and 13 gate-matrix rows
+- protected blocker: protected mitigation blocker preserved with 25 protected blocking rows and 79 regressed row counts; all policy subjects, all axes, and all metrics remain blocking
+- target/protected split: protected role `unavoidable_mitigation` remains outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/objective/route labels actor-visible
+- supported operational claims: current Route A engineering baseline readiness index materialized for result audit
+- rejected claims: no repair success promotion ranking winner success-rate validation-readiness validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.json`
+- next: `m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit`
