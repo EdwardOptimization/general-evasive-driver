@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2650,
+    "completed": 2651,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
+    "task_id": "m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy",
-    "command_log": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit",
-    "kind": "gate",
-    "priority": 26400,
+    "id": "m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design",
+    "kind": "infrastructure",
+    "priority": 26410,
     "status": "pending",
-    "hypothesis": "Audit the M2644 source-only behavior-gap taxonomy materialization before repair design or training interpretation.",
+    "hypothesis": "Design a bounded source-only repair objective and intervention plan from accepted behavior-gap taxonomy artifacts without training ranking or promotion.",
     "command": "true",
-    "success_artifact": "docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md",
-    "notes": "Pending: accept or reject M2644 taxonomy and repair-target admission artifacts without ranking validation training promotion or driver-performance claims"
+    "success_artifact": "docs/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.md",
+    "notes": "Pending: design bounded repair objective for road-departure and drift-recovery mixed gaps while preserving actor contract and diagnostic/reference rows"
   },
-  "updated_at_utc": "20260604T075850Z"
+  "updated_at_utc": "20260604T080545Z"
 }

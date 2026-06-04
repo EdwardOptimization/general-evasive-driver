@@ -1,0 +1,85 @@
+# m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T080702Z
+- Type: gate
+- Gate tier: generalization
+- Promotion decision: accept_m2644_route_to_source_only_gap_targeted_repair_design
+- Decision reason: M2645 accepts M2644 taxonomy materialization status_pass true 4 role gaps 20 subject-role gaps 8 dynamics-axis gaps 4 repair-target rows 13 claim rows 15 gates pass admits road-departure and drift-recovery mixed targets for repair design only preserves mitigation collision-saturated and axis-sensitivity rows as diagnostic/reference no ranking validation training promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2644 taxonomy artifacts before any repair design or training interpretation.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/role_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/subject_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/dynamics_axis_gap_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv, runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/gate_matrix.csv, docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md, docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md
+- parent_config: experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json, experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json
+- parent_objective: audit the M2644 source-only behavior-gap taxonomy materialization before repair design or training interpretation
+- derived_from: m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight, m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis, m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight
+- blocked_by: M2644 taxonomy artifacts require audit before repair design or training, Route A must not treat taxonomy rows as ranking promotion validation or performance evidence
+- supersedes: starting repair from M2644 taxonomy rows without audit, using taxonomy labels as actor-visible inputs, ranking subjects from repair-target admission rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md exists
+- audit verifies M2644 summary status_pass true and required taxonomy artifacts exist
+- audit registers a bounded follow-up without ranking validation training promotion or performance claims
+
+## Failure Criteria
+
+- M2645 executes reset step rollout replay validation training source build adapter probe or external simulation
+- M2645 ranks controller families selects a winner promotes a checkpoint or claims driver performance
+
+## Evidence Gates
+
+- M2645 must audit M2644 summary role subject dynamics-axis repair-target claim-boundary and gate artifacts
+- M2645 must verify M2644 status_pass true and no ranking winner promotion success-rate validation training or driver-performance claims
+- M2645 must verify taxonomy labels repair target labels and gap families remain artifact metadata only and do not enter actor input
+- M2645 must register a bounded repair design synthesis pivot or stop manifest without training validation ranking promotion or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset step rollout replay validation training PPO source build adapter probe or external high-fidelity simulation
+- do not change actor inputs or action contract
+- do not expose taxonomy labels repair target labels route decisions or outcomes to actor input
+- do not rank controller families
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success rate or controller-family verdict metrics
+- do not claim driver performance validation result paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID result
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2644_route_to_source_only_gap_targeted_repair_design
+- reason: M2645 accepts M2644 taxonomy materialization status_pass true 4 role gaps 20 subject-role gaps 8 dynamics-axis gaps 4 repair-target rows 13 claim rows 15 gates pass admits road-departure and drift-recovery mixed targets for repair design only preserves mitigation collision-saturated and axis-sensitivity rows as diagnostic/reference no ranking validation training promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim
+
+## Next Blocker
+
+None recorded.

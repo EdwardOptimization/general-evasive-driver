@@ -47723,3 +47723,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.json`
 - next: `m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit`
+
+## M2645 Engineering Controller Route A Baseline Source-Only Behavior Gap Taxonomy Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2644_route_to_source_only_gap_targeted_repair_design`
+- manifest: `experiments/manifests/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.json`
+- audit doc: `docs/m2645-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-result-audit.md`
+- parent summary: `runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json`
+- accepted evidence: M2644 status_pass true result_class `engineering_controller_route_a_source_only_behavior_gap_taxonomy_preflight_pass` with 4 role gaps 20 subject-role gaps 8 dynamics-axis gaps 4 repair-target rows 13 claim-boundary rows and 15 gates pass
+- accepted repair targets: `road_departure_dominant_gap` for stable_aes/stable_avoidable road-boundary margin control and `drift_recovery_mixed_gap` for drift_required_recovery drift-collision-recovery tradeoff
+- protected reference rows: `mitigation_collision_saturated_reference` remains reference-only and `axis_sensitivity_not_yet_decisive` remains diagnostic axis monitoring only
+- actor/action boundary: taxonomy labels repair target labels and route decisions remain artifact metadata only and not actor-visible inputs; P0 observation 72 action 3 preserved
+- supported operational claims: M2644 taxonomy accepted for bounded repair-design planning only
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design.json`
+- next: `m2646-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-design`
