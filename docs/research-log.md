@@ -48705,3 +48705,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2693
 - follow-up manifest: `experiments/manifests/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.json`
 - next: `m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit`
+
+## M2694 Engineering Controller Source Diverse Offtrack Protected Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2693_route_to_protected_executable_surface_bridge_materialization`
+- manifest: `experiments/manifests/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.json`
+- audit doc: `docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md`
+- parent summary: `runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json`
+- accepted parent result: M2693 `status_pass` true with 9 current-sim off-track execution rows 10 protected non-executable failure rows 19/19 targets accounted 18 gate rows pass 32 claim-boundary rows and all required artifacts present
+- current-sim blocker: 0/9 diagnostic success 0/9 collision 7/9 off_track and 2/9 speed_too_low with finite selected metrics
+- protected blocker: 10/10 protected mitigation targets recorded as `source_not_executable_in_current_runner` because protected taxonomy targets have no current executable workload mapping
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible blocker labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- audit finding: M2693 is complete and claim-safe diagnostic execution evidence only not repair success driver performance validation current-sim high-fidelity paper full ideal driver or self-ID evidence
+- route decision: route to M2695 protected mitigation target executable-surface bridge materialization before any protected closed-loop interpretation
+- rejected claims: no replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2694
+- follow-up manifest: `experiments/manifests/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.json`
+- next: `m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight`

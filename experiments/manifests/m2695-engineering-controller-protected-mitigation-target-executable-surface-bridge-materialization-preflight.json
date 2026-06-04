@@ -1,0 +1,271 @@
+{
+  "id": "m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md",
+      "docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/failure_rows.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/protected_target_aggregate.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/source_diversity_aggregate.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/blocker_join_rows.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/actor_contract_join_rows.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
+      "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.json",
+      "experiments/manifests/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.json",
+      "experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a protected mitigation target executable-surface bridge after M2694 finds 10/10 protected targets non-executable in M2693"
+    ],
+    "derived_from": [
+      "m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit",
+      "m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight",
+      "m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight",
+      "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight",
+      "m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2693 records 10/10 protected mitigation targets as source_not_executable_in_current_runner",
+      "protected mitigation taxonomy targets cannot be audited in closed loop until executable workload mappings or explicit unbridgeable reasons exist",
+      "taxonomy blocker labels and verdict labels must remain actor-invisible"
+    ],
+    "supersedes": [
+      "direct protected mitigation interpretation from M2693 failure rows",
+      "direct tuning or repair before protected target executable-surface materialization",
+      "dropping protected target rows or counting them as ordinary success denominators"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.md",
+  "public_gates": [
+    "M2695 must consume M2694 M2693 M2691 M2664 and M2667 artifacts before materialization",
+    "M2695 must materialize one protected bridge row per M2691 protected mitigation target",
+    "Each protected bridge row must map to an executable candidate spec or an explicit unbridgeable reason",
+    "M2695 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and the deployed steer throttle brake action contract",
+    "M2695 must keep taxonomy target blocker verdict success progress and route labels actor-invisible",
+    "M2695 must keep protected rows outside success denominators and distinguish materialization rows from execution or validation evidence",
+    "M2695 must write summary protected_bridge_rows executable_candidate_rows unbridgeable_target_rows actor_contract_guard_rows claim_boundary_rows gate_matrix doc and one follow-up audit manifest",
+    "M2695 must not reset step roll out execute policy action replay validate train run PPO use private holdout tune profile-specific hyperparameters rank select a winner promote compute a verdict or claim repair success driver-performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide or drop unbridgeable protected rows",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from protected executable-surface materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_protected_mitigation_executable_surface_bridge",
+    "evidence_axis": "protected_mitigation_executable_surface_materialization",
+    "evidence_increment": "turns M2693 protected non-executable failure rows into an auditable protected target bridge or explicit unbridgeable classification",
+    "claim_scope": "Materialization preflight only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2694 audit or M2693 failure rows are missing",
+      "stop if protected bridge rows cannot cover every M2691 protected mitigation target",
+      "stop if mapping requires hidden/oracle actor inputs or actor-visible taxonomy labels",
+      "stop if unbridgeable rows would be hidden or counted as ordinary success denominators",
+      "stop if materialization rows are presented as protected mitigation performance evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if parent rows are absent",
+      "route to taxonomy normalization if protected source keys cannot be parsed",
+      "route to unbridgeable-surface audit if no protected rows can be mapped",
+      "route to bounded protected execution preflight only after an audit accepts executable candidate rows and claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2694 accepts M2693 artifact completeness but finds protected targets non-executable in the current runner",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "protected mitigation target executable-surface bridge materialization",
+    "admission_evidence": [
+      "M2694 accepts M2693 as complete and claim-safe",
+      "M2693 records 10 protected mitigation targets as explicit non-executable failure rows",
+      "M2691 protected mitigation target panel rows exist",
+      "M2664 and M2667 protected taxonomy and known-failure boundary artifacts exist"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in materialization",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization.py",
+      "tests/test_engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization.py",
+      "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/*",
+      "docs/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.md",
+      "M2695 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "protected bridge rows cover every M2691 protected mitigation target",
+      "executable candidate rows and unbridgeable rows are separated",
+      "actor contract guard rows preserve observation 72 action 3 and no hidden/oracle inputs",
+      "claim-boundary rows block execution validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims",
+      "follow-up audit route is explicit before any protected execution"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2695 materializes a Route A protected executable surface and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2695; any controller-family or history-dependence comparison must be separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2693 protected non-executable failure rows and M2691/M2664/M2667 protected taxonomy rows only.",
+    "negative_result_policy": "If protected rows cannot be mapped to executable candidates, preserve explicit unbridgeable rows and route to audit or taxonomy normalization rather than forcing execution or performance claims.",
+    "allowed_claims": [
+      "protected mitigation executable-surface bridge rows were materialized or rejected with explicit unbridgeable reasons",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces a protected executable bridge panel from the visible M2693 non-executable protected target failures",
+    "paper_verdict_delta": "no paper verdict; can enable later protected bounded execution without self-ID or performance claims",
+    "must_synthesize_if": [
+      "M2695 cannot cover every protected target with an executable or unbridgeable classification",
+      "M2695 requires hidden/oracle actor inputs or actor-visible protected labels",
+      "M2695 would claim ranking repair success finite-window-vs-GRU current-response current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2695 repeats protected non-executable washout without producing a new bridge surface"
+    ]
+  },
+  "hypothesis": "A protected mitigation executable-surface bridge can convert M2693 protected non-executable failure rows into auditable executable candidates or explicit unbridgeable classifications without changing actor inputs or claiming performance.",
+  "success_criteria": [
+    "docs/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.md exists",
+    "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json exists",
+    "protected_bridge_rows.csv exists and covers every M2691 protected mitigation target",
+    "executable_candidate_rows.csv and unbridgeable_target_rows.csv separate bridgeable from unbridgeable protected targets",
+    "actor_contract_guard_rows.csv verifies P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible protected labels",
+    "claim_boundary_rows.csv blocks repair success ranking driver-performance validation paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver and self-ID claims",
+    "gate_matrix.csv passes only if parent artifacts are present all protected rows are accounted and materialization remains no-execution no-verdict",
+    "one result-audit follow-up manifest is registered",
+    "no reset step rollout replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible protected labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2695 executes reset step rollout replay validation training PPO or private holdout",
+    "M2695 changes actor input or action contract",
+    "M2695 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels or verdicts to actor input",
+    "M2695 drops unbridgeable protected rows or treats protected rows as ordinary success denominators",
+    "M2695 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2695 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2695 fails to write protected bridge artifacts or explicit unbridgeable rows"
+  ],
+  "commands": [
+    {
+      "name": "protected_executable_surface_bridge_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_mitigation_target_executable_surface_bridge_materialization --m2693-dir runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight --m2691-dir runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --output-dir runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2695-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/protected_bridge_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/executable_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/unbridgeable_target_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/gate_matrix.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md",
+    "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json",
+    "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/failure_rows.csv",
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
+    "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv",
+    "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2695 writes protected executable-surface bridge artifacts that cover all protected targets with executable candidates or explicit unbridgeable reasons while preserving actor/action contracts protected-row denominator boundaries and making no execution ranking validation training repair-success performance paper current-sim high-fidelity full ideal driver or self-ID claim.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "materialize_protected_executable_surface_bridge",
+    "fail": "reject_protected_executable_surface_bridge"
+  },
+  "scoreboard_checkpoint": "runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge/summary.json",
+  "next_blocker": "protected executable bridge result audit"
+}

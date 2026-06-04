@@ -1,0 +1,122 @@
+# m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T173931Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2693_route_to_protected_executable_surface_bridge_materialization
+- Decision reason: M2694 accepts M2693 bounded execution pack as complete and claim-safe but rejects direct interpretation because current-sim off-track remains 0/9 diagnostic success with 7 off_track and 2 speed_too_low and protected mitigation remains 10/10 source_not_executable_in_current_runner actor 72/action 3 labels actor-invisible protected rows outside success denominators no validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2695 protected executable surface bridge materialization
+
+## Hypothesis
+
+A result audit can decide whether M2693 bounded source-diverse off-track/protected execution rows are complete and claim-safe enough to route toward repair synthesis or a new evidence route without treating diagnostic metrics as performance evidence.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt
+- parent_dataset: docs/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.md, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/summary.json, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/target_execution_rows.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/offtrack_target_aggregate.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/protected_target_aggregate.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/source_diversity_aggregate.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/blocker_join_rows.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/actor_contract_join_rows.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/claim_boundary_rows.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/gate_matrix.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/failure_rows.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/run_state.json, docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md, runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json, runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight.json, experiments/manifests/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.json, runs/m1674_controller_family_one_seed_public_pilot/configs/L3_online_gru_seed167400.json
+- parent_objective: audit the M2693 bounded source-diverse off-track/protected execution pack before any repair success driver-performance validation ranking current-sim paper high-fidelity full ideal driver or self-ID interpretation
+- derived_from: m2693-engineering-controller-source-diverse-offtrack-protected-bounded-execution-preflight, m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit, m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight, m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis
+- blocked_by: M2693 bounded execution rows must be audited before interpretation, protected targets may be recorded as non-executable failure rows and must remain outside success denominators, current-sim off-track and protected mitigation blockers remain visible until audit selects a repair synthesis or next evidence route
+- supersedes: direct interpretation of M2693 target/source aggregate rows, direct repair success driver-performance validation current-sim or paper claim from bounded execution preflight, direct promotion or ranking from a single-profile diagnostic execution
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md exists
+- audit checks M2693 summary target_execution_rows offtrack_target_aggregate protected_target_aggregate source_diversity_aggregate blocker_join_rows actor_contract_join_rows claim_boundary_rows gate_matrix failure_rows and run_state
+- audit verifies actor 72/action 3 no hidden-oracle boundary remains preserved
+- audit verifies M2693 executed only bounded M2691 current-sim off-track targets or recorded explicit failure rows
+- audit verifies protected target rows are visible and outside success denominators
+- audit verifies diagnostic metrics are not verdicts rankings repair-success driver-performance paper current-sim high-fidelity full ideal driver or self-ID results
+- audit accepts rejects or routes repair/synthesis for M2693 artifacts with explicit reasons
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair-success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2694 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2694 changes actor input or action contract
+- M2694 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels or verdicts to actor input
+- M2694 hides protected target failures or treats protected rows as ordinary success denominators
+- M2694 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2694 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2694 fails to audit all required M2693 artifacts
+
+## Evidence Gates
+
+- M2694 must audit M2693 summary target-execution offtrack-aggregate protected-aggregate source-diversity blocker-join actor-contract claim-boundary gate-matrix failure and run-state artifacts before interpretation
+- M2694 must verify M2693 executed only bounded M2691 current-sim off-track targets or recorded explicit failure rows
+- M2694 must verify protected targets were not counted as success denominators and were not hidden or dropped
+- M2694 must verify actor 72/action 3 no hidden/oracle boundary and no actor-visible target blocker verdict or taxonomy labels
+- M2694 must verify M2693 used a single diagnostic policy/checkpoint route and did not rank controller families select a winner promote a checkpoint or compute verdicts
+- M2694 must verify no replay validation training PPO private holdout profile-specific tuning source build adapter probe external simulation or high-fidelity execution occurred
+- M2694 must select one bounded follow-up route: missing-artifact repair, runner repair, blocker synthesis, Route A repair design, or a new evidence-expanding execution route
+- M2694 must not reset step roll out execute policy action replay validate train run PPO rank select a winner promote compute a verdict or claim repair success driver-performance paper current-sim high-fidelity full ideal driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels repair target labels off-track labels protected labels blocker labels gate outcomes route decisions controller-family labels or verdict labels to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not hide or drop protected non-executable target rows
+- do not tune profile-specific hyperparameters
+- do not rank controller families
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from bounded execution result audit
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit
+- type: gate
+- checkpoint: docs/m2694-engineering-controller-source-diverse-offtrack-protected-bounded-execution-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2693_route_to_protected_executable_surface_bridge_materialization
+- reason: M2694 accepts M2693 bounded execution pack as complete and claim-safe but rejects direct interpretation because current-sim off-track remains 0/9 diagnostic success with 7 off_track and 2 speed_too_low and protected mitigation remains 10/10 source_not_executable_in_current_runner actor 72/action 3 labels actor-invisible protected rows outside success denominators no validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2695 protected executable surface bridge materialization
+
+## Next Blocker
+
+bounded follow-up route selected by M2694 audit
