@@ -48582,3 +48582,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2686
 - follow-up manifest: `experiments/manifests/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.json`
 - next: `m2687-engineering-controller-route-a-package-with-limitations-protocol-design`
+
+## M2687 Engineering Controller Route A Package With Limitations Protocol Design
+
+- status: completed
+- decision: `admit_package_protocol_materialization_preflight`
+- manifest: `experiments/manifests/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.json`
+- design doc: `docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md`
+- parent synthesis: `docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md`
+- design scope: package manifest schema artifact inventory provenance map known blocker disclosure actor/action contract claim-boundary rows and materialization gates
+- Route A package inputs: baseline checkpoint list actor I/O contract public benchmark pack runtime/inference-cost report scenario-role metric report and known failure taxonomy
+- required disclosures: protected mitigation broad blocker current-sim off-track dominance 202/216 outcomes and 203/216 terminations and HF3 source dependency blocker from M2638
+- route decision: admit M2688 package protocol materialization preflight not publication validation or performance interpretation
+- rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2687
+- follow-up manifest: `experiments/manifests/m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight.json`
+- next: `m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight`
