@@ -48413,3 +48413,25 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay measured validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.json`
 - next: `m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit`
+
+## M2678 Paper Route History Vs Current Response Full T4/T5 Public Comparison Execution Result Audit
+
+- status: completed
+- decision: `accept_m2677_route_to_route_b_full_t4_t5_public_comparison_branch_synthesis`
+- manifest: `experiments/manifests/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.json`
+- audit doc: `docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md`
+- parent doc: `docs/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.md`
+- parent summary: `runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json`
+- parent artifacts: `episode_rows.csv`, `profile_aggregate.csv`, `spec_aggregate.csv`, `stratum_aggregate.csv`, `comparison_aggregate.csv`, `outcome_aggregate.csv`, `termination_reason_aggregate.csv`, `profile_outcome_aggregate.csv`, `runtime_enforcement_join_rows.csv`, `claim_boundary_rows.csv`, `gate_matrix.csv`, `failure_rows.csv`, and `run_state.json`
+- accepted status: M2677 `status_pass` true with 864/864 episode rows, 12/12 profiles, 72/72 public T4/T5 specs, and 0 failure rows
+- runtime joins: 12/12 runtime joins pass and map 9/9 protocol controller-family IDs
+- claim boundary: 36/36 claim-boundary rows pass with 17 allowed diagnostic/materialization/follow-up rows and 19 blocked overclaim rows
+- gate matrix: 26/26 gate rows pass with selected metrics finite and required artifacts present
+- outcome caveat: off-track dominates the result surface with 794/864 termination rows and 793/864 off-track noncollision noncompletion outcome rows
+- hidden-dynamics caveat: hidden-dynamics artifacts exist but contain 0 bucket rows because M2677 episode rows do not materialize `hidden_dynamics_bucket`
+- comparison caveat: 11 comparison aggregate rows are diagnostic-only; mixed deltas including L3 online vs L3 reset control cannot be used as finite-window-vs-GRU, current-response, paper, or self-ID evidence
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- supported operational claims: M2677 artifacts are complete and claim-safe enough to require branch synthesis before interpretation
+- rejected claims: no reset step rollout policy action replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2678
+- follow-up manifest: `experiments/manifests/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.json`
+- next: `m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis`

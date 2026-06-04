@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2683,
+    "completed": 2684,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json",
+    "command_log": "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight"
+    "task_id": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A result audit can decide whether M2677 full public T4/T5 execution rows are complete and claim-safe enough to route toward outcome-semantics or interpretation planning without treating diagnostic metrics as paper or self-ID evidence.",
-    "id": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit",
+    "hypothesis": "A branch synthesis can decide whether the complete M2677 public T4/T5 comparison dataset should route to outcome-aware interpretation planning, task-quality calibration, stop, or another evidence axis without converting diagnostic metrics into paper or self-ID claims.",
+    "id": "m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2677 full public T4/T5 comparison execution artifacts before any ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26730,
+    "notes": "Pending: synthesize M2670-M2678 Route B comparison branch after M2678 accepts M2677 execution completeness but blocks direct interpretation due off-track dominance mixed diagnostic comparison deltas and empty hidden-dynamics bucket artifacts no reset rollout replay validation training PPO ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26740,
     "status": "pending",
-    "success_artifact": "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md"
+    "success_artifact": "docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md"
   },
-  "updated_at_utc": "20260604T142821Z"
+  "updated_at_utc": "20260604T144116Z"
 }

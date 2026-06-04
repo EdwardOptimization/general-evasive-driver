@@ -1,0 +1,138 @@
+{
+  "decision_reason": "M2678 accepts M2677 full public T4 T5 comparison execution pack as complete and claim-safe 864/864 rows 0 failures 12/12 runtime joins pass comparison rows diagnostic-only but off-track dominates 794/864 and hidden-dynamics buckets are empty so raw aggregate interpretation remains blocked no ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim routes to M2679 branch synthesis",
+  "failure_criteria": [
+    "M2678 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2678 changes actor input or action contract",
+    "M2678 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress or precomputed answers to actor input",
+    "M2678 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2678 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2678 fails to audit all required M2677 artifacts"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate verdicts",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency conclusion",
+    "do not claim current-sim verdict",
+    "do not claim high-fidelity validation readiness or result",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from full public comparison execution preflight"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260604T144151Z",
+  "hypothesis": "A result audit can decide whether M2677 full public T4/T5 execution rows are complete and claim-safe enough to route toward outcome-semantics or interpretation planning without treating diagnostic metrics as paper or self-ID evidence.",
+  "lineage": {
+    "blocked_by": [
+      "M2677 full public T4/T5 execution rows must be audited before any ranking verdict paper interpretation or larger route",
+      "raw success-rate and comparison aggregate deltas remain diagnostic until outcome semantics and claim boundaries are audited"
+    ],
+    "derived_from": [
+      "m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight",
+      "m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit",
+      "m2675-paper-route-history-vs-current-response-bounded-comparison-execution-preflight",
+      "m2673-paper-route-history-vs-current-response-runtime-enforcement-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.json",
+      "experiments/manifests/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2677-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-preflight.md",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/summary.json",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/full_rollout_execution_summary.json",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/episode_rows.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/profile_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/spec_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/stratum_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/comparison_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/outcome_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/termination_reason_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/hidden_dynamics_aggregate.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/profile_hidden_dynamics_worst_bucket.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/runtime_enforcement_join_rows.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/gate_matrix.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/failure_rows.csv",
+      "runs/m2677_paper_route_history_vs_current_response_full_t4_t5_public_comparison_execution_preflight/run_state.json",
+      "docs/m2676-paper-route-history-vs-current-response-bounded-comparison-execution-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit the M2677 full public T4/T5 comparison execution preflight before interpretation or follow-up comparison decisions"
+    ],
+    "supersedes": [
+      "direct interpretation of M2677 profile spec stratum or comparison aggregates",
+      "direct paper verdict from full public T4/T5 execution without result audit"
+    ]
+  },
+  "milestone": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2677_route_to_route_b_full_t4_t5_public_comparison_branch_synthesis",
+  "public_gates": [
+    "M2678 must audit M2677 summary full_rollout_execution_summary episode profile spec stratum comparison outcome termination hidden-dynamics runtime-join claim-boundary gate-matrix failure and run-state artifacts before interpretation",
+    "M2678 must verify M2677 executed 864 public T4/T5 workload cells or recorded failures explicitly",
+    "M2678 must verify M2677 runtime joins preserve current-tiled L2 and reset/truncated L3 controls from M2673 and M2675",
+    "M2678 must verify comparison aggregate rows are diagnostic-only and are not treated as rankings winners promotions success-rate verdicts paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claims",
+    "M2678 must verify actor 72/action 3 no hidden-oracle boundary and no private holdout profile-specific tuning replay training PPO or checkpoint promotion",
+    "M2678 must select one bounded follow-up route: repair missing/failed artifacts, repair runtime joins, synthesize if execution evidence is insufficient, or admit outcome-semantics/interpretation audit planning",
+    "M2678 must not reset step roll out execute policy action replay validate train run PPO rank select a winner promote compute a verdict or claim driver performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2677_route_to_route_b_full_t4_t5_public_comparison_branch_synthesis",
+    "milestone": "m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit",
+    "reason": "M2678 accepts M2677 full public T4 T5 comparison execution pack as complete and claim-safe 864/864 rows 0 failures 12/12 runtime joins pass comparison rows diagnostic-only but off-track dominates 794/864 and hidden-dynamics buckets are empty so raw aggregate interpretation remains blocked no ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim routes to M2679 branch synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2678-paper-route-history-vs-current-response-full-t4-t5-public-comparison-execution-result-audit.md exists",
+    "audit checks M2677 summary full_rollout_execution_summary episode profile spec stratum comparison outcome termination hidden-dynamics runtime-join claim-boundary gate-matrix failure and run-state artifacts",
+    "audit verifies actor 72/action 3 no hidden-oracle boundary remains preserved",
+    "audit verifies diagnostic success-rate metrics and comparison deltas are not verdicts rankings paper evidence FW-vs-GRU results current-response results current-sim verdicts driver-performance claims or self-ID results",
+    "audit accepts rejects or routes repair/synthesis for M2677 artifacts with explicit reasons",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "type": "gate"
+}
