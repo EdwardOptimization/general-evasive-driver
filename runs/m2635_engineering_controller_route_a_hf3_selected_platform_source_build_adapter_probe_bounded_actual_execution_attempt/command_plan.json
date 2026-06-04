@@ -1,0 +1,48 @@
+{
+  "artifact_dir": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/artifacts",
+  "availability_gate": [
+    "test -d \"$SOURCE_ROOT\"",
+    "test -f \"$SOURCE_ROOT/CMakeLists.txt\"",
+    "cmake --version",
+    "ninja --version",
+    "c++ --version",
+    "python -c \"import importlib.util; print('pychrono', importlib.util.find_spec('pychrono') is not None); print('projectchrono', importlib.util.find_spec('projectchrono') is not None)\""
+  ],
+  "build_root": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/build/chrono",
+  "command_attempts": [
+    {
+      "command": "cmake -S \"$SOURCE_ROOT\" -B \"$BUILD_ROOT\" -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DCH_ENABLE_MODULE_VEHICLE=ON -DCH_ENABLE_MODULE_PYTHON=OFF",
+      "id": "source_build_configure_attempt",
+      "precondition": "source root CMakeLists and toolchain checks pass",
+      "timeout_s": 300
+    },
+    {
+      "command": "cmake --build \"$BUILD_ROOT\" --parallel 2",
+      "id": "source_build_compile_attempt",
+      "precondition": "configure attempt returns zero",
+      "timeout_s": 1200
+    },
+    {
+      "command": "PYTHONPATH=src python -c \"import importlib; m=importlib.import_module('autodrift.four_wheel_hf0_adapter'); print({'adapter_module': m.__name__, 'probe_only': True, 'external_sim_imported': False, 'backend_started': False})\"",
+      "id": "repo_local_adapter_import_metadata_attempt",
+      "precondition": "source/tool gate and compile attempt return zero",
+      "timeout_s": 60
+    },
+    {
+      "command": "PYTHONPATH=src python -c \"from autodrift.four_wheel_hf0_adapter import FourWheelHF0Backend; print({'backend_class': FourWheelHF0Backend.__name__, 'backend_id': getattr(FourWheelHF0Backend, 'backend_id', None), 'metadata_probe_only': True, 'backend_started': False, 'reset_executed': False, 'step_executed': False})\"",
+      "id": "repo_local_backend_metadata_probe_attempt",
+      "precondition": "adapter import metadata attempt returns zero",
+      "timeout_s": 60
+    }
+  ],
+  "env": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTHONPATH": "src"
+  },
+  "log_dir": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/logs",
+  "repo_cwd": "/home/quyaonan/workspace/autodrift",
+  "run_dir": "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt",
+  "selected_platform_family": "chrono_vehicle_or_equivalent_open_backend",
+  "source_root": "/home/quyaonan/workspace/chrono"
+}

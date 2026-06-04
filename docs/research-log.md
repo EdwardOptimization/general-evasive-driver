@@ -47536,3 +47536,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability backend start reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.json`
 - next: `m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight`
+
+## M2635 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Bounded Actual Execution Attempt Preflight
+
+- status: completed
+- result_class: `dependency_source_unavailable_blocker_recorded`
+- manifest: `experiments/manifests/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt.py`
+- focused tests: `tests/test_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt.py`
+- summary: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/summary.json`
+- source availability rows: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/source_availability_rows.csv`
+- command attempt rows: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/command_attempt_rows.csv`
+- artifact manifest: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/artifact_manifest.csv`
+- backend probe trace: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/backend_probe_trace.json`
+- claim-boundary checks: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/claim_boundary_checks.csv`
+- gate matrix: `runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/gate_matrix.csv`
+- milestone doc: `docs/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.md`
+- actual availability outcome: source root `/home/quyaonan/workspace/chrono` missing source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true availability_blocker `dependency_source_unavailable`
+- command attempt outcome: configure compile repo-local adapter import and backend metadata probe attempts all skipped with `dependency_source_unavailable`; no source build adapter probe backend start reset step rollout replay validation or performance execution
+- materialized evidence: 6 source availability rows 4 command attempt rows 11 artifact manifest rows 2 backend probe trace rows 27 claim-boundary rows and 9 gates pass
+- actor/action boundary: P0 observation 72 action 3 deployed `[steer, throttle, brake]` mapping preserved; no hidden/oracle actor input and no actor-visible metadata
+- supported operational claims: bounded local/no-network command-attempt preflight executed and dependency source unavailable blocker recorded
+- rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.json`
+- next: `m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit`

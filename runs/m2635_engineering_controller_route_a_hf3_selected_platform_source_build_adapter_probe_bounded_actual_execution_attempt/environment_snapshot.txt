@@ -1,0 +1,12 @@
+generated_at_utc: 20260604T064255Z
+repo: /home/quyaonan/workspace/autodrift
+source_root: /home/quyaonan/workspace/chrono
+output_dir: runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt
+python_executable: /home/quyaonan/miniforge3/bin/python
+availability:
+- source_root_directory_available: returncode=1 timed_out=False condition_satisfied=False blocker=dependency_source_unavailable stdout_first_line=
+- source_cmake_lists_available: returncode=1 timed_out=False condition_satisfied=False blocker=selected_platform_source_schema_unavailable stdout_first_line=
+- cmake_tool_available: returncode=0 timed_out=False condition_satisfied=True blocker=none stdout_first_line=cmake version 3.28.3
+- ninja_tool_available: returncode=0 timed_out=False condition_satisfied=True blocker=none stdout_first_line=1.13.0.git.kitware.jobserver-pipe-1
+- cxx_tool_available: returncode=0 timed_out=False condition_satisfied=True blocker=none stdout_first_line=c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+- pychrono_projectchrono_package_discovery: returncode=0 timed_out=False condition_satisfied=False blocker=package_import_unavailable stdout_first_line=pychrono False
