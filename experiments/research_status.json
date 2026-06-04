@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2666,
+    "completed": 2667,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit",
+    "task_id": "m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md"
+    "command_log": "docs/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis",
-    "kind": "gate",
-    "priority": 26560,
+    "id": "m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26570,
     "status": "pending",
-    "hypothesis": "A post-index branch synthesis can convert the M2657-M2660 target/protected evidence chain into a bounded next-route decision without another same-row public repair loop.",
-    "command": "true",
-    "success_artifact": "docs/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.md",
-    "notes": "Pending: synthesize Route A post-index target protected evidence state answer evidence supported falsified failure taxonomy public-gate overfit and next branch decision without reset rollout training ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
+    "hypothesis": "A fresh source-only protected mitigation failure-surface panel can expand Route A evidence around the active protected blocker without reopening the same-row repair loop.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel --evidence-index runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/evidence_index.csv --gap-matrix runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/gap_matrix.csv --target-protected-report runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/target_protected_tradeoff_rows.csv --protected-focus-rows runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/protected_regression_focus_rows.csv --output-dir runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel",
+    "success_artifact": "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json",
+    "notes": "Pending: materialize fresh Route A protected mitigation failure-surface panel from M2657-M2661 evidence with fresh seeds or dynamics axes preserving P0 72 action 3 no hidden oracle no repair training ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
   },
-  "updated_at_utc": "20260604T105613Z"
+  "updated_at_utc": "20260604T110156Z"
 }

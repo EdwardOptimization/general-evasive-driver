@@ -48052,3 +48052,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.json`
 - next: `m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis`
+
+## M2661 Engineering Controller Route A Post-Index Target/Protected Evidence Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_protected_mitigation_fresh_failure_surface_panel`
+- manifest: `experiments/manifests/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.json`
+- synthesis doc: `docs/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.md`
+- parent audit: `docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md`
+- parent evidence index: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/evidence_index.csv`
+- parent gap matrix: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/gap_matrix.csv`
+- parent tradeoff report: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json`
+- accepted evidence state: M2657-M2660 target/protected evidence is accepted for branch synthesis only
+- target/protected split: target improvement evidence remains separate from protected mitigation blocker evidence
+- protected blocker: M2655 target preservation gates pass but protected severity, obstacle-penetration, and clearance gates fail
+- selected M2655 candidate status: `m2655_softened_gap_bias` remains diagnostic trace only and not a winner or promoted checkpoint
+- failure taxonomy: active `behavior_regression` with `objective_overfit` and `proof_washout` risk if another same-row public repair loop continues
+- public-gate overfit decision: same-row repair/index loop is closed; fresh protected mitigation failure-surface evidence is the next non-overfit Route A axis
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: Route A post-index branch synthesis completed and selected a new protected mitigation failure-surface panel route
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.json`
+- next: `m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight`
