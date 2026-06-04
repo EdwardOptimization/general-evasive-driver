@@ -132,7 +132,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2597 accepts M2596 after-closure platform/protocol readiness materialization evidence and requires a next-route decision",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "evaluation_only",

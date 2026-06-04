@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2603,
+    "completed": 2604,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit",
+    "task_id": "m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.md",
-    "command_log": "docs/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.md"
+    "run_dir": "docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md",
+    "command_log": "docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 25930,
+    "id": "m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design",
+    "kind": "infrastructure",
+    "priority": 25940,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2596/M2597 after-closure HF3 platform/protocol readiness materialization before platform-selection design repair pivot or stop.",
-    "command": "see experiments/manifests/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.json",
-    "success_artifact": "docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize M2596/M2597 after-closure platform/protocol materialization evidence and choose bounded next route without platform selection validation protocol readiness validation admission readiness/result external simulation ranking driver-performance or self-ID claim"
+    "hypothesis": "Design bounded after-closure HF3 platform-selection criteria artifacts after accepted platform/protocol readiness synthesis.",
+    "command": "see experiments/manifests/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.json",
+    "success_artifact": "docs/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.md",
+    "notes": "Pending: design platform-selection criteria auditability dependency/import validation-role actor/action guard claim-boundary and gate artifacts without actual platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T010041Z"
+  "updated_at_utc": "20260604T010645Z"
 }

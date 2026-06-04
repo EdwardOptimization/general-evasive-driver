@@ -46950,3 +46950,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.json`
 - next: `m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis`
+
+## M2598 Engineering Controller Route A Baseline HF3 Platform/Protocol Readiness After Source-Only Closure Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_after_closure_platform_selection_design`
+- manifest: `experiments/manifests/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2598-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-synthesis.md`
+- parent audit: `docs/m2597-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-materialization-result-audit.md`
+- accepted evidence: M2596/M2597 after-closure platform/protocol readiness materialization evidence with 3 platform candidate rows 3 dependency rows 2 protocol skeleton rows 4 source-only closure evidence rows 2 actor/action guard rows 14 claim rows and 12 gates pass
+- supported operational claims: after-closure platform/protocol readiness design artifacts materialized and audited without actor/action contract drift
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2595-M2598 are validation-layer process steps without new closed-loop driver behavior evidence
+- next route: platform-selection criteria design only, not actual platform selection or validation execution
+- follow-up manifest: `experiments/manifests/m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design.json`
+- next: `m2599-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-design`
