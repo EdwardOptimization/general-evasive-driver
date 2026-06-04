@@ -1,0 +1,122 @@
+# m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T161308Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_package_with_limitations_protocol_design
+- Decision reason: M2686 synthesis closes M2680-M2685 Route B task-quality role-semantics subset branch accepts M2684 closed-loop diagnostic completeness but rejects direct interpretation because off-track remains dominant at 202/216 outcomes and 203/216 terminations routes to Route A package-with-limitations protocol design no ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim
+
+## Hypothesis
+
+A branch synthesis can decide whether the complete M2684 bounded subset execution dataset should route to interpretation planning, scenario/task-quality redesign, Route A/HF preparation, stop, or another evidence axis without converting diagnostic metrics into paper or self-ID claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/*/seed_167400/checkpoint.pt
+- parent_dataset: docs/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.md, docs/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.md, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/summary.json, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/episode_rows.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/profile_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/spec_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/candidate_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/source_edge_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/role_semantics_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/outcome_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/termination_reason_aggregate.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/runtime_enforcement_join_rows.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/claim_boundary_rows.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/gate_matrix.csv, runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/failure_rows.csv, docs/m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit.md, docs/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.md, runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/summary.json, runs/m2682_paper_route_history_vs_current_response_task_quality_role_semantics_repair_materialization/proposed_measured_subset_rows.csv, docs/m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit.md, docs/m2680-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-materialization-preflight.md, runs/m2680_paper_route_history_vs_current_response_task_quality_outcome_dominance_calibration/summary.json, docs/m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis.md, docs/post-m2470-route-plan.md, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.json, experiments/manifests/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.json, experiments/manifests/m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight.json
+- parent_objective: synthesize the Route B task-quality and role-semantics bounded subset branch after M2685 accepts M2684 execution completeness but blocks direct interpretation
+- derived_from: m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit, m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight, m2683-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-result-audit, m2682-paper-route-history-vs-current-response-task-quality-role-semantics-repair-materialization-preflight, m2681-paper-route-history-vs-current-response-task-quality-outcome-dominance-calibration-result-audit, m2679-paper-route-history-vs-current-response-full-t4-t5-public-comparison-branch-synthesis
+- blocked_by: M2685 accepts M2684 artifact completeness but blocks direct interpretation because the bounded subset remains off-track dominated, M2684 diagnostic profile and role/task-quality aggregates are non-verdict and cannot rank controller families, M2680-M2685 have now spent several milestones inside the same task-quality/role-semantics repair loop
+- supersedes: direct controller-family ranking from M2684 profile aggregates, direct finite-window-vs-GRU conclusion from M2684 bounded subset rows, another bounded subset repair or execution milestone before synthesis, direct current-sim or paper verdict from M2684 raw success
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2684 status_pass true with 216/216 episode rows 12/12 profiles 18/18 specs and zero failure rows
+- synthesis records off-track dominance as an interpretation blocker
+- synthesis preserves P0 72/action 3 no hidden/oracle actor boundary
+- synthesis chooses stop pivot interpretation planning task-quality redesign Route A/HF preparation or another evidence route rather than another same subset repair loop
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2686 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2686 changes actor input or action contract
+- M2686 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress role labels or precomputed answers to actor input
+- M2686 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2686 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2686 fails to choose a bounded next route
+
+## Evidence Gates
+
+- M2686 must synthesize M2680-M2685 task-quality role-semantics bounded-subset evidence before any further execution interpretation training validation ranking or paper claim
+- M2686 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2686 must explicitly separate M2684 execution completeness from driver capability paper current-sim and self-ID evidence
+- M2686 must account for M2684 off-track dominance and the diagnostic-only L0 L1 L2 L3 profile rows before choosing the next branch
+- M2686 must state whether the governing plans support continuing Route B task-quality repair, pivoting to another evidence axis, stopping the current-sim Route B sub-branch, or preparing high-fidelity/engineering routes in parallel
+- M2686 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy route comparison verdict or paper labels
+- M2686 must register one bounded follow-up route manifest if it chooses to continue or pivot
+- M2686 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2686 must not claim driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver completion or level3 self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not step environments
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not make role semantics actor-visible
+- do not tune profile-specific hyperparameters
+- do not rank controller families
+- do not select a winner
+- do not compute success-rate verdicts
+- do not compute finite-window-vs-GRU verdicts
+- do not compute current-response sufficiency verdicts
+- do not claim paper-level evidence
+- do not claim current-sim verdict
+- do not claim high-fidelity validation readiness or result
+- do not claim level3 self-identification
+- do not claim driver performance from branch synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis
+- type: gate
+- checkpoint: docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_package_with_limitations_protocol_design
+- reason: M2686 synthesis closes M2680-M2685 Route B task-quality role-semantics subset branch accepts M2684 closed-loop diagnostic completeness but rejects direct interpretation because off-track remains dominant at 202/216 outcomes and 203/216 terminations routes to Route A package-with-limitations protocol design no ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim
+
+## Next Blocker
+
+None recorded.

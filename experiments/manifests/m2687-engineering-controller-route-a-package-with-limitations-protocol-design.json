@@ -1,0 +1,251 @@
+{
+  "id": "m2687-engineering-controller-route-a-package-with-limitations-protocol-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md",
+      "docs/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.md",
+      "runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/summary.json",
+      "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
+      "docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/artifact_coverage_rows.csv",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/next_action_admission_rows.csv",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.json",
+      "experiments/manifests/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.json",
+      "experiments/manifests/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.json",
+      "experiments/manifests/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.json",
+      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json"
+    ],
+    "parent_objective": [
+      "design a bounded Route A package-with-limitations protocol after M2686 pivots away from the off-track-dominated Route B task-quality subset branch"
+    ],
+    "derived_from": [
+      "m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis",
+      "m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit",
+      "m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis",
+      "m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit",
+      "m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight",
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
+      "post-m2470-route-plan"
+    ],
+    "blocked_by": [
+      "M2686 closes the Route B task-quality role-semantics subset branch because off-track dominance still blocks interpretation",
+      "M2638 pauses HF3 selected-platform source-build and adapter-probe execution until source dependency evidence is supplied",
+      "M2669 says Route A artifacts are packageable with limitations but protected mitigation remains a known blocker",
+      "packaging must preserve known limitations and must not become a validation readiness or driver-performance claim"
+    ],
+    "supersedes": [
+      "another narrow Route B task-quality role-semantics public subset repair loop",
+      "direct Route A package materialization without protocol and claim-boundary design",
+      "HF3 source-build or adapter-probe execution retry without source dependency provision",
+      "public packaging that hides protected mitigation current-sim off-track or HF3 dependency blockers"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md",
+  "design_artifact": "docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md",
+  "public_gates": [
+    "M2687 must read docs/post-m2470-route-plan.md and the M2667 M2668 M2669 Route A readiness artifacts before designing the package protocol",
+    "M2687 must read M2686 and preserve its decision that the M2680-M2685 Route B task-quality subset branch is diagnostic only and off-track dominated",
+    "M2687 must read M2638 and preserve the HF3 source dependency blocker as paused until source or package evidence is supplied",
+    "M2687 must design a package-with-limitations protocol that includes artifact inventory provenance claim boundaries known blockers and follow-up materialization gates",
+    "M2687 must cover the six post-M2470 Route A near-term artifacts: baseline checkpoint list actor input/output contract public benchmark pack known failure taxonomy runtime inference-cost report and scenario-role metric report",
+    "M2687 must preserve protected mitigation as a blocking known limitation outside success denominators",
+    "M2687 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy route comparison verdict or package labels",
+    "M2687 must register one bounded follow-up materialization preflight audit synthesis stop or new route manifest if it chooses to continue",
+    "M2687 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2687 must not claim driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels objective rows gate outcomes route decisions package labels controller-family labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide current-sim off-track dominance",
+    "do not hide the HF3 source dependency blocker",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from package protocol design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_package_with_limitations",
+    "evidence_axis": "route_a_package_protocol_design_after_route_b_synthesis",
+    "evidence_increment": "designs a bounded package-with-limitations protocol from accepted Route A readiness artifacts after M2686 closes the off-track-dominated Route B task-quality subset branch",
+    "claim_scope": "Route A package protocol design only; no reset rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion success-rate verdict driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if the package protocol cannot trace the six post-M2470 Route A artifacts",
+      "stop if the protocol hides protected mitigation current-sim off-track or HF3 dependency blockers",
+      "stop if the protocol would expose hidden or oracle actor features",
+      "stop if the protocol would claim validation readiness driver performance paper evidence current-sim verdict high-fidelity result or self-ID",
+      "stop if the only follow-up is another static packaging loop with no materialization gate"
+    ],
+    "fallback_plan": [
+      "route to artifact inventory repair if required Route A artifacts cannot be traced",
+      "route to claim-boundary repair if blockers cannot be represented without overclaiming",
+      "route to materialization preflight if the protocol is complete and bounded",
+      "stop package work and return to a new evidence branch if packaging cannot preserve known limitations"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2686 pivots from Route B task-quality role-semantics subset synthesis to Route A package-with-limitations protocol design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A package-with-limitations protocol design",
+    "admission_evidence": [
+      "M2686 pivots away from the Route B task-quality role-semantics bounded subset branch after off-track dominance persists",
+      "M2667 M2668 and M2669 show Route A has six required artifacts covered but only packageable with limitations",
+      "M2638 pauses HF3 selected-platform execution until source dependency evidence is supplied",
+      "docs/post-m2470-route-plan.md allows engineering Route A and high-fidelity preparation to proceed without waiting for current-sim perfection"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance validation-readiness paper current-sim high-fidelity or self-ID claim from design"
+    ],
+    "allowed_updates": [
+      "docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md",
+      "M2687 status queue scoreboard research log and review",
+      "one bounded follow-up materialization preflight audit synthesis stop or new route manifest selected by protocol design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "protocol covers package manifest schema artifact inventory provenance known blockers claim boundaries and materialization gates",
+      "six post-M2470 Route A near-term artifacts are explicitly covered",
+      "protected mitigation current-sim off-track and HF3 dependency blockers remain visible",
+      "actor contract remains P0 observation 72 action 3 with no hidden/oracle input",
+      "follow-up route is selected without execution ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2687 designs Route A package protocol and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2687; M2686 explicitly rejects paper and self-ID claims from the off-track-dominated Route B subset branch."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A readiness artifacts through M2669 plus M2686 Route B task-quality subset branch synthesis.",
+    "negative_result_policy": "If Route B current-response finite-window or GRU rows remain uninterpretable under current-sim off-track dominance, preserve that as a blocker and package Route A limitations honestly rather than forcing a self-ID conclusion.",
+    "allowed_claims": [
+      "Route A package-with-limitations protocol design",
+      "bounded package protocol follow-up decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes evidence axis from Route B current-sim task-quality subset repair to Route A package-with-limitations protocol design using accepted readiness evidence",
+    "paper_verdict_delta": "no paper verdict; preserves M2686 rejection of paper self-ID and current-sim claims while routing to engineering package protocol",
+    "must_synthesize_if": [
+      "M2687 cannot trace required Route A artifacts",
+      "M2687 would hide protected mitigation current-sim off-track or HF3 source dependency blockers",
+      "M2687 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2687 would propose another same-surface packaging loop without a bounded materialization or stop route"
+    ]
+  },
+  "hypothesis": "A bounded Route A package-with-limitations protocol can turn accepted readiness artifacts into an auditable engineering package plan while preserving known blockers and avoiding another off-track-dominated current-sim repair loop.",
+  "success_criteria": [
+    "docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md exists",
+    "design cites M2686 M2667 M2668 M2669 M2638 and docs/post-m2470-route-plan.md as route constraints",
+    "design covers package manifest schema artifact inventory provenance map known blocker disclosure claim boundaries and materialization gates",
+    "design covers baseline checkpoint list actor input/output contract public benchmark pack known failure taxonomy runtime inference-cost report and scenario-role metric report",
+    "design preserves protected mitigation blocker current-sim off-track dominance and HF3 source dependency blocker as visible limitations",
+    "design preserves P0 observation 72/action 3 actor boundary and no hidden/oracle actor input",
+    "design registers one bounded follow-up materialization preflight audit synthesis stop or new route manifest if continuing",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2687 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2687 changes actor input or action contract",
+    "M2687 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance taxonomy labels route labels package labels controller labels collision success progress or precomputed answers to actor input",
+    "M2687 hides protected mitigation current-sim off-track or HF3 source dependency blockers",
+    "M2687 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2687 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2687 fails to define a bounded package protocol and follow-up route"
+  ],
+  "commands": [
+    {
+      "name": "package_protocol_design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md",
+    "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
+    "docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md",
+    "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json",
+    "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/artifact_coverage_rows.csv",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2687 designs a bounded Route A package-with-limitations protocol that preserves all known blockers and makes no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim."
+}

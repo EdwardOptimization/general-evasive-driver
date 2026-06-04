@@ -48566,3 +48566,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2685
 - follow-up manifest: `experiments/manifests/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.json`
 - next: `m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis`
+
+## M2686 Paper Route History Vs Current Response Task Quality Role Semantics Bounded Subset Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_package_with_limitations_protocol_design`
+- manifest: `experiments/manifests/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.json`
+- synthesis doc: `docs/m2686-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-branch-synthesis.md`
+- parent audit: `docs/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.md`
+- accepted evidence: M2684/M2685 complete and claim-safe bounded subset execution with 216/216 episode rows 0 failure rows 12/12 runtime joins 30/30 gates and 37/37 claim-boundary rows
+- active blocker: off-track remains dominant with 202/216 outcomes and 203/216 terminations so profile rows remain diagnostic-only and non-verdict
+- route decision: close the Route B task-quality role-semantics bounded subset branch and pivot to Route A package-with-limitations protocol design
+- route rationale: post-M2470 keeps current-sim diagnostic only M2638 pauses HF3 until source dependency is supplied and M2667-M2669 already make Route A packageable with limitations
+- rejected claims: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2686
+- follow-up manifest: `experiments/manifests/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.json`
+- next: `m2687-engineering-controller-route-a-package-with-limitations-protocol-design`
