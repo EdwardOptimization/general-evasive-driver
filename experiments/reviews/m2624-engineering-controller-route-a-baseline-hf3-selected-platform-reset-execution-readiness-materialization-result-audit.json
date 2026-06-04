@@ -1,0 +1,158 @@
+{
+  "decision_reason": "M2624 accepts M2623 selected-platform reset-execution readiness materialization status_pass true 4 source-build/adapter-probe evidence admission rows 2 backend fixture rows 2 reset invocation dry-run rows 2 reset request binding rows 2 actor-view after-reset rows 10 outcome schema rows 2 actor/action guard rows 27 claim rows and 13 gates pass no source build adapter probe reset execution reset success rollout feasibility validation readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis",
+  "failure_criteria": [
+    "M2624 installs imports or runs Chrono or another external simulator",
+    "M2624 changes actor input or action contract",
+    "M2624 injects hidden or oracle actor features",
+    "M2624 mutates dependencies executes source build or runs adapter probe",
+    "M2624 resets or steps an environment runs policy action or executes rollout replay or validation",
+    "M2624 starts training",
+    "M2624 treats M2623 selected-platform reset-execution readiness rows as driver performance",
+    "M2624 ranks controller families or selects a winner",
+    "M2624 computes success rate or promotes a checkpoint",
+    "M2624 claims source build execution adapter probe execution reset execution reset success validation protocol readiness validation admission readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the audit",
+    "do not execute adapter probe in the audit",
+    "do not mutate selected-platform dependencies",
+    "do not execute reset in the audit",
+    "do not execute policy actions in the audit",
+    "do not step environments in the audit",
+    "do not execute rollout in the audit",
+    "do not execute replay in the audit",
+    "do not execute validation in the audit",
+    "do not train in the audit",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade reset-execution readiness rows to source-build executed adapter-probe executed reset-executed reset-success validation-admitted validation-ready or validation-result rows",
+    "do not claim dependency ready for execution",
+    "do not claim source build execution",
+    "do not claim adapter probe execution",
+    "do not claim reset execution",
+    "do not claim reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not claim validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a controller winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2623 selected-platform reset-execution readiness artifacts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260604T050454Z",
+  "hypothesis": "A bounded result audit can accept or reject M2623 HF3 selected-platform reset-execution readiness materialization while preserving actor contract integrity reset-execution honesty and no source build adapter probe reset execution validation ranking or performance boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2623 materialized selected-platform reset-execution readiness rows that must be audited before reset execution validation admission or external validation interpretation",
+      "M2623 preserved selected platform chrono_vehicle_or_equivalent_open_backend while keeping external install import runtime execution dependency mutation source build adapter probe reset step action rollout replay validation false",
+      "M2623 preserved reset success rollout feasibility validation protocol readiness validation admission validation result ranking driver-performance paper and self-ID claims as false"
+    ],
+    "derived_from": [
+      "m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight",
+      "m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design",
+      "m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis",
+      "m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit",
+      "m2619-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.json",
+      "experiments/manifests/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.json",
+      "experiments/manifests/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/summary.json",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_source_build_adapter_probe_evidence_admission_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_backend_availability_fixture_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_reset_invocation_dry_run_contract_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_reset_request_binding_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_actor_view_after_reset_extraction_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_reset_outcome_audit_schema_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_reset_execution_actor_action_guard_rows.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/hf3_selected_platform_reset_execution_readiness_claim_boundary_checks.csv",
+      "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/selected_platform_reset_execution_readiness_gate_matrix.csv",
+      "docs/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.md",
+      "docs/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.md",
+      "docs/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.md",
+      "docs/m2620-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-audit.md",
+      "runs/m2619_engineering_controller_route_a_hf3_selected_platform_reset_feasibility_readiness/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "audit the M2623 bounded HF3 selected-platform reset-execution readiness materialization before reset execution validation admission validation result or performance interpretation"
+    ],
+    "supersedes": [
+      "interpreting M2623 reset-execution readiness rows as source build execution adapter probe execution reset execution reset success validation readiness or validation admission",
+      "claiming high-fidelity validation readiness or driver performance from reset-execution readiness materialization",
+      "starting reset execution or external validation execution before materialization audit and synthesis",
+      "mutating installing importing building probing resetting stepping replaying or validating selected-platform dependencies during audit"
+    ]
+  },
+  "milestone": "m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit",
+  "next_blocker": "m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_hf3_selected_platform_reset_execution_readiness_materialization_route_to_result_synthesis",
+  "public_gates": [
+    "M2624 must audit M2623 summary source-build and adapter-probe evidence admission backend availability fixture reset invocation dry-run reset request binding actor-view after-reset extraction reset outcome audit schema actor/action guard claim-boundary and gate artifacts",
+    "M2624 must verify M2623 status_pass true result_class pass source_artifacts_exist true materialization_gates_all_pass true and selected_platform_family_in_m2623 chrono_vehicle_or_equivalent_open_backend",
+    "M2624 must verify four source-build/adapter-probe evidence admission rows two backend availability fixture rows two reset invocation dry-run contract rows two reset request binding rows two actor-view after-reset extraction rows ten reset outcome audit schema rows two actor/action guard rows twenty-seven claim-boundary rows and thirteen gates pass",
+    "M2624 must verify M2623 keeps external install import runtime execution dependency mutation source build adapter probe reset step policy action rollout replay external validation execution validation protocol readiness validation admission validation result reset success rollout feasibility and driver-performance claims false",
+    "M2624 must verify M2623 preserved P0 observation shape 72 action shape 3 deployed [steer, throttle, brake] mapping no hidden or oracle actor input and no actor-visible diagnostics labels backend status reset outcome validation outcome selected platform or protocol status",
+    "M2624 must verify M2623 did not install import run mutate dependencies execute source build adapter probe reset/action/step/rollout/replay/validation train PPO rank controllers select winners promote checkpoints compute success rates or claim driver performance",
+    "M2624 must register result synthesis artifact repair contract repair platform-schema repair branch synthesis pivot or stop as the next route without reset execution validation protocol readiness validation admission readiness result or performance claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_hf3_selected_platform_reset_execution_readiness_materialization_route_to_result_synthesis",
+    "milestone": "m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit",
+    "reason": "M2624 accepts M2623 selected-platform reset-execution readiness materialization status_pass true 4 source-build/adapter-probe evidence admission rows 2 backend fixture rows 2 reset invocation dry-run rows 2 reset request binding rows 2 actor-view after-reset rows 10 outcome schema rows 2 actor/action guard rows 27 claim rows and 13 gates pass no source build adapter probe reset execution reset success rollout feasibility validation readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit.md exists",
+    "audit verifies M2623 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "audit verifies M2623 source-build/adapter-probe evidence backend fixture dry-run reset binding actor-view outcome schema actor/action guard claim-boundary and gate artifacts exist",
+    "audit verifies four source-build/adapter-probe evidence rows two backend fixture rows two dry-run rows two binding rows two actor-view rows ten outcome schema rows two actor/action guard rows twenty-seven claim rows and thirteen gates pass",
+    "audit verifies M2623 selected chrono_vehicle_or_equivalent_open_backend and did not mutate dependencies or execute source build adapter probe reset action step rollout replay or validation",
+    "audit verifies M2623 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "audit verifies M2623 made no source build adapter probe reset execution reset success validation protocol readiness validation admission validation execution external simulation training PPO ranking winner success-rate promotion validation result driver-performance or verdict claim",
+    "audit registers result synthesis repair platform-schema route reset invocation preparation branch synthesis pivot or stop without reset execution validation protocol readiness validation admission readiness result or performance claims"
+  ],
+  "type": "gate"
+}
