@@ -48526,3 +48526,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2683
 - follow-up manifest: `experiments/manifests/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.json`
 - next: `m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight`
+
+## M2684 Paper Route History Vs Current Response Task Quality Role Semantics Bounded Subset Execution Preflight
+
+- status: completed
+- result class: `paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight_pass`
+- manifest: `experiments/manifests/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight.py`
+- summary: `runs/m2684_paper_route_history_vs_current_response_task_quality_role_semantics_bounded_subset_execution_preflight/summary.json`
+- doc: `docs/m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight.md`
+- source: M2682 proposed measured subset plus M2673 runtime-enforcement rows M1690 executable workload and M1674 corrected-profile checkpoints
+- executed rows: 216/216 bounded subset cells with 0 failure rows and 216 accounted cells
+- subset coverage: 12 profiles 18 specs 9 candidates 9 source-edge aggregates and 2 role-semantics aggregate groups
+- runtime join: 12/12 rows pass and preserve L2 current-tiled plus L3 reset/truncated controls
+- gates: 30/30 gate rows pass with 17 allowed claim-boundary rows and 20 blocked claim-boundary rows
+- subset boundary: not expanded to the 864-row full public matrix
+- role semantics boundary: analysis-only actor-invisible no hidden/oracle actor input required
+- claim boundary: diagnostic success-rate and role/task-quality metrics are recorded only as preflight data
+- rejected claims: no training PPO replay private holdout profile-specific tuning ranking winner promotion success-rate verdict comparison-delta verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID claim from M2684
+- follow-up manifest: `experiments/manifests/m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit.json`
+- next: `m2685-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-result-audit`
