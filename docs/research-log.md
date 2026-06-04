@@ -48263,3 +48263,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no immediate reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.json`
 - next: `m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight`
+
+## M2671 Paper Route History Vs Current Response Comparison Protocol Materialization Preflight
+
+- status: completed
+- result_class: `paper_route_history_vs_current_response_comparison_protocol_materialization_pass`
+- manifest: `experiments/manifests/m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight.json`
+- implementation: `src/autodrift/paper_route_history_vs_current_response_comparison_protocol_materialization.py`
+- focused tests: `tests/test_paper_route_history_vs_current_response_comparison_protocol_materialization.py`
+- summary: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json`
+- controller family rows: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/controller_family_rows.csv`
+- task family rows: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/task_family_rows.csv`
+- fairness gate rows: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/fairness_gate_rows.csv`
+- claim boundary rows: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/claim_boundary_rows.csv`
+- gate matrix: `runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/gate_matrix.csv`
+- materialized protocol: 9/9 controller-family rows, 5/5 task-family rows, 15 fairness-gate rows, 21 claim-boundary rows, and 15 gate-matrix rows
+- required controls: L2 current-tiled control and L3 reset/truncated control present
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/route/controller-family/paper-verdict labels actor-visible
+- supported operational claims: Route B comparison protocol pack materialized for result audit
+- rejected claims: no reset rollout replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.json`
+- next: `m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit`

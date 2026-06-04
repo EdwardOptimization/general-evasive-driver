@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2676,
+    "completed": 2677,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2670-paper-route-history-vs-current-response-comparison-admission-design",
+    "task_id": "m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2670-paper-route-history-vs-current-response-comparison-admission-design.md"
+    "run_dir": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization",
+    "command_log": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json"
   },
   "next_task": {
-    "id": "m2671-paper-route-history-vs-current-response-comparison-protocol-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 26660,
+    "id": "m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit",
+    "kind": "gate",
+    "priority": 26670,
     "status": "pending",
-    "hypothesis": "A machine-auditable protocol pack can convert the M2670 Route B admission design into concrete controller-family task-family fairness gate and claim-boundary rows without prematurely running or ranking controllers.",
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_history_vs_current_response_comparison_protocol_materialization --output-dir runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization",
-    "success_artifact": "runs/m2671_paper_route_history_vs_current_response_comparison_protocol_materialization/summary.json",
-    "notes": "Pending: materialize Route B comparison protocol rows for L0/L1/L2/L3 controller families T1-T5 task families fairness gates and claim boundaries; preserve actor 72/action 3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "hypothesis": "A result audit can decide whether the M2671 protocol pack is complete enough to route toward implementation design without overclaiming protocol materialization as driver or paper evidence.",
+    "command": "true",
+    "success_artifact": "docs/m2672-paper-route-history-vs-current-response-comparison-protocol-materialization-result-audit.md",
+    "notes": "Pending: audit M2671 protocol pack summary controller-family task-family fairness-gate claim-boundary and gate-matrix rows before implementation execution synthesis or stop; preserve actor 72/action 3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T125256Z"
+  "updated_at_utc": "20260604T131243Z"
 }
