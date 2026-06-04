@@ -48648,3 +48648,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2690
 - follow-up manifest: `experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json`
 - next: `m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight`
+
+## M2691 Engineering Controller Source Diverse Offtrack Protected Target Panel Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_source_diverse_offtrack_protected_target_panel_materialization_pass`
+- manifest: `experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_source_diverse_offtrack_protected_target_panel_materialization.py`
+- focused tests: `tests/test_engineering_controller_source_diverse_offtrack_protected_target_panel_materialization.py`
+- summary: `runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json`
+- doc: `docs/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.md`
+- materialized rows: 3 blocker source rows 19 target panel rows 4 source-diversity plan rows 9 actor-contract guard rows 20 claim-boundary rows and 15 gate rows
+- panel coverage: 9 current-sim off-track containment target rows and 10 protected mitigation preservation target rows
+- preserved blockers: M2684 off-track 202/216 outcomes and 203/216 terminations plus M2664 protected mitigation 25 blocking rows and 79 regressed row count
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible blocker labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2692 source-diverse off-track/protected target-panel materialization result audit before any measured execution or interpretation
+- rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2691
+- follow-up manifest: `experiments/manifests/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.json`
+- next: `m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit`

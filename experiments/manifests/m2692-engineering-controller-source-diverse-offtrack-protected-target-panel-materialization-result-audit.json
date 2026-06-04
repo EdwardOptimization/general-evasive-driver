@@ -1,0 +1,224 @@
+{
+  "id": "m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/blocker_source_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/target_panel_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/source_diversity_plan_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/actor_contract_guard_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/claim_boundary_rows.csv",
+      "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/gate_matrix.csv",
+      "docs/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.md",
+      "docs/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.json",
+      "experiments/manifests/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit the M2691 source-diverse off-track/protected target-panel materialization before any measured execution repair validation ranking promotion or performance claim"
+    ],
+    "derived_from": [
+      "m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight",
+      "m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis",
+      "m2684-paper-route-history-vs-current-response-task-quality-role-semantics-bounded-subset-execution-preflight",
+      "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2691 target panel must be audited before measured execution or interpretation",
+      "current-sim off-track and protected mitigation blockers must remain visible",
+      "target labels and blocker labels must remain actor-invisible"
+    ],
+    "supersedes": [
+      "direct measured execution from M2691 rows without audit",
+      "direct repair success driver-performance or current-sim interpretation from target-panel materialization",
+      "another package-process milestone as the immediate next action"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
+  "public_gates": [
+    "M2692 must audit M2691 artifacts before measured execution repair validation ranking promotion or performance interpretation",
+    "M2692 must verify summary blocker source target panel source-diversity plan actor-contract guard claim-boundary and gate artifacts are present",
+    "M2692 must verify target rows include both current-sim off-track and protected mitigation sources",
+    "M2692 must verify source-diversity plan rows prevent another same public gate repair loop",
+    "M2692 must verify P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible off-track protected target blocker or verdict labels",
+    "M2692 must verify no reset rollout replay validation training PPO source build adapter probe external simulation package publication ranking winner selection promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim was made",
+    "M2692 must choose one bounded follow-up result repair measured-execution admission synthesis stop or new evidence route if continuing"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not publish package artifacts as a release",
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels objective rows gate outcomes route decisions package labels blocker labels controller-family labels or verdict labels to actor input",
+    "do not hide protected mitigation current-sim off-track or HF3 source dependency blockers",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from target-panel audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_source_diverse_offtrack_protected_target_panel",
+    "evidence_axis": "source_diverse_offtrack_protected_target_panel_result_audit",
+    "evidence_increment": "audits whether M2691 created a valid source-diverse target panel and selects the next bounded route before any measured execution",
+    "claim_scope": "Target-panel result audit only; no reset rollout replay validation training PPO source build adapter probe external simulation package publication ranking winner selection promotion success-rate verdict driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if required M2691 artifacts are missing or gates fail",
+      "stop if M2691 target rows are only a replay of the same public rows without source diversity",
+      "stop if target labels blocker labels off-track labels protected labels or verdict labels are actor-visible",
+      "stop if audit would claim performance validation paper current-sim high-fidelity or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to M2691 artifact repair if required rows are missing",
+      "route to branch synthesis or stop if source diversity is absent",
+      "admit one bounded measured-execution preflight only if M2691 is complete and actor contract is preserved",
+      "route to a new evidence axis if protected/off-track target panel cannot avoid public-gate overfit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2691 materializes a new target panel and requires result audit before execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-diverse off-track/protected target-panel materialization result audit",
+    "admission_evidence": [
+      "M2691 is expected to materialize blocker-source target-panel source-diversity actor-contract claim-boundary and gate rows",
+      "M2690 closes the package branch and selects target-panel materialization before further process"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no package publication ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
+      "M2692 status queue scoreboard research log and review",
+      "one bounded follow-up manifest if continuing"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2691 artifacts and gates are verified",
+      "actor contract remains P0 observation 72 action 3 with no hidden/oracle input",
+      "follow-up route is selected without execution ranking validation training publication promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2692 audits target-panel materialization and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2692; any later measured execution must separately pre-register proof/generalization separation."
+    ],
+    "temporal_evidence_window": "M2691 target-panel artifacts and M2690 package-branch synthesis.",
+    "negative_result_policy": "If the panel is not source-diverse or cannot preserve actor-invisible labels, preserve that as a blocker rather than forcing performance or self-ID claims.",
+    "allowed_claims": [
+      "M2691 target-panel artifact completeness audit",
+      "bounded follow-up route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new M2691 target-panel artifacts before deciding whether measured execution is admissible",
+    "paper_verdict_delta": "no paper verdict; preserves blockers and decides whether a later evidence-expanding route is admissible",
+    "must_synthesize_if": [
+      "M2692 cannot select a bounded follow-up route",
+      "M2692 finds M2691 target rows are not source-diverse",
+      "M2692 finds target or blocker labels actor-visible",
+      "M2692 would claim performance validation paper current-sim high-fidelity or self-ID evidence"
+    ]
+  },
+  "hypothesis": "A result audit can decide whether the M2691 source-diverse off-track/protected target panel is complete and claim-safe enough to admit a bounded follow-up route.",
+  "success_criteria": [
+    "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md exists",
+    "audit verifies M2691 required artifacts are present",
+    "audit verifies target rows include both current-sim off-track and protected mitigation sources",
+    "audit verifies source-diversity plan rows prevent another same public gate repair loop",
+    "audit verifies P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "audit verifies no reset rollout validation training ranking promotion package publication driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim was made",
+    "audit selects one bounded follow-up route if continuing"
+  ],
+  "failure_criteria": [
+    "M2692 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2692 publishes package artifacts as a release",
+    "M2692 changes actor input or action contract",
+    "M2692 hides protected mitigation current-sim off-track or HF3 source dependency blockers",
+    "M2692 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2692 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2692 fails to audit M2691 and select a bounded follow-up route"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2692-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2691_engineering_controller_source_diverse_offtrack_protected_target_panel/summary.json",
+    "docs/m2691-engineering-controller-source-diverse-offtrack-protected-target-panel-materialization-preflight.md",
+    "docs/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.md"
+  ],
+  "decision_rule": "Pass only if M2692 audits M2691 artifacts, preserves blocker and actor boundaries, and selects a bounded follow-up without execution ranking validation publication performance paper current-sim high-fidelity full ideal driver or self-ID claims."
+}
