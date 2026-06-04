@@ -47148,3 +47148,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight.json`
 - next: `m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight`
+
+## M2611 Engineering Controller Route A Baseline HF3 Selected-Platform Dependency/Protocol Readiness Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness.py`
+- summary: `runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json`
+- milestone doc: `docs/m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight.md`
+- materialized evidence: 4 dependency inventory rows 4 source/build/adapter probe readiness rows 2 protocol skeleton rows 2 validation-admission prerequisite rows 2 actor/action guard rows 20 claim-boundary rows and 12 gates pass
+- selected-platform boundary: selected_platform_family_in_m2611 `chrono_vehicle_or_equivalent_open_backend` selected_platform_dependency_protocol_readiness_design_materialized_in_m2611 true selected_platform_dependency_inventory_materialized_in_m2611 true selected_platform_protocol_skeleton_materialized_in_m2611 true while external_install_allowed_in_m2611 false external_import_allowed_in_m2611 false runtime_execution_allowed_in_m2611 false dependency_mutation_allowed_in_m2611 false source_build_executed_in_m2611 false adapter_probe_executed_in_m2611 false
+- validation boundary: reset_allowed_in_m2611 false policy_action_allowed_in_m2611 false environment_step_allowed_in_m2611 false rollout_allowed_in_m2611 false external_validation_execution_allowed_in_m2611 false validation_protocol_ready_in_m2611 false validation_admission_granted_in_m2611 false validation_result_claim_allowed false and driver_performance_claim_allowed_in_m2611 false
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status actor-visible
+- supported operational claims: selected-platform dependency/protocol readiness design artifacts materialized dependency inventory materialized and protocol skeleton materialized
+- rejected claims: no dependency execution readiness source build adapter probe validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.json`
+- next: `m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit`
