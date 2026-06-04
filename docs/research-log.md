@@ -46980,3 +46980,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no actual platform selection selection decision external install/import/runtime execution validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight.json`
 - next: `m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight`
+
+## M2600 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Criteria Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_after_closure_platform_selection_criteria_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_after_closure_platform_selection_criteria.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria.py`
+- summary: `runs/m2600_engineering_controller_route_a_hf3_after_closure_platform_selection_criteria/summary.json`
+- milestone doc: `docs/m2600-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-preflight.md`
+- materialized evidence: 3 platform-selection criteria rows 3 auditability rows 3 dependency/import risk rows 2 validation-role compatibility rows 2 actor/action guard rows 18 claim-boundary rows and 11 gates pass
+- selection boundary: platform_selection_criteria_materialized_in_m2600 true while platform_selected_in_m2600 false selection_decision_allowed_in_m2600 false validation_protocol_ready_in_m2600 false external_validation_execution_allowed_in_m2600 false and driver_performance_claim_allowed_in_m2600 false
+- actor/action contract: P0 observation shape `72` action shape `3` and deployed `[steer, throttle, brake]` mapping preserved
+- platform boundary: preferred future validation direction remains open/auditable backend such as Chrono or equivalent while black-box backends stay demonstration-only and repo-local current-sim stays diagnostic-only
+- rejected claims: no actual platform selection selection decision external install/import/runtime execution validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit.json`
+- next: `m2601-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-criteria-materialization-result-audit`
