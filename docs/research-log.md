@@ -49152,3 +49152,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2718
 - follow-up manifest: `experiments/manifests/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.json`
 - next: `m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight`
+
+## M2719 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Failure Taxonomy Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization_pass`
+- manifest: `experiments/manifests/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy_materialization.py`
+- summary: `runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json`
+- doc: `docs/m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight.md`
+- materialized rows: 48 taxonomy rows 6 aggregate rows 4 profile taxonomy context rows 9 anchor taxonomy context rows 8 actor joins 27 claim rows and 19 gate rows
+- taxonomy finding: 36 exact execution rows are classified as 31 off_track rows 2 obstacle_collision rows and 3 diagnostic_success rows; 12 protected proposal exclusions are classified separately as protected_excluded
+- interpretation boundary: profile context rows remain diagnostic non-ranking rows and cannot select a winner or support validation performance paper current-sim high-fidelity full ideal driver or self-ID claims
+- protected proposal boundary: 12 M2710 protected proposal exclusions remain not execution candidates not execution-admitted not run and outside success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2720 failure taxonomy result audit before any targeted repair design execution extension ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2719
+- follow-up manifest: `experiments/manifests/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.json`
+- next: `m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit`

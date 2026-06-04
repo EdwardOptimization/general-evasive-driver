@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
+m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis
+m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight
+m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit
 ```
 
 Current route:
@@ -79,6 +79,18 @@ failure rows, 3/36 diagnostic success rows, 2/36 obstacle collision rows, and
 Next is M2719 failure taxonomy materialization before any same-panel repeat,
 repair design, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
+
+M2719 materialized the no-rollout taxonomy. It wrote 48 taxonomy rows: 36 exact
+execution rows split into 31 off_track rows, 2 obstacle_collision rows, and 3
+diagnostic_success rows, plus 12 protected_excluded rows for M2710 proposal
+exclusions. It also wrote 6 aggregate rows, 4 profile context rows, 9 anchor
+context rows, 8 actor joins, 27 claim rows, and 19 gate rows, all passing. The
+profile context remains diagnostic and non-ranking; protected exclusions remain
+not run and outside denominators.
+
+Next is M2720 result audit before any targeted repair design, execution
+extension, validation, ranking, performance, paper, current-sim, high-fidelity,
+full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

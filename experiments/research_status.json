@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2724,
+        "completed": 2725,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis.md",
+        "command_log": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json",
         "returncode": 0,
-        "run_dir": "docs",
+        "run_dir": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy",
         "status": "completed",
-        "task_id": "m2718-engineering-controller-route-a-current-m1690-exact-executable-reentry-branch-synthesis"
+        "task_id": "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Materialize a no-rollout row-level failure taxonomy over M2716 exact executable reentry diagnostics before any same-panel repeat repair design or profile interpretation.",
-        "id": "m2719-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-preflight",
-        "kind": "infrastructure",
-        "notes": "Pending: materialize taxonomy from M2716 36 exact execution rows 31 off_track 2 obstacle_collision 3 diagnostic success and 12 protected exclusions not run; preserve profile non-ranking actor 72/action 3 labels actor-invisible no execution validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27140,
+        "hypothesis": "Audit M2719 failure taxonomy artifacts before any targeted repair design execution extension ranking validation or performance interpretation.",
+        "id": "m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit",
+        "kind": "gate",
+        "notes": "Pending: audit M2719 status_pass true 48 taxonomy rows covering 36 exact execution rows and 12 protected exclusions 31 off_track 2 obstacle_collision 3 diagnostic success 6 aggregates 4 profile contexts 9 anchor contexts 19 gate rows all pass profile rows non-ranking actor 72/action 3 labels actor-invisible no execution validation ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27150,
         "status": "pending",
-        "success_artifact": "runs/m2719_engineering_controller_route_a_current_m1690_exact_executable_reentry_failure_taxonomy/summary.json"
+        "success_artifact": "docs/m2720-engineering-controller-route-a-current-m1690-exact-executable-reentry-failure-taxonomy-materialization-result-audit.md"
     },
-    "updated_at_utc": "20260604T223208Z"
+    "updated_at_utc": "20260604T224733Z"
 }
