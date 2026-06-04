@@ -47988,3 +47988,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.json`
 - next: `m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit`
+
+## M2658 Engineering Controller Route A Source-Only Target/Protected Tradeoff Report Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2657_route_to_route_a_baseline_evidence_index_refresh`
+- manifest: `experiments/manifests/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.json`
+- audit doc: `docs/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.md`
+- parent summary: `runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json`
+- parent report artifacts: 4 scenario-role metric rows, 9 target/protected tradeoff rows, 8 protected regression focus rows, and 8 report gate rows
+- accepted status: M2657 `status_pass` true with `source_artifacts_reanalyzed_only` true and `new_repair_training_or_rollout_run` false
+- target/protected split: target roles `stable_avoidable`, `stable_aes`, and `drift_required_recovery` remain separate from protected role `unavoidable_mitigation`
+- protected failure preserved: M2655 target preservation gates pass but protected severity, obstacle-penetration, and clearance gates fail; target_and_protected_gates_all_passed remains false
+- protected localized row: `unavoidable_mitigation` seed `267101` fresh_fault_delay_noise remains blocking with likely driver `obstacle_penetration_proxy_worsened`
+- selected M2655 candidate status: `m2655_softened_gap_bias` is diagnostic trace only and not a winner or promoted checkpoint
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: M2657 is accepted as Route A baseline-index input only
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight.json`
+- next: `m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight`

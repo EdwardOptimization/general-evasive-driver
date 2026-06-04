@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2663,
+    "completed": 2664,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight",
+    "task_id": "m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report",
-    "command_log": "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit",
-    "kind": "gate",
-    "priority": 26530,
+    "id": "m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26540,
     "status": "pending",
-    "hypothesis": "A bounded result audit can accept or reject the M2657 target protected tradeoff report before Route A baseline evidence index refresh or another synthesis decision.",
-    "command": "true",
-    "success_artifact": "docs/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.md",
-    "notes": "Pending: audit M2657 report artifacts target protected split M2655 target pass protected fail preservation actor contract 72/3 no hidden oracle and no repair training rollout ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
+    "hypothesis": "Refreshing the Route A baseline evidence index after M2657 and M2658 can make the branch's current target/protected evidence state explicit before any further repair or route decision.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh --output-dir runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh",
+    "success_artifact": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json",
+    "notes": "Pending: materialize refreshed Route A baseline evidence index including M2657 target protected report and M2658 audit while preserving protected mitigation failure as blocking no repair training rollout ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
   },
-  "updated_at_utc": "20260604T102451Z"
+  "updated_at_utc": "20260604T103038Z"
 }

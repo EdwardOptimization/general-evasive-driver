@@ -1,0 +1,265 @@
+{
+  "id": "m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.md",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/scenario_role_metric_report.csv",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/target_protected_tradeoff_rows.csv",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/protected_regression_focus_rows.csv",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/report_gate_evaluation.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.json",
+      "experiments/manifests/m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight.json",
+      "experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json",
+      "experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "refresh the Route A baseline evidence index after the M2657 target/protected tradeoff report and M2658 audit accept it as non-repair baseline-index input"
+    ],
+    "derived_from": [
+      "m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit",
+      "m2657-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-preflight",
+      "m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis",
+      "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
+      "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2639 baseline evidence index predates M2657 target/protected tradeoff report",
+      "Route A needs one consolidated evidence index before another repair, synthesis, or baseline-readiness decision",
+      "protected mitigation failure must stay visible as a blocking index entry"
+    ],
+    "supersedes": [
+      "using the older M2639 evidence index as current after M2657",
+      "launching another same-row repair attempt before indexing the non-repair evidence",
+      "treating target improvements as a baseline readiness or driver-performance claim"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight.md",
+  "public_gates": [
+    "M2659 must consume existing M2639 M2641 M2644 M2648 M2655 M2656 M2657 and M2658 artifacts only",
+    "M2659 must write a refreshed evidence index summary plus CSV rows for evidence index gap matrix claim boundaries and next-action admission",
+    "M2659 must keep target improvement evidence separate from protected mitigation blocker evidence",
+    "M2659 must record M2655 target preservation pass and protected component failure without selecting a winner or promoting a checkpoint",
+    "M2659 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target objective gate or route-decision labels",
+    "M2659 must register one bounded follow-up baseline evidence index result audit synthesis stop or new evidence route manifest",
+    "M2659 must not execute repair training reset rollout replay validation PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2659 must not claim driver performance repair success paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not treat M2655 selected diagnostic candidate as a winner",
+    "do not weaken protected mitigation gates",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from an evidence index"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_evidence_index_refresh_after_target_protected_report",
+    "evidence_axis": "route_a_baseline_evidence_index_refresh",
+    "evidence_increment": "refreshes the Route A baseline evidence index after the target/protected report so later decisions do not rely on stale pre-M2657 evidence",
+    "claim_scope": "Route A baseline evidence index refresh only; no repair execution training reset rollout replay validation ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if source artifacts are missing or inconsistent",
+      "stop if target and protected evidence cannot be indexed separately",
+      "stop if the refreshed index would collapse protected mitigation failure into an ordinary success denominator",
+      "stop if the refreshed index would select a winner promote a checkpoint or claim driver performance"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if any required parent evidence is missing",
+      "route to schema repair if index rows cannot preserve target/protected split",
+      "route to result audit if the refreshed index materializes cleanly",
+      "route to branch synthesis or stop if no non-overfit next evidence route is available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2658 accepts M2657 as baseline-index input after the repair branch pivot",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A baseline evidence index refresh after target/protected report materialization",
+    "admission_evidence": [
+      "M2658 accepts M2657 target/protected tradeoff report as baseline-index input only",
+      "M2657 provides target/protected rows that separate target improvements from protected mitigation failure",
+      "M2639 baseline evidence index predates this target/protected report and must be refreshed before another route decision"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from evidence index refresh"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh.py",
+      "tests/test_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh.py",
+      "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json",
+      "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/evidence_index.csv",
+      "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/gap_matrix.csv",
+      "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/claim_boundary_rows.csv",
+      "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/next_action_admission.csv",
+      "docs/m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight.md",
+      "M2659 status queue scoreboard research log and review",
+      "one follow-up baseline evidence index result audit synthesis stop or new evidence route manifest"
+    ],
+    "next_stage_criteria": [
+      "summary and refreshed evidence index artifacts exist",
+      "M2657 target/protected report is indexed",
+      "protected mitigation failure remains blocking",
+      "actor contract and no-oracle boundaries are preserved",
+      "follow-up route is registered without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2659 indexes Route A engineering evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2659; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2658 target/protected tradeoff report audit.",
+    "negative_result_policy": "If the refreshed index confirms target gains with protected mitigation failure, keep the negative result blocking and route to audit or synthesis rather than weakening protected gates.",
+    "allowed_claims": [
+      "Route A baseline evidence index refresh after target/protected report materialization",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "consolidates post-pivot target/protected evidence into a refreshed baseline index instead of another same-row repair loop",
+    "paper_verdict_delta": "no paper verdict but reduces stale-evidence risk before Route A can choose another evidence route",
+    "must_synthesize_if": [
+      "M2659 cannot preserve target/protected split in the refreshed index",
+      "M2659 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2659 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-row repair attempt is proposed without a new evidence axis"
+    ]
+  },
+  "hypothesis": "Refreshing the Route A baseline evidence index after M2657 and M2658 can make the branch's current target/protected evidence state explicit before any further repair or route decision.",
+  "success_criteria": [
+    "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json exists",
+    "refreshed evidence_index gap_matrix claim_boundary_rows and next_action_admission artifacts exist",
+    "summary records source_artifacts_reanalyzed_only true and new_repair_training_or_rollout_run false",
+    "index records M2657 target/protected report and M2658 audit",
+    "index keeps target improvements separate from protected mitigation failure",
+    "index preserves actor contract P0 observation 72 action 3 and no hidden/oracle actor input",
+    "M2659 registers one bounded follow-up result audit synthesis stop or new evidence route manifest",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2659 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2659 changes actor input or action contract",
+    "M2659 exposes taxonomy labels repair target labels objective rows gate outcomes or route decisions to actor input",
+    "M2659 treats M2655 selected diagnostic candidate as a winner or promoted checkpoint",
+    "M2659 weakens protected mitigation gates or treats protected rows as success denominators",
+    "M2659 ranks controller families selects a winner promotes a checkpoint or computes success rate",
+    "M2659 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result",
+    "M2659 fails to register a bounded follow-up route or stop decision"
+  ],
+  "commands": [
+    {
+      "name": "materialize_evidence_index_refresh",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh --output-dir runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/evidence_index.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/gap_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/next_action_admission.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2658-engineering-controller-route-a-baseline-source-only-target-protected-tradeoff-report-materialization-result-audit.md",
+    "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json",
+    "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/scenario_role_metric_report.csv",
+    "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/target_protected_tradeoff_rows.csv",
+    "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/protected_regression_focus_rows.csv",
+    "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/report_gate_evaluation.csv",
+    "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+    "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json"
+  ],
+  "decision_rule": "Pass only if M2659 materializes a refreshed Route A evidence index that includes M2657/M2658, preserves target/protected separation and protected failure blocking, and registers a bounded follow-up without ranking validation training promotion performance paper high-fidelity or self-ID claims."
+}
