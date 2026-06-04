@@ -48007,3 +48007,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight.json`
 - next: `m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight`
+
+## M2659 Engineering Controller Route A Baseline Evidence Index After Target/Protected Report Refresh Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh_pass`
+- manifest: `experiments/manifests/m2659-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh.py`
+- focused tests: `tests/test_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh.py`
+- summary: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/summary.json`
+- evidence index: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/evidence_index.csv`
+- gap matrix: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/gap_matrix.csv`
+- claim boundary rows: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/claim_boundary_rows.csv`
+- next-action admission: `runs/m2659_engineering_controller_route_a_baseline_evidence_index_after_target_protected_report_refresh/next_action_admission.csv`
+- materialized rows: 12 evidence rows, 6 gap rows, 16 claim-boundary rows, and 5 next-action rows
+- indexed evidence: M2639 prior index, M2641 source-only panel, M2644 taxonomy, M2648 target-pass/protected-fail repair evidence, M2655 target-preserving/protected-fail repair evidence, M2656 pivot, M2657 target/protected report, and M2658 audit
+- target/protected split: target improvement rows are indexed separately from protected mitigation blocker rows
+- protected blocker: failed protected gates `severity_proxy_non_regression`, `obstacle_penetration_non_regression`, and `minimum_obstacle_clearance_preservation` remain blocking
+- selected M2655 candidate status: `m2655_softened_gap_bias` remains diagnostic trace only and not a winner or promoted checkpoint
+- next-action admission: only `m2660_route_a_baseline_evidence_index_refresh_result_audit` is admitted
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: refreshed Route A baseline evidence index includes M2657/M2658 and is ready for result audit
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.json`
+- next: `m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit`
