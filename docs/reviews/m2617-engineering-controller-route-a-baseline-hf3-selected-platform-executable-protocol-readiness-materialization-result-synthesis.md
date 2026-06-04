@@ -1,0 +1,125 @@
+# m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T035830Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_hf3_selected_platform_reset_feasibility_readiness_design
+- Decision reason: M2617 synthesis decision continue to HF3 selected-platform reset-feasibility readiness design accepts M2615/M2616 executable-protocol readiness evidence only 4 source/dependency review rows 4 build/probe plan rows 2 reset/step API rows 2 actor extractor rows 2 action mapping rows 2 scenario-role rows 3 result export/replay rows 2 validation-admission prerequisite rows 2 actor/action rows 28 claim rows 14 gates pass no source build adapter probe reset step rollout replay validation readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Hypothesis
+
+A bounded synthesis can convert accepted HF3 selected-platform executable-protocol readiness materialization evidence into a clear reset-feasibility readiness design or repair route decision without claiming dependency execution readiness source build adapter probe reset execution validation protocol readiness validation admission validation result driver performance paper evidence finite-window-vs-GRU or self-ID.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/summary.json, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_source_dependency_review_admission_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_build_probe_plan_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_reset_step_api_readiness_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_actor_extractor_parity_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_action_mapping_parity_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_scenario_role_binding_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_result_export_replay_readiness_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_validation_admission_prerequisite_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_actor_action_guard_rows.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_claim_boundary_checks.csv, runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/selected_platform_executable_protocol_readiness_gate_matrix.csv, docs/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.md, docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md, docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.json, experiments/manifests/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.json, experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json
+- parent_objective: synthesize accepted M2615/M2616 HF3 selected-platform executable-protocol readiness materialization evidence before choosing reset-feasibility readiness design repair pivot or stop
+- derived_from: m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit, m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight, m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design, m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis, m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit
+- blocked_by: M2616 accepts M2615 as bounded selected-platform executable-protocol readiness materialization evidence but rejects dependency execution readiness validation protocol readiness validation admission readiness result and driver-performance claims, M2615 materialized source/dependency review build/probe reset/step actor extractor action mapping scenario-role result export/replay validation-admission actor/action guard claim-boundary and gate rows for chrono_vehicle_or_equivalent_open_backend, Route C requires synthesis before any reset-feasibility design or external validation execution route is selected
+- supersedes: starting reset feasibility source build adapter probe or external validation directly from M2615 rows without synthesis, claiming validation readiness from selected-platform executable-protocol readiness materialization alone, running external high-fidelity validation before reset-feasibility readiness design and audit, continuing HF3 infrastructure without a concrete synthesis decision
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis separates selected-platform executable-protocol readiness materialization evidence from dependency execution readiness source build adapter probe reset execution validation protocol readiness validation admission validation readiness validation result driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims
+- synthesis registers selected-platform reset-feasibility readiness design artifact repair contract repair platform-schema repair branch synthesis pivot or stop without validation or performance claims
+- no external high-fidelity simulation install import execution source build adapter probe reset policy action rollout validation training ranking winner success-rate or verdict claim is made
+
+## Failure Criteria
+
+- M2617 installs imports or runs Chrono or another external simulator
+- M2617 changes actor input or action contract
+- M2617 injects hidden or oracle actor features
+- M2617 mutates dependencies executes source build or runs adapter probe
+- M2617 executes reset policy action rollout validation or environment step
+- M2617 starts training
+- M2617 treats selected-platform executable-protocol readiness synthesis as driver performance
+- M2617 ranks controller families or selects a winner
+- M2617 claims dependency execution readiness validation protocol readiness validation admission validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2617 must synthesize M2615 and M2616 HF3 selected-platform executable-protocol readiness materialization evidence before any reset-feasibility or validation-admission route
+- M2617 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2617 must separate accepted selected-platform executable-protocol readiness materialization evidence from dependency execution readiness source build adapter probe reset execution rollout execution validation protocol readiness validation admission validation readiness validation result HF4 answers driver-performance controller ranking paper finite-window-vs-GRU current-sim and self-ID claims
+- M2617 must decide whether the next step is selected-platform reset-feasibility readiness design artifact repair contract repair platform-schema repair branch synthesis pivot or stop
+- M2617 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode
+- M2617 must not run source builds adapter probes resets policy actions steps rollouts train replay PPO install import or run external simulators rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build in the synthesis milestone
+- do not execute adapter probe in the synthesis milestone
+- do not mutate selected-platform dependencies
+- do not execute reset in the synthesis milestone
+- do not execute policy actions in the synthesis milestone
+- do not step environments in the synthesis milestone
+- do not execute rollout in the synthesis milestone
+- do not execute validation in the synthesis milestone
+- do not train in the synthesis milestone
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input
+- do not silently upgrade selected-platform executable-protocol rows to reset-feasible validation-ready rows
+- do not make a dependency execution readiness decision
+- do not make a validation protocol readiness decision
+- do not grant validation admission
+- do not answer HF4 discrepancy questions
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim rollout success
+- do not claim validation protocol readiness
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from selected-platform executable-protocol readiness synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis
+- type: gate
+- checkpoint: docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_hf3_selected_platform_reset_feasibility_readiness_design
+- reason: M2617 synthesis decision continue to HF3 selected-platform reset-feasibility readiness design accepts M2615/M2616 executable-protocol readiness evidence only 4 source/dependency review rows 4 build/probe plan rows 2 reset/step API rows 2 actor extractor rows 2 action mapping rows 2 scenario-role rows 3 result export/replay rows 2 validation-admission prerequisite rows 2 actor/action rows 28 claim rows 14 gates pass no source build adapter probe reset step rollout replay validation readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim
+
+## Next Blocker
+
+m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2622,
+    "completed": 2623,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit",
+    "task_id": "m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md",
-    "command_log": "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md"
+    "run_dir": "docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md",
+    "command_log": "docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 26120,
+    "id": "m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design",
+    "kind": "infrastructure",
+    "priority": 26130,
     "status": "pending",
-    "hypothesis": "Synthesize accepted selected-platform executable-protocol readiness materialization evidence before choosing reset-feasibility readiness design repair pivot or stop.",
-    "command": "see experiments/manifests/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.json",
-    "success_artifact": "docs/m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize M2615/M2616 executable-protocol readiness evidence while keeping source build adapter probe reset step rollout replay validation execution validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Design bounded selected-platform reset-feasibility readiness artifacts after accepted executable-protocol readiness synthesis.",
+    "command": "see experiments/manifests/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.json",
+    "success_artifact": "docs/m2618-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-design.md",
+    "notes": "Pending: design selected-platform reset-feasibility readiness rows while keeping source build adapter probe reset step rollout replay validation execution validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T034952Z"
+  "updated_at_utc": "20260604T035521Z"
 }
