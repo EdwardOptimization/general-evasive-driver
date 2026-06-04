@@ -48807,3 +48807,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2699
 - follow-up manifest: `experiments/manifests/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.json`
 - next: `m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight`
+
+## M2700 Engineering Controller Protected Runner Adapter Contract Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_protected_runner_adapter_contract_materialization_pass`
+- manifest: `experiments/manifests/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_protected_runner_adapter_contract_materialization.py`
+- focused tests: `tests/test_engineering_controller_protected_runner_adapter_contract_materialization.py`
+- summary: `runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json`
+- doc: `docs/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.md`
+- materialized rows: 11 input source rows 12 adapter candidate mapping rows 0 adapter rejection rows 160 adapter traceability rows 11 actor-contract guard rows 33 claim-boundary rows and 19 gate rows
+- adapter finding: maps 12/12 M2697 protected workload candidates as `adapter_contract_materialized_not_execution_admitted` and admits 0 execution rows
+- traceability finding: 10/10 protected targets remain accounted by adapter traceability rows with no dropped protected target
+- M1690 boundary: preserves 0 exact M1690 workload matches and keeps 12 protected candidates outside the current executable workload matrix
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2701 protected runner adapter contract materialization result audit before any protected execution admission or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2700
+- follow-up manifest: `experiments/manifests/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.json`
+- next: `m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit`
