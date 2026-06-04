@@ -1,0 +1,125 @@
+# m2589-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T000507Z
+- Type: gate
+- Gate tier: infrastructure
+- Promotion decision: accept_hf3_source_only_adapter_readiness_blocker_materialization_route_to_result_synthesis
+- Decision reason: M2589 accepts M2588 HF3 source-only adapter blocker materialization status_pass true 4 external-state rows 4 time-step/actuator latency rows 4 failure/status taxonomy rows 4 fixture rows 4 actor-visibility rows 15 claim rows 11 gates pass no blocker closure platform selection validation protocol readiness validation admission validation execution ranking driver performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2588 HF3 source-only adapter readiness blocker materialization while preserving actor contract integrity blocker-status honesty platform-selection honesty and no validation ranking or performance boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt, runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt, runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/summary.json, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_external_state_extraction_boundary_rows.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_time_step_actuator_latency_contract_rows.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_failure_status_taxonomy_mapping_rows.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_source_only_fixture_smoke_lineage_rows.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_source_only_adapter_actor_visibility_guard_rows.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/hf3_source_only_adapter_claim_boundary_checks.csv, runs/m2588_engineering_controller_route_a_hf3_source_only_adapter_readiness_blocker/source_only_adapter_readiness_blocker_gate_matrix.csv, docs/m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight.md, docs/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.md, docs/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.md, runs/m2584_engineering_controller_route_a_hf3_validation_platform_protocol_readiness/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight.json, experiments/manifests/m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design.json, experiments/manifests/m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis.json
+- parent_objective: audit the M2588 Route A HF3 source-only adapter readiness blocker materialization before blocker closure validation readiness result or performance interpretation
+- derived_from: m2588-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-preflight, m2587-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-design, m2586-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-result-synthesis, m2584-engineering-controller-route-a-baseline-hf3-validation-platform-protocol-readiness-materialization-preflight
+- blocked_by: M2588 materialized source-only adapter readiness blocker definition artifacts that must be audited before interpretation, M2588 supports only blocker design materialization and rejects blocker closure validation protocol readiness validation admission readiness/result ranking and driver-performance claims, Route C requires audited source-only adapter blocker boundaries before any platform selection external validation execution or HF4 discrepancy result
+- supersedes: interpreting M2588 blocker definition rows as blocker closure, claiming validation readiness or driver performance from M2588 artifacts, starting external high-fidelity validation before M2588 blocker evidence is audited, silently selecting a validation platform from source-only blocker rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2589-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-audit.md exists
+- audit verifies M2588 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- audit verifies M2588 external-state timing failure/status fixture actor-visibility claim-boundary and gate artifacts exist
+- audit verifies four external-state rows four timing rows four failure/status rows four fixture rows four actor-visibility rows fifteen claim rows and eleven gates pass
+- audit verifies M2588 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input
+- audit verifies M2588 made no blocker closure platform selection validation protocol readiness validation admission validation execution external simulation training replay PPO ranking winner success-rate promotion validation result driver-performance or verdict claim
+- audit registers result synthesis blocker-closure design artifact repair contract repair blocker-schema repair or branch synthesis without blocker closure validation readiness result or performance claims
+
+## Failure Criteria
+
+- M2589 installs imports or runs Chrono or another external simulator
+- M2589 changes actor input or action contract
+- M2589 injects hidden or oracle actor features
+- M2589 steps an environment runs policy action or executes rollout
+- M2589 starts training
+- M2589 treats M2588 blocker rows as driver performance
+- M2589 ranks controller families or selects a winner
+- M2589 computes success rate or promotes a checkpoint
+- M2589 claims blocker closure platform selection validation protocol readiness validation admission readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result
+
+## Evidence Gates
+
+- M2589 must audit M2588 summary external-state extraction boundary time-step/actuator latency failure/status taxonomy source-only fixture smoke lineage actor-visibility guard claim-boundary and gate matrix artifacts
+- M2589 must verify M2588 status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true
+- M2589 must verify four external-state rows four timing rows four failure/status taxonomy rows four fixture lineage rows four actor-visibility rows fifteen claim-boundary rows and eleven gates pass
+- M2589 must verify every blocker row defines blocker_contract_defined_in_m2588 true while keeping readiness_satisfied_in_m2588 false and external_validation_execution_allowed_in_m2588 false
+- M2589 must verify M2588 preserved P0 observation shape 72 action shape 3 no hidden or oracle actor input and no actor-visible diagnostics labels backend status reset outcome rollout outcome validation outcome platform selection or protocol status
+- M2589 must verify M2588 did not close blockers select a platform install import run external simulation execute reset/action/step/rollout/validation train replay PPO rank controllers select winners promote checkpoints compute success rates or claim driver performance
+- M2589 must register result synthesis artifact repair contract repair blocker-schema repair branch synthesis pivot or stop as the next route without blocker closure platform selection validation protocol readiness validation admission readiness result or performance claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute reset in the audit
+- do not execute policy actions in the audit
+- do not step environments in the audit
+- do not execute rollout in the audit
+- do not execute validation in the audit
+- do not train in the audit
+- do not run replay
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection or protocol status to actor input
+- do not silently upgrade blocker definition rows to blocker-closed validation-ready rows
+- do not select a validation platform
+- do not answer HF4 discrepancy questions
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim rollout success
+- do not claim source-only adapter blockers closed
+- do not claim validation admission
+- do not claim validation protocol readiness
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2588 artifacts
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m2589-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2589-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_hf3_source_only_adapter_readiness_blocker_materialization_route_to_result_synthesis
+- reason: M2589 accepts M2588 HF3 source-only adapter blocker materialization status_pass true 4 external-state rows 4 time-step/actuator latency rows 4 failure/status taxonomy rows 4 fixture rows 4 actor-visibility rows 15 claim rows 11 gates pass no blocker closure platform selection validation protocol readiness validation admission validation execution ranking driver performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis
+
+## Next Blocker
+
+m2590-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-materialization-result-synthesis
