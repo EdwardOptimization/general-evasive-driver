@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2646,
+    "completed": 2647,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
+    "task_id": "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md"
+    "run_dir": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "command_log": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json"
   },
   "next_task": {
-    "id": "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "priority": 26360,
+    "id": "m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit",
+    "kind": "gate",
+    "priority": 26370,
     "status": "pending",
-    "hypothesis": "Materialize the bounded source-only fresh generalization panel designed by M2640.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_fresh_generalization_panel",
-    "success_artifact": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
-    "notes": "Pending: produce measured source-only rows across fresh role seed and dynamics-axis variation without ranking validation or performance claims"
+    "hypothesis": "Audit the M2641 source-only fresh generalization panel materialization before repair ranking promotion validation or performance interpretation.",
+    "command": "true",
+    "success_artifact": "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+    "notes": "Pending: accept or reject M2641 materialized source-only diagnostic panel rows without ranking validation promotion success-rate or driver-performance claims"
   },
-  "updated_at_utc": "20260604T072315Z"
+  "updated_at_utc": "20260604T073819Z"
 }

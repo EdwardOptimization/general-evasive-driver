@@ -47643,3 +47643,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no policy execution environment step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json`
 - next: `m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight`
+
+## M2641 Engineering Controller Route A Baseline Source-Only Fresh Generalization Panel Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_fresh_generalization_panel_preflight_pass`
+- manifest: `experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_fresh_generalization_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_fresh_generalization_panel.py`
+- summary: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json`
+- seed panel spec: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/seed_panel_spec.csv`
+- subject registry: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/subject_registry.csv`
+- dynamics axis rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/dynamics_axis_rows.csv`
+- actor visibility guard rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/actor_visibility_guard_rows.csv`
+- telemetry rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/telemetry_rows.csv`
+- measured behavior rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv`
+- measured event rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_event_rows.csv`
+- metric completeness rows: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/metric_completeness_rows.csv`
+- gate matrix: `runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv`
+- materialized panel: 4 role families stable_avoidable stable_aes drift_required_recovery unavoidable_mitigation with 4 fresh seeds per role 2 dynamics axes 5 subjects and 80 horizon steps
+- materialized counts: 32 seed/axis rows 32 dynamics-axis rows 19 actor visibility guard rows 160 measured behavior rows 160 measured event rows 40 metric completeness rows 12800 telemetry rows and 19 gates all pass
+- actor/action boundary: P0 observation 72 action 3 preserved with no hidden/oracle actor input; role seed fixture dynamics-axis source dependency route decision reset rollout outcome and verdict labels remain diagnostic-only and actor-invisible
+- dynamics-axis boundary: source-only fault scales are applied through the local four-wheel backend for `fresh_fault_delay_noise`; actuator delay and sensor-noise fields are diagnostic metadata and actor-visibility guard targets only, not validated high-fidelity delay/noise physics
+- supported operational claims: Route A source-only fresh generalization panel materialized as diagnostic evidence for audit
+- rejected claims: no external high-fidelity simulation source build adapter probe replay validation training PPO ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.json`
+- next: `m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit`

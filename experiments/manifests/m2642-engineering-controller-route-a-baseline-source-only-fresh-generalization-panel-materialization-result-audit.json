@@ -1,0 +1,244 @@
+{
+  "id": "m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/seed_panel_spec.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/subject_registry.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/dynamics_axis_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/actor_visibility_guard_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/telemetry_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_event_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/metric_completeness_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+      "docs/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.md",
+      "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json",
+      "experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json",
+      "experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "audit the M2641 source-only fresh generalization panel materialization before repair ranking promotion validation or performance interpretation"
+    ],
+    "derived_from": [
+      "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight",
+      "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
+      "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2641 materialized source-only diagnostic rows that require audit before any ranking repair promotion or validation interpretation",
+      "HF3 selected-platform execution remains paused until source dependency is supplied",
+      "Route A must keep source-only fresh panel evidence separate from driver-performance paper current-sim high-fidelity validation and self-ID claims"
+    ],
+    "supersedes": [
+      "interpreting M2641 source-only diagnostic rows as controller-family ranking or winner selection",
+      "starting repair or PPO from M2641 rows without result audit",
+      "claiming driver performance or validation readiness from source-only materialization alone"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+  "public_gates": [
+    "M2642 must audit M2641 summary seed panel subject registry dynamics axis actor visibility telemetry measured behavior measured event metric completeness gate matrix and milestone doc artifacts",
+    "M2642 must verify M2641 status_pass true result_class engineering_controller_route_a_source_only_fresh_generalization_panel_preflight_pass",
+    "M2642 must verify 4 role families 4 fresh seeds per role 2 dynamics axes 5 subjects 160 behavior rows 160 event rows 12800 telemetry rows 32 seed/axis rows 19 actor visibility guard rows 40 metric completeness rows and 19 gates",
+    "M2642 must verify P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and all actor visibility guard rows pass",
+    "M2642 must preserve the M2641 claim boundary that source-only fault scales are applied through the local backend while delay/noise fields are diagnostic metadata and actor-visibility guard targets only",
+    "M2642 must verify M2641 did not execute external high-fidelity simulation source build adapter probe replay validation training PPO ranking winner selection promotion success-rate verdict computation or driver-performance claims",
+    "M2642 must register result synthesis repair pivot or stop without validation performance paper finite-window-vs-GRU current-sim high-fidelity or self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a high-fidelity backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose mu mass tire stiffness brake scale actuator tau slip tire force oracle feasibility AEB AES drift labels controller mode speed_ref beta_target path error heading error path curvature TTC required clearance oracle stopping distance success labels source dependency status build outcomes probe outcomes reset outcomes rollout outcomes validation outcomes or route decisions to actor input",
+    "do not silently treat delay/noise diagnostic metadata as validated physical delay/noise simulation",
+    "do not claim dependency execution readiness",
+    "do not claim source build success",
+    "do not claim adapter probe success",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not claim validation protocol readiness",
+    "do not grant validation admission",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only diagnostic panel rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "evidence_axis": "source_only_fresh_generalization_panel_materialization_result_audit",
+    "evidence_increment": "audits the new measured source-only diagnostic panel rows across fresh role seed and dynamics-axis variation before any repair ranking promotion or validation interpretation",
+    "claim_scope": "Route A source-only fresh generalization panel result audit only; no ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2641 artifacts are missing or inconsistent",
+      "stop if M2641 actor visibility guard rows fail or hidden dynamics route metadata enters actor input",
+      "stop if the audit would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "stop if M2641 delay/noise diagnostic metadata is interpreted as validated high-fidelity delay/noise physics"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2641 required artifacts are incomplete",
+      "route to contract repair if P0 72/3 or actor visibility guard rows fail",
+      "route to result synthesis if M2641 materialization is accepted without ranking or verdict claims",
+      "route to branch synthesis or stop if source-only materialization evidence cannot support a bounded next action"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2641 materialized the source-only fresh generalization panel and now requires audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only fresh generalization panel materialization result audit",
+    "admission_evidence": [
+      "M2641 summary reports status_pass true result_class engineering_controller_route_a_source_only_fresh_generalization_panel_preflight_pass",
+      "M2641 produced 160 measured behavior rows 160 measured event rows and 12800 telemetry rows across four roles four seeds two dynamics axes and five subjects",
+      "M2641 preserved P0 actor observation 72 action 3 and no hidden/oracle actor inputs",
+      "M2641 gate matrix and actor visibility guard rows pass without ranking validation promotion or performance claims"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external source fetch",
+      "no external high-fidelity simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build or adapter probe",
+      "no high-fidelity backend start",
+      "no replay execution",
+      "no validation execution",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from source-only diagnostic rows"
+    ],
+    "allowed_updates": [
+      "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+      "M2642 status queue scoreboard research log and review",
+      "one follow-up result synthesis repair pivot or stop manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2641 materialization artifacts are accepted or rejected explicitly",
+      "actor visibility guard gate matrix metric completeness and claim-boundary evidence are checked",
+      "follow-up route is registered without ranking validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2642 audits engineering source-only diagnostic rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2642; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2641 source-only fresh generalization panel materialization.",
+    "negative_result_policy": "If M2641 rows are incomplete or behavior is poor, route to audit synthesis or repair design rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A source-only fresh generalization panel materialization result audit",
+      "source-only diagnostic measured rows accepted or rejected for Route A planning",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits a newly materialized measured source-only panel rather than extending static design artifacts",
+    "paper_verdict_delta": "no paper verdict but prevents fresh engineering diagnostic evidence from being overclaimed before synthesis or repair decisions",
+    "must_synthesize_if": [
+      "M2642 accepts M2641 and the next proposed action is another static Route A design without new evidence or synthesis",
+      "M2642 would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "M2641 materialization fails and the same source-only panel blocker recurs three times",
+      "M2642 cannot identify result synthesis repair pivot or stop after audit"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject the M2641 source-only fresh generalization panel while preserving actor contract integrity and avoiding ranking validation or performance overclaims.",
+  "success_criteria": [
+    "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md exists",
+    "audit verifies M2641 summary status_pass true and result_class engineering_controller_route_a_source_only_fresh_generalization_panel_preflight_pass",
+    "audit verifies M2641 required artifacts exist including seed panel subject registry dynamics axis actor visibility guard telemetry measured behavior measured event metric completeness gate matrix summary and milestone doc",
+    "audit verifies 4 role families 4 fresh seeds per role 2 dynamics axes 5 subjects 160 behavior rows and 12800 telemetry rows",
+    "audit verifies P0 observation shape 72 action shape 3 no hidden/oracle actor input actor visibility guard rows pass and all actions finite within bounds",
+    "audit verifies no external simulation source build adapter probe replay validation training PPO ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made",
+    "audit registers result synthesis repair pivot or stop without ranking validation or performance claims"
+  ],
+  "failure_criteria": [
+    "M2642 imports or runs external high-fidelity simulation",
+    "M2642 executes source build adapter probe replay validation training PPO or repair",
+    "M2642 changes actor input or action contract",
+    "M2642 injects hidden or oracle actor features",
+    "M2642 exposes role labels hidden dynamics route decisions or diagnostic axes to actor input",
+    "M2642 treats diagnostic delay/noise metadata as validated high-fidelity delay/noise physics",
+    "M2642 ranks controller families selects a winner promotes a checkpoint or computes a success-rate verdict",
+    "M2642 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+    "docs/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.md",
+    "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2642 audits M2641 materialization artifacts and registers a bounded follow-up without ranking validation promotion performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims."
+}
