@@ -47072,3 +47072,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no actual platform selection selection decision selected platform validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.json`
 - next: `m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis`
+
+## M2606 Engineering Controller Route A Baseline HF3 After-Closure Platform Selection Decision Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_after_closure_platform_selection_decision_result_materialization_preflight`
+- manifest: `experiments/manifests/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2606-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-synthesis.md`
+- parent audit: `docs/m2605-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-materialization-result-audit.md`
+- accepted evidence: M2604/M2605 after-closure platform-selection decision-design materialization evidence with 2 decision request rows 8 evidence-admission rows 3 candidate-comparison rows 3 dependency guard rows 2 validation-role compatibility rows 2 actor/action guard rows 19 claim rows and 12 gates pass
+- supported operational claims: after-closure platform-selection decision-design artifacts materialized and audited without actor/action contract drift
+- rejected claims: no validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2603-M2606 are validation-layer process steps without new closed-loop driver behavior evidence
+- next route: bounded actual platform-selection decision result materialization only, not validation protocol readiness or validation execution
+- follow-up manifest: `experiments/manifests/m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight.json`
+- next: `m2607-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-preflight`
