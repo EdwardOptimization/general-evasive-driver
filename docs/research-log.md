@@ -48118,3 +48118,29 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight.json`
 - next: `m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight`
+
+## M2664 Engineering Controller Route A Protected Mitigation Fresh Panel Failure Taxonomy Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy_preflight_pass`
+- manifest: `experiments/manifests/m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight.json`
+- route plan: `docs/post-m2470-route-plan.md`
+- implementation: `src/autodrift/engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy.py`
+- focused tests: `tests/test_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy.py`
+- summary: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json`
+- subject taxonomy rows: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/subject_failure_taxonomy_rows.csv`
+- axis taxonomy rows: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/axis_failure_taxonomy_rows.csv`
+- metric taxonomy rows: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/metric_failure_taxonomy_rows.csv`
+- combined taxonomy rows: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/combined_failure_taxonomy_rows.csv`
+- claim boundary rows: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/claim_boundary_rows.csv`
+- gate matrix: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/gate_matrix.csv`
+- materialized rows: 3 subject rows, 3 axis rows, 3 metric rows, 9 combined rows, 16 claim-boundary rows, and 37 gate-matrix rows
+- protected blocker taxonomy: all 3 policy subjects block at least one protected claim row; close-cut-in and fault-delay-noise axes are saturated blockers, nominal is mixed blocking
+- metric taxonomy: obstacle penetration and minimum clearance are saturated blockers, severity remains mixed blocking
+- preserved blocker counts: 25 protected gate blocking rows and 79 regressed protected row counts
+- target/protected split: protected role `unavoidable_mitigation` remains outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: M2662 fresh protected mitigation panel failure taxonomy materialized for Route A result audit
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.json`
+- next: `m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit`

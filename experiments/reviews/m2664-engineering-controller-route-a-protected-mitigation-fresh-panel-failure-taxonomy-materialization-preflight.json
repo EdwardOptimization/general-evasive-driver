@@ -1,0 +1,140 @@
+{
+  "decision_reason": "M2664 materializes protected mitigation fresh-panel failure taxonomy per docs/post-m2470-route-plan.md status_pass true 3 subject rows 3 axis rows 3 metric rows 9 combined rows 16 claim rows 37 gates protected blocker preserved 25 blocking gate rows 79 regressed row count all policy subjects all axes and all metrics blocking target protected split preserved actor contract 72/3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim route to M2665 result audit",
+  "failure_criteria": [
+    "M2664 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2664 changes actor input or action contract",
+    "M2664 exposes taxonomy labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input",
+    "M2664 weakens protected mitigation gates or treats protected rows as success denominators",
+    "M2664 ranks controller families selects a winner promotes a checkpoint or computes success rate",
+    "M2664 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result",
+    "M2664 fails to register a bounded follow-up route or stop decision"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not weaken protected mitigation gates",
+    "do not open another same-row public repair loop",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from protected mitigation taxonomy"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260604T115556Z",
+  "hypothesis": "A structured failure taxonomy over M2662 fresh protected panel evidence can identify whether the protected mitigation blocker is subject-specific, axis-specific, metric-specific, or broad before any repair loop is reopened.",
+  "lineage": {
+    "blocked_by": [
+      "M2662 shows protected mitigation blocker is broader than one original protected public row",
+      "M2663 accepts M2662 as fresh protected-panel evidence but not as repair success or performance evidence",
+      "Route A needs a taxonomy of subject axis and metric failure structure before another repair or synthesis decision"
+    ],
+    "derived_from": [
+      "m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit",
+      "m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight",
+      "m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.json",
+      "experiments/manifests/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md",
+      "docs/post-m2470-route-plan.md",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/panel_spec_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/measured_behavior_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/protected_mitigation_gate_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/claim_boundary_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize a failure taxonomy from the accepted M2662 fresh protected mitigation panel before repair, synthesis, validation, ranking, or performance interpretation"
+    ],
+    "supersedes": [
+      "another same-row public repair candidate sweep",
+      "treating M2662 protected rows as ordinary success denominators",
+      "ranking or promoting checkpoints directly from M2662 panel rows"
+    ]
+  },
+  "milestone": "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "protected_mitigation_fresh_panel_failure_taxonomy_pass_route_to_result_audit",
+  "public_gates": [
+    "M2664 must consume M2662 summary panel_spec_rows measured_behavior_rows protected_mitigation_gate_rows claim_boundary_rows and gate_matrix artifacts only",
+    "M2664 must materialize subject axis metric and combined failure taxonomy rows for the fresh protected mitigation panel",
+    "M2664 must preserve target/protected split and keep protected rows outside success denominators",
+    "M2664 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target localization objective gate or route-decision labels",
+    "M2664 must register one bounded follow-up result audit synthesis stop or new evidence route manifest",
+    "M2664 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2664 must not claim driver performance repair success paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "protected_mitigation_fresh_panel_failure_taxonomy_pass_route_to_result_audit",
+    "milestone": "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight",
+    "reason": "M2664 materializes protected mitigation fresh-panel failure taxonomy per docs/post-m2470-route-plan.md status_pass true 3 subject rows 3 axis rows 3 metric rows 9 combined rows 16 claim rows 37 gates protected blocker preserved 25 blocking gate rows 79 regressed row count all policy subjects all axes and all metrics blocking target protected split preserved actor contract 72/3 no hidden oracle no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim route to M2665 result audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json exists",
+    "subject_failure_taxonomy_rows axis_failure_taxonomy_rows metric_failure_taxonomy_rows combined_failure_taxonomy_rows claim_boundary_rows and gate_matrix exist",
+    "summary records M2662 artifacts consumed as reanalysis input only",
+    "taxonomy preserves target/protected split and protected blocker semantics",
+    "taxonomy preserves actor contract P0 observation 72 action 3 and no hidden/oracle actor input",
+    "M2664 registers one bounded follow-up result audit synthesis stop or new evidence route manifest",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "type": "infrastructure"
+}
