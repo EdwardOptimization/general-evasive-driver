@@ -47133,3 +47133,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform dependency/protocol readiness design only, not dependency mutation validation protocol readiness or validation execution
 - follow-up manifest: `experiments/manifests/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.json`
 - next: `m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design`
+
+## M2610 Engineering Controller Route A Baseline HF3 Selected-Platform Dependency/Protocol Readiness Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_dependency_protocol_readiness_materialization_preflight`
+- manifest: `experiments/manifests/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.json`
+- design doc: `docs/m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design.md`
+- parent synthesis: `docs/m2609-engineering-controller-route-a-baseline-hf3-after-closure-platform-selection-decision-result-materialization-result-synthesis.md`
+- accepted evidence: M2607/M2608/M2609 selected-platform decision-result evidence selecting `chrono_vehicle_or_equivalent_open_backend` with no validation readiness/result or performance claims
+- designed artifacts: M2611 dependency inventory rows source/build/adapter probe readiness rows protocol skeleton rows validation-admission prerequisite rows actor/action guard rows claim-boundary rows and gate matrix
+- selected-platform boundary: selected platform family remains `chrono_vehicle_or_equivalent_open_backend`; dependency mutation external install/import/runtime execution validation protocol readiness validation admission validation execution validation result and driver-performance claims remain false
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status actor-visible
+- rejected claims: no dependency execution readiness validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight.json`
+- next: `m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight`
