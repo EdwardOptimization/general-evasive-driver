@@ -1,0 +1,259 @@
+{
+  "id": "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/baseline_checkpoint_list.csv",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/route_a_artifact_map.csv",
+      "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json",
+      "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/measured_behavior_rows.csv",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+      "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json",
+      "experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json",
+      "experiments/manifests/m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight.json",
+      "experiments/manifests/m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight.json",
+      "experiments/manifests/m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a current Route A baseline evidence index after HF3 selected-platform source dependency is paused"
+    ],
+    "derived_from": [
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
+      "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
+      "m2541-engineering-controller-route-a-baseline-and-interface-materialization-preflight",
+      "m2544-engineering-controller-route-a-baseline-source-only-execution-readiness-panel-preflight",
+      "m2548-engineering-controller-route-a-baseline-hf0-parity-and-runtime-materialization-preflight"
+    ],
+    "blocked_by": [
+      "HF3 selected-platform execution is paused until a source dependency is supplied",
+      "Route A evidence exists across baseline interface public pack source-only panel and HF0 runtime artifacts but needs a current admission index before selecting the next evidence-expanding action"
+    ],
+    "supersedes": [
+      "continuing HF3 selected-platform source-build adapter-probe static preparation while the source dependency is absent",
+      "choosing a new Route A execution or training action without a current evidence and gap index",
+      "ranking controller checkpoints from mixed diagnostic artifacts without an admission matrix"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md",
+  "public_gates": [
+    "M2639 must materialize a Route A evidence index from M2541 M2544 M2505 M2548 and M2635-M2638 artifacts",
+    "M2639 must record baseline checkpoint lineage actor contract public benchmark pack source-only panel runtime/HF0 parity evidence HF3 source blocker status and remaining gaps",
+    "M2639 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible metadata",
+    "M2639 must not execute training PPO external high-fidelity simulation source build adapter probe backend start reset validation replay or ranking",
+    "M2639 must not compute success-rate verdicts select a winner promote a checkpoint or claim driver performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID results",
+    "M2639 must choose a next admissible Route A action class or route to synthesis if the evidence index shows only static work remains"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes source dependency status build outcomes probe outcomes platform selection platform-selection criteria selected platform or protocol status to actor input",
+    "do not claim dependency execution readiness",
+    "do not claim source build success",
+    "do not claim adapter probe success",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not claim reset execution or reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not grant validation admission",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from an evidence index"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_evidence_index_refresh",
+    "evidence_axis": "route_a_current_evidence_gap_index",
+    "evidence_increment": "materializes a current evidence and gap index across Route A baseline interface public pack source-only panel runtime/HF0 parity and HF3 blocker artifacts before selecting the next evidence-expanding action",
+    "claim_scope": "Route A baseline evidence index refresh only; no new policy execution training reset validation ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if required M2541 M2544 M2505 M2548 or M2638 artifacts are missing",
+      "stop if the index would rank controllers select a winner or promote a checkpoint",
+      "stop if the index would claim driver performance validation readiness/result paper evidence self-ID current-sim or high-fidelity validation",
+      "stop if no next admissible evidence-expanding Route A action can be identified"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required source artifacts are incomplete",
+      "route to contract repair if the P0 72/3 actor/action boundary is inconsistent",
+      "route to branch synthesis if the index shows only static process work remains",
+      "route to a bounded source-only Route A panel or benchmark pack refresh if an evidence-expanding action is admitted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2638 pauses HF3 selected-platform execution and routes back to Route A evidence selection",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A baseline evidence index refresh materialization",
+    "admission_evidence": [
+      "M2638 pauses selected-platform HF3 execution until source dependency is supplied",
+      "M2541 materialized 3 admitted baseline checkpoint rows 9 Route A artifact map rows 2 failure taxonomy rows 7 scenario-role metric plan rows and 17 HF0 boundary rows",
+      "M2544 materialized a source-only readiness panel with 75 measured behavior rows and 7500 telemetry rows across three role families and five fresh seeds per role",
+      "M2505 materialized a public source-only diagnostic benchmark pack with 14 artifact rows and 10 required files",
+      "M2548 materialized HF0 P0 parity action-mapping and runtime evidence with 270 actor inference cost rows"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external source fetch",
+      "no external simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build or adapter probe",
+      "no backend start",
+      "no reset execution",
+      "no policy action",
+      "no environment stepping",
+      "no rollout execution",
+      "no replay execution",
+      "no validation execution",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from evidence indexing"
+    ],
+    "allowed_updates": [
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/evidence_index.csv",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/gap_matrix.csv",
+      "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/next_action_admission.csv",
+      "docs/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md",
+      "M2639 status queue scoreboard research log and review",
+      "one follow-up Route A evidence-expanding action or synthesis manifest"
+    ],
+    "next_stage_criteria": [
+      "evidence index exists",
+      "gap matrix exists",
+      "next action admission table exists",
+      "P0 72/3 actor/action boundary is preserved",
+      "next route is selected without ranking winner promotion validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2639 indexes Route A engineering evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2639; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2638 HF3 source dependency blocker handoff.",
+    "negative_result_policy": "If the index shows no evidence-expanding action is available route to synthesis rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A baseline evidence index refresh",
+      "current evidence and gap map for selecting a future action",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "builds a current Route A evidence and gap panel from existing admitted artifacts after HF3 source dependency blocker handoff",
+    "paper_verdict_delta": "no paper verdict but clarifies whether the next useful action should be source-only measured evidence benchmark refresh or synthesis",
+    "must_synthesize_if": [
+      "M2639 cannot identify a next admissible evidence-expanding Route A action",
+      "M2639 would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "M2639 would continue static indexing without selecting a measured evidence action or synthesis route",
+      "M2639 finds required Route A source artifacts missing or inconsistent"
+    ]
+  },
+  "hypothesis": "A current Route A evidence index can turn the HF3 source dependency handoff into an actionable next evidence path by summarizing admitted baseline assets gaps and next-action admission without claiming performance.",
+  "success_criteria": [
+    "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json exists",
+    "evidence_index.csv gap_matrix.csv and next_action_admission.csv exist",
+    "summary records M2541 M2544 M2505 M2548 and M2638 source artifacts",
+    "summary preserves P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "summary makes no ranking winner promotion success-rate verdict driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim",
+    "M2639 registers one follow-up Route A evidence-expanding action or synthesis manifest"
+  ],
+  "failure_criteria": [
+    "M2639 executes policy actions environment steps rollout replay validation source build adapter probe or external simulation",
+    "M2639 trains or runs PPO",
+    "M2639 changes actor input or action contract",
+    "M2639 injects hidden or oracle actor features",
+    "M2639 ranks controller families selects a winner promotes a checkpoint or computes a success-rate verdict",
+    "M2639 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "materialize_route_a_evidence_index",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_evidence_index_refresh"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json",
+    "runs/m2544_engineering_controller_route_a_baseline_source_only_execution_readiness_panel/summary.json",
+    "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+    "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2639 materializes the Route A evidence index gap matrix and next action admission table while preserving the P0 actor/action contract and making no ranking validation performance paper high-fidelity or self-ID claims."
+}

@@ -47593,3 +47593,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset feasibility reset execution validation protocol readiness validation admission validation result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json`
 - next: `m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design`
+
+## M2638 Engineering Controller Route C HF3 Source Dependency Blocker Report And User-Supplied Source Contract Design
+
+- status: completed
+- decision: `pause_hf3_selected_platform_until_source_supplied_route_to_route_a_baseline_evidence_index_refresh`
+- manifest: `experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json`
+- blocker report: `docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md`
+- parent synthesis: `docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md`
+- accepted blocker: selected-platform source dependency unavailable at `/home/quyaonan/workspace/chrono` with source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true availability_blocker `dependency_source_unavailable`
+- source provision contract: renewed HF3 availability preflight requires an explicitly supplied local source root with build entry or an explicitly approved package/import route; M2638 does not fetch install import build probe start backend reset step rollout replay validate train rank promote or compute success rates
+- route decision: pause selected-platform HF3 execution until source supplied and route current work to Route A baseline evidence index refresh because another HF3 static preparation artifact would not change the admission decision
+- supported operational claims: durable HF3 source dependency blocker report and user-supplied source contract only
+- rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset feasibility validation protocol readiness validation admission validation result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.json`
+- next: `m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2643,
+    "completed": 2644,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
+    "task_id": "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md"
+    "command_log": "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md"
   },
   "next_task": {
-    "id": "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
-    "kind": "gate",
-    "priority": 26330,
+    "id": "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26340,
     "status": "pending",
-    "hypothesis": "Write the HF3 source dependency blocker report and user-supplied source contract after M2637 pivot.",
-    "command": "see experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json",
-    "success_artifact": "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
-    "notes": "Pending: document accepted dependency_source_unavailable blocker evidence and define source provision contract without dependency readiness validation or performance claims"
+    "hypothesis": "Materialize a current Route A baseline evidence index after HF3 selected-platform source dependency is paused.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_evidence_index_refresh",
+    "success_artifact": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json",
+    "notes": "Pending: build Route A evidence index gap matrix and next action admission table without ranking validation or performance claims"
   },
-  "updated_at_utc": "20260604T070122Z"
+  "updated_at_utc": "20260604T070825Z"
 }
