@@ -47628,3 +47628,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no source build adapter probe backend start reset step rollout replay validation training ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json`
 - next: `m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design`
+
+## M2640 Engineering Controller Route A Baseline Source-Only Fresh Generalization Panel Design
+
+- status: completed
+- decision: `route_to_source_only_fresh_generalization_panel_materialization_preflight`
+- manifest: `experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json`
+- design doc: `docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md`
+- parent summary: `runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json`
+- design scope: M2641 source-only fresh generalization panel with 4 role families stable_avoidable stable_aes drift_required_recovery unavoidable_mitigation 4 fresh seeds per role 2 dynamics axes 5 subjects and 80 horizon steps
+- expected materialization: 160 measured behavior rows and 12800 telemetry rows plus seed panel subject registry dynamics axis actor visibility guard measured event metric completeness gate matrix summary and milestone doc artifacts
+- actor/action boundary: P0 observation 72 action 3 preserved; role labels seed IDs hidden dynamics source dependency status build/probe/reset/rollout/validation outcomes and route decisions remain diagnostic-only and actor-invisible
+- supported operational claims: bounded M2641 source-only fresh generalization panel design admitted for measured diagnostic materialization
+- rejected claims: no policy execution environment step rollout replay validation training PPO source build adapter probe external high-fidelity simulation ranking winner promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json`
+- next: `m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2645,
+    "completed": 2646,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight",
+    "task_id": "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh",
-    "command_log": "runs/m2639_engineering_controller_route_a_baseline_evidence_index_refresh/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md"
   },
   "next_task": {
-    "id": "m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design",
+    "id": "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 26350,
+    "priority": 26360,
     "status": "pending",
-    "hypothesis": "Design the source-only fresh generalization panel admitted by M2639 without ranking validation or performance claims.",
-    "command": "see experiments/manifests/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.json",
-    "success_artifact": "docs/m2640-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-design.md",
-    "notes": "Pending: design role families fresh seeds unseen dynamics delay/noise axes metrics artifacts and gates without execution or performance claims"
+    "hypothesis": "Materialize the bounded source-only fresh generalization panel designed by M2640.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "success_artifact": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+    "notes": "Pending: produce measured source-only rows across fresh role seed and dynamics-axis variation without ranking validation or performance claims"
   },
-  "updated_at_utc": "20260604T071558Z"
+  "updated_at_utc": "20260604T072315Z"
 }
