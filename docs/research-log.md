@@ -47685,3 +47685,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no ranking winner promotion success-rate driver-performance validation readiness/result source build adapter probe external high-fidelity simulation paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json`
 - next: `m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis`
+
+## M2643 Engineering Controller Route A Baseline Source-Only Fresh Generalization Panel Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_source_only_behavior_gap_taxonomy_materialization_preflight`
+- manifest: `experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md`
+- parent audit: `docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md`
+- accepted evidence: M2641/M2642 source-only fresh panel materialization/audit with 160 behavior rows 12800 telemetry rows 4 role families 4 fresh seeds per role 2 dynamics axes 5 subjects 19 actor visibility guard rows and 19 gates pass
+- event synthesis: stable_avoidable and stable_aes have zero collision rows but nonzero road-departure stress; drift_required_recovery has mixed collision and road-boundary stress; unavoidable_mitigation is collision-saturated and remains a mitigation reference surface
+- dynamics-axis synthesis: nominal and fault/delay/noise axes are close at aggregate level so the axis is useful diagnostic coverage but not a robust-fault or validated delay/noise physics verdict
+- public-gate overfit risk: medium because fresh seeds and new roles reduce fixed-row overfit but the panel remains source-only small and diagnostic
+- supported operational claims: accepted source-only diagnostic evidence can support a gap taxonomy and repair-target map
+- rejected claims: no controller ranking winner promotion success-rate driver-performance validation result paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.json`
+- next: `m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight`

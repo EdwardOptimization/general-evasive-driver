@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2648,
+    "completed": 2649,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit",
+    "task_id": "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md"
+    "command_log": "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
-    "kind": "gate",
-    "priority": 26380,
+    "id": "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26390,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2641/M2642 source-only fresh generalization panel evidence before choosing repair design ranking preparation pivot or stop.",
-    "command": "true",
-    "success_artifact": "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
-    "notes": "Pending: synthesize accepted source-only diagnostic panel evidence into a bounded next Route A decision without ranking validation promotion success-rate or driver-performance claims"
+    "hypothesis": "Materialize a behavior-gap taxonomy from accepted M2641/M2642/M2643 source-only diagnostic evidence before repair training ranking or promotion.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_behavior_gap_taxonomy",
+    "success_artifact": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+    "notes": "Pending: convert accepted source-only diagnostic rows into gap taxonomy and repair-target admission rows without ranking validation promotion success-rate or driver-performance claims"
   },
-  "updated_at_utc": "20260604T074458Z"
+  "updated_at_utc": "20260604T074944Z"
 }

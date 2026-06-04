@@ -1,0 +1,241 @@
+{
+  "id": "m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "generalization",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+      "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_event_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/telemetry_rows.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/actor_visibility_guard_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json",
+      "experiments/manifests/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.json",
+      "experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a behavior-gap taxonomy from accepted M2641/M2642/M2643 source-only diagnostic evidence before any repair training ranking or promotion"
+    ],
+    "derived_from": [
+      "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis",
+      "m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit",
+      "m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2643 selected behavior-gap taxonomy materialization before repair design or ranking",
+      "M2641 rows expose road-departure drift-recovery and mitigation-reference gaps that need taxonomy rows",
+      "Route A must not use source-only diagnostic rows directly as promotion or performance evidence"
+    ],
+    "supersedes": [
+      "starting repair or PPO without a source-only behavior gap taxonomy",
+      "ranking subjects from M2641 measured rows",
+      "treating unavoidable_mitigation collision-saturated rows as an ordinary success denominator"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md",
+  "public_gates": [
+    "M2644 must read accepted M2641 measured behavior measured event telemetry gate and actor visibility artifacts plus M2642/M2643 docs",
+    "M2644 must materialize role subject dynamics-axis repair-target claim-boundary and gate rows without executing rollouts replay validation training PPO ranking or promotion",
+    "M2644 must classify road-departure dominant drift-recovery mixed mitigation collision-saturated and axis-sensitivity-not-yet-decisive gaps without selecting a winner",
+    "M2644 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible metadata",
+    "M2644 must not compute success rates controller-family verdict metrics ranking winner selection promotion driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims",
+    "M2644 must register a result audit manifest if taxonomy materialization passes"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels route decisions or source-only diagnostic outcomes to actor input",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source-only diagnostic taxonomy rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_fresh_generalization_panel",
+    "evidence_axis": "source_only_behavior_gap_taxonomy_materialization",
+    "evidence_increment": "turns accepted M2641 measured source-only diagnostics into behavior-gap taxonomy rows and repair-target admission rows before any repair ranking promotion or validation work",
+    "claim_scope": "Route A source-only behavior-gap taxonomy materialization only; no ranking success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if taxonomy rows would rank subjects select a winner promote a checkpoint or claim driver performance",
+      "stop if taxonomy labels would be used as actor inputs",
+      "stop if M2641 source rows are incomplete or inconsistent",
+      "stop if unavoidable mitigation rows are treated as an ordinary success denominator"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2641/M2642/M2643 source artifacts are incomplete",
+      "route to contract repair if actor visibility boundary is inconsistent",
+      "route to result audit if taxonomy materialization passes",
+      "route to branch synthesis or stop if taxonomy rows cannot produce a bounded repair-target map"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2643 selects behavior-gap taxonomy materialization as the next bounded Route A step",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only behavior gap taxonomy materialization",
+    "admission_evidence": [
+      "M2643 synthesis decision continue_to_source_only_behavior_gap_taxonomy_materialization_preflight",
+      "M2641/M2642 accepted 160 measured behavior rows and 12800 telemetry rows with actor visibility and gate matrix pass",
+      "M2643 identifies road-departure dominant drift-recovery mixed mitigation collision-saturated and axis-sensitivity-not-yet-decisive gap families",
+      "Route A needs repair-target taxonomy before any repair design training ranking or promotion"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external source fetch",
+      "no external high-fidelity simulation",
+      "no source build or adapter probe",
+      "no reset step rollout replay validation execution",
+      "no training",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from source-only diagnostic taxonomy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_only_behavior_gap_taxonomy.py",
+      "tests/test_engineering_controller_route_a_source_only_behavior_gap_taxonomy.py",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/role_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/subject_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/dynamics_axis_gap_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/repair_target_admission_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/claim_boundary_rows.csv",
+      "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/gate_matrix.csv",
+      "docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md",
+      "M2644 status queue scoreboard research log and review",
+      "one follow-up M2645 result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary reports status_pass true",
+      "role subject dynamics-axis repair-target claim-boundary and gate artifacts exist",
+      "taxonomy rows classify accepted M2641 gaps without ranking or winner fields",
+      "next route is result audit without repair training validation promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2644 materializes engineering source-only gap taxonomy rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2644; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2643 source-only panel result synthesis.",
+    "negative_result_policy": "If taxonomy rows show poor behavior, route to bounded engineering repair design or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "Route A source-only behavior gap taxonomy materialized",
+      "repair-target admission rows available for audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts accepted fresh measured source-only diagnostic rows into a taxonomy and repair-target map instead of adding another static design artifact",
+    "paper_verdict_delta": "no paper verdict but clarifies Route A engineering repair distance before any training or ranking",
+    "must_synthesize_if": [
+      "M2644 would rank controllers select a winner promote a checkpoint or claim driver performance",
+      "M2644 cannot classify accepted M2641 rows without actor-contract changes",
+      "M2644 materialization fails and the same taxonomy blocker recurs three times",
+      "another static Route A design is proposed after M2644 without result audit or repair-target decision"
+    ]
+  },
+  "hypothesis": "Accepted M2641/M2642/M2643 source-only diagnostic rows can be converted into a behavior-gap taxonomy and repair-target admission map without ranking controllers or making validation/performance claims.",
+  "success_criteria": [
+    "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json exists",
+    "summary reports status_pass true",
+    "role_gap_rows subject_gap_rows dynamics_axis_gap_rows repair_target_admission_rows claim_boundary_rows gate_matrix and milestone doc artifacts exist",
+    "taxonomy rows classify road-departure dominant drift-recovery mixed mitigation collision-saturated and axis-sensitivity-not-yet-decisive gaps",
+    "P0 actor/action boundary and no hidden/oracle actor input claims remain preserved",
+    "M2644 registers M2645 result audit manifest",
+    "no external simulation source build adapter probe replay validation training ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2644 executes reset step rollout replay validation source build adapter probe external simulation training or PPO",
+    "M2644 changes actor input or action contract",
+    "M2644 injects hidden or oracle actor features",
+    "M2644 exposes taxonomy labels or repair targets to actor input",
+    "M2644 ranks controller families selects a winner promotes a checkpoint or computes a success-rate verdict",
+    "M2644 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "materialize_behavior_gap_taxonomy",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_behavior_gap_taxonomy"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2644_engineering_controller_route_a_source_only_behavior_gap_taxonomy/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2644-engineering-controller-route-a-baseline-source-only-behavior-gap-taxonomy-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+    "docs/m2642-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-audit.md",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+    "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/gate_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2644 materializes source-only behavior gap taxonomy and repair-target admission rows from accepted M2641 evidence while preserving actor contract and making no ranking validation promotion performance paper high-fidelity or self-ID claims."
+}
