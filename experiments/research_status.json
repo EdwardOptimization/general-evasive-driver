@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2728,
+        "completed": 2729,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.md",
+        "command_log": "docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md",
         "returncode": 0,
         "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit"
+        "task_id": "m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "Synthesize M2719-M2722 offtrack repair target evidence before admitting repair design or stopping the branch.",
-        "id": "m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis",
+        "hypothesis": "Freeze a bounded offtrack repair design from the synthesized M2719-M2723 target evidence before any execution extension ranking validation or performance interpretation.",
+        "id": "m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight",
         "kind": "gate",
-        "notes": "Pending: synthesize M2719-M2722 target-panel branch after M2722 acceptance and cadence gate before any repair design execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27180,
+        "notes": "Pending: design bounded offtrack repair from synthesized target branch 31 offtrack target rows with collision caution protected exclusion and actor-contract guardrails no reset rollout training repair execution ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27190,
         "status": "pending",
-        "success_artifact": "docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md"
+        "success_artifact": "docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md"
     },
-    "updated_at_utc": "20260604T231954Z"
+    "updated_at_utc": "20260604T233058Z"
 }

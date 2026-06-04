@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
+m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit
+m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis
+m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
 ```
 
 Current route:
@@ -119,6 +119,16 @@ actor-invisible labels are preserved, and the audit rejects current-sim,
 performance, paper, high-fidelity, full ideal driver, and self-ID claims.
 
 Next is M2723 offtrack repair branch synthesis before any repair design,
+execution extension, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
+
+M2723 synthesized M2719-M2722 and chose `continue` to bounded offtrack repair
+design. The branch supports only this claim: M2719-M2722 form a complete
+claim-safe offtrack repair target surface for design input. It still rejects
+repair success, driver performance, validation, paper, current-sim,
+high-fidelity, full ideal driver, and self-ID claims.
+
+Next is M2724 bounded offtrack repair design preflight before any repair
 execution extension, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
 ```

@@ -49225,3 +49225,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2722
 - follow-up manifest: `experiments/manifests/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.json`
 - next: `m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis`
+
+## M2723 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Branch Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- next branch decision: `continue_to_current_m1690_exact_executable_reentry_offtrack_repair_design_preflight`
+- manifest: `experiments/manifests/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.json`
+- synthesis doc: `docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md`
+- parent audit: `docs/m2722-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-result-audit.md`
+- accepted branch result: M2719-M2722 produced a complete claim-safe target branch with M2721 31 offtrack target rows 2 collision caution rows 3 diagnostic success context rows 12 protected exclusion rows 5 aggregate rows 8 actor joins 20 claim rows and 16 gate rows all pass
+- supported claim: the branch exposes an offtrack repair-design input surface only
+- falsified claims: no repair success driver-performance validation paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence exists
+- failure taxonomy summary: contract and lineage risks controlled metric artifact controlled scenario sampling/offtrack failure active behavior/protected-execution evidence incomplete objective-overfit risk medium but controlled by moving to design rather than another static loop
+- public gate overfit risk: medium-low only if M2724 defines concrete repair levers or execution-admission constraints and stops/pivots otherwise
+- route decision: continue to M2724 bounded offtrack repair design preflight before any repair execution extension ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2723
+- follow-up manifest: `experiments/manifests/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.json`
+- next: `m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight`
