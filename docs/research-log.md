@@ -48880,3 +48880,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2703
 - follow-up manifest: `experiments/manifests/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.json`
 - next: `m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit`
+
+## M2704 Engineering Controller Protected Runner Execution Admission Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2703_route_to_simulator_workload_support_design`
+- manifest: `experiments/manifests/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.json`
+- audit doc: `docs/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.md`
+- parent summary: `runs/m2703_engineering_controller_protected_runner_execution_admission/summary.json`
+- accepted parent result: M2703 `status_pass` true with 13 input source rows 12 execution-admission candidate rows 12 rejection rows 160 traceability rows 11 actor-contract guard rows 34 claim-boundary rows and 22 gate rows all pass
+- admission finding: 12/12 M2700 adapter candidates are classified as `execution_admission_blocked_no_current_m1690_workload` with 0 execution-admitted rows
+- traceability finding: 10/10 protected targets remain accounted and protected rows remain outside success denominators
+- M1690 boundary: 0 exact M1690 workload matches preserved in source and execution-admission rows; non-exact execution-admitted count remains 0
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible
+- route decision: route to M2705 protected runner simulator/workload support design before any protected execution or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2704
+- follow-up manifest: `experiments/manifests/m2705-engineering-controller-protected-runner-simulator-workload-support-design.json`
+- next: `m2705-engineering-controller-protected-runner-simulator-workload-support-design`
