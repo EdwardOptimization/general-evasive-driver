@@ -1,0 +1,125 @@
+# m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T222352Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: route_to_current_m1690_exact_executable_reentry_bounded_execution_result_audit
+- Decision reason: M2716 executes a bounded diagnostic exact-executable reentry panel status_pass true with 36/36 exact execution rows 0 failure rows 4 profile aggregates 9 anchor aggregates 12 protected proposal exclusion audit rows 12 actor joins 33 claim rows and 20 gates all pass diagnostic outcomes 3/36 success 2/36 collision profile aggregates non-ranking protected proposal rows not executed actor 72/action 3 labels actor-invisible protected rows outside denominators no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2717 result audit
+
+## Hypothesis
+
+A bounded current-M1690 exact-executable reentry execution preflight can produce new closed-loop diagnostic evidence from the M2714 panel without changing actor inputs or overclaiming profile outcomes.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/exact_executable_candidate_rows.csv, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/profile_context_rows.csv, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/protected_proposal_exclusion_rows.csv, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/actor_contract_guard_rows.csv, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/claim_boundary_rows.csv, runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/gate_matrix.csv, docs/m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight.md, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/target_execution_rows.csv, runs/m2710_engineering_controller_protected_runner_current_m1690_workload_fixture_support/protected_workload_fixture_proposal_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.json, experiments/manifests/m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight.json
+- parent_objective: execute one bounded diagnostic preflight over the M2714 exact executable candidate panel after M2715 accepts materialization
+- derived_from: m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit, m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight, m2713-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-design
+- blocked_by: M2714 materializes an executable panel but does not produce behavior evidence, M2715 admits bounded execution only after preserving protected proposal exclusions, M2716 must not rank profiles or treat diagnostic success aggregates as driver-performance verdicts, M2710 protected proposal rows remain excluded from execution
+- supersedes: another exact-executable panel materialization or audit without closed-loop data, direct interpretation of M2714 rows as behavior evidence, execution of M2710 proposed protected rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.md exists
+- runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json exists
+- exact_execution_rows.csv exists and covers the 36 M2714 exact executable candidate rows or records failures
+- profile_aggregate.csv and anchor_aggregate.csv exist and remain diagnostic non-ranking rows
+- protected_proposal_exclusion_audit_rows.csv exists and verifies 12 protected proposals remain excluded from execution
+- actor_contract_join_rows.csv verifies P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels
+- claim_boundary_rows.csv blocks repair success ranking driver-performance validation paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver and self-ID claims
+- gate_matrix.csv passes only if guardrails are clean failed cells are recorded and execution stays bounded to the M2714 exact executable panel
+- run_state.json exists and records completion or failure rows
+- one result-audit follow-up manifest is registered
+- no replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible labels protected execution ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2716 trains runs PPO replay uses private holdout promotes or changes actor input/action contract
+- M2716 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels protected labels profile labels blocker labels or verdicts to actor input
+- M2716 drops failed candidate rows silently or expands beyond the M2714 exact executable panel silently
+- M2716 executes M2710 protected proposal rows or treats protected rows as ordinary success denominators
+- M2716 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2716 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2716 fails to write bounded execution artifacts or recorded failure rows
+
+## Evidence Gates
+
+- M2716 must consume M2715 audit and the M2714 summary candidate profile context protected-exclusion actor-contract claim-boundary and gate rows before execution
+- M2716 may execute reset step rollout and policy actions only for the 36 M2714 exact executable candidate rows
+- M2716 must not execute any M2710 protected proposal row and must keep protected proposal rows outside ordinary success denominators
+- M2716 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and the deployed steer throttle brake action contract
+- M2716 must keep target protected profile gate route progress success and verdict labels actor-invisible
+- M2716 must write execution rows profile aggregate anchor aggregate protected exclusion audit actor-contract claim-boundary gate failure run-state summary and doc artifacts
+- M2716 must keep profile outcomes diagnostic and must not rank controller families select winners promote checkpoints compute success-rate verdicts or claim finite-window-vs-GRU current-response current-sim driver-performance paper high-fidelity full ideal driver or self-ID evidence
+- M2716 must register one result-audit route before interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute any row outside the M2714 exact executable candidate panel
+- do not execute M2710 protected proposal rows
+- do not run replay
+- do not run measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels repair target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not hide failed executable candidate rows
+- do not hide protected proposal exclusions
+- do not tune profile-specific hyperparameters
+- do not rank controller families
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from bounded execution preflight
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
+- type: infrastructure
+- checkpoint: runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_current_m1690_exact_executable_reentry_bounded_execution_result_audit
+- reason: M2716 executes a bounded diagnostic exact-executable reentry panel status_pass true with 36/36 exact execution rows 0 failure rows 4 profile aggregates 9 anchor aggregates 12 protected proposal exclusion audit rows 12 actor joins 33 claim rows and 20 gates all pass diagnostic outcomes 3/36 success 2/36 collision profile aggregates non-ranking protected proposal rows not executed actor 72/action 3 labels actor-invisible protected rows outside denominators no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2717 result audit
+
+## Next Blocker
+
+current-M1690 exact-executable reentry bounded execution result audit

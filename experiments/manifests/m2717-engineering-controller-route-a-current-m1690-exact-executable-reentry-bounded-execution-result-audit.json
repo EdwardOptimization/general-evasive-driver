@@ -1,0 +1,221 @@
+{
+  "id": "m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/profile_aggregate.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/anchor_aggregate.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/protected_proposal_exclusion_audit_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/actor_contract_join_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/failure_rows.csv",
+      "docs/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.md",
+      "docs/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.md",
+      "runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.json",
+      "experiments/manifests/m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "audit M2716 bounded diagnostic execution before any profile comparison interpretation or branch decision"
+    ],
+    "derived_from": [
+      "m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight",
+      "m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit",
+      "m2714-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2716 may produce diagnostic execution rows but must not be interpreted as validation or performance evidence before audit",
+      "profile aggregates are diagnostic and not ranking or winner-selection evidence",
+      "protected proposal rows remain excluded from execution"
+    ],
+    "supersedes": [
+      "direct interpretation of M2716 execution rows without audit",
+      "controller-family ranking from bounded diagnostic rows",
+      "protected proposal leakage into execution denominators"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+  "public_gates": [
+    "M2717 must read M2716 summary execution aggregate protected-exclusion actor-contract claim-boundary gate failure run-state and doc artifacts before interpretation",
+    "M2717 must verify execution stayed bounded to the M2714 exact executable candidate panel",
+    "M2717 must verify M2710 protected proposal rows remain excluded from execution and denominators",
+    "M2717 must verify actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2717 must keep profile aggregates diagnostic and reject ranking winner promotion success-rate verdict driver-performance validation paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "M2717 must select one bounded follow-up route: branch synthesis repair bounded execution extension stop or targeted design"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide failed executable candidate rows",
+    "do not hide protected proposal exclusions",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2716 result audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_current_m1690_exact_executable_reentry",
+    "evidence_axis": "current_m1690_exact_executable_reentry_bounded_execution_result_audit",
+    "evidence_increment": "audits the first closed-loop diagnostic execution from the exact executable reentry panel and selects the next route without overclaiming profile aggregates",
+    "claim_scope": "Result audit only; no new reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2716 artifacts are missing or gate matrix fails",
+      "stop if execution expanded beyond the M2714 exact executable candidate panel",
+      "stop if protected proposal rows entered execution or denominators",
+      "stop if actor contract or label invisibility was violated",
+      "stop if audit wording would rank profiles or claim performance validation paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2716 outputs are absent",
+      "route to runner repair if failure-row recording or actor-boundary guards fail",
+      "route to branch synthesis if diagnostic outcomes are washed out or ambiguous",
+      "route to targeted repair or bounded extension only if the audit identifies an actionable evidence-changing next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2716 completes bounded diagnostic execution over the exact executable reentry panel",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-M1690 exact-executable reentry bounded execution result audit",
+    "admission_evidence": [
+      "M2716 is expected to write bounded diagnostic execution artifacts",
+      "M2715 accepts M2714 materialization before execution",
+      "M2714 protected exclusions must remain excluded"
+    ],
+    "blocked_shortcuts": [
+      "no new reset step policy rollout replay validation training PPO in audit",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+      "M2717 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by the audit"
+    ],
+    "next_stage_criteria": [
+      "M2716 summary status and gate matrix are audited",
+      "execution rows failures profile aggregates anchor aggregates and protected exclusions are audited",
+      "actor and claim boundaries are audited",
+      "one bounded follow-up route is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2717 audits Route A diagnostic execution and does not prove history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2717; any profile outcome differences must remain diagnostic until a separate fair comparison audit."
+    ],
+    "temporal_evidence_window": "M2716 bounded execution artifacts only.",
+    "negative_result_policy": "If outcomes are negative or ambiguous, preserve the blocker and route to synthesis or repair rather than forcing self-ID interpretation.",
+    "allowed_claims": [
+      "M2716 bounded execution artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new closed-loop diagnostic rows before any next evidence-changing branch",
+    "paper_verdict_delta": "no paper verdict; can decide whether the exact executable reentry branch should continue pivot stop or repair",
+    "must_synthesize_if": [
+      "M2717 finds M2716 did not produce bounded execution rows with clean guardrails or recorded failures",
+      "M2717 would claim ranking repair success finite-window-vs-GRU current-response current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2717 would repeat exact-executable execution without actionable evidence expansion"
+    ]
+  },
+  "hypothesis": "M2716 bounded execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
+  "success_criteria": [
+    "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md exists",
+    "audit cites M2716 summary execution aggregate protected-exclusion actor-contract claim-boundary and gate rows",
+    "audit verifies execution stayed bounded to the M2714 exact executable candidate panel",
+    "audit verifies protected proposal rows remain excluded from execution and denominators",
+    "audit preserves actor 72/action 3 and no hidden/oracle actor input",
+    "audit keeps profile aggregates diagnostic and rejects ranking performance validation paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "audit registers one bounded follow-up route if continuing"
+  ],
+  "failure_criteria": [
+    "M2717 executes reset step rollout replay validation training PPO or private holdout",
+    "M2717 changes actor input or action contract",
+    "M2717 treats profile aggregates as ranking winner selection promotion or success-rate verdict evidence",
+    "M2717 treats protected proposal rows as execution rows or ordinary denominators",
+    "M2717 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2717 fails to select a bounded next route"
+  ],
+  "commands": [
+    {
+      "name": "current_m1690_exact_executable_reentry_bounded_execution_result_audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/summary.json",
+    "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+    "docs/m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight.md"
+  ],
+  "decision_rule": "Pass only if M2717 verifies M2716 bounded execution artifacts are complete source-bounded claim-safe and preserve protected proposal exclusions before any interpretation.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_branch_synthesis_repair_or_bounded_extension",
+    "fail": "reject_current_m1690_exact_executable_reentry_bounded_execution_result_audit"
+  },
+  "scoreboard_checkpoint": "docs/m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit.md",
+  "next_blocker": "current-M1690 exact-executable reentry next route selected by result audit"
+}

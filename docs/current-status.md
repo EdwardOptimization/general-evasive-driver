@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
+m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2715-engineering-controller-route-a-current-m1690-exact-executable-reentry-panel-materialization-result-audit
+m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2716-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-preflight
+m2717-engineering-controller-route-a-current-m1690-exact-executable-reentry-bounded-execution-result-audit
 ```
 
 Current route:
@@ -53,9 +53,15 @@ actor-invisible, protected rows remain outside ordinary success denominators,
 and no reset, rollout, validation, training, ranking, performance, paper,
 current-sim, high-fidelity, full ideal driver, or self-ID claim is made.
 
-Next is M2716 bounded execution preflight over the 36 exact executable candidate
-rows only. It must remain diagnostic and exclude all M2710 protected proposal
-rows from execution and denominators.
+M2716 then ran the bounded exact-executable execution preflight. It executed
+36/36 current-M1690 exact executable candidate rows across 9 anchors x 4
+profiles, wrote 4 profile aggregate rows and 9 anchor aggregate rows, recorded
+0 failure rows, and preserved 12 protected proposal exclusion rows as not run.
+The diagnostic snapshot is 3/36 success rows and 2/36 collision rows. These
+aggregates are not ranking, validation, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID evidence until M2717 audits them.
+
+Next is M2717 result audit before any interpretation or branch decision.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
@@ -146,13 +152,13 @@ evidence from process overhead, rated public-gate overfit risk medium-high, and
 continued to exactly one bounded M2537 execution before any fresh/generalization
 or promotion route.
 
-The active next task is M2537: run one bounded mitigation-preserving source-only
-repair execution from the M2532 repaired checkpoint. It must retain road-boundary
-and command-conflict proof gains, prevent all mitigation-primary severity
-regression, write candidate-sweep evidence, and preserve the P0 `72/3`
-no-oracle actor contract. It must not rank, select a winner, promote, compute
-success-rate, or claim performance, validation, paper, FW-vs-GRU, self-ID,
-current-sim, or high-fidelity verdict evidence.
+At that point the follow-up was M2537: run one bounded mitigation-preserving
+source-only repair execution from the M2532 repaired checkpoint. It had to
+retain road-boundary and command-conflict proof gains, prevent all
+mitigation-primary severity regression, write candidate-sweep evidence, and
+preserve the P0 `72/3` no-oracle actor contract. It could not rank, select a
+winner, promote, compute success-rate, or claim performance, validation, paper,
+FW-vs-GRU, self-ID, current-sim, or high-fidelity verdict evidence.
 
 ## Latest Evidence
 
