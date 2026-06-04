@@ -48915,3 +48915,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2705
 - follow-up manifest: `experiments/manifests/m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight.json`
 - next: `m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight`
+
+## M2706 Engineering Controller Protected Runner Simulator/Workload Support Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_protected_runner_simulator_workload_support_materialization_pass`
+- manifest: `experiments/manifests/m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_protected_runner_simulator_workload_support_materialization.py`
+- focused tests: `tests/test_engineering_controller_protected_runner_simulator_workload_support_materialization.py`
+- summary: `runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json`
+- doc: `docs/m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight.md`
+- materialized rows: 17 support input source rows 12 support candidate rows 12 support blocker rows 160 support traceability rows 11 actor-contract guard rows 35 claim-boundary rows and 24 gate rows
+- support finding: classifies 12/12 M2703 blocked execution-admission candidates as `support_materialized_candidate_requires_new_workload_row` and records 12 support blocker rows
+- execution boundary: preserves 0 support-ready existing M1690 rows 0 exact M1690 workload matches and 0 execution-admitted source rows
+- traceability finding: 10/10 protected targets remain accounted by support traceability rows with no dropped protected target
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2707 protected runner simulator/workload support materialization result audit before any protected execution admission or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2706
+- follow-up manifest: `experiments/manifests/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.json`
+- next: `m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit`

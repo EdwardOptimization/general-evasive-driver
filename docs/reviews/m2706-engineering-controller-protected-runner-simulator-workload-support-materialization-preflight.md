@@ -1,0 +1,132 @@
+# m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T195204Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: route_to_protected_runner_simulator_workload_support_materialization_result_audit
+- Decision reason: M2706 materializes protected runner simulator workload support classifications status_pass true with 17 support input source rows 12 support candidate rows 12 support blocker rows 160 support traceability rows 11 actor guard rows 35 claim rows and 24 gate rows all pass classifies 12/12 M2703 blocked candidates as support_materialized_candidate_requires_new_workload_row 0 support-ready rows 0 exact M1690 matches 0 execution-admitted source rows 10/10 protected targets accounted actor 72/action 3 labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2707 result audit
+
+## Hypothesis
+
+A protected runner simulator/workload support materialization can classify every M2703 blocked execution-admission row into a no-execution support status while preserving actor/action boundaries and keeping non-exact M1690 workload rows out of execution claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md, docs/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.md, runs/m2703_engineering_controller_protected_runner_execution_admission/summary.json, runs/m2703_engineering_controller_protected_runner_execution_admission/execution_admission_input_source_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/execution_admission_candidate_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/execution_admission_rejection_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/execution_admission_traceability_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/actor_contract_guard_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/claim_boundary_rows.csv, runs/m2703_engineering_controller_protected_runner_execution_admission/gate_matrix.csv, docs/m2703-engineering-controller-protected-runner-execution-admission-materialization-preflight.md, docs/m2702-engineering-controller-protected-runner-execution-admission-design.md, docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md, runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json, runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_candidate_mapping_rows.csv, runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_traceability_rows.csv, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2705-engineering-controller-protected-runner-simulator-workload-support-design.json, experiments/manifests/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.json, experiments/manifests/m2703-engineering-controller-protected-runner-execution-admission-materialization-preflight.json, experiments/manifests/m2702-engineering-controller-protected-runner-execution-admission-design.json
+- parent_objective: materialize simulator/workload support rows from M2703 blocked protected runner execution-admission rows without execution
+- derived_from: m2705-engineering-controller-protected-runner-simulator-workload-support-design, m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit, m2703-engineering-controller-protected-runner-execution-admission-materialization-preflight, m2702-engineering-controller-protected-runner-execution-admission-design
+- blocked_by: M2703 classifies 12/12 protected adapter candidates as execution_admission_blocked_no_current_m1690_workload, M2703 preserves 0 execution-admitted rows and 0 exact M1690 workload matches, M2705 admits only simulator/workload support materialization before any protected execution route, protected labels route decisions blocker labels and verdict labels must remain actor-invisible
+- supersedes: direct protected execution from M2703 blocked rows, treating simulator/workload support rows as execution rows, another support design loop without materialized support rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight.md exists
+- runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json exists
+- support_input_source_rows.csv verifies required source artifacts
+- support_candidate_rows.csv classifies every M2703 execution-admission candidate
+- support_blocker_rows.csv records blocked or support-required candidates and is not silently empty when rows are non-ready
+- support_traceability_rows.csv preserves 10/10 protected target accounting
+- actor_contract_guard_rows.csv verifies P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible protected labels
+- claim_boundary_rows.csv blocks execution repair success ranking driver-performance validation paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver and self-ID claims
+- gate_matrix.csv passes only if parent artifacts are present all M2703 candidates are classified support rows are not execution rows and materialization remains no-execution no-verdict
+- one result-audit follow-up manifest is registered
+- no reset step rollout replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible protected labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2706 executes reset step rollout replay validation training PPO or private holdout
+- M2706 changes actor input or action contract
+- M2706 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels route labels or verdicts to actor input
+- M2706 treats M2703 blocked execution-admission rows as actual protected execution rows
+- M2706 marks support rows as execution-admitted rows
+- M2706 hides non-exact candidate rows or treats protected rows as ordinary success denominators
+- M2706 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2706 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2706 fails to write simulator/workload support artifacts or explicit blocked rows
+
+## Evidence Gates
+
+- M2706 must consume M2705 M2704 M2703 M2702 M2701 M2700 M1690 and docs/post-m2470-route-plan.md before materialization
+- M2706 must write summary support_input_source_rows support_candidate_rows support_blocker_rows support_traceability_rows actor_contract_guard_rows claim_boundary_rows gate_matrix doc and one follow-up result-audit manifest
+- M2706 must classify every M2703 execution-admission candidate as support-ready support-materialized or support-blocked with explicit row-level reason
+- M2706 must preserve the distinction between blocked execution-admission rows support rows and actual execution rows
+- M2706 must preserve the 0 execution-admitted and 0 exact M1690 workload-match source state unless exact source evidence is visible and still no-execution
+- M2706 must preserve 10/10 protected target accounting through traceability rows
+- M2706 must preserve P0 observation shape 72 action shape 3 and the deployed steer throttle brake action contract
+- M2706 must keep protected target blocker route progress success and verdict labels actor-invisible
+- M2706 must keep protected rows outside ordinary success denominators and distinguish support materialization rows from execution validation ranking or performance evidence
+- M2706 must not reset step roll out replay validate train run PPO rank promote or claim repair success driver-performance paper current-sim high-fidelity full ideal driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels repair target labels off-track labels protected labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not hide candidate rows that are not exact M1690 workload matches
+- do not hide zero execution-admitted rows
+- do not mark support rows as execution rows
+- do not mark blocked classification rows as behavior evidence
+- do not tune profile-specific hyperparameters
+- do not rank controller families
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from protected runner simulator/workload support materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_protected_runner_simulator_workload_support_materialization_result_audit
+- reason: M2706 materializes protected runner simulator workload support classifications status_pass true with 17 support input source rows 12 support candidate rows 12 support blocker rows 160 support traceability rows 11 actor guard rows 35 claim rows and 24 gate rows all pass classifies 12/12 M2703 blocked candidates as support_materialized_candidate_requires_new_workload_row 0 support-ready rows 0 exact M1690 matches 0 execution-admitted source rows 10/10 protected targets accounted actor 72/action 3 labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2707 result audit
+
+## Next Blocker
+
+protected runner simulator/workload support materialization result audit

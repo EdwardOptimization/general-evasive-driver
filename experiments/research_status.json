@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2711,
+    "completed": 2712,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md",
+    "command_log": "runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2706_engineering_controller_protected_runner_simulator_workload_support",
     "status": "completed",
-    "task_id": "m2705-engineering-controller-protected-runner-simulator-workload-support-design"
+    "task_id": "m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_runner_simulator_workload_support_materialization --m2703-dir runs/m2703_engineering_controller_protected_runner_execution_admission --m2704-audit docs/m2704-engineering-controller-protected-runner-execution-admission-materialization-result-audit.md --m2705-design docs/m2705-engineering-controller-protected-runner-simulator-workload-support-design.md --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2706_engineering_controller_protected_runner_simulator_workload_support",
-    "hypothesis": "Materialize simulator/workload support rows from M2703 blocked protected runner execution-admission rows without execution.",
-    "id": "m2706-engineering-controller-protected-runner-simulator-workload-support-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize simulator/workload support source candidate blocker traceability actor-contract guard claim-boundary and gate rows from M2703 blocked rows preserving 0 exact M1690 match and 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators materialization-only no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27010,
+    "command": "true",
+    "hypothesis": "Audit the M2706 no-execution protected runner simulator/workload support materialization pack before any protected execution interpretation validation ranking or performance claim.",
+    "id": "m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2706 support materialization summary candidate blocker traceability actor-contract claim-boundary and gate rows preserving 12 support-required rows 0 support-ready rows 0 exact M1690 match 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27020,
     "status": "pending",
-    "success_artifact": "runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json"
+    "success_artifact": "docs/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260604T193136Z"
+  "updated_at_utc": "20260604T195034Z"
 }
