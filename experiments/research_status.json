@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2668,
+    "completed": 2669,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight",
+    "task_id": "m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel",
-    "command_log": "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit",
-    "kind": "gate",
-    "priority": 26580,
+    "id": "m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26590,
     "status": "pending",
-    "hypothesis": "A bounded result audit can accept or reject M2662 fresh protected mitigation panel artifacts before Route A chooses synthesis, stop, or another evidence route.",
-    "command": "true",
-    "success_artifact": "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md",
-    "notes": "Pending: audit M2662 fresh protected mitigation panel artifacts status_pass true 12 panel spec rows 60 measured behavior rows 27 protected gate rows 15 claim rows 24 gates while keeping protected blocker blocking no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
+    "hypothesis": "A structured failure taxonomy over M2662 fresh protected panel evidence can identify whether the protected mitigation blocker is subject-specific, axis-specific, metric-specific, or broad before any repair loop is reopened.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --summary runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json --panel-spec-rows runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/panel_spec_rows.csv --measured-behavior-rows runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/measured_behavior_rows.csv --protected-mitigation-gates runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/protected_mitigation_gate_rows.csv --claim-boundary-rows runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/claim_boundary_rows.csv --gate-matrix runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/gate_matrix.csv --output-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy",
+    "success_artifact": "runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json",
+    "notes": "Pending: materialize subject axis metric and combined failure taxonomy from M2662 fresh protected panel evidence only; no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim"
   },
-  "updated_at_utc": "20260604T113122Z"
+  "updated_at_utc": "20260604T113752Z"
 }

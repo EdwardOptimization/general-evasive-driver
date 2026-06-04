@@ -48098,3 +48098,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.json`
 - next: `m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit`
+
+## M2663 Engineering Controller Route A Protected Mitigation Fresh Failure-Surface Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2662_route_to_protected_mitigation_fresh_panel_failure_taxonomy`
+- manifest: `experiments/manifests/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.json`
+- audit doc: `docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md`
+- parent summary: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json`
+- route plan: `docs/post-m2470-route-plan.md`
+- parent artifacts: `panel_spec_rows.csv`, `measured_behavior_rows.csv`, `protected_mitigation_gate_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2662 `status_pass` true with 12 panel spec rows, 60 measured behavior rows, 27 protected gate rows, 15 claim-boundary rows, and 24 gate-matrix rows
+- fresh panel scope: 4 fresh protected seeds, 3 protected dynamics axes, and 5 diagnostic subjects
+- protected blocker: 25 protected gate rows block claims with 79 regressed protected row counts; this is accepted as negative blocker evidence only
+- blocking distribution: 9 close-cut-in axis rows, 9 fault-delay-noise rows, 7 nominal rows; obstacle penetration and minimum clearance each block 9 rows, severity blocks 7 rows
+- target/protected split: target roles remain source evidence only, protected role `unavoidable_mitigation` remains separate and outside target success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: M2662 fresh protected mitigation panel accepted for Route A failure-taxonomy materialization
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight.json`
+- next: `m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight`
