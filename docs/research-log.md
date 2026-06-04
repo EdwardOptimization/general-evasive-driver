@@ -47325,3 +47325,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - next route: selected-platform reset-execution readiness design only, not source build adapter probe reset execution reset success rollout feasibility validation protocol readiness validation admission or validation execution
 - follow-up manifest: `experiments/manifests/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.json`
 - next: `m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design`
+
+## M2622 Engineering Controller Route A Baseline HF3 Selected-Platform Reset-Execution Readiness Design
+
+- status: completed
+- decision: `route_to_hf3_selected_platform_reset_execution_readiness_materialization_preflight`
+- manifest: `experiments/manifests/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.json`
+- design doc: `docs/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.md`
+- parent synthesis: `docs/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.md`
+- accepted evidence: M2619/M2620/M2621 selected-platform reset-feasibility readiness evidence with selected platform family `chrono_vehicle_or_equivalent_open_backend` and no source build adapter probe reset execution reset success rollout feasibility validation readiness/result or performance claims
+- designed artifacts: M2623 source-build/adapter-probe evidence admission rows backend availability fixture rows reset invocation dry-run contract rows reset request binding rows actor-view after-reset extraction rows reset outcome audit schema rows actor/action guard rows claim-boundary rows and gate matrix
+- selected-platform boundary: reset-execution readiness design artifacts are static preparation evidence only; external install/import/runtime execution dependency mutation source build adapter probe reset step policy action rollout replay validation training PPO ranking winner selection success-rate promotion and validation verdict remain forbidden
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes selected platform or protocol status actor-visible
+- rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.json`
+- next: `m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight`

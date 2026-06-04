@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2627,
+    "completed": 2628,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis",
+    "task_id": "m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.md",
-    "command_log": "docs/m2621-engineering-controller-route-a-baseline-hf3-selected-platform-reset-feasibility-readiness-materialization-result-synthesis.md"
+    "run_dir": "docs/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.md",
+    "command_log": "docs/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.md"
   },
   "next_task": {
-    "id": "m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design",
+    "id": "m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight",
     "kind": "infrastructure",
-    "priority": 26170,
+    "priority": 26180,
     "status": "pending",
-    "hypothesis": "Design bounded selected-platform reset-execution readiness artifacts after accepted reset-feasibility readiness synthesis.",
-    "command": "see experiments/manifests/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.json",
-    "success_artifact": "docs/m2622-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-design.md",
-    "notes": "Pending: design reset-execution readiness rows while keeping source build adapter probe reset execution reset success rollout feasibility validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Materialize bounded selected-platform reset-execution readiness design artifacts after M2622 design.",
+    "command": "see experiments/manifests/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.json",
+    "success_artifact": "runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/summary.json",
+    "notes": "Pending: materialize reset-execution readiness rows while keeping source build adapter probe reset execution reset success rollout feasibility validation readiness/result ranking driver-performance and self-ID claims false"
   },
-  "updated_at_utc": "20260604T043141Z"
+  "updated_at_utc": "20260604T043709Z"
 }
