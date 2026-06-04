@@ -1,0 +1,219 @@
+{
+  "id": "m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/panel_spec_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/measured_behavior_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/protected_mitigation_gate_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/claim_boundary_rows.csv",
+      "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/gate_matrix.csv",
+      "docs/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.json",
+      "experiments/manifests/m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit the M2662 fresh protected mitigation failure-surface panel before another Route A repair, synthesis, validation, ranking, or performance interpretation"
+    ],
+    "derived_from": [
+      "m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight",
+      "m2661-engineering-controller-route-a-post-index-target-protected-evidence-branch-synthesis",
+      "m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2662 must be audited before its fresh panel rows seed repair design synthesis validation or performance interpretation",
+      "protected mitigation failure must remain blocking and outside target success denominators"
+    ],
+    "supersedes": [
+      "using M2662 panel rows as repair success",
+      "treating protected mitigation panel rows as ordinary success denominators",
+      "ranking or promoting checkpoints from M2662 panel materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md",
+  "public_gates": [
+    "M2663 must audit M2662 summary panel_spec_rows measured_behavior_rows protected_mitigation_gate_rows claim_boundary_rows and gate_matrix artifacts",
+    "M2663 must verify M2662 status_pass true required artifacts present fresh seeds or dynamics axes materialized and target/protected split preserved",
+    "M2663 must verify protected mitigation failure remains blocking and protected rows are outside target success denominators",
+    "M2663 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target localization objective gate or route-decision labels",
+    "M2663 must register one bounded follow-up result synthesis stop or new evidence route manifest",
+    "M2663 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2663 must not claim driver performance repair success paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not treat M2655 selected diagnostic candidate as a winner",
+    "do not weaken protected mitigation gates",
+    "do not open another same-row public repair loop",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from protected mitigation panel audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel",
+    "evidence_axis": "fresh_protected_mitigation_failure_surface_panel_result_audit",
+    "evidence_increment": "audits M2662 fresh protected mitigation panel artifacts before any repair or interpretation",
+    "claim_scope": "Route A protected mitigation fresh failure-surface panel result audit only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2662 artifacts are missing or incomplete",
+      "stop if M2662 collapses protected mitigation rows into ordinary success denominators",
+      "stop if M2662 weakens protected mitigation failure semantics",
+      "stop if M2662 selects a winner promotes a checkpoint or claims driver performance"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2662 artifacts are missing",
+      "route to schema repair if fresh panel rows cannot be traced",
+      "route to synthesis if M2662 is accepted and another evidence route must be chosen",
+      "route to stop if the fresh panel shows no non-overfit next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2662 materializes a fresh protected mitigation failure-surface panel",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "M2662 protected mitigation fresh failure-surface panel result audit",
+    "admission_evidence": [
+      "M2662 is expected to materialize fresh protected mitigation panel artifacts after M2661 pivot",
+      "M2662 must preserve protected mitigation failure as blocking evidence and avoid performance claims"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from audit"
+    ],
+    "allowed_updates": [
+      "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md",
+      "M2663 status queue scoreboard research log and review",
+      "one follow-up synthesis stop or new evidence route manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2662 fresh protected panel artifacts are accepted or rejected explicitly",
+      "target/protected split and protected failure remain blocking",
+      "follow-up route is registered without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2663 audits Route A engineering panel evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2663; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2662 protected mitigation fresh panel.",
+    "negative_result_policy": "If M2662 reinforces the protected mitigation blocker, keep the negative result blocking and route to synthesis or new evidence rather than weakening protected gates.",
+    "allowed_claims": [
+      "M2662 protected mitigation fresh failure-surface panel result audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the fresh protected mitigation panel instead of opening another same-row repair loop",
+    "paper_verdict_delta": "no paper verdict but prepares Route A for an explicit synthesis or new evidence route after fresh protected panel evidence",
+    "must_synthesize_if": [
+      "M2663 cannot choose synthesis stop or new evidence route after audit",
+      "M2663 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2663 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-row repair attempt is proposed without a new evidence axis"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2662 fresh protected mitigation panel artifacts before Route A chooses synthesis, stop, or another evidence route.",
+  "success_criteria": [
+    "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md exists",
+    "audit verifies M2662 summary status_pass true and required panel artifacts exist",
+    "audit verifies M2662 keeps protected mitigation failure blocking and target/protected split preserved",
+    "audit registers a bounded follow-up without ranking validation training promotion or performance claims"
+  ],
+  "failure_criteria": [
+    "M2663 executes reset step rollout replay validation training source build adapter probe or external simulation",
+    "M2663 ranks controller families selects a winner promotes a checkpoint or claims driver performance",
+    "M2663 treats protected mitigation rows as ordinary success denominators"
+  ],
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json",
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/panel_spec_rows.csv",
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/measured_behavior_rows.csv",
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/protected_mitigation_gate_rows.csv",
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/claim_boundary_rows.csv",
+    "runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/gate_matrix.csv",
+    "docs/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.md"
+  ],
+  "decision_rule": "Pass only if M2663 audits M2662 panel artifacts, keeps target/protected split and protected failure blocking, and registers a bounded follow-up without ranking validation training promotion performance paper high-fidelity or self-ID claims."
+}

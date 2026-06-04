@@ -48075,3 +48075,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.json`
 - next: `m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight`
+
+## M2662 Engineering Controller Route A Protected Mitigation Fresh Failure-Surface Panel Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2662-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel.py`
+- summary: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/summary.json`
+- panel spec rows: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/panel_spec_rows.csv`
+- measured behavior rows: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/measured_behavior_rows.csv`
+- protected mitigation gate rows: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/protected_mitigation_gate_rows.csv`
+- claim boundary rows: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/claim_boundary_rows.csv`
+- gate matrix: `runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel/gate_matrix.csv`
+- materialized rows: 12 panel spec rows, 60 measured behavior rows, 27 protected gate rows, 15 claim-boundary rows, and 24 gate-matrix rows
+- fresh panel scope: 4 fresh protected seeds `268200`-`268203`, 3 protected dynamics axes, 5 diagnostic subjects, source-only backend reset/step panel execution
+- protected blocker: protected gate blocking rows 25 and regressed protected row count 79; this remains negative blocker evidence and not a success/performance denominator
+- target/protected split: target roles remain source evidence only, protected role `unavoidable_mitigation` remains separate and outside target success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/route labels actor-visible
+- supported operational claims: fresh Route A protected mitigation failure-surface panel materialized and ready for result audit
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit.json`
+- next: `m2663-engineering-controller-route-a-protected-mitigation-fresh-failure-surface-panel-materialization-result-audit`
