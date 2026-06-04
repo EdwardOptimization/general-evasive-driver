@@ -48757,3 +48757,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2696
 - follow-up manifest: `experiments/manifests/m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight.json`
 - next: `m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight`
+
+## M2697 Engineering Controller Protected Mitigation Runner Spec Generation Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_protected_mitigation_runner_spec_generation_materialization_pass`
+- manifest: `experiments/manifests/m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_protected_mitigation_runner_spec_generation_materialization.py`
+- focused tests: `tests/test_engineering_controller_protected_mitigation_runner_spec_generation_materialization.py`
+- summary: `runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/summary.json`
+- doc: `docs/m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight.md`
+- materialized rows: 12 protected runner spec rows 12 protected workload candidate rows 160 traceability rows 0 unmaterialized rows 10 actor-contract guard rows 32 claim-boundary rows and 21 gate rows
+- runner-spec finding: M2697 turns the M2662 protected panel specs into a `route_a_protected` runner-spec candidate surface but records 0 exact M1690 workload matches so the rows are candidates not execution admissions
+- traceability finding: 10/10 M2695 unbridgeable protected targets are accounted through scenario role subject dynamics-axis and metric traceability rows with no dropped protected targets
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible route labels actor-invisible and protected rows outside success denominators
+- route decision: route to M2698 protected runner-spec generation result audit before any protected execution adapter admission validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2697
+- follow-up manifest: `experiments/manifests/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.json`
+- next: `m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit`

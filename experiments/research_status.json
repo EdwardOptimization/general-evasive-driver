@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2702,
+    "completed": 2703,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit.md",
+    "command_log": "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation",
     "status": "completed",
-    "task_id": "m2696-engineering-controller-protected-mitigation-target-executable-surface-bridge-materialization-result-audit"
+    "task_id": "m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_mitigation_runner_spec_generation_materialization --m2695-dir runs/m2695_engineering_controller_protected_mitigation_target_executable_surface_bridge --m2662-dir runs/m2662_engineering_controller_route_a_protected_mitigation_fresh_failure_surface_panel --m2664-dir runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy --m2667-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation",
-    "hypothesis": "Materialize protected runner-spec candidates after M2696 accepts M2695 but finds 0 exact current-runner executable candidates and 10 unbridgeable protected targets.",
-    "id": "m2697-engineering-controller-protected-mitigation-runner-spec-generation-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: join M2695 unbridgeable protected targets with M2662 protected panel specs and M1690 executable schema to materialize protected runner-spec candidates or explicit unmaterialized rows preserve actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26920,
+    "command": "true",
+    "hypothesis": "Audit the M2697 protected runner-spec generation pack before protected execution adapter admission interpretation ranking validation or performance claim.",
+    "id": "m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2697 summary protected runner spec workload candidate traceability unmaterialized actor guard claim boundary and gate artifacts verify 10/10 targets accounted actor 72/action 3 no hidden oracle labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26930,
     "status": "pending",
-    "success_artifact": "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/summary.json"
+    "success_artifact": "docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260604T175632Z"
+  "updated_at_utc": "20260604T182017Z"
 }
