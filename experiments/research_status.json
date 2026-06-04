@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2617,
+    "completed": 2618,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight",
+    "task_id": "m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json",
-    "command_log": "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json"
+    "run_dir": "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md",
+    "command_log": "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit",
+    "id": "m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis",
     "kind": "gate",
-    "priority": 26070,
+    "priority": 26080,
     "status": "pending",
-    "hypothesis": "Audit the M2611 bounded selected-platform dependency/protocol readiness materialization before executable validation readiness or performance interpretation.",
-    "command": "see experiments/manifests/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.json",
-    "success_artifact": "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md",
-    "notes": "Pending: audit M2611 selected-platform dependency/protocol readiness rows while keeping dependency execution validation readiness/result ranking driver-performance and self-ID claims false"
+    "hypothesis": "Synthesize accepted M2611/M2612 selected-platform dependency/protocol readiness materialization evidence before choosing executable-protocol readiness design repair pivot or stop.",
+    "command": "see experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json",
+    "success_artifact": "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md",
+    "notes": "Pending: synthesize M2611/M2612 selected-platform dependency/protocol readiness evidence without dependency execution validation readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T030452Z"
+  "updated_at_utc": "20260604T031221Z"
 }
