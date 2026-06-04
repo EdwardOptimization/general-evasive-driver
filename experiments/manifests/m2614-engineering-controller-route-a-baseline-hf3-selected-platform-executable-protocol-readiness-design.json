@@ -1,0 +1,249 @@
+{
+  "id": "m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md",
+      "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_dependency_inventory_rows.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_source_build_adapter_probe_readiness_rows.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_protocol_skeleton_rows.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_validation_admission_prerequisite_rows.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_actor_action_guard_rows.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_dependency_protocol_claim_boundary_checks.csv",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/selected_platform_dependency_protocol_readiness_gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json",
+      "experiments/manifests/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.json",
+      "experiments/manifests/m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design bounded selected-platform executable-protocol readiness artifacts after accepted dependency/protocol readiness synthesis"
+    ],
+    "derived_from": [
+      "m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis",
+      "m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit",
+      "m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight",
+      "m2610-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-design"
+    ],
+    "blocked_by": [
+      "M2613 selects selected-platform executable-protocol readiness design while rejecting dependency execution readiness validation protocol readiness validation admission readiness result and driver-performance claims",
+      "M2612 accepts M2611 selected-platform dependency/protocol readiness materialization only for future executable-protocol preparation",
+      "Route C requires executable protocol readiness design and audit before reset feasibility rollout feasibility external validation execution or HF4 discrepancy reporting"
+    ],
+    "supersedes": [
+      "executing source build adapter probe reset step rollout or validation directly from M2611/M2612 rows",
+      "claiming validation readiness from selected-platform dependency/protocol materialization alone",
+      "starting external validation execution directly from M2613 synthesis",
+      "continuing selected-platform infrastructure without an executable-protocol readiness contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
+  "public_gates": [
+    "M2614 must design bounded selected-platform executable-protocol readiness artifacts after accepted M2611/M2612/M2613 evidence",
+    "M2614 must define M2615 artifacts for source/equivalent trace and dependency review admission build/probe plan reset/step API readiness P0 actor extractor parity action mapping parity scenario-role binding result export/replay readiness validation-admission prerequisite actor/action guard claim-boundary rows and gate matrix",
+    "M2614 must distinguish executable-protocol readiness design from dependency execution readiness source build execution adapter probe execution reset execution rollout execution validation protocol readiness validation admission validation readiness validation result external validation execution and driver-performance claims",
+    "M2614 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2614 must keep taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform and protocol status out of actor-visible inputs",
+    "M2614 must not install import or run external high-fidelity simulation train replay PPO rank controllers select winners promote checkpoints compute success rates or make verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the design milestone",
+    "do not execute adapter probe in the design milestone",
+    "do not mutate selected-platform dependencies",
+    "do not execute reset in the design milestone",
+    "do not execute policy actions in the design milestone",
+    "do not step environments in the design milestone",
+    "do not execute rollout in the design milestone",
+    "do not execute validation in the design milestone",
+    "do not train in the design milestone",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade executable-protocol readiness design rows to validation-ready rows",
+    "do not claim dependency execution readiness",
+    "do not claim validation protocol readiness",
+    "do not claim validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from selected-platform executable-protocol readiness design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_selected_platform_executable_protocol_readiness_design",
+    "evidence_increment": "designs bounded selected-platform executable-protocol readiness artifacts after accepted dependency/protocol readiness synthesis instead of executing source build adapter probe reset rollout or validation",
+    "claim_scope": "HF3 selected-platform executable-protocol readiness design only; artifacts may be specified, but no dependency execution readiness source build execution adapter probe execution validation protocol readiness validation admission readiness result external simulator execution training ranking winner selection success-rate verdict paper verdict finite-window-vs-GRU self-ID driver-performance current-sim high-fidelity or validation verdict claim",
+    "stop_condition": [
+      "stop if the design requires actor input or action contract changes",
+      "stop if labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status would enter actor-visible inputs",
+      "stop if executable-protocol readiness design would be interpreted as validation readiness or validation result",
+      "stop if the design would install import or run external high-fidelity simulation",
+      "stop if the design would execute source build adapter probe reset policy action environment step rollout or validation",
+      "stop if the design would claim validation protocol readiness validation admission readiness result ranking or driver performance"
+    ],
+    "fallback_plan": [
+      "route to contract repair if P0 72/3 or no-label boundaries fail",
+      "route to artifact repair if M2611/M2612/M2613 source evidence is incomplete",
+      "route to platform-schema repair if executable-protocol rows cannot be represented without readiness claims",
+      "route to selected-platform executable-protocol readiness materialization preflight if design passes",
+      "route to branch synthesis pivot or stop if no bounded executable-protocol preparation path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2613 selected continue_to_hf3_selected_platform_executable_protocol_readiness_design after accepted selected-platform dependency/protocol readiness materialization evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 selected-platform executable-protocol readiness design",
+    "admission_evidence": [
+      "M2613 synthesis continues to selected-platform executable-protocol readiness design without dependency execution readiness validation protocol readiness validation admission readiness/result or performance claims",
+      "M2612 audit accepts M2611 selected-platform dependency/protocol readiness materialization while rejecting readiness/result/ranking and driver-performance claims",
+      "M2611 materialized selected-platform dependency inventory and protocol skeleton rows for chrono_vehicle_or_equivalent_open_backend while keeping external install/import/runtime execution false",
+      "Post-M2470 Route C permits high-fidelity validation-layer preparation while keeping current-sim diagnostic-only and black-box backends demonstration-only"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no source build or adapter probe execution in design",
+      "no reset execution in design",
+      "no policy action in design",
+      "no environment stepping in design",
+      "no rollout execution in design",
+      "no validation execution in design",
+      "no validation readiness claim",
+      "no training in design",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from selected-platform executable-protocol readiness design"
+    ],
+    "allowed_updates": [
+      "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
+      "M2614 status queue scoreboard research log and review",
+      "one follow-up selected-platform executable-protocol readiness materialization preflight artifact repair contract repair platform-schema repair branch synthesis pivot or stop manifest selected by design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "selected-platform source/dependency review build/probe plan reset/step API actor extractor action mapping scenario-role result export validation-admission actor/action guard claim-boundary and gate artifacts are specified",
+      "M2615 selected-platform executable-protocol readiness materialization preflight is registered",
+      "no dependency execution readiness validation protocol readiness validation admission readiness result performance ranking success-rate or self-ID claim is made in M2614"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2614 designs HF3 selected-platform executable-protocol readiness artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2614; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2613 selected-platform dependency/protocol readiness synthesis.",
+    "negative_result_policy": "If executable-protocol readiness design cannot preserve actor or claim boundaries route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 selected-platform executable-protocol readiness design",
+      "no dependency execution readiness validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "uses accepted selected-platform dependency/protocol readiness evidence to design executable-protocol readiness artifacts rather than adding another dependency/protocol audit",
+    "paper_verdict_delta": "does not decide paper verdict but narrows validation-layer executable protocol prerequisites needed before reset feasibility external validation or HF4 discrepancy work can be proposed or interpreted",
+    "must_synthesize_if": [
+      "M2614 cannot define M2615 materialization without actor input or action contract changes",
+      "M2614 would claim dependency execution readiness validation protocol readiness validation admission readiness result or driver performance",
+      "M2614 would rank or promote controllers",
+      "another design-only milestone is proposed after M2614 without materialization or evidence-expanding validation preparation"
+    ]
+  },
+  "hypothesis": "A bounded design can specify selected-platform executable-protocol readiness artifacts and gates after accepted dependency/protocol readiness synthesis without changing actor inputs mutating dependencies executing source build adapter probe reset rollout validation or claiming dependency execution readiness validation protocol readiness validation admission readiness or result.",
+  "success_criteria": [
+    "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md exists",
+    "design defines source/equivalent trace and dependency review admission rows without installing importing or running dependencies",
+    "design defines build/probe plan rows without source build adapter probe or dependency mutation",
+    "design defines reset/step API readiness rows for stable avoidable/AEB-feasible and stable AES/AEB-infeasible roles without reset step rollout or validation execution",
+    "design defines P0 actor extractor parity action mapping parity scenario-role binding result export/replay validation-admission actor/action guard claim-boundary and gate matrix artifacts",
+    "design registers M2615 selected-platform executable-protocol readiness materialization preflight or repair/synthesis route without dependency execution readiness validation protocol readiness validation admission readiness result or performance claims"
+  ],
+  "failure_criteria": [
+    "M2614 installs imports or runs Chrono or another external simulator",
+    "M2614 changes actor input or action contract",
+    "M2614 injects hidden or oracle actor features",
+    "M2614 exposes labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "M2614 silently upgrades executable-protocol rows to dependency-ready validation-ready or validation-result rows",
+    "M2614 mutates dependencies executes source build adapter probe reset policy action rollout validation or environment step",
+    "M2614 starts training",
+    "M2614 treats design as driver performance",
+    "M2614 ranks controller families or selects a winner",
+    "M2614 claims dependency execution readiness validation protocol readiness validation admission high-fidelity validation readiness/result paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md",
+    "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_dependency_inventory_rows.csv",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_source_build_adapter_probe_readiness_rows.csv",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_protocol_skeleton_rows.csv",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/hf3_selected_platform_validation_admission_prerequisite_rows.csv",
+    "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/selected_platform_dependency_protocol_readiness_gate_matrix.csv",
+    "experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json",
+    "experiments/manifests/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "M2614 passes if it designs bounded HF3 selected-platform executable-protocol readiness artifacts and gates with M2615 follow-up while preserving actor/action boundaries protocol-readiness honesty and making no external simulation source build adapter probe reset policy action rollout validation training ranking winner selection success-rate promotion dependency execution readiness validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight"
+}

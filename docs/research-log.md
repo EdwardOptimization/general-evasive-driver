@@ -47182,3 +47182,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json`
 - next: `m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis`
+
+## M2613 Engineering Controller Route A Baseline HF3 Selected-Platform Dependency/Protocol Readiness Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_selected_platform_executable_protocol_readiness_design`
+- manifest: `experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md`
+- parent audit: `docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md`
+- accepted evidence: M2611/M2612 selected-platform dependency/protocol readiness materialization evidence with 4 dependency inventory rows 4 source/build/adapter probe readiness rows 2 protocol skeleton rows 2 validation-admission prerequisite rows 2 actor/action guard rows 20 claim-boundary rows and 12 gates pass
+- supported operational claims: selected-platform dependency/protocol readiness materialization accepted for future executable-protocol preparation only
+- rejected claims: no dependency execution readiness source build adapter probe validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2611-M2613 are validation-layer process steps without new closed-loop driver behavior evidence; M2613 is the cadence synthesis and resets the branch by choosing a concrete executable-protocol readiness design route
+- next route: selected-platform executable-protocol readiness design only, not source build adapter probe dependency execution validation protocol readiness or validation execution
+- follow-up manifest: `experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json`
+- next: `m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design`
