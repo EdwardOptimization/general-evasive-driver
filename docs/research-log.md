@@ -48615,3 +48615,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2688
 - follow-up manifest: `experiments/manifests/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.json`
 - next: `m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit`
+
+## M2689 Engineering Controller Route A Package With Limitations Protocol Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2688_route_to_package_branch_synthesis`
+- manifest: `experiments/manifests/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.json`
+- audit doc: `docs/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.md`
+- parent summary: `runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization/summary.json`
+- accepted parent result: M2688 `status_pass` true with 6/6 Route A required artifacts 17 schema rows 10 inventory rows 10 provenance rows 4 blocker rows 9 actor/action rows 25 claim-boundary rows and 20 gates all pass
+- required disclosures preserved: protected mitigation 25 blocking rows and 79 regressed row count current-sim off-track 202/216 outcomes and 203/216 terminations HF3 `dependency_source_unavailable` blocker and paper/self-ID blocker all visible
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input and no actor-visible package blocker or verdict labels
+- audit finding: M2688 is complete and claim-safe package-boundary process evidence only not driver capability validation paper current-sim high-fidelity or self-ID evidence
+- route decision: route to M2690 package branch synthesis before any further package publication design repair validation interpretation or new evidence route
+- rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2689
+- follow-up manifest: `experiments/manifests/m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis.json`
+- next: `m2690-engineering-controller-route-a-package-with-limitations-branch-synthesis`
