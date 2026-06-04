@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2671,
+    "completed": 2672,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit",
+    "task_id": "m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.md"
+    "command_log": "docs/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.md"
   },
   "next_task": {
-    "id": "m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis",
-    "kind": "gate",
-    "priority": 26610,
+    "id": "m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight",
+    "kind": "infrastructure",
+    "priority": 26620,
     "status": "pending",
-    "hypothesis": "A branch synthesis can prevent the M2662-M2665 protected mitigation taxonomy work from becoming another process loop and route the broad blocker to stop pivot or a new evidence axis.",
-    "command": "true",
-    "success_artifact": "docs/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.md",
-    "notes": "Pending: synthesize M2662-M2665 protected mitigation fresh-panel taxonomy branch and choose stop pivot or new evidence route without reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "hypothesis": "A current Route A engineering baseline readiness index can integrate baseline checkpoint contract benchmark runtime scenario-role and known-failure taxonomy artifacts after the protected mitigation branch without ranking validation or performance claims.",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy --output-dir runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy",
+    "success_artifact": "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json",
+    "notes": "Pending: materialize Route A engineering baseline readiness index after protected taxonomy from existing artifacts only; preserve protected blocker outside success denominators and actor 72/3 no hidden oracle; no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T115926Z"
+  "updated_at_utc": "20260604T121054Z"
 }

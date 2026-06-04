@@ -48164,3 +48164,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.json`
 - next: `m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis`
+
+## M2666 Engineering Controller Route A Protected Mitigation Fresh Panel Failure Taxonomy Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_engineering_baseline_readiness_index_after_protected_taxonomy`
+- manifest: `experiments/manifests/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.json`
+- synthesis doc: `docs/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- parent audit: `docs/m2665-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-result-audit.md`
+- parent taxonomy: `runs/m2664_engineering_controller_route_a_protected_mitigation_fresh_panel_failure_taxonomy/summary.json`
+- accepted evidence state: M2662-M2665 changed protected blocker structure evidence only and did not change driver capability evidence
+- fresh panel scope: 4 fresh protected seeds, 3 protected dynamics axes, 12 panel spec rows, 60 measured behavior rows, and 27 protected gate rows
+- protected blocker: 25 protected gate blocking rows and 79 regressed protected row counts; all policy subjects, all axes, and all metrics block at least one protected claim row
+- failure taxonomy: active broad `behavior_regression` with high same-row public-gate overfit risk if another protected repair loop continues
+- target/protected split: protected role `unavoidable_mitigation` remains outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/localization/objective/gate/route-decision labels actor-visible
+- supported operational claims: Route A has a stronger known-failure taxonomy for engineering baseline packaging
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.json`
+- next: `m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight`
