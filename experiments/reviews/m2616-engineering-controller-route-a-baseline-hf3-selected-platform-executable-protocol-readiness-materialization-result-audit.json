@@ -1,0 +1,156 @@
+{
+  "decision_reason": "M2616 accepts M2615 selected-platform executable-protocol readiness materialization status_pass true 4 source/dependency review rows 4 build/probe plan rows 2 reset/step API rows 2 actor extractor rows 2 action mapping rows 2 scenario-role rows 3 result export/replay rows 2 validation-admission prerequisite rows 2 actor/action guard rows 28 claim rows and 14 gates pass selected chrono_vehicle_or_equivalent_open_backend no source build adapter probe reset step rollout replay validation protocol readiness/admission/readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis",
+  "failure_criteria": [
+    "M2616 installs imports or runs Chrono or another external simulator",
+    "M2616 changes actor input or action contract",
+    "M2616 injects hidden or oracle actor features",
+    "M2616 mutates dependencies executes source build or runs adapter probe",
+    "M2616 steps an environment runs policy action or executes rollout",
+    "M2616 starts training",
+    "M2616 treats M2615 selected-platform executable-protocol readiness rows as driver performance",
+    "M2616 ranks controller families or selects a winner",
+    "M2616 computes success rate or promotes a checkpoint",
+    "M2616 claims dependency execution readiness validation protocol readiness validation admission readiness result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the audit",
+    "do not execute adapter probe in the audit",
+    "do not mutate selected-platform dependencies",
+    "do not execute reset in the audit",
+    "do not execute policy actions in the audit",
+    "do not step environments in the audit",
+    "do not execute rollout in the audit",
+    "do not execute validation in the audit",
+    "do not train in the audit",
+    "do not run replay",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade executable-protocol materialization rows to validation-admitted validation-ready or validation-result rows",
+    "do not claim dependency ready for execution",
+    "do not claim validation protocol readiness",
+    "do not claim validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a controller winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim rollout success",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2615 selected-platform executable-protocol readiness artifacts"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260604T035118Z",
+  "hypothesis": "A bounded result audit can accept or reject M2615 HF3 selected-platform executable-protocol readiness materialization while preserving actor contract integrity protocol-readiness honesty and no dependency execution validation ranking or performance boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2615 materialized selected-platform executable-protocol readiness rows that must be audited before reset feasibility validation admission or external validation interpretation",
+      "M2615 preserved selected platform chrono_vehicle_or_equivalent_open_backend while keeping external install import runtime execution dependency mutation source build adapter probe reset step action rollout replay validation false",
+      "M2615 preserved validation protocol readiness validation admission validation result ranking driver-performance paper and self-ID claims as false"
+    ],
+    "derived_from": [
+      "m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight",
+      "m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design",
+      "m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis",
+      "m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit",
+      "m2611-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.json",
+      "experiments/manifests/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.json",
+      "experiments/manifests/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/summary.json",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_source_dependency_review_admission_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_build_probe_plan_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_reset_step_api_readiness_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_actor_extractor_parity_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_action_mapping_parity_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_scenario_role_binding_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_result_export_replay_readiness_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_validation_admission_prerequisite_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_actor_action_guard_rows.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/hf3_selected_platform_executable_protocol_claim_boundary_checks.csv",
+      "runs/m2615_engineering_controller_route_a_hf3_selected_platform_executable_protocol_readiness/selected_platform_executable_protocol_readiness_gate_matrix.csv",
+      "docs/m2615-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-preflight.md",
+      "docs/m2614-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-design.md",
+      "docs/m2613-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-synthesis.md",
+      "docs/m2612-engineering-controller-route-a-baseline-hf3-selected-platform-dependency-protocol-readiness-materialization-result-audit.md",
+      "runs/m2611_engineering_controller_route_a_hf3_selected_platform_dependency_protocol_readiness/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "audit the M2615 bounded HF3 selected-platform executable-protocol readiness materialization before reset feasibility validation admission validation result or performance interpretation"
+    ],
+    "supersedes": [
+      "interpreting M2615 executable-protocol rows as validation readiness or validation admission",
+      "claiming high-fidelity validation readiness or driver performance from executable-protocol readiness materialization",
+      "starting reset feasibility or external validation execution before materialization audit and synthesis",
+      "mutating installing importing building probing resetting stepping or validating selected-platform dependencies during audit"
+    ]
+  },
+  "milestone": "m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit",
+  "next_blocker": "m2617-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_hf3_selected_platform_executable_protocol_readiness_materialization_route_to_result_synthesis",
+  "public_gates": [
+    "M2616 must audit M2615 summary source/dependency review admission build/probe plan reset/step API readiness actor extractor parity action mapping parity scenario-role binding result export/replay readiness validation-admission prerequisite actor/action guard claim-boundary and gate artifacts",
+    "M2616 must verify M2615 status_pass true result_class pass source_artifacts_exist true materialization_gates_all_pass true and selected_platform_family_in_m2615 chrono_vehicle_or_equivalent_open_backend",
+    "M2616 must verify four source/dependency review rows four build/probe plan rows two reset/step rows two actor extractor rows two action mapping rows two scenario-role rows three result export/replay rows two validation-admission prerequisite rows two actor/action guard rows twenty-eight claim-boundary rows and fourteen gates pass",
+    "M2616 must verify M2615 keeps external install import runtime execution dependency mutation source build adapter probe reset step policy action rollout replay external validation execution validation protocol readiness validation admission validation result and driver-performance claims false",
+    "M2616 must verify M2615 preserved P0 observation shape 72 action shape 3 deployed [steer, throttle, brake] mapping no hidden or oracle actor input and no actor-visible diagnostics labels backend status reset outcome rollout outcome validation outcome platform selection platform-selection criteria platform-selection decision selected platform or protocol status",
+    "M2616 must verify M2615 did not install import run mutate dependencies execute source build adapter probe reset/action/step/rollout/replay/validation train PPO rank controllers select winners promote checkpoints compute success rates or claim driver performance",
+    "M2616 must register result synthesis artifact repair contract repair platform-schema repair branch synthesis pivot or stop as the next route without dependency execution readiness validation protocol readiness validation admission readiness result or performance claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_hf3_selected_platform_executable_protocol_readiness_materialization_route_to_result_synthesis",
+    "milestone": "m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit",
+    "reason": "M2616 accepts M2615 selected-platform executable-protocol readiness materialization status_pass true 4 source/dependency review rows 4 build/probe plan rows 2 reset/step API rows 2 actor extractor rows 2 action mapping rows 2 scenario-role rows 3 result export/replay rows 2 validation-admission prerequisite rows 2 actor/action guard rows 28 claim rows and 14 gates pass selected chrono_vehicle_or_equivalent_open_backend no source build adapter probe reset step rollout replay validation protocol readiness/admission/readiness/result ranking driver-performance paper FW-vs-GRU high-fidelity or self-ID claim route to result synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2616-engineering-controller-route-a-baseline-hf3-selected-platform-executable-protocol-readiness-materialization-result-audit.md exists",
+    "audit verifies M2615 summary status_pass true result_class pass source_artifacts_exist true and materialization_gates_all_pass true",
+    "audit verifies M2615 source/dependency review build/probe reset/step actor extractor action mapping scenario-role result export/replay validation-admission actor/action guard claim-boundary and gate artifacts exist",
+    "audit verifies four source/dependency review rows four build/probe plan rows two reset/step rows two actor extractor rows two action mapping rows two scenario-role rows three result export/replay rows two validation-admission prerequisite rows two actor/action guard rows twenty-eight claim rows and fourteen gates pass",
+    "audit verifies M2615 selected chrono_vehicle_or_equivalent_open_backend and did not mutate dependencies or execute source build adapter probe reset action step rollout replay or validation",
+    "audit verifies M2615 preserved P0 observation shape 72 action shape 3 and no hidden/oracle actor input",
+    "audit verifies M2615 made no dependency execution readiness source-build adapter-probe reset/step validation protocol readiness validation admission validation execution external simulation training replay PPO ranking winner success-rate promotion validation result driver-performance or verdict claim",
+    "audit registers result synthesis repair platform-schema route reset-feasibility preparation branch synthesis pivot or stop without dependency execution readiness validation protocol readiness validation admission readiness result or performance claims"
+  ],
+  "type": "gate"
+}
