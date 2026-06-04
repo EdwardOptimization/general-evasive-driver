@@ -1,0 +1,54 @@
+{
+  "active_config_overwritten": false,
+  "actor_contract_shape_72_action_3": true,
+  "behavior_changed": true,
+  "candidate_constraint_status": "protected_component_gate_failed",
+  "candidate_id": "m2655_softened_gap_bias",
+  "checkpoint_promoted": false,
+  "claim_scope": "Route A mitigation-preserving source-only repair execution preflight only",
+  "failed_gate_ids": [
+    "severity_proxy_non_regression",
+    "obstacle_penetration_non_regression",
+    "minimum_obstacle_clearance_preservation"
+  ],
+  "finite_update": true,
+  "forbidden_interpretation": "driver performance, controller ranking, winner selection, success-rate verdict, validation, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID claim",
+  "hidden_or_oracle_actor_inputs_required": false,
+  "manifest_id": "m2655_repaired_checkpoint_manifest_v0",
+  "milestone": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+  "objective_artifacts_mutated": false,
+  "promotion_metadata_written": false,
+  "protected_component_gates_all_passed": false,
+  "protected_reference_families": [
+    "mitigation_collision_saturated_reference"
+  ],
+  "repair_execution_started": true,
+  "repair_training_started": true,
+  "repaired_checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+  "repaired_checkpoint_hash": "e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87",
+  "repaired_checkpoint_written": true,
+  "repaired_model_state_hash": "de902e8fe83a0904c8c59fcf1ef60e264e1cfaf9524ef1934e629a594da8379c",
+  "selected_candidate_id": "m2655_softened_gap_bias",
+  "selection_reason": "selected_lowest_protected_regression_diagnostic_candidate",
+  "source_checkpoint": "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+  "source_checkpoint_hash": "27ad15ca074292ac6a8973b70896340998f2826764f87818d25026c1262e3f88",
+  "source_model_state_hash": "79e1f8c3965beed88bee78eb23b9b6b252b971a6e64a2b3c00dddf2248503717",
+  "target_and_protected_gates_all_passed": false,
+  "target_gap_families": [
+    "road_departure_dominant_gap",
+    "drift_recovery_mixed_gap"
+  ],
+  "target_preservation_gates_all_passed": true,
+  "target_role_families": [
+    "drift_required_recovery",
+    "stable_aes",
+    "stable_avoidable"
+  ],
+  "trainable_parameter_names": [
+    "actor_mean.bias[0]",
+    "actor_mean.bias[1]",
+    "actor_mean.bias[2]"
+  ],
+  "training_observation_count": 24,
+  "update_method": "deterministic_mitigation_preserving_gap_targeted_actor_head_bias_projection"
+}

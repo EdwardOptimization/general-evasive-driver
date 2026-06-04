@@ -47919,3 +47919,26 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: target improvements alone do not justify promotion, driver performance, validation, paper evidence, FW-vs-GRU, current-sim, high-fidelity, full ideal driver completion, or self-ID
 - follow-up manifest: `experiments/manifests/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.json`
 - next: `m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight`
+
+## M2655 Engineering Controller Route A Source-Only Gap-Targeted Repair Mitigation-Preserving Repair Execution Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution_preflight_pass`
+- manifest: `experiments/manifests/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution.py`
+- summary: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json`
+- candidate sweep: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv`
+- selected repair trace: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/selected_repair_trace.csv`
+- post-repair behavior rows: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/post_repair_behavior_rows.csv`
+- mitigation-preserving gate evaluation: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv`
+- execution evidence: 3 candidate rows, 160 post-repair behavior rows, 12800 telemetry rows, and 9 gate rows
+- selected diagnostic candidate: `m2655_softened_gap_bias`; no winner selection or promotion claim
+- target gates: road-boundary 16/16 pass and drift-recovery 8/8 pass
+- protected gates: severity_proxy_non_regression fails 1/8, obstacle_penetration_non_regression fails 2/8, minimum_obstacle_clearance_preservation fails 2/8, event_transition_guard passes 8/8
+- branch implication: target preservation can be retained by the gate-aware repair, but target plus protected gates still do not pass; same protected mitigation failure and public repair loop counts reach 3
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/objective/route labels actor-visible
+- supported operational claims: M2655 produced traceable source-only repair execution evidence for branch synthesis
+- rejected claims: no repair success promotion ranking winner success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.json`
+- next: `m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis`

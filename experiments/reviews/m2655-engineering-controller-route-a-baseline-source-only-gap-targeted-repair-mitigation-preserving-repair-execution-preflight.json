@@ -1,0 +1,158 @@
+{
+  "decision_reason": "M2655 repair execution preflight status_pass true wrote 3 candidate rows selected m2655_softened_gap_bias 160 post-repair behavior rows and 9 gate rows target road-boundary 16/16 and drift-recovery 8/8 pass but protected severity obstacle-penetration and clearance gates fail with protected_component_regressed_row_count 5 actor contract 72/3 no hidden oracle no ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim route to M2656 branch synthesis",
+  "failure_criteria": [
+    "M2655 installs imports or runs Chrono or another external simulator",
+    "M2655 changes actor input or action contract",
+    "M2655 injects hidden or oracle actor features",
+    "M2655 exposes taxonomy labels repair target labels localization outcomes objective rows route decisions or gate outcomes to actor input",
+    "M2655 overwrites an active config or mutates M2650 M2652 M2653 artifacts in place",
+    "M2655 promotes a checkpoint or selects a winner",
+    "M2655 treats repair smoke as driver performance",
+    "M2655 ranks controller families or computes success-rate verdict",
+    "M2655 claims validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "training_instability",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a high-fidelity backend",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not add rule-switching controller modes",
+    "do not expose behavior gap labels repair target labels localization labels objective rows route decisions source-only diagnostic outcomes or gate outcomes to actor input",
+    "do not treat mitigation_collision_saturated_reference as an ordinary success denominator",
+    "do not treat axis_sensitivity_not_yet_decisive as a robust-fault or delay/noise verdict",
+    "do not weaken severity obstacle-penetration clearance or event-transition protected gates",
+    "do not mutate M2650 M2652 M2653 source artifacts in place",
+    "do not overwrite active training configs",
+    "do not promote a checkpoint",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success as driver performance",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from mitigation-preserving repair execution preflight"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260604T095841Z",
+  "hypothesis": "One bounded mitigation-preserving source-only repair execution can retain M2648 road-boundary and drift-recovery target gains while preventing protected mitigation severity and obstacle-penetration regression, without changing the actor contract or claiming performance.",
+  "lineage": {
+    "blocked_by": [
+      "M2648 target improvements are not admissible because one protected mitigation reference row regressed",
+      "M2650 localizes the regression to real obstacle penetration deepening rather than metric artifact",
+      "M2654 approves exactly one bounded gate-aware mitigation-preserving repair execution preflight",
+      "future repair execution must consume M2653 protected component gates before any performance interpretation"
+    ],
+    "derived_from": [
+      "m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis",
+      "m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight",
+      "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
+      "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json",
+      "experiments/manifests/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.json",
+      "experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json",
+      "experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.md",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/objective_family_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/protected_component_gate_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/target_preservation_gate_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/abort_rule_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/actor_contract_guard_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/claim_boundary_rows.csv",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/gate_matrix.csv",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/localization_findings.json",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/repair_gate_evaluation.csv",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "run one bounded mitigation-preserving source-only repair execution preflight using the M2653 objective/gate bundle after M2654 process synthesis"
+    ],
+    "supersedes": [
+      "another target-only gap-targeted repair execution",
+      "running a second repair without candidate sweep rows",
+      "running a second repair without severity and obstacle-penetration protected gates",
+      "treating M2648 target improvements as sufficient for promotion"
+    ]
+  },
+  "milestone": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "target_preservation_pass_protected_component_failed_route_to_branch_synthesis",
+  "public_gates": [
+    "M2655 must preserve P0 observation shape 72 action shape 3 and no hidden/oracle actor input boundary",
+    "M2655 may run bounded source-only repair/training execution only inside runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution",
+    "M2655 must consume M2653 objective family protected component target preservation abort actor guard claim boundary and gate matrix artifacts",
+    "M2655 must retain road-boundary and drift-recovery target preservation gates while treating mitigation_non_regression_protected as a blocking protected reference gate",
+    "M2655 must evaluate severity_proxy_non_regression obstacle_penetration_non_regression minimum_obstacle_clearance_preservation and event_transition_guard before any audit or continuation",
+    "M2655 must write summary repair_candidate_sweep selected_repair_trace repaired_checkpoint_manifest post_repair_behavior_rows mitigation_preserving_gate_evaluation and repair_config_snapshot artifacts",
+    "M2655 must keep source checkpoints active configs M2650 M2652 M2653 artifacts and taxonomy artifacts unchanged",
+    "M2655 must not rank controllers select winners promote checkpoints compute success rates or make paper self-ID finite-window-vs-GRU current-sim high-fidelity validation or driver-performance verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "target_preservation_pass_protected_component_failed_route_to_branch_synthesis",
+    "milestone": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+    "reason": "M2655 repair execution preflight status_pass true wrote 3 candidate rows selected m2655_softened_gap_bias 160 post-repair behavior rows and 9 gate rows target road-boundary 16/16 and drift-recovery 8/8 pass but protected severity obstacle-penetration and clearance gates fail with protected_component_regressed_row_count 5 actor contract 72/3 no hidden oracle no ranking promotion success-rate validation driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim route to M2656 branch synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/selected_repair_trace.csv exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repaired_checkpoint_manifest.json exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/post_repair_behavior_rows.csv exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv exists",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_config_snapshot.json exists",
+    "summary verifies P0 observation shape 72 and action shape 3 unchanged",
+    "summary verifies hidden_or_oracle_actor_inputs_required false active_config_overwritten false checkpoint_promoted false",
+    "summary separates status_pass from target/protected proof gates",
+    "gate evaluation rows include target_road_boundary_margin_control target_drift_collision_recovery_tradeoff severity_proxy_non_regression obstacle_penetration_non_regression minimum_obstacle_clearance_preservation event_transition_guard contract_p0_72_3 no_oracle_actor_inputs and no_ranking_no_success_rate",
+    "no external high-fidelity simulation ranking winner success-rate promotion validation or performance claim is made"
+  ],
+  "type": "infrastructure"
+}

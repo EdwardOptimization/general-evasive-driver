@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2660,
+    "completed": 2661,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis",
+    "task_id": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "docs",
-    "command_log": "docs/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.md"
+    "run_dir": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution",
+    "command_log": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json"
   },
   "next_task": {
-    "id": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
-    "kind": "infrastructure",
-    "priority": 26500,
+    "id": "m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis",
+    "kind": "gate",
+    "priority": 26510,
     "status": "pending",
-    "hypothesis": "One bounded gate-aware mitigation-preserving source-only repair execution can retain M2648 target gains while preventing protected mitigation severity and obstacle-penetration regression.",
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution --objective-summary runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json --objective-family-rows runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/objective_family_rows.csv --protected-component-gates runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/protected_component_gate_rows.csv --target-preservation-gates runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/target_preservation_gate_rows.csv --source-checkpoint runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution",
-    "success_artifact": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json",
-    "notes": "Pending: run bounded mitigation-preserving candidate sweep and closed-loop repair preflight with target preservation plus severity obstacle-penetration clearance and event-transition protected gates"
+    "hypothesis": "A branch synthesis can prevent the M2648-M2655 mitigation-preserving repair work from becoming a public-gate local-search loop and route the repeated protected mitigation regression to stop, pivot, or non-repair evidence expansion.",
+    "command": "true",
+    "success_artifact": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+    "notes": "Pending: synthesize M2648-M2655 after M2655 passes target preservation but fails protected severity obstacle-penetration and clearance gates; same failure and public repair loop counts reach three"
   },
-  "updated_at_utc": "20260604T093507Z"
+  "updated_at_utc": "20260604T095534Z"
 }

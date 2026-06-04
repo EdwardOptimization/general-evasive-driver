@@ -1,0 +1,63 @@
+{
+  "active_config_overwritten": false,
+  "actor_contract": {
+    "action_shape": 3,
+    "hidden_or_oracle_actor_inputs_required": false,
+    "objective_gate_labels_actor_visible": false,
+    "observation_shape": 72,
+    "repair_target_labels_actor_visible": false,
+    "route_decision_actor_visible": false,
+    "taxonomy_labels_actor_visible": false
+  },
+  "baseline_behavior_rows": "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+  "candidate_specs": [
+    {
+      "brake_bias_delta": 3.0,
+      "candidate_id": "m2655_retain_m2648_bias",
+      "steer_bias_delta": 0.12,
+      "throttle_bias_delta": -3.0
+    },
+    {
+      "brake_bias_delta": 2.0,
+      "candidate_id": "m2655_softened_gap_bias",
+      "steer_bias_delta": 0.08,
+      "throttle_bias_delta": -2.0
+    },
+    {
+      "brake_bias_delta": 1.5,
+      "candidate_id": "m2655_clearance_guarded_bias",
+      "steer_bias_delta": 0.1,
+      "throttle_bias_delta": -1.5
+    }
+  ],
+  "checkpoint_promoted": false,
+  "claim_scope": "Route A mitigation-preserving source-only repair execution preflight only",
+  "config_id": "m2655_mitigation_preserving_repair_execution_v0",
+  "forbidden_interpretation": "driver performance, controller ranking, winner selection, success-rate verdict, validation, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, or self-ID claim",
+  "generated_at_utc": "20260604T095435Z",
+  "m2653_gate_matrix_pass": true,
+  "m2653_status_pass": true,
+  "milestone": "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+  "objective_artifacts_mutated": false,
+  "objective_family_rows": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/objective_family_rows.csv",
+  "objective_summary": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+  "protected_component_gates": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/protected_component_gate_rows.csv",
+  "protected_reference_families": [
+    "mitigation_collision_saturated_reference"
+  ],
+  "ranking_run": false,
+  "repaired_checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+  "selected_candidate_id": "m2655_softened_gap_bias",
+  "source_checkpoint": "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+  "success_rate_computed": false,
+  "target_gap_families": [
+    "road_departure_dominant_gap",
+    "drift_recovery_mixed_gap"
+  ],
+  "target_preservation_gates": "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/target_preservation_gate_rows.csv",
+  "target_role_families": [
+    "drift_required_recovery",
+    "stable_aes",
+    "stable_avoidable"
+  ]
+}

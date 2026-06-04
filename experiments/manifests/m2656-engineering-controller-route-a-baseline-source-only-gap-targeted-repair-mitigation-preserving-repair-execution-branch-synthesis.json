@@ -1,0 +1,268 @@
+{
+  "id": "m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "training_instability",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/selected_repair_trace.csv",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/post_repair_behavior_rows.csv",
+      "docs/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.md",
+      "docs/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.md",
+      "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+      "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+      "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.json",
+      "experiments/manifests/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.json",
+      "experiments/manifests/m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight.json",
+      "experiments/manifests/m2652-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-design.json",
+      "experiments/manifests/m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight.json",
+      "experiments/manifests/m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize M2648-M2655 Route A source-only repair evidence after the gate-aware mitigation-preserving repair execution still fails protected mitigation components"
+    ],
+    "derived_from": [
+      "m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight",
+      "m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis",
+      "m2653-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-preflight",
+      "m2650-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-protected-mitigation-regression-localization-preflight",
+      "m2648-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2655 target preservation gates pass but protected component gates fail severity_proxy_non_regression obstacle_penetration_non_regression and minimum_obstacle_clearance_preservation",
+      "M2655 selects only a diagnostic candidate and no candidate passes target plus protected gates",
+      "same protected mitigation behavior_regression failure has repeated three times across M2648 M2650 localization and M2655 gate-aware repair execution",
+      "same public repair gate loop count reaches three, so another narrow repair is disallowed before synthesis or pivot"
+    ],
+    "supersedes": [
+      "another mitigation-preserving candidate sweep against the same public target and protected rows",
+      "another target-preserving repair execution before branch synthesis",
+      "treating M2655 status_pass as repair success or promotion evidence",
+      "weakening severity obstacle-penetration clearance or event-transition protected gates"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2656 must synthesize M2648-M2655 Route A source-only repair execution evidence before another repair execution implementation repair or target gate attempt",
+    "M2656 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2656 must explicitly separate M2655 preflight status_pass from target_and_protected_gates_all_passed false",
+    "M2656 must treat severity obstacle penetration and clearance protected component failures as blocking claims",
+    "M2656 must decide stop pivot or a non-repair evidence expansion route; continuing the same repair loop is forbidden unless the synthesis justifies a new evidence axis",
+    "M2656 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no actor-visible taxonomy repair target objective gate or route-decision labels",
+    "M2656 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2656 must not claim driver performance repair success paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose behavior gap labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not treat M2655 selected diagnostic candidate as a winner",
+    "do not weaken protected mitigation gates",
+    "do not open another same-row public repair loop before synthesis decides a new evidence axis",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from branch synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_gap_targeted_repair_execution",
+    "evidence_axis": "mitigation_preserving_repair_execution_branch_synthesis",
+    "evidence_increment": "synthesizes the failed M2655 gate-aware repair execution and closes the repeated protected mitigation regression loop before any further repair attempt",
+    "claim_scope": "Route A mitigation-preserving repair execution branch synthesis only; no new repair execution training reset rollout replay validation source build adapter probe external simulation ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim or high-fidelity validation claim",
+    "stop_condition": [
+      "stop if M2655 artifacts are missing or not traceable",
+      "stop if synthesis cannot explain why protected component gates failed despite target preservation gates passing",
+      "stop if proposed next route is another same-row candidate sweep or target repair loop",
+      "stop if proposed next route treats selected diagnostic candidate as promoted or as driver-performance evidence",
+      "stop if proposed next route weakens protected mitigation gates"
+    ],
+    "fallback_plan": [
+      "pivot to Route A baseline evidence index refresh if synthesis closes the repair branch",
+      "pivot to protected mitigation failure-surface reanalysis if synthesis finds a model/objective mismatch",
+      "pivot to scenario-role metric report or failure taxonomy if target/protected tradeoff needs clearer evidence",
+      "stop the current repair loop if no non-overfit evidence axis is available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2655 repeats the same protected mitigation behavior_regression and same public repair gate loop reaches three",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A source-only mitigation-preserving repair execution branch synthesis after repeated protected mitigation regression",
+    "admission_evidence": [
+      "M2648 changed behavior and improved road-boundary 16/16 and drift-recovery 8/8 target rows but failed protected mitigation reference 1/8",
+      "M2650 localized the protected mitigation regression as a real obstacle-penetration behavior regression rather than metric artifact",
+      "M2653 materialized protected severity obstacle penetration clearance and event-transition gates",
+      "M2655 ran closed-loop source-only repair evidence with three candidates, kept actor 72/3 and no-oracle boundary, passed both target gates, but failed severity obstacle penetration and clearance protected component gates"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+      "M2656 status queue scoreboard research log and review",
+      "one follow-up non-repair evidence expansion stop or pivot manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "M2655 target/protected gate split is explicit",
+      "same-failure and same-public-gate repeat counts are explicit",
+      "next route is selected without another same-row public repair loop"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2656 synthesizes Route A engineering repair evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2656; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A through M2655 mitigation-preserving repair execution.",
+    "negative_result_policy": "If the branch synthesis finds protected mitigation cannot be preserved by the current repair objective, record the negative result and pivot or stop rather than weakening protected gates.",
+    "allowed_claims": [
+      "Route A mitigation-preserving repair execution branch synthesis",
+      "bounded next-route decision from M2648-M2655 evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "high",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 3,
+    "evidence_expansion": "closes or pivots the repair branch after behavior-changing M2655 evidence repeats the protected mitigation regression under gate-aware objectives",
+    "paper_verdict_delta": "no paper verdict but records that target-preserving Route A repair still fails protected mitigation gates under the deployable actor contract",
+    "must_synthesize_if": [
+      "M2656 cannot choose stop pivot or non-repair evidence expansion",
+      "M2656 would claim repair success driver performance validation readiness paper evidence or self-ID from M2655",
+      "M2656 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-row repair attempt is proposed without a new evidence axis"
+    ]
+  },
+  "hypothesis": "A branch synthesis can prevent the M2648-M2655 mitigation-preserving repair work from becoming a public-gate local-search loop and route the repeated protected mitigation regression to stop, pivot, or non-repair evidence expansion.",
+  "success_criteria": [
+    "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2655 target_preservation_gates_all_passed true and protected_component_gates_all_passed false",
+    "synthesis records failed protected gates severity_proxy_non_regression obstacle_penetration_non_regression and minimum_obstacle_clearance_preservation",
+    "synthesis records same_failure_repeat_count 3 and same_public_gate_repair_count 3",
+    "synthesis chooses stop pivot or non-repair evidence expansion rather than another same-row public repair loop",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2656 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2656 changes actor input or action contract",
+    "M2656 exposes taxonomy labels repair target labels objective rows gate outcomes or route decisions to actor input",
+    "M2656 treats M2655 selected diagnostic candidate as a winner or promoted checkpoint",
+    "M2656 weakens protected mitigation gates",
+    "M2656 ranks controller families selects a winner promotes a checkpoint or computes success rate",
+    "M2656 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result",
+    "M2656 fails to choose stop pivot or non-repair evidence expansion"
+  ],
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2656-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_candidate_sweep.csv",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/mitigation_preserving_gate_evaluation.csv",
+    "docs/m2655-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-repair-execution-preflight.md",
+    "docs/m2654-engineering-controller-route-a-baseline-source-only-gap-targeted-repair-mitigation-preserving-objective-materialization-branch-synthesis.md",
+    "runs/m2653_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_objective_materialization/summary.json",
+    "runs/m2650_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_regression_localization/summary.json",
+    "runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2656 synthesizes M2648-M2655 evidence, treats M2655 protected component failures as blocking, records the repeated-failure/local-search trigger, and chooses stop pivot or non-repair evidence expansion without execution ranking validation promotion performance paper high-fidelity current-sim or self-ID claims."
+}
