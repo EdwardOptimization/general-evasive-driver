@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2706,
+    "completed": 2707,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json",
+    "command_log": "docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2700_engineering_controller_protected_runner_adapter_contract",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight"
+    "task_id": "m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "Audit the M2700 protected runner adapter contract materialization pack before protected execution admission interpretation validation ranking or performance claim.",
-    "id": "m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2700 summary input-source candidate-mapping rejection traceability actor-contract claim-boundary gate-matrix and doc artifacts verify 12/12 candidates mapped or explicitly rejected 10/10 targets accounted 0 exact M1690 match boundary preserved actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26960,
+    "hypothesis": "Design the protected runner execution-admission boundary required after M2701 accepts M2700 adapter rows but preserves zero execution-admitted protected rows.",
+    "id": "m2702-engineering-controller-protected-runner-execution-admission-design",
+    "kind": "infrastructure",
+    "notes": "Pending: design admission source rows candidate rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gates for M2700 adapter rows while preserving 0 exact M1690 match boundary 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26970,
     "status": "pending",
-    "success_artifact": "docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md"
+    "success_artifact": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md"
   },
-  "updated_at_utc": "20260604T184819Z"
+  "updated_at_utc": "20260604T185233Z"
 }

@@ -48826,3 +48826,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2700
 - follow-up manifest: `experiments/manifests/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.json`
 - next: `m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit`
+
+## M2701 Engineering Controller Protected Runner Adapter Contract Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2700_route_to_protected_runner_execution_admission_design`
+- manifest: `experiments/manifests/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.json`
+- audit doc: `docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md`
+- parent summary: `runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json`
+- accepted parent result: M2700 `status_pass` true with 11 input source rows 12 adapter candidate mapping rows 0 adapter rejection rows 160 adapter traceability rows 11 actor-contract guard rows 33 claim-boundary rows and 19 gate rows all pass
+- adapter finding: 12/12 M2697 protected candidates are mapped as `adapter_contract_materialized_not_execution_admitted` with 0 execution-admitted rows
+- traceability finding: 10/10 protected targets remain accounted and protected rows remain outside success denominators
+- M1690 boundary: 0 exact M1690 workload matches preserved in source and adapter rows; protected candidates are not current executable workload rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible route labels actor-invisible verdict labels actor-invisible
+- route decision: route to M2702 protected runner execution-admission design before any protected execution or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2701
+- follow-up manifest: `experiments/manifests/m2702-engineering-controller-protected-runner-execution-admission-design.json`
+- next: `m2702-engineering-controller-protected-runner-execution-admission-design`

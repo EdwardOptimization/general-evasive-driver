@@ -1,0 +1,244 @@
+{
+  "id": "m2702-engineering-controller-protected-runner-execution-admission-design",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md",
+      "docs/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.md",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_input_source_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_candidate_mapping_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_rejection_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_traceability_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/actor_contract_guard_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/claim_boundary_rows.csv",
+      "runs/m2700_engineering_controller_protected_runner_adapter_contract/gate_matrix.csv",
+      "docs/m2699-engineering-controller-protected-runner-adapter-contract-design.md",
+      "docs/m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit.md",
+      "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/protected_runner_spec_rows.csv",
+      "runs/m2697_engineering_controller_protected_mitigation_runner_spec_generation/protected_workload_candidate_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.json",
+      "experiments/manifests/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.json",
+      "experiments/manifests/m2699-engineering-controller-protected-runner-adapter-contract-design.json"
+    ],
+    "parent_objective": [
+      "design a protected runner execution-admission boundary after M2701 accepts M2700 but preserves 0 execution-admitted rows and 0 exact M1690 workload matches"
+    ],
+    "derived_from": [
+      "m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit",
+      "m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight",
+      "m2699-engineering-controller-protected-runner-adapter-contract-design",
+      "m2698-engineering-controller-protected-mitigation-runner-spec-generation-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2700 maps 12 protected candidates as adapter-contract rows but admits 0 execution rows",
+      "M2700 preserves 0 exact M1690 workload matches",
+      "protected runner execution requires an explicit admission boundary before any reset step rollout validation or performance claim",
+      "protected labels route decisions and verdict labels must remain actor-invisible"
+    ],
+    "supersedes": [
+      "direct protected execution from M2700 adapter rows",
+      "another adapter materialization audit loop without an execution-admission design",
+      "treating adapter-contract rows as protected mitigation preservation evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2702-engineering-controller-protected-runner-execution-admission-design.md",
+  "design_artifact": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md",
+  "public_gates": [
+    "M2702 must read M2701 M2700 M2699 M2698 M2697 M1690 and docs/post-m2470-route-plan.md before designing the execution-admission boundary",
+    "M2702 must define how M2700 adapter_candidate_mapping_rows can be classified for a later admission materialization without running reset step rollout replay validation training ranking or performance evaluation",
+    "M2702 must define admission statuses rejection statuses source rows candidate rows traceability rows actor-contract guard rows claim-boundary rows and gates for a future materialization route",
+    "M2702 must preserve P0 observation shape 72 action shape 3 and the deployed steer throttle brake action contract",
+    "M2702 must forbid hidden/oracle actor inputs and actor-visible protected target blocker route progress success or verdict labels",
+    "M2702 must keep protected rows outside ordinary success denominators and separate execution-admission design rows from execution validation ranking or performance evidence",
+    "M2702 must select one bounded follow-up route: execution-admission materialization preflight, taxonomy normalization, adapter repair, branch synthesis, or stop",
+    "M2702 must not execute reset step rollout replay validation training PPO ranking promotion or claim repair success driver-performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows as ordinary success denominators",
+    "do not hide candidate rows that are not exact M1690 workload matches",
+    "do not hide adapter rows with zero execution admission",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from protected runner execution-admission design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_protected_runner_execution_admission",
+    "evidence_axis": "protected_runner_execution_admission_design",
+    "evidence_increment": "designs the no-execution admission boundary needed after M2701 accepts M2700 adapter rows but preserves zero execution-admitted protected rows",
+    "claim_scope": "Design only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if the design would treat adapter rows as actual execution rows",
+      "stop if the design would ignore 0 exact M1690 workload matches",
+      "stop if the design requires hidden/oracle actor inputs or actor-visible protected labels",
+      "stop if protected rows would enter ordinary success denominators",
+      "stop if the design would run execution validation ranking training promotion or performance verdicts inside M2702"
+    ],
+    "fallback_plan": [
+      "route to adapter repair if M2700 rows are insufficient for admission classification",
+      "route to taxonomy normalization if protected source keys cannot be classified for admission",
+      "route to execution-admission materialization preflight if the design is complete and bounded",
+      "route to branch synthesis or stop if the protected side remains non-admissible without simulator support"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2701 accepts M2700 but rejects direct protected execution because execution admission is still zero",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "protected runner execution-admission design",
+    "admission_evidence": [
+      "M2701 accepts M2700 as complete and claim-safe adapter contract materialization evidence only",
+      "M2700 maps 12/12 protected candidates as adapter-contract rows",
+      "M2700 reports 0 execution-admitted rows and 0 exact M1690 workload matches",
+      "M2700 accounts for 10/10 protected targets with actor 72/action 3 and no hidden/oracle actor input"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in design",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md",
+      "M2702 status queue scoreboard research log and review",
+      "one bounded follow-up materialization preflight audit synthesis stop or repair manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "execution-admission design explicitly distinguishes adapter-contract rows from execution rows",
+      "design defines admission and rejection statuses before any reset rollout validation or performance route",
+      "design preserves actor 72/action 3 and forbids hidden/oracle actor input",
+      "design keeps protected labels actor-invisible and protected rows outside denominators",
+      "design selects a bounded follow-up route without execution ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2702 designs a Route A protected execution-admission boundary and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2702; any controller-family or history-dependence comparison must be separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2700 protected adapter contract rows and M2701 audit only.",
+    "negative_result_policy": "If protected adapter rows cannot be admitted without hidden/oracle inputs or actor-visible labels, preserve the blocker and route to repair taxonomy normalization synthesis or stop rather than forcing execution or performance claims.",
+    "allowed_claims": [
+      "protected runner execution-admission design and bounded follow-up decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds an execution-admission design boundary after adapter materialization produced concrete protected candidate rows but no execution admission",
+    "paper_verdict_delta": "no paper verdict; preserves protected non-execution while defining whether a future bounded execution route can be admitted",
+    "must_synthesize_if": [
+      "M2702 cannot define execution-admission and rejection rows without hidden/oracle inputs",
+      "M2702 would claim ranking repair success finite-window-vs-GRU current-response current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2702 would run execution training validation ranking promotion or performance verdicts",
+      "M2702 would repeat protected adapter process without materialization or stop decision"
+    ]
+  },
+  "hypothesis": "A protected runner execution-admission design can define how M2700 adapter rows should be classified before any execution route while preserving actor/action boundaries and avoiding execution or performance claims.",
+  "success_criteria": [
+    "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md exists",
+    "design cites M2701 M2700 M2699 M2698 M2697 M1690 and docs/post-m2470-route-plan.md as route constraints",
+    "design defines admission source rows candidate rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gate rows",
+    "design distinguishes adapter-contract rows from actual execution rows",
+    "design preserves the 0 exact M1690 workload-match boundary and requires explicit admission/rejection classification",
+    "design preserves P0 observation 72/action 3 actor boundary and no hidden/oracle actor input",
+    "design keeps protected labels actor-invisible and protected rows outside ordinary success denominators",
+    "design registers one bounded follow-up materialization preflight audit synthesis stop or repair manifest if continuing",
+    "no reset step rollout replay validation training PPO private holdout profile-specific tuning actor-input change hidden/oracle input actor-visible protected labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2702 executes reset step rollout replay validation training PPO or private holdout",
+    "M2702 changes actor input or action contract",
+    "M2702 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels route labels or verdicts to actor input",
+    "M2702 treats M2700 adapter-contract rows as actual protected execution rows",
+    "M2702 hides non-exact M1690 candidate rows or treats protected rows as ordinary success denominators",
+    "M2702 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2702 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2702 fails to define a bounded execution-admission design and follow-up route"
+  ],
+  "commands": [
+    {
+      "name": "protected_runner_execution_admission_design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md",
+    "docs/m2700-engineering-controller-protected-runner-adapter-contract-materialization-preflight.md",
+    "runs/m2700_engineering_controller_protected_runner_adapter_contract/summary.json",
+    "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_candidate_mapping_rows.csv",
+    "runs/m2700_engineering_controller_protected_runner_adapter_contract/adapter_traceability_rows.csv",
+    "runs/m2700_engineering_controller_protected_runner_adapter_contract/gate_matrix.csv",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2702 designs a bounded protected runner execution-admission route that separates adapter-contract rows from execution rows while preserving actor/action contracts and making no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "admit_protected_runner_execution_admission_materialization_preflight",
+    "fail": "reject_protected_runner_execution_admission_design"
+  },
+  "scoreboard_checkpoint": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md",
+  "next_blocker": "protected runner execution-admission materialization preflight or synthesis selected by M2702 design"
+}
