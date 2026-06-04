@@ -47577,3 +47577,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability backend start reset execution reset success step rollout replay validation readiness/result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json`
 - next: `m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis`
+
+## M2637 Engineering Controller Route A Baseline HF3 Selected-Platform Source Availability Blocker Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot_to_dependency_source_blocker_report_and_user_supplied_source_contract`
+- manifest: `experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json`
+- synthesis doc: `docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md`
+- parent audit: `docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md`
+- route reference: `docs/post-m2470-route-plan.md`
+- accepted evidence: M2635/M2636 dependency_source_unavailable blocker source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true 6 source availability rows 4 command attempts skipped 2 backend trace rows 27 claim-boundary rows 11 artifact rows and 9 gates all pass
+- route synthesis: selected-platform HF3 source-build adapter-probe execution path is paused at source availability and should not continue with another static preparation artifact before a source dependency is explicitly supplied
+- public-gate overfit risk: high enough to force pivot because more static HF3 build/probe scaffolding cannot change the next admission decision while `/home/quyaonan/workspace/chrono` is absent
+- supported operational claims: valid blocker evidence accepted for route selection and source dependency blocker report plus user-supplied source contract selected as next route
+- rejected claims: no dependency readiness source-build success adapter-probe success backend discovery backend availability backend start reset feasibility reset execution validation protocol readiness validation admission validation result ranking winner promotion driver-performance paper FW-vs-GRU current-sim high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json`
+- next: `m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design`

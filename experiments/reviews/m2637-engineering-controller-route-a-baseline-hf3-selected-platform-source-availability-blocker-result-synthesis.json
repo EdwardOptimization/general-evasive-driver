@@ -1,0 +1,151 @@
+{
+  "decision_reason": "M2637 synthesis accepts M2635/M2636 dependency_source_unavailable blocker source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true 6 source rows 4 command rows skipped 2 backend trace rows 27 claim rows 11 artifact rows 9 gates pass and pivots to source dependency blocker report plus user-supplied source contract no source build adapter probe backend reset validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim",
+  "failure_criteria": [
+    "M2637 installs imports fetches or runs Chrono or another external simulator",
+    "M2637 changes actor input or action contract",
+    "M2637 injects hidden or oracle actor features",
+    "M2637 mutates dependencies or source trees executes source build or runs adapter probe",
+    "M2637 starts a backend executes reset policy action rollout replay validation or environment step",
+    "M2637 starts training",
+    "M2637 treats source availability blocker evidence as driver performance",
+    "M2637 ranks controller families or selects a winner",
+    "M2637 claims dependency readiness source build success adapter probe success backend discovery backend availability reset feasibility validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source in the synthesis milestone",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the synthesis milestone",
+    "do not execute adapter probe in the synthesis milestone",
+    "do not start a backend in the synthesis milestone",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset in the synthesis milestone",
+    "do not execute policy actions in the synthesis milestone",
+    "do not step environments in the synthesis milestone",
+    "do not execute rollout in the synthesis milestone",
+    "do not execute replay in the synthesis milestone",
+    "do not execute validation in the synthesis milestone",
+    "do not train in the synthesis milestone",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics build outcomes probe outcomes reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade source availability blocker rows to source-build attempted source-build succeeded adapter-probe attempted adapter-probe succeeded backend-discovered backend-available reset-feasible validation-ready validation-admitted or validation-result rows",
+    "do not claim dependency execution readiness",
+    "do not claim source build success",
+    "do not claim adapter probe success",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not claim reset execution or reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not grant validation admission",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from source availability blocker synthesis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260604T070236Z",
+  "hypothesis": "A bounded synthesis can convert accepted M2635/M2636 dependency_source_unavailable blocker evidence into a clear source availability repair dependency blocker pivot or stop decision without claiming dependency readiness backend validation or driver performance.",
+  "lineage": {
+    "blocked_by": [
+      "M2636 accepts M2635 dependency_source_unavailable blocker evidence only",
+      "M2635 proves the configured selected-platform source root /home/quyaonan/workspace/chrono is unavailable while local toolchain is available",
+      "Route C requires a synthesis decision before continuing selected-platform source-build adapter-probe infrastructure after a real dependency/source blocker"
+    ],
+    "derived_from": [
+      "m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit",
+      "m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight",
+      "m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design",
+      "m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.json",
+      "experiments/manifests/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.json",
+      "experiments/manifests/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/summary.json",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/source_availability_rows.csv",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/command_attempt_rows.csv",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/backend_probe_trace.json",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/claim_boundary_checks.csv",
+      "runs/m2635_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_bounded_actual_execution_attempt/gate_matrix.csv",
+      "docs/m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight.md",
+      "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+      "docs/post-m2470-route-plan.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize the accepted M2635/M2636 dependency_source_unavailable blocker before choosing source availability repair dependency blocker pivot or stop"
+    ],
+    "supersedes": [
+      "adding another selected-platform source-build/adapter-probe static infrastructure milestone without deciding source availability repair or stop",
+      "treating source unavailability as backend unavailability or validation failure",
+      "continuing toward reset feasibility validation admission or driver performance before source availability is repaired or the selected-platform path is explicitly stopped"
+    ]
+  },
+  "milestone": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pivot_to_dependency_source_blocker_report_and_user_supplied_source_contract",
+  "public_gates": [
+    "M2637 must synthesize M2635/M2636 dependency_source_unavailable blocker evidence before any further selected-platform source-build adapter-probe reset validation or performance route",
+    "M2637 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2637 must decide whether the next route is source availability repair or acquisition design dependency/source blocker report validation-layer pivot branch synthesis pivot or stop",
+    "M2637 must separate source availability blocker evidence from dependency readiness source-build success adapter-probe success backend discovery backend availability reset feasibility validation readiness validation result ranking and driver-performance claims",
+    "M2637 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2637 must not install fetch import mutate dependencies mutate source trees use network run source builds run adapter probes start backends reset step execute policy action roll out replay validate train rank promote select winners compute success rates or make paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or driver-performance verdict claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_dependency_source_blocker_report_and_user_supplied_source_contract",
+    "milestone": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
+    "reason": "M2637 synthesis accepts M2635/M2636 dependency_source_unavailable blocker source_root_available false cmake_lists_available false toolchain_available true package_import_unavailable true 6 source rows 4 command rows skipped 2 backend trace rows 27 claim rows 11 artifact rows 9 gates pass and pivots to source dependency blocker report plus user-supplied source contract no source build adapter probe backend reset validation readiness/result ranking driver-performance paper FW-vs-GRU current-sim high-fidelity or self-ID claim",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis separates source availability blocker evidence from dependency readiness source-build success adapter-probe success backend discovery backend availability reset feasibility validation readiness validation result driver-performance ranking paper finite-window-vs-GRU current-sim high-fidelity and self-ID claims",
+    "synthesis registers source availability repair acquisition design dependency/source blocker report validation-layer pivot or stop without validation or performance claims",
+    "no external high-fidelity simulation install fetch import execution source build adapter probe backend start reset policy action rollout replay validation training ranking winner success-rate or verdict claim is made"
+  ],
+  "type": "gate"
+}

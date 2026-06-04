@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2642,
+    "completed": 2643,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit",
+    "task_id": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
     "status": "completed",
     "returncode": 0,
     "run_dir": "docs",
-    "command_log": "docs/m2636-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-result-audit.md"
+    "command_log": "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis",
+    "id": "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design",
     "kind": "gate",
-    "priority": 26320,
+    "priority": 26330,
     "status": "pending",
-    "hypothesis": "Synthesize accepted M2635/M2636 dependency_source_unavailable blocker evidence before selecting source availability repair dependency blocker pivot or stop.",
-    "command": "see experiments/manifests/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.json",
-    "success_artifact": "docs/m2637-engineering-controller-route-a-baseline-hf3-selected-platform-source-availability-blocker-result-synthesis.md",
-    "notes": "Pending: answer required synthesis questions and choose source availability repair dependency blocker pivot or stop without dependency readiness validation or performance claims"
+    "hypothesis": "Write the HF3 source dependency blocker report and user-supplied source contract after M2637 pivot.",
+    "command": "see experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json",
+    "success_artifact": "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "notes": "Pending: document accepted dependency_source_unavailable blocker evidence and define source provision contract without dependency readiness validation or performance claims"
   },
-  "updated_at_utc": "20260604T065516Z"
+  "updated_at_utc": "20260604T070122Z"
 }
