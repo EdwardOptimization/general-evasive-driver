@@ -48934,3 +48934,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2706
 - follow-up manifest: `experiments/manifests/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.json`
 - next: `m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit`
+
+## M2707 Engineering Controller Protected Runner Simulator/Workload Support Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2706_route_to_protected_runner_support_branch_synthesis`
+- manifest: `experiments/manifests/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.json`
+- audit doc: `docs/m2707-engineering-controller-protected-runner-simulator-workload-support-materialization-result-audit.md`
+- parent summary: `runs/m2706_engineering_controller_protected_runner_simulator_workload_support/summary.json`
+- accepted parent result: M2706 `status_pass` true with 17 support input source rows 12 support candidate rows 12 support blocker rows 160 support traceability rows 11 actor-contract guard rows 35 claim-boundary rows and 24 gate rows all pass
+- support finding: 12/12 M2703 blocked execution-admission candidates are classified as `support_materialized_candidate_requires_new_workload_row` with 12 explicit support blocker rows
+- execution boundary: preserves 0 support-ready existing M1690 rows 0 exact M1690 workload matches and 0 execution-admitted source rows so direct protected execution remains blocked
+- traceability finding: 10/10 protected targets remain accounted by support traceability rows with no dropped protected target
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible protected labels actor-invisible blocker labels actor-invisible route labels actor-invisible verdict labels actor-invisible and protected rows outside success denominators
+- route-plan finding: docs/post-m2470-route-plan.md blocks another narrow static support hop without synthesis because M2706 did not create an execution-admissible protected surface
+- route decision: route to M2708 protected runner simulator/workload support branch synthesis before any workload fixture design protected execution admission validation ranking or interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2707
+- follow-up manifest: `experiments/manifests/m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis.json`
+- next: `m2708-engineering-controller-protected-runner-simulator-workload-support-branch-synthesis`
