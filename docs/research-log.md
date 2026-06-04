@@ -47502,3 +47502,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.json`
 - next: `m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis`
+
+## M2633 Engineering Controller Route A Baseline HF3 Selected-Platform Source-Build Adapter-Probe Execution Attempt Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_selected_platform_source_build_adapter_probe_actual_execution_attempt_command_design`
+- manifest: `experiments/manifests/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md`
+- parent audit: `docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md`
+- parent summary: `runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json`
+- accepted evidence: M2631/M2632 selected-platform source-build/adapter-probe execution-attempt protocol materialization evidence with 2 source-build attempt admission rows 2 adapter-probe attempt admission rows 5 dependency/runtime guard rows 5 execution-attempt log capture rows 4 backend-discovery evidence capture rows 11 failure taxonomy rows 2 actor/action guard rows 31 claim-boundary rows and 14 gates pass
+- supported operational claims: selected-platform source-build/adapter-probe execution-attempt protocol materialization accepted for future local/no-network actual execution-attempt command design only
+- rejected claims: no dependency execution readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: medium-high to high because M2584-M2633 mostly improve validation-preparation hygiene without new closed-loop driver behavior evidence; M2633 narrows the next route to concrete command design with M2635 execution-attempt repair/stop handoff
+- next route: selected-platform source-build/adapter-probe actual execution-attempt command design only, not source build execution adapter probe execution backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation result or performance
+- follow-up manifest: `experiments/manifests/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.json`
+- next: `m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design`

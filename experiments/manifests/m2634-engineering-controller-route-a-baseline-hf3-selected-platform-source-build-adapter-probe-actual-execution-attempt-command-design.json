@@ -1,0 +1,269 @@
+{
+  "id": "m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+      "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+      "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+      "docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_source_build_execution_attempt_admission_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_adapter_probe_execution_attempt_admission_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_dependency_runtime_execution_guard_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_log_capture_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_backend_discovery_evidence_capture_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_failure_taxonomy_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_actor_action_guard_rows.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/hf3_selected_platform_execution_attempt_claim_boundary_checks.csv",
+      "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/selected_platform_source_build_adapter_probe_execution_attempt_gate_matrix.csv",
+      "docs/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.md",
+      "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
+      "docs/post-m2470-route-plan.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.json",
+      "experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json",
+      "experiments/manifests/m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight.json",
+      "experiments/manifests/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.json"
+    ],
+    "parent_objective": [
+      "design a bounded local/no-network selected-platform source-build and adapter-probe actual execution-attempt command bundle after accepted execution-attempt protocol materialization synthesis"
+    ],
+    "derived_from": [
+      "m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis",
+      "m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit",
+      "m2631-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-preflight",
+      "m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design"
+    ],
+    "blocked_by": [
+      "M2633 accepts M2631/M2632 protocol materialization evidence only and routes to bounded actual execution-attempt command design",
+      "M2633 rejects dependency readiness source-build attempt/execution/success adapter-probe attempt/execution/success backend discovery backend availability reset execution reset success validation readiness validation result ranking driver-performance paper finite-window-vs-GRU high-fidelity and self-ID claims",
+      "Route C requires exact local/no-network command roots logs artifacts abort criteria and claim boundaries before any future actual source-build or adapter-probe attempt can be interpreted"
+    ],
+    "supersedes": [
+      "starting source build or adapter probe execution directly from M2631 protocol rows without concrete command design",
+      "claiming backend discovery backend availability reset success validation readiness validation result or driver performance from execution-attempt protocol materialization",
+      "continuing HF3 infrastructure without a bounded command-attempt handoff to execution repair or stop"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+  "design_artifact": "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+  "public_gates": [
+    "M2634 must design a bounded local/no-network selected-platform source-build and adapter-probe actual execution-attempt command bundle after accepted M2631/M2632/M2633 evidence",
+    "M2634 must define exact source-build configure source-build compile adapter import and adapter backend-probe command attempts with cwd environment timeout stdout stderr artifact paths summary paths and return-code interpretation",
+    "M2634 must define selected-platform source availability dependency availability no-install no-network no-dependency-mutation no-source-tree-mutation no-backend-start no-reset no-validation guards and abort routes",
+    "M2634 must define M2635 handoff rules for bounded actual command execution attempt or artifact repair contract repair platform-schema repair dependency/source availability blocker branch synthesis pivot or stop",
+    "M2634 must distinguish actual execution-attempt command design from source-build execution adapter-probe execution backend discovery backend availability reset execution validation readiness validation result and performance claims",
+    "M2634 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor inputs and no rule-switching controller mode",
+    "M2634 must not install import mutate dependencies mutate source trees use network run source builds run adapter probes start backends reset step execute policy action roll out replay validate train rank promote select winners compute success rates or make paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or driver-performance verdict claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build in the command-design milestone",
+    "do not execute adapter probe in the command-design milestone",
+    "do not start a backend in the command-design milestone",
+    "do not mutate selected-platform dependencies",
+    "do not mutate selected-platform source trees",
+    "do not use network access for dependency resolution",
+    "do not execute reset in the command-design milestone",
+    "do not execute policy actions in the command-design milestone",
+    "do not step environments in the command-design milestone",
+    "do not execute rollout in the command-design milestone",
+    "do not execute replay in the command-design milestone",
+    "do not execute validation in the command-design milestone",
+    "do not train in the command-design milestone",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels feasibility classes backend statuses diagnostics build outcomes probe outcomes reset outcomes rollout outcomes validation outcomes platform selection platform-selection criteria platform-selection decision selected platform or protocol status to actor input",
+    "do not silently upgrade command design rows to source-build attempted source-build succeeded adapter-probe attempted adapter-probe succeeded backend-discovered backend-available reset-executed reset-success validation-ready validation-admitted or validation-result rows",
+    "do not make a dependency execution readiness decision",
+    "do not make a source-build execution or success claim",
+    "do not make an adapter-probe execution or success claim",
+    "do not claim backend discovery",
+    "do not claim backend availability",
+    "do not claim reset execution or reset success",
+    "do not claim rollout feasibility",
+    "do not claim validation protocol readiness",
+    "do not grant validation admission",
+    "do not answer HF4 discrepancy questions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from actual execution-attempt command design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_interface_pivot",
+    "evidence_axis": "hf3_selected_platform_source_build_adapter_probe_actual_execution_attempt_command_design",
+    "evidence_increment": "designs a concrete local/no-network source-build and adapter-probe actual execution-attempt command bundle after accepted execution-attempt protocol synthesis and forces the next route to bounded execution attempt repair or stop",
+    "claim_scope": "HF3 selected-platform source-build/adapter-probe actual execution-attempt command design only; artifacts may prepare future command execution with logs and capture paths, but no install import dependency mutation source-tree mutation network access source build adapter probe backend start reset step rollout replay validation training ranking winner selection success-rate promotion dependency readiness backend discovery backend availability reset success rollout feasibility validation protocol readiness validation admission readiness result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims",
+    "stop_condition": [
+      "stop if M2633 synthesis artifact is missing or inconsistent",
+      "stop if design cannot define exact cwd environment command timeout stdout stderr artifact paths and abort conditions",
+      "stop if design would require install import dependency mutation source-tree mutation network access source build adapter probe backend start reset step rollout replay or validation execution inside M2634",
+      "stop if design would claim dependency readiness source-build execution adapter-probe execution backend discovery backend availability reset execution reset success validation protocol readiness validation admission readiness result or driver performance",
+      "stop if design cannot define a concrete M2635 execution-attempt repair or stop handoff"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2631/M2632/M2633 evidence is incomplete",
+      "route to contract repair if actor/action or claim boundaries cannot be preserved",
+      "route to platform-schema repair if selected-platform command rows are ambiguous",
+      "route to dependency/source availability blocker if selected-platform sources or local dependency roots cannot be named without install or network",
+      "route to M2635 bounded actual execution-attempt preflight if the command design remains concrete and local/no-network",
+      "route to branch synthesis pivot or stop if another static step would not change validation preparation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2633 selected bounded actual execution-attempt command design after accepted selected-platform source-build/adapter-probe execution-attempt protocol materialization synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "HF3 selected-platform source-build/adapter-probe actual execution-attempt command design",
+    "admission_evidence": [
+      "M2633 synthesis decision continues to bounded selected-platform source-build/adapter-probe actual execution-attempt command design",
+      "M2631/M2632 accept static execution-attempt protocol rows for source-build attempt admission adapter-probe attempt admission dependency/runtime guard log capture backend-discovery evidence capture failure taxonomy actor/action claim-boundary and gates",
+      "M2631/M2632/M2633 keep install import runtime execution dependency mutation source-tree mutation network source build adapter probe backend start reset/action/step/rollout/replay/validation execution validation readiness/result ranking driver-performance paper finite-window-vs-GRU high-fidelity and self-ID claims false"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator installation or import",
+      "no external simulation",
+      "no dependency mutation",
+      "no source-tree mutation",
+      "no network dependency resolution",
+      "no source build execution in command design",
+      "no adapter probe execution in command design",
+      "no backend start in command design",
+      "no reset execution in command design",
+      "no policy action in command design",
+      "no environment stepping in command design",
+      "no rollout execution in command design",
+      "no replay execution in command design",
+      "no validation execution in command design",
+      "no validation readiness claim",
+      "no training in command design",
+      "no ranking",
+      "no validation verdict",
+      "no driver-performance claim from actual execution-attempt command design"
+    ],
+    "allowed_updates": [
+      "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+      "M2634 status queue scoreboard research log and review",
+      "one follow-up selected-platform source-build/adapter-probe bounded actual execution-attempt preflight artifact repair contract repair platform-schema repair dependency/source availability blocker branch synthesis pivot or stop manifest"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "design defines exact source-build configure compile adapter import and backend-probe command attempts with cwd environment timeout stdout stderr artifact paths and return-code interpretation",
+      "design preserves P0 72/3 no hidden/oracle actor input and deployed action mapping",
+      "design keeps install import dependency mutation source build adapter probe backend start reset step rollout replay validation execution validation readiness/result and performance claims false",
+      "design registers a concrete M2635 execution-attempt repair or stop handoff"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2634 designs engineering HF3 selected-platform source-build/adapter-probe actual execution-attempt command artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2634; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A baseline/interface pivot through M2633 selected-platform source-build/adapter-probe execution-attempt materialization synthesis.",
+    "negative_result_policy": "If command design cannot preserve actor/action and claim boundaries route to repair pivot or stop rather than weakening self-ID or validation gates.",
+    "allowed_claims": [
+      "HF3 selected-platform source-build/adapter-probe actual execution-attempt command design",
+      "future bounded local/no-network command-attempt artifacts specified",
+      "no source-build execution adapter-probe execution dependency execution readiness backend discovery backend availability reset execution reset success validation protocol readiness validation admission high-fidelity validation readiness/result controller ranking paper-level result finite-window-vs-GRU result current-sim verdict driver-performance verdict or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs a concrete local/no-network command-attempt bundle and M2635 handoff after accepted execution-attempt protocol materialization synthesis; no additional static step should follow unless it repairs a named blocker",
+    "paper_verdict_delta": "no paper verdict but narrows Route C toward auditable source-build and adapter-probe execution-attempt evidence while preserving post-M2470 separation from current-sim and self-ID claims",
+    "must_synthesize_if": [
+      "M2634 cannot define concrete source-build and adapter-probe command attempts without actor/action changes",
+      "M2634 would claim source-build execution adapter-probe execution backend discovery backend availability reset execution reset success validation readiness validation result or driver performance",
+      "M2634 would rank or promote controllers",
+      "another design-only or materialization-only step is proposed after M2634 without a bounded execution-attempt or named repair"
+    ]
+  },
+  "hypothesis": "A bounded design can specify local/no-network selected-platform source-build/adapter-probe actual execution-attempt commands and M2635 handoff without installing importing mutating dependencies running source build running adapter probe starting a backend reset step rollout replay validation execution or performance claims.",
+  "success_criteria": [
+    "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md exists",
+    "M2634 registers a follow-up bounded selected-platform source-build/adapter-probe actual execution-attempt preflight artifact repair contract repair platform-schema repair dependency/source availability blocker branch synthesis pivot or stop manifest",
+    "M2634 specifies source-build configure source-build compile adapter import and adapter backend-probe command attempts with cwd environment timeout stdout stderr artifact paths summary paths and return-code interpretation",
+    "M2634 defines no-install no-network no-dependency-mutation no-source-tree-mutation backend-start reset validation and actor-visibility guards",
+    "M2634 separates actual execution-attempt command design from dependency execution readiness source build execution adapter probe execution backend discovery backend availability reset execution reset success rollout feasibility validation protocol readiness validation admission validation readiness validation result ranking driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation and self-ID claims",
+    "no external high-fidelity simulation install import execution source build adapter probe backend start reset policy action rollout replay validation training ranking winner success-rate or verdict claim is made"
+  ],
+  "failure_criteria": [
+    "M2634 installs imports or runs Chrono or another external simulator",
+    "M2634 changes actor input or action contract",
+    "M2634 injects hidden or oracle actor features",
+    "M2634 mutates dependencies source trees uses network executes source build or runs adapter probe",
+    "M2634 starts a backend or executes reset policy action rollout replay validation or environment step",
+    "M2634 starts training",
+    "M2634 treats command design as driver performance",
+    "M2634 ranks controller families or selects a winner",
+    "M2634 claims source-build execution adapter-probe execution backend discovery backend availability reset execution reset success dependency execution readiness validation protocol readiness validation admission validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim verdict or self-ID result"
+  ],
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2634-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-actual-execution-attempt-command-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1154_row15_promoted_unsafe_margin_projection_probe/checkpoints/alpha_0_05.pt",
+    "runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/checkpoints/m2532_guarded_actor_head_repair.pt",
+    "runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.md",
+    "docs/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.md",
+    "runs/m2631_engineering_controller_route_a_hf3_selected_platform_source_build_adapter_probe_execution_attempt/summary.json",
+    "experiments/manifests/m2633-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-synthesis.json",
+    "experiments/manifests/m2632-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-materialization-result-audit.json",
+    "docs/m2630-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-attempt-design.md",
+    "docs/post-m2470-route-plan.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "decision_rule": "M2634 passes if it designs bounded local/no-network selected-platform source-build/adapter-probe actual execution-attempt commands, registers a concrete M2635 execution-attempt repair or stop handoff, preserves actor/action and claim boundaries, and makes no external dependency mutation source build adapter probe backend start reset step simulation validation execution training ranking winner selection success-rate promotion backend-discovery backend-availability reset-success validation readiness validation result driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation or self-ID claims.",
+  "next_blocker": "m2635-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-bounded-actual-execution-attempt-preflight"
+}
