@@ -46874,3 +46874,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - hidden-input guard: no hidden/oracle actor input diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
 - follow-up manifest: `experiments/manifests/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.json`
 - next: `m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit`
+
+## M2593 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Closure Materialization Result Audit
+
+- status: completed
+- decision: `accept_hf3_source_only_adapter_blocker_closure_materialization_route_to_result_synthesis`
+- manifest: `experiments/manifests/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.json`
+- audit doc: `docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md`
+- parent summary: `runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/summary.json`
+- accepted evidence: M2592 status_pass true 4 external-state closure rows 4 time-step/actuator latency closure rows 4 failure/status taxonomy closure rows 4 source-only fixture smoke closure rows 4 actor-visibility rows 15 claim rows and 13 gates pass
+- closure boundary: repo-local source-only adapter blocker closure materialized true while validation_protocol_ready_in_m2592 false external_validation_execution_allowed_in_m2592 false platform_selected_in_m2592 false and driver_performance_claim_allowed_in_m2592 false
+- guard boundary: P0 `72/3` preserved and no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes rollout outcomes validation outcomes platform selection or protocol status actor-visible
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.json`
+- next: `m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis`
+
+## M2594 Engineering Controller Route A Baseline HF3 Source-Only Adapter Readiness Blocker Closure Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_platform_protocol_readiness_after_source_only_closure_design`
+- manifest: `experiments/manifests/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md`
+- parent audit: `docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md`
+- accepted evidence: M2592/M2593 repo-local source-only adapter blocker closure materialization evidence with 4 external-state closure rows 4 timing closure rows 4 failure/status taxonomy closure rows 4 source-only fixture closure rows 4 actor-visibility rows 15 claim rows and 13 gates pass
+- supported operational claims: repo-local source-only adapter blocker closure artifacts materialized and audited without actor/action contract drift
+- rejected claims: no platform selection validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high because M2587-M2594 are validation-layer process steps without new closed-loop driver behavior evidence
+- next route: after-closure platform/protocol readiness design only, not platform selection or validation execution
+- follow-up manifest: `experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json`
+- next: `m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design`

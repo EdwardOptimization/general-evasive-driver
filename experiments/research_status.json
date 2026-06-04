@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2598,
+    "completed": 2600,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2592-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-preflight",
+    "task_id": "m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure",
-    "command_log": "runs/m2592_engineering_controller_route_a_hf3_source_only_adapter_blocker_closure/summary.json"
+    "run_dir": "docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md",
+    "command_log": "docs/m2594-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-synthesis.md"
   },
   "next_task": {
-    "id": "m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit",
-    "kind": "gate",
-    "priority": 25880,
+    "id": "m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design",
+    "kind": "infrastructure",
+    "priority": 25900,
     "status": "pending",
-    "hypothesis": "Audit the M2592 Route A HF3 source-only adapter blocker closure materialization before validation readiness platform result or performance interpretation.",
-    "command": "see experiments/manifests/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.json",
-    "success_artifact": "docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md",
-    "notes": "Pending: audit M2592 source-only blocker closure materialization status_pass true rows gates actor/action and claim boundaries before synthesis repair platform/protocol readiness design or stop no platform selection validation readiness/result ranking driver-performance or self-ID claim"
+    "hypothesis": "Design bounded HF3 platform/protocol readiness artifacts after accepted source-only adapter blocker closure synthesis.",
+    "command": "see experiments/manifests/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.json",
+    "success_artifact": "docs/m2595-engineering-controller-route-a-baseline-hf3-platform-protocol-readiness-after-source-only-closure-design.md",
+    "notes": "Pending: design platform candidate dependency/import policy validation protocol skeleton source-only closure evidence actor/action guard claim-boundary and gate artifacts without platform selection external simulation validation execution validation protocol readiness/admission/readiness/result ranking driver-performance or self-ID claims"
   },
-  "updated_at_utc": "20260604T002550Z"
+  "updated_at_utc": "20260604T003811Z"
 }
