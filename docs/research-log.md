@@ -47374,3 +47374,18 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis.json`
 - next: `m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis`
+
+## M2625 Engineering Controller Route A Baseline HF3 Selected-Platform Reset-Execution Readiness Materialization Result Synthesis
+
+- status: completed
+- synthesis decision: `continue_to_hf3_selected_platform_source_build_adapter_probe_execution_design`
+- manifest: `experiments/manifests/m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis.json`
+- synthesis doc: `docs/m2625-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-synthesis.md`
+- parent audit: `docs/m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit.md`
+- accepted evidence: M2623/M2624 selected-platform reset-execution readiness materialization evidence with 4 source-build/adapter-probe evidence admission rows 2 backend availability fixture rows 2 reset invocation dry-run rows 2 reset request binding rows 2 actor-view after-reset rows 10 reset outcome audit schema rows 2 actor/action guard rows 27 claim-boundary rows and 13 gates pass
+- supported operational claims: selected-platform reset-execution readiness materialization accepted for future source-build/adapter-probe execution preparation only
+- rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- public-gate overfit risk: high to medium-high because M2623-M2625 are validation-layer process steps without new closed-loop driver behavior evidence; M2625 is the cadence synthesis and narrows the next route to source-build/adapter-probe execution design
+- next route: selected-platform source-build/adapter-probe execution design only, not source build execution adapter probe execution reset execution reset success rollout feasibility validation protocol readiness validation admission or validation execution
+- follow-up manifest: `experiments/manifests/m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design.json`
+- next: `m2626-engineering-controller-route-a-baseline-hf3-selected-platform-source-build-adapter-probe-execution-design`
