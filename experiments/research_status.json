@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2673,
+    "completed": 2674,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "task_id": "m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight",
+    "task_id": "m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit",
     "status": "completed",
     "returncode": 0,
-    "run_dir": "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy",
-    "command_log": "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json"
+    "run_dir": "docs",
+    "command_log": "docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md"
   },
   "next_task": {
-    "id": "m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit",
+    "id": "m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis",
     "kind": "gate",
-    "priority": 26630,
+    "priority": 26640,
     "status": "pending",
-    "hypothesis": "A bounded result audit can accept or reject M2667 readiness-index artifacts before Route A chooses synthesis stop packaging repair or a new evidence route.",
+    "hypothesis": "A branch synthesis can prevent the Route A readiness index from becoming another process loop and choose whether to stop pivot package with limitations or open a genuinely new evidence route.",
     "command": "true",
-    "success_artifact": "docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md",
-    "notes": "Pending: audit M2667 readiness index artifacts before packaging validation repair or synthesis; verify six Route A artifacts covered protected blocker outside success denominators actor 72/3 no hidden oracle; no reset rollout replay validation training ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
+    "success_artifact": "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
+    "notes": "Pending: synthesize M2666-M2668 Route A readiness-after-protected-taxonomy branch and choose stop pivot package-with-limitations or a new evidence route; keep protected blocker outside success denominators actor 72/3 no hidden oracle; no reset rollout replay validation training ranking promotion success-rate driver-performance validation-readiness paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim"
   },
-  "updated_at_utc": "20260604T122239Z"
+  "updated_at_utc": "20260604T123139Z"
 }

@@ -1,0 +1,122 @@
+# m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260604T123258Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2667_route_to_route_a_readiness_after_protected_taxonomy_branch_synthesis
+- Decision reason: M2668 accepts M2667 readiness index for branch synthesis only verifies 6/6 Route A required artifacts covered protected mitigation blocker preserved outside success denominators actor 72/3 no hidden oracle rejects packaging validation-readiness repair-success ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims routes to M2669 branch synthesis
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2667 readiness-index artifacts before Route A chooses synthesis stop packaging repair or a new evidence route.
+
+## Lineage
+
+- parent_checkpoint: runs/m2537_engineering_controller_failure_surface_mitigation_preserving_repair_execution/checkpoints/m2537_mitigation_preserving_actor_head_repair.pt, runs/m2648_engineering_controller_route_a_source_only_gap_targeted_repair_execution/checkpoints/m2648_gap_targeted_actor_head_repair.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/checkpoint_readiness_rows.csv, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/artifact_coverage_rows.csv, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/known_failure_boundary_rows.csv, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/next_action_admission_rows.csv, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/claim_boundary_rows.csv, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/gate_matrix.csv, docs/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.md
+- parent_config: experiments/manifests/m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight.json, experiments/manifests/m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis.json
+- parent_objective: audit the M2667 Route A engineering baseline readiness index before packaging validation repair or another route decision
+- derived_from: m2667-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-preflight, m2666-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-branch-synthesis, m2664-engineering-controller-route-a-protected-mitigation-fresh-panel-failure-taxonomy-materialization-preflight
+- blocked_by: M2667 readiness index must be audited before Route A packaging validation repair or synthesis, protected mitigation blocker must remain visible and outside success denominators after readiness indexing, readiness index must not become validation readiness or driver-performance evidence
+- supersedes: using the readiness index without audit, claiming Route A validation readiness while protected mitigation remains broad and blocking, opening another same-row protected repair loop from readiness rows
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md exists
+- audit verifies M2667 summary status_pass true and required readiness artifacts exist
+- audit verifies all six Route A near-term artifacts are covered
+- audit verifies protected mitigation remains blocking and outside success denominators
+- audit registers a bounded follow-up without ranking validation training promotion or performance claims
+
+## Failure Criteria
+
+- M2668 executes reset step rollout replay validation training source build adapter probe or external simulation
+- M2668 ranks controller families selects a winner promotes a checkpoint or claims driver performance
+- M2668 treats protected mitigation rows as ordinary success denominators
+- M2668 treats readiness index as validation readiness or repair success
+
+## Evidence Gates
+
+- M2668 must audit M2667 summary checkpoint_readiness_rows artifact_coverage_rows known_failure_boundary_rows next_action_admission_rows claim_boundary_rows and gate_matrix artifacts
+- M2668 must verify M2667 source_artifacts_reanalyzed_only true and no reset rollout replay validation training PPO source build adapter probe external simulation ranking promotion or success-rate computation
+- M2668 must verify all six post-M2470 Route A near-term artifacts are covered: baseline checkpoint list actor contract public benchmark pack known failure taxonomy runtime report and scenario-role metric report
+- M2668 must verify protected mitigation remains a blocking known limitation outside success denominators
+- M2668 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target objective gate or route-decision labels
+- M2668 must register one bounded synthesis stop or new evidence route manifest
+- M2668 must not claim repair success driver performance validation readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels repair target labels localization labels objective rows gate outcomes or route decisions to actor input
+- do not treat protected mitigation rows as ordinary success denominators
+- do not weaken protected mitigation gates
+- do not open another same-row public repair loop from readiness index
+- do not rank controller families
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from readiness index audit
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2667_route_to_route_a_readiness_after_protected_taxonomy_branch_synthesis
+- reason: M2668 accepts M2667 readiness index for branch synthesis only verifies 6/6 Route A required artifacts covered protected mitigation blocker preserved outside success denominators actor 72/3 no hidden oracle rejects packaging validation-readiness repair-success ranking promotion success-rate driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver and self-ID claims routes to M2669 branch synthesis
+
+## Next Blocker
+
+None recorded.

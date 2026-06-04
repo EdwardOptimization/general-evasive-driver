@@ -48209,3 +48209,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success promotion ranking winner success-rate validation-readiness validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
 - follow-up manifest: `experiments/manifests/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.json`
 - next: `m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit`
+
+## M2668 Engineering Controller Route A Engineering Baseline Readiness Index After Protected Taxonomy Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2667_route_to_route_a_readiness_after_protected_taxonomy_branch_synthesis`
+- manifest: `experiments/manifests/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.json`
+- audit doc: `docs/m2668-engineering-controller-route-a-engineering-baseline-readiness-index-after-protected-taxonomy-materialization-result-audit.md`
+- parent summary: `runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json`
+- parent artifacts: `checkpoint_readiness_rows.csv`, `artifact_coverage_rows.csv`, `known_failure_boundary_rows.csv`, `next_action_admission_rows.csv`, `claim_boundary_rows.csv`, and `gate_matrix.csv`
+- accepted status: M2667 `status_pass` true with source artifacts present, source reanalysis only, required artifacts present, and gate matrix pass
+- Route A artifact coverage: 6/6 required artifacts covered including baseline checkpoint list, actor contract, public benchmark pack, known failure taxonomy, runtime report, and scenario-role metric report
+- protected blocker: protected mitigation blocker preserved with 25 protected blocking rows and 79 regressed row counts; protected rows remain outside success denominators
+- actor/action boundary: P0 observation 72 action 3 preserved; no hidden/oracle actor input and no taxonomy/repair/objective/route labels actor-visible
+- supported operational claims: M2667 readiness index accepted for branch synthesis only
+- rejected claims: no repair success promotion ranking winner success-rate validation-readiness validation driver-performance paper FW-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+- follow-up manifest: `experiments/manifests/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.json`
+- next: `m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis`
