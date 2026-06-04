@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2707,
+    "completed": 2708,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md",
+    "command_log": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit"
+    "task_id": "m2702-engineering-controller-protected-runner-execution-admission-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "Design the protected runner execution-admission boundary required after M2701 accepts M2700 adapter rows but preserves zero execution-admitted protected rows.",
-    "id": "m2702-engineering-controller-protected-runner-execution-admission-design",
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_protected_runner_execution_admission_materialization --m2700-dir runs/m2700_engineering_controller_protected_runner_adapter_contract --m2701-audit docs/m2701-engineering-controller-protected-runner-adapter-contract-materialization-result-audit.md --m2702-design docs/m2702-engineering-controller-protected-runner-execution-admission-design.md --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --executable-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2703_engineering_controller_protected_runner_execution_admission",
+    "hypothesis": "Materialize protected runner execution-admission classifications from M2702 design and M2700 adapter rows without execution.",
+    "id": "m2703-engineering-controller-protected-runner-execution-admission-materialization-preflight",
     "kind": "infrastructure",
-    "notes": "Pending: design admission source rows candidate rows rejection rows traceability rows actor-contract guard rows claim-boundary rows and gates for M2700 adapter rows while preserving 0 exact M1690 match boundary 0 execution-admitted source state actor 72/action 3 labels actor-invisible protected rows outside denominators no execution validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26970,
+    "notes": "Pending: materialize execution-admission input source candidate rejection traceability actor-contract guard claim-boundary and gate rows from M2700 adapter candidates preserving 0 exact M1690 match visibility expected 0 admitted execution rows actor 72/action 3 labels actor-invisible protected rows outside denominators no reset rollout validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26980,
     "status": "pending",
-    "success_artifact": "docs/m2702-engineering-controller-protected-runner-execution-admission-design.md"
+    "success_artifact": "runs/m2703_engineering_controller_protected_runner_execution_admission/summary.json"
   },
-  "updated_at_utc": "20260604T185233Z"
+  "updated_at_utc": "20260604T185902Z"
 }
