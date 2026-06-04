@@ -47340,3 +47340,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
 - follow-up manifest: `experiments/manifests/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.json`
 - next: `m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight`
+
+## M2623 Engineering Controller Route A Baseline HF3 Selected-Platform Reset-Execution Readiness Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness.py`
+- focused test: `tests/test_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness.py`
+- summary: `runs/m2623_engineering_controller_route_a_hf3_selected_platform_reset_execution_readiness/summary.json`
+- milestone doc: `docs/m2623-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-preflight.md`
+- materialized evidence: 4 source-build/adapter-probe evidence admission rows 2 backend availability fixture rows 2 reset invocation dry-run rows 2 reset request binding rows 2 actor-view after-reset rows 10 reset outcome audit schema rows 2 actor/action guard rows 27 claim-boundary rows and 13 gates pass
+- selected-platform boundary: selected_platform_family_in_m2623 `chrono_vehicle_or_equivalent_open_backend` selected_platform_reset_execution_readiness_design_materialized_in_m2623 true while external_install_allowed_in_m2623 false external_import_allowed_in_m2623 false runtime_execution_allowed_in_m2623 false dependency_mutation_allowed_in_m2623 false source_build_executed_in_m2623 false adapter_probe_executed_in_m2623 false
+- validation boundary: reset_executed_in_m2623 false environment_step_executed_in_m2623 false policy_action_executed_in_m2623 false rollout_executed_in_m2623 false replay_executed_in_m2623 false external_validation_execution_allowed_in_m2623 false validation_protocol_ready_in_m2623 false validation_admission_granted_in_m2623 false validation_result_claim_allowed false reset_success_claim_allowed_in_m2623 false rollout_feasibility_claim_allowed_in_m2623 false and driver_performance_claim_allowed_in_m2623 false
+- guard boundary: P0 `72/3` and deployed `[steer, throttle, brake]` mapping preserved with no hidden/oracle diagnostics taxonomy labels backend statuses reset outcomes validation outcomes selected platform or protocol status actor-visible
+- supported operational claims: selected-platform reset-execution readiness design materialized source-build/adapter-probe evidence admission backend availability fixture reset invocation dry-run reset request binding actor-view after-reset extraction outcome audit schema actor/action guard claim-boundary and gate rows materialized
+- rejected claims: no dependency execution readiness source build adapter probe reset execution reset success rollout feasibility reset step rollout replay validation protocol readiness validation admission readiness/result validation execution success-rate ranking promotion driver-performance paper FW-vs-GRU current-sim verdict high-fidelity validation or self-ID claim
+- follow-up manifest: `experiments/manifests/m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit.json`
+- next: `m2624-engineering-controller-route-a-baseline-hf3-selected-platform-reset-execution-readiness-materialization-result-audit`
