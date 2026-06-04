@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2693,
+    "completed": 2694,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md",
+    "command_log": "runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization",
     "status": "completed",
-    "task_id": "m2687-engineering-controller-route-a-package-with-limitations-protocol-design"
+    "task_id": "m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_package_with_limitations_protocol_materialization --output-dir runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization",
-    "hypothesis": "Materialize a bounded Route A package-with-limitations protocol pack from accepted readiness artifacts and visible blocker disclosures.",
-    "id": "m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize summary package manifest schema artifact inventory provenance known blocker actor/action claim-boundary and gate rows for Route A package-with-limitations no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 26830,
+    "command": "true",
+    "hypothesis": "Audit the M2688 Route A package-with-limitations protocol materialization before repair synthesis publication-design or any validation interpretation.",
+    "id": "m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2688 package protocol pack verifies summary schema inventory provenance blocker actor/action claim-boundary and gate artifacts preserves protected mitigation current-sim off-track and HF3 dependency blockers no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 26840,
     "status": "pending",
-    "success_artifact": "runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization/summary.json"
+    "success_artifact": "docs/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260604T161629Z"
+  "updated_at_utc": "20260604T162857Z"
 }

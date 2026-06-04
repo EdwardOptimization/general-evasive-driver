@@ -48597,3 +48597,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2687
 - follow-up manifest: `experiments/manifests/m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight.json`
 - next: `m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight`
+
+## M2688 Engineering Controller Route A Package With Limitations Protocol Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_package_with_limitations_protocol_materialization_pass`
+- manifest: `experiments/manifests/m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_package_with_limitations_protocol_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_package_with_limitations_protocol_materialization.py`
+- summary: `runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization/summary.json`
+- doc: `docs/m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight.md`
+- materialized rows: 17 package manifest schema rows 10 artifact inventory rows 10 provenance map rows 4 known blocker disclosure rows 9 actor/action contract rows 25 claim-boundary rows and 20 package protocol gate rows
+- package coverage: 6/6 post-M2470 Route A artifacts covered with package-with-limitations semantics
+- required disclosures: protected mitigation blocker 25 blocking rows and 79 regressed row count current-sim off-track blocker 202/216 outcomes and 203/216 terminations HF3 `dependency_source_unavailable` blocker and paper/self-ID blocker visible
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input and no actor-visible taxonomy route package blocker or verdict labels
+- route decision: route to M2689 package protocol materialization result audit before package repair synthesis publication-design validation interpretation or any performance claim
+- rejected claims: no package publication reset rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2688
+- follow-up manifest: `experiments/manifests/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.json`
+- next: `m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit`
