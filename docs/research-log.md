@@ -49719,3 +49719,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2750
 - follow-up manifest: `experiments/manifests/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.json`
 - next: `m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis`
+
+## M2751 Engineering Controller Route A Baseline Readiness After Role-Panel Diagnostic Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_cross_axis_stress_generalization_bounded_execution_design`
+- manifest: `experiments/manifests/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.json`
+- synthesis artifact: `docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md`
+- parent audit: `docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md`
+- parent summary: `runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json`
+- evidence summary: M2748-M2750 complete a claim-safe Route A readiness/admission branch but do not add driver capability evidence
+- diagnostic accounting: preserves M2746 weak role-panel diagnostic as 14 execution rows 1 diagnostic success row 1 collision row 9 off_track rows 3 speed_too_low rows and 1 unset_or_completed row as row accounting only
+- readiness boundary: accepts M2749/M2750 readiness and blocker integration while keeping protected mitigation and HF3 source dependency blockers active and outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy scenario-role metric target protected blocker route-decision success/progress and verdict labels actor-invisible
+- overfit risk: high if Route A repeats readiness/audit loops same-panel execution same-surface repair ranking validation or packaging claims from M2749/M2750 rows
+- route decision: pivot to M2752 Route A cross-axis stress generalization bounded execution design before any future execution
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2751
+- follow-up manifest: `experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json`
+- next: `m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design`

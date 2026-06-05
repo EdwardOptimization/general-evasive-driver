@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
+m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
+m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
+m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
 ```
 
 Current route:
@@ -300,6 +300,21 @@ high-fidelity, full-driver, and self-ID claims. The next bounded step is M2751
 branch synthesis to decide stop, pivot, package-with-limitations,
 defer-to-Route-B, defer-to-Route-C, or a genuinely new non-same-panel evidence
 route before any further execution.
+
+M2751 synthesized M2748-M2750 and chose `pivot` to a new Route A
+cross-axis stress generalization bounded execution design. It accepts the
+readiness/admission branch as complete and claim-safe process evidence only:
+M2749/M2750 integrated readiness and blocker state but did not add driver
+capability evidence. M2751 preserves the M2746 weak diagnostic as row
+accounting only: 1/14 diagnostic success, 1/14 collision, 9/14 off_track, 3/14
+speed_too_low, and 1/14 unset_or_completed. It keeps protected mitigation and
+HF3 source dependency blockers active and outside denominators, preserves actor
+72/action 3 with no hidden/oracle actor input, rejects another readiness/audit
+loop, same-panel execution, same-surface repair, ranking, validation readiness,
+driver performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims. The next bounded step is M2752 design-only cross-axis stress
+generalization surface selection before any separately pre-registered future
+execution.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
@@ -1468,21 +1483,19 @@ training repair success
 
 ## Immediate Next Step
 
-M2534 should localize the single M2532 mitigation regression:
+M2752 should design the new Route A cross-axis stress generalization evidence
+surface admitted by M2751:
 
 ```text
-experiments/manifests/m2534-engineering-controller-failure-surface-mitigation-regression-localization-preflight.json
-runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/summary.json
-runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/mitigation_regression_rows.csv
-runs/m2534_engineering_controller_failure_surface_mitigation_regression_localization/localization_findings.json
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/summary.json
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/post_repair_smoke_rows.csv
-runs/m2532_engineering_controller_failure_surface_guarded_repair_execution/protected_gate_evaluation.csv
-docs/m2533-engineering-controller-failure-surface-guarded-repair-execution-result-audit.md
+experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json
+docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md
 ```
 
-The localization must identify why
-`m2523_m1154_policy_actor_unavoidable_mitigation_seed_254302` regressed in
-severity while road margin and command conflict improved. It must remain
-artifact-only and avoid new policy action, training, ranking, winner selection,
-promotion, success-rate, validation, or driver-performance claims.
+The design must choose a genuinely non-same-panel cross-axis stress surface,
+define source criteria, scenario axes, seed policy, actor-contract guards,
+claim boundaries, blocker handling, and M2753 follow-up requirements. It must
+remain design-only and avoid reset, step, rollout, replay, validation, training,
+PPO, source build, adapter probe, external simulation, ranking, winner
+selection, promotion, success-rate verdicts, validation readiness,
+driver-performance, paper, current-sim, high-fidelity, full-driver, or self-ID
+claims.

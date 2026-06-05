@@ -1,0 +1,245 @@
+{
+  "id": "m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+      "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/evidence_index.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/deliverable_readiness_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/next_action_admission_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/claim_boundary_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/gate_matrix.csv",
+      "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.json",
+      "experiments/manifests/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.json",
+      "experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design a new non-same-panel Route A cross-axis stress generalization evidence route after M2751 rejects readiness-loop continuation"
+    ],
+    "derived_from": [
+      "m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis",
+      "m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit",
+      "m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight",
+      "m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2746 weak diagnostic is not sufficient for Route A driver-performance or validation-readiness claims",
+      "M2748/M2750 reject another same-panel public role execution or same-surface repair loop",
+      "protected mitigation and HF3 source dependency blockers remain active",
+      "new closed-loop evidence must be gathered without ranking performance claims or actor-contract expansion"
+    ],
+    "supersedes": [
+      "another readiness/audit loop after M2750",
+      "same-panel M2746-like execution continuation",
+      "direct validation performance ranking or packaging claim from M2749/M2750 readiness artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md",
+  "design_artifact": "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md",
+  "public_gates": [
+    "M2752 must design a bounded non-same-panel Route A cross-axis stress generalization execution surface for a future separately pre-registered M2753 execution preflight",
+    "M2752 must use existing source artifacts and docs/post-m2470-route-plan.md and must not reset step rollout replay validate train run PPO build source probe adapters import external simulators or run external simulation",
+    "M2752 must define candidate source criteria scenario axes seed policy non-same-panel exclusion rules actor contract guards claim boundaries blocker handling and follow-up M2753 manifest requirements",
+    "M2752 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy scenario-role metric target blocker route-decision success progress or verdict labels",
+    "M2752 must not add hidden dynamics oracle labels slip/tire-force shortcuts TTC reference trajectory precomputed success/progress signals friction mass center-of-gravity tire brake steering delay sensor-noise labels or scenario-role labels to actor input",
+    "M2752 must keep protected mitigation and HF3 source dependency blockers outside ordinary success denominators and outside actor-visible inputs",
+    "M2752 must not rank controller families source families task families profiles stress axes or scenario roles and must not select a winner promote a checkpoint compute success-rate verdicts or claim driver performance",
+    "M2752 must register one bounded M2753 follow-up manifest only if the design admits a future execution preflight"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions controller-family labels stress-axis labels success labels progress labels or verdict labels to actor input",
+    "do not add friction mass center-of-gravity tire brake steering-delay sensor-noise or actuator-delay labels to actor input",
+    "do not hide the M2746 weak role-panel diagnostic result",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not open another same-panel public role execution loop from readiness rows",
+    "do not rank controller families source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_cross_axis_stress_generalization",
+    "evidence_axis": "cross_axis_stress_generalization_bounded_execution_design",
+    "evidence_increment": "changes Route A from readiness/role-panel accounting to a fresh non-same-panel cross-axis stress generalization surface that can later produce closed-loop diagnostic rows across actuator delay dynamics variation sensor noise mitigation and avoidance roles without actor oracle inputs",
+    "claim_scope": "Route A cross-axis stress generalization execution design only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if the design cannot define a non-same-panel evidence surface distinct from M2746/M2749",
+      "stop if the proposed surface requires hidden/oracle actor inputs",
+      "stop if protected mitigation or HF3 blocker rows would be collapsed into ordinary denominators",
+      "stop if the design would rank families axes profiles or scenario roles",
+      "stop if the design would claim validation readiness driver performance or promotion evidence"
+    ],
+    "fallback_plan": [
+      "return to package-with-limitations only if no bounded non-same-panel Route A surface can be designed",
+      "defer to Route B comparison if the only remaining next step is paper evidence rather than engineering controller evidence",
+      "defer to Route C source dependency handling only if source availability can be addressed without fake execution",
+      "preserve M2746/M2749/M2750 as readiness/admission artifacts if no execution design is admitted"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2751 pivots from readiness-after-role-panel diagnostics to a non-same-panel Route A cross-axis stress generalization evidence route",
+    "synthesis_decision": "not_applicable",
+    "design_artifact": "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A cross-axis stress generalization bounded execution design",
+    "admission_evidence": [
+      "M2751 selects pivot_to_route_a_cross_axis_stress_generalization_bounded_execution_design",
+      "M2750 accepts M2749 readiness/admission indexing but rejects same-panel execution validation ranking performance paper current-sim high-fidelity full-driver and self-ID interpretation",
+      "M2746 weak role-panel diagnostic remains 1/14 diagnostic success 1/14 collision 9/14 off_track 3/14 speed_too_low and 1/14 unset_or_completed",
+      "docs/post-m2470-route-plan.md identifies Route A as engineering controller mainline and forbids hidden dynamics oracle labels slip/tire-force shortcuts TTC reference trajectories and precomputed success/progress actor inputs"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no actor input expansion",
+      "no driver-performance or validation-readiness claim from design"
+    ],
+    "allowed_updates": [
+      "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md",
+      "M2752 status queue scoreboard research log and review",
+      "one follow-up M2753 execution-preflight manifest if and only if the design admits future execution"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "design specifies source criteria non-same-panel exclusion rules scenario axes and seed policy",
+      "design preserves actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+      "design keeps protected mitigation and HF3 blockers outside ordinary denominators",
+      "design registers bounded M2753 follow-up if execution is admitted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2752 designs Route A engineering evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2752; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2751 Route A cross-axis stress generalization design.",
+    "negative_result_policy": "If no non-same-panel actor-safe stress surface can be designed, do not weaken gates; preserve the readiness branch and choose package-with-limitations Route B or Route C deferral.",
+    "allowed_claims": [
+      "Route A cross-axis stress generalization bounded execution design",
+      "bounded future execution protocol admission or rejection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes the evidence axis from readiness/role-panel accounting to a non-same-panel cross-axis stress generalization surface for future closed-loop data",
+    "paper_verdict_delta": "no paper verdict but prepares a new Route A engineering evidence axis without self-ID or finite-window-vs-GRU claims",
+    "must_synthesize_if": [
+      "M2752 cannot define a non-same-panel evidence surface",
+      "M2752 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2752 would rank controllers axes profiles scenario roles or source families select a winner promote a checkpoint or compute success-rate verdict",
+      "M2752 would admit execution without a separately pre-registered M2753 manifest",
+      "M2752 would require actor input expansion or label leakage"
+    ]
+  },
+  "hypothesis": "A design-only pivot can define a non-same-panel Route A cross-axis stress generalization evidence surface that prepares fresh closed-loop diagnostic data while preserving the human-view actor contract and avoiding readiness-loop overfit.",
+  "success_criteria": [
+    "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md exists",
+    "design identifies candidate source criteria and explains how the surface differs from M2746/M2749 readiness rows",
+    "design specifies cross-axis stress dimensions such as actuator delay dynamics variation sensor noise mitigation roles and avoidance roles without making those labels actor-visible",
+    "design specifies non-same-panel exclusion rules and fresh seed or corpus policy for future execution",
+    "design preserves protected mitigation and HF3 source dependency blockers outside ordinary success denominators",
+    "design preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels",
+    "design registers one bounded M2753 follow-up manifest if future execution is admitted",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2752 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2752 changes actor input or action contract",
+    "M2752 exposes taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions stress-axis labels success labels progress labels or verdicts to actor input",
+    "M2752 weakens protected mitigation or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2752 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2752 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2752 admits execution without registering a bounded M2753 manifest"
+  ],
+  "decision_rule": "Pass only if M2752 designs a non-same-panel cross-axis stress generalization evidence route, keeps actor protected HF3 and claim boundaries intact, and registers a bounded M2753 follow-up if execution is admitted without running execution or making performance claims.",
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+    "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/evidence_index.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/deliverable_readiness_rows.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/gate_matrix.csv",
+    "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md"
+}
