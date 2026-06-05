@@ -49542,3 +49542,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2740
 - follow-up manifest: `experiments/manifests/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.json`
 - next: `m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit`
+
+## M2741 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Failure Taxonomy Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2740_route_to_source_diverse_failure_taxonomy_scenario_role_metric_panel_design`
+- manifest: `experiments/manifests/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.json`
+- audit doc: `docs/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.md`
+- parent summary: `runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json`
+- accepted parent result: M2740 status_pass true required artifacts present with 61 taxonomy rows from 18 execution rows 31 negative-context guard rows and 12 blocked guard rows, plus 9 taxonomy aggregate rows, 2 source-family context rows, 2 task-family context rows, 3 guardrail context rows, 11 actor-contract join rows, 33 claim-boundary rows, and 23 gate rows all passing
+- taxonomy outcome: execution taxonomy preserves 3 diagnostic success context rows 1 collision row and 14 off_track rows; guardrail taxonomy preserves 31 negative-context guard rows 1 same-surface blocked guard row and 11 protected-or-HF3 blocker rows
+- source/task context: M2693 has 1 success-context row 1 collision row and 7 offtrack rows; M2716 has 2 success-context rows 0 collision rows and 7 offtrack rows; T4 has 1 success-context row 0 collision rows and 9 offtrack rows; T5 has 2 success-context rows 1 collision row and 5 offtrack rows; all remain diagnostic and non-ranking
+- guardrail boundary: blocked negative-context protected and HF3 rows are not run not admitted not actor-visible and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy role target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2742 source-diverse failure taxonomy scenario-role metric panel design before any materialization execution extension ranking validation or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2741
+- follow-up manifest: `experiments/manifests/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.json`
+- next: `m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design`

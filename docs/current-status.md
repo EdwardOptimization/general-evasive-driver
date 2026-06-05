@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
+m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
+m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
+m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
 ```
 
 Current route:
@@ -157,6 +157,21 @@ denominators, and actor-invisible. M2740 makes no reset, policy action,
 rollout, validation, training, ranking, performance, paper, current-sim,
 high-fidelity, full-driver, or self-ID claim. Next is M2741 result audit before
 any repair design or execution extension.
+
+M2741 audited and accepted M2740 as complete and claim-safe. The accepted
+taxonomy has `status_pass` true, all required artifacts present, 61 taxonomy
+rows, 18 execution taxonomy rows, 31 negative-context taxonomy rows, 12 blocked
+guard taxonomy rows, 3 diagnostic success context rows, 1 collision row, 14
+off_track rows, 11 protected-or-HF3 blocker rows, 2 source-family context rows,
+2 task-family context rows, 3 guardrail context rows, 11 actor-contract join
+rows, 33 claim-boundary rows, and 23 gate rows all passing. Source-family,
+task-family, and guardrail contexts remain diagnostic, non-ranking,
+actor-invisible, not run, not admitted, and outside ordinary success
+denominators. M2741 rejects ranking, validation, performance, paper,
+current-sim, high-fidelity, full-driver, and self-ID claims. The next bounded
+step is M2742 scenario-role metric panel design so the taxonomy becomes a
+Route A role/metric contract surface before any materialization or execution
+extension.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
