@@ -1,0 +1,308 @@
+{
+  "id": "m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md",
+      "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/telemetry_join_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/mechanism_localization_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/repair_admission_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/guardrail_context_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/actor_contract_guard_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/claim_boundary_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/gate_matrix.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json",
+      "experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json",
+      "experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute or account for a bounded mechanism-localized actor-head repair candidate sweep over exactly the 8 M2766 admitted repair-design rows"
+    ],
+    "derived_from": [
+      "m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design",
+      "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit",
+      "m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2768 admits repair execution only under a bounded actor-safe candidate sweep",
+      "M2766 identifies 8 repair-design candidates but no repair execution result",
+      "the 4 M2766 diagnostic-success rows must remain context-only and outside repair-win interpretation",
+      "actor input must remain human-view 72/action 3 with no hidden or oracle labels"
+    ],
+    "supersedes": [
+      "direct repair execution without M2768 design",
+      "repair over all M2764 rows instead of the 8 admitted M2766 rows",
+      "environment difficulty relaxation or active config overwrite as a repair substitute",
+      "repair success validation-readiness or driver-performance interpretation before result audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md",
+  "public_gates": [
+    "M2769 must consume the M2768 design M2767 audit M2766 summary telemetry join mechanism-localization repair-admission guard actor claim and gate artifacts plus M1690 workload/spec metadata",
+    "M2769 may execute reset step policy action and rollout only for the 8 M2766 admitted repair-design rows and only under the fixed actor-head repair candidate sweep",
+    "M2769 must preserve the 4 M2766 diagnostic-success rows as context-only no-repair regression context outside repair-win interpretation",
+    "M2769 must preserve all 31 M2766 guardrail rows as non-executed outside ordinary success denominators",
+    "M2769 must preserve M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2769 must not relax environment difficulty overwrite active configs tune per row use private holdout execute replay validation training PPO source build adapter probe or external simulation",
+    "M2769 must write repair candidate resolution checkpoint baseline-join execution failure context-only guard actor claim gate summary doc run-state and result-audit follow-up artifacts",
+    "M2769 must reject ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "M2769 must register one result-audit follow-up before repair interpretation validation ranking or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose mechanism labels repair-target labels context labels guardrail labels route decisions success labels progress labels or verdict labels to actor input",
+    "do not backfill M2759 finite_metric rows",
+    "do not execute rows outside the 8 admitted repair-design candidates",
+    "do not execute the 4 diagnostic-success context-only rows as repair rows",
+    "do not execute guardrail rows or treat them as ordinary success denominators",
+    "do not relax scenario difficulty or geometry to create apparent repair",
+    "do not overwrite active configs or committed parent artifacts",
+    "do not tune per row profile task source mechanism tag source edge or target class",
+    "do not rank controller families repair candidates repair target classes mechanism tags source edges profiles task families or candidates",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2769 preflight"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_action_response_mechanism_localized_repair",
+    "evidence_axis": "action_response_mechanism_localized_bounded_repair_execution_preflight",
+    "evidence_increment": "adds bounded closed-loop repair candidate execution rows from the accepted M2766 mechanism-localized repair surface while preserving actor and claim boundaries",
+    "claim_scope": "Route A repair execution preflight only; reset step policy action and rollout allowed only for the bounded 8-row repair surface under fixed actor-head candidates; no replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if the 8 admitted M2766 rows cannot be resolved without actor input changes",
+      "stop if the actor-head candidate sweep cannot be represented without active config overwrite environment relaxation or hidden/oracle actor inputs",
+      "stop if the 4 context-only rows or 31 guardrail rows would enter repair execution or ordinary denominators",
+      "stop if candidate results would be ranked or interpreted as repair success before M2770 audit",
+      "stop if M2769 cannot register a result-audit follow-up"
+    ],
+    "fallback_plan": [
+      "route to implementation repair if actor-head candidate generation is incomplete",
+      "route to artifact repair if M2766 row resolution or baseline joins are incomplete",
+      "route to execution failure audit if bounded execution cannot account for all candidates",
+      "route to branch synthesis if no actor-safe repair candidate sweep can be implemented",
+      "preserve M2768 design without weakening gates if execution cannot proceed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2768 admits a bounded mechanism-localized repair execution preflight after M2767 accepts M2766 artifacts",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "action-response mechanism-localized bounded repair execution preflight",
+    "admission_evidence": [
+      "M2768 defines the bounded repair execution protocol",
+      "M2767 accepts M2766 mechanism localization as complete and claim-safe",
+      "M2766 admits 8 bounded repair-design candidates split into 7 track-containment stability targets and 1 obstacle timing or clearance margin target",
+      "M2766 preserves 4 diagnostic-success rows as context-only no-repair rows",
+      "M2766 preserves M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle and actor-invisible labels"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO source build adapter probe external simulation",
+      "no environment relaxation active config overwrite per-row tuning or hidden/oracle actor features",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight.py",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_resolution_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_checkpoint_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/baseline_join_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_failure_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/context_only_regression_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/gate_matrix.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/run_state.json",
+      "docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md",
+      "M2769 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "M2769 artifacts account for the 8 admitted repair rows",
+      "M2769 artifacts preserve the 4 context-only rows and 31 guardrail rows outside repair execution and ordinary denominators",
+      "repair candidate rows and checkpoint rows preserve actor 72/action 3 no hidden oracle and no active config overwrite",
+      "repair execution rows plus failure rows account for every admitted row and candidate pair",
+      "one result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2769 executes Route A engineering repair diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2769; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2764-M2769 Route A action-response telemetry mechanism-localization and bounded repair candidate artifacts only.",
+    "negative_result_policy": "If the repair candidate sweep fails or regresses, preserve the result and route to M2770 audit or synthesis rather than weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "Route A mechanism-localized bounded repair execution preflight artifacts are complete and claim-safe or explicitly failed",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "high",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "runs or accounts for a bounded actor-safe repair candidate sweep on the newly localized 8-row mechanism surface instead of repeating panel materialization",
+    "paper_verdict_delta": "no paper verdict; can show whether a mechanism-localized actor-head repair candidate changes closed-loop Route A diagnostics before any generalization or paper claim",
+    "must_synthesize_if": [
+      "M2769 cannot resolve or execute the bounded 8-row repair surface",
+      "M2769 cannot generate actor-head repair candidates without actor input expansion active config overwrite or hidden/oracle fields",
+      "M2769 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2769 would rank controllers repair candidates source edges profiles mechanism tags select a winner promote a checkpoint or compute success-rate verdict",
+      "M2769 proposes another repair execution over the same surface without a result audit"
+    ]
+  },
+  "hypothesis": "A bounded repair execution preflight can evaluate actor-head repair candidates on exactly the 8 M2766 admitted mechanism-localized repair rows while preserving context-only rows guardrails actor contract and claim boundaries.",
+  "success_criteria": [
+    "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json exists",
+    "docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md exists",
+    "M2769 accounts for exactly the 8 M2766 admitted repair-design rows",
+    "M2769 preserves the 4 M2766 diagnostic-success rows as context-only no-repair rows",
+    "M2769 preserves the 31 M2766 guardrail rows outside execution candidates and ordinary denominators",
+    "repair candidate rows and checkpoint rows preserve actor 72/action 3 no hidden oracle no active config overwrite and no environment difficulty relaxation",
+    "repair execution rows plus failure rows account for every candidate and admitted row pair",
+    "baseline join rows preserve M2759 no-backfill and M2764 finite telemetry lineage",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2769 changes actor input or action contract",
+    "M2769 exposes mechanism repair-target context guardrail route progress success or verdict labels to actor input",
+    "M2769 executes rows outside the 8 admitted repair-design candidates",
+    "M2769 executes context-only or guardrail rows as repair rows",
+    "M2769 relaxes scenario geometry difficulty overwrites active configs or tunes per row",
+    "M2769 trains runs PPO validates builds source probes adapters runs external simulation ranks winners promotes checkpoints or claims driver performance",
+    "M2769 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2769 executes or accounts for the bounded mechanism-localized repair candidate surface and writes complete actor-safe artifacts while preserving context guardrail and claim boundaries before interpretation.",
+  "commands": [
+    {
+      "name": "route_a_action_response_mechanism_localized_bounded_repair_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight --m2766-dir runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization --m2768-design docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json --output-dir runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_resolution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_checkpoint_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/baseline_join_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/context_only_regression_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/mechanism_localization_rows.csv",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/repair_admission_rows.csv",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/gate_matrix.csv",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ]
+}

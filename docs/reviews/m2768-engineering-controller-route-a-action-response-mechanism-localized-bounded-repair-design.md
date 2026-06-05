@@ -1,0 +1,130 @@
+# m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T084019Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_action_response_mechanism_localized_bounded_repair_execution_preflight
+- Decision reason: M2768 design admits M2769 bounded actor-head repair execution preflight over exactly 8 M2766 admitted repair-design candidates 7 track-containment and 1 obstacle-timing preserves 4 diagnostic-success context-only rows 31 guardrails M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle labels actor-invisible rejects environment relaxation active config overwrite validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Hypothesis
+
+A design-only repair protocol can translate the audited M2766 mechanism-localization panel into bounded actor-safe repair levers without ranking or overclaiming.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md, docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/telemetry_join_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/mechanism_localization_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/repair_admission_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/guardrail_context_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/actor_contract_guard_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/claim_boundary_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/gate_matrix.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json, experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json, experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json
+- parent_objective: design a bounded mechanism-localized repair protocol from accepted M2766 repair-admission rows before any repair execution or validation
+- derived_from: m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit, m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight, m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit
+- blocked_by: M2766 admits 8 repair-design candidates but does not implement or validate a repair, the 4 diagnostic-success rows must remain context-only and outside repair-win interpretation, direct repair execution would skip a bounded repair protocol and increase local-search risk, actor input must remain human-view 72/action 3 with no hidden or oracle labels
+- supersedes: direct repair execution from M2766 admission rows, another same-surface mechanism-localization panel before a repair protocol, ranking repair target classes or selecting a winner from M2766 rows, repair-success validation-readiness or driver-performance interpretation from M2766
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md exists
+- design specifies exactly the 8 M2766 admitted repair-design candidates as the candidate input surface
+- design preserves the 7 track-containment stability targets and 1 obstacle timing or clearance margin target as non-ranking repair classes
+- design preserves the 4 diagnostic-success rows as context-only no-repair rows
+- design specifies evaluator-only post-repair checks while keeping mechanism repair-target telemetry progress success and verdict labels actor-invisible
+- design excludes guardrail rows from execution candidates and ordinary denominators
+- design preserves actor 72/action 3 no hidden oracle M2759 no-backfill and M2764 finite telemetry lineage
+- design registers one bounded follow-up execution preflight synthesis stop or artifact repair route
+- design makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2768 executes reset step rollout replay validation training source build adapter probe or external simulation
+- M2768 admits repair execution without a bounded repair protocol
+- M2768 changes actor input or action contract
+- M2768 exposes mechanism repair-target telemetry guardrail route progress success or verdict labels to actor input
+- M2768 ranks controller families repair targets mechanism tags source edges profiles task families selects a winner promotes a checkpoint or claims driver performance
+- M2768 hides M2766 diagnostic-success rows or treats M2766 as validation readiness
+
+## Evidence Gates
+
+- M2768 must write a design-only bounded mechanism-localized repair protocol before any repair execution or validation
+- M2768 must use M2766 summary telemetry join mechanism-localization repair-admission guard actor claim and gate artifacts plus the M2767 audit
+- M2768 must freeze exactly the 8 M2766 admitted repair-design candidates as the repair candidate surface
+- M2768 must preserve the 4 M2766 diagnostic-success rows as context-only no-repair regression context
+- M2768 must specify repair levers separately for track-containment stability targets and obstacle timing or clearance margin targets without ranking or selecting a winner
+- M2768 must preserve M2759 no-backfill M2764 finite telemetry and actor 72/action 3 no hidden/oracle actor input
+- M2768 must keep mechanism repair-target telemetry guardrail progress success and verdict labels actor-invisible
+- M2768 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking promotion success-rate computation or driver-performance claims
+- M2768 must register one bounded follow-up execution-preflight synthesis-stop or artifact-repair manifest
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose mechanism labels repair-target labels telemetry labels guardrail labels route decisions success labels progress labels or verdict labels to actor input
+- do not backfill M2759 finite_metric rows
+- do not hide the 4 M2766 diagnostic-success context-only rows or count them as repair wins
+- do not treat guardrail rows as ordinary success denominators
+- do not rank controller families repair target classes mechanism tags source edges profiles task families or candidates
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2768 design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design
+- type: gate
+- checkpoint: docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_action_response_mechanism_localized_bounded_repair_execution_preflight
+- reason: M2768 design admits M2769 bounded actor-head repair execution preflight over exactly 8 M2766 admitted repair-design candidates 7 track-containment and 1 obstacle-timing preserves 4 diagnostic-success context-only rows 31 guardrails M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle labels actor-invisible rejects environment relaxation active config overwrite validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Next Blocker
+
+None recorded.

@@ -50038,3 +50038,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2767
 - follow-up manifest: `experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json`
 - next: `m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design`
+
+## M2768 Engineering Controller Route A Action-Response Mechanism-Localized Bounded Repair Design
+
+- status: completed
+- decision: `admit_action_response_mechanism_localized_bounded_repair_execution_preflight`
+- manifest: `experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json`
+- design doc: `docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md`
+- parent audit: `docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json`
+- admitted repair surface: exactly 8 M2766 repair-design candidates split as 7 track-containment stability targets and 1 obstacle timing or clearance margin target
+- context boundary: the 4 M2766 diagnostic-success rows remain context-only no-repair regression rows and cannot become repair wins ordinary denominators ranking rows or promotion evidence
+- guardrail boundary: all 31 M2766 guardrail rows remain non-executed and outside ordinary success denominators
+- repair lever contract: M2769 may test bounded actor-head bias candidates from the M2655 checkpoint only; no actor input change hidden/oracle feature active config overwrite environment difficulty relaxation per-row tuning ranking winner selection or promotion
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input mechanism repair-target context guardrail success/progress and verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2769 bounded repair execution preflight before repair interpretation validation ranking or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2768
+- follow-up manifest: `experiments/manifests/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.json`
+- next: `m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight`
