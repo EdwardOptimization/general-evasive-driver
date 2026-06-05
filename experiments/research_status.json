@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2771,
+    "completed": 2772,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md",
+    "command_log": "docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization",
     "status": "completed",
-    "task_id": "m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit"
+    "task_id": "m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization --m2764-dir runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight --m2765-audit docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md --m2762-dir runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight --follow-up-manifest experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json --output-dir runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization",
-    "hypothesis": "A no-rollout materialization can convert M2764 finite action-response telemetry and containment outcomes into a bounded mechanism-localization panel while preserving actor guardrail and claim boundaries.",
-    "id": "m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize row-level mechanism localization from M2764 finite telemetry and containment outcomes preserve all 12 localized rows 31 guardrails M2759 no-backfill M2762 contract actor 72/action 3 no hidden oracle labels actor-invisible no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim register M2767 audit follow-up",
-    "priority": 27610,
+    "command": "true",
+    "hypothesis": "M2766 mechanism-localization panel artifacts can be audited as complete and claim-safe before repair design or another execution.",
+    "id": "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2766 summary mechanism-localization telemetry join repair-admission guard actor claim and gate artifacts preserve M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle labels actor-invisible reject replay validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims register bounded follow-up or synthesis route",
+    "priority": 27620,
     "status": "pending",
-    "success_artifact": "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json"
+    "success_artifact": "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T080648Z"
+  "updated_at_utc": "20260605T081853Z"
 }

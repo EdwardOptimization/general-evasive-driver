@@ -1,0 +1,167 @@
+{
+  "baseline_artifacts": [
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/mechanism_localization_rows.csv",
+    "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/repair_admission_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2767 provides a bounded result audit of M2766 artifacts and preserves all actor guardrail and claim boundaries.",
+  "failure_criteria": [
+    "M2767 overclaims M2766 as repair success validation performance paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2767 hides M2766 finite telemetry gaps or guardrail violations",
+    "M2767 fails to register a bounded next step or synthesis route"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute replay validation training PPO source build adapter probe or external simulation",
+    "do not rank candidates mechanism tags controllers source edges stress axes profiles or task families",
+    "do not select a winner promote a checkpoint or compute success-rate verdict",
+    "do not claim repair success driver performance validation readiness paper current-sim high-fidelity full ideal driver or self-ID",
+    "do not backfill M2759 finite_metric rows",
+    "do not change actor inputs or expose mechanism labels to actor input"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "M2766 artifacts can be audited as complete and claim-safe before repair design or another execution.",
+  "id": "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2766 artifacts require result audit before repair design execution extension validation ranking or performance claim"
+    ],
+    "derived_from": [
+      "m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight",
+      "m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit",
+      "m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json",
+      "experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/mechanism_localization_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/telemetry_join_rows.csv",
+      "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/repair_admission_rows.csv",
+      "docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit M2766 mechanism-localization panel artifacts before repair design or another execution"
+    ],
+    "supersedes": [
+      "direct repair design before auditing M2766",
+      "same-surface execution extension before auditing M2766",
+      "repair success driver performance validation paper current-sim high-fidelity full-driver or self-ID claim from M2766"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the new M2766 mechanism-localization panel before repair design or another execution",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2767 cannot decide a bounded next step after complete M2766 artifacts",
+      "M2767 proposes same-surface execution without a new evidence axis",
+      "M2767 would make validation performance paper current-sim high-fidelity full-driver or self-ID claims"
+    ],
+    "paper_verdict_delta": "no paper verdict; can decide whether Route A should admit bounded repair design or synthesize",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2767 must consume M2766 summary mechanism-localization telemetry join repair-admission guard actor claim and gate artifacts",
+    "M2767 must accept or reject M2766 artifact completeness and claim safety",
+    "M2767 must preserve actor 72/action 3 no hidden oracle actor input and actor-invisible mechanism labels",
+    "M2767 must reject repair success driver performance validation ranking paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "M2767 must route to synthesis artifact repair or bounded repair design without executing replay validation training ranking or promotion"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2766 mechanism-localization artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2767 audits Route A engineering localization artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2767; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If M2766 artifacts are incomplete preserve the blocker and route to artifact repair or synthesis rather than weakening gates or claiming self-ID evidence.",
+    "temporal_evidence_window": "M2759-M2767 Route A action-response containment telemetry and mechanism-localization artifacts only."
+  },
+  "success_criteria": [
+    "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md exists",
+    "M2767 accepts or rejects M2766 mechanism localization and repair-admission evidence",
+    "actor and claim boundaries are preserved",
+    "one bounded follow-up or synthesis route is registered"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2766 mechanism-localization artifacts exist",
+      "M2766 registered this result-audit follow-up before interpretation"
+    ],
+    "allowed_updates": [
+      "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
+      "M2767 status queue scoreboard research log and review",
+      "one bounded follow-up manifest if audit accepts artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training ranking promotion or performance claim",
+      "no actor input change or hidden oracle input"
+    ],
+    "next_stage_criteria": [
+      "M2767 accepts or rejects M2766 artifacts and claim boundaries",
+      "M2767 registers one bounded next step or synthesis route"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "action-response telemetry mechanism-localization panel result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_action_response_mechanism_localization",
+    "claim_scope": "Route A diagnostic artifact audit only; no replay validation training ranking promotion repair-success driver-performance paper current-sim high-fidelity self-ID or full ideal driver claim",
+    "evidence_axis": "route_a_action_response_telemetry_mechanism_localization_panel_result_audit",
+    "evidence_increment": "audits whether M2766 produced a complete non-ranking mechanism-localization panel from M2764 finite telemetry",
+    "fallback_plan": [
+      "route to artifact repair if panel joins are incomplete",
+      "route to branch synthesis if localized targets remain ambiguous",
+      "route to bounded repair design only if the audit accepts a non-ranking target contract"
+    ],
+    "stop_condition": [
+      "stop if M2766 artifacts are incomplete",
+      "stop if actor or claim boundaries were violated",
+      "stop if no bounded non-ranking next route can be selected"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2766 mechanism-localization panel has produced artifacts that require result audit"
+  }
+}
