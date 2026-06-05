@@ -1,0 +1,127 @@
+# m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T062849Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight
+- Decision reason: M2758 design admits M2759 bounded diagnostic execution over exactly 12 M2756 localized rows 3 collision negative-clearance rows m1680-spec-0001 m1680-spec-0043 m1680-spec-0044 and 9 offtrack positive-clearance rows carries 31 guardrails outside execution preserves actor 72/action 3 no hidden oracle requires evaluator-only action-response containment mechanism telemetry rejects replay validation training PPO source adapter external sim ranking winner promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Hypothesis
+
+A design-only probe can translate the audited M2756 localization panel into a bounded actor-safe action-response and containment diagnostic protocol without ranking or overclaiming.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/outcome_bucket_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/stress_axis_context_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/source_edge_context_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/actor_contract_guard_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/claim_boundary_rows.csv, runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/gate_matrix.csv, docs/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.md, docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json, experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json, experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json
+- parent_objective: design a bounded actor-safe action-response and containment diagnostic probe from accepted M2756 localization evidence
+- derived_from: m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit, m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight, m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
+- blocked_by: M2756 localizes 3 collision negative-clearance rows and 9 offtrack positive-clearance rows but does not identify mechanism, direct repair from localization rows would risk overfitting a public current-sim surface, another M2753-like execution would repeat a complete 0-success diagnostic surface, actor input must remain human-view 72/action 3 with no hidden or oracle labels
+- supersedes: direct repair design from M2756 rows without a probe protocol, another immediate cross-axis execution over the same 12-row surface, stress-axis or source-edge ranking from localization context rows, validation readiness or driver-performance interpretation from M2756
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md exists
+- design specifies the 12 M2756 localized execution rows as the candidate input surface
+- design preserves the 3 collision negative-clearance and 9 offtrack positive-clearance split as non-ranking diagnostic strata
+- design specifies evaluator-only action-response containment clearance impact and offtrack timing telemetry
+- design excludes prior-panel protected and HF3 guardrails from execution candidates and ordinary denominators
+- design preserves actor 72/action 3 no hidden oracle and actor-invisible labels
+- design registers one bounded follow-up execution preflight synthesis stop or artifact repair route
+- design makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2758 executes reset step rollout replay validation training source build adapter probe or external simulation
+- M2758 admits direct repair execution without a mechanism-probe protocol
+- M2758 changes actor input or action contract
+- M2758 exposes localization action-response containment stress-axis source-edge protected blocker route progress or verdict labels to actor input
+- M2758 ranks controller families stress axes source edges profiles task families selects a winner promotes a checkpoint or claims driver performance
+- M2758 hides M2756 negative localization or treats it as validation readiness
+
+## Evidence Gates
+
+- M2758 must write a bounded action-response and containment probe design before any new execution over M2756 localized rows
+- M2758 must use M2756 localization outcome stress-axis source-edge guardrail actor claim and gate artifacts and docs/post-m2470-route-plan.md
+- M2758 must define a future execution-preflight input surface that preserves the 3 collision negative-clearance and 9 offtrack positive-clearance rows without ranking axes or source edges
+- M2758 must define evaluator-only telemetry for action-response mismatch track containment obstacle clearance impact and offtrack timing while keeping these labels actor-invisible
+- M2758 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible localization stress-axis source-edge progress or verdict labels
+- M2758 must keep prior-panel protected and HF3 guardrails outside execution and ordinary success denominators
+- M2758 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking promotion success-rate computation or driver-performance claims
+- M2758 must select one bounded follow-up execution-preflight synthesis-stop or artifact-repair manifest
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose failure-localization labels stress-axis labels source-edge labels task-family labels profile labels action-response labels containment labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input
+- do not hide M2756 collision or offtrack localization rows
+- do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators
+- do not rank controller families stress axes source edges profiles or task families
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2758 design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design
+- type: gate
+- checkpoint: docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight
+- reason: M2758 design admits M2759 bounded diagnostic execution over exactly 12 M2756 localized rows 3 collision negative-clearance rows m1680-spec-0001 m1680-spec-0043 m1680-spec-0044 and 9 offtrack positive-clearance rows carries 31 guardrails outside execution preserves actor 72/action 3 no hidden oracle requires evaluator-only action-response containment mechanism telemetry rejects replay validation training PPO source adapter external sim ranking winner promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Next Blocker
+
+None recorded.

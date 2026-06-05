@@ -1,0 +1,287 @@
+{
+  "id": "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md",
+      "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/outcome_bucket_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/stress_axis_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/source_edge_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/actor_contract_guard_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/claim_boundary_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json",
+      "experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json",
+      "experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "run a bounded diagnostic probe over the 12 M2756 localized rows to produce evaluator-only action-response and containment mechanism evidence"
+    ],
+    "derived_from": [
+      "m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design",
+      "m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit",
+      "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2758 admits execution only as a bounded diagnostic mechanism probe",
+      "M2756 localization does not identify whether action-response mismatch or containment dominates",
+      "prior-panel protected and HF3 guardrails must remain outside execution and ordinary denominators",
+      "actor input must remain human-view 72/action 3 with no hidden or oracle labels"
+    ],
+    "supersedes": [
+      "direct repair execution from M2756 localization rows",
+      "another M2753-like cross-axis execution without mechanism telemetry",
+      "stress-axis or source-edge ranking from M2756 context rows",
+      "validation readiness or driver-performance interpretation before mechanism probe audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2759 must consume M2758 design M2757 audit and all M2756 localization guard actor claim and gate artifacts before execution",
+    "M2759 may execute reset step policy action and rollout only for the 12 M2756 localized candidate rows",
+    "M2759 must preserve the 3 collision negative-clearance and 9 offtrack positive-clearance strata without ranking axes source edges task families profiles or controllers",
+    "M2759 must carry all 31 guardrail rows as non-executed guardrails outside ordinary success denominators",
+    "M2759 must write summary probe-candidate-resolution probe-execution probe-execution-failure action-response-probe containment-probe mechanism-context guard actor claim gate run-state and doc artifacts",
+    "M2759 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input no actor input contract change and actor-invisible localization action-response containment stress-axis source-edge progress and verdict labels",
+    "M2759 must not execute replay validation training PPO source build adapter probe external simulation private holdout ranking winner selection promotion or success-rate verdict computation",
+    "M2759 must register one result-audit follow-up before repair design execution extension ranking validation or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose failure-localization labels stress-axis labels source-edge labels action-response labels containment labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not execute rows outside the 12 M2756 localized candidates",
+    "do not hide M2756 collision or offtrack localization rows",
+    "do not treat prior-panel protected or HF3 guardrail rows as execution rows or ordinary success denominators",
+    "do not rank controller families stress axes source edges profiles or task families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2759 probe"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe",
+    "evidence_axis": "post_cross_axis_negative_action_response_containment_probe_bounded_execution",
+    "evidence_increment": "produces new bounded closed-loop evaluator-only mechanism data over the 12 M2756 localized rows instead of another localization or direct repair loop",
+    "claim_scope": "Route A diagnostic probe execution only; reset step policy action and rollout allowed only for 12 pre-registered rows; no replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if candidate rows cannot be resolved without actor input changes",
+      "stop if evaluator-only telemetry would require hidden or oracle actor inputs",
+      "stop if guardrail rows would enter execution or ordinary denominators",
+      "stop if the probe would rank stress axes source edges profiles task families or controllers",
+      "stop if probe results would be interpreted as validation performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2756 or M2758 schemas are insufficient",
+      "route to execution failure audit if some rows cannot execute but accounting is complete",
+      "route to result audit if probe artifacts are complete",
+      "route to branch synthesis if probe execution cannot identify a bounded evidence-changing follow-up",
+      "preserve M2756 localization if execution cannot proceed without actor-contract changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2758 admits a bounded mechanism-probe execution preflight after M2757 accepts localization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post-cross-axis negative action-response and containment probe bounded execution",
+    "admission_evidence": [
+      "M2758 design admits exactly one bounded probe execution preflight",
+      "M2757 accepts M2756 localization as complete and claim-safe",
+      "M2756 separates 12 negative rows into 3 collision negative-clearance and 9 offtrack positive-clearance rows",
+      "M2756 preserves prior-panel protected and HF3 guardrails outside denominators with actor 72/action 3 no hidden oracle"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO source build adapter probe external simulation",
+      "no direct repair or overlay from probe",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight.py",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_candidate_resolution_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_failure_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/run_state.json",
+      "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
+      "M2759 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "probe artifacts exist and account for all 12 localized rows",
+      "probe preserves collision negative-clearance and offtrack positive-clearance strata",
+      "probe writes evaluator-only action-response and containment telemetry",
+      "guardrails actor and claim boundaries are preserved",
+      "one result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2759 executes Route A engineering diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2759; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2756-M2758 Route A localization and probe-design artifacts plus bounded M2759 probe rows.",
+    "negative_result_policy": "If probe rows remain negative preserve mechanism evidence and route to result audit or synthesis rather than weakening gates or forcing self-ID interpretation.",
+    "allowed_claims": [
+      "Route A action-response containment diagnostic probe execution artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds bounded closed-loop mechanism telemetry over the 12 localized negative rows before repair design",
+    "paper_verdict_delta": "no paper verdict; can identify whether future Route A work should target action-response containment obstacle timing scenario quality architecture or synthesis",
+    "must_synthesize_if": [
+      "M2759 cannot execute or account for the 12 localized rows",
+      "M2759 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2759 would rank controllers stress axes source edges profiles select a winner promote a checkpoint or compute success-rate verdict",
+      "M2759 proposes another execution over the same surface without a result audit"
+    ]
+  },
+  "hypothesis": "A bounded diagnostic execution preflight can produce evaluator-only action-response and containment mechanism telemetry from the audited M2756 localized rows while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json exists",
+    "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md exists",
+    "probe accounts for 12 M2756 localized rows 3 collision negative-clearance rows 9 offtrack positive-clearance rows and 31 guardrail rows",
+    "probe writes action-response containment and mechanism-context telemetry as evaluator-only diagnostic rows",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2759 changes actor input or action contract",
+    "M2759 exposes localization action-response containment stress-axis source-edge protected blocker route progress or verdict labels to actor input",
+    "M2759 executes rows outside the 12 localized candidates",
+    "M2759 treats prior-panel protected or HF3 guardrails as execution rows or ordinary denominators",
+    "M2759 trains runs PPO validates builds source probes adapters runs external simulation ranks winners promotes checkpoints or claims driver performance",
+    "M2759 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2759 executes or accounts for the bounded 12-row probe surface and writes complete evaluator-only mechanism artifacts while preserving actor guardrail and claim boundaries before interpretation.",
+  "commands": [
+    {
+      "name": "post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight --m2756-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2758-design docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md --output-dir runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_candidate_resolution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md",
+    "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md",
+    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
+    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
+    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+  "next_blocker": "M2759 post-cross-axis negative action-response containment probe bounded execution"
+}

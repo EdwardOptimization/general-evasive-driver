@@ -49846,3 +49846,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2757
 - follow-up manifest: `experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json`
 - next: `m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design`
+
+## M2758 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Design
+
+- status: completed
+- decision: `admit_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json`
+- design doc: `docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md`
+- parent audit: `docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json`
+- route-plan reference: `docs/post-m2470-route-plan.md`
+- design decision: admits one M2759 bounded diagnostic execution preflight over the accepted post-cross-axis negative localization surface before repair design or interpretation
+- candidate surface: exactly 12 M2756 localized rows from `failure_localization_rows.csv`
+- diagnostic strata: preserves 3 collision negative-clearance rows and 9 offtrack positive-clearance rows as non-ranking diagnostic strata
+- concrete collision rows: `m1680-spec-0001`, `m1680-spec-0043`, and `m1680-spec-0044`
+- guardrail boundary: all 31 M2756 guardrail context rows remain non-executed guardrails outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment stress-axis source-edge success/progress and verdict labels actor-invisible
+- M2759 artifact contract: requires summary probe-candidate-resolution probe-execution probe-execution-failure action-response-probe containment-probe mechanism-context guard actor claim gate run-state and doc artifacts
+- route decision: route to M2759 bounded action-response and containment diagnostic execution preflight before any repair route validation ranking packaging or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2758
+- follow-up manifest: `experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json`
+- next: `m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight`

@@ -1556,25 +1556,42 @@ scenario redesign success
 training repair success
 ```
 
+## M2758 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Design
+
+- status: completed
+- decision: `admit_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json`
+- design doc: `docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md`
+- parent audit: `docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json`
+- route-plan reference: `docs/post-m2470-route-plan.md`
+- design decision: admits one M2759 bounded action-response and containment diagnostic execution preflight before any repair design or interpretation
+- candidate surface: exactly 12 M2756 localized rows from `failure_localization_rows.csv`
+- localized strata: 3 collision negative-clearance rows and 9 offtrack positive-clearance rows preserved as non-ranking diagnostic strata
+- concrete collision rows: `m1680-spec-0001`, `m1680-spec-0043`, and `m1680-spec-0044`
+- guardrail boundary: all 31 M2756 guardrail context rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment stress-axis source-edge success/progress and verdict labels actor-invisible
+- required M2759 telemetry: evaluator-only action-response probe rows containment probe rows and mechanism context rows
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2758
+- follow-up manifest: `experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json`
+- next: `m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight`
+
 ## Immediate Next Step
 
-M2758 should design a bounded action-response and containment probe from the
-accepted M2756/M2757 localization evidence before any follow-up execution or
-repair route:
+M2759 should run the bounded action-response and containment diagnostic probe
+admitted by M2758 over only the accepted M2756/M2757 localization evidence:
 
 ```text
 runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json
-docs/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.md
-experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json
-docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md
-experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json
+runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv
+runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv
 docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md
+experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json
 ```
 
-The design must specify the 12 localized rows as the bounded candidate surface,
-preserve the 3 collision negative-clearance and 9 offtrack positive-clearance
-split as non-ranking strata, define evaluator-only action-response containment
-clearance impact and offtrack-timing telemetry, preserve actor 72/action 3 with
-no hidden/oracle inputs, and register one bounded follow-up execution-preflight,
-synthesis-stop, or artifact-repair route without validation, performance,
-paper, current-sim, high-fidelity, full-driver, or self-ID claims.
+The execution preflight must resolve or account for all 12 localized rows,
+carry the 31 guardrails without executing them, preserve actor 72/action 3 with
+no hidden/oracle inputs, write evaluator-only action-response containment and
+mechanism-context artifacts, and register a result-audit follow-up before any
+repair route, validation, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID interpretation.
