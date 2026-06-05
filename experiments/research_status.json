@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2784,
+    "completed": 2785,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z/command.log",
+    "command_log": "runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z",
+    "run_dir": "runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z",
     "status": "completed",
-    "task_id": "m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design"
+    "task_id": "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --m2778-design docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md --m2775-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json --output-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization",
-    "hypothesis": "A no-rollout materialization can convert M2775 source-only intervention deltas into a bounded belief-stress admission and curriculum pack before any fresh execution or training.",
-    "id": "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize source-only belief-stress admission rows curriculum rows mitigation guards actor guards claim rows gates summary doc run-state and M2780 audit manifest from M2778 M2775 M2773 artifacts preserve M2773 weak diagnostic accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim",
-    "priority": 27740,
+    "command": "true",
+    "hypothesis": "M2779 source-only admission-pack artifacts can be audited for completeness and claim safety before interpretation.",
+    "id": "m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2779 status_pass true 96 admission rows 24 curriculum rows 8 mitigation guards 7 actor guards 19 claim rows 39 gates preserve M2773 and M2775 source-only diagnostic accounting actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim select fresh closed-loop design short-training design artifact repair synthesis or stop",
+    "priority": 27750,
     "status": "pending",
-    "success_artifact": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json"
+    "success_artifact": "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T104031Z"
+  "updated_at_utc": "20260605T105248Z"
 }

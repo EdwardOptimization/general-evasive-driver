@@ -1,0 +1,26 @@
+{
+  "artifact_paths": {
+    "actor_contract_guard_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/actor_contract_guard_rows.csv",
+    "belief_stress_admission_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/belief_stress_admission_rows.csv",
+    "claim_boundary_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/claim_boundary_rows.csv",
+    "doc": "docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json",
+    "gate_matrix": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/gate_matrix.csv",
+    "mitigation_reference_guard_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/mitigation_reference_guard_rows.csv",
+    "run_state": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/run_state.json",
+    "stress_curriculum_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/stress_curriculum_rows.csv",
+    "summary": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json"
+  },
+  "claim_scope": "Route A source-only belief-stress training admission-pack materialization only",
+  "forbidden_interpretation": "reset, step, policy action, rollout, replay, validation, training, PPO, source build, adapter probe, external simulation, ranking, winner selection, promotion, success-rate verdict, repair success, driver performance, paper evidence, finite-window-vs-GRU conclusion, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "generated_at_utc": "20260605T105248Z",
+  "milestone": "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight",
+  "result_class": "engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization_pass",
+  "status_pass": true,
+  "thresholds": {
+    "action_l1_mean_threshold": 0.03,
+    "command_response_proxy_abs_delta_threshold": 0.04,
+    "ego_response_l2_mean_threshold": 0.1,
+    "trace_delta_proxy_abs_delta_threshold": 1.0
+  }
+}

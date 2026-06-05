@@ -50274,3 +50274,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2778
 - follow-up manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
 - next: `m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight`
+
+## 20260605T105248Z m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-rollout materialization can convert M2775 source-only intervention deltas into a bounded belief-stress admission and curriculum pack before any fresh execution or training.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --m2778-design docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md --m2775-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json --output-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization`
+- returncode: `0`
+- run dir: `runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z`
+- command log: `runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z/command.log`
+- success artifact: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- notes: Pending: materialize source-only belief-stress admission rows curriculum rows mitigation guards actor guards claim rows gates summary doc run-state and M2780 audit manifest from M2778 M2775 M2773 artifacts preserve M2773 weak diagnostic accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim
+
+## M2779 Engineering Controller Route A Source-Only Belief-Stress Training Admission Pack Materialization
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization_pass`
+- manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization.py`
+- summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- doc: `docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md`
+- source design: `docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md`
+- source delta dir: `runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization`
+- source intervention dir: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight`
+- artifact accounting: 96 belief-stress admission rows, 24 curriculum rows, 8 mitigation guards, 7 actor guards, 19 claim rows, and 39 gates all passing
+- source accounting preserved: M2773 32 candidate rows 128 execution rows 10240 traces 32 collision diagnostic rows 68 road-departure diagnostic rows; M2775 96 delta rows 7680 matched trace pairs 4 road-departure removals 0 additions 0 collision changes
+- belief-signal accounting: 4 behavior-outcome-sensitive rows, 53 action-response-sensitive rows, 15 trace-sensitive rows, and 24 weak/context rows; thresholds are deterministic materialization thresholds only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress admission curriculum outcome success progress route or verdict labels and mitigation reference rows guarded outside ordinary denominators
+- route boundary: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim
+- route decision: route to M2780 result audit before any materialization extension fresh closed-loop execution short training continuation ranking validation promotion or performance claim
+- follow-up manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
+- next: `m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit`

@@ -1,0 +1,169 @@
+{
+  "baseline_artifacts": [
+    "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json",
+    "docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2780 audits M2779 artifacts and selects a bounded next route without overclaiming.",
+  "failure_criteria": [
+    "M2780 executes new rollouts or training",
+    "M2780 claims driver performance or self-ID",
+    "M2780 fails to select a bounded next route or stop"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO source build adapter probe or external simulation in audit",
+    "do not change actor inputs or action contract",
+    "do not expose admission curriculum stress outcome success progress route or verdict labels to actor input",
+    "do not rank intervention conditions roles dynamics axes candidates controllers checkpoints or source edges",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdicts",
+    "do not claim driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "proof",
+  "hypothesis": "M2779 source-only admission-pack artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2779 admission and curriculum rows must be audited before any training or fresh execution",
+      "M2779 source-only rows cannot be interpreted as validation performance paper or self-ID evidence"
+    ],
+    "derived_from": [
+      "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight",
+      "m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design",
+      "m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit",
+      "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+      "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json",
+      "experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json",
+      "experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json",
+      "experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/belief_stress_admission_rows.csv",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/stress_curriculum_rows.csv",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/mitigation_reference_guard_rows.csv",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/actor_contract_guard_rows.csv",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/claim_boundary_rows.csv",
+      "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/gate_matrix.csv",
+      "docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2779 source-only belief-stress admission pack before any fresh execution or training"
+    ],
+    "supersedes": [
+      "direct training from M2775 deltas without admission-pack audit",
+      "ranking intervention conditions from M2779 admission rows",
+      "driver-performance or self-ID interpretation from source-only admission metadata"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits a new source-only admission pack rather than repeating delta-only reanalysis",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2780 cannot select a bounded follow-up route",
+      "M2780 would claim self-ID or performance from source-only admission rows",
+      "another no-new-data reanalysis is proposed after M2780 without fresh evidence or stop decision"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may select a bounded fresh-evidence route or stop",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2780 must audit M2779 artifact completeness actor-contract preservation mitigation guards and claim boundaries",
+    "M2780 must preserve source-only admission-pack scope and reject validation performance paper high-fidelity full-driver and self-ID claims",
+    "M2780 must decide whether to route to fresh closed-loop design short-training design artifact repair synthesis or branch stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2779 artifacts are complete and claim-safe or incomplete",
+      "no driver-performance verdict paper result high-fidelity validation full ideal driver or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2780 may audit source-only admission rows but cannot by itself establish level3 self-identification.",
+    "history_necessity_tests": [
+      "audit only; no new tests in M2780"
+    ],
+    "negative_result_policy": "Preserve weak or ambiguous admission rows instead of weakening self-ID gates.",
+    "temporal_evidence_window": "M2772-M2779 source-only belief intervention and admission branch"
+  },
+  "success_criteria": [
+    "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md exists",
+    "M2780 audits M2779 summary admission curriculum mitigation actor claim and gate artifacts",
+    "M2780 preserves no ranking validation performance paper high-fidelity full-driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2779 summary admission curriculum guard claim and gate artifacts exist"
+    ],
+    "allowed_updates": [
+      "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md",
+      "M2780 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no execution training ranking validation performance paper HF or self-ID claim in audit"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "one bounded next route or stop decision is selected"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "source-only belief-stress admission-pack result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_training",
+    "claim_scope": "M2779 result audit only; no new execution training ranking validation performance paper current-sim high-fidelity self-ID or full ideal driver claim",
+    "evidence_axis": "source_only_belief_stress_training_admission_pack_result_audit",
+    "evidence_increment": "audits M2779 source-only belief-stress admission pack before any future execution or training branch",
+    "fallback_plan": [
+      "route to artifact repair if accounting is incomplete",
+      "route to branch synthesis if admission signals are weak ambiguous or behavior-negative",
+      "route to fresh closed-loop or short-training design only after audit preserves claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M2779 artifacts are incomplete",
+      "stop if actor or mitigation guard accounting is incomplete",
+      "stop if admission rows would be interpreted as validation performance paper high-fidelity or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2779 writes source-only belief-stress admission-pack artifacts"
+  }
+}

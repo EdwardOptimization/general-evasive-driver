@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
+m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
+m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
+m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
 ```
 
 Current route:
@@ -1932,20 +1932,39 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
 - next: `m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight`
 
+## M2779 Engineering Controller Route A Source-Only Belief-Stress Training Admission Pack Materialization
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization_pass`
+- manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization.py`
+- summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- doc: `docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md`
+- source design: `docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md`
+- source delta dir: `runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization`
+- source intervention dir: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight`
+- artifact accounting: wrote 96 belief-stress admission rows, 24 curriculum rows, 8 mitigation guard rows, 7 actor guard rows, 19 claim-boundary rows, and 39 gate rows all passing
+- source accounting preserved: M2773 32 candidate rows, 128 execution rows, 10240 trace rows, 32 collision diagnostic rows, and 68 road-departure diagnostic rows; M2775 96 delta rows, 7680 matched trace pairs, 4 road-departure removals, 0 road-departure additions, and 0 collision changes
+- belief-signal accounting: 4 behavior-outcome-sensitive rows, 53 action-response-sensitive rows, 15 trace-sensitive rows, and 24 weak/context rows using fixed materialization thresholds only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress admission curriculum outcome success progress route or verdict labels and mitigation rows guarded outside ordinary denominators
+- claim boundary: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2779
+- route decision: route to M2780 result audit before any materialization extension, fresh closed-loop execution, short training continuation, ranking, validation, promotion, or performance claim
+- follow-up manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
+- next: `m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit`
+
 ## Immediate Next Step
 
-M2779 should materialize the bounded source-only belief-stress admission and
-curriculum pack from existing M2778/M2777/M2775/M2773 artifacts before any fresh
-execution or training:
+M2780 should audit the M2779 source-only belief-stress admission pack before any
+fresh execution or training:
 
 ```text
-PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --m2778-design docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md --m2775-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json --output-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization
+true
 ```
 
-M2779 must write admission rows, curriculum rows, mitigation guards, actor
-guards, claim rows, gates, summary, doc, run-state, and one M2780 audit
-manifest. It must preserve M2773 weak diagnostic accounting, M2775 modest
-source-only deltas, actor 72/action 3, no hidden/oracle actor input, and no
-actor-visible labels. It must reject execution, training, ranking, validation,
-performance, paper, current-sim, high-fidelity, full-driver, and self-ID
-claims.
+M2780 must audit M2779 completeness, actor-contract preservation, mitigation
+guards, and claim boundaries. It must preserve the source-only admission-pack
+scope and reject validation, performance, paper, high-fidelity, full-driver,
+and self-ID claims. The audit may select fresh closed-loop design, short
+training design, artifact repair, synthesis, or stop, but it must not execute
+rollouts or training itself.
