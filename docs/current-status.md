@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
+m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
+m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
+m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight
 ```
 
 Current route:
@@ -353,6 +353,18 @@ Actor 72/action 3 and no hidden/oracle actor input are preserved. M2754 rejects
 ranking, validation readiness, driver performance, repair success, paper,
 current-sim, high-fidelity, full-driver, and self-ID claims. The next bounded
 step is M2755 result synthesis before any follow-up execution or repair route.
+
+M2755 synthesized the M2752-M2754 cross-axis stress branch and chose `pivot` to
+post-cross-axis negative failure localization. It preserves M2753 as complete
+claim-safe but negative diagnostic evidence: 12 execution rows, 0 failure rows,
+0 diagnostic success rows, 3 obstacle_collision rows, and 9 off_track rows
+across 4 stress-axis aggregates. It rejects another immediate M2753-like
+execution because the unresolved question is no longer whether the surface can
+run, but why failures split between negative-clearance collision and positive-
+clearance offtrack outcomes. It preserves prior-panel, protected, HF3, actor,
+and claim boundaries and makes no ranking, validation, driver-performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID claim. The next
+bounded step is M2756 no-rollout failure-localization panel materialization.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
@@ -1521,20 +1533,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2755 should synthesize the bounded Route A cross-axis stress generalization
-branch before any follow-up execution or repair route:
+M2756 should materialize a no-rollout post-cross-axis negative
+failure-localization panel before any follow-up execution or repair route:
 
 ```text
 runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
 docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md
-experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json
 docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md
+experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json
+runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json
 ```
 
-The synthesis must answer evidence summary, supported claims, falsified claims,
-failure taxonomy, public-gate overfit risk, and next branch decision. It must
-preserve the 0/12 diagnostic success, 3 collision, and 9 off_track outcome as
-diagnostic row accounting only, and choose stop, pivot, package-with-
-limitations, Route B/C deferral, or a genuinely new bounded evidence route
-without ranking, validation, performance, paper, current-sim, high-fidelity,
-full-driver, or self-ID claims.
+The panel must classify all 12 M2753 execution rows and preserve 0/12 success,
+3 collision, and 9 off_track as diagnostic row accounting only. It must
+separate collision negative-clearance rows, positive-clearance offtrack rows,
+stress-axis/source-edge context, prior-panel guards, protected blockers, and
+HF3 blockers without ranking axes or families and without validation,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.

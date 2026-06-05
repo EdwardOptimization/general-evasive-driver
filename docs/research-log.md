@@ -49791,3 +49791,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2754
 - follow-up manifest: `experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json`
 - next: `m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis`
+
+## M2755 Engineering Controller Route A Cross-Axis Stress Generalization Bounded Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_post_cross_axis_negative_failure_localization_panel_materialization`
+- manifest: `experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json`
+- synthesis artifact: `docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md`
+- parent audit: `docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md`
+- parent summary: `runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json`
+- evidence summary: accepts M2752-M2754 as a complete claim-safe cross-axis diagnostic branch but not as capability validation or performance evidence
+- diagnostic accounting: preserves M2753 as 12 execution rows 0 failure rows 0 diagnostic success rows 3 obstacle_collision rows and 9 off_track rows across 4 stress-axis aggregates; these remain diagnostic row accounting only and not a success-rate verdict
+- failure interpretation: rejects another immediate M2753-like execution because the unresolved question is the collision negative-clearance versus positive-clearance offtrack failure structure
+- guardrail boundary: M2746/M2737 prior-panel rows protected mitigation blockers and HF3 source dependency blockers remain non-executed guardrails outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input stress-axis taxonomy scenario-role target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2756 no-rollout post-cross-axis negative failure-localization panel materialization
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2755
+- follow-up manifest: `experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json`
+- next: `m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight`
