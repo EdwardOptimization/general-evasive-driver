@@ -50710,3 +50710,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim
 - follow-up manifest: `experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json`
 - next: `m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit`
+
+## 20260605T134354Z m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M2791 bounded guardrailed multi-objective training artifacts can be audited for completeness and claim safety before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit_20260605T134354Z`
+- command log: `runs/research/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit_20260605T134354Z/command.log`
+- success artifact: `docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md`
+- notes: Completed: audit accepts M2791 complete claim-safe guardrailed training preflight status_pass true required artifacts present 30 gates all pass candidate hash 32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651 base hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 source hash e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87 18 objective rows 54 training rows 36 proof rows 13 proof gates 6 generalization gates 7 behavior-retention gates 4 promotion guards 6 actor guards 8 mitigation guards 11 claim rows obstacle-clearance hard guard 29 negative 43 positive road-margin 72/72 yaw-rate 60/72 conflict zero 72/72 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion success-rate performance paper current-sim high-fidelity full driver and self-ID claims routes to M2793 fresh-holdout triad delta panel
+
+## M2792 Engineering Controller Route A Source-Only Belief-Stress Guardrailed Multi-Objective Training Result Audit
+
+- status: completed
+- decision: `accept_m2791_route_to_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel`
+- manifest: `experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json`
+- audit doc: `docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md`
+- parent summary: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json`
+- parent gate matrix: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/gate_matrix.csv`
+- parent checkpoint manifest: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoint_manifest.json`
+- parent behavior-retention gates: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/behavior_retention_gate_rows.csv`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- base candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- M2791 candidate checkpoint hash: `32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`
+- accepted parent result: M2791 status_pass true required_artifacts_present true gate_matrix_pass true and no failed gate ids
+- artifact accounting: 18 objective rows, 54 training rows, 36 proof holdout probe rows, 13 proof gates, 6 generalization gates, 7 behavior-retention gates, 4 promotion guards, 6 actor guards, 8 mitigation-reference guards, 11 claim rows, and 30 gate rows all passing
+- behavior-retention audit: M2787 obstacle-clearance deltas remain mixed with 29 negative and 43 positive rows, road-margin deltas positive in 72/72 rows, yaw-rate deltas lower in 60/72 rows, throttle/brake conflict zero in 72/72 rows, and obstacle clearance remains the hard guard before road-margin yaw-rate final-speed conflict or action-delta interpretation
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain guarded outside ordinary denominators and cannot enter proof or promotion denominators
+- audit decision: accept M2791 completeness and claim safety but reject validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2793 fresh-holdout source/base/candidate triad closed-loop delta panel over seed indices 8, 9, 10, and 11 with horizon 140 before interpreting the new candidate checkpoint
+- follow-up manifest: `experiments/manifests/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.json`
+- next: `m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim

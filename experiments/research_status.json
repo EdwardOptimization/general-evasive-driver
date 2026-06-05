@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2797,
+    "completed": 2798,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z/command.log",
+    "command_log": "runs/research/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit_20260605T134354Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z",
+    "run_dir": "runs/research/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit_20260605T134354Z",
     "status": "completed",
-    "task_id": "m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight"
+    "task_id": "m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "M2791 bounded guardrailed multi-objective training artifacts can be audited for completeness and claim safety before interpretation.",
-    "id": "m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2791 summary required artifacts gate matrix checkpoint lineage behavior-retention rows actor and mitigation guards claim boundaries verify candidate hash 32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651 base hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 18 objective rows 54 training rows 36 proof rows 30 gates obstacle-clearance guard 29 negative 43 positive road-margin positive 72/72 yaw-rate lower 60/72 no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register follow-up or stop",
-    "priority": 27870,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --m2792-audit docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md --m2791-dir runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --m2787-dir runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --base-candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --candidate-checkpoint runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt --follow-up-manifest experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json --output-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --device cpu --seed-start-index 8 --seed-count 4 --horizon-steps 140",
+    "hypothesis": "A fresh-holdout source-only triad closed-loop delta panel can test whether the M2791 guardrailed candidate changed closed-loop behavior relative to both M2655 source and M2782 base candidate while preserving obstacle-clearance and actor boundaries.",
+    "id": "m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run source-only fresh-holdout triad closed-loop diagnostic panel after M2792 audit over M2655 source M2782 base candidate and M2791 guardrailed candidate use seed indices 8 9 10 11 outside M2784 0..3 and M2787 4..7 horizon 140 write triad execution rows candidate-minus-source and candidate-minus-base delta rows proof generalization behavior-retention promotion actor mitigation claim gate artifacts keep obstacle-clearance hard before road-margin yaw-rate speed conflict action-delta metrics preserve actor 72/action 3 no hidden oracle labels mitigation outside denominators no training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim route to M2794 audit",
+    "priority": 27880,
     "status": "pending",
-    "success_artifact": "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md"
+    "success_artifact": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json"
   },
-  "updated_at_utc": "20260605T133554Z"
+  "updated_at_utc": "20260605T134354Z"
 }
