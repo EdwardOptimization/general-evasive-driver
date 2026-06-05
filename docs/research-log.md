@@ -50125,3 +50125,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2772
 - follow-up manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
 - next: `m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight`
+
+## M2773 Engineering Controller Route A Source-Only Action-Response Belief Intervention Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight.py`
+- summary: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json`
+- doc: `docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md`
+- artifact accounting: wrote 32 source-only candidate rows 4 intervention condition rows 128 candidate/intervention matrix rows 128 execution rows 0 failure rows 10240 action-response trace rows 8 mitigation reference guard rows 7 actor guard rows 13 claim-boundary rows and 21 gate rows all passing
+- intervention conditions: normal_recurrent reset_hidden_each_step zero_previous_command_history held_actuator_history
+- diagnostic accounting: 32 collision diagnostic rows and 68 road-departure diagnostic rows are row accounting only and not a success-rate verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention outcome progress success or verdict labels all actions finite and within bounds
+- route boundary: no external HF3 simulation source build adapter probe training PPO replay validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim
+- route decision: route to M2774 result audit before interpreting intervention deltas or selecting synthesis proof extension artifact repair or stop
+- follow-up manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
+- next: `m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit`

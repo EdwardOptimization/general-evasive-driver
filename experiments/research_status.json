@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2778,
+    "completed": 2779,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md",
+    "command_log": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md",
+    "run_dir": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight",
     "status": "completed",
-    "task_id": "m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design"
+    "task_id": "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --m2772-design docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md --m2641-dir runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel --m2655-dir runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json --output-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight",
-    "hypothesis": "A bounded source-only HF0 action-response belief intervention preflight can materialize diagnostic rows for recurrent hidden state and deployable command-response history without external HF3 dependency or actor-input leakage.",
-    "id": "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M2772 source-only intervention panel write candidate intervention execution failure action-response trace mitigation guard actor guard claim gate summary doc run-state and M2774 audit manifest preserve actor 72/action 3 no hidden oracle no external HF3 no training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim",
-    "priority": 27680,
+    "command": "true",
+    "hypothesis": "M2773 source-only action-response belief intervention materialization artifacts can be audited for completeness and claim safety before any interpretation.",
+    "id": "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2773 source-only intervention artifacts summary candidate rows intervention rows matrix execution/failure rows trace rows mitigation guards actor guards claim boundaries and gates preserve diagnostic-only interpretation reject ranking validation performance paper current-sim high-fidelity full ideal driver and self-ID claims select bounded next route or stop",
+    "priority": 27690,
     "status": "pending",
-    "success_artifact": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T092723Z"
+  "updated_at_utc": "20260605T094009Z"
 }

@@ -1,0 +1,24 @@
+{
+  "artifact_paths": {
+    "action_response_trace_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/action_response_trace_rows.csv",
+    "actor_contract_guard_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/actor_contract_guard_rows.csv",
+    "candidate_intervention_matrix": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/candidate_intervention_matrix.csv",
+    "claim_boundary_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/claim_boundary_rows.csv",
+    "doc": "docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json",
+    "gate_matrix": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/gate_matrix.csv",
+    "intervention_condition_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_condition_rows.csv",
+    "intervention_execution_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_execution_rows.csv",
+    "intervention_failure_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_failure_rows.csv",
+    "mitigation_reference_guard_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/mitigation_reference_guard_rows.csv",
+    "run_state": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/run_state.json",
+    "source_only_candidate_rows": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/source_only_candidate_rows.csv",
+    "summary": "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json"
+  },
+  "claim_scope": "Route A source-only action-response belief intervention materialization preflight only",
+  "forbidden_interpretation": "ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, validation, paper, finite-window-vs-GRU, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "generated_at_utc": "20260605T093733Z",
+  "milestone": "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight",
+  "result_class": "engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight_pass",
+  "status_pass": true
+}

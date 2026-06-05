@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
+m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
+m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
+m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit
 ```
 
 Current route:
@@ -1831,21 +1831,35 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
 - next: `m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight`
 
+## M2773 Engineering Controller Route A Source-Only Action-Response Belief Intervention Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight_pass`
+- manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight.py`
+- summary: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json`
+- doc: `docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md`
+- artifact accounting: wrote 32 source-only candidate rows, 4 intervention condition rows, 128 candidate/intervention matrix rows, 128 execution rows, 0 failure rows, 10240 action-response trace rows, 8 mitigation reference guard rows, 7 actor guard rows, 13 claim-boundary rows, and 21 gate rows all passing
+- diagnostic accounting: 32 collision diagnostic rows and 68 road-departure diagnostic rows are row accounting only and not a success-rate verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention outcome progress success or verdict labels all actions finite and within bounds
+- route boundary: no external HF3 simulation source build adapter probe training PPO replay validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim
+- route decision: route to M2774 result audit before interpreting intervention deltas or selecting synthesis proof extension artifact repair or stop
+- follow-up manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
+- next: `m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit`
+
 ## Immediate Next Step
 
-M2773 should materialize the M2772 source-only HF0/FourWheel action-response
-belief intervention panel. It may execute bounded repo-local source-only reset,
-step, policy action, and rollout paths only for the registered
-candidate/intervention matrix and must route to M2774 audit before any
-interpretation:
+M2774 should audit the M2773 source-only action-response belief intervention
+materialization before any interpretation:
 
 ```text
-PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --m2772-design docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md --m2641-dir runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel --m2655-dir runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json --output-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight
+true
 ```
 
-M2773 must write candidate rows, intervention condition rows,
-candidate/intervention matrix rows, execution or failure rows, action-response
-trace rows, mitigation reference guards, actor guards, claim boundaries, gate
-matrix, summary, doc, run-state, and an M2774 result-audit manifest. It must
-not execute external HF3 simulation, training, validation, ranking, promotion,
-performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.
+M2774 must audit M2773 summary, candidate rows, intervention rows, matrix rows,
+execution/failure rows, trace rows, mitigation guards, actor guards, claim
+boundaries, and gates. It must preserve diagnostic-only interpretation and
+reject ranking, validation, performance, paper, current-sim, high-fidelity,
+full ideal driver, and self-ID claims before selecting a bounded next route or
+stop.

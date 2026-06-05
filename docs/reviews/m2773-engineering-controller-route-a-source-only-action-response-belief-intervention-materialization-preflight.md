@@ -1,0 +1,129 @@
+# m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T093925Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: route_to_source_only_action_response_belief_intervention_materialization_result_audit
+- Decision reason: M2773 materialization status_pass true wrote 32 source-only candidate rows 4 intervention conditions 128 candidate/intervention rows 128 execution rows 0 failure rows 10240 action-response trace rows 8 mitigation guards 7 actor guards 13 claim rows and 21 gates all pass diagnostic accounting 32 collision rows and 68 road-departure rows preserves M2771 negative repair M2638 HF3 blocker actor 72/action 3 no hidden oracle no external HF3 no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2774 audit
+
+## Hypothesis
+
+A bounded source-only action-response belief intervention preflight can materialize diagnostic rows that test recurrent hidden state and deployable command-response history after the negative M2769 actor-head repair branch without external HF3 dependencies or actor-input leakage.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md, docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md, docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md, docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md, docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_behavior_rows.csv, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/measured_event_rows.csv, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/telemetry_rows.csv, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json
+- parent_config: experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json, experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json, experiments/manifests/m2641-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-preflight.json
+- parent_objective: materialize the M2772 source-only action-response belief intervention design as bounded repo-local HF0 proof preflight artifacts
+- derived_from: m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design, m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis, m2492-source-only-closed-loop-fixture-pilot-branch-synthesis, m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis
+- blocked_by: M2772 admits only source-only HF0 action-response belief intervention materialization before interpretation, M2771 rejects another same-surface actor-head bias repair loop after M2769 produces 0/24 diagnostic success, M2638 still blocks external selected-platform HF3 execution until source dependency is supplied, actor input must remain P0 observation 72 action 3 with no hidden or oracle labels
+- supersedes: same-surface M2769 actor-head repair continuation, direct HF3 build or validation without source dependency, source-only behavior rows interpreted as driver performance, self-ID interpretation without wrong-history or history-ablation proof artifacts
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json exists
+- docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md exists
+- M2773 consumes M2772 M2771 M2638 M2492 M2643 M2641 and M2655 evidence
+- M2773 writes a source-only HF0/FourWheel candidate surface beyond the M2769 8 current-sim repair rows
+- M2773 writes normal recurrent and evaluator-only intervention condition rows while keeping labels actor-invisible
+- M2773 preserves actor 72/action 3 no hidden oracle and deployed steer throttle brake action mapping
+- M2773 writes actor guard claim boundary gate and run-state artifacts
+- M2773 registers one bounded M2774 result-audit follow-up
+- M2773 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2773 changes actor input dimension or action contract
+- M2773 exposes source-only role dynamics intervention outcome route progress success or verdict labels to actor input
+- M2773 treats source-only rows as high-fidelity validation or paper evidence
+- M2773 imports builds probes or executes external high-fidelity simulation
+- M2773 ranks controller families candidates source edges profiles task families mechanism tags or intervention modes selects a winner promotes a checkpoint or claims driver performance
+- M2773 hides M2769 negative diagnostic accounting or M2638 source dependency blocker
+- M2773 fails to register a bounded result-audit follow-up
+
+## Evidence Gates
+
+- M2773 must consume the M2772 design and preserve M2771 negative repair synthesis M2638 HF3 blocker M2492 source-only closed-loop path evidence M2641/M2643 fresh source-only panel evidence and M2655 checkpoint lineage
+- M2773 may execute bounded repo-local source-only HF0 reset step policy action and rollout only for the registered source-only candidate and intervention matrix
+- M2773 must not import install build probe or run external high-fidelity simulation or selected-platform source
+- M2773 must preserve P0 observation shape 72 action shape 3 deployed steer throttle brake mapping no hidden/oracle actor input no actor input feature addition and actor-invisible labels
+- M2773 must include normal recurrent reset-hidden zero-command-history and held-actuator-history intervention conditions if implementable without actor-contract violation
+- M2773 must carry unavoidable_mitigation rows as mitigation reference guards outside ordinary denominators
+- M2773 must write source-only candidate intervention condition candidate-intervention matrix intervention execution failure action-response trace mitigation guard actor guard claim boundary gate summary doc run-state and result-audit follow-up artifacts
+- M2773 must reject ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+- M2773 must register one M2774 result audit follow-up before any interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute selected-platform source build
+- do not execute selected-platform adapter probe
+- do not mutate external dependency trees
+- do not execute replay validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor observation dimension
+- do not change action dimension
+- do not change the deployed action mapping
+- do not add actor input features
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels intervention labels mechanism labels route decisions success labels progress labels outcomes or verdict labels to actor input
+- do not reuse the M2769 8 current-sim rows as the source-only evidence surface
+- do not hide M2769 0/24 diagnostic success or M2655 protected mitigation failures
+- do not treat source-only rows as high-fidelity validation rows
+- do not rank controller families candidates source edges profiles task families mechanism tags or intervention modes
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2773 preflight
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_source_only_action_response_belief_intervention_materialization_result_audit
+- reason: M2773 materialization status_pass true wrote 32 source-only candidate rows 4 intervention conditions 128 candidate/intervention rows 128 execution rows 0 failure rows 10240 action-response trace rows 8 mitigation guards 7 actor guards 13 claim rows and 21 gates all pass diagnostic accounting 32 collision rows and 68 road-departure rows preserves M2771 negative repair M2638 HF3 blocker actor 72/action 3 no hidden oracle no external HF3 no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2774 audit
+
+## Next Blocker
+
+None recorded.

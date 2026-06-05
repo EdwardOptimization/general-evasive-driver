@@ -1,0 +1,164 @@
+{
+  "baseline_artifacts": [
+    "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json",
+    "docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2774 audits M2773 artifacts and selects a bounded next route without overclaiming.",
+  "failure_criteria": [
+    "M2774 executes new rollouts or training",
+    "M2774 claims driver performance or self-ID",
+    "M2774 fails to select a bounded next route or stop"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO source build adapter probe or external simulation in audit",
+    "do not change actor inputs or action contract",
+    "do not rank intervention conditions or select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdicts",
+    "do not claim driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "proof",
+  "hypothesis": "M2773 source-only intervention artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2773 materialization must be audited before any history-belief interpretation",
+      "M2773 preflight rows are source-only diagnostics and not validation performance or self-ID evidence"
+    ],
+    "derived_from": [
+      "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight",
+      "m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json",
+      "experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/source_only_candidate_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_condition_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/candidate_intervention_matrix.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_execution_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_failure_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/action_response_trace_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/mitigation_reference_guard_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/gate_matrix.csv",
+      "docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2773 source-only action-response belief intervention materialization artifacts before interpretation"
+    ],
+    "supersedes": [
+      "direct self-ID interpretation from M2773 preflight rows",
+      "driver-performance interpretation from source-only intervention rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits a new source-only intervention panel rather than extending same-surface repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2774 cannot select a bounded follow-up route",
+      "M2774 would claim self-ID or performance from source-only preflight rows"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may select whether intervention artifacts justify later proof synthesis",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2774 must audit M2773 artifact completeness actor-contract preservation and claim boundaries",
+    "M2774 must preserve M2773 source-only diagnostic scope and reject validation performance paper high-fidelity full-driver and self-ID claims",
+    "M2774 must decide whether to route to intervention result synthesis proof extension artifact repair or branch stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2773 artifacts are complete and claim-safe or incomplete",
+      "no driver-performance verdict paper result high-fidelity validation full ideal driver or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2774 may audit history-intervention rows but cannot by itself establish level3 self-identification.",
+    "history_necessity_tests": [
+      "audit only; no new tests in M2774"
+    ],
+    "negative_result_policy": "Preserve negative or ambiguous intervention results instead of weakening self-ID gates.",
+    "temporal_evidence_window": "M2772-M2773 source-only intervention branch"
+  },
+  "success_criteria": [
+    "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md exists",
+    "M2774 audits M2773 summary candidate intervention execution trace actor guard claim and gate artifacts",
+    "M2774 preserves no ranking validation performance paper high-fidelity full-driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2773 summary and gate artifacts exist"
+    ],
+    "allowed_updates": [
+      "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+      "M2774 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no execution training ranking validation performance paper HF or self-ID claim in audit"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "one bounded next route or stop decision is selected"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "source-only action-response belief intervention materialization result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_action_response_belief_intervention",
+    "claim_scope": "M2773 result audit only; no new execution training ranking validation performance paper current-sim high-fidelity self-ID or full ideal driver claim",
+    "evidence_axis": "source_only_action_response_belief_intervention_materialization_result_audit",
+    "evidence_increment": "audits M2773 source-only intervention artifacts before interpretation or next-route selection",
+    "fallback_plan": [
+      "route to artifact repair if accounting is incomplete",
+      "route to implementation repair if intervention hooks violated contract",
+      "route to synthesis if artifacts are complete but negative or ambiguous"
+    ],
+    "stop_condition": [
+      "stop if M2773 artifacts are incomplete",
+      "stop if actor labels or hidden/oracle values entered actor input",
+      "stop if source-only diagnostic rows would be interpreted as validation performance or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2773 writes source-only intervention materialization artifacts"
+  }
+}
