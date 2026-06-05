@@ -51365,3 +51365,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit_20260605T223616Z/command.log`
 - success artifact: `docs/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.md`
 - notes: Completed: audit accepts M2828 complete claim-safe post-package source-diverse diagnostic execution status_pass true required artifacts present 16 fixed rows 16 resolved 16 executed 0 failures 5 diagnostic success 1 collision 10 off_track 5 source-family aggregates 16 scenario-role metric rows 16 failure taxonomy rows 33 prior-surface rows 21 unique task-source ids 12 package limitation guards 15 actor guards 21 claim rows 26 gates all pass actor 72/action 3 no hidden oracle labels prior-surface same-recoverability package protected and HF3 blockers not executed guardrails outside denominators rejects repair recoverability success ranking validation performance paper high-fidelity full-driver and self-ID claims routes to M2830 synthesis
+
+## 20260605T225021Z m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2827-M2829 post-package source-diverse evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis_20260605T225021Z`
+- command log: `runs/research/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis_20260605T225021Z/command.log`
+- success artifact: `docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2827-M2829 complete claim-safe post-package source-diverse diagnostic branch preserves M2828 16 fixed rows 16 resolved 16 executed 0 failures 5 diagnostic success 1 collision 10 off_track 5 source-family aggregates 16 scenario-role rows 16 failure taxonomy rows 33 prior-surface rows 12 package guards 15 actor guards 21 claim rows 26 gates actor 72/action 3 no hidden oracle labels prior-surface package protected HF3 guardrails outside denominators confirms M2638 source dependency still blocked by missing chrono root pychrono projectchrono rejects repair validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims pivots to M2831 Route C HF0 source-only interface evidence handoff design

@@ -1,0 +1,151 @@
+{
+  "decision_reason": "M2830 synthesis decision pivot accepts M2827-M2829 complete claim-safe post-package source-diverse diagnostic branch preserves M2828 16 fixed rows 16 resolved 16 executed 0 failures 5 diagnostic success 1 collision 10 off_track 5 source-family aggregates 16 scenario-role rows 16 failure taxonomy rows 33 prior-surface rows 12 package guards 15 actor guards 21 claim rows 26 gates actor 72/action 3 no hidden oracle labels prior-surface package protected HF3 guardrails outside denominators confirms M2638 source dependency still blocked by missing chrono root pychrono projectchrono rejects repair validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims pivots to M2831 Route C HF0 source-only interface evidence handoff design",
+  "failure_criteria": [
+    "M2830 executes reset step rollout replay validation training PPO repair source build adapter probe or external simulation",
+    "M2830 changes actor input or action contract",
+    "M2830 exposes package blocker recoverability stress-axis scenario-role source-family route decision success progress or verdict labels to actor input",
+    "M2830 weakens prior-surface package protected or HF3 guardrails or treats guardrail rows as success denominators",
+    "M2830 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2830 claims repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not publish package artifacts as a release",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose package blocker recoverability stress-axis scenario-role source-family profile task-family route success progress or verdict labels to actor input",
+    "do not hide M2828 mixed diagnostic outcomes",
+    "do not hide prior-surface package protected or HF3 guardrail rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families profiles task families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim recoverability success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2830 synthesis"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260605T225129Z",
+  "hypothesis": "A branch synthesis can preserve M2827-M2829 post-package source-diverse evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.",
+  "lineage": {
+    "blocked_by": [
+      "M2829 accepts M2828 complete claim-safe diagnostic artifacts but rejects direct validation ranking performance paper high-fidelity full-driver and self-ID interpretation",
+      "M2828 diagnostic outcomes remain mixed with 5 diagnostic success rows 1 collision row and 10 off_track rows",
+      "M2824 package limitation rows M2816 negative recoverability M2804 blockers and M2638 HF3 source dependency blockers remain active boundaries",
+      "another immediate source-diverse execution or repair route would risk local search unless synthesis identifies a materially changed evidence surface"
+    ],
+    "derived_from": [
+      "m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit",
+      "m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight",
+      "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.json",
+      "experiments/manifests/m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight.json",
+      "experiments/manifests/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.md",
+      "docs/m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight.md",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/post_package_candidate_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/candidate_execution_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/source_family_aggregate_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/scenario_role_metric_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/failure_taxonomy_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/prior_surface_exclusion_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/package_limitation_guard_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/actor_contract_guard_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/claim_boundary_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/gate_matrix.csv",
+      "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md",
+      "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize M2827-M2829 post-package source-diverse closed-loop evidence before choosing another execution repair validation ranking packaging or route pivot"
+    ],
+    "supersedes": [
+      "direct interpretation of M2828 diagnostic execution rows",
+      "direct source-family task-family profile stress-axis or scenario-role ranking from M2828 rows",
+      "direct validation readiness or driver-performance claim from M2828",
+      "another immediate post-package execution branch without synthesis"
+    ]
+  },
+  "milestone": "m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis",
+  "next_blocker": "m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pivot_to_route_c_hf0_source_only_interface_evidence_handoff_design",
+  "public_gates": [
+    "M2830 must synthesize M2827-M2829 post-package source-diverse evidence before any additional execution repair validation ranking packaging or performance claim",
+    "M2830 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2830 must preserve M2828 artifact accounting 16 candidate rows 16 resolved rows 16 execution rows 0 failure rows 5 source-family aggregate rows 16 scenario-role metric rows 16 failure taxonomy rows 33 prior-surface rows 12 package guards 15 actor guards 21 claim rows and 26 gates unless it finds a documented contradiction",
+    "M2830 must preserve M2828 diagnostic outcomes 5 diagnostic success 1 collision and 10 off_track as diagnostic row accounting only",
+    "M2830 must preserve M2737 M2807 M2816 prior-surface same-recoverability package-limitation protected and HF3 rows as non-executed guardrails outside ordinary denominators",
+    "M2830 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators",
+    "M2830 must decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or continue only with a materially different evidence axis and register one bounded follow-up manifest if continuing or pivoting",
+    "M2830 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation",
+    "M2830 must not claim repair success recoverability success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_route_c_hf0_source_only_interface_evidence_handoff_design",
+    "milestone": "m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis",
+    "reason": "M2830 synthesis decision pivot accepts M2827-M2829 complete claim-safe post-package source-diverse diagnostic branch preserves M2828 16 fixed rows 16 resolved 16 executed 0 failures 5 diagnostic success 1 collision 10 off_track 5 source-family aggregates 16 scenario-role rows 16 failure taxonomy rows 33 prior-surface rows 12 package guards 15 actor guards 21 claim rows 26 gates actor 72/action 3 no hidden oracle labels prior-surface package protected HF3 guardrails outside denominators confirms M2638 source dependency still blocked by missing chrono root pychrono projectchrono rejects repair validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims pivots to M2831 Route C HF0 source-only interface evidence handoff design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2828 status_pass true and M2829 audit acceptance",
+    "synthesis records 16 candidate rows 16 resolved rows 16 execution rows 0 failure rows 5 diagnostic success 1 collision and 10 off_track as diagnostic evidence only",
+    "synthesis preserves M2737 M2807 M2816 prior surfaces same-recoverability package protected and HF3 guardrails as not run not admitted and outside denominators",
+    "synthesis preserves actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "synthesis selects a bounded next route or explicit stop without training ranking validation performance paper high-fidelity full-driver or self-ID claims"
+  ],
+  "type": "gate"
+}

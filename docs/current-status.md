@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit
+m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit
+m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
+m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
 ```
 
 Current route:
@@ -37,7 +37,25 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route A.
+current next branch is Route C/HF0 source-only interface evidence handoff after
+M2830 closed the Route A post-package source-diverse diagnostic subbranch.
+
+M2830 synthesized and closed M2827-M2829 with decision
+`pivot_to_route_c_hf0_source_only_interface_evidence_handoff_design`. It
+accepts the branch as complete and claim-safe diagnostic evidence only:
+M2828 preserved 16 fixed rows, 16 resolved, 16 executed, 0 failures,
+5 diagnostic success rows, 1 collision, 10 off_track terminations,
+5 source-family aggregate rows, 16 scenario-role rows, 16 failure taxonomy
+rows, 33 prior-surface rows, 12 package guards, 15 actor guards, 21 claim rows,
+and 26 passing gates. Actor 72/action 3, no hidden/oracle actor input,
+actor-invisible labels, and prior-surface/package/protected/HF3 guardrails
+remain outside ordinary denominators. A live source-dependency check still
+finds no `/home/quyaonan/workspace/chrono`, no Chrono `CMakeLists.txt`, and no
+`pychrono` or `projectchrono` import spec, so M2638 remains active. M2830
+rejects another M2828-like execution loop, package publication, repair success,
+validation, ranking, driver performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID interpretations. The next task is M2831 Route C/HF0
+source-only interface evidence handoff design.
 
 M2829 audited and accepted M2828 as complete and claim-safe bounded Route A
 post-package source-diverse diagnostic execution evidence. The audit confirms
@@ -51,8 +69,7 @@ input, actor-invisible labels, prior-surface, same-recoverability, package,
 protected, and HF3 guardrails outside execution and ordinary denominators.
 M2829 rejects repair success, recoverability success, ranking, validation,
 driver performance, paper, current-sim, high-fidelity, full-driver, and self-ID
-interpretations. The next task is M2830 branch synthesis before any further
-execution or interpretation.
+interpretations. The next task was M2830 branch synthesis, now completed above.
 
 M2828 completed a bounded Route A post-package source-diverse closed-loop
 evidence expansion preflight over the fixed M2827 surface. It resolved and

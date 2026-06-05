@@ -144,7 +144,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2829 accepts M2828 complete claim-safe bounded post-package source-diverse execution but rejects direct interpretation",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -256,5 +256,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md",
-  "next_blocker": "m2831-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-follow-up"
+  "next_blocker": "m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design"
 }
