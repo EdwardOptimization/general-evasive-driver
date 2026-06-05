@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
+m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
+m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
+m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
 ```
 
 Current route:
@@ -245,6 +245,20 @@ blocker/route/success/progress/verdict labels are preserved. M2746 makes no
 ranking, validation, performance, paper, current-sim, high-fidelity,
 full-driver, or self-ID claim. Next is M2747 result audit before interpretation
 or another route decision.
+
+M2747 audited and accepted M2746 as complete and claim-safe bounded diagnostic
+execution evidence. It verified 14/14 candidates resolved and executed, split
+as 7 M2693 rows and 7 M2716 fixed `L3_online_gru` rows, with 0 failure rows,
+5 guardrail context rows, 18 actor-contract guard rows, 34 claim-boundary rows,
+and 21 gate rows all passing. It preserves the diagnostic outcome as 1
+diagnostic success, 1 collision, 9 off_track, 3 speed_too_low, and 1
+unset_or_completed termination. Collision caution, diagnostic success context,
+negative-context, blocked same-surface, protected, and HF3 rows remain
+non-executed guardrails outside ordinary success denominators. Actor 72/action
+3 and no hidden/oracle actor input are preserved. M2747 rejects ranking,
+validation, performance, paper, current-sim, high-fidelity, full-driver, and
+self-ID interpretation. The next bounded step is M2748 result synthesis before
+any new execution or repair route.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

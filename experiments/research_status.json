@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2752,
+    "completed": 2753,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+    "command_log": "docs/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight"
+    "task_id": "m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2746 bounded role-panel diagnostic execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence step.",
-    "id": "m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit",
+    "hypothesis": "A result synthesis can preserve M2742-M2747 role-panel evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
+    "id": "m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2746 bounded role-panel execution artifacts before interpretation preserve 14 candidate accounting 5 guardrail contexts actor 72/action 3 no hidden oracle and reject ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27420,
+    "notes": "Pending: synthesize M2742-M2747 role-panel branch preserve M2746 weak diagnostic outcomes 14 execution rows 0 failures 1 success 1 collision 9 off_track 3 speed_too_low 1 unset_or_completed guardrails not executed actor 72/action 3 no hidden oracle reject ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim before next route",
+    "priority": 27430,
     "status": "pending",
-    "success_artifact": "docs/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.md"
+    "success_artifact": "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md"
   },
-  "updated_at_utc": "20260605T040443Z"
+  "updated_at_utc": "20260605T041439Z"
 }

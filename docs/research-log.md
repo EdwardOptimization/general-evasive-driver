@@ -49650,3 +49650,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2746
 - follow-up manifest: `experiments/manifests/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.json`
 - next: `m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit`
+
+## M2747 Engineering Controller Route A Source-Diverse Failure Taxonomy Scenario-Role Metric Panel Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2746_route_to_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_result_synthesis`
+- manifest: `experiments/manifests/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.json`
+- audit doc: `docs/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.md`
+- parent summary: `runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json`
+- accepted parent result: M2746 status_pass true required artifacts present with 14/14 candidates resolved and executed split into 7 M2693 rows and 7 M2716 fixed `L3_online_gru` rows, 0 failure rows, 5 guardrail context rows, 18 actor-contract guard rows, 34 claim-boundary rows, and 21 gate rows all passing
+- diagnostic outcome: 1 diagnostic success row, 1 collision row, 9 off_track rows, 3 speed_too_low rows, and 1 unset_or_completed termination; these remain diagnostic row accounting only and not a success-rate verdict
+- guardrail boundary: 1 collision caution row, 3 diagnostic success context rows, 31 negative-context guard rows, 1 blocked same-surface guard row, and 11 protected/HF3 exclusion rows were not executed and remain outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input scenario-role labels metric labels target labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- route decision: accept M2746 artifact completeness and route to M2748 result synthesis before any new execution route or interpretation
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2747
+- follow-up manifest: `experiments/manifests/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.json`
+- next: `m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis`
