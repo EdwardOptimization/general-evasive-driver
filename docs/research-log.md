@@ -51160,3 +51160,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight_20260605T182038Z/command.log`
 - success artifact: `runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json`
 - notes: Completed: no-rollout action-response mechanism panel status_pass true required artifacts present 12 mechanism rows 10 offtrack-containment 2 success obstacle-pass 0 collision 2 contrast rows action metrics available true offtrack timing rows 10 recoverability available 0 guardrails 44 actor guards 12 claim rows 25 gates 22 actor 72/action 3 no hidden oracle labels guardrails outside denominators no ranking validation performance paper high-fidelity full driver or self-ID claim routes to M2814 audit
+
+## 20260605T182917Z m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2813 action-response mechanism artifacts while preserving actor blocker and claim boundaries before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit_20260605T182917Z`
+- command log: `runs/research/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit_20260605T182917Z/command.log`
+- success artifact: `docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md`
+- notes: Completed: audit accepts M2813 complete claim-safe no-rollout action-response mechanism panel status_pass true required artifacts present 12 mechanism rows 10 offtrack-containment 2 success obstacle-pass 0 collision 2 contrast rows action metrics available true offtrack timing rows 10 recoverability available 0 guardrails 44 actor guards 12 claim rows 25 gates 22 actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2815 synthesis

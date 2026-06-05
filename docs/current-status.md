@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
+m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
+m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
+m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2814 audited and accepted M2813 as complete, claim-safe, no-rollout
+action-response mechanism materialization evidence. It verified
+`status_pass=true`, required artifacts present, 12 mechanism rows, 10
+offtrack-containment rows, 2 success obstacle-pass rows, 0 collision rows, 2
+contrast rows, action-response metrics available for all rows, 10
+offtrack-timing rows, 0 recoverability-available rows, 44 guardrails, 12
+actor-contract guards, 25 claim-boundary rows, and a 22-row gate matrix. Actor
+P0 observation 72/action 3, no hidden/oracle actor input, actor-invisible
+action-response/stress-axis/source-edge/success/progress/verdict labels, and
+guardrails outside ordinary denominators are preserved. The audit rejects
+converting the 10 offtrack-containment rows, 7 action-trace-delta context rows,
+3 early-offtrack context rows, 2 success obstacle-pass rows, or 0
+recoverability-available rows into repair success, ranking, validation
+readiness, driver performance, paper evidence, current-sim or high-fidelity
+verdicts, full-driver completion, or self-ID claims. The next admitted step is
+M2815 branch synthesis before any repair design, execution, validation,
+ranking, packaging, Route B claim, or Route C claim.
 
 M2813 completed no-rollout action-response mechanism panel materialization from
 existing M2807/M2810/M2812 artifacts only. It wrote summary,
@@ -53,7 +71,8 @@ and guardrails outside ordinary denominators are preserved. M2813 is diagnostic
 materialization only: it performs no reset, rollout, replay, validation,
 training, ranking, promotion, performance, paper, current-sim, high-fidelity,
 full-driver, or self-ID claim. The next admitted step is M2814 result audit
-before any interpretation, repair design, or execution route.
+before any interpretation, repair design, or execution route; that audit is now
+completed above.
 
 M2812 synthesized the M2809-M2811 offtrack-containment localization branch and
 selected
