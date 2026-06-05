@@ -50831,3 +50831,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T140945Z/command.log`
 - success artifact: `docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md`
 - notes: Pending: audit M2793 summary required artifacts triad execution rows candidate-minus-source and candidate-minus-base delta rows gates checkpoint lineage seed disjointness behavior-retention actor and mitigation guards claim boundaries verify 216 execution rows 72 source deltas 72 base deltas 35 gates all pass candidate-minus-source obstacle-clearance 30 positive 42 negative candidate-minus-base obstacle-clearance 29 positive 43 negative keep obstacle-clearance hard before road-margin yaw-rate speed conflict action-delta metrics no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register follow-up or stop
+
+## 20260605T142822Z m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2790-M2794 source-only guardrailed belief-stress candidate evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z`
+- command log: `runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z/command.log`
+- success artifact: `docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2790-M2794 complete claim-safe source-only guardrailed candidate branch preserves M2791 candidate checkpoint hash 32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651 M2793 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 35 gates all pass seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 obstacle-clearance mixed source 30 positive 42 negative base 29 positive 43 negative road-margin and speed positive but not promotion evidence actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims pivots to M2796 obstacle-clearance regression atlas
+
+## M2795 Engineering Controller Route A Source-Only Belief-Stress Guardrailed Candidate Triad Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_source_only_belief_stress_obstacle_clearance_regression_atlas`
+- manifest: `experiments/manifests/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.json`
+- synthesis doc: `docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md`
+- parent audit: `docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md`
+- parent triad summary: `runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json`
+- parent training summary: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json`
+- accepted branch evidence: M2790-M2794 form a complete claim-safe source-only guardrailed belief-stress candidate branch; M2791 produced candidate checkpoint hash `32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651` from M2782 base hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8` with M2655 source hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- M2791 accounting: 18 objective rows, 54 training rows, 36 proof rows, and 30 gate rows all passing
+- M2793 holdout surface: seed indices 8, 9, 10, and 11 disjoint from prior 0..7, horizon 140 greater than M2787 horizon 120, 216 triad execution rows, 72 candidate-minus-source deltas, 72 candidate-minus-base deltas, 16 proof gates, 9 generalization gates, 6 behavior-retention gates, 4 promotion guards, and 35 gate rows all passing
+- hard guard result: candidate-minus-source obstacle-clearance remains mixed and skew negative with 30 positive and 42 negative rows; candidate-minus-base obstacle-clearance remains mixed and skew negative with 29 positive and 43 negative rows
+- diagnostic positives: road-margin is positive in 72/72 candidate-minus-source rows and 71/72 candidate-minus-base rows; final speed is positive in 72/72 and 70/72 rows respectively, but these do not override obstacle-clearance blocker
+- supported claims: auditable source-only guardrailed candidate checkpoint, complete fresh-holdout source/base/candidate diagnostic rows, measurable source-only behavior movement, preserved actor and claim boundaries, and identified obstacle-clearance retention blocker
+- rejected claims: no candidate-better verdict, validation readiness/result, checkpoint ranking, winner selection, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
+- failure taxonomy: contract violation, lineage invalidity, scenario sampling failure, and proof washout remain controlled; objective overfit, behavior regression, and metric artifact remain active risks
+- public gate overfit risk: medium-high if repeating the same guardrailed candidate update or same-axis triad panel, lower if pivoting to a clearance-regression failure atlas
+- follow-up manifest: `experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json`
+- next: `m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight`

@@ -1,0 +1,260 @@
+{
+  "id": "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md",
+      "docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+      "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json",
+      "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv",
+      "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+      "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+      "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.json",
+      "experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+      "experiments/manifests/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a source-only obstacle-clearance regression atlas from M2793 triad deltas before designing another training or architecture change"
+    ],
+    "derived_from": [
+      "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis",
+      "m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit",
+      "m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight"
+    ],
+    "blocked_by": [
+      "M2795 pivots away from another same-axis candidate panel because obstacle-clearance remains mixed and skew negative",
+      "M2793 candidate-minus-source obstacle-clearance has 30 positive and 42 negative rows",
+      "M2793 candidate-minus-base obstacle-clearance has 29 positive and 43 negative rows",
+      "The next training or architecture change needs stratified failure attribution rather than another broad source-only verdict"
+    ],
+    "supersedes": [
+      "another same-axis source/base/candidate triad panel without clearance regression attribution",
+      "road-margin-only or speed-only interpretation of M2793 deltas",
+      "direct promotion of the M2791 candidate checkpoint"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md",
+  "public_gates": [
+    "M2796 must consume M2795 M2794 M2793 artifacts only and run no new policy rollout training validation or external simulation",
+    "M2796 must materialize clearance-regression rows for both candidate-minus-source and candidate-minus-base delta families",
+    "M2796 must stratify clearance negatives by role family dynamics axis stress family seed index and delta family",
+    "M2796 must record road-margin speed yaw-rate conflict and action-delta side effects without ranking or winner selection",
+    "M2796 must keep obstacle-clearance regression visible as hard guard blocker before any objective interpretation",
+    "M2796 must preserve actor P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2796 must keep mitigation reference rows outside ordinary denominators",
+    "M2796 must write atlas rows aggregate rows proof gates mitigation guards claim rows gate matrix summary doc run-state and M2797 audit manifest",
+    "M2796 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step policy action rollout replay validation training PPO source build adapter probe or external simulation",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose role labels dynamics labels stress labels curriculum labels admission labels outcome labels success labels progress labels route decisions or verdict labels to actor input",
+    "do not treat road-margin speed yaw-rate or action-delta positives as a candidate-better verdict",
+    "do not hide obstacle-clearance negative rows",
+    "do not rank checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim driver performance",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim high-fidelity validation",
+    "do not claim full ideal driver completion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas",
+    "evidence_axis": "source_only_belief_stress_obstacle_clearance_regression_attribution",
+    "evidence_increment": "moves from M2795 synthesis to a stratified failure atlas for the hard obstacle-clearance guard instead of another same-axis candidate panel",
+    "claim_scope": "Source-only clearance-regression atlas only; no new execution training validation ranking promotion driver-performance paper high-fidelity self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if M2793 delta rows are unavailable or incomplete",
+      "stop if clearance-negative rows cannot be separated from road-margin or speed positives",
+      "stop if mitigation reference rows would enter ordinary denominators",
+      "stop if the atlas is used as ranking promotion validation performance or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2793 or M2795 artifacts are missing",
+      "route to M2797 audit if the atlas artifacts are complete",
+      "route to architecture or training design only after the atlas identifies the dominant clearance-regression families",
+      "route to branch stop if the atlas cannot identify actionable structure beyond mixed global deltas"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2795 pivots from guardrailed triad branch to clearance-regression attribution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "source-only obstacle-clearance regression atlas from M2793 triad deltas",
+    "admission_evidence": [
+      "M2795 synthesis selects obstacle-clearance regression attribution as the next evidence axis",
+      "M2794 accepts M2793 artifacts complete and claim-safe",
+      "M2793 has 42 candidate-minus-source and 43 candidate-minus-base clearance-negative rows"
+    ],
+    "blocked_shortcuts": [
+      "no new execution training validation ranking promotion or success-rate verdict in M2796",
+      "no actor-visible labels or hidden/oracle actor input",
+      "no mitigation rows in ordinary denominators",
+      "no road-margin or speed positives used to hide clearance negatives"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas.py",
+      "tests/test_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas.py",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/proof_gate_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/mitigation_reference_guard_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/claim_boundary_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/gate_matrix.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/run_state.json",
+      "docs/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md",
+      "experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json",
+      "M2796 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "clearance-regression rows exist for both delta families",
+      "aggregate rows identify negative counts by role dynamics stress and seed",
+      "road-margin speed yaw-rate conflict and action-delta side effects remain diagnostic only",
+      "gate rows preserve claim boundaries",
+      "one M2797 result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2796 reanalyzes source-only delta rows and cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2796 may stratify recurrent hidden reset previous command and held actuator stress rows but runs no history-vs-current comparison."
+    ],
+    "temporal_evidence_window": "M2793-M2796 source-only clearance-regression attribution branch",
+    "negative_result_policy": "If atlas shows broad clearance regression preserve the failure and route to synthesis or architecture/training redesign rather than weakening clearance gates.",
+    "allowed_claims": [
+      "source-only obstacle-clearance regression atlas artifacts are complete or incomplete",
+      "clearance-negative row families are identified for future design",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes evidence axis from candidate delta panel to stratified obstacle-clearance failure attribution",
+    "paper_verdict_delta": "no paper verdict; may identify whether source-only guardrailed training is blocked by localized or broad clearance regression",
+    "must_synthesize_if": [
+      "M2796 cannot identify clearance-negative row families",
+      "M2796 hides clearance negatives behind road-margin or speed positives",
+      "M2796 results are used as validation ranking performance self-ID or paper evidence",
+      "another process-only milestone is proposed after M2796 without M2797 audit or a new design branch"
+    ]
+  },
+  "hypothesis": "A source-only obstacle-clearance regression atlas can identify which role dynamics stress and seed strata carry the M2793 clearance-negative rows while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json exists",
+    "docs/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md exists",
+    "M2796 consumes M2795 M2794 and M2793 artifacts only",
+    "M2796 writes clearance regression rows aggregate rows proof gates mitigation guards claim rows gate matrix run-state and M2797 audit manifest",
+    "M2796 includes both candidate-minus-source and candidate-minus-base delta families",
+    "M2796 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2796 keeps mitigation reference rows outside ordinary denominators",
+    "M2796 writes no validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2796 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2796 changes actor input or action contract",
+    "M2796 exposes role dynamics stress curriculum admission outcome route progress success or verdict labels to actor input",
+    "M2796 hides obstacle-clearance negative rows",
+    "M2796 ranks checkpoints selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2796 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2796 writes complete claim-safe clearance-regression atlas artifacts and routes to result audit before interpretation.",
+  "commands": [
+    {
+      "name": "obstacle_clearance_regression_atlas",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas --m2795-synthesis docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md --m2794-audit docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md --m2793-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --follow-up-manifest experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json --output-dir runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/proof_gate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/mitigation_reference_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_artifacts": [
+    "docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md",
+    "docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+    "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json",
+    "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+    "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+  ],
+  "scoreboard_checkpoint": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json"
+}

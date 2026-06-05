@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit
+m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit
+m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis
+m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
 ```
 
 Current route:
@@ -38,6 +38,29 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2795 synthesized the M2790-M2794 source-only guardrailed belief-stress
+candidate branch and chose
+`pivot_to_source_only_belief_stress_obstacle_clearance_regression_atlas`. It
+preserves the M2791 candidate checkpoint hash
+`32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`, source
+hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`, and
+base candidate hash
+`96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`. The
+synthesis accepts M2793 as complete fresh-holdout triad diagnostic evidence:
+seed indices 8, 9, 10, and 11 are disjoint from prior 0..7, horizon 140 is
+greater than M2787 horizon 120, 216 triad execution rows, 72
+candidate-minus-source deltas, 72 candidate-minus-base deltas, and 35 gate rows
+all pass. It also keeps the hard blocker explicit: candidate-minus-source
+obstacle-clearance deltas are 30 positive and 42 negative with negative mean and
+median, while candidate-minus-base deltas are 29 positive and 43 negative with
+negative mean and median. Road-margin and speed positives are source-only
+diagnostics and do not override clearance risk. M2795 rejects candidate-better,
+validation, ranking, winner selection, promotion, success-rate verdict,
+performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims. The next bounded task is M2796, a source-only obstacle-clearance
+regression atlas that consumes M2795/M2794/M2793 artifacts only and runs no new
+rollout, training, validation, ranking, or promotion.
 
 M2794 audited and accepted M2793 as complete and claim-safe source-only
 fresh-holdout triad diagnostic evidence. It verified `status_pass=true`,
@@ -53,8 +76,8 @@ Actor P0 observation 72/action 3, no hidden/oracle actor input, actor-invisible
 labels, and mitigation rows outside ordinary denominators are preserved. M2794
 rejects validation, ranking, winner selection, promotion, success-rate verdict,
 performance, paper, current-sim, high-fidelity, full-driver, and self-ID
-claims. The current next task is M2795 branch synthesis before any further
-same-axis panel, training update, ranking, or promotion.
+claims. M2794 routed to the now-completed M2795 branch synthesis before any
+further same-axis panel, training update, ranking, or promotion.
 
 M2793 completed the Route A source-only fresh-holdout source/base/candidate
 triad closed-loop delta panel. It used seed indices 8, 9, 10, and 11 disjoint

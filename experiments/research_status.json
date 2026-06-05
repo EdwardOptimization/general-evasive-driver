@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2800,
+    "completed": 2801,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T140945Z/command.log",
+    "command_log": "runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T140945Z",
+    "run_dir": "runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z",
     "status": "completed",
-    "task_id": "m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit"
+    "task_id": "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2790-M2794 source-only guardrailed belief-stress candidate evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-    "id": "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2790-M2794 guardrailed candidate branch after M2794 audit preserve M2793 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 35 gates all pass seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 obstacle-clearance mixed source 30 positive 42 negative base 29 positive 43 negative road-margin and speed positive but no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim answer evidence_summary supported_claims falsified_claims failure_taxonomy public_gate_overfit_risk next_branch_decision and register bounded follow-up or stop",
-    "priority": 27900,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas --m2795-synthesis docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md --m2794-audit docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md --m2793-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --follow-up-manifest experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json --output-dir runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas",
+    "hypothesis": "A source-only obstacle-clearance regression atlas can identify which role dynamics stress and seed strata carry the M2793 clearance-negative rows while preserving actor and claim boundaries.",
+    "id": "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize obstacle-clearance regression atlas from M2793 triad deltas after M2795 synthesis consume M2795 M2794 M2793 artifacts only no new rollout training validation or ranking include both candidate-minus-source 30 positive 42 negative and candidate-minus-base 29 positive 43 negative clearance rows stratify by role dynamics stress seed and delta family record road-margin speed yaw-rate conflict action-delta side effects keep clearance hard guard visible preserve actor 72/action 3 no hidden oracle labels mitigation outside denominators no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim route to M2797 audit",
+    "priority": 27910,
     "status": "pending",
-    "success_artifact": "docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md"
+    "success_artifact": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json"
   },
-  "updated_at_utc": "20260605T140945Z"
+  "updated_at_utc": "20260605T143203Z"
 }
