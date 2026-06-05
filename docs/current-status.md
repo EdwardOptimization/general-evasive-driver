@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
+m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
+m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
+m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
 ```
 
 Current route:
@@ -38,6 +38,18 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2823 designed and admitted a bounded Route A post-recoverability-negative
+limited-package materialization preflight. It reuses the earlier M2687/M2688
+package-with-limitations schema idea but requires the refreshed package to
+carry M2804 prior readiness blockers, M2816/M2817 negative recoverability
+diagnostics, M2820/M2821 readiness/admission indexing, M2822 synthesis, and the
+M2638 HF3 source-dependency blocker. M2823 explicitly keeps this as design-only
+process evidence: no package was materialized or published, and no reset,
+rollout, replay, validation, training, repair, ranking, promotion,
+driver-performance, paper, high-fidelity, full-driver, or self-ID claim was
+admitted. The next task is M2824, a local machine-auditable limited-package
+materialization preflight.
 
 M2822 synthesized the M2819-M2821 post-recoverability-negative readiness-index
 branch and selected `pivot_to_route_a_limited_package_design`. The branch is
