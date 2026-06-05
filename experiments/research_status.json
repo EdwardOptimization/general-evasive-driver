@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2790,
+    "completed": 2791,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z/command.log",
+    "command_log": "runs/research/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit_20260605T122012Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z",
+    "run_dir": "runs/research/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit_20260605T122012Z",
     "status": "completed",
-    "task_id": "m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight"
+    "task_id": "m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2784 paired closed-loop delta artifacts can be audited for completeness and claim safety before interpretation.",
-    "id": "m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit",
+    "hypothesis": "A branch synthesis can preserve M2778-M2785 source-only belief-stress short-training evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
+    "id": "m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2784 summary paired execution rows paired delta rows proof/generalization/promotion gates actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators no new execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop",
-    "priority": 27800,
+    "notes": "Pending: synthesize M2778-M2785 belief-stress admission short-training candidate audit paired delta and audit evidence answer required synthesis questions preserve actor 72/action 3 no hidden oracle mitigation guards outside denominators no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop",
+    "priority": 27810,
     "status": "pending",
-    "success_artifact": "docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md"
+    "success_artifact": "docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md"
   },
-  "updated_at_utc": "20260605T121101Z"
+  "updated_at_utc": "20260605T122119Z"
 }

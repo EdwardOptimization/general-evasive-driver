@@ -50468,3 +50468,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json`
 - next: `m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T122012Z m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M2784 paired closed-loop delta artifacts can be audited for completeness and claim safety before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit_20260605T122012Z`
+- command log: `runs/research/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit_20260605T122012Z/command.log`
+- success artifact: `docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md`
+- notes: Pending: audit M2784 summary paired execution rows paired delta rows proof/generalization/promotion gates actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators no new execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop
+
+## M2785 Engineering Controller Route A Source-Only Belief-Stress Candidate Closed-Loop Delta Panel Result Audit
+
+- status: completed
+- decision: `accept_m2784_route_to_source_only_belief_stress_branch_synthesis`
+- manifest: `experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json`
+- audit doc: `docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md`
+- parent summary: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json`
+- parent paired execution rows: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_execution_rows.csv`
+- parent paired delta rows: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_delta_rows.csv`
+- accepted parent result: M2784 status_pass true required_artifacts_present true gate_matrix_pass true and no failed gate ids
+- artifact accounting: 144 paired execution rows, 72 paired delta rows, 12 proof gates, 6 generalization gates, 4 promotion guards, 7 actor guards, 8 mitigation guards, 11 claim rows, and 22 gate rows all passing
+- checkpoint lineage: source checkpoint hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`; candidate checkpoint hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- diagnostic delta accounting: candidate-minus-source road-margin deltas positive in 72/72 rows, yaw-rate deltas lower in 66/72 rows, obstacle-clearance deltas mixed 40 positive and 32 negative rows, and throttle/brake conflict unchanged at zero in 72/72 rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress admission curriculum outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and paired delta rows
+- audit decision: accept M2784 completeness and claim safety but reject validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2786 branch synthesis before any further execution, repair, ranking, promotion, or process-only extension
+- follow-up manifest: `experiments/manifests/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.json`
+- next: `m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim

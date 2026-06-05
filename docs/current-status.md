@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
+m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
+m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
+m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2785 audited and accepted M2784 as complete and claim-safe source-only
+diagnostic evidence. It verified `status_pass=true`, required artifacts present,
+144 paired execution rows, 72 paired delta rows, 12 proof gates, 6
+generalization gates, 4 promotion guards, 7 actor guards, 8 mitigation guards,
+11 claim rows, and 22 gates all passing. It preserves source/candidate
+checkpoint lineage, actor P0 observation 72/action 3, no hidden/oracle actor
+input, actor-invisible labels, and mitigation rows outside ordinary
+denominators. The M2784 deltas remain small diagnostic row accounting:
+road-margin deltas are positive in 72/72 rows, yaw-rate deltas are lower in
+66/72 rows, and obstacle-clearance deltas are mixed with 40 positive and 32
+negative rows. M2785 rejects validation, ranking, winner selection, promotion,
+success-rate verdict, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID interpretation. The next bounded task is M2786 branch
+synthesis before any further execution, repair, ranking, or process-only
+extension.
 
 M2784 completed the Route A source-only paired closed-loop delta panel. It ran
 the M2655 source checkpoint and M2782 candidate checkpoint over 18 belief-stress
