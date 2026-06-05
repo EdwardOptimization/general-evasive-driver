@@ -150,6 +150,7 @@
       "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/claim_boundary_rows.csv",
       "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/gate_matrix.csv",
       "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md",
+      "experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json",
       "M2762 status queue scoreboard research log and review",
       "one bounded result-audit follow-up manifest"
     ],
@@ -241,6 +242,10 @@
     {
       "path": "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md",
       "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json",
+      "type": "json"
     }
   ],
   "baseline_checkpoints": [

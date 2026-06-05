@@ -49925,3 +49925,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2761
 - follow-up manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
 - next: `m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight`
+
+## M2762 Engineering Controller Route A Action-Response Telemetry Coverage Instrumentation Repair Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight_pass`
+- manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight.py`
+- summary: `runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json`
+- doc: `docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md`
+- artifact accounting: wrote 12 telemetry coverage gap rows 6 telemetry schema contract rows 6 actor-contract guard rows 16 claim-boundary rows and 22 gate rows all passing
+- incoming blocker preserved: all 12 M2759 action-response rows remain accounted with incoming finite_metric false previous-command finite gaps 12/12 and plan-first-action finite gaps 12/12
+- repair boundary: M2762 materializes a forward evaluator-only schema contract and does not backfill old M2759 rows
+- guardrail boundary: all 31 M2759 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry coverage/action-response labels actor-invisible and actor input contract unchanged
+- route decision: route to M2763 result audit before another probe containment repair execution extension validation ranking or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2762
+- follow-up manifest: `experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json`
+- next: `m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit`

@@ -1,0 +1,140 @@
+{
+  "decision_reason": "M2762 instrumentation repair preflight status_pass true materialized 12 telemetry coverage gap rows and 6 schema contract rows preserves M2759 12/12 incoming finite_metric false previous-command gaps 12 plan-first-action gaps 12 m2759_rows_backfilled false 31 guardrails actor 72/action 3 no hidden oracle no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2763 audit",
+  "failure_criteria": [
+    "M2762 changes actor input or action contract",
+    "M2762 exposes telemetry coverage action-response containment mechanism protected blocker route progress or verdict labels to actor input",
+    "M2762 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2762 treats guardrail rows as execution rows or ordinary denominators",
+    "M2762 ranks controller families stress axes source edges profiles task families mechanism tags selects a winner promotes a checkpoint or claims driver performance",
+    "M2762 fails to register a bounded result-audit follow-up"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose telemetry coverage action-response containment mechanism stress-axis source-edge protected blocker route decision success progress or verdict labels to actor input",
+    "do not hide M2759 finite_metric False coverage gaps",
+    "do not hide M2759 offtrack-dominated diagnostic outcomes",
+    "do not hide prior-panel protected or HF3 guardrail rows",
+    "do not treat guardrail rows as execution rows or ordinary success denominators",
+    "do not rank controller families source edges stress axes profiles task families mechanism tags or candidates",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2762 instrumentation repair"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260605T073519Z",
+  "hypothesis": "A bounded instrumentation preflight can repair evaluator-only action-response telemetry coverage so future Route A probes can separate command-response mismatch from containment failure while preserving the human-view actor contract.",
+  "lineage": {
+    "blocked_by": [
+      "M2761 rejects direct containment repair because all 12 M2759 action-response rows have finite_metric False",
+      "M2759 lacks finite previous-command and plan-first-action proxy coverage in the current runner output",
+      "future Route A action-response interpretation must remain evaluator-only and actor-invisible",
+      "direct repair against the 12 M2759 rows would increase public-gate overfit risk"
+    ],
+    "derived_from": [
+      "m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis",
+      "m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit",
+      "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json",
+      "experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json",
+      "experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md",
+      "docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/guardrail_context_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "repair evaluator-only action-response telemetry coverage so future bounded probes can separate command-response mismatch from containment failure"
+    ],
+    "supersedes": [
+      "direct containment repair design from M2759 offtrack symptoms",
+      "another M2759-like same-surface probe before telemetry coverage repair",
+      "mechanism-tag ranking while action-response finite proxy coverage is incomplete",
+      "success-rate or performance interpretation from M2759 diagnostic rows"
+    ]
+  },
+  "milestone": "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_action_response_telemetry_coverage_instrumentation_repair_result_audit",
+  "public_gates": [
+    "M2762 must consume M2761 synthesis M2760 audit and M2759 probe artifacts before changing instrumentation",
+    "M2762 must materialize action-response telemetry coverage gap rows and a schema contract for finite previous-command and plan-first-action proxy fields",
+    "M2762 must keep action-response containment mechanism and coverage labels evaluator-only and actor-invisible",
+    "M2762 must preserve actor 72/action 3 no hidden/oracle actor input and no actor input contract change",
+    "M2762 must keep all 31 M2756/M2759 guardrails non-executed and outside ordinary denominators",
+    "M2762 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation private holdout ranking winner selection promotion or success-rate verdict computation",
+    "M2762 must reject repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion and self-ID claims",
+    "M2762 must register one result-audit follow-up before repair design execution extension validation ranking or performance claim"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_action_response_telemetry_coverage_instrumentation_repair_result_audit",
+    "milestone": "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight",
+    "reason": "M2762 instrumentation repair preflight status_pass true materialized 12 telemetry coverage gap rows and 6 schema contract rows preserves M2759 12/12 incoming finite_metric false previous-command gaps 12 plan-first-action gaps 12 m2759_rows_backfilled false 31 guardrails actor 72/action 3 no hidden oracle no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2763 audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json exists",
+    "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md exists",
+    "telemetry coverage gap rows account for all 12 M2759 action-response rows and preserve finite_metric False as the incoming blocker",
+    "telemetry schema contract rows define evaluator-only previous-command and plan-first-action proxy coverage without actor input changes",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered",
+    "no reset step rollout replay validation training ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "type": "infrastructure"
+}

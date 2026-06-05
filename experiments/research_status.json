@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2767,
+    "completed": 2768,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md",
+    "command_log": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight",
     "status": "completed",
-    "task_id": "m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis"
+    "task_id": "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight --m2759-dir runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight --m2761-synthesis docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md --follow-up-manifest experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json --output-dir runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight",
-    "hypothesis": "A bounded instrumentation preflight can repair evaluator-only action-response telemetry coverage so future Route A probes can separate command-response mismatch from containment failure while preserving the human-view actor contract.",
-    "id": "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: repair evaluator-only telemetry coverage for M2759 finite proxy gap by materializing coverage gap rows and schema contract rows preserve actor 72/action 3 no hidden oracle guardrails outside execution no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim register M2763 audit follow-up",
-    "priority": 27570,
+    "command": "true",
+    "hypothesis": "M2762 telemetry coverage instrumentation repair artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
+    "id": "m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2762 telemetry coverage repair summary gap rows schema contract actor claim gate and doc artifacts preserve original M2759 finite_metric false evidence and no backfill verify actor 72/action 3 no hidden oracle labels actor-invisible guardrails outside execution no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim select bounded follow-up route",
+    "priority": 27580,
     "status": "pending",
-    "success_artifact": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json"
+    "success_artifact": "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md"
   },
-  "updated_at_utc": "20260605T071328Z"
+  "updated_at_utc": "20260605T073305Z"
 }

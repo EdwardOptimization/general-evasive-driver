@@ -1,0 +1,196 @@
+{
+  "baseline_artifacts": [
+    "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md",
+    "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "route_a_action_response_telemetry_coverage_instrumentation_repair_result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2763 verifies M2762 coverage repair artifacts are complete claim-safe and preserve actor guardrail and claim boundaries before any future execution or repair interpretation.",
+  "failure_criteria": [
+    "M2763 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2763 changes actor input or action contract",
+    "M2763 exposes telemetry coverage action-response containment mechanism protected blocker route progress or verdict labels to actor input",
+    "M2763 ranks controller families stress axes source edges profiles task families mechanism tags selects a winner promotes a checkpoint or claims driver performance",
+    "M2763 fails to select a bounded next route"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not expose telemetry coverage action-response containment mechanism protected blocker route progress or verdict labels to actor input",
+    "do not hide M2759 finite_metric False coverage gaps",
+    "do not rank controller families source edges stress axes profiles task families mechanism tags or candidates",
+    "do not claim repair success driver performance validation readiness/result paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "M2762 telemetry coverage instrumentation repair artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
+  "id": "m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2762 telemetry coverage repair artifacts require audit before future action-response probe interpretation",
+      "M2759 incoming finite_metric false rows must remain visible and not be backfilled",
+      "actor 72/action 3 no hidden-oracle and actor-invisible telemetry labels must be preserved"
+    ],
+    "derived_from": [
+      "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight",
+      "m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis",
+      "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json",
+      "experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_coverage_gap_rows.csv",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_schema_contract_rows.csv",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/actor_contract_guard_rows.csv",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/claim_boundary_rows.csv",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/gate_matrix.csv",
+      "docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv"
+    ],
+    "parent_objective": [
+      "audit M2762 telemetry coverage instrumentation repair artifacts before another probe repair design validation ranking or performance route"
+    ],
+    "supersedes": [
+      "direct containment repair before telemetry coverage audit",
+      "same-surface action-response mechanism ranking before finite proxy coverage is audited",
+      "success-rate performance validation paper current-sim high-fidelity full-driver or self-ID interpretation from M2762"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits telemetry coverage repair artifacts before admitting another execution or repair route",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2763 rejects M2762 as incomplete or boundary-unsafe",
+      "M2763 accepts M2762 but no bounded evidence-changing follow-up exists",
+      "M2763 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2763 would rank controllers source edges profiles stress axes mechanism tags select a winner promote a checkpoint or compute success-rate verdict"
+    ],
+    "paper_verdict_delta": "no paper verdict; prevents telemetry coverage artifacts from being overinterpreted as mechanism performance or self-ID evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2763 must audit M2762 summary coverage gap schema actor claim gate and doc artifacts before selecting a follow-up",
+    "M2763 must verify all 12 M2759 action-response rows remain accounted and original finite_metric False evidence is not hidden",
+    "M2763 must verify telemetry schema contract rows are evaluator-only actor-invisible and require no hidden/oracle actor input",
+    "M2763 must verify M2762 did not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion or success-rate verdict computation",
+    "M2763 must reject repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion and self-ID claims",
+    "M2763 must select one bounded follow-up route before any new execution repair validation ranking or performance claim"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2762 telemetry coverage repair artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2763 audits Route A telemetry coverage repair artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2763; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If M2762 coverage repair is incomplete preserve the blocker and route to artifact repair or synthesis rather than forcing self-ID interpretation.",
+    "temporal_evidence_window": "M2759-M2762 Route A action-response containment probe and telemetry coverage artifacts only."
+  },
+  "success_criteria": [
+    "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md exists",
+    "audit cites M2762 summary coverage gap schema actor claim and gate artifacts",
+    "audit verifies all 12 M2759 action-response rows remain accounted and original finite_metric False evidence remains visible",
+    "audit verifies schema contract labels are evaluator-only actor-invisible and require no hidden/oracle actor input",
+    "audit rejects ranking repair success performance validation paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "audit registers one bounded follow-up route if continuing"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2762 is expected to write evaluator-only telemetry coverage gap and schema contract artifacts",
+      "M2761 selected telemetry coverage repair before direct containment repair",
+      "M2759 action-response finite proxy coverage was incomplete"
+    ],
+    "allowed_updates": [
+      "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
+      "M2763 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by the audit"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy action rollout replay validation training PPO in M2763",
+      "no source build adapter probe external simulation",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2762 summary and gates are audited",
+      "telemetry coverage gap and schema contract artifacts are audited",
+      "actor guardrail and claim boundaries are preserved",
+      "one bounded follow-up route is selected"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "action-response telemetry coverage instrumentation repair result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair",
+    "claim_scope": "Result audit only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "evidence_axis": "route_a_action_response_telemetry_coverage_instrumentation_repair_result_audit",
+    "evidence_increment": "audits evaluator-only telemetry coverage repair artifacts before another probe or containment repair route",
+    "fallback_plan": [
+      "route to artifact repair if M2762 outputs are incomplete",
+      "route back to instrumentation repair if schema contract is incomplete",
+      "route to bounded probe design only after M2762 artifacts are accepted as claim-safe",
+      "route to synthesis if audit cannot identify a bounded evidence-changing follow-up"
+    ],
+    "stop_condition": [
+      "stop if M2762 artifacts are missing or gate matrix fails",
+      "stop if M2762 hides M2759 finite_metric False rows",
+      "stop if telemetry labels become actor-visible or require hidden/oracle actor input",
+      "stop if audit wording ranks candidates mechanism tags source edges stress axes profiles task families or controllers",
+      "stop if audit would claim validation performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2762 writes telemetry coverage instrumentation repair artifacts and requires audit before future probe interpretation"
+  }
+}

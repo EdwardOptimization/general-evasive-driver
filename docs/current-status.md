@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis
+m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis
+m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight
+m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit
 ```
 
 Current route:
@@ -1634,19 +1634,38 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
 - next: `m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight`
 
+## M2762 Engineering Controller Route A Action-Response Telemetry Coverage Instrumentation Repair Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight_pass`
+- manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight.py`
+- summary: `runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json`
+- doc: `docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md`
+- artifact accounting: wrote 12 telemetry coverage gap rows, 6 telemetry schema contract rows, 6 actor-contract guard rows, 16 claim-boundary rows, and 22 gate rows all passing
+- incoming blocker preserved: all 12 M2759 action-response rows remain accounted with incoming finite_metric false; previous-command finite gaps 12/12 and plan-first-action finite gaps 12/12 remain visible
+- repair boundary: M2762 materializes a forward evaluator-only schema contract and does not backfill old M2759 rows
+- guardrail boundary: all 31 M2759 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry coverage/action-response labels actor-invisible and actor input contract unchanged
+- route decision: route to M2763 result audit before another probe, containment repair, execution extension, validation, ranking, or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2762
+- follow-up manifest: `experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json`
+- next: `m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit`
+
 ## Immediate Next Step
 
-M2762 should repair evaluator-only action-response telemetry coverage before
-any containment repair, same-surface execution, validation, performance, paper,
+M2763 should audit M2762 telemetry coverage repair artifacts before any new
+probe, containment repair, execution extension, validation, performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID claim:
 
 ```text
-docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv
-experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json
+runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json
+runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_coverage_gap_rows.csv
+runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_schema_contract_rows.csv
+experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json
 ```
 
-M2762 must materialize coverage gap rows and schema contract rows for finite
-previous-command and plan-first-action proxy coverage while preserving actor
-72/action 3, no hidden/oracle input, actor-invisible evaluator labels, and
-guardrails outside execution.
+M2763 must verify M2762 completeness and claim safety, preserve the original
+M2759 finite_metric false evidence and no-backfill boundary, then select one
+bounded follow-up route before any interpretation or repair execution.
