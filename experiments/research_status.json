@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2743,
+        "completed": 2744,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
+        "command_log": "docs/m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight",
+        "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight"
+        "task_id": "m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit"
     },
     "next_task": {
         "command": "true",
-        "hypothesis": "M2737 bounded source-diverse diagnostic execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence step.",
-        "id": "m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit",
+        "hypothesis": "A result synthesis can preserve M2731-M2738 post-negative source-diverse evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
+        "id": "m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis",
         "kind": "gate",
-        "notes": "Pending: audit M2737 summary resolution execution failure aggregate guard actor claim and gate artifacts verify 18 candidates accounted split 9 M2693 and 9 M2716 M2728 negative context protected and HF3 blockers not executed actor 72/action 3 no hidden oracle reject ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27330,
+        "notes": "Pending: synthesize M2731-M2738 post-negative source-diverse bounded execution evidence answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision preserve M2737 18 execution rows 0 failures 3 success 1 collision 14 offtrack as diagnostic only no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27340,
         "status": "pending",
-        "success_artifact": "docs/m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit.md"
+        "success_artifact": "docs/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.md"
     },
-    "updated_at_utc": "20260605T022347Z"
+    "updated_at_utc": "20260605T023051Z"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
+m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
+m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
+m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
 ```
 
 Current route:
@@ -119,6 +119,18 @@ denominators. Actor 72/action 3 and no hidden/oracle actor input are preserved.
 M2737 makes no ranking, validation, performance, paper, current-sim,
 high-fidelity, full-driver, or self-ID claim. Next is M2738 result audit before
 interpretation.
+
+M2738 audited and accepted M2737 as complete and claim-safe bounded diagnostic
+execution evidence. It verified 18/18 candidates resolved and executed, 0
+failure rows, 2 source-family aggregate rows, 2 task-family aggregate rows, 31
+negative-context guard rows, 12 blocked-surface guard rows, 13 actor-contract
+guard rows, 35 claim-boundary rows, and 21 gate rows all passing. It preserves
+the diagnostic outcome as 3/18 success, 1/18 obstacle_collision, and 14/18
+off_track only; these rows do not support ranking, validation, performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID interpretation.
+M2728 negative context, same-surface repair, protected blocker, and HF3 blocker
+rows remain not executed and outside success denominators. The next bounded
+step is M2739 result synthesis before any new execution route.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
