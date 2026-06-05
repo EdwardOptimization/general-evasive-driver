@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2832,
+    "completed": 2833,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis_20260605T213225Z/command.log",
+    "command_log": "runs/research/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design_20260605T215313Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis_20260605T213225Z",
+    "run_dir": "runs/research/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design_20260605T215313Z",
     "status": "completed",
-    "task_id": "m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis"
+    "task_id": "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A post-package source-diverse closed-loop evidence expansion design can convert the completed limited package boundary into a bounded evidence-producing next route without repeating package process or same recoverability local search.",
-    "id": "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design",
-    "kind": "gate",
-    "notes": "Pending: design Route A post-package source-diverse non-same-surface closed-loop evidence expansion using M2824/M2825 only as boundary and limitation input preserving M2816 negative recoverability M2804 blockers M2638 HF3 blocker Route B separation actor 72/action 3 no hidden oracle labels and selecting one future evidence-producing preflight or explicit stop without package publication repair ranking validation performance paper high-fidelity full-driver or self-ID claims",
-    "priority": 28220,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2827-design docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md --m2824-dir runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2816-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --follow-up-manifest experiments/manifests/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.json --output-dir runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --eval-seed-base 282800 --device cpu",
+    "hypothesis": "A bounded post-package source-diverse closed-loop evidence expansion preflight can produce fresh Route A diagnostic execution rows from a non-same-surface M1690 L3_online_gru workload while preserving actor and claim boundaries.",
+    "id": "m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: execute M2828 fixed 16-row post-package source-diverse non-same-surface diagnostic preflight after M2827 design preserving M2737 M2807 M2816 exclusion package limitation guardrails actor 72/action 3 no hidden oracle labels no prior-surface same-recoverability protected or HF3 blocker execution no ranking validation training performance paper high-fidelity full-driver or self-ID claim and register M2829 audit",
+    "priority": 28230,
     "status": "pending",
-    "success_artifact": "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md"
+    "success_artifact": "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json"
   },
-  "updated_at_utc": "20260605T213225Z"
+  "updated_at_utc": "20260605T215313Z"
 }
