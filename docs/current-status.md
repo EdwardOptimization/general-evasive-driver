@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight
+m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight
+m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
+m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2808 audited and accepted M2807 as complete and claim-safe Route A diagnostic
+execution evidence. It verified `status_pass=true`, required artifacts present,
+12 candidate rows, 12 resolved candidates, 12 execution rows, 0 candidate
+execution failures, 2 diagnostic success rows, 0 collision rows, 10 `off_track`
+rows, 4 stress-axis aggregates, 37 prior-surface exclusion rows covering 21
+unique prior task-source ids, 7 blocker guards, 12 actor guards, 15 claim rows,
+and a 21-row gate matrix with all gates passing. It preserves actor 72/action
+3, no hidden/oracle actor input, actor-invisible labels, no prior-surface or
+same-clearance repair execution, no protected or HF3 blocker execution, and no
+protected rows in ordinary denominators. The audit explicitly rejects converting
+the 2/12 diagnostic successes, 0 collision rows, or stress-axis aggregates into
+repair success, validation readiness, ranking, driver performance, paper
+evidence, current-sim/high-fidelity verdicts, full-driver completion, or self-ID
+claims. It routes to M2809 branch synthesis before another execution, repair,
+validation, ranking, packaging, Route B claim, or Route C claim is admitted.
 
 M2807 completed the bounded post-clearance negative non-same-repair cross-axis
 execution preflight and produced new closed-loop Route A diagnostic rows. It
@@ -52,7 +68,7 @@ no protected or HF3 blocker execution, and no protected rows in ordinary success
 denominators. M2807 is diagnostic row accounting only; it does not claim
 repair success, validation readiness, driver performance, paper evidence,
 current-sim/high-fidelity verdicts, full-driver completion, or self-ID. The
-next required step is M2808 result audit before interpretation.
+required M2808 result audit is now completed above.
 
 M2806 completed the design-only post-clearance negative non-same-repair route.
 It admits M2807, a bounded Route A execution preflight over exactly 12 fixed

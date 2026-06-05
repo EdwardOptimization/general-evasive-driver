@@ -51076,3 +51076,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight_20260605T171802Z/command.log`
 - success artifact: `runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json`
 - notes: Completed: bounded non-same-repair execution preflight status_pass true executed 12/12 fixed M2806 M1690 L3_online_gru task-source ids with 0 failures diagnostic outcomes 2 success 0 collision 10 off_track 4 stress-axis aggregates 37 prior-surface exclusion rows 21 unique prior task-source ids 7 blocker guards 12 actor guards 15 claim rows 21 gates all pass actor 72/action 3 no hidden oracle labels prior-surface same-repair protected HF3 blockers not executed no ranking validation performance paper high-fidelity full driver or self-ID claim route to M2808 result audit
+
+## 20260605T173154Z m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2807 post-clearance negative non-same-repair cross-axis execution artifacts while preserving actor blocker and claim boundaries before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit_20260605T173154Z`
+- command log: `runs/research/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit_20260605T173154Z/command.log`
+- success artifact: `docs/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.md`
+- notes: Completed: audit accepts M2807 complete claim-safe non-same-repair cross-axis execution status_pass true required artifacts present 12 candidates resolved and executed 0 failures 2 diagnostic success 0 collision 10 off_track 4 stress-axis aggregates 37 prior-surface rows 21 unique prior task-source ids 7 blocker guards 12 actor guards 15 claim rows 21 gates all pass actor 72/action 3 no hidden oracle labels prior-surface same-repair protected HF3 blockers not executed no ranking validation performance paper high-fidelity full driver or self-ID claim routes to M2809 synthesis
