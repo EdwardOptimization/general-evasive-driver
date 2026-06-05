@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
+m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
+m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
+m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
 ```
 
 Current route:
@@ -61,6 +61,15 @@ execution, ranking, validation, performance, paper, current-sim, high-fidelity,
 full ideal driver, and self-ID interpretation. The next bounded action is M2733
 post-negative diagnostic source-diverse closed-loop evidence-surface design,
 not another same-surface exact-executable offtrack repair loop.
+
+M2733 completed that design. It admits M2734 materialization-only evidence
+surface rows from M2693 source-diverse closed-loop diagnostics, M2716
+exact-executable reentry diagnostics, M2728 negative repair context, M2667
+protected blocker rows, and M2638 HF3 dependency blocker rows. M2734 must keep
+M2728 as negative context, reject direct same-surface repair continuation,
+separate blocked protected/HF3 rows from candidate rows, preserve actor 72/action
+3 with no hidden/oracle labels, and make no execution/training/ranking/
+validation/performance/paper/current-sim/high-fidelity/full-driver/self-ID claim.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

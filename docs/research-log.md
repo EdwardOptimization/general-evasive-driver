@@ -49398,3 +49398,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2732
 - follow-up manifest: `experiments/manifests/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.json`
 - next: `m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design`
+
+## M2733 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Closed-Loop Evidence Surface Design
+
+- status: completed
+- decision: `admit_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_materialization`
+- manifest: `experiments/manifests/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.json`
+- design doc: `docs/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.md`
+- parent audit: `docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md`
+- design surface: M2734 may materialize source-diverse candidate rows from M2693 and M2716 closed-loop diagnostics while keeping M2728 negative repair rows as context and exclusion evidence only
+- source pools: M2691/M2693 source-diverse offtrack/protected panel and execution rows M2714/M2716 exact-executable reentry panel and execution rows M2728 negative repair diagnostic M2667 protected blocker and M2638 HF3 source dependency blocker
+- admission rules: source-backed non-same-surface source-diverse actor-safe and claim-safe rows only; no direct M2728 repair target overlay repair replay or profile-specific local repair
+- rejection rules: same-surface repair protected-not-executable HF3 dependency unavailable actor-contract risk and claim-boundary risk rows must be blocked or context rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels target labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- route decision: route to M2734 materialization preflight before any execution design ranking validation or performance claims
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2733
+- follow-up manifest: `experiments/manifests/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.json`
+- next: `m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight`
