@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2833,
+    "completed": 2834,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design_20260605T215313Z/command.log",
+    "command_log": "runs/research/m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight_20260605T222747Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design_20260605T215313Z",
+    "run_dir": "runs/research/m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight_20260605T222747Z",
     "status": "completed",
-    "task_id": "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design"
+    "task_id": "m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2827-design docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md --m2824-dir runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2816-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --follow-up-manifest experiments/manifests/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.json --output-dir runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --eval-seed-base 282800 --device cpu",
-    "hypothesis": "A bounded post-package source-diverse closed-loop evidence expansion preflight can produce fresh Route A diagnostic execution rows from a non-same-surface M1690 L3_online_gru workload while preserving actor and claim boundaries.",
-    "id": "m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute M2828 fixed 16-row post-package source-diverse non-same-surface diagnostic preflight after M2827 design preserving M2737 M2807 M2816 exclusion package limitation guardrails actor 72/action 3 no hidden oracle labels no prior-surface same-recoverability protected or HF3 blocker execution no ranking validation training performance paper high-fidelity full-driver or self-ID claim and register M2829 audit",
-    "priority": 28230,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2828 post-package source-diverse execution artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2828 complete artifact set fixed 16-row candidate accounting source-family aggregates scenario-role metric rows failure taxonomy rows prior-surface exclusions package limitation guards actor guards claim rows and gate matrix before any interpretation preserving M2737 M2807 M2816 same-recoverability package protected and HF3 boundaries actor 72/action 3 no hidden oracle labels and rejecting repair recoverability success ranking validation performance paper high-fidelity full-driver and self-ID claims",
+    "priority": 28240,
     "status": "pending",
-    "success_artifact": "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json"
+    "success_artifact": "docs/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.md"
   },
-  "updated_at_utc": "20260605T215313Z"
+  "updated_at_utc": "20260605T222749Z"
 }

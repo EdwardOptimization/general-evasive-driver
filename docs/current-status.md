@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design
+m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design
+m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight
+m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2828 completed a bounded Route A post-package source-diverse closed-loop
+evidence expansion preflight over the fixed M2827 surface. It resolved and
+executed 16/16 M1690 `L3_online_gru` candidates with 0 execution failures and
+produced 16 candidate execution rows. Diagnostic outcomes are 5 success,
+1 collision, and 10 offtrack terminations. The artifact set is complete:
+5 source-family aggregate rows, 16 scenario-role metric rows, 16 failure
+taxonomy rows, 33 prior-surface exclusion rows over 21 unique task-source ids,
+12 package-limitation guard rows, 15 actor-contract guard rows, 21
+claim-boundary rows, and 26 passing gate rows. M2828 preserves M2737, M2807,
+M2816, same-recoverability, package-limitation, protected, and HF3 blocker
+rows outside execution and ordinary success denominators. Actor 72/action 3,
+no hidden/oracle actor input, and actor-invisible package recoverability
+stress-axis scenario-role blocker route-decision success progress and verdict
+labels remain preserved. M2828 rejects package publication, repair success,
+recoverability success, ranking, validation, driver performance, paper,
+high-fidelity, full-driver, and self-ID interpretations. The next task is
+M2829 result audit before any interpretation.
 
 M2827 completed a design-only Route A post-package source-diverse closed-loop
 evidence expansion decision and admitted M2828 as the next bounded
@@ -53,7 +71,8 @@ actor input. It rejects package publication, repair success, recoverability
 success, ranking, validation, driver performance, paper, high-fidelity,
 full-driver, and self-ID interpretations. The next task is M2828, which must
 execute only the fixed 16-row diagnostic surface, preserve actor and claim
-boundaries, and register M2829 result audit before interpretation.
+boundaries, and register M2829 result audit before interpretation. M2828 is
+now completed above.
 
 M2826 synthesized and closed the M2823-M2825 local limited-package branch with
 decision `pivot_to_route_a_post_package_source_diverse_closed_loop_evidence_expansion_design`.

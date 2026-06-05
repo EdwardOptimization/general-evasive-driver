@@ -1,0 +1,136 @@
+# m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T222929Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: route_to_post_package_source_diverse_closed_loop_evidence_expansion_result_audit
+- Decision reason: M2828 post-package source-diverse closed-loop evidence expansion preflight status_pass true required artifacts present fixed M2827 row set 16 resolved 16 executed 16 failures 0 diagnostic outcomes 5 success 1 collision 10 off_track source-family aggregates 5 scenario-role metric rows 16 failure taxonomy rows 16 prior-surface exclusions 33 unique task-source 21 package limitation guards 12 actor guards 15 claim rows 21 gates 26 all pass actor 72/action 3 no hidden oracle labels prior-surface same-recoverability package protected and HF3 blockers not executed rejects ranking validation training performance paper high-fidelity full-driver and self-ID claims routes to M2829 audit
+
+## Hypothesis
+
+A bounded post-package source-diverse closed-loop evidence expansion preflight can produce fresh Route A diagnostic execution rows from a non-same-surface M1690 L3_online_gru workload while preserving actor and claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md, docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md, docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/known_blocker_disclosure_rows.csv, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/recoverability_limitations_rows.csv, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/actor_action_contract_rows.csv, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/claim_boundary_rows.csv, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/instrumented_execution_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.json, experiments/manifests/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.json, experiments/manifests/m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight.json
+- parent_objective: execute a bounded Route A post-package source-diverse 16-row M1690 L3_online_gru diagnostic surface with M2828-specific artifacts
+- derived_from: m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design, m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis, m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
+- blocked_by: M2827 admits only a bounded non-same-surface post-package evidence preflight, M2824/M2825 package rows are boundary and limitation input only, M2816 negative recoverability evidence remains active and must not become a same-surface repair or ranking surface, M2737 M2807 and M2816 task-source ids must remain excluded from execution, M2638 HF3 source dependency remains unavailable for selected-platform high-fidelity execution, Route B paper and self-ID claims remain separate from Route A engineering evidence
+- supersedes: another package publication-design or package-audit loop after M2826, direct same recoverability repair or ranking, direct validation readiness or driver-performance claim from package rows, execution over M2737 M2807 or M2816 prior-surface task-source ids
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json exists
+- post_package_candidate_rows execution_candidate_resolution_rows candidate_execution_rows candidate_execution_failure_rows scenario_role_metric_rows failure_taxonomy_rows prior_surface_exclusion_rows package_limitation_guard_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist
+- all 16 M2827 selected task_source_ids are resolved or explicitly accounted by failure rows
+- M2737 M2807 M2816 prior-surface same-recoverability protected and HF3 blocker rows are not executed and remain outside success denominators
+- actor 72/action 3 no hidden oracle and actor-invisible labels are preserved
+- one follow-up result audit manifest is registered
+- M2828 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2828 executes prior-surface same-recoverability protected or HF3 blocker rows
+- M2828 changes actor inputs or action contract or exposes hidden/oracle actor labels
+- M2828 ranks controller families source families profiles task families stress axes recoverability families scenario roles selects a winner promotes a checkpoint or claims driver performance
+- M2828 hides failed rows or treats diagnostic execution as validation readiness
+
+## Evidence Gates
+
+- M2828 must consume the M2827 design M2826 synthesis M2824 package limitation rows M1690 workload matrix and M2737 M2807 M2816 prior-surface exclusion rows
+- M2828 must materialize M2828-specific candidate resolution execution failure scenario-role metric failure-taxonomy prior-surface package-limitation actor claim gate run-state summary and doc artifacts
+- M2828 must account for exactly the 16 fixed M2827 selected M1690 L3_online_gru task_source_ids
+- M2828 must execute only resolved selected candidate rows and must not execute M2737 M2807 M2816 prior-surface rows same-recoverability rows protected blocker rows or HF3 blocker rows
+- M2828 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible package recoverability stress-axis scenario-role blocker route-decision success progress and verdict labels
+- M2828 must keep package limitation source-family scenario-role task-family profile stress-axis recoverability and blocker context diagnostic and non-ranking
+- M2828 must not execute replay validation training PPO source build adapter probe external simulation ranking promotion package publication success-rate verdict computation or driver-performance claims
+- M2828 must register one result-audit follow-up manifest before any interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not publish package artifacts as a release
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start an external backend
+- do not execute M2737 prior-surface rows
+- do not execute M2807 prior-surface rows
+- do not execute M2816 recoverability-window rows
+- do not execute same recoverability repair rows
+- do not execute protected blocker rows
+- do not execute HF3 blocker rows
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose package blocker recoverability stress-axis scenario-role metric target route success progress or verdict labels to actor input
+- do not add friction mass center-of-gravity tire brake steering-delay drive-delay sensor-noise actuator-delay source-edge clearance recoverability or scenario-role labels to actor input
+- do not hide the M2816 negative recoverability result
+- do not hide M2804 prior blockers or M2638 HF3 dependency blocker
+- do not treat protected mitigation rows HF3 source dependency blocker rows or mitigation reference rows as ordinary success denominators
+- do not open another package-process loop
+- do not open another same recoverability repair or ranking loop
+- do not rank controller families source families task families profiles stress axes recoverability families or scenario roles
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim recoverability success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2828 diagnostic execution
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight
+- type: infrastructure
+- checkpoint: runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_post_package_source_diverse_closed_loop_evidence_expansion_result_audit
+- reason: M2828 post-package source-diverse closed-loop evidence expansion preflight status_pass true required artifacts present fixed M2827 row set 16 resolved 16 executed 16 failures 0 diagnostic outcomes 5 success 1 collision 10 off_track source-family aggregates 5 scenario-role metric rows 16 failure taxonomy rows 16 prior-surface exclusions 33 unique task-source 21 package limitation guards 12 actor guards 15 claim rows 21 gates 26 all pass actor 72/action 3 no hidden oracle labels prior-surface same-recoverability package protected and HF3 blockers not executed rejects ranking validation training performance paper high-fidelity full-driver and self-ID claims routes to M2829 audit
+
+## Next Blocker
+
+m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit
