@@ -49774,3 +49774,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2753
 - follow-up manifest: `experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json`
 - next: `m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit`
+
+## M2754 Engineering Controller Route A Cross-Axis Stress Generalization Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2753_route_to_cross_axis_stress_generalization_bounded_execution_result_synthesis`
+- manifest: `experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json`
+- audit doc: `docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md`
+- parent summary: `runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json`
+- accepted parent result: M2753 status_pass true required artifacts present with 12/12 candidates resolved and executed 0 failure rows 4 stress-axis aggregate rows 25 prior-panel exclusion rows 6 blocker guard rows 12 actor-contract guard rows 15 claim-boundary rows and 21 gate rows all passing
+- diagnostic accounting: preserves M2753 weak negative result as 0 diagnostic success rows 3 obstacle_collision rows and 9 off_track rows; these remain diagnostic row accounting only and not a success-rate verdict
+- stress-axis accounting: preserves actuator_delay_or_response brake_or_drive_authority late_boundary_or_near_boundary and curved_or_retargeted_obstacle aggregates as non-ranking context only
+- guardrail boundary: M2746/M2737 prior-panel rows protected mitigation blockers and HF3 source dependency blockers were not executed and remain outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input stress-axis taxonomy scenario-role target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2755 result synthesis before any further execution repair route validation ranking packaging or performance claim
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2754
+- follow-up manifest: `experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json`
+- next: `m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis`

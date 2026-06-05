@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
+m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
+m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
+m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
 ```
 
 Current route:
@@ -340,6 +340,19 @@ denominators. Actor 72/action 3 and no hidden/oracle actor input are preserved.
 M2753 makes no ranking, validation readiness, driver performance, repair
 success, paper, current-sim, high-fidelity, full-driver, or self-ID claim. The
 next bounded step is M2754 result audit before interpretation.
+
+M2754 audited and accepted M2753 as complete and claim-safe bounded cross-axis
+stress execution evidence. It verified 12/12 candidates resolved and executed,
+0 failure rows, 4 stress-axis aggregate rows, 25 prior-panel exclusion rows, 6
+blocker guard rows, 12 actor-contract guard rows, 15 claim-boundary rows, and
+21 gate rows all passing. The diagnostic outcome remains weak and negative: 0
+diagnostic success rows, 3 obstacle_collision rows, and 9 off_track rows.
+M2746/M2737 prior-panel rows, protected mitigation blockers, and HF3 source
+dependency blockers were not executed and remain outside ordinary denominators.
+Actor 72/action 3 and no hidden/oracle actor input are preserved. M2754 rejects
+ranking, validation readiness, driver performance, repair success, paper,
+current-sim, high-fidelity, full-driver, and self-ID claims. The next bounded
+step is M2755 result synthesis before any follow-up execution or repair route.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
@@ -1508,18 +1521,20 @@ training repair success
 
 ## Immediate Next Step
 
-M2754 should audit the bounded Route A cross-axis stress generalization
-execution preflight before interpretation:
+M2755 should synthesize the bounded Route A cross-axis stress generalization
+branch before any follow-up execution or repair route:
 
 ```text
 runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
-experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json
 docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md
+experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json
+docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md
 ```
 
-The audit must accept or reject M2753 artifact completeness and boundary
-discipline. It must preserve the 0/12 diagnostic success, 3 collision, and 9
-off_track outcome as diagnostic row accounting only. It must not rank stress
-axes, source families, task families, profiles, or winners, and must not make
-validation, performance, paper, current-sim, high-fidelity, full-driver, or
-self-ID claims.
+The synthesis must answer evidence summary, supported claims, falsified claims,
+failure taxonomy, public-gate overfit risk, and next branch decision. It must
+preserve the 0/12 diagnostic success, 3 collision, and 9 off_track outcome as
+diagnostic row accounting only, and choose stop, pivot, package-with-
+limitations, Route B/C deferral, or a genuinely new bounded evidence route
+without ranking, validation, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claims.
