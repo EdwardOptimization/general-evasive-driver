@@ -51088,3 +51088,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit_20260605T173154Z/command.log`
 - success artifact: `docs/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.md`
 - notes: Completed: audit accepts M2807 complete claim-safe non-same-repair cross-axis execution status_pass true required artifacts present 12 candidates resolved and executed 0 failures 2 diagnostic success 0 collision 10 off_track 4 stress-axis aggregates 37 prior-surface rows 21 unique prior task-source ids 7 blocker guards 12 actor guards 15 claim rows 21 gates all pass actor 72/action 3 no hidden oracle labels prior-surface same-repair protected HF3 blockers not executed no ranking validation performance paper high-fidelity full driver or self-ID claim routes to M2809 synthesis
+
+## 20260605T173842Z m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A result synthesis can preserve M2806-M2808 non-same-repair cross-axis evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z`
+- command log: `runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z/command.log`
+- success artifact: `docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2806-M2808 complete claim-safe non-same-repair branch with M2807 12 executed 0 failures 2 diagnostic success 0 collision 10 off_track 4 stress-axis aggregates 37 prior-surface rows 7 blocker guards actor 72/action 3 no hidden oracle labels prior-surface same-clearance protected HF3 outside denominators rejects direct execution repair validation ranking performance paper high-fidelity full driver and self-ID claims routes to M2810 offtrack-containment localization panel

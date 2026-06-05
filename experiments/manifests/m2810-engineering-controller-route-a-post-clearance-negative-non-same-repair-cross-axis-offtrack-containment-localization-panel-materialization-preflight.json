@@ -1,0 +1,292 @@
+{
+  "id": "m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md",
+      "docs/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.md",
+      "docs/m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight.md",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/non_same_repair_candidate_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/stress_axis_aggregate_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/prior_surface_exclusion_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/blocker_guard_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.json",
+      "experiments/manifests/m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a no-rollout offtrack-containment localization panel from M2807 mixed weak non-same-repair diagnostic rows after M2809 synthesis pivots away from same-surface execution"
+    ],
+    "derived_from": [
+      "m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis",
+      "m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit",
+      "m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight",
+      "m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design"
+    ],
+    "blocked_by": [
+      "M2807 has 2 diagnostic success rows but 10 off_track rows across 12 complete non-same-repair executions",
+      "M2807 has no collision rows so the active mechanism is offtrack containment rather than obstacle impact",
+      "stress-axis aggregates are non-ranking and cannot select a repair target by themselves",
+      "prior-surface same-clearance protected and HF3 guardrails remain active and outside ordinary denominators"
+    ],
+    "supersedes": [
+      "another immediate M2807-like non-same-repair execution before localization",
+      "direct repair design from M2807 aggregate counts",
+      "direct stress-axis source-edge task-family or profile ranking from M2807",
+      "driver-performance validation readiness paper current-sim high-fidelity full-driver or self-ID interpretation from M2807"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight.md",
+  "public_gates": [
+    "M2810 must consume M2809 synthesis M2808 audit M2807 summary candidate resolution execution failure aggregate guard actor claim and gate artifacts before writing localization rows",
+    "M2810 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation private holdout or profile-specific tuning",
+    "M2810 must classify all 12 M2807 execution rows while preserving 2 diagnostic success 0 collision and 10 off_track outcomes",
+    "M2810 must separate success obstacle-pass rows from offtrack noncollision rows and must keep stress-axis source-edge task-family and profile context diagnostic and non-ranking",
+    "M2810 must preserve M2737/M2746/M2753 prior-surface M2799/M2801 same-clearance repair protected and HF3 rows as non-executed actor-invisible guardrails outside denominators",
+    "M2810 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators",
+    "M2810 must write failure-localization outcome-bucket offtrack-containment stress-axis context source-edge context guardrail actor-contract claim-boundary gate summary and doc artifacts",
+    "M2810 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose failure-localization labels offtrack-containment labels stress-axis labels source-edge labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not hide M2807 success or offtrack rows",
+    "do not hide M2807 positive-clearance offtrack rows",
+    "do not hide prior-surface same-clearance protected or HF3 guardrail rows",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not rank controller families stress axes source edges profiles or task families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2810 localization materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization",
+    "evidence_axis": "post_clearance_negative_non_same_repair_offtrack_containment_localization_panel_materialization",
+    "evidence_increment": "converts complete mixed M2807 non-same-repair diagnostic execution rows into an auditable row-level offtrack-containment localization panel before any same-surface repeat or repair design",
+    "claim_scope": "Materialization only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2807 source artifacts are missing or inconsistent with M2808/M2809",
+      "stop if localization would rank stress axes source edges task families profiles or controllers",
+      "stop if prior-surface same-clearance protected or HF3 guardrails would enter execution or denominators",
+      "stop if actor input or action contract would change",
+      "stop if any localization label would become actor-visible",
+      "stop if materialization would claim validation readiness performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2807 or M2809 artifacts are absent",
+      "route to schema repair if localization rows cannot separate diagnostics from verdict claims",
+      "route to result audit if materialization succeeds",
+      "route to branch synthesis if the panel cannot identify a bounded evidence-changing follow-up",
+      "keep HF3 selected-platform execution paused until source dependency blocker is resolved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2809 pivots from M2807 complete weak non-same-repair execution to no-rollout offtrack-containment localization materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post-clearance negative non-same-repair offtrack-containment localization panel materialization",
+    "admission_evidence": [
+      "M2809 selects no-rollout offtrack-containment localization before another execution or repair route",
+      "M2808 accepts M2807 complete claim-safe diagnostic execution",
+      "M2807 has 12 execution rows 0 failure rows 2 diagnostic success rows 0 collision rows and 10 off_track rows",
+      "M2807 keeps 37 prior-surface exclusion rows and 7 blocker guard rows not executed and outside denominators",
+      "docs/post-m2470-route-plan.md requires current-sim diagnostic work to change the next admission decision rather than repeat static or same-surface loops"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy action rollout replay validation training PPO in materialization",
+      "no source build adapter probe external simulation",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel.py",
+      "tests/test_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel.py",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/failure_localization_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/outcome_bucket_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/offtrack_containment_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/stress_axis_context_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/source_edge_context_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/guardrail_context_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/actor_contract_guard_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/claim_boundary_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/gate_matrix.csv",
+      "docs/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight.md",
+      "M2810 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "localization artifacts exist and account for all 12 M2807 execution rows and all guardrail rows",
+      "success obstacle-pass offtrack positive-clearance offtrack containment prior-surface guard same-clearance protected blocker and HF3 blocker rows remain separate",
+      "stress-axis source-edge task-family and profile context remains diagnostic and non-ranking",
+      "actor and claim boundaries are preserved",
+      "one bounded result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2810 materializes Route A offtrack-containment localization and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2810; any controller-family or history-dependence comparison must be separately pre-registered after localization audit."
+    ],
+    "temporal_evidence_window": "M2807 diagnostic execution rows and M2809 synthesis only.",
+    "negative_result_policy": "If localization is dominated by offtrack containment blockers preserve those blockers and route to repair design action-response probe scenario-quality work or synthesis instead of forcing self-ID interpretation.",
+    "allowed_claims": [
+      "M2807 row-level offtrack-containment localization materialized",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts raw M2807 non-same-repair execution rows into a row-level offtrack-containment localization panel before any same-surface repeat or repair design",
+    "paper_verdict_delta": "no paper verdict; can identify whether future Route A evidence remains blocked by offtrack containment positive-clearance offtrack source-edge action-response or guardrail constraints before fair paper-route comparisons",
+    "must_synthesize_if": [
+      "M2810 cannot account for all M2807 execution guard and blocker rows",
+      "M2810 would rank stress axes source edges task families profiles or controllers",
+      "M2810 would claim validation performance paper current-sim high-fidelity or self-ID evidence",
+      "M2810 proposes another non-same-repair execution without localization result audit"
+    ]
+  },
+  "hypothesis": "A no-rollout localization materialization can turn M2807 mixed weak non-same-repair diagnostic rows into an auditable offtrack-containment failure surface without ranking axes or overclaiming performance.",
+  "success_criteria": [
+    "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json exists",
+    "docs/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight.md exists",
+    "localization artifacts account for 12 M2807 execution rows 37 prior-surface exclusion rows and 7 blocker guard rows",
+    "success obstacle-pass offtrack positive-clearance offtrack containment prior-surface guard same-clearance repair protected blocker and HF3 blocker rows remain separate",
+    "stress-axis source-edge task-family and profile context remains diagnostic and non-ranking",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2810 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2810 changes actor input or action contract",
+    "M2810 exposes localization labels offtrack-containment labels stress-axis labels source-edge labels task-family labels protected labels blocker labels route labels success labels or verdicts to actor input",
+    "M2810 drops success offtrack prior-surface same-clearance guard protected blocker or HF3 blocker rows",
+    "M2810 treats stress-axis source-edge task-family or profile aggregates as ranking winner selection promotion or success-rate verdict evidence",
+    "M2810 treats prior-surface same-clearance protected or HF3 rows as execution rows or ordinary denominators",
+    "M2810 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2810 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2810 materializes complete claim-safe row-level offtrack-containment localization from existing M2807 artifacts without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "post_clearance_negative_non_same_repair_offtrack_containment_localization_panel",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2809-synthesis docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md --output-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/failure_localization_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/outcome_bucket_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/offtrack_containment_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/stress_axis_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/source_edge_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md",
+    "docs/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.md",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/stress_axis_aggregate_rows.csv",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/gate_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json",
+  "next_blocker": "M2810 post-clearance negative non-same-repair offtrack-containment localization panel materialization"
+}

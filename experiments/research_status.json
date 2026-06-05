@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2814,
+    "completed": 2815,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit_20260605T173154Z/command.log",
+    "command_log": "runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit_20260605T173154Z",
+    "run_dir": "runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z",
     "status": "completed",
-    "task_id": "m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit"
+    "task_id": "m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A result synthesis can preserve M2806-M2808 non-same-repair cross-axis evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-    "id": "m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2806-M2808 non-same-repair cross-axis branch after M2808 accepts M2807 complete claim-safe weak diagnostics 12 executed 0 failures 2 success 0 collision 10 off_track preserve prior-surface same-clearance protected HF3 actor 72/action 3 no hidden oracle labels no ranking validation performance paper high-fidelity full driver or self-ID claim choose bounded next route or stop",
-    "priority": 28040,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2809-synthesis docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md --output-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel",
+    "hypothesis": "A no-rollout localization materialization can turn M2807 mixed weak non-same-repair diagnostic rows into an auditable offtrack-containment failure surface without ranking axes or overclaiming performance.",
+    "id": "m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-rollout offtrack-containment localization from M2807/M2809 existing artifacts classify 12 execution rows preserve 2 success 0 collision 10 off_track separate success obstacle-pass offtrack positive-clearance offtrack severity stress-axis source-edge prior-surface same-clearance protected HF3 actor and claim boundaries no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28050,
     "status": "pending",
-    "success_artifact": "docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md"
+    "success_artifact": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json"
   },
-  "updated_at_utc": "20260605T173154Z"
+  "updated_at_utc": "20260605T173842Z"
 }

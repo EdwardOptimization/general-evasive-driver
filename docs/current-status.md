@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
+m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit
+m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis
+m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight
 ```
 
 Current route:
@@ -38,6 +38,23 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2809 synthesized the M2806-M2808 post-clearance negative non-same-repair branch
+and selected
+`pivot_to_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel_materialization`.
+It accepts the branch as complete and claim-safe but weak: M2807 executed 12/12
+fixed non-same-repair rows with 0 failures, 2 diagnostic success rows, 0
+collision rows, and 10 `off_track` rows. This is materially different from the
+older M2753 negative branch because the active mechanism is now mostly
+noncollision offtrack containment rather than obstacle impact. M2809 rejects
+another M2807-like execution, direct repair design, validation, ranking,
+promotion, performance, paper, current-sim, high-fidelity, full-driver, and
+self-ID claims. The next admitted step is M2810, a no-rollout localization
+panel that must separate success obstacle-pass rows, offtrack noncollision
+rows, positive-clearance offtrack rows, offtrack severity/time-to-offtrack,
+stress-axis context, source-edge/task-family context, prior-surface and
+same-clearance exclusion context, protected/HF3 guardrail context, and
+actor/claim boundaries before any new execution or repair route.
 
 M2808 audited and accepted M2807 as complete and claim-safe Route A diagnostic
 execution evidence. It verified `status_pass=true`, required artifacts present,
@@ -53,7 +70,8 @@ the 2/12 diagnostic successes, 0 collision rows, or stress-axis aggregates into
 repair success, validation readiness, ranking, driver performance, paper
 evidence, current-sim/high-fidelity verdicts, full-driver completion, or self-ID
 claims. It routes to M2809 branch synthesis before another execution, repair,
-validation, ranking, packaging, Route B claim, or Route C claim is admitted.
+validation, ranking, packaging, Route B claim, or Route C claim is admitted;
+that synthesis is now completed above.
 
 M2807 completed the bounded post-clearance negative non-same-repair cross-axis
 execution preflight and produced new closed-loop Route A diagnostic rows. It
