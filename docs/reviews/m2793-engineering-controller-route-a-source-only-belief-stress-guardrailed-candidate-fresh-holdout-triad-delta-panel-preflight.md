@@ -1,0 +1,122 @@
+# m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T140434Z
+- Type: infrastructure
+- Gate tier: generalization
+- Promotion decision: route_to_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel_result_audit
+- Decision reason: M2793 fresh-holdout source-only triad delta panel status_pass true required artifacts present seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 greater than M2787 120 wrote 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 6 behavior-retention gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows 35 gates all pass candidate-minus-source obstacle-clearance mixed 30 positive 42 negative road-margin 72/72 final-speed 72/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 candidate-minus-base obstacle-clearance mixed 29 positive 43 negative road-margin 71/72 final-speed 70/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion success-rate performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2794 audit
+
+## Hypothesis
+
+A fresh-holdout source-only triad closed-loop delta panel can test whether the M2791 guardrailed candidate changed closed-loop behavior relative to both M2655 source and M2782 base candidate while preserving obstacle-clearance and actor boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt
+- parent_dataset: docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoint_manifest.json, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/training_objective_rows.csv, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/training_run_rows.csv, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/behavior_retention_gate_rows.csv, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/gate_matrix.csv, runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json, runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/paired_delta_rows.csv
+- parent_config: experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json, experiments/manifests/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight.json, experiments/manifests/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.json, experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json
+- parent_objective: run a source-only fresh-holdout triad closed-loop diagnostic delta panel for M2655 source M2782 base candidate and M2791 guardrailed candidate after M2792 accepts artifact safety
+- derived_from: m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit, m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight, m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight
+- blocked_by: M2791 is a bounded source-only training/update preflight and cannot be interpreted without closed-loop diagnostic deltas, M2791 behavior movement is very small and must be compared against both source and base candidate, M2787 obstacle-clearance deltas are mixed, so road-margin or yaw-rate movement cannot support promotion without obstacle-clearance retention, M2638 high-fidelity source dependency remains unresolved and cannot be bypassed
+- supersedes: direct checkpoint promotion from M2791 artifacts, direct interpretation of M2791 as validation or performance evidence, road-margin-only or yaw-rate-only interpretation of the M2791 candidate checkpoint
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json exists
+- docs/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.md exists
+- M2793 consumes M2792 M2791 M2787 M2782 and M2655 artifacts only
+- M2793 writes triad execution rows candidate-minus-source delta rows candidate-minus-base delta rows proof gates generalization holdout gates behavior-retention gates promotion guards actor guards mitigation guards claim rows gate matrix run-state and M2794 audit manifest
+- M2793 uses fresh holdout seed indices outside M2784 seed_index 0..3 and M2787 seed_index 4..7
+- M2793 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels
+- M2793 keeps mitigation reference rows outside ordinary denominators
+- M2793 keeps obstacle-clearance retention as a hard guard before road-margin yaw-rate speed conflict or action-delta interpretation
+- M2793 writes no validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2793 changes actor input or action contract
+- M2793 exposes role dynamics stress curriculum admission outcome route progress success or verdict labels to actor input
+- M2793 uses mitigation reference rows as ordinary successes
+- M2793 shrinks to a single seed
+- M2793 repeats only M2784 seed_index 0..3 or M2787 seed_index 4..7
+- M2793 hides obstacle-clearance regression behind road-margin yaw-rate speed conflict or action-delta metrics
+- M2793 ranks source base candidate checkpoints selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2793 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2793 must run a source-only closed-loop diagnostic panel over M2655 source M2782 base candidate and M2791 candidate checkpoints after M2792 audit
+- M2793 must use fresh holdout seed indices outside M2784 seed_index 0..3 and M2787 seed_index 4..7
+- M2793 must cover all ordinary role families dynamics axes and belief-stress families without cherry-picking positive rows
+- M2793 must preserve actor P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- M2793 must write triad execution rows candidate-minus-source and candidate-minus-base delta rows proof gates generalization holdout gates behavior-retention gates promotion guards actor guards mitigation guards claim rows gate matrix summary doc run-state and M2794 audit manifest
+- M2793 must keep obstacle-clearance retention as a hard guard before road-margin yaw-rate speed conflict or action-delta interpretation
+- M2793 must keep mitigation reference rows outside ordinary denominators
+- M2793 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels intervention labels stress labels curriculum labels admission labels outcome labels success labels progress labels route labels or verdict labels to actor input
+- do not train or run PPO
+- do not use mitigation reference rows as ordinary successes
+- do not shrink to a single seed
+- do not repeat only M2784 seed_index 0..3 or M2787 seed_index 4..7
+- do not cherry-pick only road-margin-positive or yaw-rate-lower rows
+- do not hide obstacle-clearance regression behind road-margin yaw-rate speed conflict or action-delta metrics
+- do not rank source base and candidate checkpoints
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success-rate or controller-family verdict metrics
+- do not execute measured validation
+- do not import external simulator dependencies
+- do not run external simulation
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim driver performance
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim high-fidelity validation
+- do not claim full ideal driver completion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight
+- type: infrastructure
+- checkpoint: runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel_result_audit
+- reason: M2793 fresh-holdout source-only triad delta panel status_pass true required artifacts present seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 greater than M2787 120 wrote 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 6 behavior-retention gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows 35 gates all pass candidate-minus-source obstacle-clearance mixed 30 positive 42 negative road-margin 72/72 final-speed 72/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 candidate-minus-base obstacle-clearance mixed 29 positive 43 negative road-margin 71/72 final-speed 70/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion success-rate performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2794 audit
+
+## Next Blocker
+
+None recorded.

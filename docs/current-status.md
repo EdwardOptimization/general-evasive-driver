@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit
+m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit
+m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight
+m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit
 ```
 
 Current route:
@@ -38,6 +38,28 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2793 completed the Route A source-only fresh-holdout source/base/candidate
+triad closed-loop delta panel. It used seed indices 8, 9, 10, and 11 disjoint
+from prior M2784 seed_index 0..3 and M2787 seed_index 4..7, with a 140-step
+horizon longer than M2787's 120-step horizon. It wrote 216 triad execution rows,
+72 candidate-minus-source delta rows, 72 candidate-minus-base delta rows, 16
+proof gates, 9 generalization gates, 6 behavior-retention gates, 4 promotion
+guards, 7 actor guards, 8 mitigation guards, 11 claim rows, and 35 gate rows
+all passing. Actor P0 observation 72/action 3, no hidden/oracle actor input,
+actor-invisible labels, and mitigation rows outside ordinary denominators are
+preserved. The deltas are diagnostic and mixed for obstacle clearance:
+candidate-minus-source obstacle-clearance rows are 30 positive and 42 negative,
+while candidate-minus-base rows are 29 positive and 43 negative. Road-margin is
+positive in 72/72 candidate-minus-source rows and 71/72 candidate-minus-base
+rows; final speed is positive in 72/72 and 70/72 rows respectively; yaw-rate is
+mixed with 31 positive and 41 negative rows in both delta families; and
+throttle/brake conflict remains zero in 72/72 rows for both. Obstacle clearance
+therefore remains the hard guard before road-margin, yaw-rate, speed, conflict,
+or action-delta interpretation. M2793 rejects validation, ranking, winner
+selection, promotion, success-rate verdict, performance, paper, current-sim,
+high-fidelity, full-driver, and self-ID claims. The current next task is M2794
+result audit.
 
 M2792 audited and accepted M2791 as complete and claim-safe source-only
 guardrailed training/update preflight evidence. It verified `status_pass=true`,
@@ -55,8 +77,8 @@ throttle/brake conflict zero in 72/72 rows. Actor P0 observation 72/action 3,
 no hidden/oracle actor input, actor-invisible labels, and mitigation rows
 outside ordinary denominators are preserved. M2792 rejects validation, ranking,
 winner selection, promotion, success-rate verdict, performance, paper,
-current-sim, high-fidelity, full-driver, and self-ID claims. The current next
-task is M2793 fresh-holdout source/base/candidate triad delta panel.
+current-sim, high-fidelity, full-driver, and self-ID claims. M2792 routed to
+the now-completed M2793 fresh-holdout source/base/candidate triad delta panel.
 
 M2791 completed the Route A source-only belief-stress guardrailed
 multi-objective training/update preflight. It wrote candidate checkpoint

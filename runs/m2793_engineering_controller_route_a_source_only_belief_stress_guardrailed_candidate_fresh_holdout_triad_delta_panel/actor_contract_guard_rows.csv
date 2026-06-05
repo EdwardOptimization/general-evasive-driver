@@ -1,0 +1,8 @@
+guard_id,guard_family,protected_field,actor_visible_allowed,actor_observation_shape,action_shape,status_pass,evidence,claim_boundary
+actor_contract_observation_shape_72,actor_contract,observation_shape,False,72,3,True,72,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+actor_contract_action_shape_3,actor_contract,action_shape,False,72,3,True,3,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+finite_observations,actor_contract,finite_observation,False,72,3,True,true,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+finite_actions,actor_contract,finite_action,False,72,3,True,true,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+actions_within_bounds,actor_contract,action_within_bounds,False,72,3,True,true,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+no_hidden_or_oracle_actor_input,actor_contract,hidden_or_oracle_actor_inputs_required,False,72,3,True,false,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+no_actor_visible_stress_label,actor_contract,stress_admission_curriculum_labels,False,72,3,True,false,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only

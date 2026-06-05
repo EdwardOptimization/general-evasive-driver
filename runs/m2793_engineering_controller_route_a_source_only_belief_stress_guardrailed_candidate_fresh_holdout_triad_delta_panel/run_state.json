@@ -1,0 +1,65 @@
+{
+  "actor_contract": {
+    "action_shape": 3,
+    "actor_visible_stress_admission_curriculum_labels_detected": false,
+    "hidden_or_oracle_actor_inputs_required": false,
+    "observation_shape": 72
+  },
+  "claim_scope": "Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only",
+  "forbidden_interpretation": "validation, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper evidence, finite-window-vs-GRU conclusion, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "fresh_holdout_seed_indices": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "generated_at_utc": "20260605T135909Z",
+  "milestone": "m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight",
+  "output_paths": {
+    "actor_contract_guard_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/actor_contract_guard_rows.csv",
+    "behavior_retention_gate_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/behavior_retention_gate_rows.csv",
+    "candidate_minus_base_delta_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+    "candidate_minus_source_delta_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+    "claim_boundary_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/claim_boundary_rows.csv",
+    "doc": "docs/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+    "gate_matrix": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+    "generalization_holdout_gate_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/generalization_holdout_gate_rows.csv",
+    "mitigation_reference_guard_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/mitigation_reference_guard_rows.csv",
+    "promotion_guard_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/promotion_guard_rows.csv",
+    "proof_gate_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/proof_gate_rows.csv",
+    "run_state": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/run_state.json",
+    "summary": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json",
+    "triad_execution_rows": "runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv"
+  },
+  "previous_seed_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "run_state_id": "m2793_guardrailed_candidate_fresh_holdout_triad_delta_panel_state_v0",
+  "seed_count": 4,
+  "seed_start_index": 8,
+  "source_paths": {
+    "base_candidate_checkpoint": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "candidate_checkpoint": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+    "m2782_summary": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json",
+    "m2787_gate_matrix": "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/gate_matrix.csv",
+    "m2787_paired_delta_rows": "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/paired_delta_rows.csv",
+    "m2787_summary": "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json",
+    "m2791_behavior_retention_gate_rows": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/behavior_retention_gate_rows.csv",
+    "m2791_checkpoint_manifest": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoint_manifest.json",
+    "m2791_gate_matrix": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/gate_matrix.csv",
+    "m2791_summary": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json",
+    "m2792_audit": "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md",
+    "mitigation_reference_guard_rows": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/mitigation_reference_guard_rows.csv",
+    "source_checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "training_objective_rows": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/training_objective_rows.csv"
+  },
+  "status_pass": true
+}

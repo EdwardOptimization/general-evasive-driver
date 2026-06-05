@@ -50746,3 +50746,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.json`
 - next: `m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim
+
+## 20260605T135909Z m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A fresh-holdout source-only triad closed-loop delta panel can test whether the M2791 guardrailed candidate changed closed-loop behavior relative to both M2655 source and M2782 base candidate while preserving obstacle-clearance and actor boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --m2792-audit docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md --m2791-dir runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --m2787-dir runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --base-candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --candidate-checkpoint runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt --follow-up-manifest experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json --output-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --device cpu --seed-start-index 8 --seed-count 4 --horizon-steps 140`
+- returncode: `0`
+- run dir: `runs/research/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight_20260605T135900Z`
+- command log: `runs/research/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight_20260605T135900Z/command.log`
+- success artifact: `runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json`
+- notes: Completed: fresh-holdout source-only triad delta panel status_pass true required artifacts present seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 greater than M2787 120 wrote 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 6 behavior-retention gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows 35 gates all pass candidate-minus-source obstacle-clearance mixed 30 positive 42 negative road-margin 72/72 final-speed 72/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 candidate-minus-base obstacle-clearance mixed 29 positive 43 negative road-margin 71/72 final-speed 70/72 yaw-rate mixed 31 positive 41 negative conflict zero 72/72 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion success-rate performance paper current-sim high-fidelity full driver and self-ID claims routes to M2794 audit
+
+## M2793 Engineering Controller Route A Source-Only Belief-Stress Guardrailed Candidate Fresh-Holdout Triad Delta Panel Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel_preflight_pass`
+- manifest: `experiments/manifests/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel.py`
+- summary: `runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel/summary.json`
+- doc: `docs/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight.md`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- base candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- M2791 candidate checkpoint hash: `32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`
+- holdout surface: seed indices 8, 9, 10, and 11 disjoint from prior seed indices 0..7; horizon 140 greater than M2787 horizon 120
+- artifact accounting: 18 objective rows, 216 triad execution rows, 72 candidate-minus-source delta rows, 72 candidate-minus-base delta rows, 16 proof gates, 9 generalization holdout gates, 6 behavior-retention gates, 4 promotion guards, 7 actor guards, 8 mitigation-reference guards, 11 claim rows, and 35 gate rows all passing
+- candidate-minus-source deltas: obstacle-clearance mixed with 30 positive and 42 negative rows, road-margin positive in 72/72 rows, final-speed positive in 72/72 rows, yaw-rate mixed with 31 positive and 41 negative rows, throttle/brake conflict zero in 72/72 rows, and mean action delta positive in 72/72 rows
+- candidate-minus-base deltas: obstacle-clearance mixed with 29 positive and 43 negative rows, road-margin positive in 71/72 rows, final-speed positive in 70/72 rows, yaw-rate mixed with 31 positive and 41 negative rows, throttle/brake conflict zero in 72/72 rows, and mean action delta positive in 72/72 rows
+- behavior boundary: obstacle-clearance retention remains the hard guard before road-margin yaw-rate speed conflict or action-delta interpretation; M2793 does not support a candidate-better verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain guarded outside ordinary denominators and cannot enter proof or promotion denominators
+- route decision: route to M2794 result audit before interpreting fresh-holdout triad deltas or choosing continuation synthesis repair promotion or stop
+- follow-up manifest: `experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json`
+- next: `m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim

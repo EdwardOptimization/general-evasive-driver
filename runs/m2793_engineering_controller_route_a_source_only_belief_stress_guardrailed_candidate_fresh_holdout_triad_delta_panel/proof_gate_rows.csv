@@ -1,0 +1,17 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+proof_m2792_audit_present,proof,lineage,True,docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md,M2792 audit artifact exists,1,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_m2791_status_pass,proof,lineage,True,True,true,1,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_m2787_status_pass,proof,lineage,True,True,true,1,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_m2782_status_pass,proof,lineage,True,True,true,1,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_checkpoint_lineage_hashes,proof,lineage,True,source base candidate hashes,source base candidate hashes match checkpoint manifest,1,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_objective_row_count,proof,artifact,True,18,18,18,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_triad_execution_row_count,proof,artifact,True,216,216,216,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_candidate_minus_source_delta_row_count,proof,artifact,True,72,72,72,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_candidate_minus_base_delta_row_count,proof,artifact,True,72,72,72,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_pair_completeness,proof,artifact,True,all pairs complete,all pairs complete,144,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_actor_contract_72_3,proof,actor_contract,True,all actor guards pass,all actor guards pass,7,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_no_hidden_or_oracle_actor_input,proof,actor_contract,True,false,false,216,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_actor_invisible_labels,proof,actor_contract,True,false,false,216,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_finite_action_observation,proof,metric_artifact,True,finite,finite,216,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_mitigation_rows_excluded,proof,proof_washout,True,mitigation rows excluded,mitigation rows excluded,8,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+proof_no_ranking_winner_success_verdict,proof,claim_boundary,True,false,false,144,,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only

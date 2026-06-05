@@ -1,0 +1,12 @@
+claim_id,claim_family,claim_made,allowed,status_pass,evidence,claim_boundary
+validation_result,validation,False,False,True,M2793 does not run measured validation,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+ranking_result,ranking,False,False,True,M2793 does not rank checkpoints,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+winner_selection,promotion,False,False,True,M2793 selects no winner,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+checkpoint_promotion,promotion,False,False,True,M2793 promotes no checkpoint,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+success_rate_verdict,metric_artifact,False,False,True,M2793 emits no success-rate verdict,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+driver_performance,performance,False,False,True,M2793 is diagnostic delta evidence only,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+paper_result,paper,False,False,True,M2793 is not paper evidence,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+current_sim_verdict,current_sim,False,False,True,M2793 is not a current-sim verdict,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+high_fidelity_validation,high_fidelity,False,False,True,M2793 does not run HF validation,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+level3_self_id,self_id,False,False,True,M2793 is not self-ID evidence,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
+triad_delta_artifacts_complete,allowed_artifact_completion,True,True,True,M2793 may claim triad diagnostic artifacts were written,Route A source-only belief-stress guardrailed candidate fresh-holdout triad closed-loop diagnostic preflight only
