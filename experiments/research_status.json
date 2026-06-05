@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2755,
+    "completed": 2756,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+    "command_log": "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight"
+    "task_id": "m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2749 readiness-index artifacts before Route A chooses synthesis stop or a new non-same-panel evidence route.",
-    "id": "m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit",
+    "hypothesis": "A branch synthesis can prevent the M2749 readiness index from becoming another process loop and choose whether to stop pivot package with limitations defer to another route or open a genuinely new non-same-panel evidence route.",
+    "id": "m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2749 readiness index preserve M2746 weak diagnostic protected blocker HF3 dependency actor 72/action 3 no hidden oracle and reject same-panel execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims",
-    "priority": 27450,
+    "notes": "Pending: synthesize M2748-M2750 readiness evidence preserve M2746 weak diagnostic protected and HF3 blockers actor 72/action 3 no hidden oracle decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or new evidence route without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims",
+    "priority": 27460,
     "status": "pending",
-    "success_artifact": "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md"
+    "success_artifact": "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md"
   },
-  "updated_at_utc": "20260605T044647Z"
+  "updated_at_utc": "20260605T045332Z"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
+m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
+m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
+m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
 ```
 
 Current route:
@@ -285,6 +285,21 @@ driver performance, validation readiness, paper evidence, current-sim,
 high-fidelity, full-driver, or self-ID evidence. The only admitted next action is
 M2750 result audit; same-panel role execution, HF3 selected-platform execution,
 ranking, validation, and driver-performance claims remain not admitted.
+
+M2750 audited and accepted M2749 as complete and claim-safe Route A
+readiness/admission indexing. It verifies M2749 `status_pass=true`, 12 evidence
+rows, 9 deliverable readiness rows, 6 blocker rows, 7 next-action rows, 25 claim
+rows, and 31 gates all passing. It keeps the M2746 weak diagnostic visible as
+non-ranking row accounting only: 1/14 diagnostic success, 1/14 collision, 9/14
+off_track, 3/14 speed_too_low, and 1/14 unset_or_completed. It preserves active
+protected mitigation and HF3 source dependency blockers outside ordinary success
+denominators and preserves actor 72/action 3 with no hidden/oracle actor input
+or actor-visible labels. M2750 rejects same-panel execution, same-surface repair,
+ranking, validation readiness, driver performance, paper, current-sim,
+high-fidelity, full-driver, and self-ID claims. The next bounded step is M2751
+branch synthesis to decide stop, pivot, package-with-limitations,
+defer-to-Route-B, defer-to-Route-C, or a genuinely new non-same-panel evidence
+route before any further execution.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

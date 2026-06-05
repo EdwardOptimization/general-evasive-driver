@@ -1,0 +1,262 @@
+{
+  "id": "m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/evidence_index.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/deliverable_readiness_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/next_action_admission_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/claim_boundary_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/gate_matrix.csv",
+      "docs/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.md",
+      "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.json",
+      "experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json",
+      "experiments/manifests/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "synthesize the M2748-M2750 baseline readiness after role-panel diagnostic branch before choosing stop pivot or a new non-same-panel evidence route"
+    ],
+    "derived_from": [
+      "m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit",
+      "m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight",
+      "m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis",
+      "m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2749/M2750 accept Route A readiness/admission indexing but do not admit validation performance ranking or same-panel execution",
+      "M2746 weak diagnostic remains offtrack and speed dominated with only 1 diagnostic success out of 14 rows",
+      "protected mitigation and HF3 source dependency blockers remain active",
+      "another readiness or audit loop would add process evidence without changing the driver evidence state"
+    ],
+    "supersedes": [
+      "direct execution from M2749 readiness rows without synthesis",
+      "direct same-panel role execution after M2750",
+      "direct validation readiness or driver-performance claim from M2749",
+      "another static readiness/audit loop without route decision"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2751 must synthesize M2748-M2750 readiness-after-role-panel-diagnostic evidence before any additional execution repair validation ranking packaging or performance claim",
+    "M2751 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2751 must explicitly state whether M2749/M2750 changed driver capability evidence or only integrated Route A readiness and blocker state",
+    "M2751 must preserve M2746 weak diagnostic 1/14 success 1/14 collision 9/14 off_track 3/14 speed_too_low and 1/14 unset_or_completed as diagnostic row accounting only",
+    "M2751 must preserve protected mitigation and HF3 source dependency blockers outside success denominators and outside actor-visible inputs",
+    "M2751 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy scenario-role metric target blocker route-decision success progress or verdict labels",
+    "M2751 must decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or admit a clearly new non-same-panel evidence route",
+    "M2751 must register one bounded follow-up manifest if it chooses continue pivot packaging or a new evidence route",
+    "M2751 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2751 must not claim repair success driver performance validation readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not hide the M2746 weak role-panel diagnostic result",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not open another same-panel public role execution loop from readiness rows",
+    "do not rank controller families source families task families profiles or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from readiness synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic",
+    "evidence_axis": "route_a_baseline_readiness_after_role_panel_diagnostic_branch_synthesis",
+    "evidence_increment": "synthesizes M2748-M2750 readiness/admission indexing and weak role-panel diagnostic evidence before selecting stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a new non-same-panel evidence route",
+    "claim_scope": "Route A readiness-after-role-panel-diagnostic branch synthesis only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if synthesis cannot identify a non-overfit next route",
+      "stop if the only proposed Route A continuation is another same-panel role execution or same-surface repair loop",
+      "stop if synthesis would treat readiness rows as validation readiness driver performance or promotion evidence",
+      "stop if synthesis would collapse protected mitigation or HF3 blocker rows into success denominators",
+      "stop if synthesis would change actor input contract or expose labels to actor input"
+    ],
+    "fallback_plan": [
+      "choose branch stop if no bounded evidence-changing route remains",
+      "choose package-with-limitations only if protected and HF3 blockers remain explicit and no validation claim is made",
+      "pivot to a new non-same-panel Route A evidence surface only if it changes evidence beyond M2746/M2749 rows",
+      "defer to Route B comparison if paper-route evidence is the higher leverage next step",
+      "defer to Route C dependency handling only if high-fidelity source dependency can be addressed by a valid source route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2750 accepts M2749 readiness/admission index but rejects direct execution validation ranking performance paper current-sim high-fidelity full-driver and self-ID interpretation",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A readiness-after-role-panel-diagnostic branch synthesis",
+    "admission_evidence": [
+      "M2748 pivots away from role-panel execution repetition to readiness/admission indexing",
+      "M2749 materializes a complete readiness/admission index with 12 evidence rows 9 deliverable rows 6 blocker rows 7 next-action rows 25 claim rows and 31 gate rows",
+      "M2750 accepts M2749 for synthesis only while preserving the weak M2746 diagnostic and active protected/HF3 blockers",
+      "docs/post-m2470-route-plan.md requires avoiding static current-sim loops that do not change the next admission decision"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance or validation-readiness claim from synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+      "M2751 status queue scoreboard research log and review",
+      "one follow-up stop pivot packaging Route B Route C or new evidence route manifest selected by synthesis"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "M2746 diagnostic and M2749 readiness boundaries remain separate",
+      "protected mitigation HF3 and actor-contract boundaries remain visible",
+      "follow-up route is selected without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2751 synthesizes Route A engineering readiness evidence and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2751; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2748 Route A through M2750 readiness index audit.",
+    "negative_result_policy": "If weak role-panel diagnostics and blockers remain active, keep them visible and route to stop pivot package-with-limitations or a non-overfit new evidence route rather than weakening gates.",
+    "allowed_claims": [
+      "Route A readiness-after-role-panel-diagnostic branch synthesis",
+      "bounded next-route decision from M2748-M2750 evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "closes or routes the readiness-after-role-panel branch instead of repeating same-panel execution or adding another readiness audit loop",
+    "paper_verdict_delta": "no paper verdict but decides whether Route A should stop pivot package with limitations defer to Route B or Route C or open a new non-same-panel evidence route",
+    "must_synthesize_if": [
+      "already_synthesis_milestone",
+      "M2751 cannot choose stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a new evidence route",
+      "M2751 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2751 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-panel role execution attempt is proposed from readiness rows without a new evidence axis"
+    ]
+  },
+  "hypothesis": "A branch synthesis can prevent the M2749 readiness index from becoming another process loop and choose whether to stop pivot package with limitations defer to another route or open a genuinely new non-same-panel evidence route.",
+  "success_criteria": [
+    "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2749 status_pass true and M2750 audit acceptance",
+    "synthesis records M2746 weak diagnostic 1/14 success 1/14 collision 9/14 off_track 3/14 speed_too_low and 1/14 unset_or_completed as diagnostic evidence only",
+    "synthesis records protected mitigation and HF3 source dependency blockers remain active and outside ordinary success denominators",
+    "synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels",
+    "synthesis chooses stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a new evidence route rather than another same-panel public execution loop",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2751 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2751 changes actor input or action contract",
+    "M2751 exposes taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions success labels progress labels or verdicts to actor input",
+    "M2751 weakens protected mitigation or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2751 ranks controller families source families task families profiles or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2751 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2751 fails to choose stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a new evidence route"
+  ],
+  "decision_rule": "Pass only if M2751 synthesizes M2748-M2750 readiness evidence, keeps M2746 weak diagnostic and protected/HF3 blockers visible, and chooses stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a new evidence route without execution ranking validation promotion performance paper high-fidelity current-sim full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/evidence_index.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/deliverable_readiness_rows.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/gate_matrix.csv",
+    "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md"
+}

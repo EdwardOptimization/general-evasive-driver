@@ -49703,3 +49703,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2749
 - follow-up manifest: `experiments/manifests/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.json`
 - next: `m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit`
+
+## M2750 Engineering Controller Route A Baseline Readiness After Role-Panel Diagnostic Index Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2749_route_to_baseline_readiness_after_role_panel_diagnostic_branch_synthesis`
+- manifest: `experiments/manifests/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.json`
+- audit doc: `docs/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.md`
+- parent summary: `runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json`
+- accepted parent result: M2749 status_pass true required artifacts present with 12 evidence rows 9 deliverable readiness rows 6 blocker rows 7 next-action admission rows 25 claim-boundary rows and 31 gate rows all passing
+- diagnostic accounting: preserved M2746 weak role-panel diagnostic as 14 execution rows, 1 diagnostic success row, 1 collision row, 9 off_track rows, 3 speed_too_low rows, and 1 unset_or_completed row; these remain diagnostic row accounting only and not a success-rate verdict
+- readiness boundary: accepts M2749 deliverable indexing while preserving protected mitigation blocker and HF3 source dependency blocker as active blockers outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy scenario-role metric target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2751 branch synthesis before any stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or new non-same-panel evidence route
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2750
+- follow-up manifest: `experiments/manifests/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.json`
+- next: `m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis`
