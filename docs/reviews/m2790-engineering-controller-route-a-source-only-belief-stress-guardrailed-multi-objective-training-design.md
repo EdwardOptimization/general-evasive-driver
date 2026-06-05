@@ -1,0 +1,127 @@
+# m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T131843Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_source_only_belief_stress_guardrailed_multi_objective_training_preflight
+- Decision reason: M2790 design admits M2791 bounded guardrailed multi-objective belief-stress training/update preflight from M2789/M2788/M2787/M2782 evidence preserves actor 72/action 3 no hidden oracle actor-invisible labels makes obstacle-clearance regression first-class hard guard separate from road-margin yaw-rate final-speed throttle-brake conflict and action-delta metrics keeps mitigation rows outside denominators separates proof generalization behavior-retention promotion gates defines start from M2782 candidate with M2655 source reference seed budget 18 ordinary buckets 3 training seeds 2 proof seeds behavior-retention seed count 4 rollback no overwrite no promotion rejects validation ranking success-rate verdict performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2791 preflight
+
+## Hypothesis
+
+A design-only protocol can safely convert M2789 source-only fresh-holdout synthesis into a bounded guardrailed multi-objective training/update branch without actor-input leakage or overclaiming.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt
+- parent_dataset: docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md, docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md, docs/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.md, runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json, runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/paired_delta_rows.csv, runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/gate_matrix.csv, docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md, runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_delta_rows.csv
+- parent_config: experiments/manifests/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.json, experiments/manifests/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.json, experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json, experiments/manifests/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.json
+- parent_objective: design a bounded guardrailed multi-objective belief-stress training recipe after M2789 rejects direct promotion from source-only fresh-holdout deltas
+- derived_from: m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis, m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit, m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight
+- blocked_by: M2789 accepts source-only fresh-holdout diagnostic evidence but rejects direct promotion, M2787 obstacle-clearance deltas remain mixed and must become a first-class guard, M2787 action deltas are very small and cannot be treated as driver-performance evidence, M2638 high-fidelity source dependency remains unresolved and cannot be bypassed
+- supersedes: another same-axis fresh-holdout delta panel without a new training objective, road-margin-only checkpoint promotion, direct validation or performance interpretation from M2787 source-only deltas
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md exists
+- M2790 defines objective seed budget checkpoint lineage stop criteria rollback criteria and failure taxonomy
+- M2790 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels
+- M2790 makes obstacle-clearance regression a first-class future guard
+- M2790 keeps mitigation reference rows outside ordinary denominators
+- M2790 separates proof generalization behavior-retention and promotion gates for any future M2791 branch
+- M2790 registers one bounded M2791 follow-up manifest or an explicit stop decision
+- M2790 makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2790 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2790 changes actor input or action contract
+- M2790 exposes role dynamics stress curriculum admission outcome route progress success or verdict labels to actor input
+- M2790 treats M2787 source-only delta rows as performance validation or self-ID evidence
+- M2790 ranks stress families roles dynamics axes candidates controllers checkpoints or source edges selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2790 weakens mitigation-reference denominators
+- M2790 hides or removes obstacle-clearance regression guards
+- M2790 fails to register a bounded M2791 follow-up manifest or stop decision
+- M2790 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2790 must define a bounded guardrailed multi-objective training/update recipe from M2789 synthesis before any new training execution
+- M2790 must preserve actor P0 observation shape 72 action shape 3 steer throttle brake mapping no hidden/oracle actor input and no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- M2790 must make obstacle-clearance regression a first-class guard separate from road-margin yaw-rate and speed objectives
+- M2790 must keep mitigation reference rows outside ordinary denominators and forbid their use as ordinary wins
+- M2790 must specify proof generalization behavior-retention and promotion separation for any future M2791 execution/training branch
+- M2790 must define seed budget checkpoint lineage stop criteria failure taxonomy and rollback criteria without running training
+- M2790 must reject training execution rollout replay validation ranking winner selection promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not import external simulator dependencies
+- do not run external simulation
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels stress labels curriculum labels admission labels outcome labels success labels progress labels route labels or verdict labels to actor input
+- do not use mitigation reference rows as ordinary training successes
+- do not optimize only road-margin positives while hiding obstacle-clearance regressions
+- do not rank stress families roles dynamics axes candidates controllers checkpoints or source edges
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2790 design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design
+- type: gate
+- checkpoint: docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_source_only_belief_stress_guardrailed_multi_objective_training_preflight
+- reason: M2790 design admits M2791 bounded guardrailed multi-objective belief-stress training/update preflight from M2789/M2788/M2787/M2782 evidence preserves actor 72/action 3 no hidden oracle actor-invisible labels makes obstacle-clearance regression first-class hard guard separate from road-margin yaw-rate final-speed throttle-brake conflict and action-delta metrics keeps mitigation rows outside denominators separates proof generalization behavior-retention promotion gates defines start from M2782 candidate with M2655 source reference seed budget 18 ordinary buckets 3 training seeds 2 proof seeds behavior-retention seed count 4 rollback no overwrite no promotion rejects validation ranking success-rate verdict performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2791 preflight
+
+## Next Blocker
+
+None recorded.
