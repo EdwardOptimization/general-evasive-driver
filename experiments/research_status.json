@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2744,
+        "completed": 2745,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit.md",
+        "command_log": "docs/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.md",
         "returncode": 0,
         "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit"
+        "task_id": "m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis"
     },
     "next_task": {
-        "command": "true",
-        "hypothesis": "A result synthesis can preserve M2731-M2738 post-negative source-diverse evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-        "id": "m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis",
-        "kind": "gate",
-        "notes": "Pending: synthesize M2731-M2738 post-negative source-diverse bounded execution evidence answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision preserve M2737 18 execution rows 0 failures 3 success 1 collision 14 offtrack as diagnostic only no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27340,
+        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy_materialization --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2739-synthesis docs/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.md --output-dir runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy",
+        "hypothesis": "A no-rollout taxonomy materialization can turn M2737 source-diverse diagnostic rows into an auditable failure surface without ranking families or overclaiming performance.",
+        "id": "m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight",
+        "kind": "infrastructure",
+        "notes": "Pending: materialize no-rollout row-level taxonomy over M2737 18 execution rows 14 offtrack 1 collision 3 diagnostic success context rows 31 negative-context guards and 12 blocked guards preserving source/task/profile non-ranking actor 72/action 3 no hidden oracle no execution validation training performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27350,
         "status": "pending",
-        "success_artifact": "docs/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.md"
+        "success_artifact": "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json"
     },
-    "updated_at_utc": "20260605T023051Z"
+    "updated_at_utc": "20260605T023956Z"
 }

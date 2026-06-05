@@ -49503,3 +49503,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2738
 - follow-up manifest: `experiments/manifests/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.json`
 - next: `m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis`
+
+## M2739 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Bounded Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `continue`
+- next branch decision: `continue_to_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy_materialization`
+- manifest: `experiments/manifests/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.json`
+- synthesis artifact: `docs/m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis.md`
+- parent audit: `docs/m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit.md`
+- parent summary: `runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json`
+- evidence summary: M2731-M2738 form a complete claim-safe Route A post-negative source-diverse diagnostic branch with M2737 status_pass true 18/18 execution rows 0 failures 2 source-family aggregate rows 2 task-family aggregate rows 31 negative-context guards 12 blocked guards 13 actor guards 35 claim rows and 21 gates passing
+- diagnostic outcome: M2737 remains weak and offtrack-dominated with 3/18 diagnostic success rows 1/18 collision row and 14/18 off_track rows; M2693 has 1 success 1 collision 7 offtrack and M2716 has 2 success 0 collision 7 offtrack
+- guardrail boundary: M2728 negative context direct same-surface repair protected blocker and HF3 blocker rows remain non-executed guardrails outside denominators; source/task/profile aggregates remain diagnostic and non-ranking
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels source/task/profile labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- overfit risk: medium-high if the branch repeats M2737-like public execution before taxonomy; reduced only by no-rollout row-level failure taxonomy and result audit
+- route decision: continue to M2740 no-rollout source-diverse failure taxonomy materialization before any further execution repair route validation ranking or performance claim
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2739
+- follow-up manifest: `experiments/manifests/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.json`
+- next: `m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight`

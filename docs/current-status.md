@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
+m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
+m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
+m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
 ```
 
 Current route:
@@ -131,6 +131,18 @@ paper, current-sim, high-fidelity, full-driver, or self-ID interpretation.
 M2728 negative context, same-surface repair, protected blocker, and HF3 blocker
 rows remain not executed and outside success denominators. The next bounded
 step is M2739 result synthesis before any new execution route.
+
+M2739 synthesized M2731-M2738 and chose `continue` to no-rollout failure
+taxonomy materialization. It accepts the branch as complete and claim-safe
+Route A diagnostic evidence only: M2737 has 18 execution rows, 0 failures, 3
+diagnostic success rows, 1 collision row, and 14 off_track rows across 2
+source families and 2 task families. The source/task aggregates remain
+non-ranking, M2728 negative context and protected/HF3 blockers remain
+non-executed guardrails outside denominators, and actor 72/action 3 with no
+hidden/oracle input is preserved. M2739 rejects ranking, validation,
+performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+interpretation. The next bounded action is M2740 no-rollout failure taxonomy
+materialization before any further execution or repair route.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
