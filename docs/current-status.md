@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit
+m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit
+m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight
+m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit
 ```
 
 Current route:
@@ -1671,20 +1671,40 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json`
 - next: `m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight`
 
+## M2764 Engineering Controller Route A Action-Response Telemetry Instrumented Probe Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py`
+- summary: `runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json`
+- doc: `docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md`
+- artifact accounting: executed 12/12 localized probe rows with 0 failure rows and wrote 12 action-response rows, 12 telemetry coverage rows, 12 containment rows, 50 mechanism rows, 31 guardrail rows, 7 actor-contract guard rows, 17 claim-boundary rows, and 27 gate rows all passing
+- telemetry result: all 12 action-response rows have finite previous-command, current-action, trace-delta fallback, response proxies, and `finite_metric=True`; all 12 telemetry coverage rows improve from M2759 incoming `finite_metric=False`
+- no-backfill boundary: M2764 does not backfill or reinterpret the old M2759 rows; it creates fresh bounded execution artifacts under the M2762 forward telemetry contract
+- diagnostic accounting: 4 diagnostic success rows, 1 obstacle-collision row, 7 off_track rows, and 4 blank termination rows are preserved as artifact row accounting only, not a success-rate verdict
+- guardrail boundary: all 31 M2756/M2759 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry/action-response/containment/mechanism/stress-axis/source-edge/progress/verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2765 result audit before mechanism interpretation, repair design, execution extension, validation, ranking, or performance claim
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2764
+- follow-up manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
+- next: `m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit`
+
 ## Immediate Next Step
 
-M2764 should implement evaluator finite previous-command and trace-delta
-telemetry, then execute the bounded localized instrumented probe before any
-containment repair, validation, performance, paper, current-sim, high-fidelity,
-full-driver, or self-ID claim:
+M2765 should audit the M2764 bounded instrumented probe artifacts before any
+mechanism interpretation, containment repair, validation, performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID claim:
 
 ```text
-docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md
-runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_schema_contract_rows.csv
-experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json
+docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md
+runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json
+experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json
 ```
 
-M2764 must preserve actor 72/action 3, no hidden/oracle input, actor-invisible
-evaluator labels, and guardrails outside execution. It may execute reset, step,
-policy action, and rollout only for the bounded localized probe rows admitted
-by its manifest.
+M2765 must preserve M2759 no-backfill evidence, the M2762 forward telemetry
+contract, actor 72/action 3, no hidden/oracle input, actor-invisible evaluator
+labels, and guardrails outside execution. It must not replay, validate, train,
+rank, promote, or claim repair success, driver performance, paper evidence,
+current-sim, high-fidelity, full ideal driver, or self-ID evidence.

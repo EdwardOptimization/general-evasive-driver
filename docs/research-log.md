@@ -49962,3 +49962,24 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2763
 - follow-up manifest: `experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json`
 - next: `m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight`
+
+## M2764 Engineering Controller Route A Action-Response Telemetry Instrumented Probe Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py`
+- evaluator change: `src/autodrift/evaluate.py` now records previous-command norm, current-action norm, and current-minus-previous trace-delta telemetry from the policy action trace without changing actor inputs
+- focused tests: `tests/test_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py`
+- summary: `runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json`
+- doc: `docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md`
+- artifact accounting: executed 12/12 localized probe rows with 0 failure rows and wrote 12 action-response rows 12 telemetry coverage rows 12 containment rows 50 mechanism rows 31 guardrail rows 7 actor-contract guard rows 17 claim-boundary rows and 27 gate rows all passing
+- telemetry result: all 12 action-response rows have finite previous-command current-action trace-delta fallback response proxies and `finite_metric=True`; all 12 telemetry coverage rows improve from M2759 incoming `finite_metric=False`
+- no-backfill boundary: old M2759 rows remain unchanged and are not backfilled; finite telemetry exists only in the fresh M2764 bounded execution artifacts under the M2762 forward contract
+- diagnostic accounting: 4 diagnostic success rows 1 obstacle-collision row 7 off_track rows and 4 blank termination rows are row accounting only and not a success-rate verdict
+- guardrail boundary: all 31 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry/action-response/containment/mechanism/stress-axis/source-edge/progress/verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2765 result audit before mechanism interpretation repair design execution extension validation ranking or performance claim
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2764
+- follow-up manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
+- next: `m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit`

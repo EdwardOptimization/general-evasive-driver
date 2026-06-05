@@ -209,6 +209,8 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     betas: list[float] = []
     speeds: list[float] = []
     actions: list[np.ndarray] = []
+    previous_commands: list[np.ndarray] = []
+    action_trace_deltas: list[float] = []
     step_infos: list[dict] = []
     plan_action_rates: list[float] = []
     plan_first_action_errors: list[float] = []
@@ -216,11 +218,16 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
     friction_step_applied = False
     terminated = False
     truncated = False
+    previous_action: np.ndarray | None = None
     while not (terminated or truncated):
         action = policy.act(obs, info)
+        action_array = np.asarray(action, dtype=np.float32)
+        previous_command = np.zeros_like(action_array) if previous_action is None else previous_action
+        previous_commands.append(previous_command.copy())
+        action_trace_deltas.append(float(np.linalg.norm(action_array - previous_command)))
         sequence = getattr(policy, "last_sequence", None)
         if sequence is not None and len(sequence) > 0:
-            plan_first_action_errors.append(float(np.linalg.norm(np.asarray(sequence[0]) - np.asarray(action))))
+            plan_first_action_errors.append(float(np.linalg.norm(np.asarray(sequence[0]) - action_array)))
             if len(sequence) > 1:
                 plan_action_rates.append(float(np.mean(np.linalg.norm(np.diff(sequence, axis=0), axis=1))))
         obs, reward, terminated, truncated, info = env.step(action)
@@ -232,7 +239,8 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         beta_errors.append(beta_error)
         betas.append(float(info["beta"]))
         speeds.append(float(info["speed"]))
-        actions.append(np.asarray(action, dtype=np.float32))
+        actions.append(action_array)
+        previous_action = action_array.copy()
         segment_stats[segment]["lateral_errors"].append(float(info["lateral_error"]))
         segment_stats[segment]["beta_errors"].append(beta_error)
         segment_stats[segment]["speeds"].append(float(info["speed"]))
@@ -285,6 +293,23 @@ def run_episode_with_policy(env: AutoDriftEnv, policy: Policy, policy_name: str,
         "action_rate_mean": (
             float(np.mean(np.linalg.norm(np.diff(np.asarray(actions), axis=0), axis=1))) if len(actions) > 1 else 0.0
         ),
+        "previous_command_norm_mean": (
+            float(np.mean(np.linalg.norm(np.asarray(previous_commands), axis=1))) if previous_commands else float("nan")
+        ),
+        "previous_command_norm_peak": (
+            float(np.max(np.linalg.norm(np.asarray(previous_commands), axis=1))) if previous_commands else float("nan")
+        ),
+        "current_action_norm_mean": (
+            float(np.mean(np.linalg.norm(np.asarray(actions), axis=1))) if actions else float("nan")
+        ),
+        "current_action_norm_peak": (
+            float(np.max(np.linalg.norm(np.asarray(actions), axis=1))) if actions else float("nan")
+        ),
+        "action_trace_delta_mean": float(np.mean(action_trace_deltas)) if action_trace_deltas else float("nan"),
+        "action_trace_delta_peak": float(np.max(action_trace_deltas)) if action_trace_deltas else float("nan"),
+        "previous_command_bootstrap_count": 1 if actions else 0,
+        "previous_command_source": "policy_action_trace_zero_bootstrap",
+        "action_trace_delta_source": "current_action_minus_previous_command",
         "plan_horizon": int(getattr(getattr(policy, "model", None), "action_sequence_horizon", 1)),
         "plan_action_rate_mean": float(np.mean(plan_action_rates)) if plan_action_rates else float("nan"),
         "plan_first_action_error_mean": (
