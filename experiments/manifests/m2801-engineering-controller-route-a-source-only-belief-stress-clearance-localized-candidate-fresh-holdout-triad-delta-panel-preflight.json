@@ -1,0 +1,230 @@
+{
+  "id": "m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md",
+      "docs/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.md",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/gate_matrix.csv",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoint_manifest.json",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.json",
+      "experiments/manifests/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.json",
+      "experiments/manifests/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.json",
+      "experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json"
+    ],
+    "parent_objective": [
+      "run a fresh-holdout source-only triad closed-loop delta panel for the M2799 corrective candidate before interpretation"
+    ],
+    "derived_from": [
+      "m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit",
+      "m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight",
+      "m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design",
+      "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight"
+    ],
+    "blocked_by": [
+      "M2799 is only a source-only corrective preflight and needs fresh closed-loop delta evidence before interpretation",
+      "M2799 cannot be promoted or ranked from preflight gate artifacts",
+      "stable_avoidable retention and actor-boundary guards must be checked on a new seed surface",
+      "M2782 remains lineage and must not be converted into a promotion baseline"
+    ],
+    "supersedes": [
+      "direct interpretation of M2799 checkpoint without fresh closed-loop delta panel",
+      "another same-axis atlas repetition without execution evidence",
+      "direct promotion of the M2799 candidate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.md",
+  "public_gates": [
+    "M2801 must run a fresh-holdout triad panel with source M2655 base M2791 start candidate and candidate M2799 corrective checkpoint",
+    "M2801 must use seed indices 12 13 14 15 disjoint from M2793 seed indices 8 9 10 11 and earlier 0..7 surfaces",
+    "M2801 must use horizon 160 greater than M2793 horizon 140",
+    "M2801 must preserve actor P0 observation 72 action 3 with no hidden/oracle actor input and no actor-visible role dynamics stress atlas clearance outcome route progress success or verdict labels",
+    "M2801 must keep obstacle clearance and stable_avoidable retention visible as guards before road-margin speed yaw-rate conflict or action-delta metrics",
+    "M2801 must keep mitigation reference rows outside ordinary denominators",
+    "M2801 must reject validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train update or modify checkpoints",
+    "do not change actor inputs or action contract",
+    "do not expose role dynamics stress atlas clearance outcome success progress route or verdict labels to actor input",
+    "do not reuse M2793 seed indices 8 9 10 11 as the fresh-holdout proof surface",
+    "do not use mitigation reference rows as ordinary successes",
+    "do not rank checkpoints or select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide obstacle-clearance or stable_avoidable retention failures behind road-margin speed yaw-rate or action-delta metrics",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver or self-ID result"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training",
+    "evidence_axis": "source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel",
+    "evidence_increment": "moves from M2799 corrective preflight artifact safety to fresh closed-loop delta evidence on a new seed surface",
+    "claim_scope": "Fresh-holdout source-only diagnostic panel only; no validation ranking promotion driver-performance paper high-fidelity self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if actor contract or hidden/oracle exclusion fails",
+      "stop if holdout seed indices overlap earlier proof surfaces",
+      "stop if obstacle-clearance or stable_avoidable retention guards are weakened or hidden",
+      "stop if triad deltas are interpreted as ranking or promotion evidence"
+    ],
+    "fallback_plan": [
+      "route to result audit if artifacts are complete",
+      "route to branch synthesis if deltas are negative weak mixed or claim boundaries fail",
+      "pivot to broader architecture or scenario-distribution change if fresh holdout fails to show actionable candidate signal"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2800 accepts M2799 preflight artifacts as complete and claim-safe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "run fresh-holdout source-only triad closed-loop delta panel for M2799 corrective candidate",
+    "admission_evidence": [
+      "M2800 accepts M2799 checkpoint and gate artifacts as complete and claim-safe",
+      "M2799 wrote candidate checkpoint hash 44bedadceae2e53efaa7c37cf5be211cb8652b9088a1d7e1f237843f69ab2f20",
+      "M2799 proof gates and behavior-retention gates all pass before this panel",
+      "M2799 remains unvalidated unranked and unpromoted"
+    ],
+    "blocked_shortcuts": [
+      "no training update or checkpoint modification in M2801",
+      "no validation ranking promotion success-rate verdict performance paper HF full-driver or self-ID claim",
+      "no actor-visible atlas role dynamics stress clearance or verdict labels",
+      "no mitigation rows in ordinary denominators"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel.py",
+      "tests/test_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel.py",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+      "docs/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.md",
+      "experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+      "M2801 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "fresh-holdout seed surface 12..15 is executed or failure is classified",
+      "triad execution rows and candidate-minus-source/base deltas are written",
+      "proof generalization behavior-retention promotion actor mitigation and claim gates are separated",
+      "one M2802 audit manifest is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2801 may compare source-only closed-loop deltas but cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2801 may cover history stress rows but runs no finite-window-vs-GRU or current-vs-history proof."
+    ],
+    "temporal_evidence_window": "M2796-M2801 source-only clearance-localized corrective branch.",
+    "negative_result_policy": "If M2801 deltas remain negative or mixed preserve the result and route to audit or synthesis rather than weakening clearance or retention gates.",
+    "allowed_claims": [
+      "fresh-holdout triad panel artifacts are complete or incomplete",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "runs a new closed-loop fresh-holdout panel for the M2799 corrective candidate on seed indices 12..15",
+    "paper_verdict_delta": "no paper verdict; may determine whether the corrective candidate merits audit and branch synthesis",
+    "must_synthesize_if": [
+      "M2801 produces mixed or negative obstacle-clearance deltas again",
+      "M2801 fails stable_avoidable retention or actor-boundary gates",
+      "M2801 would claim validation ranking promotion performance self-ID or paper evidence",
+      "M2801 repeats the same clearance blocker without actionable change"
+    ]
+  },
+  "hypothesis": "A fresh-holdout source-only triad closed-loop delta panel can test whether the M2799 clearance-localized corrective candidate changed behavior relative to M2655 source and M2791 start candidate while preserving clearance, stable_avoidable retention, and actor boundaries.",
+  "success_criteria": [
+    "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json exists",
+    "M2801 writes triad execution rows and candidate-minus-source/base delta rows for seed indices 12 13 14 15 horizon 160",
+    "M2801 preserves actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2801 keeps mitigation reference rows outside ordinary denominators",
+    "M2801 writes no validation ranking promotion success-rate verdict repair-success performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2801 changes actor input or action contract",
+    "M2801 exposes role dynamics stress atlas clearance outcome route progress success or verdict labels to actor input",
+    "M2801 reuses M2793 seed indices as fresh holdout",
+    "M2801 ranks checkpoints selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2801 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2801 writes complete claim-safe fresh-holdout triad diagnostic artifacts and routes to result audit before interpretation.",
+  "commands": [
+    {
+      "name": "clearance_localized_candidate_fresh_holdout_triad_delta_panel",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel --m2800-audit docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md --m2799-dir runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight --m2796-dir runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas --m2793-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --base-candidate-checkpoint runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt --candidate-checkpoint runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt --follow-up-manifest experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json --output-dir runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel --device cpu --seed-start-index 12 --seed-count 4 --horizon-steps 160"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_artifacts": [
+    "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md",
+    "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json",
+    "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/gate_matrix.csv",
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+    "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+  ],
+  "scoreboard_checkpoint": "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json"
+}

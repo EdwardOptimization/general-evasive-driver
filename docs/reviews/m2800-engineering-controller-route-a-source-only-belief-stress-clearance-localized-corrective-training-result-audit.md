@@ -1,0 +1,80 @@
+# m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T153017Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M2800 writes a claim-safe audit of M2799 artifacts and routes before interpretation.
+
+## Hypothesis
+
+M2799 bounded clearance-localized corrective training artifacts can be audited for completeness and claim safety before interpretation.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt
+- parent_dataset: runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/training_objective_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/training_run_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/proof_probe_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoint_manifest.json, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/proof_gate_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/generalization_gate_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/behavior_retention_gate_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/promotion_guard_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/actor_contract_guard_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/mitigation_reference_guard_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/claim_boundary_rows.csv, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/gate_matrix.csv, docs/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.md
+- parent_config: experiments/manifests/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.json, experiments/manifests/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.json, experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json
+- parent_objective: audit the M2799 bounded clearance-localized corrective training/update preflight before interpretation
+- derived_from: m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight, m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design, m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit, m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
+- blocked_by: M2799 artifacts must be audited before any validation ranking promotion performance or self-ID interpretation, M2799 remains source-only and cannot resolve high-fidelity validation, stable_avoidable retention and actor-contract guards must be checked before any fresh closed-loop panel
+- supersedes: direct interpretation of M2799 candidate checkpoint without result audit, promotion from clearance-localized corrective preflight artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md exists
+- M2800 audits M2799 summary required artifacts gates checkpoint lineage behavior-retention rows and claim boundaries
+- M2800 registers one bounded follow-up or stop decision
+- M2800 makes no new execution training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2800 executes new training or rollout
+- M2800 treats M2799 as validation or promotion evidence
+- M2800 hides obstacle-clearance or stable_avoidable guard failures
+- M2800 claims repair success driver performance paper high-fidelity full-driver or self-ID result
+
+## Evidence Gates
+
+- M2800 must audit M2799 summary required artifacts gates checkpoint lineage behavior-retention rows and claim boundaries
+- M2800 must verify actor 72/action 3 no hidden/oracle actor input and actor-invisible atlas role dynamics stress clearance outcome route progress success or verdict labels
+- M2800 must verify obstacle-clearance is hard before road-margin speed yaw-rate conflict or action-delta metrics
+- M2800 must verify stable_avoidable retention is explicit and mitigation reference rows stay outside ordinary denominators
+- M2800 must reject validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute new reset step policy action rollout replay validation training PPO source build adapter probe or external simulation
+- do not change actor inputs or action contract
+- do not expose role dynamics stress atlas clearance outcome success progress route or verdict labels to actor input
+- do not use mitigation reference rows as ordinary successes
+- do not rank checkpoints or select a winner
+- do not promote a checkpoint
+- do not compute success-rate verdict metrics
+- do not hide stable_avoidable retention or obstacle-clearance guard failures behind road-margin speed yaw-rate or action-delta metrics
+- do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver or self-ID result
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+None recorded.

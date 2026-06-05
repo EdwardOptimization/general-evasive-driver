@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
+m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
+m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight
+m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight
 ```
 
 Current route:
@@ -39,9 +39,39 @@ docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
 
+M2800 audited and accepted M2799 as complete and claim-safe
+clearance-localized corrective training/update preflight evidence. It verified
+`status_pass=true`, required artifacts present, 31 gate rows all passing, a new
+candidate checkpoint hash
+`44bedadceae2e53efaa7c37cf5be211cb8652b9088a1d7e1f237843f69ab2f20`, and start
+M2791 checkpoint hash
+`32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`. The audit
+keeps the correction target explicit: `drift_required_recovery` remains 48/48
+negative, `stable_aes` remains 36/48 negative, target rows are 84/96 negative,
+and `stable_avoidable` remains the retention family at 1/48 negative. Actor P0
+observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
+and mitigation rows outside ordinary denominators are preserved. M2800 rejects
+validation, ranking, promotion, repair-success, performance, paper,
+current-sim, high-fidelity, full-driver, and self-ID claims. It routes to
+M2801, a fresh-holdout source-only triad delta panel using seed indices 12..15
+and horizon 160 before interpreting the M2799 checkpoint.
+
+M2799 completed the bounded Route A clearance-localized corrective
+training/update preflight from the M2791 candidate. It wrote the M2799
+candidate checkpoint, checkpoint manifest, 18 objective rows, 48 target
+training rows, 48 target/retention probe rows, 14 proof gates, 6
+generalization gates, 7 behavior-retention gates, 4 promotion guards, 6 actor
+guards, 8 mitigation guards, 12 claim rows, and a 31-row gate matrix. All gates
+passed. The update is bounded to `max_updates=1`, changes only the actor head
+steer bias, does not overwrite source/base/start checkpoints, does not promote
+the candidate, and preserves the actor 72/action 3 and no-hidden/oracle
+boundaries. M2799 is candidate artifact evidence only and does not claim repair
+success or driver performance.
+
 M2798 completed a design-only Route A clearance-localized corrective
-training/update plan. It admits M2799 as one bounded preflight from the M2791
-candidate, with M2655 source and M2782 base references. The target families are
+training/update plan. It admitted the now-completed M2799 as one bounded
+preflight from the M2791 candidate, with M2655 source and M2782 base
+references. The target families are
 the M2796/M2797 structured blockers: `drift_required_recovery` at 48/48
 clearance-negative rows and `stable_aes` at 36/48 clearance-negative rows.
 `stable_avoidable`, where M2796 found only 1/48 negative rows, is an explicit
