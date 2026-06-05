@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
+m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
+m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
+m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
 ```
 
 Current route:
@@ -38,6 +38,20 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2819 designed the post-recoverability-negative Route A readiness/admission
+refresh and admitted M2820 materialization. The design requires M2820 to
+reanalyze existing artifacts only, preserving M2816/M2817 negative
+recoverability accounting: 7 post-event traces, 0 recoverability-window
+availability, 0 recoverability success, 1 diagnostic collision, and 5 offtrack
+terminations. It also carries forward M2804/M2805 prior readiness blockers,
+M2801/M2802 negative clearance and stable_avoidable retention risks, protected
+mitigation guardrails, and the M2638 HF3 source-dependency blocker. M2819 does
+not admit reset, rollout, replay, validation, training, repair, ranking,
+promotion, performance, paper, high-fidelity, full-driver, or self-ID claims.
+The next admitted step is M2820 readiness-index materialization before any
+route packaging, non-same-surface evidence route, Route B comparison, or Route C
+dependency route is considered.
 
 M2818 synthesized the M2815-M2817 post-action-response recoverability-window
 branch and selected
@@ -51,7 +65,7 @@ full-driver, and self-ID claims from these artifacts. The next admitted step is
 M2819, a design-only post-recoverability-negative Route A readiness/admission
 refresh that integrates the M2816/M2817 negative evidence with existing Route A
 deliverables and the M2638 HF3 source-dependency blocker before any new action
-is admitted.
+is admitted; that design is now completed above.
 
 M2817 audited and accepted M2816 as complete and claim-safe bounded Route A
 recoverability-window diagnostic execution evidence. The acceptance is narrow:
