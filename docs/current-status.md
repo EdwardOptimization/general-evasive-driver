@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
+m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
+m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
+m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
 ```
 
 Current route:
@@ -1916,19 +1916,36 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
 - next: `m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design`
 
+## M2778 Engineering Controller Route A Source-Only Belief-Stress Training Protocol Design
+
+- status: completed
+- decision: `admit_source_only_belief_stress_training_admission_pack_materialization`
+- manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
+- design doc: `docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md`
+- parent synthesis: `docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md`
+- protocol purpose: turn M2775 source-only diagnostic deltas into bounded admission/curriculum rows before any fresh execution or training
+- M2773 accounting preserved: 32 candidate rows, 4 intervention conditions, 128 execution rows, 0 failures, 10240 traces, 32 collision diagnostic rows, and 68 road-departure diagnostic rows
+- M2775 accounting preserved: 96 delta rows, 7680 matched trace pairs, 4 road-departure removals, 0 road-departure additions, and 0 collision changes as source-only diagnostic evidence only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress curriculum admission outcome success progress route or verdict labels and mitigation reference rows guarded outside ordinary denominators
+- route decision: admit M2779 no-rollout source-only belief-stress training admission-pack materialization before any fresh execution training ranking validation or performance claim
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2778
+- follow-up manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
+- next: `m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight`
+
 ## Immediate Next Step
 
-M2778 should design the bounded Route A source-only belief-stress
-training/admission protocol before any materialization, execution, training, or
-reanalysis:
+M2779 should materialize the bounded source-only belief-stress admission and
+curriculum pack from existing M2778/M2777/M2775/M2773 artifacts before any fresh
+execution or training:
 
 ```text
-true
+PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --m2778-design docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md --m2775-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json --output-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization
 ```
 
-M2778 must consume M2777, M2776, M2775, M2773, M2772, and the governing route
-plans. It must preserve M2773 weak diagnostic accounting, M2775 modest
-source-only deltas, actor 72/action 3, no hidden/oracle actor input, and
-mitigation-reference guards. It must reject execution, training, ranking,
-validation, performance, paper, current-sim, high-fidelity, full-driver, and
-self-ID claims, and it must register one bounded follow-up route or stop.
+M2779 must write admission rows, curriculum rows, mitigation guards, actor
+guards, claim rows, gates, summary, doc, run-state, and one M2780 audit
+manifest. It must preserve M2773 weak diagnostic accounting, M2775 modest
+source-only deltas, actor 72/action 3, no hidden/oracle actor input, and no
+actor-visible labels. It must reject execution, training, ranking, validation,
+performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims.

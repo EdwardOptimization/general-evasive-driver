@@ -50246,3 +50246,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2777
 - follow-up manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
 - next: `m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design`
+
+## 20260605T104031Z m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A design-only Route A source-only belief-stress training protocol can convert complete but modest M2775 intervention deltas into a bounded future fresh-evidence branch without overclaiming performance or self-ID.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z`
+- command log: `runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z/command.log`
+- success artifact: `docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md`
+- notes: Pending: design source-only belief-stress training admission protocol from M2777 M2776 M2775 M2773 M2772 and route plans preserve M2773 weak diagnostic accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle mitigation guards no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop
+
+## M2778 Engineering Controller Route A Source-Only Belief-Stress Training Protocol Design
+
+- status: completed
+- decision: `admit_source_only_belief_stress_training_admission_pack_materialization`
+- manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
+- design doc: `docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md`
+- parent synthesis: `docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md`
+- protocol purpose: convert complete but modest M2775 source-only diagnostic deltas into an auditable admission/curriculum pack before any fresh execution or training
+- preserved M2773 accounting: 32 candidate rows 4 intervention conditions 128 execution rows 0 failures 10240 traces 32 collision diagnostic rows and 68 road-departure diagnostic rows
+- preserved M2775 accounting: 96 delta rows 7680 matched trace pairs 4 road-departure removals 0 road-departure additions and 0 collision changes as source-only diagnostic evidence
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress curriculum admission outcome success progress route or verdict labels and mitigation reference rows outside ordinary denominators
+- route decision: admit M2779 no-rollout source-only belief-stress training admission-pack materialization before any fresh execution training ranking validation or performance claim
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2778
+- follow-up manifest: `experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json`
+- next: `m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight`

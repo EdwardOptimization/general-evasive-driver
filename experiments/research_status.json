@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2783,
+    "completed": 2784,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis_20260605T102833Z/command.log",
+    "command_log": "runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis_20260605T102833Z",
+    "run_dir": "runs/research/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design_20260605T104031Z",
     "status": "completed",
-    "task_id": "m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis"
+    "task_id": "m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A design-only Route A source-only belief-stress training protocol can convert complete but modest M2775 intervention deltas into a bounded future fresh-evidence branch without overclaiming performance or self-ID.",
-    "id": "m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design",
-    "kind": "gate",
-    "notes": "Pending: design source-only belief-stress training admission protocol from M2777 M2776 M2775 M2773 M2772 and route plans preserve M2773 weak diagnostic accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle mitigation guards no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop",
-    "priority": 27730,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --m2778-design docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md --m2775-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json --output-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization",
+    "hypothesis": "A no-rollout materialization can convert M2775 source-only intervention deltas into a bounded belief-stress admission and curriculum pack before any fresh execution or training.",
+    "id": "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize source-only belief-stress admission rows curriculum rows mitigation guards actor guards claim rows gates summary doc run-state and M2780 audit manifest from M2778 M2775 M2773 artifacts preserve M2773 weak diagnostic accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim",
+    "priority": 27740,
     "status": "pending",
-    "success_artifact": "docs/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.md"
+    "success_artifact": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json"
   },
-  "updated_at_utc": "20260605T102833Z"
+  "updated_at_utc": "20260605T104031Z"
 }
