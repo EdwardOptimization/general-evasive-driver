@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
+m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
+m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
+m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2813 completed no-rollout action-response mechanism panel materialization from
+existing M2807/M2810/M2812 artifacts only. It wrote summary,
+action-response-mechanism rows, success/offtrack contrast rows, guardrail,
+actor, claim, gate, and document artifacts, and registered the M2814 follow-up
+audit manifest. It accounts for all 12 localized rows as 10 offtrack-containment
+mechanism rows, 2 success obstacle-pass mechanism rows, and 0 collision rows,
+with 2 contrast rows, action-response metrics available for all rows, 10
+offtrack-timing rows, 0 recoverability-available rows, 44 guardrails, 12
+actor-contract guards, 25 claim-boundary rows, and 22 gate rows. Actor P0
+observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
+and guardrails outside ordinary denominators are preserved. M2813 is diagnostic
+materialization only: it performs no reset, rollout, replay, validation,
+training, ranking, promotion, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claim. The next admitted step is M2814 result audit
+before any interpretation, repair design, or execution route.
 
 M2812 synthesized the M2809-M2811 offtrack-containment localization branch and
 selected
@@ -54,7 +70,8 @@ existing M2807/M2810/M2812 artifacts. It must account for 10 offtrack-containmen
 rows and 2 success obstacle-pass rows, preserve action-rate, previous-command,
 current-action, action-trace, speed, offtrack-timing, and recoverability context
 as diagnostic non-ranking rows, preserve actor/claim/guardrail boundaries, and
-register a result audit before any repair or execution route.
+register a result audit before any repair or execution route; M2813 is now
+completed above.
 
 M2811 audited and accepted M2810 as complete, claim-safe, no-rollout
 offtrack-containment localization evidence. It verified `status_pass=true`,

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2818,
+    "completed": 2819,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z/command.log",
+    "command_log": "runs/research/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight_20260605T182038Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z",
+    "run_dir": "runs/research/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight_20260605T182038Z",
     "status": "completed",
-    "task_id": "m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis"
+    "task_id": "m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2810-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2812-synthesis docs/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis.md --output-dir runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel",
-    "hypothesis": "A no-rollout action-response mechanism panel can turn M2810 offtrack-containment localization rows and M2807 action metrics into an auditable mechanism surface without ranking axes or overclaiming performance.",
-    "id": "m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize no-rollout action-response mechanism panel from existing M2807/M2810/M2812 artifacts account for 10 offtrack-containment rows and 2 success obstacle-pass rows preserve action-rate previous-command current-action action-trace speed offtrack-timing recoverability context as diagnostic non-ranking rows actor 72/action 3 no hidden oracle labels guardrails outside denominators no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28080,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2813 action-response mechanism artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2813 action-response mechanism artifacts for completeness and claim safety verify 12 mechanism rows 10 offtrack-containment rows 2 success obstacle-pass rows contrast guardrails actor 72/action 3 no hidden oracle labels guardrails outside denominators no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28090,
     "status": "pending",
-    "success_artifact": "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json"
+    "success_artifact": "docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T181013Z"
+  "updated_at_utc": "20260605T182038Z"
 }
