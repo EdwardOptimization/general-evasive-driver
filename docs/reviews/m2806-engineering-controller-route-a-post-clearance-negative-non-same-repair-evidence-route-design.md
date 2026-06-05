@@ -1,0 +1,134 @@
+# m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T170714Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_m2807_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight
+- Decision reason: M2806 design admits M2807 post-clearance negative non-same-repair cross-axis bounded execution preflight over 12 fixed M1690 L3_online_gru task-source ids not used by M2737 M2746 or M2753 and not part of the M2799/M2801 same clearance repair loop preserves M2801/M2802 negative clearance source 23 positive 49 negative mean -0.00365399786071096 M2791-start 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 M2791-start 2 protected mitigation HF3 blockers actor 72/action 3 no hidden oracle actor-invisible labels rejects reset rollout training validation ranking promotion performance paper high-fidelity full driver and self-ID claims
+
+## Hypothesis
+
+A design-only Route A pivot can define a non-same-repair evidence route after the negative clearance-localized corrective branch while preserving the human-view actor contract and blocker boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt
+- parent_dataset: docs/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit.md, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/evidence_index.csv, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/deliverable_readiness_rows.csv, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/blocker_matrix.csv, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/next_action_admission_rows.csv, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/claim_boundary_rows.csv, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/gate_matrix.csv, docs/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight.md, docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md, docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit.json, experiments/manifests/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight.json, experiments/manifests/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.json, experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json, experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json
+- parent_objective: design a bounded Route A post-clearance-negative evidence route that changes axis away from the failed same clearance-localized corrective repair loop
+- derived_from: m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit, m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight, m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis, m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit, m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight, m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design, m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
+- blocked_by: M2805 accepts M2804 only as readiness/admission indexing and requires a non-same-repair evidence axis before future execution, M2801/M2802 preserve negative obstacle-clearance evidence with 23 positive and 49 negative rows against source and against M2791 start, stable_avoidable retention risk remains active with 4 negative rows against source and 2 against M2791 start, M2803 and M2804 reject another same clearance-localized corrective update or same-style triad panel, protected mitigation and HF3 source dependency blockers remain outside ordinary denominators, Route A must preserve P0 observation 72 action 3 and no hidden/oracle actor input
+- supersedes: direct same-clearance M2799-like corrective update after M2805, direct same-style M2801 triad panel after M2805, performance validation ranking or promotion claims from M2804 readiness rows, HF3 selected-platform execution while M2638 source dependency is unavailable
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design.md exists
+- design identifies candidate source criteria and explains how the surface differs from M2799/M2801 same-clearance repair rows
+- design specifies non-same-repair exclusion rules and fresh seed or corpus policy for future execution
+- design preserves M2801/M2802 negative clearance and stable_avoidable blockers as non-ranking evidence
+- design preserves protected mitigation and HF3 source dependency blockers outside ordinary success denominators
+- design preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels
+- design registers one bounded M2807 follow-up manifest or an explicit stop decision
+- no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2806 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2806 changes actor input or action contract
+- M2806 exposes taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions stress-axis labels clearance labels success labels progress labels or verdicts to actor input
+- M2806 weakens negative clearance stable_avoidable protected mitigation or HF3 blocker gates or treats blocker rows as success denominators
+- M2806 opens another same clearance-localized corrective update or same-style fresh-holdout triad panel
+- M2806 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate
+- M2806 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2806 admits execution without registering a bounded M2807 manifest or explicit stop
+
+## Evidence Gates
+
+- M2806 must design a bounded non-same-repair Route A evidence route after M2805 accepts M2804 readiness/admission indexing
+- M2806 must use docs/post-m2470-route-plan.md and M2804 blocker/admission rows as route constraints
+- M2806 must keep M2801/M2802 negative clearance and stable_avoidable retention risk visible as blockers, not ranking or verdict evidence
+- M2806 must reject another same clearance-localized corrective update and another same-style fresh-holdout triad panel
+- M2806 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy scenario-role metric target blocker route-decision success progress or verdict labels
+- M2806 must keep protected mitigation and HF3 source dependency blockers outside ordinary success denominators and outside actor-visible inputs
+- M2806 must not reset step rollout replay validate train run PPO build source probe adapters import external simulators run external simulation rank select winners promote compute success-rate verdicts or claim repair success driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence
+- M2806 must register one bounded M2807 follow-up execution-preflight or stop manifest only if the design admits future execution
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions controller-family labels stress-axis labels clearance labels success labels progress labels or verdict labels to actor input
+- do not add friction mass center-of-gravity tire brake steering-delay drive-delay sensor-noise actuator-delay source-edge clearance or scenario-role labels to actor input
+- do not hide M2801 negative clearance rows or stable_avoidable retention risk
+- do not treat protected mitigation rows HF3 blocker rows or mitigation reference rows as ordinary success denominators
+- do not open another same clearance-localized corrective update
+- do not open another same-style fresh-holdout triad panel
+- do not rank controller families source families task families profiles stress axes or scenario roles
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2806 design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
+- type: gate
+- checkpoint: docs/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m2807_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight
+- reason: M2806 design admits M2807 post-clearance negative non-same-repair cross-axis bounded execution preflight over 12 fixed M1690 L3_online_gru task-source ids not used by M2737 M2746 or M2753 and not part of the M2799/M2801 same clearance repair loop preserves M2801/M2802 negative clearance source 23 positive 49 negative mean -0.00365399786071096 M2791-start 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 M2791-start 2 protected mitigation HF3 blockers actor 72/action 3 no hidden oracle actor-invisible labels rejects reset rollout training validation ranking promotion performance paper high-fidelity full driver and self-ID claims
+
+## Next Blocker
+
+None recorded.

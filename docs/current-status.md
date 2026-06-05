@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
+m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
+m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
+m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2806 completed the design-only post-clearance negative non-same-repair route.
+It admits M2807, a bounded Route A execution preflight over exactly 12 fixed
+M1690 `L3_online_gru` task-source ids:
+`m1680-spec-0014`, `m1680-spec-0016`, `m1680-spec-0018`, `m1680-spec-0022`,
+`m1680-spec-0026`, `m1680-spec-0032`, `m1680-spec-0048`, `m1680-spec-0051`,
+`m1680-spec-0052`, `m1680-spec-0053`, `m1680-spec-0058`, and
+`m1680-spec-0063`. The selected rows exist in the live M1690 workload, have
+config/checkpoint artifacts present, and do not overlap prior M2737, M2746, or
+M2753 task-source ids. The route is also explicitly not another M2799/M2801
+clearance-localized corrective update or same-style triad panel. M2806 does not
+execute reset, step, rollout, training, validation, ranking, promotion, or any
+performance/paper/high-fidelity/full-driver/self-ID claim. It preserves the
+M2801/M2802 negative clearance and `stable_avoidable` blockers, protected
+mitigation and HF3 blocker boundaries, actor 72/action 3, no hidden/oracle actor
+input, and actor-invisible labels. M2807 must implement or parameterize a
+dedicated M2807 runner before execution; directly reusing hardcoded M2753
+artifact labels is not admitted.
 
 M2805 audited and accepted M2804 as complete, claim-safe Route A readiness and
 admission indexing only. It verified `status_pass=true`, required artifacts

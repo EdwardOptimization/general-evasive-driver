@@ -51052,3 +51052,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit_20260605T164359Z/command.log`
 - success artifact: `docs/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit.md`
 - notes: Completed: audit accepts M2804 complete claim-safe Route A post-clearance corrective readiness/admission index status_pass true required artifacts present source artifacts reanalyzed only 15 evidence rows 11 deliverable rows 7 blocker rows 7 next-action rows 26 claim rows 38 gates all pass preserves M2801 negative clearance source 23 positive 49 negative mean -0.00365399786071096 M2791-start 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 M2791-start 2 protected mitigation and HF3 blockers visible actor 72/action 3 no hidden oracle labels rejects same clearance update same-style triad reset rollout validation training ranking promotion performance paper high-fidelity full driver and self-ID claims routes to M2806 post-clearance negative non-same-repair evidence-route design
+
+## 20260605T170538Z m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A design-only Route A pivot can define a non-same-repair evidence route after the negative clearance-localized corrective branch while preserving the human-view actor contract and blocker boundaries.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design_20260605T170538Z`
+- command log: `runs/research/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design_20260605T170538Z/command.log`
+- success artifact: `docs/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design.md`
+- notes: Completed: design admits M2807 post-clearance negative non-same-repair cross-axis bounded execution preflight over 12 fixed M1690 L3_online_gru task-source ids not used by M2737 M2746 or M2753 and not part of the M2799/M2801 same clearance repair loop preserves M2801/M2802 negative clearance source 23 positive 49 negative mean -0.00365399786071096 M2791-start 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 M2791-start 2 protected mitigation HF3 blockers actor 72/action 3 no hidden oracle actor-invisible labels rejects reset rollout training validation ranking promotion performance paper high-fidelity full driver and self-ID claims

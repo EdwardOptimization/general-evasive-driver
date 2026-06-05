@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2811,
+    "completed": 2812,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit_20260605T164359Z/command.log",
+    "command_log": "runs/research/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design_20260605T170538Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit_20260605T164359Z",
+    "run_dir": "runs/research/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design_20260605T170538Z",
     "status": "completed",
-    "task_id": "m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit"
+    "task_id": "m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A design-only Route A pivot can define a non-same-repair evidence route after the negative clearance-localized corrective branch while preserving the human-view actor contract and blocker boundaries.",
-    "id": "m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design",
-    "kind": "gate",
-    "notes": "Pending: design post-clearance negative non-same-repair Route A evidence route from M2805/M2804 while preserving M2801/M2802 negative clearance 23 positive 49 negative against source and M2791 start stable_avoidable negatives source 4 M2791-start 2 protected mitigation HF3 blocker actor 72/action 3 no hidden oracle labels no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim register bounded M2807 execution-preflight or explicit stop",
-    "priority": 28010,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2746-dir runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight --m2753-dir runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight --m2804-dir runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index --m2806-design docs/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design.md --follow-up-manifest experiments/manifests/m2808-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-audit.json --output-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --eval-seed-base 280700 --device cpu",
+    "hypothesis": "A bounded post-clearance negative non-same-repair execution preflight can produce fresh Route A closed-loop diagnostic rows from the M1690 L3_online_gru workload surface while preserving actor and claim boundaries.",
+    "id": "m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement or parameterize an M2807-specific bounded runner then execute exactly 12 fixed M1690 L3_online_gru non-same-repair rows from M2806 excluding M2737 M2746 M2753 prior task sources and M2799/M2801 same clearance repair surfaces preserve M2801/M2802 negative clearance stable_avoidable protected mitigation HF3 blockers actor 72/action 3 no hidden oracle actor-invisible labels no replay validation training ranking promotion performance paper high-fidelity full driver or self-ID claim route to M2808 audit",
+    "priority": 28020,
     "status": "pending",
-    "success_artifact": "docs/m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design.md"
+    "success_artifact": "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260605T164359Z"
+  "updated_at_utc": "20260605T170538Z"
 }
