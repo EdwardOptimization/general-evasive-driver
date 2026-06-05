@@ -50501,3 +50501,40 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.json`
 - next: `m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T123046Z m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2778-M2785 source-only belief-stress short-training evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis_20260605T123046Z`
+- command log: `runs/research/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis_20260605T123046Z/command.log`
+- success artifact: `docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2778-M2785 complete claim-safe source-only belief-stress short-training branch preserves M2779 24 curriculum rows 39 gates M2782 candidate checkpoint hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 18 curriculum rows 54 training rows 18 proof probes 18 gates and M2784 144 paired execution rows 72 paired delta rows 22 gates all pass small diagnostic road-margin/yaw-rate shifts mixed obstacle-clearance deltas actor 72/action 3 no hidden oracle mitigation rows outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims routes to M2787 fresh-holdout delta panel
+
+## M2786 Engineering Controller Route A Source-Only Belief-Stress Short-Training Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_source_only_belief_stress_fresh_holdout_delta_panel`
+- manifest: `experiments/manifests/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.json`
+- synthesis doc: `docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md`
+- parent audit: `docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md`
+- parent short-training preflight summary: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- parent paired delta panel summary: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json`
+- accepted branch scope: M2778-M2785 complete claim-safe Route A source-only belief-stress short-training branch
+- M2779 accounting: 24 stress curriculum rows, 8 mitigation guard rows, 7 actor guard rows, 19 claim rows, and 39 gate rows all passing
+- M2782 accounting: candidate checkpoint hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`, 18 training curriculum rows, 54 training run rows, 18 proof holdout probe rows, 8 proof gates, 6 generalization gates, 4 promotion guards, and 18 gate rows all passing
+- M2784 accounting: 144 paired execution rows, 72 paired delta rows, 12 proof gates, 6 generalization gates, 4 promotion guards, and 22 gate rows all passing
+- diagnostic delta accounting: candidate-minus-source road-margin deltas positive in 72/72 rows, yaw-rate deltas lower in 66/72 rows, obstacle-clearance deltas mixed with 40 positive and 32 negative rows, final-speed deltas negative in 57/72 rows, throttle/brake conflict unchanged at zero, and mean action L1 deltas positive but very small
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input; role dynamics stress admission curriculum outcome success progress route and verdict labels remain actor-invisible evaluator metadata
+- mitigation boundary: mitigation reference rows remain guarded outside ordinary denominators and paired delta rows
+- supported claims: the branch produced an auditable candidate checkpoint and complete paired source-vs-candidate source-only closed-loop diagnostic artifacts, and the small candidate movement is sufficient only to justify a fresh-holdout diagnostic
+- rejected claims: no repair success, validation readiness/result, ranking, winner, promotion, success-rate verdict, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim
+- failure taxonomy: contract violation, lineage invalidity, and proof washout are controlled; behavior regression, scenario sampling failure, objective overfit, and local-search repetition remain active risks if the same 72 paired delta rows are reused or promoted by wording
+- overfit risk: medium-high unless the next panel uses unseen seed indices outside M2784 seed_index 0..3, all ordinary role/dynamics/stress buckets, separate proof/generalization/promotion guards, and explicit no-ranking/no-promotion claim boundaries
+- route decision: pivot to M2787 fresh-holdout paired source-only closed-loop delta panel instead of another same-surface audit, process-only reanalysis, ranking, promotion, or stop
+- follow-up manifest: `experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json`
+- next: `m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight`

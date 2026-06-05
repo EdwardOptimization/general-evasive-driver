@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
+m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
+m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
+m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight
 ```
 
 Current route:
@@ -38,6 +38,23 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2786 synthesized the M2778-M2785 source-only belief-stress short-training
+branch and chose
+`pivot_to_route_a_source_only_belief_stress_fresh_holdout_delta_panel`. It
+accepts the branch as complete and claim-safe: M2779 contributed 24 curriculum
+rows and 39 gates, M2782 produced candidate checkpoint
+`96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8` with 18
+curriculum rows, 54 training rows, 18 proof probe rows, and 18 gate rows, and
+M2784 contributed 144 paired execution rows, 72 paired delta rows, and 22 gate
+rows. Actor P0 observation 72/action 3, no hidden/oracle actor input, and
+mitigation rows outside ordinary denominators are preserved. The deltas remain
+small and diagnostic: road-margin/yaw-rate shifts are directionally consistent
+but obstacle-clearance deltas are mixed, so M2786 rejects validation, ranking,
+winner selection, promotion, success-rate verdict, performance, paper,
+current-sim, high-fidelity, full-driver, and self-ID interpretation. The next
+bounded task is M2787 fresh-holdout source-only paired delta panel over unseen
+seed indices outside M2784 seed_index 0..3.
 
 M2785 audited and accepted M2784 as complete and claim-safe source-only
 diagnostic evidence. It verified `status_pass=true`, required artifacts present,
@@ -51,9 +68,8 @@ road-margin deltas are positive in 72/72 rows, yaw-rate deltas are lower in
 66/72 rows, and obstacle-clearance deltas are mixed with 40 positive and 32
 negative rows. M2785 rejects validation, ranking, winner selection, promotion,
 success-rate verdict, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID interpretation. The next bounded task is M2786 branch
-synthesis before any further execution, repair, ranking, or process-only
-extension.
+full-driver, and self-ID interpretation. It routed to M2786 branch synthesis
+before any further execution, repair, ranking, or process-only extension.
 
 M2784 completed the Route A source-only paired closed-loop delta panel. It ran
 the M2655 source checkpoint and M2782 candidate checkpoint over 18 belief-stress

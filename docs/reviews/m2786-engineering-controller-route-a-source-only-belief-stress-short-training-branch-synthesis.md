@@ -1,0 +1,130 @@
+# m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T123359Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_source_only_belief_stress_fresh_holdout_delta_panel
+- Decision reason: M2786 synthesis decision pivot accepts M2778-M2785 complete claim-safe source-only belief-stress short-training branch preserves M2779 24 curriculum rows 39 gates M2782 candidate checkpoint hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 18 curriculum rows 54 training rows 18 proof probes 18 gates and M2784 144 paired execution rows 72 paired delta rows 22 gates all pass small diagnostic road-margin/yaw-rate shifts mixed obstacle-clearance deltas actor 72/action 3 no hidden oracle mitigation rows outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2787 fresh-holdout delta panel
+
+## Hypothesis
+
+A branch synthesis can preserve M2778-M2785 source-only belief-stress short-training evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt
+- parent_dataset: docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md, docs/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.md, runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json, runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_execution_rows.csv, runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_delta_rows.csv, runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/gate_matrix.csv, docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json, docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md, docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json, experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json, experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json, experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json, experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json, experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json, experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json
+- parent_objective: synthesize M2778-M2785 source-only belief-stress short-training branch before another execution repair ranking promotion or process-only extension
+- derived_from: m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit, m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight, m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit, m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight, m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design, m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit, m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight, m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
+- blocked_by: M2785 accepts M2784 as complete and claim-safe but rejects direct validation ranking promotion performance paper high-fidelity full-driver and self-ID interpretation, M2784 paired deltas are small source-only diagnostic shifts and cannot by themselves justify promotion or performance claims, M2782 candidate checkpoint was produced by bounded short-training preflight only, another process-only milestone after M2785 without synthesis would violate local_search_guard discipline
+- supersedes: direct interpretation of M2784 paired deltas as checkpoint ranking, direct promotion of the M2782 candidate checkpoint, another no-synthesis belief-stress audit or narrow reanalysis before a branch decision
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2779 status_pass true M2782 status_pass true M2784 status_pass true and M2785 audit acceptance
+- synthesis records M2782 18 curriculum rows 54 training rows 18 proof holdout probes and candidate checkpoint lineage as bounded short-training preflight only
+- synthesis records M2784 144 paired execution rows 72 paired delta rows 12 proof gates 6 generalization gates 4 promotion guards and 22 gate rows as source-only diagnostic evidence only
+- synthesis records M2784 small road-margin yaw-rate and mixed obstacle-clearance deltas as diagnostic accounting only
+- synthesis preserves mitigation reference rows as outside ordinary denominators
+- synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels
+- synthesis registers one bounded follow-up manifest if continuing or pivoting
+- no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2786 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout
+- M2786 changes actor input or action contract
+- M2786 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress role labels dynamics labels stress labels route labels or verdicts to actor input
+- M2786 treats role dynamics stress family candidate checkpoint or controller context as ranking winner selection promotion or success-rate verdict evidence
+- M2786 treats mitigation reference rows as ordinary denominators
+- M2786 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2786 fails to synthesize M2778-M2785 and select a bounded follow-up route or stop
+
+## Evidence Gates
+
+- M2786 must synthesize M2778-M2785 source-only belief-stress admission design short-training candidate audit paired delta panel and audit evidence before another execution repair ranking promotion or process-only extension
+- M2786 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2786 must preserve M2779 artifact accounting 96 admission rows 24 curriculum rows 8 mitigation guards 7 actor guards 19 claim rows and 39 gates all pass
+- M2786 must preserve M2782 artifact accounting 18 curriculum rows 54 training rows 18 proof holdout probes 8 proof gates 6 generalization gates 4 promotion guards 6 actor guards 8 mitigation guards 11 claim rows and 18 gate rows all pass
+- M2786 must preserve M2784 artifact accounting 144 paired execution rows 72 paired delta rows 12 proof gates 6 generalization gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows and 22 gate rows all pass
+- M2786 must preserve M2784 diagnostic deltas as source-only row accounting not ranking promotion validation performance or self-ID evidence
+- M2786 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input no actor-input change actor-invisible labels and mitigation reference rows outside ordinary denominators
+- M2786 must decide continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting
+- M2786 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2786 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels stress labels curriculum labels admission labels outcome labels success labels progress labels route decisions or verdict labels to actor input
+- do not hide small M2784 diagnostic delta magnitudes
+- do not hide mixed M2784 obstacle-clearance deltas
+- do not treat mitigation reference rows as ordinary denominators
+- do not rank roles dynamics axes stress families candidates checkpoints or controllers
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2786 synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis
+- type: gate
+- checkpoint: docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_source_only_belief_stress_fresh_holdout_delta_panel
+- reason: M2786 synthesis decision pivot accepts M2778-M2785 complete claim-safe source-only belief-stress short-training branch preserves M2779 24 curriculum rows 39 gates M2782 candidate checkpoint hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 18 curriculum rows 54 training rows 18 proof probes 18 gates and M2784 144 paired execution rows 72 paired delta rows 22 gates all pass small diagnostic road-margin/yaw-rate shifts mixed obstacle-clearance deltas actor 72/action 3 no hidden oracle mitigation rows outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2787 fresh-holdout delta panel
+
+## Next Blocker
+
+None recorded.
