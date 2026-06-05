@@ -1,0 +1,131 @@
+# m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T072329Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight
+- Decision reason: M2761 synthesis decision pivot accepts M2758-M2760 complete claim-safe diagnostic probe branch preserves M2759 12 execution rows 0 failures 2 diagnostic success 0 collision 10 offtrack 2 blank termination rows 31 guardrails actor 72/action 3 no hidden oracle rejects direct containment repair ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2762 telemetry coverage instrumentation repair preflight
+
+## Hypothesis
+
+A result synthesis can preserve M2758-M2760 probe evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_candidate_resolution_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/guardrail_context_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/actor_contract_guard_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/claim_boundary_rows.csv, runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/gate_matrix.csv, docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md, docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md, docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json, experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json, experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json, experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json
+- parent_objective: synthesize M2758-M2760 post-cross-axis negative action-response containment probe evidence before admitting any repair design execution validation ranking or performance route
+- derived_from: m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit, m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight, m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design, m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit
+- blocked_by: M2760 accepts M2759 as complete and claim-safe but requires synthesis before interpretation, M2759 is dominated by offtrack and track-containment symptoms with 2 diagnostic success rows and no collision rows, M2759 action-response finite proxy coverage is incomplete despite action-response artifact presence, 31 M2756 guardrails remain outside execution and ordinary denominators, another narrow probe or direct repair would risk local search unless synthesis identifies a changed evidence route
+- supersedes: direct repair design from M2759 mechanism tags without synthesis, direct ranking of mechanism tags source edges stress axes profiles task families or controllers, success-rate or controller-family verdict computation from M2759 probe rows, driver-performance validation readiness current-sim high-fidelity full-driver or self-ID interpretation from M2759
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2759 status_pass true and M2760 audit acceptance
+- synthesis records 12 execution rows 0 failure rows 12 action-response rows 12 containment rows 51 mechanism rows 31 guardrails and 23 gates as diagnostic evidence only
+- synthesis records 2 diagnostic success 0 collision 10 offtrack and 2 blank termination rows as diagnostic row accounting only
+- synthesis preserves action-response finite proxy incompleteness as a limitation
+- synthesis preserves all guardrails as not run not admitted and outside denominators
+- synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels
+- synthesis registers one bounded follow-up manifest if continuing or pivoting
+- no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2761 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout
+- M2761 changes actor input or action contract
+- M2761 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels source-edge labels task-family labels stress-axis labels mechanism labels route labels or verdicts to actor input
+- M2761 treats source-edge task-family profile stress-axis mechanism or candidate context as ranking winner selection promotion or success-rate verdict evidence
+- M2761 treats guardrail rows as execution rows or ordinary denominators
+- M2761 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2761 fails to synthesize M2758-M2760 and select a bounded follow-up route or stop
+
+## Evidence Gates
+
+- M2761 must synthesize M2758-M2760 action-response containment probe evidence before any additional execution repair validation ranking or performance claim
+- M2761 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2761 must preserve M2759 artifact accounting 12 execution rows 0 failure rows 12 action-response rows 12 containment rows 51 mechanism rows 31 guardrail rows 6 actor rows 14 claim rows and 23 gates all pass
+- M2761 must preserve M2759 diagnostic outcomes 2 diagnostic success 0 collision 10 offtrack and 2 blank termination rows as diagnostic row accounting only
+- M2761 must explicitly discuss action-response finite proxy incompleteness without hiding it or turning it into a performance claim
+- M2761 must preserve all 31 guardrail rows as non-executed and outside ordinary denominators
+- M2761 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible evaluator labels and no actor input contract change
+- M2761 must decide continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting
+- M2761 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2761 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose localization action-response containment mechanism stress-axis source-edge protected blocker gate outcome route decision success progress or verdict labels to actor input
+- do not hide M2759 weak or negative diagnostic outcomes
+- do not hide action-response finite proxy incompleteness
+- do not hide prior-panel protected or HF3 guardrail rows
+- do not treat guardrail rows as ordinary success denominators
+- do not rank controller families source edges stress axes profiles task families mechanism tags or candidates
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2761 synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis
+- type: gate
+- checkpoint: docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight
+- reason: M2761 synthesis decision pivot accepts M2758-M2760 complete claim-safe diagnostic probe branch preserves M2759 12 execution rows 0 failures 2 diagnostic success 0 collision 10 offtrack 2 blank termination rows 31 guardrails actor 72/action 3 no hidden oracle rejects direct containment repair ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2762 telemetry coverage instrumentation repair preflight
+
+## Next Blocker
+
+Route A action-response telemetry coverage instrumentation repair preflight

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
+m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis
+m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight
+m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight
 ```
 
 Current route:
@@ -1614,25 +1614,39 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json`
 - next: `m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis`
 
+## M2761 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight`
+- manifest: `experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json`
+- synthesis artifact: `docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md`
+- parent audit: `docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md`
+- parent summary: `runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json`
+- route-plan reference: `docs/post-m2470-route-plan.md`
+- evidence summary: accepts M2758-M2760 as a complete claim-safe diagnostic probe branch with M2759 12 candidate-resolution rows, 12 execution rows, 0 failure rows, 12 action-response rows, 12 containment rows, 51 mechanism-context rows, 31 guardrail rows, 6 actor guards, 14 claim rows, and 23 gates all passing
+- diagnostic accounting: preserves 2 diagnostic success rows, 0 collision rows, 10 offtrack rows, and 2 blank termination rows as diagnostic row accounting only
+- mechanism boundary: offtrack/track-containment is the dominant symptom, but all 12 action-response rows have finite_metric false, so a strong action-response mechanism conclusion is not admitted
+- guardrail boundary: all 31 M2756 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment mechanism stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: pivot to telemetry coverage instrumentation repair before direct containment repair, same-surface execution, validation, ranking, or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2761
+- follow-up manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
+- next: `m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight`
+
 ## Immediate Next Step
 
-M2761 should synthesize M2758-M2760 probe evidence before any mechanism
-interpretation, repair route, validation, performance, paper, current-sim,
-high-fidelity, full-driver, or self-ID claim:
+M2762 should repair evaluator-only action-response telemetry coverage before
+any containment repair, same-surface execution, validation, performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID claim:
 
 ```text
-docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_candidate_resolution_rows.csv
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv
+docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv
-runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv
-docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md
-experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json
+experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json
 ```
 
-The synthesis must answer evidence summary, supported claims, falsified claims,
-failure taxonomy, public-gate overfit risk, and next branch decision. It must
-keep action-response finite proxy incompleteness explicit and select one
-bounded follow-up route or stop.
+M2762 must materialize coverage gap rows and schema contract rows for finite
+previous-command and plan-first-action proxy coverage while preserving actor
+72/action 3, no hidden/oracle input, actor-invisible evaluator labels, and
+guardrails outside execution.

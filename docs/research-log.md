@@ -49905,3 +49905,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2760
 - follow-up manifest: `experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json`
 - next: `m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis`
+
+## M2761 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight`
+- manifest: `experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json`
+- synthesis artifact: `docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md`
+- parent audit: `docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md`
+- parent summary: `runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json`
+- route-plan reference: `docs/post-m2470-route-plan.md`
+- accepted branch evidence: M2758-M2760 complete claim-safe diagnostic probe branch with M2759 12 candidate-resolution rows 12 execution rows 0 failure rows 12 action-response rows 12 containment rows 51 mechanism rows 31 guardrails 6 actor guards 14 claim rows and 23 gates all passing
+- diagnostic accounting: 2 diagnostic success rows 0 collision rows 10 offtrack rows and 2 blank termination rows preserved as row accounting only and not a success-rate verdict
+- mechanism boundary: offtrack/track-containment symptom dominates but all 12 action-response rows have finite_metric false so strong action-response mechanism interpretation is not admitted
+- guardrail boundary: all 31 M2756 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment mechanism stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: pivot to M2762 telemetry coverage instrumentation repair preflight before direct containment repair, same-surface execution, validation, ranking, or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2761
+- follow-up manifest: `experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json`
+- next: `m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight`
