@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2799,
+    "completed": 2800,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight_20260605T135900Z/command.log",
+    "command_log": "runs/research/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T140945Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight_20260605T135900Z",
+    "run_dir": "runs/research/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T140945Z",
     "status": "completed",
-    "task_id": "m2793-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-preflight"
+    "task_id": "m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2793 fresh-holdout triad closed-loop delta artifacts can be audited for completeness and claim safety before interpretation.",
-    "id": "m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit",
+    "hypothesis": "A branch synthesis can preserve M2790-M2794 source-only guardrailed belief-stress candidate evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
+    "id": "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2793 summary required artifacts triad execution rows candidate-minus-source and candidate-minus-base delta rows gates checkpoint lineage seed disjointness behavior-retention actor and mitigation guards claim boundaries verify 216 execution rows 72 source deltas 72 base deltas 35 gates all pass candidate-minus-source obstacle-clearance 30 positive 42 negative candidate-minus-base obstacle-clearance 29 positive 43 negative keep obstacle-clearance hard before road-margin yaw-rate speed conflict action-delta metrics no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register follow-up or stop",
-    "priority": 27890,
+    "notes": "Pending: synthesize M2790-M2794 guardrailed candidate branch after M2794 audit preserve M2793 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 35 gates all pass seed indices 8 9 10 11 disjoint from previous 0..7 horizon 140 obstacle-clearance mixed source 30 positive 42 negative base 29 positive 43 negative road-margin and speed positive but no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim answer evidence_summary supported_claims falsified_claims failure_taxonomy public_gate_overfit_risk next_branch_decision and register bounded follow-up or stop",
+    "priority": 27900,
     "status": "pending",
-    "success_artifact": "docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md"
+    "success_artifact": "docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md"
   },
-  "updated_at_utc": "20260605T140305Z"
+  "updated_at_utc": "20260605T140945Z"
 }
