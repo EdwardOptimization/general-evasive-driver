@@ -1,0 +1,299 @@
+{
+  "id": "m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+      "docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+      "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json",
+      "docs/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.md",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/evidence_index.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/deliverable_readiness_rows.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv",
+      "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/next_action_admission_rows.csv",
+      "runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/baseline_checkpoint_list.csv",
+      "runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/actor_io_contract_snapshot.json",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+      "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.json",
+      "experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+      "experiments/manifests/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.json",
+      "experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json",
+      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json"
+    ],
+    "parent_objective": [
+      "materialize a refreshed Route A readiness/admission index after M2803 pivots away from the failed clearance-localized corrective branch"
+    ],
+    "derived_from": [
+      "m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis",
+      "m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit",
+      "m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight",
+      "m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight",
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design"
+    ],
+    "blocked_by": [
+      "M2803 pivots away from the completed clearance-localized corrective branch and requires a new Route A readiness/admission surface",
+      "M2801/M2802 provide negative fresh-holdout clearance evidence that must be indexed before selecting another action",
+      "M2749 is stale relative to M2801/M2802 and must be refreshed before Route A packaging or another execution route",
+      "M2638 keeps HF3 selected-platform execution blocked until source dependency is explicitly supplied",
+      "another same clearance-localized corrective update would risk public-gate local search"
+    ],
+    "supersedes": [
+      "direct same-axis M2799-like corrective update after M2803",
+      "direct same-style M2801 triad panel after M2803",
+      "direct Route A performance validation or packaging claim without a refreshed readiness index",
+      "direct high-fidelity execution while M2638 source dependency is unavailable"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight.md",
+  "public_gates": [
+    "M2804 must consume existing Route A artifacts only and must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion or success-rate computation",
+    "M2804 must materialize readiness evidence index deliverable-readiness blocker matrix next-action admission claim-boundary and gate-matrix rows",
+    "M2804 must include M2801/M2802 negative clearance evidence M2799/M2800 corrective preflight audit M2749 readiness index M2541 actor contract M2505 benchmark pack M2508 runtime report M2638 HF3 source dependency blocker and post-M2470 route plan",
+    "M2804 must preserve M2801 candidate-minus-source clearance 23 positive 49 negative and candidate-minus-M2791-start clearance 23 positive 49 negative as non-ranking non-verdict evidence",
+    "M2804 must preserve stable_avoidable negative rows source 4 and M2791-start 2 as active behavior-retention risk",
+    "M2804 must preserve protected mitigation and HF3 source dependency blockers outside success denominators and outside actor-visible inputs",
+    "M2804 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy scenario-role metric target blocker route decision or verdict labels",
+    "M2804 must register one bounded result audit synthesis stop or new evidence route manifest",
+    "M2804 must not claim repair success driver performance validation readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected mitigation rows HF3 source dependency blocker rows or mitigation reference rows as ordinary success denominators",
+    "do not hide the M2801 negative clearance and stable_avoidable evidence",
+    "do not open another same clearance-localized repair loop from the evidence index",
+    "do not rank controller families source families task families profiles checkpoints or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from evidence index"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_clearance_corrective_readiness_refresh",
+    "evidence_axis": "route_a_current_readiness_admission_index_after_clearance_corrective_negative_result",
+    "evidence_increment": "integrates M2801/M2802 negative clearance diagnostics with current Route A baseline protected HF3 runtime benchmark taxonomy role-panel and readiness artifacts before choosing the next non-overfit evidence route",
+    "claim_scope": "Route A readiness/admission index only; no reset rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if required source artifacts are missing or cannot be traced",
+      "stop if evidence rows hide the M2801 negative clearance or stable_avoidable retention result",
+      "stop if blocker rows collapse protected mitigation HF3 dependency or mitigation reference blockers into success denominators",
+      "stop if next-action rows admit same clearance-localized repair without a new evidence axis",
+      "stop if evidence index claims driver performance validation paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required source artifacts are missing",
+      "route to schema repair if evidence rows cannot separate diagnostic evidence from verdict claims",
+      "route to result audit if evidence index materializes",
+      "route to branch synthesis if the index finds no admissible non-same-surface evidence route",
+      "route to user-supplied HF3 dependency handling only if a valid source root package route or dependency acquisition manifest is present"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2803 pivots away from completed clearance-localized corrective branch and selects Route A readiness/admission indexing",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A readiness/admission index after clearance-localized corrective branch synthesis",
+    "admission_evidence": [
+      "M2803 pivots from the completed clearance-localized corrective branch to readiness/admission indexing",
+      "M2802 accepts M2801 complete claim-safe negative fresh-holdout diagnostic evidence",
+      "M2749 materializes a prior Route A readiness index after role-panel diagnostic evidence",
+      "M2638 records HF3 source dependency unavailable until explicitly supplied",
+      "M2541 materializes baseline checkpoint list and actor contract",
+      "M2505 materializes public benchmark pack and M2508 materializes runtime inference-cost evidence"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from evidence index"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_clearance_corrective_readiness_index.py",
+      "tests/test_engineering_controller_route_a_post_clearance_corrective_readiness_index.py",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/evidence_index.csv",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/deliverable_readiness_rows.csv",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/blocker_matrix.csv",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/next_action_admission_rows.csv",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/claim_boundary_rows.csv",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/gate_matrix.csv",
+      "docs/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight.md",
+      "M2804 status queue scoreboard research log and review",
+      "one follow-up result audit synthesis stop or new evidence route manifest selected by evidence index"
+    ],
+    "next_stage_criteria": [
+      "summary and evidence index artifacts exist",
+      "M2801/M2802 negative clearance result is indexed without ranking or verdict conversion",
+      "protected mitigation HF3 source dependency mitigation-reference and same-repair-loop blockers remain visible",
+      "actor contract remains P0 observation 72 action 3 with no hidden/oracle input",
+      "one bounded next action is admitted or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2804 materializes Route A engineering readiness/admission rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2804; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2803 Route A evidence through M2801/M2802 negative clearance-localized corrective diagnostics.",
+    "negative_result_policy": "M2801 negative clearance evidence must remain visible in evidence rows and must route to audit synthesis or a new evidence surface rather than weakened gates or same-repair execution.",
+    "allowed_claims": [
+      "Route A readiness/admission index materialization after clearance-localized corrective branch synthesis",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from completed negative clearance-localized corrective execution to a refreshed Route A readiness/admission surface integrating fresh negative diagnostics and known blockers",
+    "paper_verdict_delta": "no paper verdict but clarifies why M2801 cannot support self-ID or driver-performance claims and what non-same-repair route may proceed next",
+    "must_synthesize_if": [
+      "M2804 cannot materialize evidence rows from source artifacts",
+      "M2804 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2804 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-clearance corrective attempt is proposed from evidence rows without a new evidence axis"
+    ]
+  },
+  "hypothesis": "A current Route A readiness/admission index can integrate M2801/M2802 negative clearance diagnostics with baseline contract protected HF3 runtime benchmark taxonomy role-panel and readiness artifacts and select a bounded non-same-repair next action without ranking validation or performance claims.",
+  "success_criteria": [
+    "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json exists",
+    "evidence_index.csv deliverable_readiness_rows.csv blocker_matrix.csv next_action_admission_rows.csv claim_boundary_rows and gate_matrix exist",
+    "summary records all required source artifacts consumed as reanalysis input only",
+    "evidence rows preserve M2801 candidate-minus-source clearance 23 positive 49 negative and candidate-minus-M2791-start clearance 23 positive 49 negative as diagnostic non-verdict evidence",
+    "blocker rows preserve M2801 stable_avoidable negative counts source 4 base 2 M2638 HF3 source dependency protected mitigation role-panel weak diagnostic and current-sim diagnostic limitations",
+    "evidence rows preserve actor contract P0 observation 72 action 3 and no hidden/oracle actor input",
+    "M2804 registers one bounded follow-up result audit synthesis stop or new evidence route manifest",
+    "no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2804 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2804 changes actor input or action contract",
+    "M2804 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels route labels or verdicts to actor input",
+    "M2804 hides M2801 negative clearance diagnostics or treats diagnostic rows as ranking evidence",
+    "M2804 weakens protected mitigation HF3 source dependency mitigation reference or same-repair-loop blockers or treats blocker rows as success denominators",
+    "M2804 ranks controller families source families task families profiles or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2804 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2804 fails to register a bounded follow-up route or stop decision"
+  ],
+  "commands": [
+    {
+      "name": "materialize_post_clearance_corrective_readiness_index",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_corrective_readiness_index --output-dir runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/evidence_index.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/deliverable_readiness_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/blocker_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/next_action_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+    "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+    "docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+    "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+    "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "decision_rule": "Pass only if M2804 materializes a current Route A readiness/admission index from existing artifacts while preserving M2801/M2802 negative clearance diagnostics actor boundary protected blocker semantics and HF3 dependency visibility without repair training ranking promotion validation performance paper high-fidelity current-sim full ideal driver or self-ID claims.",
+  "scoreboard_checkpoint": "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+  "next_blocker": "Route A readiness/admission index after clearance-localized corrective branch negative result"
+}

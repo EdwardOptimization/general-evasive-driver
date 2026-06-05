@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit
+m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit
+m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
+m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2803 synthesized the M2796-M2802 source-only clearance-localized corrective
+branch and selected `pivot_to_route_a_post_clearance_corrective_readiness_index`.
+The synthesis accepts the branch as complete and claim-safe, but not successful:
+M2801/M2802 preserve fresh-holdout negative clearance evidence with
+candidate-minus-source obstacle clearance at 23 positive and 49 negative rows
+with mean `-0.00365399786071096`, and candidate-minus-M2791-start obstacle
+clearance at 23 positive and 49 negative rows with mean
+`-0.001043581525003352`. `stable_avoidable` remains an active retention risk
+with 4 negative rows against source and 2 against M2791 start. Actor P0
+observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
+and mitigation rows outside ordinary denominators remain preserved. M2803
+rejects repair-success, validation, ranking, promotion, performance, paper,
+current-sim, high-fidelity, full-driver, and self-ID claims. It closes the
+same clearance-localized repair loop and routes to M2804, which must refresh
+the Route A readiness/admission index from existing artifacts before another
+execution, training, packaging, Route B, or Route C dependency action is
+admitted.
 
 M2802 audited and accepted M2801 as complete and claim-safe source-only
 fresh-holdout triad diagnostic evidence. It verified `status_pass=true`,

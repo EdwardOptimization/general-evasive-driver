@@ -1,0 +1,129 @@
+# m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T160830Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_post_clearance_corrective_readiness_index
+- Decision reason: M2803 synthesis decision pivot accepts M2796-M2802 complete claim-safe clearance-localized corrective branch preserves M2801 seed indices 12 13 14 15 disjoint from previous 0..11 horizon 160 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-M2791-start deltas 38 gates all pass but obstacle-clearance remains negative source 23 positive 49 negative mean -0.00365399786071096 base 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 base 2 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects repair-success validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims pivots to M2804 Route A post-clearance corrective readiness index
+
+## Hypothesis
+
+A branch synthesis can preserve M2796-M2802 source-only clearance-localized corrective evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt
+- parent_dataset: docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md, docs/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.md, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv, runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv, docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md, runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json, runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json
+- parent_config: experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json, experiments/manifests/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.json, experiments/manifests/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.json, experiments/manifests/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.json, docs/post-m2470-route-plan.md
+- parent_objective: synthesize M2796-M2802 clearance-localized corrective evidence before another same-axis repair, panel, ranking, promotion, or process-only extension
+- derived_from: m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit, m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight, m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight, m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
+- blocked_by: M2802 accepts M2801 complete and claim-safe but rejects direct validation ranking promotion performance paper high-fidelity full-driver and self-ID interpretation, M2801 fresh-holdout obstacle-clearance deltas are negative in 49/72 rows against both source and M2791 start candidate, M2801 still has stable_avoidable clearance-negative rows, another clearance-localized corrective update or same-style panel without synthesis would increase local-search risk
+- supersedes: direct promotion of the M2799 corrective checkpoint from M2801 deltas, another same-axis clearance-localized corrective update before synthesis, road-margin speed yaw-rate or action-delta interpretation that hides obstacle-clearance regression
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2801 status_pass true required_artifacts_present true gate_matrix_pass true and M2802 audit acceptance
+- synthesis records M2801 seed indices 12 13 14 15 disjoint from previous 0..11 and horizon 160 greater than M2793 140
+- synthesis records M2801 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 9 behavior-retention gates 4 promotion guards and 38 gate rows as source-only diagnostic evidence only
+- synthesis records candidate-minus-source obstacle-clearance 23 positive 49 negative and candidate-minus-base obstacle-clearance 23 positive 49 negative as active behavior-regression risk
+- synthesis preserves mitigation reference rows as outside ordinary denominators
+- synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels
+- synthesis registers one bounded follow-up manifest if continuing or pivoting
+- no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2803 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout
+- M2803 changes actor input or action contract
+- M2803 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress atlas role labels dynamics labels stress labels route labels or verdicts to actor input
+- M2803 treats role dynamics stress family candidate checkpoint or controller context as ranking winner selection promotion or success-rate verdict evidence
+- M2803 treats mitigation reference rows as ordinary denominators
+- M2803 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2803 fails to synthesize M2796-M2802 and select a bounded follow-up route or stop
+
+## Evidence Gates
+
+- M2803 must synthesize M2796-M2802 clearance-localized corrective evidence before another execution training ranking promotion or process-only extension
+- M2803 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2803 must preserve M2801 artifact accounting 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 9 behavior-retention gates 4 promotion guards and 38 gate rows all pass
+- M2803 must preserve fresh seed disjointness from prior seed_index 0..11 and horizon 160 greater than M2793 horizon 140
+- M2803 must keep M2801 obstacle-clearance negative rows visible as active behavior-regression risk
+- M2803 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and mitigation reference rows outside ordinary denominators
+- M2803 must decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or continue only with a materially different evidence axis
+- M2803 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2803 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose atlas role dynamics stress clearance outcome success progress route or verdict labels to actor input
+- do not hide M2801 obstacle-clearance or stable_avoidable negative rows
+- do not treat mitigation reference rows as ordinary denominators
+- do not rank roles dynamics axes stress families candidates checkpoints or controllers
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2803 synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
+- type: gate
+- checkpoint: docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_post_clearance_corrective_readiness_index
+- reason: M2803 synthesis decision pivot accepts M2796-M2802 complete claim-safe clearance-localized corrective branch preserves M2801 seed indices 12 13 14 15 disjoint from previous 0..11 horizon 160 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-M2791-start deltas 38 gates all pass but obstacle-clearance remains negative source 23 positive 49 negative mean -0.00365399786071096 base 23 positive 49 negative mean -0.001043581525003352 stable_avoidable negatives source 4 base 2 actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects repair-success validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims pivots to M2804 Route A post-clearance corrective readiness index
+
+## Next Blocker
+
+None recorded.

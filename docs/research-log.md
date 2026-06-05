@@ -51016,3 +51016,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit_20260605T155025Z/command.log`
 - success artifact: `docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md`
 - notes: Pending: audit M2801 complete claim-safe fresh-holdout triad panel artifacts seed 12 13 14 15 horizon 160 216 execution rows 72 source deltas 72 M2791-start deltas 38 gates accept artifact completeness reject validation ranking promotion repair-success performance paper current-sim high-fidelity full driver and self-ID claims route to M2803 synthesis
+
+## 20260605T160459Z m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2796-M2802 source-only clearance-localized corrective evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis_20260605T160459Z`
+- command log: `runs/research/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis_20260605T160459Z/command.log`
+- success artifact: `docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md`
+- notes: Pending: synthesize M2796-M2802 clearance-localized corrective branch after M2802 audit accepts M2801 artifacts and preserves obstacle-clearance negative skew source 23 positive 49 negative base 23 positive 49 negative stable_avoidable negatives actor and claim boundaries decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or materially different continue route no execution training ranking promotion performance paper high-fidelity full driver or self-ID claim
