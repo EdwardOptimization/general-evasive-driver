@@ -1,0 +1,9 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+proof_actor_contract_72_3,proof,actor_contract,True,all actor guards pass,all actor guards pass,6,,Route A source-only belief-stress short-training continuation preflight only
+proof_no_hidden_or_oracle_actor_input,proof,actor_contract,True,false,false,72,,Route A source-only belief-stress short-training continuation preflight only
+proof_actor_invisible_labels,proof,actor_contract,True,false,false,72,,Route A source-only belief-stress short-training continuation preflight only
+proof_stress_family_coverage,proof,scenario_sampling,True,held_actuator_history_stress;previous_command_history_stress;recurrent_hidden_reset_stress,recurrent_hidden_reset_stress;previous_command_history_stress;held_actuator_history_stress,18,,Route A source-only belief-stress short-training continuation preflight only
+proof_seed_split_complete,proof,scenario_sampling,True,training=54 proof=18,training=54 proof=18,72,,Route A source-only belief-stress short-training continuation preflight only
+proof_mitigation_rows_excluded,proof,proof_washout,True,mitigation rows excluded,mitigation rows excluded,8,,Route A source-only belief-stress short-training continuation preflight only
+proof_checkpoint_lineage_hashes,proof,lineage,True,source and candidate hashes,source and candidate hashes with behavior change,1,,Route A source-only belief-stress short-training continuation preflight only
+proof_finite_action_observation,proof,metric_artifact,True,finite,finite,72,,Route A source-only belief-stress short-training continuation preflight only

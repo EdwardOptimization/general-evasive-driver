@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
+m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
+m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
+m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
 ```
 
 Current route:
@@ -1986,16 +1986,35 @@ training repair success
 - rejected claims: no M2781 execution, training result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
 - next: `m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight`
 
+## M2782 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight_pass`
+- manifest: `experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight.py`
+- summary: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- doc: `docs/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.md`
+- candidate checkpoint: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt`
+- candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- artifact accounting: status_pass true with 18 training curriculum rows, 54 training run rows, 18 proof holdout probe rows, 8 proof gates, 6 generalization gates, 4 promotion guards, 6 actor guards, 8 mitigation guards, 11 claim rows, and 18 gate-matrix rows all passing
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention stress admission curriculum outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain context-only and outside ordinary denominators
+- claim boundary: no validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim from M2782
+- route decision: route to M2783 result audit before any interpretation or extension
+- follow-up manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
+- next: `m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit`
+
 ## Immediate Next Step
 
-M2782 should execute only the bounded preflight registered by M2781:
+M2783 should audit M2782 before any interpretation:
 
 ```text
-PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --m2781-design docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md --m2779-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json --output-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --device cpu --training-seeds-per-bucket 3 --proof-seeds-per-bucket 1 --max-updates 1
+true
 ```
 
-M2782 may write a candidate checkpoint and diagnostic training/proof artifacts,
-but it must not validate, rank, promote, compute a success-rate verdict, claim
-driver performance, or make paper/current-sim/high-fidelity/full-driver/self-ID
-claims. Stress/admission/curriculum labels remain actor-invisible evaluator
-metadata.
+M2783 must check M2782 required artifacts, checkpoint lineage, proof gates,
+generalization gates, promotion guards, actor guards, mitigation guards, claim
+rows, gate matrix, and docs. It must not execute new training or rollout, and
+must not validate, rank, promote, compute a success-rate verdict, or claim
+driver-performance/paper/current-sim/high-fidelity/full-driver/self-ID evidence.

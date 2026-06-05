@@ -1,0 +1,5 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+promotion_checkpoint_not_promoted,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress short-training continuation preflight only
+promotion_no_winner_selected,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress short-training continuation preflight only
+promotion_no_success_rate_verdict,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress short-training continuation preflight only
+promotion_no_active_config_overwrite,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress short-training continuation preflight only

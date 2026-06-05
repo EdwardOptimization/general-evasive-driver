@@ -1,0 +1,43 @@
+{
+  "actor_contract": {
+    "action_shape": 3,
+    "actor_visible_stress_admission_curriculum_labels_detected": false,
+    "hidden_or_oracle_actor_inputs_required": false,
+    "observation_shape": 72
+  },
+  "claim_scope": "Route A source-only belief-stress short-training continuation preflight only",
+  "forbidden_interpretation": "validation, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper evidence, finite-window-vs-GRU conclusion, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "generated_at_utc": "20260605T113902Z",
+  "milestone": "m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight",
+  "output_paths": {
+    "actor_contract_guard_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/actor_contract_guard_rows.csv",
+    "candidate_checkpoint": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "checkpoint_manifest": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json",
+    "checkpoint_trace_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_trace_rows.csv",
+    "claim_boundary_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/claim_boundary_rows.csv",
+    "doc": "docs/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json",
+    "gate_matrix": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/gate_matrix.csv",
+    "generalization_gate_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/generalization_gate_rows.csv",
+    "mitigation_reference_guard_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/mitigation_reference_guard_rows.csv",
+    "promotion_guard_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/promotion_guard_rows.csv",
+    "proof_gate_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/proof_gate_rows.csv",
+    "run_state": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/run_state.json",
+    "summary": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json",
+    "training_curriculum_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_curriculum_rows.csv",
+    "training_run_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_run_rows.csv"
+  },
+  "run_state_id": "m2782_belief_stress_short_training_continuation_preflight_state_v0",
+  "source_paths": {
+    "actor_contract_guard_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/actor_contract_guard_rows.csv",
+    "belief_stress_admission_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/belief_stress_admission_rows.csv",
+    "claim_boundary_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/claim_boundary_rows.csv",
+    "gate_matrix": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/gate_matrix.csv",
+    "m2779_summary": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json",
+    "m2781_design": "docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md",
+    "mitigation_reference_guard_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/mitigation_reference_guard_rows.csv",
+    "source_checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "stress_curriculum_rows": "runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/stress_curriculum_rows.csv"
+  },
+  "status_pass": true
+}

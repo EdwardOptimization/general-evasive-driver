@@ -50367,3 +50367,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json`
 - next: `m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight`
 - rejected claims: no M2781 execution, training result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T113902Z m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded short-training continuation preflight can produce a candidate checkpoint and proof/generalization gate artifacts from the audited M2779 belief-stress curriculum while preserving actor and claim boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --m2781-design docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md --m2779-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json --output-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --device cpu --training-seeds-per-bucket 3 --proof-seeds-per-bucket 1 --max-updates 1`
+- returncode: `0`
+- run dir: `runs/research/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight_20260605T113900Z`
+- command log: `runs/research/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight_20260605T113900Z/command.log`
+- success artifact: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- notes: Pending: bounded training/execution preflight from M2781 and M2779 writes candidate checkpoint training/gate/guard/claim rows summary doc run-state and M2783 audit manifest no promotion ranking validation success-rate verdict driver-performance paper high-fidelity full driver or self-ID claim
+
+## M2782 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight_pass`
+- manifest: `experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight.py`
+- summary: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- doc: `docs/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.md`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- candidate checkpoint: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt`
+- candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- artifact accounting: 18 training curriculum rows, 54 training run rows, 18 proof holdout probe rows, 8 proof gates, 6 generalization gates, 4 promotion guards, 6 actor guards, 8 mitigation guards, 11 claim rows, and 18 gate-matrix rows all passing
+- execution scope: source-only backend reset/step and policy action were run for bounded preflight rows; no measured validation, ranking, winner selection, checkpoint promotion, success-rate verdict, external simulation, high-fidelity validation, or PPO claim
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input; role dynamics intervention stress admission curriculum outcome success progress route and verdict labels remain actor-invisible evaluator metadata
+- mitigation boundary: mitigation reference rows are context-only and excluded from ordinary denominators and proof denominators
+- gate separation: proof, generalization, and promotion rows are written separately and the promotion guards block interpretation as a promoted checkpoint
+- route decision: route to M2783 result audit before any interpretation or extension
+- follow-up manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
+- next: `m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
