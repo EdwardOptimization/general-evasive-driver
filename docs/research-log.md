@@ -49829,3 +49829,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2756
 - follow-up manifest: `experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json`
 - next: `m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit`
+
+## M2757 Engineering Controller Route A Post-Cross-Axis Negative Failure Localization Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2756_route_to_post_cross_axis_negative_action_response_containment_probe_design`
+- manifest: `experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json`
+- audit doc: `docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json`
+- accepted parent result: M2756 status_pass true required artifacts present with 12 localization rows 2 outcome buckets 4 stress-axis context rows 8 source-edge context rows 31 guardrail context rows 12 actor guard rows 25 claim-boundary rows and 24 gate rows all passing
+- diagnostic accounting: accepts 3 collision negative-clearance rows and 9 offtrack positive-clearance rows while preserving 0 diagnostic success as non-verdict row accounting
+- context boundary: stress-axis and source-edge rows remain diagnostic and non-ranking and do not select axes source edges task families profiles or controllers
+- guardrail boundary: 25 prior-panel exclusion rows and 6 blocker guard rows remain non-executed outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: route to M2758 action-response and containment probe design before new execution repair extension ranking validation or performance interpretation
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2757
+- follow-up manifest: `experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json`
+- next: `m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design`
