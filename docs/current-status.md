@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
+m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
+m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
+m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
 ```
 
 Current route:
@@ -2005,16 +2005,33 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
 - next: `m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit`
 
+## M2783 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Result Audit
+
+- status: completed
+- decision: `accept_m2782_route_to_source_only_belief_stress_candidate_closed_loop_delta_panel`
+- manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
+- audit doc: `docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md`
+- parent summary: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- parent checkpoint manifest: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json`
+- accepted parent result: M2782 status_pass true required_artifacts_present true with 18 gate rows all passing and no failed gate ids
+- checkpoint lineage: source hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`; candidate hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- artifact accounting: 18 curriculum rows, 54 training rows, 18 proof holdout probe rows, 8 proof gates, 6 generalization gates, 4 promotion guards, 6 actor guards, 8 mitigation guards, and 11 claim rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention stress admission curriculum outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and proof denominators
+- audit decision: accept completeness and claim safety but reject validation ranking promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2784 paired source-only candidate-vs-source closed-loop delta panel before any interpretation or promotion
+- follow-up manifest: `experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json`
+- next: `m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight`
+
 ## Immediate Next Step
 
-M2783 should audit M2782 before any interpretation:
+M2784 should run the paired source-only closed-loop diagnostic delta panel:
 
 ```text
-true
+PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --m2783-audit docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json --output-dir runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --device cpu --seed-count 4 --horizon-steps 80
 ```
 
-M2783 must check M2782 required artifacts, checkpoint lineage, proof gates,
-generalization gates, promotion guards, actor guards, mitigation guards, claim
-rows, gate matrix, and docs. It must not execute new training or rollout, and
-must not validate, rank, promote, compute a success-rate verdict, or claim
-driver-performance/paper/current-sim/high-fidelity/full-driver/self-ID evidence.
+M2784 must compare M2655 source and M2782 candidate checkpoint rows as paired
+source-only diagnostic deltas only. It must not train, validate, rank, promote,
+select a winner, compute a success-rate verdict, or claim driver-performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID evidence.

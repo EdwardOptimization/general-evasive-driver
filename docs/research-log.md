@@ -50402,3 +50402,34 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
 - next: `m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T115226Z m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M2782 bounded short-training preflight artifacts can be audited for completeness and claim safety before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit_20260605T115226Z`
+- command log: `runs/research/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit_20260605T115226Z/command.log`
+- success artifact: `docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md`
+- notes: Pending: audit M2782 summary required artifacts checkpoint lineage training/proof/generalization/promotion gates actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators no new execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop
+
+## M2783 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Result Audit
+
+- status: completed
+- decision: `accept_m2782_route_to_source_only_belief_stress_candidate_closed_loop_delta_panel`
+- manifest: `experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json`
+- audit doc: `docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md`
+- parent summary: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json`
+- parent checkpoint manifest: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json`
+- accepted parent result: M2782 status_pass true required_artifacts_present true with 18 gate rows all passing and no failed gate ids
+- checkpoint lineage: source checkpoint hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`; candidate checkpoint hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- artifact accounting: 18 curriculum rows, 54 training rows, 18 proof holdout probe rows, 8 proof gates, 6 generalization gates, 4 promotion guards, 6 actor guards, 8 mitigation guards, and 11 claim rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention stress admission curriculum outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and proof denominators
+- audit decision: accept M2782 completeness and claim safety but reject validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2784 paired source-only candidate-vs-source closed-loop delta panel before any interpretation or promotion
+- follow-up manifest: `experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json`
+- next: `m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
