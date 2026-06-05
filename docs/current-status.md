@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
+m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
+m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
+m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
 ```
 
 Current route:
@@ -153,6 +153,18 @@ and actor-visible labels remain false.
 Next is M2726 candidate materialization result audit before any execution
 design, repair execution, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
+
+M2726 audited and accepted M2725 as a complete claim-safe artifact-only repair
+candidate pack. It verifies 31 candidate target rows, 15 shared repair overlay
+rows, 17 guardrail rows, 9 actor rows, 23 claim rows, and 17 gate rows all
+passing, with active config overwrite, repair execution, training, actor input
+change, hidden/oracle feature injection, actor-visible labels, ranking, and
+winner selection all false. It admits only a separately pre-registered bounded
+execution-design step, not repair execution or a verdict.
+
+Next is M2727 bounded offtrack repair execution design before any repair
+execution, validation, ranking, performance, paper, current-sim, high-fidelity,
+full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

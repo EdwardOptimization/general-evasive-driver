@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2731,
+    "completed": 2732,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json",
+    "command_log": "docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md",
         "returncode": 0,
-        "run_dir": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization",
+    "run_dir": "docs",
         "status": "completed",
-        "task_id": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight"
+    "task_id": "m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit"
     },
     "next_task": {
-        "command": "true",
-        "hypothesis": "M2725 candidate materialization artifacts can be audited as complete and claim-safe before selecting an execution-design or repair route.",
-        "id": "m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit",
+    "command": "true",
+    "hypothesis": "A bounded execution design can translate the audited M2725 repair candidate pack into an actor-safe repair preflight protocol without executing or overclaiming.",
+    "id": "m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design",
         "kind": "gate",
-        "notes": "Pending: audit M2725 status_pass true 31 candidate target rows 15 shared overlay rows 17 guardrail rows 9 actor rows 23 claim rows 17 gates all pass active config overwrite false repair execution false training false actor input change false labels actor-invisible no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27210,
+    "notes": "Pending: design bounded offtrack repair execution protocol from M2725 candidate artifacts specifying candidate rows temporary overlay application rollback artifact schemas collision protected actor guardrails and one follow-up route no reset step rollout training repair execution active config overwrite ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27220,
         "status": "pending",
-        "success_artifact": "docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md"
+    "success_artifact": "docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md"
     },
-    "updated_at_utc": "20260604T235727Z"
+  "updated_at_utc": "20260605T000238Z"
 }

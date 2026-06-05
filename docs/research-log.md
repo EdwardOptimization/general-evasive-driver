@@ -49277,3 +49277,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning active config overwrite ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2725
 - follow-up manifest: `experiments/manifests/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.json`
 - next: `m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit`
+
+## M2726 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Candidate Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2725_route_to_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_design`
+- manifest: `experiments/manifests/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.json`
+- audit doc: `docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md`
+- parent summary: `runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json`
+- accepted parent result: M2725 `status_pass` true with 31 candidate target rows 15 shared repair overlay rows 17 guardrail rows 9 actor rows 23 claim rows and 17 gate rows all pass
+- candidate audit: all 31 candidate rows trace to the M2721 offtrack target panel and keep active config overwrite repair execution training actor input change hidden/oracle feature injection actor-visible target labels ranking and winner selection false
+- overlay audit: 15 shared road-containment collision-clearance and geometry guardrail rows use existing config fields without profile-specific tuning or active config overwrite
+- guardrail audit: 2 collision caution rows 3 diagnostic success context rows and 12 protected exclusion rows remain visible as non-target guardrails with execution_scheduled false and protected rows outside denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2727 bounded offtrack repair execution design before any repair execution ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2726
+- follow-up manifest: `experiments/manifests/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.json`
+- next: `m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design`
