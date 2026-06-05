@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2734,
+    "completed": 2735,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json",
-        "returncode": 0,
-    "run_dir": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight",
-        "status": "completed",
-    "task_id": "m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight"
-    },
-    "next_task": {
+    "command_log": "docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md",
+    "returncode": 0,
+    "run_dir": "docs",
+    "status": "completed",
+    "task_id": "m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit"
+  },
+  "next_task": {
     "command": "true",
-    "hypothesis": "M2728 bounded repair execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence step.",
-    "id": "m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit",
+    "hypothesis": "Synthesize the M2719-M2729 offtrack repair branch after M2729 accepts M2728 but rejects direct repair-success interpretation.",
+    "id": "m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2728 31 repair execution rows 0 failure rows 465 overlay application rows 17 guardrail audit rows 12 actor rows 38 claim rows 21 gates pass active config overwrite false diagnostic 1 success 3 collision 27 offtrack no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27240,
-        "status": "pending",
-    "success_artifact": "docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md"
-    },
-  "updated_at_utc": "20260605T002901Z"
+    "notes": "Pending: synthesize M2719-M2729 before any further same-surface repair execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim; preserve M2728 diagnostic 1 success 3 collision 27 offtrack as non-ranking non-verdict evidence and select stop pivot or one bounded evidence-changing route",
+    "priority": 27250,
+    "status": "pending",
+    "success_artifact": "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md"
+  },
+  "updated_at_utc": "20260605T003750Z"
 }

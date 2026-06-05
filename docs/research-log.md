@@ -49329,3 +49329,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2728
 - follow-up manifest: `experiments/manifests/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.json`
 - next: `m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit`
+
+## M2729 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2728_route_to_current_m1690_exact_executable_reentry_offtrack_repair_result_synthesis`
+- manifest: `experiments/manifests/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.json`
+- audit doc: `docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md`
+- parent summary: `runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json`
+- accepted parent result: M2728 status_pass true with 31 repair execution rows 0 failure rows 465 overlay application rows 17 guardrail audit rows 4 profile aggregates 9 anchor aggregates 12 actor rows 38 claim rows and 21 gates all pass
+- execution audit: all 31 M2725 candidate target rows are accounted with active config overwrite false profile-specific tuning false temporary run-dir snapshots and protected rows not executed
+- diagnostic outcome: 1/31 success 3/31 collision and 27/31 off_track terminations; all aggregates remain non-ranking and non-verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- post-M2470 route-plan check: the branch has now run one complete same-surface repair execution and should synthesize rather than start another immediate narrow repair loop
+- route decision: route to M2730 offtrack repair result synthesis before any further repair execution ranking validation or performance interpretation
+- rejected claims: no replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2729
+- follow-up manifest: `experiments/manifests/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.json`
+- next: `m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis`

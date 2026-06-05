@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
+m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
+m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
+m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
 ```
 
 Current route:
@@ -187,9 +187,20 @@ are preserved, and all selected metrics are finite. The diagnostic outcome is
 not a repair success claim: 1/31 success, 3/31 collision, and 27/31 off_track
 terminations, with all aggregates non-ranking and non-verdict.
 
-Next is M2729 bounded offtrack repair execution result audit before any further
-interpretation, validation, ranking, performance, paper, current-sim,
-high-fidelity, full ideal driver, or self-ID claim.
+M2729 audited and accepted M2728 as complete and claim-safe while rejecting
+direct repair-success, ranking, validation, performance, paper, current-sim,
+high-fidelity, full ideal driver, and self-ID interpretation. M2728 accounts
+for 31/31 candidate rows with 0 failure rows, 465 overlay application rows, 17
+guardrail audit rows, 12 actor rows, 38 claim rows, and 21 passing gates. The
+diagnostic outcome remains negative: 1/31 success, 3/31 collision, and 27/31
+off_track terminations. Because this branch has now progressed from offtrack
+taxonomy through repair design, candidate materialization, bounded execution,
+and audit on the same surface, post-M2470 local-search discipline requires
+branch synthesis before any further repair execution.
+
+Next is M2730 offtrack repair result synthesis before any further execution,
+validation, ranking, performance, paper, current-sim, high-fidelity, full ideal
+driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,
