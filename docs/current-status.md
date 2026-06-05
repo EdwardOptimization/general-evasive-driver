@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
+m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
+m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
+m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit
 ```
 
 Current route:
@@ -268,9 +268,23 @@ unset_or_completed outcome. Guardrail rows remain non-executed and outside
 denominators; actor 72/action 3 and no hidden/oracle actor input are
 preserved. M2748 rejects another immediate same-panel execution and rejects
 ranking, validation, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID interpretation. The next bounded action is M2749
-Route A baseline readiness/admission index materialization from existing
-artifacts only.
+full-driver, and self-ID interpretation.
+
+M2749 completed the Route A baseline readiness/admission index materialization
+from existing artifacts only. It wrote 12 evidence rows, 9 deliverable readiness
+rows, 6 blocker rows, 7 next-action admission rows, 25 claim-boundary rows, and
+31 gate rows, all passing. It preserves the M2746 weak role-panel diagnostic:
+14 execution rows, 1 diagnostic success, 1 collision, 9 off_track, 3
+speed_too_low, and 1 unset_or_completed. It keeps the M2667 protected mitigation
+blocker and M2638 HF3 source dependency blocker visible and outside success
+denominators, preserves actor P0 observation 72/action 3 with no hidden/oracle
+actor input, and does not execute reset, step, rollout, replay, validation,
+training, PPO, source build, adapter probe, external simulation, ranking,
+promotion, or success-rate computation. M2749 does not claim repair success,
+driver performance, validation readiness, paper evidence, current-sim,
+high-fidelity, full-driver, or self-ID evidence. The only admitted next action is
+M2750 result audit; same-panel role execution, HF3 selected-platform execution,
+ranking, validation, and driver-performance claims remain not admitted.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

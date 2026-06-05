@@ -49685,3 +49685,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2748
 - follow-up manifest: `experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json`
 - next: `m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight`
+
+## M2749 Engineering Controller Route A Baseline Readiness After Role-Panel Diagnostic Index Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index_pass`
+- manifest: `experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index.py`
+- focused tests: `tests/test_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index.py`
+- summary: `runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json`
+- doc: `docs/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.md`
+- artifacts: wrote 12 evidence rows, 9 deliverable readiness rows, 6 blocker rows, 7 next-action admission rows, 25 claim-boundary rows, and 31 gate rows all passing
+- diagnostic accounting: preserved M2746 weak role-panel diagnostic as 14 execution rows, 1 diagnostic success row, 1 collision row, 9 off_track rows, 3 speed_too_low rows, and 1 unset_or_completed row; this remains non-ranking diagnostic evidence only
+- readiness boundary: indexed Route A near-term deliverables while preserving M2667 protected mitigation blocker and M2638 HF3 source dependency blocker as visible blockers outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy scenario-role metric target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: only M2750 result audit is admitted; same-panel role execution, same-surface repair loop, HF3 selected-platform execution, ranking, validation, and driver-performance claims remain not admitted
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2749
+- follow-up manifest: `experiments/manifests/m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit.json`
+- next: `m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit`
