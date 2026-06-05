@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2815,
+    "completed": 2816,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z/command.log",
+    "command_log": "runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174944Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z",
+    "run_dir": "runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174944Z",
     "status": "completed",
-    "task_id": "m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis"
+    "task_id": "m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2809-synthesis docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md --output-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel",
-    "hypothesis": "A no-rollout localization materialization can turn M2807 mixed weak non-same-repair diagnostic rows into an auditable offtrack-containment failure surface without ranking axes or overclaiming performance.",
-    "id": "m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize no-rollout offtrack-containment localization from M2807/M2809 existing artifacts classify 12 execution rows preserve 2 success 0 collision 10 off_track separate success obstacle-pass offtrack positive-clearance offtrack severity stress-axis source-edge prior-surface same-clearance protected HF3 actor and claim boundaries no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28050,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2810 offtrack-containment localization artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2810 offtrack-containment localization artifacts for completeness and claim safety verify 12 execution rows 2 success 0 collision 10 off_track offtrack containment rows guardrails actor 72/action 3 no hidden oracle labels prior-surface same-clearance protected HF3 outside denominators no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28060,
     "status": "pending",
-    "success_artifact": "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json"
+    "success_artifact": "docs/m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T173842Z"
+  "updated_at_utc": "20260605T174944Z"
 }

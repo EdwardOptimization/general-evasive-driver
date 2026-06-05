@@ -51100,3 +51100,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis_20260605T173842Z/command.log`
 - success artifact: `docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md`
 - notes: Completed: synthesis decision pivot accepts M2806-M2808 complete claim-safe non-same-repair branch with M2807 12 executed 0 failures 2 diagnostic success 0 collision 10 off_track 4 stress-axis aggregates 37 prior-surface rows 7 blocker guards actor 72/action 3 no hidden oracle labels prior-surface same-clearance protected HF3 outside denominators rejects direct execution repair validation ranking performance paper high-fidelity full driver and self-ID claims routes to M2810 offtrack-containment localization panel
+
+## 20260605T174812Z m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight
+
+- status: `failed`
+- kind: `infrastructure`
+- hypothesis: A no-rollout localization materialization can turn M2807 mixed weak non-same-repair diagnostic rows into an auditable offtrack-containment failure surface without ranking axes or overclaiming performance.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2809-synthesis docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md --output-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel`
+- returncode: `1`
+- run dir: `runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174812Z`
+- command log: `runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174812Z/command.log`
+- success artifact: `runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json`
+- notes: Failed: runner schema mismatch read prior_panel_exclusion_rows.csv but M2807 writes prior_surface_exclusion_rows.csv; fixed runner/test and reran same milestone
+
+## 20260605T174944Z m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-rollout localization materialization can turn M2807 mixed weak non-same-repair diagnostic rows into an auditable offtrack-containment failure surface without ranking axes or overclaiming performance.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2809-synthesis docs/m2809-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-result-synthesis.md --output-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel`
+- returncode: `0`
+- run dir: `runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174944Z`
+- command log: `runs/research/m2810-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-preflight_20260605T174944Z/command.log`
+- success artifact: `runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/summary.json`
+- notes: Completed: no-rollout offtrack-containment localization status_pass true required artifacts present 12 localization rows 2 success obstacle-pass 0 collision 10 off_track 10 offtrack-containment rows 2 outcome buckets 4 stress-axis contexts 8 source-edge contexts 44 guardrails 37 prior-surface and 7 blocker rows actor 72/action 3 no hidden oracle labels guardrails outside denominators no ranking validation performance paper high-fidelity full driver or self-ID claim routes to M2811 audit
