@@ -172,6 +172,21 @@ def _stable_recovery_index(step_infos: list[Mapping[str, Any]], *, pass_index: i
     return None
 
 
+def _recoverability_window_success(
+    step_infos: list[Mapping[str, Any]], *, off_track_index: int, dt: float, track_width: float
+) -> tuple[bool, bool]:
+    hold_steps = max(1, int(math.ceil(RECOVERY_HOLD_SECONDS / max(dt, 1e-6))))
+    post_event_infos = step_infos[off_track_index + 1 :]
+    if len(post_event_infos) < hold_steps:
+        return False, False
+    stable = [_stable_corridor(info, track_width=track_width) for info in post_event_infos]
+    for end_index in range(hold_steps - 1, len(stable)):
+        start = end_index - hold_steps + 1
+        if all(stable[start : end_index + 1]):
+            return True, True
+    return False, True
+
+
 def compute_episode_outcome_metrics(
     step_infos: list[Mapping[str, Any]],
     *,
@@ -265,6 +280,24 @@ def compute_episode_outcome_metrics(
     time_to_first_off_track = times[off_track_index] if off_track_index is not None else float("nan")
     off_track_severity = max_off_track_overshoot
     collision_available = collision_index is not None
+    event_index = off_track_index if off_track_index is not None else collision_index
+    post_event_infos = step_infos[event_index + 1 :] if event_index is not None else []
+    post_event_available = bool(post_event_infos)
+    if post_event_available:
+        post_event_speed = _finite_float(post_event_infos[-1].get("speed"), default=float("nan"))
+        post_event_yaw_rate_abs = abs(_finite_float(post_event_infos[-1].get("yaw_rate"), default=float("nan")))
+        post_event_offtrack_overshoot = max(overshoots[event_index + 1 :])
+    else:
+        post_event_speed = float("nan")
+        post_event_yaw_rate_abs = float("nan")
+        post_event_offtrack_overshoot = float("nan")
+    if off_track_index is None:
+        recoverability_success = False
+        recoverability_available = False
+    else:
+        recoverability_success, recoverability_available = _recoverability_window_success(
+            step_infos, off_track_index=off_track_index, dt=dt, track_width=track_width
+        )
     return {
         "dt": dt,
         "track_width": track_width,
@@ -295,14 +328,14 @@ def compute_episode_outcome_metrics(
         "collision_angle_or_side": "",
         "collision_angle_or_side_available": False,
         "collision_side_proxy": collision_side_proxy,
-        "post_event_speed_mps": float("nan"),
-        "post_event_speed_mps_available": False,
-        "post_event_yaw_rate_abs": float("nan"),
-        "post_event_yaw_rate_abs_available": False,
-        "post_event_offtrack_overshoot": float("nan"),
-        "post_event_offtrack_overshoot_available": False,
-        "recoverability_window_success": False,
-        "recoverability_window_success_available": False,
+        "post_event_speed_mps": post_event_speed,
+        "post_event_speed_mps_available": post_event_available,
+        "post_event_yaw_rate_abs": post_event_yaw_rate_abs,
+        "post_event_yaw_rate_abs_available": post_event_available,
+        "post_event_offtrack_overshoot": post_event_offtrack_overshoot,
+        "post_event_offtrack_overshoot_available": post_event_available,
+        "recoverability_window_success": recoverability_success,
+        "recoverability_window_success_available": recoverability_available,
     }
 
 

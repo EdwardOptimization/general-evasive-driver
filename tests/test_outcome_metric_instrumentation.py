@@ -71,6 +71,47 @@ def test_collision_and_off_track_severity_metrics_are_logging_only_scores() -> N
     assert np.isclose(metrics["off_track_severity_proxy"], 0.4)
 
 
+def test_post_offtrack_recoverability_window_uses_only_real_post_event_rows() -> None:
+    rows = [
+        _info(1, lateral_error=0.4, speed=8.0),
+        _info(2, lateral_error=5.2, speed=7.8),
+        _info(3, lateral_error=0.6, speed=7.7),
+        _info(4, lateral_error=0.5, speed=7.8),
+        _info(5, lateral_error=0.4, speed=7.9),
+        _info(6, lateral_error=0.3, speed=8.0),
+        _info(7, lateral_error=0.2, speed=8.1),
+    ]
+
+    metrics = compute_episode_outcome_metrics(rows, default_dt=0.1, default_track_width=5.0)
+
+    assert np.isclose(metrics["max_off_track_overshoot"], 0.2)
+    assert np.isclose(metrics["time_to_first_off_track_s"], 0.2)
+    assert metrics["post_event_speed_mps_available"] is True
+    assert np.isclose(metrics["post_event_speed_mps"], 8.1)
+    assert metrics["post_event_yaw_rate_abs_available"] is True
+    assert np.isclose(metrics["post_event_yaw_rate_abs"], 0.2)
+    assert metrics["post_event_offtrack_overshoot_available"] is True
+    assert np.isclose(metrics["post_event_offtrack_overshoot"], 0.0)
+    assert metrics["recoverability_window_success_available"] is True
+    assert metrics["recoverability_window_success"] is True
+
+
+def test_terminal_event_without_post_rows_keeps_post_event_metrics_unavailable() -> None:
+    rows = [
+        _info(1, lateral_error=0.4, margin=0.5),
+        _info(2, collision=True, margin=-0.1, termination_reason="obstacle_collision"),
+    ]
+
+    metrics = compute_episode_outcome_metrics(rows, default_dt=0.1, default_track_width=5.0)
+
+    assert metrics["impact_speed_mps_available"] is True
+    assert metrics["post_event_speed_mps_available"] is False
+    assert metrics["post_event_yaw_rate_abs_available"] is False
+    assert metrics["post_event_offtrack_overshoot_available"] is False
+    assert metrics["recoverability_window_success_available"] is False
+    assert metrics["recoverability_window_success"] is False
+
+
 def test_outcome_metric_aggregate_fields_and_hidden_worst_rows() -> None:
     rows = [
         {

@@ -1,0 +1,119 @@
+# m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T192439Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: route_to_post_action_response_recoverability_window_result_audit
+- Decision reason: M2816 bounded recoverability-window instrumented execution status_pass true required artifacts present fixed M2813 row set 12 accounted 10 source offtrack 2 source success 0 source collision executed 12 failure 0 diagnostic outcomes 6 success 1 collision 5 offtrack terminations post-event available 7 recoverability-window available 0 recoverability success 0 guardrails 44 actor guards 14 claim rows 17 gates 32 all pass actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects training repair ranking validation promotion performance paper high-fidelity full driver and self-ID claims routes to M2817 audit
+
+## Hypothesis
+
+A bounded instrumented closed-loop execution panel can produce recoverability-window and post-offtrack action-response traces for M2813 offtrack-containment rows while preserving actor and claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md, docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md, docs/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight.md, runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json, runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/action_response_mechanism_rows.csv, runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/success_offtrack_contrast_rows.csv, runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/guardrail_context_rows.csv, runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/failure_localization_rows.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.json, experiments/manifests/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.json, experiments/manifests/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight.json
+- parent_objective: collect bounded recoverability-window and post-offtrack action-response closed-loop diagnostics for the M2813 action-response mechanism branch before any repair ranking validation or promotion route
+- derived_from: m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis, m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit, m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight, m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight
+- blocked_by: M2815 rejects another no-rollout mechanism-table loop and admits new bounded recoverability-window closed-loop diagnostics, M2813 has 10 offtrack-containment rows and 2 success obstacle-pass rows but zero recoverability-window availability, M2813 action-response context is diagnostic and non-ranking, prior-surface same-clearance protected and HF3 guardrails remain active and outside ordinary denominators
+- supersedes: another immediate M2813-like mechanism table without new closed-loop data, direct repair design from M2813 mechanism rows without recoverability-window evidence, direct action-response stress-axis source-edge task-family or profile ranking from M2813 context rows, direct validation readiness or driver-performance claim from M2813
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json exists
+- docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md exists
+- recoverability-window artifacts account for the fixed M2813 offtrack-containment and success obstacle-pass rows
+- post-offtrack action-response trace rows remain diagnostic and non-ranking
+- stress-axis source-edge task-family profile and action-response context remains diagnostic and non-ranking
+- actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved
+- one result-audit follow-up manifest is registered
+- no training PPO policy repair actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2816 trains PPO repairs policy weights promotes a checkpoint or selects a winner
+- M2816 changes actor input or action contract
+- M2816 exposes hidden dynamics oracle labels recoverability labels action-response labels source-edge labels task-family labels stress-axis labels route labels blocker labels protected labels success progress or verdict labels to actor input
+- M2816 treats action-response recoverability stress-axis source-edge task-family or profile context as ranking winner selection promotion or success-rate verdict evidence
+- M2816 treats prior-surface same-clearance protected or HF3 guardrail rows as execution rows or ordinary denominators
+- M2816 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2816 fails to register a bounded result-audit follow-up
+
+## Evidence Gates
+
+- M2816 must consume M2815 synthesis M2814 audit M2813 mechanism rows M2810 localization rows and M2807 candidate execution rows before executing any bounded diagnostic row
+- M2816 must use a fixed pre-registered row set derived from the 10 offtrack-containment rows and 2 success obstacle-pass rows in M2813
+- M2816 may execute only the bounded current-sim closed-loop diagnostic needed to materialize recoverability-window and post-offtrack action-response rows
+- M2816 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators
+- M2816 must preserve prior-surface same-clearance protected and HF3 rows as non-executed guardrails outside ordinary denominators
+- M2816 must not train PPO repair tune rank axes select winners promote checkpoints compute success-rate verdicts or claim validation performance paper high-fidelity full-driver or self-ID evidence
+- M2816 must write recoverability-window post-offtrack action-response contrast guardrail actor-contract claim-boundary gate summary and doc artifacts
+- M2816 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not tune policy weights
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose action-response mechanism labels recoverability labels stress-axis labels source-edge labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input
+- do not execute prior-surface same-clearance protected or HF3 guardrail rows as ordinary candidates
+- do not hide M2813 success obstacle-pass or offtrack-containment rows
+- do not hide absent or negative recoverability-window evidence
+- do not treat guardrail rows as ordinary success denominators
+- do not rank controller families source families profiles task families action-response families stress axes source edges or scenario roles
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2816 diagnostics
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
+- type: infrastructure
+- checkpoint: runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_post_action_response_recoverability_window_result_audit
+- reason: M2816 bounded recoverability-window instrumented execution status_pass true required artifacts present fixed M2813 row set 12 accounted 10 source offtrack 2 source success 0 source collision executed 12 failure 0 diagnostic outcomes 6 success 1 collision 5 offtrack terminations post-event available 7 recoverability-window available 0 recoverability success 0 guardrails 44 actor guards 14 claim rows 17 gates 32 all pass actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects training repair ranking validation promotion performance paper high-fidelity full driver and self-ID claims routes to M2817 audit
+
+## Next Blocker
+
+m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit

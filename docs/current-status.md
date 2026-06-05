@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
+m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
+m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
+m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
 ```
 
 Current route:
@@ -39,21 +39,28 @@ docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
 
+M2816 completed bounded recoverability-window instrumented execution over the
+fixed M2813/M2807 row set. It accounts for 12 fixed mechanism rows, 10 source
+offtrack-containment rows, 2 source success obstacle-pass rows, 0 source
+collision rows, 12 executed rows, 0 execution failures, 6 diagnostic success
+outcomes, 1 diagnostic collision, and 5 diagnostic offtrack terminations. It
+materialized 12 recoverability-window rows, 12 post-offtrack action-response
+rows, 2 success/offtrack contrast rows, 44 guardrail context rows, 14 actor
+guards, 17 claim-boundary rows, and 32 passing gates. The key result is negative
+for full recoverability-window availability: post-event traces exist for 7 rows,
+but recoverability-window availability is 0 and recoverability success is 0.
+This is diagnostic Route A evidence only; it preserves actor P0 observation
+72/action 3, no hidden/oracle actor input, actor-invisible labels, protected
+guardrails outside denominators, and rejects training, repair, ranking,
+validation, promotion, performance, paper, high-fidelity, full-driver, and
+self-ID claims. The next admitted step is M2817 result audit before any repair
+design, execution extension, ranking, validation, or interpretation route.
+
 M2815 synthesized the M2812-M2814 action-response mechanism branch and selected
 `pivot_to_post_action_response_recoverability_window_instrumented_bounded_execution_preflight`.
-It accepts the branch as complete and claim-safe but still not solved: M2813
-preserves 12 mechanism rows, 10 offtrack-containment rows, 2 success
-obstacle-pass rows, 0 collision rows, 2 contrast rows, action-response metrics
-for all rows, 10 offtrack-timing rows, 0 recoverability-available rows, 44
-guardrails, 12 actor guards, 25 claim-boundary rows, and 22 gates. The branch
-keeps actor P0 observation 72/action 3, no hidden/oracle actor input,
-actor-invisible labels, and guardrails outside ordinary denominators. M2815
-rejects another no-rollout mechanism-table loop and rejects direct repair,
-ranking, validation, performance, paper, high-fidelity, full-driver, and
-self-ID claims. The next admitted step is M2816, a bounded instrumented
-closed-loop diagnostic preflight over the fixed M2813/M2807 rows to collect
-recoverability-window and post-offtrack action-response traces before any
-repair or interpretation route.
+It accepted the branch as complete and claim-safe but not solved, rejected
+another no-rollout mechanism-table loop, and admitted M2816 as the bounded
+instrumented closed-loop diagnostic preflight now completed above.
 
 M2814 audited and accepted M2813 as complete, claim-safe, no-rollout
 action-response mechanism materialization evidence. It verified

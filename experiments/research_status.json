@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2821,
+    "completed": 2822,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z/command.log",
+    "command_log": "runs/research/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight_20260605T192200Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z",
+    "run_dir": "runs/research/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight_20260605T192200Z",
     "status": "completed",
-    "task_id": "m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis"
+    "task_id": "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --m2815-synthesis docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md --m2813-dir runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2810-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --device cpu --seed-start-index 281600 --horizon-steps 180 --recoverability-window-steps 40",
-    "hypothesis": "A bounded instrumented closed-loop execution panel can produce recoverability-window and post-offtrack action-response traces for M2813 offtrack-containment rows while preserving actor and claim boundaries.",
-    "id": "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute bounded recoverability-window diagnostic preflight over fixed M2813/M2807 rows to collect post-offtrack action-response traces and recoverability-window rows with actor 72/action 3 no hidden oracle labels guardrails outside denominators no training repair ranking validation promotion performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28110,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2816 recoverability-window artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2816 complete claim-safe recoverability-window diagnostics before any repair design execution extension ranking validation performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28120,
     "status": "pending",
-    "success_artifact": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json"
+    "success_artifact": "docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md"
   },
-  "updated_at_utc": "20260605T184503Z"
+  "updated_at_utc": "20260605T192202Z"
 }

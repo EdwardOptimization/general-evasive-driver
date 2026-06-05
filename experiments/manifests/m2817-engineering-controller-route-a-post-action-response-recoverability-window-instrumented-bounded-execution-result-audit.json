@@ -1,0 +1,221 @@
+{
+  "id": "m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/recoverability_window_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/post_offtrack_action_response_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/success_offtrack_contrast_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md",
+      "docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.json",
+      "experiments/manifests/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.json",
+      "experiments/manifests/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "audit M2816 bounded recoverability-window diagnostic artifacts before any repair design execution extension ranking validation or performance claim"
+    ],
+    "derived_from": [
+      "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight",
+      "m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis",
+      "m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2816 recoverability-window rows must be audited before interpretation",
+      "M2816 post-offtrack action-response rows are diagnostic and non-ranking",
+      "protected prior-surface same-clearance and HF3 guardrails remain active and outside ordinary denominators"
+    ],
+    "supersedes": [
+      "direct repair design from M2816 recoverability rows without result audit",
+      "direct ranking validation readiness or driver-performance claim from M2816 artifacts",
+      "direct paper current-sim high-fidelity full-driver or self-ID claim from M2816 diagnostics"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md",
+  "public_gates": [
+    "M2817 must audit M2816 required artifacts for completeness before interpretation",
+    "M2817 must verify M2816 accounts for the fixed 12 M2813 mechanism rows with 10 source offtrack-containment and 2 source success obstacle-pass rows",
+    "M2817 must verify recoverability-window and post-offtrack action-response rows remain diagnostic and non-ranking",
+    "M2817 must verify prior-surface same-clearance protected and HF3 guardrails were not executed and remain outside ordinary denominators",
+    "M2817 must verify actor 72/action 3 no hidden/oracle actor input and actor-invisible action-response recoverability stress-axis source-edge route success progress and verdict labels",
+    "M2817 must not execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2817 must not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose action-response recoverability stress-axis source-edge task-family blocker route success progress or verdict labels to actor input",
+    "do not treat protected prior-surface or HF3 blocker rows as ordinary success denominators",
+    "do not rank controller families source families profiles task families action-response families recoverability families stress axes source edges or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2816 recoverability diagnostics"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_action_response_recoverability_window",
+    "evidence_axis": "recoverability_window_instrumented_bounded_execution_result_audit",
+    "evidence_increment": "audits M2816 bounded recoverability-window and post-offtrack action-response diagnostic artifacts before any repair execution ranking validation or route pivot",
+    "claim_scope": "Route A recoverability-window result audit only; no reset rollout replay validation training PPO repair ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2816 required artifacts are missing or incomplete",
+      "stop if M2816 changed actor input or action contract",
+      "stop if hidden/oracle actor labels recoverability labels or verdict labels were actor-visible",
+      "stop if M2816 executed prior-surface same-clearance protected or HF3 blocker rows",
+      "stop if audit would rank recoverability rows controllers profiles stress axes or winners"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are incomplete",
+      "route to branch synthesis if M2816 artifacts are complete",
+      "preserve weak absent or negative recoverability evidence instead of weakening gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2816 bounded recoverability-window artifacts exist and require audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "recoverability-window result audit",
+    "admission_evidence": [
+      "M2816 is an evaluation-only bounded execution preflight admitted by M2815",
+      "M2816 required artifacts must be audited before interpretation",
+      "M2816 preserves protected prior-surface and HF3 blockers outside denominators",
+      "M2816 preserves actor 72/action 3 no hidden oracle and actor-invisible labels"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO repair source build adapter probe external simulation",
+      "no ranking winner selection promotion success-rate verdict",
+      "no actor input expansion",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md",
+      "M2817 status queue scoreboard research log and review",
+      "one bounded branch synthesis manifest if M2816 is accepted"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "audit records M2816 row counts recoverability accounting and gate matrix",
+      "audit preserves guardrail actor and claim boundaries",
+      "audit registers bounded synthesis follow-up if accepted"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2817 audits Route A recoverability-window diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2817; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2816 Route A recoverability-window result audit only.",
+    "negative_result_policy": "If recoverability evidence is weak absent or negative preserve blockers and route to synthesis instead of weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "Route A recoverability-window artifact audit",
+      "actor and claim boundary preserved or violated",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the new bounded recoverability-window closed-loop diagnostic panel before any continuation decision",
+    "paper_verdict_delta": "no paper verdict; prevents M2816 recoverability rows from being overinterpreted as self-ID or performance evidence",
+    "must_synthesize_if": [
+      "M2817 accepts complete M2816 artifacts",
+      "M2817 rejects M2816 due to incomplete artifacts or boundary violations",
+      "M2817 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2817 would rank controllers source families profiles action-response families recoverability families stress axes select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2816 recoverability-window artifacts while preserving actor blocker and claim boundaries before interpretation.",
+  "success_criteria": [
+    "docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md exists",
+    "audit records M2816 status_pass required artifacts recoverability post-action-response contrast guard actor claim and gate counts",
+    "audit verifies prior-surface same-clearance protected and HF3 blocker rows were not executed and remain outside ordinary success denominators",
+    "audit preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels",
+    "no reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2817 executes reset step rollout replay validation training PPO repair source build adapter probe or external simulation",
+    "M2817 changes actor input or action contract",
+    "M2817 exposes action-response recoverability stress-axis source-edge blocker gate outcome route decision success progress or verdict labels to actor input",
+    "M2817 weakens protected prior-surface or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2817 ranks controller families source families task families profiles action-response families recoverability families stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2817 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2817 audits M2816 artifacts as complete and claim-safe and preserves blocker actor and claim boundaries without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "result_audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+    "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/recoverability_window_rows.csv",
+    "docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md",
+    "docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md",
+  "next_blocker": "m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis"
+}
