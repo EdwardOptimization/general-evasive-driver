@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
+m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
+m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
+m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
 ```
 
 Current route:
@@ -39,19 +39,28 @@ docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
 
+M2820 materialized the post-recoverability-negative Route A readiness/admission
+index from existing artifacts only. It produced a passing artifact set with 19
+evidence rows, 12 deliverable-readiness rows, 8 blocker rows, 7 next-action
+admission rows, 31 claim-boundary rows, and 42 passing gates. It preserves the
+M2816/M2817 negative recoverability accounting as blocker evidence: 12 fixed
+rows, 12 execution rows, 0 execution failures, 7 post-event traces, 0
+recoverability-window availability, 0 recoverability success, 1 diagnostic
+collision, and 5 offtrack terminations. It carries forward M2804/M2805 prior
+readiness blockers, M2801/M2802 negative clearance and stable_avoidable
+retention risks, protected mitigation guardrails, and the M2638 HF3
+source-dependency blocker. Actor P0 observation 72/action 3, no hidden/oracle
+actor input, actor-invisible labels, and guardrails outside denominators remain
+preserved. M2820 registered M2821 as the only admitted immediate next action
+and does not admit reset, rollout, replay, validation, training, repair,
+ranking, promotion, performance, paper, high-fidelity, full-driver, or self-ID
+claims.
+
 M2819 designed the post-recoverability-negative Route A readiness/admission
-refresh and admitted M2820 materialization. The design requires M2820 to
-reanalyze existing artifacts only, preserving M2816/M2817 negative
-recoverability accounting: 7 post-event traces, 0 recoverability-window
-availability, 0 recoverability success, 1 diagnostic collision, and 5 offtrack
-terminations. It also carries forward M2804/M2805 prior readiness blockers,
-M2801/M2802 negative clearance and stable_avoidable retention risks, protected
-mitigation guardrails, and the M2638 HF3 source-dependency blocker. M2819 does
-not admit reset, rollout, replay, validation, training, repair, ranking,
-promotion, performance, paper, high-fidelity, full-driver, or self-ID claims.
-The next admitted step is M2820 readiness-index materialization before any
-route packaging, non-same-surface evidence route, Route B comparison, or Route C
-dependency route is considered.
+refresh and admitted the M2820 materialization now completed above. The design
+required M2820 to reanalyze existing artifacts only and to route to an audit
+before any route packaging, non-same-surface evidence route, Route B comparison,
+or Route C dependency route is considered.
 
 M2818 synthesized the M2815-M2817 post-action-response recoverability-window
 branch and selected
