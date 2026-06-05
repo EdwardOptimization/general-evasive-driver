@@ -51401,3 +51401,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight_20260605T233409Z/command.log`
 - success artifact: `runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json`
 - notes: Completed: materialized Route C HF0 source-only interface evidence handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels no external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claim routes to M2833 audit
+
+## 20260605T234050Z m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2832 handoff artifacts while preserving actor blocker and claim boundaries before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit_20260605T234050Z`
+- command log: `runs/research/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit_20260605T234050Z/command.log`
+- success artifact: `docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md`
+- notes: Completed: audit accepts M2832 complete claim-safe handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels rejects external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2834 synthesis
