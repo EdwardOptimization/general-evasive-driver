@@ -6,6 +6,7 @@ import argparse
 import csv
 from dataclasses import asdict, dataclass, replace
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import shlex
 import subprocess
@@ -150,6 +151,30 @@ def _resolve_artifact(path: str, cwd: Path) -> Path:
     return artifact if artifact.is_absolute() else cwd / artifact
 
 
+def _command_argv_and_env(command: str) -> tuple[list[str], dict[str, str] | None]:
+    parts = shlex.split(command)
+    env_updates: dict[str, str] = {}
+    while parts and _is_env_assignment(parts[0]):
+        key, value = parts.pop(0).split("=", 1)
+        env_updates[key] = value
+    if not parts:
+        raise ValueError("research task command has no executable")
+    if not env_updates:
+        return parts, None
+    env = os.environ.copy()
+    env.update(env_updates)
+    return parts, env
+
+
+def _is_env_assignment(token: str) -> bool:
+    if "=" not in token:
+        return False
+    key, _value = token.split("=", 1)
+    if not key:
+        return False
+    return all(char == "_" or char.isalnum() for char in key) and not key[0].isdigit()
+
+
 def append_research_log(path: Path | str, task: ResearchTask, result: ResearchRunResult) -> None:
     output = Path(path)
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -200,12 +225,14 @@ def run_next_task(
         run_dir = cwd_path / run_dir
     run_dir.mkdir(parents=True, exist_ok=False)
     command_log = run_dir / "command.log"
+    argv, env = _command_argv_and_env(task.command)
     with command_log.open("w", encoding="utf-8") as handle:
         handle.write(task.command + "\n\n")
         handle.flush()
         process = subprocess.run(
-            shlex.split(task.command),
+            argv,
             cwd=cwd_path,
+            env=env,
             stdout=handle,
             stderr=subprocess.STDOUT,
             check=False,

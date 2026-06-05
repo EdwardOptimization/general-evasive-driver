@@ -69,6 +69,35 @@ def test_run_next_task_updates_queue_and_writes_log(tmp_path):
     assert "completed" in log_text
 
 
+def test_run_next_task_supports_leading_environment_assignments(tmp_path):
+    artifact_path = tmp_path / "env-artifact.txt"
+    queue_path = tmp_path / "queue.csv"
+    status_path = tmp_path / "status.json"
+    log_path = tmp_path / "research-log.md"
+    command = (
+        f"RESEARCH_CYCLE_TEST_VALUE=ok {sys.executable} -c "
+        f"\"import os; from pathlib import Path; "
+        f"Path('{artifact_path}').write_text(os.environ['RESEARCH_CYCLE_TEST_VALUE'])\""
+    )
+    queue_path.write_text(
+        "\n".join(
+            [
+                "id,priority,status,kind,hypothesis,command,success_artifact,notes",
+                f"env-smoke,5,pending,smoke,write artifact,{command},{artifact_path},",
+            ]
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    result = run_next_task(queue_path=queue_path, status_path=status_path, log_path=log_path, cwd=tmp_path)
+    tasks = load_queue(queue_path)
+
+    assert result.returncode == 0
+    assert tasks[0].status == "completed"
+    assert artifact_path.read_text(encoding="utf-8") == "ok"
+
+
 def test_run_next_task_idle_preserves_previous_result(tmp_path):
     queue_path = tmp_path / "queue.csv"
     status_path = tmp_path / "status.json"
