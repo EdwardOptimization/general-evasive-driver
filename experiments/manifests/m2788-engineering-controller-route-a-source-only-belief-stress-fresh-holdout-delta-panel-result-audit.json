@@ -1,0 +1,176 @@
+{
+  "baseline_artifacts": [
+    "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json",
+    "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_design_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2788 writes a claim-safe audit of M2787 artifacts and routes before interpretation.",
+  "failure_criteria": [
+    "M2788 executes new training or rollout",
+    "M2788 treats M2787 as validation ranking or promotion evidence",
+    "M2788 claims driver performance paper high-fidelity full-driver or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step policy action rollout replay validation training PPO source build adapter probe or external simulation",
+    "do not change actor inputs or action contract",
+    "do not expose role dynamics intervention stress curriculum admission outcome success progress route or verdict labels to actor input",
+    "do not use mitigation reference rows as ordinary successes",
+    "do not rank checkpoints or select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver or self-ID result"
+  ],
+  "gate_tier": "generalization",
+  "hypothesis": "M2787 fresh-holdout paired closed-loop delta artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2787 fresh-holdout deltas must be audited before any validation ranking promotion performance or self-ID interpretation",
+      "M2787 remains source-only and cannot resolve the M2638 high-fidelity source dependency"
+    ],
+    "derived_from": [
+      "m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight",
+      "m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json",
+      "experiments/manifests/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.json",
+      "experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json",
+      "experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/paired_execution_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/paired_delta_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/proof_retention_gate_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/generalization_holdout_gate_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/promotion_guard_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/actor_contract_guard_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/mitigation_reference_guard_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/claim_boundary_rows.csv",
+      "runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/gate_matrix.csv",
+      "docs/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.md"
+    ],
+    "parent_objective": [
+      "audit the M2787 fresh-holdout source-only paired delta panel before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M2787 deltas without result audit",
+      "candidate checkpoint promotion from fresh-holdout diagnostic deltas"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits fresh M2787 holdout paired closed-loop delta artifacts before any extension",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2788 finds incomplete artifacts or claim-boundary failure",
+      "another process-only milestone is proposed after M2788 without fresh evidence or synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit decides whether M2787 can be used as future engineering evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2788 must audit M2787 summary paired execution rows paired delta rows gates and claim boundaries",
+    "M2788 must verify fresh holdout seed indices remain outside M2784 seed_index 0..3",
+    "M2788 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2788 must keep mitigation reference rows outside ordinary denominators",
+    "M2788 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2787 fresh-holdout paired delta artifacts are accepted or rejected as complete and claim-safe",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2788 audits source-only M2787 artifacts and cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2788 may check that M2787 covered history stress rows but runs no self-ID comparison."
+    ],
+    "negative_result_policy": "If M2787 artifacts fail or deltas are negative, preserve failure and route to synthesis or repair rather than weakening gates.",
+    "temporal_evidence_window": "M2786-M2788 source-only fresh-holdout belief-stress branch."
+  },
+  "success_criteria": [
+    "docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md exists",
+    "M2788 audits M2787 summary paired execution paired delta gate actor guard claim and lineage artifacts",
+    "M2788 registers one bounded follow-up or stop decision",
+    "M2788 makes no new execution training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2787 summary and gate artifacts exist",
+      "M2787 writes paired execution and delta rows with source/candidate lineage",
+      "M2787 is not validated ranked or promoted before this audit"
+    ],
+    "allowed_updates": [
+      "docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md",
+      "M2788 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no new execution or training in M2788",
+      "no validation ranking promotion success-rate verdict performance paper HF full-driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2787 artifacts are complete and claim-safe or failure is classified",
+      "one bounded follow-up or stop decision is registered"
+    ],
+    "stage": "process",
+    "stage_objective": "audit M2787 fresh-holdout source-only paired delta panel artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel",
+    "claim_scope": "Result audit only; no new execution training validation ranking promotion driver-performance paper high-fidelity self-ID or full-driver claim",
+    "evidence_axis": "source_only_belief_stress_fresh_holdout_delta_panel_result_audit",
+    "evidence_increment": "audits M2787 fresh-holdout paired closed-loop diagnostic delta artifacts before interpretation",
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are missing",
+      "route to branch synthesis if fresh-holdout deltas are negative weak mixed or claim boundaries fail",
+      "route to broader architecture or scenario-distribution change if fresh holdout fails to show robust candidate signal"
+    ],
+    "stop_condition": [
+      "stop if M2787 required artifacts are incomplete",
+      "stop if actor or claim boundaries fail",
+      "stop if holdout seed indices overlap M2784 seed_index 0..3",
+      "stop if paired deltas are interpreted as ranking or promotion evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2787 writes fresh-holdout paired source-vs-candidate closed-loop delta artifacts"
+  }
+}

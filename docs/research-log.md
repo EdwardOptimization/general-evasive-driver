@@ -50538,3 +50538,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: pivot to M2787 fresh-holdout paired source-only closed-loop delta panel instead of another same-surface audit, process-only reanalysis, ranking, promotion, or stop
 - follow-up manifest: `experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json`
 - next: `m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight`
+
+## 20260605T124404Z m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A fresh-holdout paired source-only closed-loop delta panel can test whether the small M2784 candidate-vs-source diagnostic shifts persist on unseen seed indices while preserving actor and claim boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --m2786-synthesis docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md --m2785-audit docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md --m2784-dir runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.json --output-dir runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --device cpu --seed-start-index 4 --seed-count 4 --horizon-steps 120`
+- returncode: `0`
+- run dir: `runs/research/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight_20260605T124359Z`
+- command log: `runs/research/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight_20260605T124359Z/command.log`
+- success artifact: `runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json`
+- notes: Completed: fresh-holdout paired source-only delta panel status_pass true required artifacts present seed indices 4 5 6 7 disjoint from M2784 0 1 2 3 horizon 120 greater than 80 wrote 144 paired execution rows 72 paired delta rows 13 proof gates 8 generalization holdout gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows and 25 gates all pass candidate-minus-source road margin positive 72/72 yaw-rate lower 60/72 obstacle-clearance mixed 43 positive 29 negative final speed positive 63/72 throttle/brake conflict unchanged actor 72/action 3 no hidden oracle mitigation rows outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims routes to M2788 audit
+
+## M2787 Engineering Controller Route A Source-Only Belief-Stress Fresh-Holdout Delta Panel Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel_preflight_pass`
+- manifest: `experiments/manifests/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel.py`
+- summary: `runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json`
+- doc: `docs/m2787-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-preflight.md`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- candidate checkpoint: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- fresh holdout surface: seed indices 4, 5, 6, and 7 disjoint from M2784 seed indices 0, 1, 2, and 3; horizon 120 versus M2784 horizon 80
+- artifact accounting: 18 curriculum buckets, 144 paired execution rows, 72 paired delta rows, 13 proof gates, 8 generalization holdout gates, 4 promotion guards, 7 actor guards, 8 mitigation guards, 11 claim rows, and 25 gate-matrix rows all passing
+- diagnostic delta accounting: candidate-minus-source road-margin deltas positive in 72/72 rows, yaw-rate deltas lower in 60/72 rows, obstacle-clearance deltas mixed with 43 positive and 29 negative rows, final-speed deltas positive in 63/72 rows, throttle/brake conflict unchanged at zero in 72/72 rows, and mean action L1 deltas positive but very small
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress admission curriculum outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and paired delta rows
+- execution scope: source-only backend reset/step and policy action were run for paired diagnostic rows only; no training, PPO, measured validation, ranking, winner selection, checkpoint promotion, success-rate verdict, external simulation, high-fidelity validation, or performance claim
+- route decision: route to M2788 result audit before interpreting fresh-holdout paired deltas or deciding continuation, synthesis, repair, or stop
+- follow-up manifest: `experiments/manifests/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.json`
+- next: `m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
