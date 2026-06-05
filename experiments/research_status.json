@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2801,
+    "completed": 2802,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z/command.log",
+    "command_log": "runs/research/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight_20260605T144204Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis_20260605T142822Z",
+    "run_dir": "runs/research/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight_20260605T144204Z",
     "status": "completed",
-    "task_id": "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis"
+    "task_id": "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas --m2795-synthesis docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md --m2794-audit docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md --m2793-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --follow-up-manifest experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json --output-dir runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas",
-    "hypothesis": "A source-only obstacle-clearance regression atlas can identify which role dynamics stress and seed strata carry the M2793 clearance-negative rows while preserving actor and claim boundaries.",
-    "id": "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize obstacle-clearance regression atlas from M2793 triad deltas after M2795 synthesis consume M2795 M2794 M2793 artifacts only no new rollout training validation or ranking include both candidate-minus-source 30 positive 42 negative and candidate-minus-base 29 positive 43 negative clearance rows stratify by role dynamics stress seed and delta family record road-margin speed yaw-rate conflict action-delta side effects keep clearance hard guard visible preserve actor 72/action 3 no hidden oracle labels mitigation outside denominators no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim route to M2797 audit",
-    "priority": 27910,
+    "command": "true",
+    "hypothesis": "M2796 obstacle-clearance regression atlas artifacts can be audited for completeness and claim safety before interpretation.",
+    "id": "m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2796 summary clearance regression rows aggregate rows proof gates mitigation guard rows claim rows and gate matrix verify status_pass true 144 atlas rows 237 aggregate rows 16 gates all pass source clearance 30 positive 42 negative base clearance 29 positive 43 negative preserve actor 72/action 3 no hidden oracle labels mitigation outside denominators keep clearance hard guard before road-margin speed yaw-rate conflict and action-delta interpretation no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register follow-up or stop",
+    "priority": 27920,
     "status": "pending",
-    "success_artifact": "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json"
+    "success_artifact": "docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md"
   },
-  "updated_at_utc": "20260605T143203Z"
+  "updated_at_utc": "20260605T144413Z"
 }

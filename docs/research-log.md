@@ -50865,3 +50865,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - public gate overfit risk: medium-high if repeating the same guardrailed candidate update or same-axis triad panel, lower if pivoting to a clearance-regression failure atlas
 - follow-up manifest: `experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json`
 - next: `m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight`
+
+## 20260605T144204Z m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A source-only obstacle-clearance regression atlas can identify which role dynamics stress and seed strata carry the M2793 clearance-negative rows while preserving actor and claim boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas --m2795-synthesis docs/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.md --m2794-audit docs/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.md --m2793-dir runs/m2793_engineering_controller_route_a_source_only_belief_stress_guardrailed_candidate_fresh_holdout_triad_delta_panel --follow-up-manifest experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json --output-dir runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas`
+- returncode: `0`
+- run dir: `runs/research/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight_20260605T144204Z`
+- command log: `runs/research/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight_20260605T144204Z/command.log`
+- success artifact: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json`
+- notes: Completed: obstacle-clearance regression atlas status_pass true required artifacts present wrote 144 clearance regression rows 237 aggregate rows 16 proof gates all pass candidate-minus-source clearance 30 positive 42 negative mean -0.0003189920460919861 median -0.0026030437199309198 candidate-minus-base clearance 29 positive 43 negative mean -0.00013214111660788612 median -0.00039442807985579087 top aggregate negatives include base 43/72 source 42/72 seed strata 12/18 on base seed 8 11 and source seed 8 10 11 preserves actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims routes to M2797 audit
+
+## M2796 Engineering Controller Route A Source-Only Belief-Stress Obstacle-Clearance Regression Atlas
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas_preflight_pass`
+- manifest: `experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas.py`
+- focused test: `tests/test_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas.py`
+- summary: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json`
+- atlas rows: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv`
+- aggregate rows: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv`
+- doc: `docs/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md`
+- source artifacts: M2795 synthesis, M2794 audit, and M2793 triad artifacts only; no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict
+- artifact accounting: 144 clearance-regression rows, 237 aggregate rows, 16 proof gates, mitigation guard rows, claim rows, gate matrix, run-state, doc, and M2797 audit manifest with required artifacts present and all gates passing
+- candidate-minus-source clearance: 30 positive rows, 42 negative rows, mean `-0.0003189920460919861`, median `-0.0026030437199309198`
+- candidate-minus-base clearance: 29 positive rows, 43 negative rows, mean `-0.00013214111660788612`, median `-0.00039442807985579087`
+- top negative aggregates: candidate-minus-base 43/72 negative, candidate-minus-source 42/72 negative, candidate-minus-base seed indices 8 and 11 at 12/18 negative each, and candidate-minus-source seed indices 8, 10, and 11 at 12/18 negative each
+- interpretation: road-margin speed yaw-rate conflict and action-delta side effects remain diagnostic only and do not override the obstacle-clearance blocker
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input and no actor-visible role dynamics stress curriculum outcome progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and outside delta rows
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json`
+- next: `m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit`

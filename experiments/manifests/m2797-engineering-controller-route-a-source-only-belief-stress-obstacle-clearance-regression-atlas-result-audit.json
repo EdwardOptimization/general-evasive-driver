@@ -1,0 +1,183 @@
+{
+  "baseline_artifacts": [
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json",
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv",
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv",
+    "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_design_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2797 writes a claim-safe audit of M2796 artifacts and routes before interpretation.",
+  "failure_criteria": [
+    "M2797 executes new training or rollout",
+    "M2797 treats M2796 as validation ranking or promotion evidence",
+    "M2797 hides obstacle-clearance regression",
+    "M2797 claims driver performance paper high-fidelity full-driver or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step policy action rollout replay validation training PPO source build adapter probe or external simulation",
+    "do not change actor inputs or action contract",
+    "do not hide clearance-negative rows",
+    "do not use M2796 aggregate rows as ranking promotion validation performance or self-ID evidence",
+    "do not weaken mitigation denominator guards"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "M2796 obstacle-clearance regression atlas artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2796 atlas must be audited before any architecture or training design uses its attribution",
+      "M2793 clearance deltas remain mixed and skew negative",
+      "M2796 is source-only reanalysis and cannot validate rank promote or claim performance"
+    ],
+    "derived_from": [
+      "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight",
+      "m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis",
+      "m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.json",
+      "experiments/manifests/m2795-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-triad-branch-synthesis.json",
+      "experiments/manifests/m2794-engineering-controller-route-a-source-only-belief-stress-guardrailed-candidate-fresh-holdout-triad-delta-panel-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/proof_gate_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/mitigation_reference_guard_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/claim_boundary_rows.csv",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/gate_matrix.csv",
+      "docs/m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2796 obstacle-clearance regression atlas artifacts before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M2796 atlas rows without result audit",
+      "road-margin-only or speed-only interpretation of M2793 deltas",
+      "checkpoint promotion from M2796 attribution rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits M2796 clearance-regression attribution artifacts before any extension",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2797 finds incomplete artifacts or claim-boundary failure",
+      "M2797 finds clearance negatives hidden or reinterpreted as performance evidence",
+      "another process-only milestone is proposed after M2797 without synthesis or a new design branch"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit decides whether M2796 can inform future engineering design",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "m2796_clearance_regression_aggregate_row_count": 237,
+  "m2796_clearance_regression_row_count": 144,
+  "m2796_status_pass": true,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2797 must audit M2796 summary atlas aggregate gates mitigation and claim rows",
+    "M2797 must verify M2796 consumed M2795 M2794 and M2793 artifacts only",
+    "M2797 must keep obstacle-clearance regression visible as hard guard blocker",
+    "M2797 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2797 must keep mitigation rows outside ordinary denominators",
+    "M2797 must reject validation ranking winner promotion success-rate driver-performance paper current-sim high-fidelity full-driver and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2796 clearance-regression atlas artifacts are accepted or rejected as complete and claim-safe",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2797 audits source-only M2796 artifacts and cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2797 may check that M2796 stratified history-stress rows but runs no self-ID comparison."
+    ],
+    "negative_result_policy": "If M2796 artifacts fail or show broad regression, preserve failure and route to synthesis or redesign rather than weakening gates.",
+    "temporal_evidence_window": "M2793-M2797 source-only clearance-regression attribution branch."
+  },
+  "success_criteria": [
+    "docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md exists",
+    "M2797 audits M2796 summary atlas aggregate gate mitigation claim and lineage artifacts",
+    "M2797 registers one bounded follow-up or stop decision",
+    "M2797 makes no new execution training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2796 summary and gate artifacts exist",
+      "M2796 writes clearance regression and aggregate rows",
+      "M2796 is not validated ranked or promoted before this audit"
+    ],
+    "allowed_updates": [
+      "docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md",
+      "M2797 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no new execution or training in M2797",
+      "no validation ranking promotion performance paper HF full-driver or self-ID claim",
+      "no obstacle-clearance guard weakening"
+    ],
+    "next_stage_criteria": [
+      "M2796 artifacts are complete and claim-safe or failure is classified",
+      "one bounded follow-up or stop decision is registered"
+    ],
+    "stage": "process",
+    "stage_objective": "audit M2796 source-only obstacle-clearance regression atlas artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas",
+    "claim_scope": "Result audit only; no new execution training validation ranking promotion driver-performance paper high-fidelity self-ID or full-driver claim",
+    "evidence_axis": "source_only_belief_stress_obstacle_clearance_regression_atlas_result_audit",
+    "evidence_increment": "audits M2796 clearance-regression atlas before route interpretation",
+    "fallback_plan": [
+      "route to artifact repair if M2796 artifacts are missing",
+      "route to synthesis or design only after audit accepts attribution rows",
+      "stop the branch if atlas rows show no actionable clearance-regression structure"
+    ],
+    "stop_condition": [
+      "stop if M2796 required artifacts are incomplete",
+      "stop if M2796 hides clearance-negative rows",
+      "stop if M2796 actor or claim boundaries fail",
+      "stop if M2796 is interpreted as ranking promotion validation performance or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2796 writes source-only clearance-regression atlas artifacts"
+  }
+}
