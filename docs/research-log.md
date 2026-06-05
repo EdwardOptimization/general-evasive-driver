@@ -49738,3 +49738,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2751
 - follow-up manifest: `experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json`
 - next: `m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design`
+
+## M2752 Engineering Controller Route A Cross-Axis Stress Generalization Bounded Execution Design
+
+- status: completed
+- decision: `admit_route_a_cross_axis_stress_generalization_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json`
+- design artifact: `docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md`
+- parent synthesis: `docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- candidate surface: admits exactly 12 fixed non-same-panel M1690 `L3_online_gru` task-source rows covering T4 actuator/response stress and T5 brake drive curved near-boundary stress axes
+- exclusion boundary: excludes M2746/M2737 prior-panel task-source ids including m1680-spec-0000 m1680-spec-0002 m1680-spec-0004 m1680-spec-0005 m1680-spec-0006 m1680-spec-0036 m1680-spec-0038 m1680-spec-0040 and m1680-spec-0041
+- blocker boundary: protected mitigation and HF3 source dependency blockers remain active guardrails outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input stress-axis taxonomy scenario-role target blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: admit M2753 bounded diagnostic execution preflight before any interpretation result audit repair route validation ranking packaging or performance claim
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2752
+- follow-up manifest: `experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json`
+- next: `m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight`

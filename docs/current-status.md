@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
+m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis
+m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
+m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
 ```
 
 Current route:
@@ -315,6 +315,18 @@ driver performance, paper, current-sim, high-fidelity, full-driver, and self-ID
 claims. The next bounded step is M2752 design-only cross-axis stress
 generalization surface selection before any separately pre-registered future
 execution.
+
+M2752 completed that design-only surface selection. It admits M2753 as a
+bounded diagnostic execution preflight over exactly 12 fixed non-same-panel
+M1690 `L3_online_gru` task-source rows. The selected surface excludes M2746 and
+M2737 prior-panel task sources, covers T4 actuator/response stress and T5
+brake/drive/curved/near-boundary stress axes, keeps stress-axis tags
+actor-invisible, preserves actor 72/action 3 with no hidden/oracle input, and
+keeps protected mitigation and HF3 source dependency blockers outside ordinary
+denominators. M2752 makes no execution, ranking, validation, performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID claim. The next
+bounded step is M2753 implementation/execution preflight before any
+interpretation.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
@@ -1483,19 +1495,21 @@ training repair success
 
 ## Immediate Next Step
 
-M2752 should design the new Route A cross-axis stress generalization evidence
-surface admitted by M2751:
+M2753 should implement and run the bounded Route A cross-axis stress
+generalization execution preflight admitted by M2752:
 
 ```text
-experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json
-docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md
+experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json
+runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
 ```
 
-The design must choose a genuinely non-same-panel cross-axis stress surface,
-define source criteria, scenario axes, seed policy, actor-contract guards,
-claim boundaries, blocker handling, and M2753 follow-up requirements. It must
-remain design-only and avoid reset, step, rollout, replay, validation, training,
-PPO, source build, adapter probe, external simulation, ranking, winner
-selection, promotion, success-rate verdicts, validation readiness,
-driver-performance, paper, current-sim, high-fidelity, full-driver, or self-ID
-claims.
+The preflight must account for the 12 selected non-same-panel M1690
+`L3_online_gru` rows, write the candidate, resolution, execution, failure,
+stress-axis aggregate, prior-panel exclusion, blocker guard, actor guard, claim
+boundary, gate, run-state, summary, and milestone-doc artifacts, and register a
+separate result audit before interpretation. It must avoid M2746/M2737
+prior-panel execution, protected/HF3 blocker execution, actor input changes,
+hidden/oracle labels, ranking, winner selection, promotion, success-rate
+verdicts, validation, training, PPO, source build, adapter probe, external
+simulation, driver-performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claims.
