@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
+m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
+m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
+m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
 ```
 
 Current route:
@@ -188,6 +188,19 @@ blocker/route/success/progress/verdict labels remain hard gates. M2742 admits
 M2743 materialization only; it still rejects execution, training, ranking,
 validation, performance, paper, current-sim, high-fidelity, full-driver, and
 self-ID claims.
+
+M2743 completed that materialization. It wrote 6 scenario role rows, 6 metric
+contract rows, 18 target panel rows, 5 guardrail context rows, 16 actor-contract
+guard rows, 31 claim-boundary rows, and 22 gate rows, all passing. The role
+panel preserves 14 offtrack rows as future-planning targets only, 1 collision
+row as caution context, 3 diagnostic success rows as regression context, 31
+negative-context rows as guardrails, 1 blocked same-surface row, and 11
+protected/HF3 exclusion rows. Target rows have `execution_scheduled=false`;
+role, metric, target, protected, blocker, route-decision, success/progress, and
+verdict labels remain actor-invisible; actor 72/action 3 and no hidden/oracle
+input are preserved. M2743 makes no execution, training, ranking, validation,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim.
+Next is M2744 result audit before any execution or repair-design route.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
