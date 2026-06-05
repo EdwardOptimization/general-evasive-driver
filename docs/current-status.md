@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
+m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
+m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
+m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
 ```
 
 Current route:
@@ -84,6 +84,16 @@ hidden/oracle actor input and no actor-visible taxonomy, target, protected,
 blocker, route-decision, success/progress, or verdict labels. M2734 makes no
 execution/training/ranking/validation/performance/paper/current-sim/
 high-fidelity/full-driver/self-ID claim. Next is M2735 result audit.
+
+M2735 audited and accepted M2734 as complete and claim-safe materialization.
+It verified 18 diagnostic-only candidate rows split across 9 M2693 rows and 9
+M2716 task-source aggregates, 31 M2728 negative-context rows, 12 blocked rows,
+actor 72/action 3, no hidden/oracle actor input, and all 26 M2734 gates passing.
+It rejects direct execution from the audit artifact, another same-surface M2728
+repair loop, profile/source-family ranking, validation readiness, performance,
+paper, current-sim, high-fidelity, full-driver, and self-ID claims. Because
+another static materialization/audit chain would not add driver evidence, M2735
+routes to M2736 bounded execution design before any future execution.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

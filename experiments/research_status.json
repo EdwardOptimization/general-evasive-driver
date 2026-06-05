@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2740,
+    "completed": 2741,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+    "command_log": "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight"
+    "task_id": "m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2734 evidence-surface materialization artifacts before Route A chooses a synthesis stop or execution-design route.",
-    "id": "m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit",
+    "hypothesis": "A bounded execution design can translate the audited M2734 source-diverse evidence surface into an actor-safe protocol for future closed-loop diagnostic execution without ranking or overclaiming.",
+    "id": "m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M2734 summary and row artifacts preserve 18 candidates 31 negative context rows M2728 1 success 3 collision 27 offtrack same-surface repair rejection protected/HF3 blockers actor 72/action 3 no hidden oracle no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27300,
+    "notes": "Pending: design bounded execution protocol over 18 M2734 candidates only exclude M2728 negative context protected blockers HF3 blockers preserve M2693/M2716 source-family separation actor 72/action 3 no hidden oracle no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27310,
     "status": "pending",
-    "success_artifact": "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md"
+    "success_artifact": "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md"
   },
-  "updated_at_utc": "20260605T014743Z"
+  "updated_at_utc": "20260605T015646Z"
 }

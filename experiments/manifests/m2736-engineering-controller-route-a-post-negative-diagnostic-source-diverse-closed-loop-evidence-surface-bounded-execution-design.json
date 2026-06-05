@@ -1,0 +1,226 @@
+{
+  "id": "m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/evidence_surface_candidate_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/source_diversity_bucket_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/blocked_surface_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/negative_diagnostic_context_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/actor_contract_guard_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/claim_boundary_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/gate_matrix.csv",
+      "docs/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.json",
+      "experiments/manifests/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.json",
+      "experiments/manifests/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.json"
+    ],
+    "parent_objective": [
+      "design a bounded source-diverse execution protocol from accepted M2734 evidence-surface artifacts before any new execution"
+    ],
+    "derived_from": [
+      "m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit",
+      "m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight",
+      "m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design"
+    ],
+    "blocked_by": [
+      "M2735 accepts M2734 but does not admit direct execution",
+      "same-surface M2728 repair execution remains blocked",
+      "M2728 collision and offtrack diagnostics must become guardrails for any future execution",
+      "protected mitigation and HF3 source dependency blockers must remain outside success denominators",
+      "actor and claim boundaries must be embedded before any execution preflight"
+    ],
+    "supersedes": [
+      "direct execution from M2734 materialization rows",
+      "profile ranking or winner selection from M2734 candidate rows",
+      "another static materialization audit with no execution-admission change",
+      "same-surface M2728 repair continuation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+  "public_gates": [
+    "M2736 must write a bounded execution design before any new execution over M2734 candidate rows",
+    "M2736 must specify the 18 M2734 candidate rows as the only candidate input surface and must keep M2728 negative context protected rows and HF3 blockers excluded",
+    "M2736 must preserve M2693 and M2716 source-family separation without ranking source families profiles task families or winners",
+    "M2736 must define output artifact schemas for candidate execution rows failure rows source-family aggregates actor guard rows claim-boundary rows and gate matrix",
+    "M2736 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible taxonomy target protected blocker route-decision success progress and verdict labels",
+    "M2736 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion success-rate computation or driver-performance claims",
+    "M2736 must select one bounded follow-up execution preflight synthesis stop or artifact repair route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not hide the M2728 negative offtrack repair diagnostic result",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not open another same-surface public repair loop",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from execution design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_negative_diagnostic_closed_loop_evidence_surface",
+    "evidence_axis": "source_diverse_post_negative_diagnostic_bounded_execution_design",
+    "evidence_increment": "turns the accepted M2734 source-diverse evidence surface into a bounded execution protocol design that can produce new closed-loop diagnostic data in a later milestone",
+    "claim_scope": "Route A bounded execution design only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if the execution design requires actor input or action contract changes",
+      "stop if M2734 candidates cannot be separated from M2728 same-surface repair context protected blockers or HF3 blockers",
+      "stop if the design would rank source families profiles task families or winners",
+      "stop if the design would claim validation readiness performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2734 candidate or blocker schemas are insufficient",
+      "route to branch synthesis stop if no bounded non-same-surface execution protocol can be defined",
+      "route to bounded execution preflight only if actor contract claim boundaries and guardrails are explicit",
+      "route to user-supplied HF3 dependency handling only if a valid source root package route or dependency acquisition manifest is present"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2735 accepts M2734 and requires an execution-design route before any future execution",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "post-negative diagnostic source-diverse closed-loop evidence-surface bounded execution design",
+    "admission_evidence": [
+      "M2735 accepts M2734 as complete and claim-safe",
+      "M2734 materializes 18 source-diverse candidate rows split across M2693 and M2716",
+      "M2734 preserves M2728 negative diagnostic as non-ranking context and rejects same-surface repair admission",
+      "M2734 preserves protected and HF3 blockers outside success denominators with actor 72/action 3 no hidden oracle"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation in design",
+      "no same-surface M2728 repair execution",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+      "M2736 status queue scoreboard research log and review",
+      "one bounded follow-up execution-preflight synthesis-stop or artifact-repair manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "execution design specifies candidate input rows exclusion rows and guardrails",
+      "execution design specifies output artifacts and gate checks",
+      "actor input and action contract remain unchanged",
+      "one bounded follow-up route or stop decision is selected"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2736 designs Route A engineering execution and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2736; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2735 Route A evidence-surface audit only.",
+    "negative_result_policy": "If no bounded source-diverse execution design is defensible, preserve M2728 negative diagnostic and route to synthesis stop instead of weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "Route A source-diverse bounded execution design",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "uses the accepted M2734 source-diverse surface to design a bounded execution protocol instead of repeating the M2728 same-surface repair loop",
+    "paper_verdict_delta": "no paper verdict; can admit a future evidence-changing source-diverse closed-loop diagnostic execution preflight if the design passes",
+    "must_synthesize_if": [
+      "M2736 cannot select a bounded follow-up execution preflight or stop route",
+      "M2736 would admit direct same-surface repair execution",
+      "M2736 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2736 would rank controllers source families profiles select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A bounded execution design can translate the audited M2734 source-diverse evidence surface into an actor-safe protocol for future closed-loop diagnostic execution without ranking or overclaiming.",
+  "success_criteria": [
+    "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md exists",
+    "design specifies the 18 M2734 candidate rows as the only candidate input surface",
+    "design excludes M2728 negative repair context protected blockers and HF3 blockers from execution candidates",
+    "design preserves actor 72/action 3 no hidden oracle and actor-invisible labels",
+    "design registers one bounded follow-up execution preflight synthesis stop or artifact repair route",
+    "design makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2736 executes reset step rollout replay validation training source build adapter probe or external simulation",
+    "M2736 admits same-surface M2728 repair execution directly",
+    "M2736 ranks controller families source families profiles task families selects a winner promotes a checkpoint or claims driver performance",
+    "M2736 hides M2728 negative diagnostics or treats M2734 as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2736 freezes a bounded source-diverse execution design that preserves candidate blocker and actor boundaries while selecting a bounded follow-up route without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/evidence_surface_candidate_rows.csv",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/blocked_surface_rows.csv",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/negative_diagnostic_context_rows.csv",
+    "docs/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.md"
+  ]
+}
