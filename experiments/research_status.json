@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2753,
+    "completed": 2754,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.md",
+    "command_log": "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit"
+    "task_id": "m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A result synthesis can preserve M2742-M2747 role-panel evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-    "id": "m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2742-M2747 role-panel branch preserve M2746 weak diagnostic outcomes 14 execution rows 0 failures 1 success 1 collision 9 off_track 3 speed_too_low 1 unset_or_completed guardrails not executed actor 72/action 3 no hidden oracle reject ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim before next route",
-    "priority": 27430,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index --output-dir runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index",
+    "hypothesis": "A current Route A readiness/admission index can integrate M2746/M2747 weak role-panel diagnostics with baseline contract protected HF3 runtime benchmark taxonomy and scenario-role artifacts and select a bounded non-same-panel next action without ranking validation or performance claims.",
+    "id": "m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize Route A readiness/admission index from existing artifacts only preserve M2746 weak diagnostic outcome and M2667 protected/HF3 blockers actor 72/action 3 no hidden oracle no reset rollout training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27440,
     "status": "pending",
-    "success_artifact": "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md"
+    "success_artifact": "runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/summary.json"
   },
-  "updated_at_utc": "20260605T041439Z"
+  "updated_at_utc": "20260605T042908Z"
 }

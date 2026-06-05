@@ -49666,3 +49666,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2747
 - follow-up manifest: `experiments/manifests/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.json`
 - next: `m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis`
+
+## M2748 Engineering Controller Route A Source-Diverse Failure Taxonomy Scenario-Role Metric Panel Bounded Execution Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_baseline_readiness_after_role_panel_diagnostic_index`
+- manifest: `experiments/manifests/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.json`
+- synthesis artifact: `docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md`
+- parent audit: `docs/m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit.md`
+- parent summary: `runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json`
+- evidence summary: M2742-M2747 form a complete claim-safe role-panel branch with M2743 scenario-role metric materialization M2746 bounded diagnostic execution and M2747 result audit
+- diagnostic outcome: M2746 remains weak with 14 execution rows 0 failures 1 diagnostic success row 1 collision row 9 off_track rows 3 speed_too_low rows and 1 unset_or_completed outcome; these remain diagnostic row accounting only
+- guardrail boundary: collision caution diagnostic success context negative-context blocked same-surface protected and HF3 rows remain non-executed guardrails outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input scenario-role labels metric labels target labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- overfit risk: medium-high if the branch repeats M2746-like same-panel execution or opens a same-surface repair loop before readiness/admission indexing
+- route decision: pivot to M2749 Route A baseline readiness/admission index after role-panel diagnostics before any further execution repair validation ranking or packaging claim
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2748
+- follow-up manifest: `experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json`
+- next: `m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight`

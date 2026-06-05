@@ -146,7 +146,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2747 accepts M2746 complete claim-safe bounded role-panel execution but rejects direct interpretation",
-    "synthesis_decision": "continue",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -261,5 +261,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis.md",
-  "next_blocker": "source-diverse failure taxonomy scenario-role metric panel bounded execution result synthesis"
+  "next_blocker": "Route A baseline readiness/admission index after role-panel diagnostic synthesis"
 }

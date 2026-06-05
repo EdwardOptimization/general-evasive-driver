@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
+m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
+m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2748-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-synthesis
+m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight
 ```
 
 Current route:
@@ -259,6 +259,18 @@ non-executed guardrails outside ordinary success denominators. Actor 72/action
 validation, performance, paper, current-sim, high-fidelity, full-driver, and
 self-ID interpretation. The next bounded step is M2748 result synthesis before
 any new execution or repair route.
+
+M2748 synthesized M2742-M2747 and chose `pivot` to a refreshed Route A
+readiness/admission index. It accepts the branch as complete and claim-safe
+diagnostic evidence only: M2746 has 14 execution rows, 0 failures, 1
+diagnostic success, 1 collision, 9 off_track, 3 speed_too_low, and 1
+unset_or_completed outcome. Guardrail rows remain non-executed and outside
+denominators; actor 72/action 3 and no hidden/oracle actor input are
+preserved. M2748 rejects another immediate same-panel execution and rejects
+ranking, validation, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID interpretation. The next bounded action is M2749
+Route A baseline readiness/admission index materialization from existing
+artifacts only.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
