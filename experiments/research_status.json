@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2749,
+    "completed": 2750,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+    "command_log": "docs/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight"
+    "task_id": "m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2743 scenario-role metric panel artifacts can be audited as complete and claim-safe before selecting the next bounded Route A evidence step.",
-    "id": "m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit",
+    "hypothesis": "The audited M2743 scenario-role metric panel can be translated into a bounded actor-safe diagnostic execution design over only the offtrack target rows before execution or interpretation.",
+    "id": "m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design",
     "kind": "gate",
-    "notes": "Pending: audit M2743 role metric target guardrail actor claim gate summary and doc artifacts before execution repair implementation ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27390,
+    "notes": "Pending: design bounded execution protocol over the 14 M2743 offtrack target rows while carrying collision success negative-context blocked protected and HF3 rows as guardrails before execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27400,
     "status": "pending",
-    "success_artifact": "docs/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.md"
+    "success_artifact": "docs/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.md"
   },
-  "updated_at_utc": "20260605T033155Z"
+  "updated_at_utc": "20260605T033725Z"
 }

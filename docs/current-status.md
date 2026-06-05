@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
+m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
+m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
+m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
 ```
 
 Current route:
@@ -201,6 +201,19 @@ verdict labels remain actor-invisible; actor 72/action 3 and no hidden/oracle
 input are preserved. M2743 makes no execution, training, ranking, validation,
 performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim.
 Next is M2744 result audit before any execution or repair-design route.
+
+M2744 audited and accepted M2743 as complete and claim-safe. It verifies
+`status_pass=true`, required artifacts present, 6 scenario roles, 6 metric
+contracts, 18 target rows, 5 guardrail contexts, 16 actor guards, 31 claim rows,
+and 22 passing gates. The audit preserves the 14 offtrack target rows as future
+planning targets only, while carrying the 1 collision caution row, 3 diagnostic
+success rows, 31 negative-context rows, 1 blocked same-surface row, and 11
+protected/HF3 exclusion rows as actor-invisible guard/context rows outside
+ordinary denominators. Actor 72/action 3, no hidden/oracle input, and invisible
+role/metric/target/protected/blocker/route/success/progress/verdict labels are
+preserved. M2744 rejects execution, training, ranking, validation, performance,
+paper, current-sim, high-fidelity, full-driver, and self-ID claims. The next
+bounded step is M2745 execution design over only the 14 offtrack target rows.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
