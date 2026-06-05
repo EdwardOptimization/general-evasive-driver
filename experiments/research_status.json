@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2796,
+    "completed": 2797,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design_20260605T131433Z/command.log",
+    "command_log": "runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design_20260605T131433Z",
+    "run_dir": "runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z",
     "status": "completed",
-    "task_id": "m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design"
+    "task_id": "m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --m2790-design docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md --m2789-synthesis docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md --m2787-dir runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --base-candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json --output-dir runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --device cpu --training-seeds-per-bucket 3 --proof-seeds-per-bucket 2 --behavior-retention-seed-count 4 --max-updates 1",
-    "hypothesis": "A bounded guardrailed multi-objective belief-stress training/update preflight can produce a candidate checkpoint and proof generalization behavior-retention artifacts while protecting obstacle clearance and preserving actor boundaries.",
-    "id": "m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded guardrailed multi-objective belief-stress training/update preflight from M2790 design and M2789/M2787/M2782 evidence start from M2782 candidate with M2655 source reference preserve actor 72/action 3 no hidden oracle actor-invisible labels keep mitigation rows outside denominators write checkpoint lineage proof generalization behavior-retention promotion actor mitigation claim gate artifacts make obstacle-clearance regression guard separate from road-margin yaw-rate speed and conflict metrics no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim route to M2792 audit",
-    "priority": 27860,
+    "command": "true",
+    "hypothesis": "M2791 bounded guardrailed multi-objective training artifacts can be audited for completeness and claim safety before interpretation.",
+    "id": "m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2791 summary required artifacts gate matrix checkpoint lineage behavior-retention rows actor and mitigation guards claim boundaries verify candidate hash 32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651 base hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 18 objective rows 54 training rows 36 proof rows 30 gates obstacle-clearance guard 29 negative 43 positive road-margin positive 72/72 yaw-rate lower 60/72 no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register follow-up or stop",
+    "priority": 27870,
     "status": "pending",
-    "success_artifact": "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json"
+    "success_artifact": "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md"
   },
-  "updated_at_utc": "20260605T131837Z"
+  "updated_at_utc": "20260605T133554Z"
 }

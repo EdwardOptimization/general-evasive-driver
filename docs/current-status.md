@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design
+m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design
+m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight
+m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit
 ```
 
 Current route:
@@ -38,6 +38,25 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2791 completed the Route A source-only belief-stress guardrailed
+multi-objective training/update preflight. It wrote candidate checkpoint
+`32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651` from the
+M2782 base candidate
+`96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8` with the
+M2655 source checkpoint as reference. It produced 18 objective rows, 54
+training rows, 36 proof rows, 13 proof gates, 6 generalization gates, 7
+behavior-retention gates, 4 promotion guards, 6 actor guards, 8 mitigation
+guards, 11 claim rows, and 30 gate rows all passing. The actor contract remains
+P0 observation 72/action 3 with no hidden/oracle actor input or actor-visible
+labels, and mitigation rows remain outside ordinary denominators. M2791 keeps
+M2787 obstacle-clearance regression as a first-class hard guard, with the
+fresh-holdout baseline still mixed at 29 negative and 43 positive
+obstacle-clearance deltas, road-margin positive in 72/72 rows, yaw-rate lower
+in 60/72 rows, and throttle/brake conflict zero in 72/72 rows. The new
+checkpoint is not promoted and does not support validation, ranking,
+success-rate, performance, paper, current-sim, high-fidelity, full-driver, or
+self-ID claims. The current next task is M2792 audit.
 
 M2790 completed the Route A source-only belief-stress guardrailed
 multi-objective training design and admits M2791 bounded training/update
@@ -53,7 +72,7 @@ hidden/oracle actor input or actor-visible labels, keep mitigation rows outside
 ordinary denominators, separate proof/generalization/behavior-retention/
 promotion gates, use 18 ordinary buckets with 3 training seeds and 2 proof
 seeds per bucket plus behavior-retention seed rows, and write no promotion or
-validation verdict. The current next task is M2791 preflight.
+validation verdict. M2790 routed to the now-completed M2791 preflight.
 
 M2789 synthesized the M2786-M2788 source-only belief-stress fresh-holdout
 branch and chose

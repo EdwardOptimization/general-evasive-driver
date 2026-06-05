@@ -1,0 +1,14 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+proof_m2790_design_present,proof,lineage,True,docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md,M2790 design artifact exists,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2789_synthesis_present,proof,lineage,True,docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md,M2789 synthesis artifact exists,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2787_status_pass,proof,lineage,True,True,true,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2782_status_pass,proof,lineage,True,True,true with candidate hash,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_checkpoint_lineage_hashes,proof,lineage,True,source base candidate hashes,source base candidate hashes with candidate update,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_objective_row_count,proof,artifact,True,18,18,18,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_training_row_count,proof,artifact,True,54,54,54,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_holdout_row_count,proof,artifact,True,36,36,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_actor_contract_72_3,proof,actor_contract,True,all actor guards pass,all actor guards pass,6,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_no_hidden_or_oracle_actor_input,proof,actor_contract,True,false,false,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_actor_invisible_labels,proof,actor_contract,True,false,false,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_finite_action_observation,proof,metric_artifact,True,finite,finite,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_mitigation_rows_excluded,proof,proof_washout,True,mitigation rows excluded,mitigation rows excluded,8,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only

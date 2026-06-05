@@ -1,0 +1,12 @@
+claim_id,claim_family,claim_made,allowed,status_pass,evidence,claim_boundary
+validation_result,validation,False,False,True,M2791 does not run measured validation,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+ranking_result,ranking,False,False,True,M2791 does not rank checkpoints or controllers,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+winner_selection,promotion,False,False,True,M2791 selects no winner,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+checkpoint_promotion,promotion,False,False,True,M2791 writes candidate only,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+success_rate_verdict,metric_artifact,False,False,True,M2791 emits no success-rate verdict,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+driver_performance,performance,False,False,True,M2791 is preflight evidence only,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+paper_result,paper,False,False,True,M2791 is not paper evidence,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+current_sim_verdict,current_sim,False,False,True,M2791 is not a current-sim verdict,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+high_fidelity_validation,high_fidelity,False,False,True,M2791 does not run HF validation,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+level3_self_id,self_id,False,False,True,M2791 is not self-ID evidence,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+guardrailed_preflight_artifacts_complete,allowed_artifact_completion,True,True,True,M2791 may claim whether bounded guardrailed preflight artifacts were written,Route A source-only belief-stress guardrailed multi-objective training/update preflight only

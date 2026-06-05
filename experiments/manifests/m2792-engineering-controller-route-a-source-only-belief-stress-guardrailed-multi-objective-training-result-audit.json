@@ -1,0 +1,187 @@
+{
+  "baseline_artifacts": [
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/gate_matrix.csv",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/behavior_retention_gate_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_design_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2792 writes a claim-safe audit of M2791 artifacts and routes before interpretation.",
+  "failure_criteria": [
+    "M2792 executes new training or rollout",
+    "M2792 treats M2791 as validation or promotion evidence",
+    "M2792 hides obstacle-clearance guard failures",
+    "M2792 claims driver performance paper high-fidelity full-driver or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step policy action rollout replay validation training PPO source build adapter probe or external simulation",
+    "do not change actor inputs or action contract",
+    "do not expose role dynamics intervention stress curriculum admission outcome success progress route or verdict labels to actor input",
+    "do not use mitigation reference rows as ordinary successes",
+    "do not rank checkpoints or select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide obstacle-clearance guard failures behind road-margin yaw-rate speed or action-delta metrics",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver or self-ID result"
+  ],
+  "gate_tier": "proof",
+  "hypothesis": "M2791 bounded guardrailed multi-objective training artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2791 artifacts must be audited before any validation ranking promotion performance or self-ID interpretation",
+      "M2791 remains source-only and cannot resolve the M2638 high-fidelity source dependency",
+      "M2791 behavior-retention guards must be checked before any future closed-loop candidate panel"
+    ],
+    "derived_from": [
+      "m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight",
+      "m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design",
+      "m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight.json",
+      "experiments/manifests/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.json",
+      "experiments/manifests/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/training_objective_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/training_run_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoint_manifest.json",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/proof_gate_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/generalization_gate_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/behavior_retention_gate_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/promotion_guard_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/actor_contract_guard_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/mitigation_reference_guard_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/claim_boundary_rows.csv",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/gate_matrix.csv",
+      "docs/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight.md"
+    ],
+    "parent_objective": [
+      "audit the M2791 bounded guardrailed multi-objective training/update preflight before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M2791 candidate checkpoint without result audit",
+      "promotion from guardrailed training preflight artifacts"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits fresh M2791 guardrailed candidate checkpoint and gate artifacts before extension",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2792 finds incomplete artifacts or claim-boundary failure",
+      "M2792 finds obstacle-clearance guard weakening",
+      "another process-only milestone is proposed after M2792 without fresh evidence or synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit decides whether M2791 can be used as future engineering evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2792 must audit M2791 summary required artifacts gates checkpoint lineage behavior-retention rows and claim boundaries",
+    "M2792 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2792 must verify obstacle-clearance regression remains a first-class guard separate from road-margin yaw-rate speed and conflict metrics",
+    "M2792 must keep mitigation reference rows outside ordinary denominators",
+    "M2792 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2791 preflight artifacts are accepted or rejected as complete and claim-safe",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2792 audits source-only M2791 artifacts and cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2792 may check that M2791 covered history stress rows but runs no self-ID comparison."
+    ],
+    "negative_result_policy": "If M2791 artifacts fail, preserve failure and route to synthesis or repair rather than weakening obstacle-clearance or actor-contract gates.",
+    "temporal_evidence_window": "M2789-M2792 source-only belief-stress guardrailed training branch."
+  },
+  "success_criteria": [
+    "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md exists",
+    "M2792 audits M2791 summary required artifacts gates checkpoint lineage behavior-retention rows and claim boundaries",
+    "M2792 registers one bounded follow-up or stop decision",
+    "M2792 makes no new execution training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2791 summary and gate artifacts exist",
+      "M2791 writes a candidate checkpoint manifest and proof generalization behavior-retention promotion gate rows",
+      "M2791 is not validated ranked or promoted before this audit"
+    ],
+    "allowed_updates": [
+      "docs/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.md",
+      "M2792 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no new execution or training in M2792",
+      "no validation ranking promotion success-rate verdict performance paper HF full-driver or self-ID claim",
+      "no road-margin-only interpretation without obstacle-clearance guard audit"
+    ],
+    "next_stage_criteria": [
+      "M2791 artifacts are complete and claim-safe or failure is classified",
+      "one bounded follow-up or stop decision is registered"
+    ],
+    "stage": "process",
+    "stage_objective": "audit M2791 bounded guardrailed multi-objective training/update preflight artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training",
+    "claim_scope": "Result audit only; no new execution training validation ranking promotion driver-performance paper high-fidelity self-ID or full-driver claim",
+    "evidence_axis": "source_only_belief_stress_guardrailed_multi_objective_training_result_audit",
+    "evidence_increment": "audits M2791 guardrailed candidate checkpoint and gate artifacts before interpretation",
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are missing",
+      "route to branch synthesis if guardrailed training artifacts are complete but guards fail",
+      "route to fresh closed-loop candidate-vs-source panel only after audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M2791 required artifacts are incomplete",
+      "stop if actor or claim boundaries fail",
+      "stop if checkpoint lineage hashes are missing",
+      "stop if behavior-retention guards are not auditable",
+      "stop if obstacle-clearance guards are weakened or hidden"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2791 writes bounded guardrailed training preflight artifacts"
+  }
+}

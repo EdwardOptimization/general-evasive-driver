@@ -50672,3 +50672,41 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rollback design: M2791 starts from the M2782 candidate with M2655 as source reference, writes any new candidate only under the M2791 run directory, does not overwrite active config or parent checkpoints, and does not promote.
 - rejected claims: no M2790 execution, training, ranking, winner selection, promotion, validation readiness/result, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim.
 - next: `m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight`
+
+## 20260605T133204Z m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded guardrailed multi-objective belief-stress training/update preflight can produce a candidate checkpoint and proof generalization behavior-retention artifacts while protecting obstacle clearance and preserving actor boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --m2790-design docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md --m2789-synthesis docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md --m2787-dir runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --base-candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json --output-dir runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight --device cpu --training-seeds-per-bucket 3 --proof-seeds-per-bucket 2 --behavior-retention-seed-count 4 --max-updates 1`
+- returncode: `0`
+- run dir: `runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z`
+- command log: `runs/research/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight_20260605T133203Z/command.log`
+- success artifact: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json`
+- notes: Completed: guardrailed multi-objective belief-stress training/update preflight status_pass true wrote candidate checkpoint hash 32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651 from base M2782 hash 96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8 with M2655 source reference 18 objective rows 54 training rows 36 proof rows 13 proof gates 6 generalization gates 7 behavior-retention gates 4 promotion guards 6 actor guards 8 mitigation guards 11 claim rows 30 gate rows all pass preserves actor 72/action 3 no hidden oracle labels keeps mitigation outside denominators makes M2787 obstacle-clearance regression guard explicit 29 negative 43 positive road-margin positive 72/72 yaw-rate lower 60/72 conflict zero 72/72 no validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim routes to M2792 audit
+
+## M2791 Engineering Controller Route A Source-Only Belief-Stress Guardrailed Multi-Objective Training Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight_pass`
+- manifest: `experiments/manifests/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight.py`
+- summary: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/summary.json`
+- doc: `docs/m2791-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-preflight.md`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- base candidate checkpoint: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt`
+- candidate checkpoint: `runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- base candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- candidate checkpoint hash: `32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`
+- checkpoint behavior changed: true
+- artifact accounting: 18 objective rows, 54 training run rows, 36 proof holdout probe rows, 13 proof gates, 6 generalization gates, 7 behavior-retention gates, 4 promotion guards, 6 actor guards, 8 mitigation-reference guards, 11 claim rows, and 30 gate-matrix rows all passing
+- guard baseline: M2787 fresh-holdout obstacle-clearance deltas remain mixed with 29 negative and 43 positive rows; road-margin deltas are positive in 72/72 rows, yaw-rate deltas are lower in 60/72 rows, and throttle/brake conflict is zero in 72/72 rows
+- objective boundary: obstacle-clearance regression is a hard guard before road-margin, yaw-rate, final-speed, throttle/brake conflict, or action-delta objectives can be interpreted
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain guarded outside ordinary denominators and cannot enter proof or promotion denominators
+- promotion boundary: the new candidate checkpoint is written only under the M2791 run directory, no parent checkpoint is overwritten, and no checkpoint is promoted
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU result, or level3 self-ID claim
+- follow-up manifest: `experiments/manifests/m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit.json`
+- next: `m2792-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-result-audit`

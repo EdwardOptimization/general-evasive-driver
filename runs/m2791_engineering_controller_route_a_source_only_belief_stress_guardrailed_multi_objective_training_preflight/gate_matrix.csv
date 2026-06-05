@@ -1,0 +1,31 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+proof_m2790_design_present,proof,lineage,True,docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md,M2790 design artifact exists,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2789_synthesis_present,proof,lineage,True,docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md,M2789 synthesis artifact exists,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2787_status_pass,proof,lineage,True,True,true,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_m2782_status_pass,proof,lineage,True,True,true with candidate hash,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_checkpoint_lineage_hashes,proof,lineage,True,source base candidate hashes,source base candidate hashes with candidate update,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_objective_row_count,proof,artifact,True,18,18,18,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_training_row_count,proof,artifact,True,54,54,54,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_holdout_row_count,proof,artifact,True,36,36,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_actor_contract_72_3,proof,actor_contract,True,all actor guards pass,all actor guards pass,6,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_no_hidden_or_oracle_actor_input,proof,actor_contract,True,false,false,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_actor_invisible_labels,proof,actor_contract,True,false,false,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_finite_action_observation,proof,metric_artifact,True,finite,finite,90,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+proof_mitigation_rows_excluded,proof,proof_washout,True,mitigation rows excluded,mitigation rows excluded,8,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_training_seed_rows_complete,generalization,seed_split,True,0;1;2,0;1;2,54,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_holdout_seed_rows_separate,generalization,seed_split,True,3;4,3;4,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_role_family_coverage,generalization,scenario_sampling,True,drift_required_recovery;stable_aes;stable_avoidable,stable_avoidable;stable_aes;drift_required_recovery,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_dynamics_axis_coverage,generalization,scenario_sampling,True,fresh_fault_delay_noise;fresh_nominal_or_role_default,fresh_nominal_or_role_default;fresh_fault_delay_noise,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_stress_family_coverage,generalization,scenario_sampling,True,held_actuator_history_stress;previous_command_history_stress;recurrent_hidden_reset_stress,recurrent_hidden_reset_stress;previous_command_history_stress;held_actuator_history_stress,36,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+generalization_no_validation_or_ranking_claim,generalization,claim_boundary,True,no validation/ranking claim,no validation/ranking claim,18,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_m2787_guard_baseline_present,behavior_retention,lineage,True,72,M2787 delta rows and gates present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_obstacle_clearance_regression_guard_defined,behavior_retention,behavior_regression,True,29,explicit obstacle-clearance guard,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_obstacle_clearance_guard_is_hard,behavior_retention,objective_overfit,True,road/yaw subordinate,road/yaw subordinate to clearance,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_road_margin_signal_reference_preserved,behavior_retention,metric_artifact,True,72,positive reference rows present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_yaw_rate_signal_reference_preserved,behavior_retention,metric_artifact,True,60,lower yaw-rate reference rows present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_throttle_brake_conflict_guard_defined,behavior_retention,behavior_regression,True,72,72,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_candidate_update_bounded,behavior_retention,objective_overfit,True,1.81385767e-05,"(0, 0.01]",1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+promotion_checkpoint_not_promoted,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+promotion_no_winner_selected,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+promotion_no_success_rate_verdict,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+promotion_no_active_config_overwrite,promotion,promotion_guard,True,false,false,1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only

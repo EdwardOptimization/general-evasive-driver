@@ -1,0 +1,8 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+behavior_m2787_guard_baseline_present,behavior_retention,lineage,True,72,M2787 delta rows and gates present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_obstacle_clearance_regression_guard_defined,behavior_retention,behavior_regression,True,29,explicit obstacle-clearance guard,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_obstacle_clearance_guard_is_hard,behavior_retention,objective_overfit,True,road/yaw subordinate,road/yaw subordinate to clearance,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_road_margin_signal_reference_preserved,behavior_retention,metric_artifact,True,72,positive reference rows present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_yaw_rate_signal_reference_preserved,behavior_retention,metric_artifact,True,60,lower yaw-rate reference rows present,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_throttle_brake_conflict_guard_defined,behavior_retention,behavior_regression,True,72,72,72,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
+behavior_candidate_update_bounded,behavior_retention,objective_overfit,True,1.81385767e-05,"(0, 0.01]",1,,Route A source-only belief-stress guardrailed multi-objective training/update preflight only
