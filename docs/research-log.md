@@ -50159,3 +50159,33 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2774
 - follow-up manifest: `experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json`
 - next: `m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight`
+
+## 20260605T100350Z m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-new-rollout delta-panel materialization can turn complete M2773 source-only intervention rows into auditable normal-vs-ablation delta evidence without overclaiming performance or self-ID.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2774-audit docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json --output-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization`
+- returncode: `0`
+- run dir: `runs/research/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight_20260605T100350Z`
+- command log: `runs/research/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight_20260605T100350Z/command.log`
+- success artifact: `runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json`
+- notes: Pending: materialize no-new-rollout normal-vs-intervention delta panel from M2773 rows write intervention_delta role/dynamics aggregate intervention aggregate mitigation guard actor guard claim gate summary doc run-state and M2776 audit manifest preserve actor 72/action 3 no hidden oracle no rollout training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim
+
+## M2775 Engineering Controller Route A Source-Only Action-Response Belief Intervention Delta Panel Materialization
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization_pass`
+- manifest: `experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization.py`
+- summary: `runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json`
+- doc: `docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md`
+- artifact accounting: 96 normal-vs-intervention delta rows, 24 role/dynamics aggregate rows, 3 intervention-condition aggregate rows, 8 mitigation guards, 7 actor guards, 17 claim rows, and 24 gates all passing
+- pairing result: complete pairing from 32 normal rows to 96 evaluator intervention rows over 7680 matched trace rows with 0 missing pairs and 0 duplicate execution pairs
+- delta diagnostic accounting: collision added 0, collision removed 0, road-departure added 0, road-departure removed 4; this is diagnostic row accounting only and not a success-rate verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible labels and mitigation reference rows guarded outside ordinary denominators
+- route boundary: no new reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim
+- route decision: route to M2776 result audit before interpreting deltas or selecting synthesis proof extension artifact repair or stop
+- follow-up manifest: `experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json`
+- next: `m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit`

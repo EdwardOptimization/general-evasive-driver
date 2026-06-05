@@ -1,0 +1,137 @@
+{
+  "decision_reason": "M2775 materialization status_pass true wrote 96 normal-vs-intervention delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows and 24 gates all pass paired 32 normal rows with 96 evaluator intervention rows over 7680 matched trace rows road-departure removed 4 added 0 collision added 0 removed 0 preserves actor 72/action 3 no hidden oracle no new execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim routes to M2776 audit",
+  "failure_criteria": [
+    "M2775 executes new reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2775 changes actor input or action contract",
+    "M2775 exposes source-only role dynamics intervention outcome route progress success or verdict labels to actor input",
+    "M2775 treats source-only delta rows as high-fidelity validation or paper evidence",
+    "M2775 ranks controller families candidates source edges profiles task families mechanism tags or intervention modes selects a winner promotes a checkpoint or claims driver performance",
+    "M2775 hides M2773 diagnostic accounting or M2638 source dependency blocker",
+    "M2775 fails to register a bounded result-audit follow-up"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not execute step",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose role labels dynamics labels intervention labels outcomes success progress route decisions or verdict labels to actor input",
+    "do not treat mitigation reference rows as ordinary denominators",
+    "do not rank intervention conditions source edges profiles roles task families candidates or controllers",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2775 delta rows"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260605T100527Z",
+  "hypothesis": "A no-new-rollout delta-panel materialization can turn the complete M2773 source-only intervention rows into auditable normal-vs-ablation evidence without overclaiming performance or self-ID.",
+  "lineage": {
+    "blocked_by": [
+      "M2774 accepts M2773 artifacts as complete and claim-safe but rejects direct interpretation",
+      "M2773 raw execution rows are not yet organized into normal-vs-intervention deltas",
+      "M2773 source-only diagnostic rows cannot be used as validation performance or self-ID evidence"
+    ],
+    "derived_from": [
+      "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit",
+      "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json",
+      "experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/source_only_candidate_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_condition_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/candidate_intervention_matrix.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_execution_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/intervention_failure_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/action_response_trace_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/mitigation_reference_guard_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize a no-new-rollout delta panel comparing M2773 normal_recurrent rows against evaluator-only intervention rows"
+    ],
+    "supersedes": [
+      "direct self-ID interpretation from M2773 raw intervention rows",
+      "ranking intervention conditions from M2773 row counts",
+      "driver-performance interpretation from source-only diagnostic rows"
+    ]
+  },
+  "milestone": "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_source_only_action_response_belief_intervention_delta_panel_result_audit",
+  "public_gates": [
+    "M2775 must consume M2774 audit and M2773 source-only intervention artifacts only",
+    "M2775 must not execute reset step policy action rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2775 must compute normal-vs-intervention delta rows for reset_hidden_each_step zero_previous_command_history and held_actuator_history against normal_recurrent for each candidate",
+    "M2775 must preserve mitigation reference rows as guarded context outside ordinary denominators",
+    "M2775 must preserve actor 72/action 3 no hidden/oracle actor input no actor-input change and actor-invisible labels",
+    "M2775 must write delta rows role/dynamics aggregate rows intervention aggregate rows actor guard rows claim boundary rows gate matrix summary doc run-state and an M2776 result-audit follow-up manifest",
+    "M2775 must reject ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_source_only_action_response_belief_intervention_delta_panel_result_audit",
+    "milestone": "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+    "reason": "M2775 materialization status_pass true wrote 96 normal-vs-intervention delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows and 24 gates all pass paired 32 normal rows with 96 evaluator intervention rows over 7680 matched trace rows road-departure removed 4 added 0 collision added 0 removed 0 preserves actor 72/action 3 no hidden oracle no new execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim routes to M2776 audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json exists",
+    "docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md exists",
+    "M2775 consumes M2774 and M2773 artifacts only",
+    "M2775 writes normal-vs-intervention delta rows for every non-normal M2773 intervention condition",
+    "M2775 preserves mitigation reference rows outside ordinary denominators",
+    "M2775 preserves actor 72/action 3 no hidden oracle and actor-invisible labels",
+    "M2775 writes gate actor guard claim boundary run-state and M2776 audit manifest artifacts",
+    "M2775 makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "type": "infrastructure"
+}

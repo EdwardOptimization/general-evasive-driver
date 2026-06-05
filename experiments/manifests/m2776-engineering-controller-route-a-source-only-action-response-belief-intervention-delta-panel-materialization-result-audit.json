@@ -1,0 +1,165 @@
+{
+  "baseline_artifacts": [
+    "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json",
+    "docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2776 audits M2775 artifacts and selects a bounded next route without overclaiming.",
+  "failure_criteria": [
+    "M2776 executes new rollouts or training",
+    "M2776 claims driver performance or self-ID",
+    "M2776 fails to select a bounded next route or stop"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO source build adapter probe or external simulation in audit",
+    "do not change actor inputs or action contract",
+    "do not rank intervention conditions roles dynamics axes candidates or controllers",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdicts",
+    "do not claim driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "proof",
+  "hypothesis": "M2775 source-only delta-panel artifacts can be audited for completeness and claim safety before interpretation.",
+  "id": "m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2775 delta rows must be audited before synthesis or proof extension",
+      "M2775 source-only deltas cannot be interpreted as ranking performance validation or self-ID evidence"
+    ],
+    "derived_from": [
+      "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+      "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit",
+      "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json",
+      "experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_delta_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/role_dynamics_delta_aggregate_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_condition_delta_aggregate_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/mitigation_reference_guard_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/actor_contract_guard_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/claim_boundary_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/gate_matrix.csv",
+      "docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2775 no-new-rollout source-only normal-vs-intervention delta-panel artifacts before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M2773 raw intervention rows",
+      "ranking intervention conditions from delta rows",
+      "driver-performance or self-ID interpretation from source-only delta rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits a new source-only delta panel rather than extending same-surface repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2776 cannot select a bounded follow-up route",
+      "M2776 would claim self-ID or performance from source-only delta rows",
+      "another no-new-data reanalysis is proposed after M2776 without synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may select whether delta artifacts justify synthesis or proof extension",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2776 must audit M2775 artifact completeness actor-contract preservation and claim boundaries",
+    "M2776 must preserve M2775 source-only diagnostic reanalysis scope and reject validation performance paper high-fidelity full-driver and self-ID claims",
+    "M2776 must decide whether to route to source-only intervention synthesis proof-extension design artifact repair or branch stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2775 artifacts are complete and claim-safe or incomplete",
+      "no driver-performance verdict paper result high-fidelity validation full ideal driver or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2776 may audit source-only deltas but cannot by itself establish level3 self-identification.",
+    "history_necessity_tests": [
+      "audit only; no new tests in M2776"
+    ],
+    "negative_result_policy": "Preserve weak or ambiguous deltas instead of weakening self-ID gates.",
+    "temporal_evidence_window": "M2772-M2775 source-only intervention branch"
+  },
+  "success_criteria": [
+    "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md exists",
+    "M2776 audits M2775 summary delta aggregate actor guard claim and gate artifacts",
+    "M2776 preserves no ranking validation performance paper high-fidelity full-driver or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2775 summary and gate artifacts exist"
+    ],
+    "allowed_updates": [
+      "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+      "M2776 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no execution training ranking validation performance paper HF or self-ID claim in audit"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "one bounded next route or stop decision is selected"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "source-only action-response belief intervention delta-panel result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_action_response_belief_intervention",
+    "claim_scope": "M2775 result audit only; no new execution training ranking validation performance paper current-sim high-fidelity self-ID or full ideal driver claim",
+    "evidence_axis": "source_only_action_response_belief_intervention_delta_panel_result_audit",
+    "evidence_increment": "audits M2775 source-only normal-vs-intervention delta-panel artifacts before synthesis or proof extension",
+    "fallback_plan": [
+      "route to artifact repair if pairing or accounting is incomplete",
+      "route to branch synthesis if deltas are complete but weak ambiguous or behavior-negative",
+      "route to proof-extension design only after audit and synthesis preserve claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M2775 artifacts are incomplete",
+      "stop if M2775 delta pairing or trace accounting is incomplete",
+      "stop if delta rows would be interpreted as validation performance paper high-fidelity or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2775 writes no-new-rollout source-only delta-panel artifacts"
+  }
+}

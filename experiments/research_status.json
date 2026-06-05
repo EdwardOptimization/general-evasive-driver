@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2780,
+    "completed": 2781,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+    "command_log": "runs/research/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight_20260605T100350Z/command.log",
     "returncode": 0,
-    "run_dir": "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+    "run_dir": "runs/research/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight_20260605T100350Z",
     "status": "completed",
-    "task_id": "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit"
+    "task_id": "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2774-audit docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json --output-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization",
-    "hypothesis": "A no-new-rollout delta-panel materialization can turn complete M2773 source-only intervention rows into auditable normal-vs-ablation delta evidence without overclaiming performance or self-ID.",
-    "id": "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize no-new-rollout normal-vs-intervention delta panel from M2773 rows write intervention_delta role/dynamics aggregate intervention aggregate mitigation guard actor guard claim gate summary doc run-state and M2776 audit manifest preserve actor 72/action 3 no hidden oracle no rollout training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim",
-    "priority": 27700,
+    "command": "true",
+    "hypothesis": "M2775 source-only delta-panel artifacts can be audited for completeness and claim safety before interpretation.",
+    "id": "m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2775 status_pass true 96 delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows 24 gates preserve actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim select synthesis repair proof-extension or stop",
+    "priority": 27710,
     "status": "pending",
-    "success_artifact": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json"
+    "success_artifact": "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T094519Z"
+  "updated_at_utc": "20260605T100350Z"
 }

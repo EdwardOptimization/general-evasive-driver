@@ -1,0 +1,21 @@
+{
+  "artifact_paths": {
+    "actor_contract_guard_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/actor_contract_guard_rows.csv",
+    "claim_boundary_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/claim_boundary_rows.csv",
+    "doc": "docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json",
+    "gate_matrix": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/gate_matrix.csv",
+    "intervention_condition_delta_aggregate_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_condition_delta_aggregate_rows.csv",
+    "intervention_delta_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_delta_rows.csv",
+    "mitigation_reference_guard_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/mitigation_reference_guard_rows.csv",
+    "role_dynamics_delta_aggregate_rows": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/role_dynamics_delta_aggregate_rows.csv",
+    "run_state": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/run_state.json",
+    "summary": "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json"
+  },
+  "claim_scope": "Route A source-only normal-vs-intervention delta-panel materialization only",
+  "forbidden_interpretation": "new rollout, replay, training, validation, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper evidence, finite-window-vs-GRU conclusion, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "generated_at_utc": "20260605T100350Z",
+  "milestone": "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+  "result_class": "engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization_pass",
+  "status_pass": true
+}
