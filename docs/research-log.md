@@ -50608,3 +50608,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.json`
 - next: `m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T130601Z m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2786-M2788 source-only belief-stress fresh-holdout evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis_20260605T130601Z`
+- command log: `runs/research/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis_20260605T130601Z/command.log`
+- success artifact: `docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2786-M2788 complete claim-safe source-only belief-stress fresh-holdout diagnostic branch preserves M2787 seed indices 4 5 6 7 disjoint from M2784 0 1 2 3 horizon 120 greater than 80 144 paired execution rows 72 paired delta rows 25 gates road-margin positive 72/72 yaw-rate lower 60/72 obstacle-clearance mixed 43 positive 29 negative final-speed positive 63/72 actor 72/action 3 no hidden oracle mitigation outside denominators rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims pivots to M2790 guardrailed multi-objective training design
+
+## M2789 Engineering Controller Route A Source-Only Belief-Stress Fresh-Holdout Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_guardrailed_multi_objective_belief_stress_training_design`
+- manifest: `experiments/manifests/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.json`
+- synthesis doc: `docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md`
+- parent audit: `docs/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit.md`
+- parent fresh-holdout summary: `runs/m2787_engineering_controller_route_a_source_only_belief_stress_fresh_holdout_delta_panel/summary.json`
+- follow-up manifest: `experiments/manifests/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.json`
+- evidence summary: M2786-M2788 form a complete claim-safe Route A source-only belief-stress fresh-holdout diagnostic branch. M2787 preserves seed indices 4, 5, 6, and 7 disjoint from M2784 seed_index 0..3, horizon 120 greater than M2784 horizon 80, 144 paired execution rows, 72 paired delta rows, 13 proof gates, 8 generalization holdout gates, 4 promotion guards, 7 actor guards, 8 mitigation guards, 11 claim rows, and 25 gate rows all passing.
+- checkpoint lineage: source checkpoint hash `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`; candidate checkpoint hash `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- diagnostic delta accounting: candidate-minus-source road-margin deltas positive in 72/72 rows, yaw-rate deltas lower in 60/72 rows, obstacle-clearance deltas mixed with 43 positive and 29 negative rows, final-speed deltas positive in 63/72 rows, throttle/brake conflict unchanged at zero, and mean action L1 deltas positive but very small.
+- supported claims: complete claim-safe fresh-holdout source-only diagnostic branch; persistent road-margin and yaw-rate directional movement on unseen seed indices; sufficient evidence to design a guardrailed multi-objective training/update recipe.
+- falsified or rejected claims: no candidate-better verdict, validation readiness/result, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, finite-window-vs-GRU conclusion, or level3 self-ID claim.
+- failure taxonomy: contract, lineage, scenario-sampling, and proof-washout risks are controlled for this branch; behavior-regression risk remains active because obstacle-clearance deltas are mixed; metric-artifact risk remains active because the action deltas are tiny; local-search risk becomes active if the next task repeats same-axis diagnostics or process-only audits.
+- public-gate overfit risk: medium if road-margin/yaw-rate positives are promoted without obstacle-clearance guards; reduced only by explicit obstacle-clearance regression guards, multi-objective guardrails, separated proof/generalization/behavior-retention/promotion gates, unchanged actor input, and a future pre-registered execution or training preflight before promotion.
+- route decision: pivot to M2790 guardrailed multi-objective belief-stress training design instead of another same-axis fresh-holdout panel, training execution, ranking, promotion, or stop.
+- next: `m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design`

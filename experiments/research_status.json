@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2794,
+    "completed": 2795,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit_20260605T125428Z/command.log",
+    "command_log": "runs/research/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis_20260605T130601Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit_20260605T125428Z",
+    "run_dir": "runs/research/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis_20260605T130601Z",
     "status": "completed",
-    "task_id": "m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit"
+    "task_id": "m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2786-M2788 source-only belief-stress fresh-holdout evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-    "id": "m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis",
+    "hypothesis": "A design-only protocol can convert M2789 fresh-holdout synthesis into a bounded guardrailed multi-objective training/update branch that protects obstacle clearance while preserving actor and claim boundaries.",
+    "id": "m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2786-M2788 source-only belief-stress fresh-holdout evidence answer evidence summary supported claims falsified claims failure taxonomy public gate overfit risk next branch decision preserve M2787 144 paired execution rows 72 paired delta rows seed indices 4 5 6 7 outside M2784 0..3 actor 72/action 3 no hidden oracle mitigation outside denominators no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop",
-    "priority": 27840,
+    "notes": "Pending: design bounded guardrailed multi-objective belief-stress training/update recipe from M2789/M2788/M2787 evidence preserve actor 72/action 3 no hidden oracle actor-invisible labels make obstacle-clearance regression first-class guard separate from road-margin yaw-rate speed and conflict objectives keep mitigation rows outside denominators separate proof generalization behavior-retention promotion gates no execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register M2791 follow-up or stop",
+    "priority": 27850,
     "status": "pending",
-    "success_artifact": "docs/m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis.md"
+    "success_artifact": "docs/m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design.md"
   },
-  "updated_at_utc": "20260605T125548Z"
+  "updated_at_utc": "20260605T130739Z"
 }

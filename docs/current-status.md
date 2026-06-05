@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit
+m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2788-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-delta-panel-result-audit
+m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2789-engineering-controller-route-a-source-only-belief-stress-fresh-holdout-branch-synthesis
+m2790-engineering-controller-route-a-source-only-belief-stress-guardrailed-multi-objective-training-design
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2789 synthesized the M2786-M2788 source-only belief-stress fresh-holdout
+branch and chose
+`pivot_to_guardrailed_multi_objective_belief_stress_training_design`. It
+accepts the branch as complete and claim-safe: M2787 used seed indices 4, 5, 6,
+and 7 disjoint from M2784 seed_index 0..3, horizon 120 greater than M2784
+horizon 80, 144 paired execution rows, 72 paired delta rows, and 25 gates all
+passing. The persistent diagnostic direction is road-margin positive in 72/72
+rows, yaw-rate lower in 60/72 rows, and final-speed positive in 63/72 rows, but
+obstacle-clearance deltas remain mixed with 43 positive and 29 negative rows
+and the action deltas are tiny. Actor P0 observation 72/action 3, no
+hidden/oracle actor input, actor-invisible labels, and mitigation rows outside
+ordinary denominators are preserved. M2789 rejects validation, ranking, winner
+selection, promotion, success-rate verdict, performance, paper, current-sim,
+high-fidelity, full-driver, and self-ID interpretation. The next bounded task is
+M2790 design: make obstacle-clearance regression a first-class guard, separate
+proof, generalization, behavior-retention, and promotion gates, and preserve the
+actor contract before any future training or evaluation preflight.
 
 M2788 audited and accepted M2787 as complete and claim-safe source-only
 fresh-holdout paired delta evidence. It verified `status_pass=true`, required
@@ -52,8 +70,8 @@ observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
 and mitigation rows outside ordinary denominators are preserved. M2788 rejects
 validation, ranking, winner selection, promotion, success-rate verdict,
 performance, paper, current-sim, high-fidelity, full-driver, and self-ID
-interpretation. The next bounded task is M2789 branch synthesis before any new
-training update, same-axis panel, ranking, promotion, or performance claim.
+interpretation. It routed to M2789 branch synthesis before any new training
+update, same-axis panel, ranking, promotion, or performance claim.
 
 M2787 completed the Route A source-only belief-stress fresh-holdout paired
 delta panel. It ran the M2655 source checkpoint and the M2782 candidate
