@@ -50307,3 +50307,31 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: route to M2780 result audit before any materialization extension fresh closed-loop execution short training continuation ranking validation promotion or performance claim
 - follow-up manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
 - next: `m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit`
+
+## 20260605T110946Z m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M2779 source-only admission-pack artifacts can be audited for completeness and claim safety before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit_20260605T110946Z`
+- command log: `runs/research/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit_20260605T110946Z/command.log`
+- success artifact: `docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md`
+- notes: Pending: audit M2779 status_pass true 96 admission rows 24 curriculum rows 8 mitigation guards 7 actor guards 19 claim rows 39 gates preserve M2773 and M2775 source-only diagnostic accounting actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim select fresh closed-loop design short-training design artifact repair synthesis or stop
+
+## M2780 Engineering Controller Route A Source-Only Belief-Stress Training Admission Pack Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2779_route_to_source_only_belief_stress_short_training_continuation_design`
+- manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
+- audit doc: `docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md`
+- parent summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- accepted parent result: M2779 status_pass true gate_matrix_pass true with 96 admission rows, 24 curriculum rows, 8 mitigation guards, 7 actor guards, 19 claim rows, and 39 gates all passing
+- source accounting preserved: M2773 32 candidate rows, 128 execution rows, 10240 traces, 32 collision diagnostic rows, and 68 road-departure diagnostic rows; M2775 96 delta rows, 7680 matched trace pairs, 4 road-departure removals, 0 additions, and 0 collision changes
+- belief-stress signal accounting: 4 behavior-outcome-sensitive rows, 53 action-response-sensitive rows, 15 trace-sensitive rows, and 24 weak/context rows as source-only diagnostic admission metadata
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress admission curriculum outcome success progress route or verdict labels and mitigation reference rows guarded outside ordinary denominators
+- audit decision: accept completeness and claim safety but reject direct training execution ranking validation performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2781 short-training continuation design before any training fresh closed-loop execution validation ranking or promotion
+- follow-up manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
+- next: `m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design`

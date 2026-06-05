@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
+m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight
+m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
+m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
 ```
 
 Current route:
@@ -1953,18 +1953,35 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
 - next: `m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit`
 
+## M2780 Engineering Controller Route A Source-Only Belief-Stress Training Admission Pack Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2779_route_to_source_only_belief_stress_short_training_continuation_design`
+- manifest: `experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json`
+- audit doc: `docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md`
+- parent summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- accepted parent result: M2779 status_pass true gate_matrix_pass true with 96 admission rows, 24 curriculum rows, 8 mitigation guards, 7 actor guards, 19 claim rows, and 39 gates all passing
+- source accounting preserved: M2773 32 candidate rows, 128 execution rows, 10240 trace rows, 32 collision diagnostic rows, and 68 road-departure diagnostic rows; M2775 96 delta rows, 7680 matched trace pairs, 4 road-departure removals, 0 road-departure additions, and 0 collision changes
+- belief-stress signal accounting: 4 behavior-outcome-sensitive rows, 53 action-response-sensitive rows, 15 trace-sensitive rows, and 24 weak/context rows; these remain source-only diagnostic admission metadata
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible stress admission curriculum outcome success progress route or verdict labels and mitigation reference rows guarded outside ordinary denominators
+- audit decision: accept completeness and claim safety but reject direct training execution ranking validation performance paper current-sim high-fidelity full-driver and self-ID interpretation
+- route decision: route to M2781 short-training continuation design before any training or fresh closed-loop execution
+- follow-up manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
+- next: `m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design`
+
 ## Immediate Next Step
 
-M2780 should audit the M2779 source-only belief-stress admission pack before any
-fresh execution or training:
+M2781 should design a bounded short-training continuation protocol from the
+audited M2779 source-only belief-stress admission pack:
 
 ```text
 true
 ```
 
-M2780 must audit M2779 completeness, actor-contract preservation, mitigation
-guards, and claim boundaries. It must preserve the source-only admission-pack
-scope and reject validation, performance, paper, high-fidelity, full-driver,
-and self-ID claims. The audit may select fresh closed-loop design, short
-training design, artifact repair, synthesis, or stop, but it must not execute
-rollouts or training itself.
+M2781 must define objective, seed budget, checkpoint lineage, stop criteria,
+rollback criteria, failure taxonomy, proof/generalization/promotion separation,
+and a bounded M2782 follow-up or explicit stop. It must keep actor 72/action 3,
+no hidden/oracle input, no actor-visible stress/admission/curriculum/outcome
+labels, and mitigation reference rows outside ordinary denominators. It must
+not execute training, rollout, validation, ranking, promotion, or performance
+claims.

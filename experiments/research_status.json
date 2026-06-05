@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2785,
+    "completed": 2786,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z/command.log",
+    "command_log": "runs/research/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit_20260605T110946Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight_20260605T105248Z",
+    "run_dir": "runs/research/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit_20260605T110946Z",
     "status": "completed",
-    "task_id": "m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight"
+    "task_id": "m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2779 source-only admission-pack artifacts can be audited for completeness and claim safety before interpretation.",
-    "id": "m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit",
+    "hypothesis": "A design-only protocol can safely convert the audited M2779 source-only belief-stress admission pack into a bounded short-training continuation branch without actor-input leakage or overclaiming.",
+    "id": "m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design",
     "kind": "gate",
-    "notes": "Pending: audit M2779 status_pass true 96 admission rows 24 curriculum rows 8 mitigation guards 7 actor guards 19 claim rows 39 gates preserve M2773 and M2775 source-only diagnostic accounting actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim select fresh closed-loop design short-training design artifact repair synthesis or stop",
-    "priority": 27750,
+    "notes": "Pending: design bounded short-training continuation from M2780/M2779 define objective seed budget checkpoint lineage stop criteria rollback failure taxonomy proof/generalization/promotion separation actor 72/action 3 no hidden oracle no actor-visible stress admission curriculum outcome success progress route or verdict labels mitigation rows outside ordinary denominators no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim register M2782 follow-up or stop",
+    "priority": 27760,
     "status": "pending",
-    "success_artifact": "docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md"
+    "success_artifact": "docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md"
   },
-  "updated_at_utc": "20260605T105248Z"
+  "updated_at_utc": "20260605T110946Z"
 }
