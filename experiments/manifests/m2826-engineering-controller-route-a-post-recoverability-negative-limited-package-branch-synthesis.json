@@ -125,7 +125,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2825 accepts M2824 package materialization and the branch has design materialization audit process milestones",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -240,5 +240,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
-  "next_blocker": "m2827-engineering-controller-route-a-post-recoverability-negative-limited-package-continuation-decision"
+  "next_blocker": "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design"
 }

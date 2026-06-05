@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
+m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
+m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis
+m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design
 ```
 
 Current route:
@@ -38,6 +38,21 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2826 synthesized and closed the M2823-M2825 local limited-package branch with
+decision `pivot_to_route_a_post_package_source_diverse_closed_loop_evidence_expansion_design`.
+The branch is accepted as complete and claim-safe process evidence only:
+M2824 preserved 6/6 package content groups, 4/4 limitations, 5 blocker rows,
+7 recoverability limitation rows, 27 claim rows, and 24 passing package gates.
+It still preserves M2816 7 post-event traces, 0 recoverability-window
+availability, 0 recoverability success, 1 diagnostic collision, and 5 offtrack
+terminations, plus M2804 prior blockers, M2638 HF3 blocker, actor 72/action 3,
+and no hidden/oracle actor input. M2826 rejects package publication, repair
+success, recoverability success, ranking, validation, driver performance,
+paper, high-fidelity, full-driver, and self-ID interpretations. The next task
+is M2827, a design-only Route A post-package source-diverse closed-loop
+evidence expansion branch that must define a future non-same-surface
+evidence-producing preflight or stop.
 
 M2825 audited and accepted M2824 as complete and claim-safe local Route A
 post-recoverability limited package materialization. The audit confirms M2824

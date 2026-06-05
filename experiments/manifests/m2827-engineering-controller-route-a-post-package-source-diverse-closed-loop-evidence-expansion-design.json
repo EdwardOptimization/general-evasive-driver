@@ -1,0 +1,240 @@
+{
+  "id": "m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md",
+      "runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json",
+      "docs/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight.md",
+      "docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md",
+      "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.json",
+      "experiments/manifests/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.json",
+      "experiments/manifests/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design a post-package Route A source-diverse closed-loop evidence expansion branch after M2826 closes the package loop"
+    ],
+    "derived_from": [
+      "m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis",
+      "m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit",
+      "m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2826 closes the limited package branch as process-complete but process-only",
+      "M2816/M2817 negative recoverability evidence remains active and must not become a repair or ranking surface",
+      "M2737 M2807 and M2816 prior surfaces must be treated as exclusion or guardrail surfaces for a future evidence expansion",
+      "M2638 HF3 source dependency remains unavailable for selected-platform high-fidelity execution",
+      "Route B paper and self-ID claims remain separate from Route A engineering evidence"
+    ],
+    "supersedes": [
+      "another package publication-design or package-audit loop after M2826",
+      "direct public package publication from M2824",
+      "direct same recoverability repair or ranking",
+      "direct validation readiness or driver-performance claim from package rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md",
+  "public_gates": [
+    "M2827 must write a post-package Route A source-diverse closed-loop evidence expansion design",
+    "M2827 must use M2824/M2825 only as package boundary and limitation input, not as performance evidence",
+    "M2827 must define candidate admission and prior-surface exclusion rules for a future non-same-surface evidence-producing preflight",
+    "M2827 must preserve M2816 negative recoverability counts M2804 prior blockers M2638 HF3 blocker Route B separation actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2827 must define future artifact schemas for candidate admission rows execution or failure rows scenario-role metric rows failure-taxonomy rows actor guard rows claim-boundary rows gate matrix and run state",
+    "M2827 must not execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation",
+    "M2827 must register one bounded future evidence-producing preflight manifest or an explicit stop manifest"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not publish package artifacts as a release",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose package blocker recoverability route success progress target family or verdict labels to actor input",
+    "do not hide M2816 absent recoverability-window availability or recoverability success",
+    "do not hide M2816 diagnostic collision or offtrack terminations",
+    "do not weaken M2804 prior blockers or M2638 HF3 dependency blocker",
+    "do not rank controller families source families task families profiles recoverability families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim recoverability success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from evidence expansion design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion",
+    "evidence_axis": "post_package_source_diverse_closed_loop_evidence_expansion_design",
+    "evidence_increment": "designs a new Route A evidence branch after the limited-package process branch so a future milestone can produce non-same-surface source-diverse closed-loop diagnostic data",
+    "claim_scope": "Route A evidence expansion design only; no reset rollout replay validation training PPO repair ranking winner selection promotion package publication success-rate verdict driver-performance repair-success recoverability-success paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if the future evidence branch cannot define non-same-surface candidate admission without actor input or action contract changes",
+      "stop if prior M2737 M2807 M2816 or same recoverability rows cannot be separated from future candidate rows",
+      "stop if the design would hide negative recoverability or prior blockers",
+      "stop if the design would rank controllers source families profiles stress axes scenario roles or winners",
+      "stop if the design would claim validation readiness driver performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to explicit stop if no candidate admission rule can avoid prior-surface local search",
+      "route to artifact repair if required package or prior-surface inputs are missing",
+      "route to a future bounded evidence-producing preflight if candidate admission exclusion schemas actor gates and claim boundaries are explicit",
+      "defer to Route C dependency handling only through a separate source-dependency manifest",
+      "defer to Route B only through a separate controller-family comparison manifest"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2826 closes the limited-package branch and selects a new Route A evidence expansion design branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "post-package Route A source-diverse closed-loop evidence expansion design",
+    "admission_evidence": [
+      "M2826 synthesis decision pivot closes the package branch",
+      "M2824/M2825 provide local package boundary and limitation artifacts",
+      "M2816/M2817 preserve negative recoverability evidence that blocks same-surface repair or ranking",
+      "M2737 and M2807 provide prior closed-loop surfaces that must be excluded or used only as guardrails",
+      "docs/post-m2470-route-plan.md requires Route A to return to engineering controller evidence instead of continuing static package process"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO repair source build adapter probe external simulation in design",
+      "no package publication ranking winner selection promotion success-rate verdict",
+      "no actor input expansion",
+      "no repair success recoverability-success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md",
+      "M2827 status queue scoreboard research log and review",
+      "one bounded follow-up evidence-producing preflight manifest or explicit stop manifest"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "candidate admission and prior-surface exclusion rules are explicit",
+      "future artifact schemas and gate rows are explicit",
+      "actor 72/action 3 no hidden/oracle actor input and actor-invisible labels remain preserved",
+      "one bounded next route or stop is selected without ranking validation or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2827 designs a Route A engineering evidence branch and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2827; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2826 Route A package branch synthesis and prior Route A closed-loop diagnostic surfaces.",
+    "negative_result_policy": "If no source-diverse non-same-surface evidence branch can be defined, preserve the negative result and route to stop or a separate Route B or Route C design instead of weakening gates.",
+    "allowed_claims": [
+      "Route A post-package source-diverse closed-loop evidence expansion design",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the completed package branch into an admitted design for a future non-same-surface source-diverse closed-loop evidence-producing preflight",
+    "paper_verdict_delta": "no paper verdict; prevents package rows from being overinterpreted and prepares Route A engineering evidence expansion",
+    "must_synthesize_if": [
+      "M2827 cannot define non-same-surface candidate admission and exclusion rules",
+      "M2827 cannot select a future evidence-producing preflight or explicit stop route",
+      "M2827 would claim repair success recoverability success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2827 would continue another package-process loop without evidence expansion"
+    ]
+  },
+  "hypothesis": "A post-package source-diverse closed-loop evidence expansion design can convert the completed limited package boundary into a bounded evidence-producing next route without repeating package process or same recoverability local search.",
+  "success_criteria": [
+    "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md exists",
+    "design uses M2824/M2825 only as boundary and limitation input",
+    "design defines non-same-surface candidate admission and prior-surface exclusion rules",
+    "design defines future execution failure scenario-role metric failure-taxonomy actor-guard claim-boundary gate-matrix and run-state artifact schemas",
+    "design preserves actor 72/action 3 no hidden/oracle actor input actor-invisible labels M2816 negative recoverability M2804 prior blockers and M2638 HF3 blocker",
+    "design registers one bounded evidence-producing preflight manifest or an explicit stop manifest",
+    "design does not admit package publication repair ranking validation performance paper high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2827 executes reset step rollout replay validation training PPO repair source build adapter probe or external simulation",
+    "M2827 publishes package artifacts as a release",
+    "M2827 changes actor input or action contract",
+    "M2827 hides absent recoverability-window availability absent recoverability success collision rows or offtrack terminations",
+    "M2827 weakens M2804 prior blockers or M2638 HF3 dependency blocker",
+    "M2827 ranks controllers source families task families profiles stress axes recoverability families or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2827 claims repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2827 designs a bounded post-package source-diverse closed-loop evidence expansion route and selects a future evidence-producing preflight or stop while preserving blocker actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "design_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+    "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md",
+    "runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json",
+    "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+    "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2827-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-design.md",
+  "next_blocker": "m2828-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-preflight"
+}

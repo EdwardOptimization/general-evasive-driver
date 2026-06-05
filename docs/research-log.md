@@ -51317,3 +51317,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit_20260605T211134Z/command.log`
 - success artifact: `docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md`
 - notes: Completed: audit accepts M2824 complete claim-safe local Route A limited package materialization status_pass true required artifacts present package content 6/6 limitations 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects package publication repair success recoverability success validation performance paper high-fidelity full-driver and self-ID claims routes to M2826 branch synthesis
+
+## 20260605T213225Z m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve the M2823-M2825 limited package evidence while preventing package-process local search and selecting a bounded next route or stop.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis_20260605T213225Z`
+- command log: `runs/research/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis_20260605T213225Z/command.log`
+- success artifact: `docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot closes M2823-M2825 limited package branch as complete claim-safe process evidence preserving M2824 6/6 package content 4/4 limitations 5 blockers 7 recoverability limitation rows 27 claim rows 24 gates M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects package publication repair success recoverability success ranking validation performance paper high-fidelity full-driver and self-ID claims pivots to M2827 Route A post-package source-diverse closed-loop evidence expansion design
