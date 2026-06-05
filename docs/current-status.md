@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
+m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
+m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
+m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
 ```
 
 Current route:
@@ -38,6 +38,17 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2817 audited and accepted M2816 as complete and claim-safe bounded Route A
+recoverability-window diagnostic execution evidence. The acceptance is narrow:
+M2816 accounts for 12 fixed rows, 12 execution rows, 0 execution failures, 7
+post-event traces, 0 recoverability-window available rows, and 0 recoverability
+success rows. M2817 preserves the negative recoverability result as blocker
+evidence, not as repair or performance evidence; it rejects repair, ranking,
+validation, performance, paper, high-fidelity, full-driver, and self-ID claims.
+The next admitted step is M2818 branch synthesis over M2815-M2817 before any
+repair design, execution extension, ranking, validation, packaging, Route B
+claim, or Route C claim.
 
 M2816 completed bounded recoverability-window instrumented execution over the
 fixed M2813/M2807 row set. It accounts for 12 fixed mechanism rows, 10 source
@@ -54,7 +65,8 @@ This is diagnostic Route A evidence only; it preserves actor P0 observation
 guardrails outside denominators, and rejects training, repair, ranking,
 validation, promotion, performance, paper, high-fidelity, full-driver, and
 self-ID claims. The next admitted step is M2817 result audit before any repair
-design, execution extension, ranking, validation, or interpretation route.
+design, execution extension, ranking, validation, or interpretation route; that
+audit is now completed above.
 
 M2815 synthesized the M2812-M2814 action-response mechanism branch and selected
 `pivot_to_post_action_response_recoverability_window_instrumented_bounded_execution_preflight`.

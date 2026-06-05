@@ -51209,3 +51209,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight_20260605T192200Z/command.log`
 - success artifact: `runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json`
 - notes: Completed: bounded recoverability-window instrumented execution status_pass true required artifacts present fixed M2813 row set 12 accounted 10 source offtrack 2 source success 0 source collision executed 12 failure 0 diagnostic outcomes 6 success 1 collision 5 offtrack terminations post-event available 7 recoverability-window available 0 recoverability success 0 guardrails 44 actor guards 14 claim rows 17 gates 32 all pass actor 72/action 3 no hidden oracle labels guardrails outside denominators no training repair ranking validation promotion performance paper high-fidelity full driver or self-ID claim routes to M2817 audit
+
+## 20260605T193405Z m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2816 recoverability-window artifacts while preserving actor blocker and claim boundaries before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit_20260605T193405Z`
+- command log: `runs/research/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit_20260605T193405Z/command.log`
+- success artifact: `docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md`
+- notes: Completed: audit accepts M2816 complete claim-safe bounded recoverability-window diagnostics status_pass true required artifacts present 12 fixed rows 12 execution rows 0 failures 7 post-event traces 0 recoverability-window available 0 recoverability success 44 guardrails 14 actor guards 17 claim rows 32 gates actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects repair ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2818 synthesis
