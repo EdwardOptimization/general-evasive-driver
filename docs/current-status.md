@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
+m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
+m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
+m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
 ```
 
 Current route:
@@ -37,7 +37,25 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route A. M2712 closed the protected workload fixture support
+current branch is Route A.
+
+M2730 synthesized the exact-executable offtrack repair branch and chose
+`pivot_to_route_a_evidence_index_after_exact_executable_repair_refresh`.
+M2728 remains a complete claim-safe negative diagnostic: 31 repair execution
+rows, 1/31 success, 3/31 collision, and 27/31 off_track. This is not repair
+success, driver performance, validation, paper, current-sim, high-fidelity,
+full ideal driver, or self-ID evidence.
+
+M2731 materialized the Route A evidence/readiness index from existing artifacts
+only. It wrote 10 evidence rows, 5 blocker rows, 6 next-action admission rows,
+19 claim-boundary rows, and 21 gate rows. It preserves the M2728 negative
+diagnostic, the M2667 protected mitigation blocker, the M2638 HF3 source
+dependency blocker, and actor P0 observation 72/action 3 with no hidden/oracle
+actor input. The only admitted next action is M2732 result audit; same-surface
+exact-executable offtrack repair execution, HF3 selected-platform execution,
+ranking, validation, and driver-performance claims remain not admitted.
+
+M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
 remained proposed-new with 0 ready-existing rows, 0 exact existing M1690
 matches, 0 fabricated matches, and 0 execution-admitted rows.

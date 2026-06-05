@@ -1,0 +1,229 @@
+{
+  "id": "m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json",
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/evidence_index.csv",
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/blocker_matrix.csv",
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/next_action_admission_rows.csv",
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/claim_boundary_rows.csv",
+      "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/gate_matrix.csv",
+      "docs/m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight.md",
+      "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md",
+      "docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md",
+      "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight.json",
+      "experiments/manifests/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.json",
+      "experiments/manifests/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.json"
+    ],
+    "parent_objective": [
+      "audit the M2731 Route A evidence/readiness index after exact-executable repair refresh before any new execution route or stop decision"
+    ],
+    "derived_from": [
+      "m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight",
+      "m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis",
+      "m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit",
+      "m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2731 evidence index must be audited before any new Route A closed-loop evidence route or stop decision",
+      "M2728 negative diagnostic 1/31 success 3/31 collision and 27/31 offtrack must remain visible and non-ranking",
+      "protected mitigation and HF3 source dependency blockers must remain outside success denominators and actor-visible inputs",
+      "M2731 must not become validation readiness driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence"
+    ],
+    "supersedes": [
+      "using the M2731 evidence index without audit",
+      "opening same-surface exact-executable offtrack repair execution directly from M2731",
+      "claiming Route A validation readiness or performance from evidence indexing",
+      "running HF3 selected-platform execution while M2638 source dependency is unavailable"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md",
+  "public_gates": [
+    "M2732 must audit M2731 summary evidence_index blocker_matrix next_action_admission_rows claim_boundary_rows and gate_matrix artifacts",
+    "M2732 must verify M2731 source_artifacts_reanalyzed_only true and no reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion or success-rate computation",
+    "M2732 must verify M2731 preserves M2728 diagnostic 1/31 success 3/31 collision and 27/31 offtrack as non-ranking non-verdict evidence",
+    "M2732 must verify protected mitigation and HF3 source dependency blockers remain visible and outside ordinary success denominators",
+    "M2732 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible taxonomy repair target objective gate route-decision or verdict labels",
+    "M2732 must register one bounded synthesis stop or new non-same-surface evidence route manifest",
+    "M2732 must not claim repair success driver performance validation readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start a backend",
+    "do not execute reset",
+    "do not execute policy actions",
+    "do not step environments",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not hide the M2728 negative offtrack repair diagnostic result",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not open another same-surface public repair loop from the evidence index",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from evidence index audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_evidence_index_after_exact_executable_repair",
+    "evidence_axis": "route_a_current_evidence_index_after_exact_executable_repair_result_audit",
+    "evidence_increment": "audits the M2731 evidence/readiness index before selecting a synthesis stop or non-same-surface evidence route",
+    "claim_scope": "Route A evidence/readiness index result audit only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2731 artifacts are missing or incomplete",
+      "stop if M2731 hides the M2728 negative offtrack repair diagnostic",
+      "stop if M2731 collapses protected mitigation or HF3 dependency blockers into success denominators",
+      "stop if M2731 admits same-surface repair execution without a new evidence axis",
+      "stop if M2731 claims validation readiness repair success driver performance paper current-sim high-fidelity or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2731 artifacts are missing",
+      "route to schema repair if evidence rows cannot separate diagnostic evidence from verdict claims",
+      "route to branch synthesis if the audit finds no admissible non-same-surface evidence route",
+      "route to stop if no bounded new evidence route is available",
+      "route to user-supplied HF3 dependency handling only if a valid source root package route or dependency acquisition manifest is present"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2731 materializes the Route A evidence index after M2730 pivots away from same-surface exact-executable offtrack repair",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route A evidence index after exact-executable repair refresh result audit",
+    "admission_evidence": [
+      "M2731 is expected to materialize evidence index artifacts from existing Route A inputs only",
+      "M2731 must preserve M2728 1/31 success 3/31 collision and 27/31 offtrack as non-ranking evidence",
+      "M2731 must preserve protected mitigation and HF3 source dependency blockers outside denominators",
+      "M2731 must not turn evidence indexing into validation readiness or performance evidence"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking",
+      "no winner selection",
+      "no promotion",
+      "no success-rate verdict",
+      "no driver-performance claim from audit"
+    ],
+    "allowed_updates": [
+      "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md",
+      "M2732 status queue scoreboard research log and review",
+      "one follow-up synthesis stop or new evidence route manifest selected by audit"
+    ],
+    "next_stage_criteria": [
+      "audit document exists",
+      "M2731 evidence index artifacts are accepted or rejected explicitly",
+      "negative repair diagnostic and blocker boundaries remain separate",
+      "follow-up route is registered without ranking validation training promotion or performance claims"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2732 audits Route A engineering evidence indexing and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2732; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2730 Route A evidence through M2731 evidence/readiness index.",
+    "negative_result_policy": "If M2731 confirms negative exact-executable repair diagnostics and blockers, keep them visible and route to synthesis or non-overfit new evidence rather than weakening gates.",
+    "allowed_claims": [
+      "Route A evidence/readiness index result audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the integrated Route A evidence index instead of repairing the same exact-executable offtrack surface",
+    "paper_verdict_delta": "no paper verdict but prepares Route A for a bounded synthesis stop or new evidence route after negative repair indexing",
+    "must_synthesize_if": [
+      "M2732 cannot choose synthesis stop or new non-same-surface evidence route after audit",
+      "M2732 would claim repair success driver performance validation readiness paper evidence or self-ID",
+      "M2732 would rank controllers select a winner promote a checkpoint or compute success-rate verdict",
+      "another same-surface repair attempt is proposed from evidence rows without a new evidence axis"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject M2731 evidence-index artifacts before Route A chooses synthesis stop or a new non-same-surface evidence route.",
+  "success_criteria": [
+    "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md exists",
+    "audit verifies M2731 summary status_pass true and required evidence index artifacts exist",
+    "audit verifies M2728 negative diagnostic 1/31 success 3/31 collision and 27/31 offtrack remains visible and non-ranking",
+    "audit verifies protected mitigation and HF3 source dependency blockers remain visible outside success denominators",
+    "audit registers a bounded follow-up without ranking validation training promotion or performance claims"
+  ],
+  "failure_criteria": [
+    "M2732 executes reset step rollout replay validation training source build adapter probe or external simulation",
+    "M2732 ranks controller families selects a winner promotes a checkpoint or claims driver performance",
+    "M2732 treats protected mitigation or HF3 blocker rows as ordinary success denominators",
+    "M2732 treats evidence index as validation readiness or repair success"
+  ],
+  "decision_rule": "Pass only if M2732 audits M2731 evidence-index artifacts, preserves M2728 negative diagnostic visibility and protected/HF3 blocker semantics, and selects a bounded synthesis stop or non-same-surface evidence route without execution ranking promotion validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "audit_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json",
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/evidence_index.csv",
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/blocker_matrix.csv",
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/next_action_admission_rows.csv",
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/claim_boundary_rows.csv",
+    "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/gate_matrix.csv",
+    "docs/m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight.md"
+  ]
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2736,
+    "completed": 2737,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md",
+    "command_log": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh",
     "status": "completed",
-    "task_id": "m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis"
+    "task_id": "m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A current Route A evidence/readiness index can integrate M2728/M2729 negative exact-executable offtrack repair diagnostics with baseline contract protected HF3 and runtime artifacts and select a bounded non-same-surface next action without ranking validation or performance claims.",
-    "id": "m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize evidence_index blocker_matrix next_action_admission claim_boundary and gate_matrix rows from existing artifacts only; preserve M2728 1 success 3 collision 27 offtrack as non-ranking evidence preserve M2638 HF3 source dependency and protected blockers no execution training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27260,
+    "hypothesis": "A bounded result audit can accept or reject M2731 evidence-index artifacts before Route A chooses synthesis stop or a new non-same-surface evidence route.",
+    "id": "m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2731 summary evidence_index blocker_matrix next_action_admission claim_boundary and gate_matrix preserve M2728 negative diagnostic protected blocker HF3 dependency actor 72/action 3 and no hidden oracle no execution training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27270,
     "status": "pending",
-    "success_artifact": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json"
+    "success_artifact": "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T004733Z"
+  "updated_at_utc": "20260605T010247Z"
 }
