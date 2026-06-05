@@ -50020,3 +50020,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2766
 - follow-up manifest: `experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json`
 - next: `m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit`
+
+## M2767 Engineering Controller Route A Action-Response Telemetry Mechanism Localization Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2766_route_to_action_response_mechanism_localized_bounded_repair_design`
+- manifest: `experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json`
+- audit doc: `docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md`
+- parent summary: `runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json`
+- parent doc: `docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md`
+- accepted parent result: M2766 status_pass true with 12 telemetry join rows 12 mechanism-localization rows 12 repair-admission rows 8 bounded repair-design candidates 4 context-only rows 31 guardrail rows 6 actor-contract guard rows 18 claim-boundary rows and 21 gate rows all passing
+- mechanism panel: primary mechanisms are 7 track-containment contexts 1 obstacle-timing context and 4 diagnostic-success contexts; the 4 diagnostic-success rows remain context-only while the 8 admitted rows are repair-design candidates only
+- telemetry boundary: accepts 12/12 finite M2764 telemetry joins and 12/12 telemetry coverage improved rows while preserving M2759 no-backfill lineage
+- guardrail boundary: all 31 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input mechanism telemetry repair-target guardrail success/progress and verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2768 design-only bounded mechanism-localized repair protocol before repair execution validation ranking or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2767
+- follow-up manifest: `experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json`
+- next: `m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design`

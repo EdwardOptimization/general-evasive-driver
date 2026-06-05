@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2772,
+    "completed": 2773,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md",
+    "command_log": "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization",
+    "run_dir": "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md",
     "status": "completed",
-    "task_id": "m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight"
+    "task_id": "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2766 mechanism-localization panel artifacts can be audited as complete and claim-safe before repair design or another execution.",
-    "id": "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit",
+    "hypothesis": "A design-only repair protocol can translate the audited M2766 mechanism-localization panel into bounded actor-safe repair levers without ranking or overclaiming.",
+    "id": "m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design",
     "kind": "gate",
-    "notes": "Pending: audit M2766 summary mechanism-localization telemetry join repair-admission guard actor claim and gate artifacts preserve M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle labels actor-invisible reject replay validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims register bounded follow-up or synthesis route",
-    "priority": 27620,
+    "notes": "Pending: design bounded mechanism-localized repair protocol over exactly 8 M2766 admitted repair-design candidates preserve 4 diagnostic-success rows as context-only preserve M2759 no-backfill M2764 finite telemetry actor 72/action 3 no hidden oracle labels actor-invisible reject execution validation training ranking performance paper current-sim high-fidelity full ideal driver and self-ID claims register bounded follow-up or synthesis route",
+    "priority": 27630,
     "status": "pending",
-    "success_artifact": "docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md"
+    "success_artifact": "docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md"
   },
-  "updated_at_utc": "20260605T081853Z"
+  "updated_at_utc": "20260605T082542Z"
 }
