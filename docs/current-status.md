@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
+m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
+m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
+m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
 ```
 
 Current route:
@@ -38,6 +38,16 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2822 synthesized the M2819-M2821 post-recoverability-negative readiness-index
+branch and selected `pivot_to_route_a_limited_package_design`. The branch is
+accepted as complete and claim-safe readiness/admission evidence, but it is not
+driver-performance evidence: M2816/M2817 still show 7 post-event traces, 0
+recoverability-window availability, 0 recoverability success, 1 diagnostic
+collision, and 5 offtrack terminations. M2822 rejects another same
+recoverability repair/ranking loop and routes to M2823, a design-only limited
+Route A evidence package with explicit limitations. Route B comparison and
+Route C high-fidelity dependency handling remain separate pre-registered routes.
 
 M2821 audited and accepted M2820 as complete and claim-safe
 post-recoverability-negative Route A readiness/admission indexing. It verifies

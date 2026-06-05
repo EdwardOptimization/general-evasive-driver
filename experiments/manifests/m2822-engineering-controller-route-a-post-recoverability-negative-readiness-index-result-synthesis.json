@@ -125,7 +125,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2821 accepts M2820 complete claim-safe readiness-index artifacts and routes to synthesis",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -234,5 +234,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md",
-  "next_blocker": "m2823-engineering-controller-route-a-post-recoverability-negative-readiness-index-continuation-decision"
+  "next_blocker": "m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design"
 }

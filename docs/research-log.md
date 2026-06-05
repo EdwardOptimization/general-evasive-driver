@@ -51269,3 +51269,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit_20260605T203505Z/command.log`
 - success artifact: `docs/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit.md`
 - notes: Completed: audit accepts M2820 complete claim-safe post-recoverability negative readiness index status_pass true required artifacts present 19 evidence rows 12 deliverables 8 blockers 7 next-action rows 31 claim rows 42 gates M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack terminations M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects same recoverability repair ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2822 synthesis
+
+## 20260605T204025Z m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2819-M2821 readiness-index evidence while preventing another same recoverability local-search loop and selecting a bounded next route or stop.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis_20260605T204025Z`
+- command log: `runs/research/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis_20260605T204025Z/command.log`
+- success artifact: `docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md`
+- notes: Completed: synthesis decision pivot_to_route_a_limited_package_design accepts M2819-M2821 complete claim-safe readiness-index branch preserving M2820 19 evidence rows 12 deliverables 8 blockers 7 next-action rows 31 claim rows 42 gates M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects same recoverability repair ranking validation performance paper high-fidelity full-driver and self-ID claims routes to M2823 limited package design

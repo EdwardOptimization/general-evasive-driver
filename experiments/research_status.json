@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2827,
+    "completed": 2828,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit_20260605T203505Z/command.log",
+    "command_log": "runs/research/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis_20260605T204025Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit_20260605T203505Z",
+    "run_dir": "runs/research/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis_20260605T204025Z",
     "status": "completed",
-    "task_id": "m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit"
+    "task_id": "m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2819-M2821 readiness-index evidence while preventing another same recoverability local-search loop and selecting a bounded next route or stop.",
-    "id": "m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis",
+    "hypothesis": "A design-only Route A limited package plan can convert the post-recoverability readiness synthesis into a bounded deliverable without overclaiming performance.",
+    "id": "m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2819-M2821 post-recoverability negative readiness-index branch preserving M2820 19 evidence rows 12 deliverables 8 blockers 7 next-action rows 31 claim rows 42 gates M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels and select stop package non-same-surface Route A Route B or Route C continuation without execution ranking validation performance paper high-fidelity full-driver or self-ID claim",
-    "priority": 28170,
+    "notes": "Pending: design limited Route A package after M2822 pivot preserving M2816 negative recoverability M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels no execution ranking validation performance paper high-fidelity full-driver or self-ID claim and pre-register package materialization or stop",
+    "priority": 28180,
     "status": "pending",
-    "success_artifact": "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md"
+    "success_artifact": "docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md"
   },
-  "updated_at_utc": "20260605T203505Z"
+  "updated_at_utc": "20260605T204025Z"
 }
