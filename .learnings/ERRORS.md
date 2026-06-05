@@ -26,6 +26,36 @@ Use Python standard-library JSON extraction for repo-local checks unless `jq` av
 
 ---
 
+## [ERR-20260606-001] csv_scoreboard_truncation_recurrence
+
+**Logged**: 2026-06-06T00:45:21+08:00
+**Priority**: high
+**Status**: pending
+**Area**: infra
+
+### Summary
+Scoreboard CSV rewrite failed again on a parsed `None` extra-field key after opening the file for output, truncating `experiments/scoreboard.csv`.
+
+### Error
+```text
+ValueError: dict contains fields not in fieldnames: None
+```
+
+### Context
+- Command attempted: Python `csv.DictReader`/`csv.DictWriter` update for `experiments/research_queue.csv` and `experiments/scoreboard.csv`.
+- Queue update completed before the scoreboard write failed.
+- Scoreboard had to be reconstructed from `HEAD:experiments/scoreboard.csv` plus the intended new row.
+
+### Suggested Fix
+Never open scoreboard for writing until all rows have been normalized. Drop `None` keys from every row and validate fieldnames in memory before truncating the file.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/scoreboard.csv, experiments/research_queue.csv
+- See Also: ERR-20260605-002
+
+---
+
 ## [ERR-20260605-002] csv_dictwriter_extra_fields_and_line_endings
 
 **Logged**: 2026-06-05T16:05:00+08:00

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
+m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
+m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
+m2806-engineering-controller-route-a-post-clearance-negative-non-same-repair-evidence-route-design
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2805 audited and accepted M2804 as complete, claim-safe Route A readiness and
+admission indexing only. It verified `status_pass=true`, required artifacts
+present, `source_artifacts_reanalyzed_only=true`, 15 evidence rows, 11
+deliverable rows, 7 blocker rows, 7 next-action rows, 26 claim-boundary rows,
+and 38 passing gate rows. M2805 preserves M2801/M2802 negative clearance
+evidence without ranking or verdict conversion: candidate-minus-source obstacle
+clearance is 23 positive and 49 negative rows with mean
+`-0.00365399786071096`, and candidate-minus-M2791-start obstacle clearance is
+23 positive and 49 negative rows with mean `-0.001043581525003352`.
+`stable_avoidable` remains an active retention risk with 4 negative rows against
+source and 2 against M2791 start. M2805 rejects another same clearance-localized
+corrective update, another same-style fresh-holdout triad panel, reset, rollout,
+validation, training, ranking, promotion, performance, paper, current-sim,
+high-fidelity, full-driver, and self-ID claims. It routes to M2806, a design-only
+post-clearance negative non-same-repair evidence-route milestone.
 
 M2804 materialized the Route A post-clearance corrective readiness/admission
 index from existing artifacts only. It wrote summary, evidence index,
