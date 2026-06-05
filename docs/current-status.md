@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
+m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
+m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
+m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit
 ```
 
 Current route:
@@ -37,9 +37,27 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route C/HF0 source-only interface evidence handoff
-materialization after M2831 converted the M2830 pivot into a bounded handoff
-schema.
+current branch is Route C/HF0 source-only interface evidence handoff audit
+after M2832 materialized a bounded machine-auditable handoff panel.
+
+M2832 completed the Route C/HF0 source-only interface evidence handoff
+materialization. It wrote `summary.json`, 17 handoff artifact inventory rows,
+11 source-only interface handoff rows, 11 actor contract guard rows, 3 blocker
+boundary rows, 20 claim boundary rows, 26 passing gates, `run_state.json`, and
+the M2833 result-audit manifest. The materialized handoff preserves M2482
+10 fixture rows with 3 source-only admitted fixtures, M2484 3 reset and 6
+canned step rows, M2498 300 telemetry rows with 3 unique role reset digests,
+M2501 900 baseline-comparison telemetry rows and 9 role-subject panel rows,
+M2505 public diagnostic pack, M2508 300 runtime measurement rows, M2548 5 HF0
+P0 parity checks, 7 action mapping checks, and 270 actor inference rows,
+M2592/M2593 source-only adapter closure, M2638 selected-platform source
+dependency blocker, and M2828 mixed diagnostic outcomes of 16 executed rows,
+5 diagnostic success, 1 collision, and 10 off_track. Actor 72/action 3,
+ActorView-only extraction, no hidden/oracle actor input, actor-invisible labels,
+and actor-invisible diagnostics remain preserved. M2832 makes no external HF3
+install/import/build/probe/backend/reset/step/rollout/validation, ranking,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim.
+The next task is M2833 result audit before any interpretation.
 
 M2831 completed the Route C/HF0 source-only interface evidence handoff design
 and admitted M2832 as the next artifact-only materialization preflight. The
@@ -58,7 +76,7 @@ labels remain preserved. M2831 rejects external HF3 install/import/build/probe,
 reset/step/rollout/validation/training/ranking/promotion/package publication,
 driver performance, paper, current-sim, high-fidelity, full-driver, and self-ID
 claims. The next task is M2832 Route C/HF0 source-only interface evidence
-handoff materialization preflight.
+handoff materialization preflight, now completed above.
 
 M2830 synthesized and closed M2827-M2829 with decision
 `pivot_to_route_c_hf0_source_only_interface_evidence_handoff_design`. It

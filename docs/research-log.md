@@ -51389,3 +51389,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design_20260605T230438Z/command.log`
 - success artifact: `docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md`
 - notes: Completed: design admits M2832 Route C HF0 source-only interface evidence handoff materialization preserving post-M2470 Route C split M2830 pivot M2828 mixed diagnostics 16 executed 5 success 1 collision 10 off_track M2638 selected-platform source blocker M2475 ActorView boundary M2482 10 fixture rows M2484 source-only smoke M2498 300 parameterized telemetry rows unique role digests 3 M2501 900 source-only comparison rows M2505 public benchmark pack M2508 runtime report M2548 HF0 parity runtime actor 72/action 3 no hidden oracle labels and rejects external HF3 validation performance paper current-sim high-fidelity full-driver and self-ID claims
+
+## 20260605T233409Z m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A Route C HF0 source-only interface evidence handoff materialization can produce machine-auditable artifact rows that preserve source-only interface readiness and blockers without external HF3 execution or performance claims.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization --m2831-design docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md --output-dir runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization --follow-up-manifest experiments/manifests/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight_20260605T233409Z`
+- command log: `runs/research/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight_20260605T233409Z/command.log`
+- success artifact: `runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json`
+- notes: Completed: materialized Route C HF0 source-only interface evidence handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels no external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claim routes to M2833 audit

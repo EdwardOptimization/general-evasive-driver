@@ -1,0 +1,131 @@
+# m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T233548Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: route_to_route_c_hf0_source_only_interface_evidence_handoff_result_audit
+- Decision reason: M2832 materialized Route C HF0 source-only interface evidence handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels no external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claim routes to M2833 audit
+
+## Hypothesis
+
+A Route C HF0 source-only interface evidence handoff materialization can produce machine-auditable artifact rows that preserve source-only interface readiness and blockers without external HF3 execution or performance claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md, docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md, docs/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.md, runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json, docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md, docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md, runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json, runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json, public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json, docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md, docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md, docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md, docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md, docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md, runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json, runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv, runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv, docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md, runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json, docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md, runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json, docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md, docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md, docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md, docs/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.md, docs/m2475-high-fidelity-interface-external-backend-route-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.json, experiments/manifests/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.json, experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json, experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json
+- parent_objective: materialize a machine-auditable Route C HF0 source-only interface evidence handoff from existing artifacts without external HF3 execution
+- derived_from: m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design, m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis, m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design
+- blocked_by: M2831 admits only artifact materialization not external HF3 execution, M2638 selected-platform source dependency remains unavailable, M2828 Route A diagnostic outcomes remain mixed and nonverdict, HF0/source-only evidence must preserve actor 72/action 3 ActorView-only extraction and actor-invisible labels
+- supersedes: manual narrative handoff of Route C HF0 evidence, direct selected-platform HF3 build probe reset validation or performance route while M2638 remains blocked, direct driver-performance or high-fidelity validation claim from source-only artifacts
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json exists
+- handoff_artifact_inventory_rows source_only_interface_handoff_rows actor_contract_guard_rows blocker_boundary_rows claim_boundary_rows and gate_matrix exist
+- summary records required source artifact presence for M2475-M2509 M2548 M2593 M2638 and M2827-M2831
+- summary preserves actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels
+- summary preserves M2638 selected-platform HF3 source dependency blocker and M2828 mixed diagnostic outcomes
+- M2833 result audit manifest is registered
+- M2832 does not execute reset step policy action rollout validation training source build adapter probe external backend start ranking promotion package publication performance paper high-fidelity full-driver or self-ID claims
+
+## Failure Criteria
+
+- M2832 installs fetches imports builds probes or starts an external simulator or backend
+- M2832 executes reset step policy action rollout replay validation training or PPO
+- M2832 changes actor input or action contract
+- M2832 injects hidden or oracle actor features
+- M2832 exposes interface labels blocker labels source-family labels scenario-role labels success labels progress labels or verdict labels to actor input
+- M2832 weakens or hides M2638 selected-platform source dependency blocker
+- M2832 hides M2828 off_track collision or mixed diagnostic outcomes
+- M2832 ranks controllers source families profiles task families stress axes or scenario roles selects a winner promotes a checkpoint computes success rates or publishes a package
+- M2832 claims repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2832 must materialize summary artifact inventory source-only interface handoff actor guard blocker claim and gate rows from existing artifacts only
+- M2832 must preserve M2475-M2509 M2548 M2593 M2638 and M2827-M2831 evidence lineage
+- M2832 must verify required source artifacts exist and preserve actor observation shape 72 action shape 3 ActorView-only extraction and actor-invisible labels
+- M2832 must preserve M2638 selected-platform source dependency blocker as active and must not reopen source build adapter probe backend start reset rollout validation or performance work
+- M2832 must preserve M2828 mixed diagnostic outcomes 5 success 1 collision 10 off_track as Route A diagnostic context only
+- M2832 must register M2833 result audit manifest
+- M2832 must not install fetch import mutate dependencies build probe start external backends reset step execute policy action roll out replay validate train rank promote publish package compute success-rate verdicts or claim driver-performance paper current-sim high-fidelity full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not mutate dependency or source trees
+- do not run source build
+- do not run adapter probe
+- do not start an external backend
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute rollout
+- do not replay
+- do not validate
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose scenario role feasibility blocker source-family route progress success or verdict labels to actor input
+- do not hide M2828 mixed outcomes
+- do not hide M2638 selected-platform source dependency blocker
+- do not rank controller families source families profiles task families stress axes or scenario roles
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not publish a package
+- do not claim repair success
+- do not claim recoverability success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from handoff materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_route_c_hf0_source_only_interface_evidence_handoff_result_audit
+- reason: M2832 materialized Route C HF0 source-only interface evidence handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels no external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claim routes to M2833 audit
+
+## Next Blocker
+
+m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit

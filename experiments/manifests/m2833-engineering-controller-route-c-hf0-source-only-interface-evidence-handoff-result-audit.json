@@ -1,0 +1,222 @@
+{
+  "baseline_artifacts": [
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/handoff_artifact_inventory_rows.csv",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/source_only_interface_handoff_rows.csv",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/actor_contract_guard_rows.csv",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/blocker_boundary_rows.csv",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/claim_boundary_rows.csv",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/gate_matrix.csv",
+    "docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2833 audits M2832 artifacts as complete and claim-safe while preserving blocker actor and claim boundaries without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "failure_criteria": [
+    "M2833 executes reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2833 changes actor input or action contract",
+    "M2833 weakens M2638 blocker or M2828 mixed outcome accounting",
+    "M2833 ranks controller families source families profiles stress axes scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2833 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not mutate dependency or source trees",
+    "do not run source build",
+    "do not run adapter probe",
+    "do not start an external backend",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not replay",
+    "do not validate",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not hide M2828 mixed outcomes",
+    "do not hide M2638 selected-platform source dependency blocker",
+    "do not rank controller families source families profiles task families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not publish a package",
+    "do not claim driver performance from M2832 handoff materialization"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M2832 handoff artifacts while preserving actor blocker and claim boundaries before interpretation.",
+  "id": "m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2832 materialization must be audited before interpretation",
+      "M2638 selected-platform HF3 source dependency remains unavailable",
+      "M2828 mixed diagnostic outcomes remain nonverdict context",
+      "HF0/source-only handoff rows must preserve actor 72/action 3 ActorView-only extraction and actor-invisible labels"
+    ],
+    "derived_from": [
+      "m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight",
+      "m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design",
+      "m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight.json",
+      "experiments/manifests/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/handoff_artifact_inventory_rows.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/source_only_interface_handoff_rows.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/actor_contract_guard_rows.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/blocker_boundary_rows.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/claim_boundary_rows.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/gate_matrix.csv",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/run_state.json",
+      "docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "audit M2832 Route C HF0 source-only interface evidence handoff materialization before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation from M2832 handoff rows without audit",
+      "direct selected-platform HF3 build probe reset validation or performance route while M2638 remains blocked",
+      "direct driver-performance or high-fidelity validation claim from source-only handoff artifacts"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the new machine-auditable Route C HF0 handoff panel before interpretation",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2833 accepts complete M2832 artifacts",
+      "M2833 rejects M2832 due to incomplete artifacts or boundary violations",
+      "M2833 would claim driver performance validation paper current-sim high-fidelity full-driver or self-ID evidence",
+      "M2833 would continue another handoff-process loop without branch synthesis or evidence expansion"
+    ],
+    "paper_verdict_delta": "no paper verdict; prevents handoff rows from being overinterpreted as self-ID or performance evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2833 must audit M2832 required artifacts for completeness before interpretation",
+    "M2833 must verify M2832 preserves M2475-M2509 M2548 M2593 M2638 and M2827-M2831 evidence lineage",
+    "M2833 must verify actor observation shape 72 action shape 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels",
+    "M2833 must verify M2638 selected-platform source dependency blocker remains active and M2828 mixed diagnostic outcomes remain nonverdict context",
+    "M2833 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation",
+    "M2833 must not claim repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "Route C HF0 source-only interface handoff artifact audit",
+      "actor and claim boundary preserved or violated",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2833 audits interface handoff artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2833; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If M2832 artifacts expose weak or missing evidence preserve blockers and route to repair or stop rather than weakening self-ID or validation gates.",
+    "temporal_evidence_window": "Post-M2832 Route C HF0/source-only handoff materialization only."
+  },
+  "success_criteria": [
+    "docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md exists",
+    "audit records M2832 status_pass required artifact actor blocker claim and gate counts",
+    "audit verifies M2638 selected-platform blocker and M2828 mixed outcomes remain visible",
+    "audit preserves actor observation 72 action 3 no hidden/oracle actor input and actor-invisible labels",
+    "audit makes no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper current-sim high-fidelity validation full ideal driver completion or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2832 materializes handoff rows from existing artifacts only",
+      "M2831 admits M2832 as bounded materialization",
+      "M2638 keeps selected-platform HF3 execution paused until source dependency is supplied",
+      "M2828 mixed Route A outcomes remain diagnostic context only"
+    ],
+    "allowed_updates": [
+      "docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md",
+      "M2833 status queue scoreboard research log and review",
+      "one bounded synthesis repair stop or new route manifest if M2832 is accepted or rejected"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator install import source build adapter probe backend start reset step rollout validation",
+      "no policy action execution training replay PPO ranking winner selection or promotion",
+      "no package publication",
+      "no actor input expansion",
+      "no driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "audit records M2832 artifact actor blocker claim and gate counts",
+      "audit preserves M2638 blocker and M2828 mixed diagnostic context",
+      "audit preserves actor 72/action 3 and actor-invisible labels",
+      "audit selects bounded synthesis repair stop or new route if accepted or rejected"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "Route C HF0 source-only interface evidence handoff result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_c_hf0_source_only_interface_evidence_handoff",
+    "claim_scope": "Route C HF0 source-only interface handoff result audit only; no external install import source build adapter probe backend start reset rollout validation training ranking promotion package publication driver-performance paper current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "evidence_axis": "route_c_hf0_source_only_interface_handoff_result_audit",
+    "evidence_increment": "audits M2832 machine-auditable handoff rows before any interpretation or next route",
+    "fallback_plan": [
+      "route to artifact repair if M2832 artifacts are incomplete",
+      "route to claim-boundary repair if blocker or actor guard rows are incomplete",
+      "route to branch synthesis if M2832 artifacts are complete",
+      "route to explicit stop if handoff materialization cannot add admission-changing evidence"
+    ],
+    "stop_condition": [
+      "stop if M2832 required artifacts are missing or incomplete",
+      "stop if M2832 hides M2638 selected-platform source dependency blocker",
+      "stop if M2832 hides M2828 mixed diagnostic outcomes or upgrades them to validation evidence",
+      "stop if actor input or action contract boundaries are weakened",
+      "stop if audit would claim high-fidelity validation readiness or driver performance from source-only artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2832 materializes Route C HF0 source-only handoff rows that require audit"
+  }
+}

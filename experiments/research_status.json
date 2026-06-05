@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2837,
+    "completed": 2838,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design_20260605T230438Z/command.log",
+    "command_log": "runs/research/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight_20260605T233409Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design_20260605T230438Z",
+    "run_dir": "runs/research/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight_20260605T233409Z",
     "status": "completed",
-    "task_id": "m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design"
+    "task_id": "m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization --m2831-design docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md --output-dir runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization --follow-up-manifest experiments/manifests/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.json",
-    "hypothesis": "A Route C HF0 source-only interface evidence handoff materialization can produce machine-auditable artifact rows that preserve source-only interface readiness and blockers without external HF3 execution or performance claims.",
-    "id": "m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize Route C HF0 source-only interface handoff rows from existing M2475 M2482 M2484 M2495-M2509 M2548 M2593 M2638 and M2827-M2831 artifacts preserving actor 72/action 3 ActorView-only extraction no hidden oracle labels M2638 selected-platform source blocker and M2828 mixed outcomes 5 success 1 collision 10 off_track without external install import source build adapter probe backend start reset rollout validation training ranking promotion package publication performance paper current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28270,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2832 handoff artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2832 Route C HF0 source-only interface evidence handoff materialization artifacts summary inventory handoff actor blocker claim gate and run_state rows preserving M2638 selected-platform source blocker M2828 mixed outcomes actor 72/action 3 no hidden oracle labels and rejecting external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims",
+    "priority": 28280,
     "status": "pending",
-    "success_artifact": "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json"
+    "success_artifact": "docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md"
   },
-  "updated_at_utc": "20260605T230438Z"
+  "updated_at_utc": "20260605T233409Z"
 }
