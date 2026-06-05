@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
+m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
+m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
+m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit
 ```
 
 Current route:
@@ -105,6 +105,20 @@ execution candidates. M2736 preserves M2693/M2716 source-family separation,
 actor 72/action 3, no hidden/oracle actor input, and makes no execution,
 ranking, validation, performance, paper, current-sim, high-fidelity,
 full-driver, or self-ID claim.
+
+M2737 completed that bounded diagnostic execution preflight. It resolved and
+executed all 18 M2734 candidates, split as 9 M2693 source-diverse rows and 9
+M2716 fixed `L3_online_gru` task-source rows. It wrote 18 execution rows, 0
+failure rows, 2 source-family aggregate rows, 2 task-family aggregate rows, 31
+negative-context guard rows, 12 blocked-surface guard rows, 13 actor-contract
+guard rows, 35 claim-boundary rows, and 21 gate rows, all passing. The
+diagnostic outcome is 3 success rows, 1 obstacle-collision row, and 14
+off_track rows. M2728 negative context, direct same-surface repair, protected
+blocker, and HF3 blocker rows were not executed and remain outside success
+denominators. Actor 72/action 3 and no hidden/oracle actor input are preserved.
+M2737 makes no ranking, validation, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim. Next is M2738 result audit before
+interpretation.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

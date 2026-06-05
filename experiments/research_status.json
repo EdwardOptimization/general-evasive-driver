@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2742,
+        "completed": 2743,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+        "command_log": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
         "returncode": 0,
-        "run_dir": "docs",
+        "run_dir": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight",
         "status": "completed",
-        "task_id": "m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design"
+        "task_id": "m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight"
     },
     "next_task": {
-        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2734-dir runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface --m2736-design docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md --output-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight",
-        "hypothesis": "A bounded diagnostic execution preflight can produce new closed-loop diagnostic rows over resolved non-same-surface M2734 source-diverse candidates while preserving actor and claim boundaries.",
-        "id": "m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight",
-        "kind": "infrastructure",
-        "notes": "Pending: execute bounded diagnostic preflight over resolved 18 M2734 candidates only account for M2693 and M2716 candidates carry M2728 negative context protected blockers and HF3 blockers as guardrails preserve actor 72/action 3 no hidden oracle no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27320,
+        "command": "true",
+        "hypothesis": "M2737 bounded source-diverse diagnostic execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence step.",
+        "id": "m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit",
+        "kind": "gate",
+        "notes": "Pending: audit M2737 summary resolution execution failure aggregate guard actor claim and gate artifacts verify 18 candidates accounted split 9 M2693 and 9 M2716 M2728 negative context protected and HF3 blockers not executed actor 72/action 3 no hidden oracle reject ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27330,
         "status": "pending",
-        "success_artifact": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json"
+        "success_artifact": "docs/m2738-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-result-audit.md"
     },
-    "updated_at_utc": "20260605T020537Z"
+    "updated_at_utc": "20260605T022347Z"
 }
