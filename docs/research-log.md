@@ -50900,3 +50900,37 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json`
 - next: `m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit`
+
+## 20260605T144928Z m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: M2796 obstacle-clearance regression atlas artifacts can be audited for completeness and claim safety before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit_20260605T144928Z`
+- command log: `runs/research/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit_20260605T144928Z/command.log`
+- success artifact: `docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md`
+- notes: Completed: audit accepts M2796 complete claim-safe source-only obstacle-clearance regression atlas status_pass true required artifacts present 144 clearance rows 237 aggregate rows 16 proof gates all pass source clearance 30 positive 42 negative mean -0.0003189920460919861 median -0.0026030437199309198 base clearance 29 positive 43 negative mean -0.00013214111660788612 median -0.00039442807985579087 role structure drift_required_recovery 48/48 negative stable_aes 36/48 negative stable_avoidable 1/48 negative road-margin and speed positive but not promotion evidence actor 72/action 3 no hidden oracle labels mitigation outside denominators rejects validation ranking promotion success-rate performance paper current-sim high-fidelity full driver and self-ID claims routes to M2798 clearance-localized corrective training design
+
+## M2797 Engineering Controller Route A Source-Only Belief-Stress Obstacle-Clearance Regression Atlas Result Audit
+
+- status: completed
+- decision: `accept_m2796_route_to_source_only_belief_stress_clearance_localized_corrective_training_design`
+- manifest: `experiments/manifests/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.json`
+- audit doc: `docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md`
+- parent summary: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json`
+- parent atlas rows: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_rows.csv`
+- parent aggregate rows: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv`
+- parent gate matrix: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/gate_matrix.csv`
+- accepted parent result: M2796 status_pass true required_artifacts_present true gate_matrix_pass true and all 16 proof gates passing
+- artifact accounting: 144 clearance-regression rows, 237 aggregate rows, 8 mitigation guard rows, 15 claim rows, run-state, doc, and M2797 follow-up manifest present
+- candidate-minus-source clearance: 30 positive rows, 42 negative rows, mean `-0.0003189920460919861`, median `-0.0026030437199309198`
+- candidate-minus-base clearance: 29 positive rows, 43 negative rows, mean `-0.00013214111660788612`, median `-0.00039442807985579087`
+- structured blocker: drift_required_recovery is 48/48 negative, stable_aes is 36/48 negative, and stable_avoidable is 1/48 negative
+- interpretation: road-margin and speed positives are accepted as diagnostic side effects only and do not override obstacle-clearance regression
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics stress seed atlas clearance outcome progress route or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators and outside delta rows
+- rejected claims: no candidate-better verdict, validation readiness/result, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.json`
+- next: `m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design`

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
+m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight
+m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
+m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
 ```
 
 Current route:
@@ -38,6 +38,24 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2797 audited and accepted M2796 as complete and claim-safe source-only
+obstacle-clearance regression atlas evidence. It verified `status_pass=true`,
+required artifacts present, 144 clearance-regression rows, 237 aggregate rows,
+16 proof gates all passing, 8 mitigation guard rows, 15 claim rows, and no
+validation, ranking, promotion, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claim. The accepted atlas keeps the hard clearance
+blocker visible: candidate-minus-source clearance is 30 positive and 42
+negative with mean `-0.0003189920460919861`, while candidate-minus-base
+clearance is 29 positive and 43 negative with mean
+`-0.00013214111660788612`. The blocker is structured by role family:
+`drift_required_recovery` is 48/48 negative, `stable_aes` is 36/48 negative,
+and `stable_avoidable` is 1/48 negative. Road-margin and speed positives remain
+diagnostic side effects and do not override clearance. Actor P0 observation
+72/action 3, no hidden/oracle actor input, actor-invisible role/dynamics/stress
+labels, and mitigation rows outside ordinary denominators are preserved. M2797
+routes to M2798, a design-only clearance-localized corrective training plan
+before any new training, rollout, ranking, or promotion.
 
 M2796 completed the Route A source-only obstacle-clearance regression atlas
 from existing M2795/M2794/M2793 artifacts only. It wrote 144 clearance
@@ -56,8 +74,8 @@ observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
 and mitigation rows outside ordinary denominators. It rejects validation,
 ranking, winner selection, promotion, success-rate verdict, performance, paper,
 current-sim, high-fidelity, full-driver, and self-ID claims. The next bounded
-task is M2797 result audit before interpreting the atlas or designing a
-training/controller change.
+task was the now-completed M2797 result audit before interpreting the atlas or
+designing a training/controller change.
 
 M2795 synthesized the M2790-M2794 source-only guardrailed belief-stress
 candidate branch and chose
