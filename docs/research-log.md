@@ -49522,3 +49522,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2739
 - follow-up manifest: `experiments/manifests/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.json`
 - next: `m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight`
+
+## M2740 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Failure Taxonomy Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy_materialization_pass`
+- manifest: `experiments/manifests/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy_materialization.py`
+- summary: `runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json`
+- doc: `docs/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.md`
+- taxonomy accounting: 61 taxonomy rows total from 18 M2737 execution rows 31 negative-context guard rows and 12 blocked guard rows
+- execution taxonomy: preserves 3 diagnostic success context rows 1 collision failure row and 14 off_track rows without computing a verdict
+- guardrail taxonomy: preserves 31 negative-context guard rows 1 same-surface blocked guard row and 11 protected-or-HF3 blocker rows as non-executed guardrails outside denominators
+- context artifacts: wrote 9 taxonomy aggregate rows 2 source-family context rows 2 task-family context rows 3 guardrail context rows 11 actor-contract join rows 33 claim-boundary rows and 23 gate rows all passing
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels source/task/profile labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- claim boundary: source-family task-family and profile context remains diagnostic and non-ranking; guardrail rows are not run not admitted and outside success denominators
+- route decision: route to M2741 result audit before repair design execution extension ranking validation or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2740
+- follow-up manifest: `experiments/manifests/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.json`
+- next: `m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit`

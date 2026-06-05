@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
+m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2739-engineering-controller-route-a-post-negative-diagnostic-source-diverse-bounded-execution-result-synthesis
+m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight
+m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
 ```
 
 Current route:
@@ -143,6 +143,20 @@ hidden/oracle input is preserved. M2739 rejects ranking, validation,
 performance, paper, current-sim, high-fidelity, full-driver, and self-ID
 interpretation. The next bounded action is M2740 no-rollout failure taxonomy
 materialization before any further execution or repair route.
+
+M2740 completed that no-rollout taxonomy materialization. It wrote 61 taxonomy
+rows from 18 M2737 execution rows, 31 negative-context guard rows, and 12
+blocked guard rows. The execution taxonomy preserves 3 diagnostic success
+context rows, 1 collision row, and 14 off_track rows. The blocked taxonomy
+keeps 1 same-surface blocked guard and 11 protected-or-HF3 blockers separate.
+It also wrote 9 taxonomy aggregate rows, 2 source-family context rows, 2
+task-family context rows, 3 guardrail context rows, 11 actor-contract join
+rows, 33 claim-boundary rows, and 23 gate rows, all passing. Source/task/profile
+context remains non-ranking; guardrails remain not run, not admitted, outside
+denominators, and actor-invisible. M2740 makes no reset, policy action,
+rollout, validation, training, ranking, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim. Next is M2741 result audit before
+any repair design or execution extension.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
