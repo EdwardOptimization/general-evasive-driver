@@ -1,0 +1,291 @@
+{
+  "id": "m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
+      "docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_coverage_gap_rows.csv",
+      "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_schema_contract_rows.csv",
+      "docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md",
+      "docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/cross_axis_candidate_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json",
+      "experiments/manifests/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.json",
+      "experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "execute a bounded instrumented action-response containment probe after M2762 telemetry coverage contract audit"
+    ],
+    "derived_from": [
+      "m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit",
+      "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight",
+      "m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis",
+      "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2763 accepts M2762 as complete and claim-safe but still infrastructure-only",
+      "M2759 action-response rows remain finite_metric false for all 12 rows",
+      "M2762 schema contract must be implemented in a bounded probe before mechanism interpretation",
+      "direct containment repair remains premature until action-response telemetry is observed finite in a bounded execution artifact"
+    ],
+    "supersedes": [
+      "direct containment repair after M2762 schema materialization",
+      "same-surface mechanism interpretation from M2759 finite_metric false rows",
+      "validation ranking promotion or success-rate verdict from M2762 artifacts",
+      "driver-performance paper current-sim high-fidelity full-driver or self-ID interpretation before bounded instrumented probe audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2764 must consume M2763 audit M2762 coverage contract M2759 probe artifacts M2758 design M2756 localized rows M2753 resolver rows and M1690 workload/spec metadata before execution",
+    "M2764 may execute reset step policy action and rollout only for the bounded 12-row localized probe surface",
+    "M2764 must implement evaluator-only finite previous-command and plan-first-action-or-trace-delta telemetry without changing actor inputs or action contract",
+    "M2764 must write instrumented probe execution rows action-response probe rows containment probe rows telemetry coverage rows mechanism context rows guard actor claim gate summary doc and result-audit follow-up manifest",
+    "M2764 must preserve all M2759/M2756 guardrails as non-executed outside ordinary success denominators",
+    "M2764 must preserve P0 observation 72 action 3 no hidden/oracle actor input no actor input contract change and actor-invisible telemetry action-response containment mechanism stress-axis source-edge progress and verdict labels",
+    "M2764 must not execute replay validation training PPO source build adapter probe external simulation private holdout ranking winner selection promotion or success-rate verdict computation",
+    "M2764 must reject repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion and self-ID claims",
+    "M2764 must register one result-audit follow-up before repair design execution extension validation ranking or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose telemetry coverage action-response containment mechanism stress-axis source-edge protected blocker route decision success progress or verdict labels to actor input",
+    "do not execute rows outside the bounded localized probe surface",
+    "do not hide M2759 finite_metric false evidence",
+    "do not hide M2762 coverage gap rows or schema contract rows",
+    "do not treat prior-panel protected or HF3 guardrail rows as execution rows or ordinary success denominators",
+    "do not rank controller families source edges stress axes profiles task families mechanism tags or candidates",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2764 probe"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_action_response_telemetry_instrumented_probe",
+    "evidence_axis": "route_a_action_response_telemetry_instrumented_probe_bounded_execution",
+    "evidence_increment": "adds bounded closed-loop diagnostic rows with evaluator-only finite previous-command and trace-delta action-response telemetry after M2762 coverage contract audit",
+    "claim_scope": "Route A diagnostic probe execution only; reset step policy action and rollout allowed only for the bounded localized surface; no replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if finite previous-command telemetry cannot be produced without actor input changes",
+      "stop if plan-first-action or trace-delta telemetry cannot be produced without hidden/oracle actor features",
+      "stop if evaluator-only telemetry labels would become actor-visible",
+      "stop if guardrail rows would enter execution or ordinary denominators",
+      "stop if the probe would rank candidates stress axes source edges profiles task families or controllers",
+      "stop if probe results would be interpreted as validation performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to telemetry artifact repair if finite proxy rows remain absent",
+      "route to execution failure audit if bounded execution cannot account for all candidates",
+      "route to result audit if instrumented probe artifacts are complete",
+      "route to branch synthesis if finite telemetry exists but still cannot identify a bounded evidence-changing follow-up",
+      "preserve M2762 schema contract if execution cannot proceed without actor-contract changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2763 accepts M2762 coverage repair artifacts and admits a bounded instrumented probe as the next evidence-changing step",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "action-response telemetry instrumented bounded probe execution",
+    "admission_evidence": [
+      "M2763 accepts M2762 telemetry coverage repair artifacts as complete and claim-safe",
+      "M2762 defines evaluator-only finite previous-command and plan-first-action-or-trace-delta schema contract",
+      "M2759 produced complete but finite_metric false action-response rows over the bounded localized surface",
+      "M2758 admits the action-response containment probe only as diagnostic mechanism telemetry",
+      "Route A actor contract remains observation 72/action 3 with no hidden/oracle actor input"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO source build adapter probe external simulation",
+      "no direct containment repair or overlay from M2764",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/evaluate.py",
+      "src/autodrift/engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight.py",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/telemetry_coverage_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/containment_probe_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/mechanism_context_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md",
+      "M2764 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "instrumented probe artifacts exist and account for the bounded localized surface",
+      "action-response rows include finite previous-command and plan-first-action-or-trace-delta proxy coverage",
+      "telemetry coverage rows show finite_metric improvement without changing actor input",
+      "guardrails actor and claim boundaries are preserved",
+      "one result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2764 executes Route A engineering diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2764; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2759-M2763 Route A action-response containment probe and telemetry coverage artifacts plus bounded M2764 instrumented probe rows.",
+    "negative_result_policy": "If finite telemetry remains absent preserve the blocker and route to result audit artifact repair or synthesis rather than weakening gates or forcing self-ID interpretation.",
+    "allowed_claims": [
+      "Route A action-response telemetry instrumented probe execution artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds a bounded closed-loop probe with repaired evaluator telemetry coverage instead of interpreting M2759 finite_metric false rows",
+    "paper_verdict_delta": "no paper verdict; can identify whether future Route A work should target command-response mismatch containment behavior or another synthesis route",
+    "must_synthesize_if": [
+      "M2764 cannot produce finite previous-command or trace-delta telemetry",
+      "M2764 cannot execute or account for the bounded localized surface",
+      "M2764 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2764 would rank controllers source edges profiles stress axes mechanism tags select a winner promote a checkpoint or compute success-rate verdict",
+      "M2764 proposes another execution over the same surface without a result audit"
+    ]
+  },
+  "hypothesis": "A bounded instrumented diagnostic execution can produce evaluator-only finite action-response telemetry from the localized Route A probe surface while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json exists",
+    "docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md exists",
+    "probe accounts for the bounded localized surface and preserves guardrail rows outside denominators",
+    "probe writes action-response rows with finite previous-command and plan-first-action-or-trace-delta proxy coverage",
+    "probe writes telemetry coverage rows that preserve the M2762 schema contract",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2764 changes actor input or action contract",
+    "M2764 exposes telemetry coverage action-response containment stress-axis source-edge protected blocker route progress or verdict labels to actor input",
+    "M2764 executes rows outside the bounded localized probe surface",
+    "M2764 treats prior-panel protected or HF3 guardrails as execution rows or ordinary denominators",
+    "M2764 trains runs PPO validates builds source probes adapters runs external simulation ranks winners promotes checkpoints or claims driver performance",
+    "M2764 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2764 executes or accounts for the bounded instrumented probe surface and writes finite evaluator-only action-response telemetry while preserving actor guardrail and claim boundaries before interpretation.",
+  "commands": [
+    {
+      "name": "route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight --m2762-dir runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight --m2763-audit docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md --m2756-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2758-design docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md --m2753-dir runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --follow-up-manifest experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json --output-dir runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/action_response_probe_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/telemetry_coverage_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/containment_probe_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/mechanism_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
+    "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
+    "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/telemetry_schema_contract_rows.csv",
+    "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/action_response_probe_rows.csv"
+  ]
+}

@@ -49944,3 +49944,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2762
 - follow-up manifest: `experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json`
 - next: `m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit`
+
+## M2763 Engineering Controller Route A Action-Response Telemetry Coverage Instrumentation Repair Result Audit
+
+- status: completed
+- decision: `accept_m2762_route_to_action_response_telemetry_instrumented_probe_bounded_execution`
+- manifest: `experiments/manifests/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.json`
+- audit doc: `docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md`
+- parent summary: `runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json`
+- parent doc: `docs/m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight.md`
+- accepted parent result: M2762 status_pass true with 12 telemetry coverage gap rows 6 schema contract rows 6 actor-contract guard rows 16 claim-boundary rows and 22 gate rows all passing
+- coverage boundary: preserves M2759 12/12 incoming finite_metric false rows with previous-command finite gaps 12/12 plan-first-action finite gaps 12/12 and no M2759 backfill
+- schema boundary: accepts the forward evaluator-only contract for previous physical command and first-action or trace-delta telemetry but does not treat it as mechanism proof
+- guardrail boundary: all 31 M2759 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry/action-response labels actor-invisible and actor input contract unchanged
+- route decision: route to M2764 instrumented bounded probe so finite action-response telemetry is observed in fresh bounded execution before containment repair or interpretation
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2763
+- follow-up manifest: `experiments/manifests/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.json`
+- next: `m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight`

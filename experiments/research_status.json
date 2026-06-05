@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2768,
+    "completed": 2769,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight/summary.json",
+    "command_log": "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight",
+    "run_dir": "",
     "status": "completed",
-    "task_id": "m2762-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-preflight"
+    "task_id": "m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "M2762 telemetry coverage instrumentation repair artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
-    "id": "m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2762 telemetry coverage repair summary gap rows schema contract actor claim gate and doc artifacts preserve original M2759 finite_metric false evidence and no backfill verify actor 72/action 3 no hidden oracle labels actor-invisible guardrails outside execution no reset step rollout replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim select bounded follow-up route",
-    "priority": 27580,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight --m2762-dir runs/m2762_engineering_controller_route_a_action_response_telemetry_coverage_instrumentation_repair_preflight --m2763-audit docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md --m2756-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2758-design docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md --m2753-dir runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --follow-up-manifest experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json --output-dir runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight",
+    "hypothesis": "A bounded instrumented diagnostic execution can produce evaluator-only finite action-response telemetry from the localized Route A probe surface while preserving actor and claim boundaries.",
+    "id": "m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement evaluator finite previous-command and trace-delta telemetry then execute bounded localized instrumented probe preserve actor 72/action 3 no hidden oracle labels actor-invisible guardrails outside execution no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim register M2765 audit follow-up",
+    "priority": 27590,
     "status": "pending",
-    "success_artifact": "docs/m2763-engineering-controller-route-a-action-response-telemetry-coverage-instrumentation-repair-result-audit.md"
+    "success_artifact": "runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260605T073305Z"
+  "updated_at_utc": "20260605T073916Z"
 }
