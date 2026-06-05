@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
+m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis
+m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
+m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight
 ```
 
 Current route:
@@ -37,8 +37,28 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current next branch is Route C/HF0 source-only interface evidence handoff after
-M2830 closed the Route A post-package source-diverse diagnostic subbranch.
+current branch is Route C/HF0 source-only interface evidence handoff
+materialization after M2831 converted the M2830 pivot into a bounded handoff
+schema.
+
+M2831 completed the Route C/HF0 source-only interface evidence handoff design
+and admitted M2832 as the next artifact-only materialization preflight. The
+design follows `docs/post-m2470-route-plan.md` by starting high-fidelity
+interface preparation without waiting for current-sim perfection, while keeping
+external HF3 execution blocked by M2638. It preserves M2475 ActorView-only
+boundary, M2482 10 fixture catalog rows with 3 source-only admitted fixtures,
+M2484 source-only fixture smoke, M2495-M2499 differentiated source-only role
+fixtures with M2498 300 telemetry rows and 3 unique role reset digests,
+M2501 900 source-only comparison telemetry rows, M2505 public diagnostic pack,
+M2508 runtime report, M2548 HF0 parity/runtime artifacts, M2593 source-only
+adapter closure, M2638 selected-platform source dependency blocker, and
+M2828/M2829/M2830 mixed Route A diagnostic context. Actor 72/action 3,
+ActorView-only extraction, no hidden/oracle actor input, and actor-invisible
+labels remain preserved. M2831 rejects external HF3 install/import/build/probe,
+reset/step/rollout/validation/training/ranking/promotion/package publication,
+driver performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims. The next task is M2832 Route C/HF0 source-only interface evidence
+handoff materialization preflight.
 
 M2830 synthesized and closed M2827-M2829 with decision
 `pivot_to_route_c_hf0_source_only_interface_evidence_handoff_design`. It
@@ -54,8 +74,8 @@ finds no `/home/quyaonan/workspace/chrono`, no Chrono `CMakeLists.txt`, and no
 `pychrono` or `projectchrono` import spec, so M2638 remains active. M2830
 rejects another M2828-like execution loop, package publication, repair success,
 validation, ranking, driver performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID interpretations. The next task is M2831 Route C/HF0
-source-only interface evidence handoff design.
+full-driver, and self-ID interpretations. The next task was M2831 Route C/HF0
+source-only interface evidence handoff design, now completed above.
 
 M2829 audited and accepted M2828 as complete and claim-safe bounded Route A
 post-package source-diverse diagnostic execution evidence. The audit confirms

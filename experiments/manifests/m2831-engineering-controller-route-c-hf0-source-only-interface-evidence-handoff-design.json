@@ -23,6 +23,22 @@
       "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
       "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
       "docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md",
+      "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
+      "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+      "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+      "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+      "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
+      "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md",
+      "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md",
+      "docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+      "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv",
+      "docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md",
+      "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+      "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md",
+      "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+      "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md",
       "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
       "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
       "docs/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.md",
@@ -32,7 +48,8 @@
     "parent_config": [
       "experiments/manifests/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.json",
       "experiments/manifests/m2829-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-result-audit.json",
-      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json"
+      "experiments/manifests/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.json",
+      "experiments/manifests/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.json"
     ],
     "parent_objective": [
       "design a Route C HF0 source-only interface evidence handoff after M2830 pivots away from the post-package source-diverse Route A diagnostic loop"
@@ -46,6 +63,7 @@
       "M2830 closes the post-package source-diverse branch as complete diagnostic evidence but rejects another same-axis execution loop",
       "M2828 diagnostic outcomes remain mixed with 5 diagnostic success rows 1 collision row and 10 off_track rows",
       "M2638 selected-platform HF3 source dependency remains blocked until a source root or approved package route is supplied",
+      "M2495-M2509 already provide differentiated source-only role fixtures source-only diagnostic panels public benchmark pack and runtime report artifacts that should be preserved rather than repeated",
       "Route C work must preserve ActorView-only P0 extraction actor 72/action 3 and no hidden/oracle actor input"
     ],
     "supersedes": [
@@ -123,7 +141,7 @@
     ],
     "fallback_plan": [
       "route to explicit stop if the HF0 source-only evidence handoff cannot add an admission-changing artifact",
-      "route to artifact repair if required M2475 M2482 M2484 M2494 M2593 M2638 M2829 or M2830 artifacts are missing",
+      "route to artifact repair if required M2475 M2482 M2484 M2494-M2509 M2548 M2593 M2638 M2829 or M2830 artifacts are missing",
       "route to source dependency request only if the user supplies a valid local source root or approved package route",
       "route to bounded materialization preflight if the handoff schema preserves actor contract blocker and claim boundaries",
       "defer Route B only through a separate controller-family comparison manifest"
@@ -138,6 +156,8 @@
     "admission_evidence": [
       "M2830 pivots away from another M2828-like Route A diagnostic execution loop",
       "M2475 through M2494 provide existing HF0 source-only interface fixture and role-panel evidence",
+      "M2495 through M2509 provide differentiated source-only fixtures baseline comparison public benchmark pack and runtime/inference-cost report evidence",
+      "M2548 provides HF0 P0 parity action mapping and actor runtime materialization evidence",
       "M2593 records source-only adapter readiness blocker closure in repo-local interface terms",
       "M2638 keeps selected-platform HF3 execution paused until source dependency is supplied",
       "docs/post-m2470-route-plan.md says high-fidelity interface preparation should not wait for current-sim to become perfect"
@@ -194,7 +214,7 @@
   "hypothesis": "A Route C HF0 source-only interface evidence handoff design can preserve M2827-M2830 diagnostic evidence and M2638 blocker boundaries while selecting a bounded non-HF3 next route.",
   "success_criteria": [
     "docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md exists",
-    "design lists the HF0 source-only interface artifacts and M2827-M2830 diagnostic artifacts to preserve",
+    "design lists the HF0 source-only interface artifacts M2495-M2509 source-only artifacts M2548 parity runtime artifacts and M2827-M2830 diagnostic artifacts to preserve",
     "design defines a bounded future handoff materialization schema or explicit stop route",
     "design preserves actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels",
     "design preserves M2638 selected-platform HF3 source dependency blocker and M2828 mixed diagnostic outcomes",
@@ -234,6 +254,22 @@
     "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
     "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
     "docs/m2593-engineering-controller-route-a-baseline-hf3-source-only-adapter-readiness-blocker-closure-materialization-result-audit.md",
+    "runs/m2548_engineering_controller_route_a_hf0_parity_and_runtime_materialization/summary.json",
+    "runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json",
+    "public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json",
+    "docs/m2509-engineering-controller-runtime-inference-cost-report-result-audit.md",
+    "docs/m2506-engineering-controller-public-benchmark-pack-result-audit.md",
+    "docs/m2503-engineering-controller-source-only-metric-panel-branch-synthesis.md",
+    "docs/m2502-engineering-controller-source-only-baseline-comparison-result-audit.md",
+    "docs/m2501-engineering-controller-source-only-baseline-comparison-implementation-preflight.md",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/summary.json",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/controller_role_metric_panel.csv",
+    "runs/m2501_engineering_controller_source_only_baseline_comparison_preflight/telemetry_rows.csv",
+    "docs/m2499-engineering-controller-parameterized-source-only-role-metric-panel-result-audit.md",
+    "runs/m2498_engineering_controller_parameterized_source_only_role_metric_panel/summary.json",
+    "docs/m2497-engineering-controller-source-only-role-fixture-parameterization-result-audit.md",
+    "runs/m2496_engineering_controller_source_only_role_fixture_parameterization_preflight/summary.json",
+    "docs/m2495-engineering-controller-source-only-role-fixture-parameterization-design.md",
     "docs/m2494-engineering-controller-source-only-role-metric-panel-result-audit.md",
     "docs/m2484-high-fidelity-interface-source-only-fixture-smoke-implementation-preflight.md",
     "docs/m2482-high-fidelity-interface-scenario-taxonomy-fixture-materialization-preflight.md",
@@ -241,5 +277,5 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md",
-  "next_blocker": "m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-follow-up"
+  "next_blocker": "m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight"
 }
