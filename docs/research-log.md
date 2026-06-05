@@ -51305,3 +51305,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z/command.log`
 - success artifact: `runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json`
 - notes: Completed: materialized local Route A post-recoverability limited package refresh status_pass true package content covered 6/6 limitations covered 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects publication reset rollout replay validation training repair ranking promotion performance paper high-fidelity full-driver and self-ID claims routes to M2825 audit
+
+## 20260605T211134Z m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2824 limited package artifacts while preserving actor blocker and claim boundaries before interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit_20260605T211134Z`
+- command log: `runs/research/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit_20260605T211134Z/command.log`
+- success artifact: `docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md`
+- notes: Completed: audit accepts M2824 complete claim-safe local Route A limited package materialization status_pass true required artifacts present package content 6/6 limitations 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects package publication repair success recoverability success validation performance paper high-fidelity full-driver and self-ID claims routes to M2826 branch synthesis

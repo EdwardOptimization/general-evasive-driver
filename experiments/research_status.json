@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2830,
+    "completed": 2831,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z/command.log",
+    "command_log": "runs/research/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit_20260605T211134Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z",
+    "run_dir": "runs/research/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit_20260605T211134Z",
     "status": "completed",
-    "task_id": "m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight"
+    "task_id": "m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2824 limited package artifacts while preserving actor blocker and claim boundaries before interpretation.",
-    "id": "m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit",
+    "hypothesis": "A branch synthesis can preserve the M2823-M2825 limited package evidence while preventing package-process local search and selecting a bounded next route or stop.",
+    "id": "m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2824 local package materialization preserving M2816 negative recoverability M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels no package publication execution ranking validation performance paper high-fidelity full-driver or self-ID claim and route only to bounded synthesis repair stop or new branch",
-    "priority": 28200,
+    "notes": "Pending: synthesize M2823-M2825 Route A limited package branch preserving M2824 6/6 package content 4/4 limitations 5 blockers 7 recoverability limitations 24 gates M2816 0 recoverability success M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels no package publication repair ranking validation performance paper high-fidelity full-driver or self-ID claim and select stop bounded publication design Route A evidence expansion Route B Route C or other bounded continuation",
+    "priority": 28210,
     "status": "pending",
-    "success_artifact": "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md"
+    "success_artifact": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md"
   },
-  "updated_at_utc": "20260605T210407Z"
+  "updated_at_utc": "20260605T211134Z"
 }

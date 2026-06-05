@@ -1,0 +1,244 @@
+{
+  "id": "m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md",
+      "runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json",
+      "docs/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight.md",
+      "docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md",
+      "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md",
+      "runs/m2820_engineering_controller_route_a_post_recoverability_negative_readiness_index/summary.json",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+      "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.json",
+      "experiments/manifests/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight.json",
+      "experiments/manifests/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M2823-M2825 limited package branch after materialization audit"
+    ],
+    "derived_from": [
+      "m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit",
+      "m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight",
+      "m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design"
+    ],
+    "blocked_by": [
+      "M2825 accepts M2824 only as package-boundary process evidence",
+      "M2816/M2817 negative recoverability evidence remains active",
+      "M2804/M2805 prior readiness blockers remain active",
+      "M2638 HF3 source dependency remains unavailable",
+      "Route B paper and self-ID claims remain separate from Route A package claims"
+    ],
+    "supersedes": [
+      "another package materialization or audit loop without synthesis",
+      "direct public package publication from M2824",
+      "direct validation readiness or driver-performance claim from package rows",
+      "direct same recoverability repair or ranking"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+  "public_gates": [
+    "M2826 must synthesize M2823-M2825 and answer the required synthesis questions",
+    "M2826 must preserve M2824 package counts and negative recoverability accounting",
+    "M2826 must decide whether to stop package work route to bounded publication design pivot to Route A evidence expansion defer to Route B defer to Route C or stop",
+    "M2826 must not admit direct package publication repair ranking validation promotion performance paper high-fidelity full-driver or self-ID claims",
+    "M2826 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not publish package artifacts as a release",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not hide M2816 absent recoverability-window availability or recoverability success",
+    "do not hide M2816 diagnostic collision or offtrack terminations",
+    "do not weaken M2804 prior blockers or M2638 HF3 dependency blocker",
+    "do not rank controller families source families task families profiles recoverability families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim recoverability success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from package synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_limited_package",
+    "evidence_axis": "route_a_limited_package_branch_synthesis",
+    "evidence_increment": "synthesizes M2823-M2825 package design materialization and audit before continuing the branch",
+    "claim_scope": "Route A limited package branch synthesis only; no reset rollout replay validation training PPO repair ranking winner selection promotion package publication success-rate verdict driver-performance repair-success recoverability-success paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2824 package artifacts are incomplete",
+      "stop if limitations cannot be represented without overclaiming",
+      "stop if continuing package work would become process-only local search",
+      "stop if next route would claim validation readiness driver performance paper evidence current-sim high-fidelity or self-ID",
+      "stop if next route would require actor input expansion or label leakage"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2824 artifacts are incomplete",
+      "route to explicit stop if package limitations cannot be stated cleanly",
+      "route to bounded publication design only if claim boundaries remain non-performance",
+      "pivot to a new Route A evidence route if package branch is complete",
+      "defer to Route B or Route C through separate manifests"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2825 accepts M2824 package materialization and the branch has design materialization audit process milestones",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post-recoverability Route A limited package branch synthesis",
+    "admission_evidence": [
+      "M2825 accepts M2824 complete claim-safe package materialization",
+      "M2824 writes machine-auditable package and limitation rows",
+      "M2823 designs the package route after M2822 synthesis",
+      "M2816/M2817 preserve negative recoverability diagnostics",
+      "M2638 keeps selected-platform HF3 execution blocked until source dependency evidence is supplied"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO repair source build adapter probe external simulation",
+      "no package publication ranking winner selection promotion success-rate verdict",
+      "no actor input expansion",
+      "no repair success recoverability-success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "M2826 status queue scoreboard research log and review",
+      "one bounded follow-up manifest if synthesis selects a continuation"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers required questions",
+      "synthesis decides continue pivot stop or promote_to_next_branch",
+      "synthesis preserves M2816 M2804 M2638 actor and claim boundaries",
+      "synthesis pre-registers any admitted follow-up or explicitly stops"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2826 synthesizes Route A package rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2826; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2823-M2825 Route A limited package branch.",
+    "negative_result_policy": "Preserve negative recoverability evidence and decide stop or bounded next route instead of weakening gates.",
+    "allowed_claims": [
+      "Route A limited package branch synthesis",
+      "package process evidence accepted rejected stopped or routed",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the package branch before another package-process or same recoverability local-search loop is admitted",
+    "paper_verdict_delta": "no paper verdict; clarifies package branch value and distance to paper route",
+    "must_synthesize_if": [
+      "M2826 accepts complete M2823-M2825 package branch",
+      "M2826 rejects package branch due to incomplete artifacts or boundary violations",
+      "M2826 would claim repair success recoverability success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2826 would continue another package-process loop without evidence expansion"
+    ]
+  },
+  "hypothesis": "A branch synthesis can preserve the M2823-M2825 limited package evidence while preventing package-process local search and selecting a bounded next route or stop.",
+  "success_criteria": [
+    "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md exists",
+    "synthesis records M2823-M2825 artifact completeness and negative recoverability accounting",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis preserves actor 72/action 3 no hidden/oracle actor input actor-invisible labels M2804 prior blockers and M2638 HF3 blocker",
+    "synthesis does not admit direct package publication repair validation performance paper high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2826 executes reset step rollout replay validation training PPO repair source build adapter probe or external simulation",
+    "M2826 publishes package artifacts as a release",
+    "M2826 changes actor input or action contract",
+    "M2826 hides negative recoverability or prior blockers",
+    "M2826 weakens M2638 HF3 dependency blocker",
+    "M2826 ranks controllers source families task families profiles stress axes recoverability families or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2826 claims repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2826 synthesizes M2823-M2825 and selects a bounded next branch decision or stop while preserving negative recoverability blocker actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "synthesis",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md",
+    "runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json",
+    "docs/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight.md",
+    "docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md",
+    "docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md",
+    "runs/m2820_engineering_controller_route_a_post_recoverability_negative_readiness_index/summary.json",
+    "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+    "runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+  "next_blocker": "m2827-engineering-controller-route-a-post-recoverability-negative-limited-package-continuation-decision"
+}

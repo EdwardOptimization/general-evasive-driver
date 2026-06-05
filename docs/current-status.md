@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
+m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
+m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
+m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis
 ```
 
 Current route:
@@ -38,6 +38,19 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2825 audited and accepted M2824 as complete and claim-safe local Route A
+post-recoverability limited package materialization. The audit confirms M2824
+status_pass true, required artifacts present, package content covered 6/6,
+limitations covered 4/4, 18 schema rows, 14 inventory rows, 14 provenance rows,
+5 blocker rows, 7 recoverability limitation rows, 11 actor rows, 27 claim rows,
+and 24 passing gates. It preserves M2816 7 post-event traces, 0
+recoverability-window availability, 0 recoverability success, 1 diagnostic
+collision, 5 offtrack terminations, M2804 prior blockers, M2638 HF3 blocker,
+actor 72/action 3, and no hidden/oracle actor input. M2825 rejects package
+publication, repair success, recoverability success, validation readiness,
+driver performance, paper, high-fidelity, full-driver, and self-ID
+interpretations. The next task is M2826 branch synthesis over M2823-M2825.
 
 M2824 materialized the local Route A post-recoverability-negative limited
 package refresh from existing artifacts only. It produced a passing package
