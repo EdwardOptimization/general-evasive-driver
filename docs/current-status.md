@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
+m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
+m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
+m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
 ```
 
 Current route:
@@ -1815,25 +1815,37 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
 - next: `m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design`
 
+## M2772 Engineering Controller Route A Source-Only Action-Response Belief Intervention Design
+
+- status: completed
+- decision: `admit_source_only_action_response_belief_intervention_materialization_preflight`
+- manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
+- design doc: `docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md`
+- parent synthesis: `docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md`
+- design surface: source-only HF0/FourWheel candidate matrix with 32 role-axis-seed rows across stable_avoidable stable_aes drift_required_recovery and unavoidable_mitigation under nominal/default and fault-delay-noise axes
+- intervention design: normal recurrent baseline plus reset-hidden zero-command-history and held-actuator-history evaluator-only conditions with optional wrong-history only if pair construction remains actor-invisible
+- actor boundary: P0 observation 72 action 3 deployed steer/throttle/brake mapping no hidden/oracle input no actor-input feature addition and role dynamics intervention outcome progress success and verdict labels actor-invisible
+- route context: preserves M2771 negative repair synthesis M2638 HF3 source blocker M2492 source-only path evidence M2641/M2643 fresh source-only evidence and M2655 checkpoint lineage
+- route decision: admit M2773 source-only action-response belief intervention materialization preflight before any interpretation
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2772
+- follow-up manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
+- next: `m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight`
+
 ## Immediate Next Step
 
-M2772 should write a design-only source-only HF0/FourWheel action-response
-belief intervention protocol before any reset, step, rollout, training,
-validation, ranking, performance, paper, current-sim, high-fidelity,
-full-driver, or self-ID claim:
+M2773 should materialize the M2772 source-only HF0/FourWheel action-response
+belief intervention panel. It may execute bounded repo-local source-only reset,
+step, policy action, and rollout paths only for the registered
+candidate/intervention matrix and must route to M2774 audit before any
+interpretation:
 
 ```text
-docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md
-docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md
-docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md
-runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json
-runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json
-experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json
+PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --m2772-design docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md --m2641-dir runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel --m2655-dir runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json --output-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight
 ```
 
-M2772 must preserve actor 72/action 3 with no hidden/oracle input, keep role,
-dynamics, intervention, outcome, success, progress, and verdict labels
-actor-invisible, and specify normal recurrent plus evaluator-only history
-intervention conditions. It must use a source-only surface beyond the M2769
-8-row current-sim repair set and register one bounded M2773 materialization or
-stop route.
+M2773 must write candidate rows, intervention condition rows,
+candidate/intervention matrix rows, execution or failure rows, action-response
+trace rows, mitigation reference guards, actor guards, claim boundaries, gate
+matrix, summary, doc, run-state, and an M2774 result-audit manifest. It must
+not execute external HF3 simulation, training, validation, ranking, promotion,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.

@@ -50108,3 +50108,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected alternatives: no further M2769-like actor-head bias sweep direct HF3 build/probe package-only refresh Route B paper verdict ranking winner selection promotion validation performance paper current-sim high-fidelity full ideal driver or self-ID claim from M2771
 - follow-up manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
 - next: `m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design`
+
+## M2772 Engineering Controller Route A Source-Only Action-Response Belief Intervention Design
+
+- status: completed
+- decision: `admit_source_only_action_response_belief_intervention_materialization_preflight`
+- manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
+- design doc: `docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md`
+- parent synthesis: `docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md`
+- evidence consumed: M2771 negative repair synthesis M2638 HF3 blocker M2492 source-only closed-loop path M2641/M2643 fresh source-only panel and M2655 checkpoint lineage
+- design surface: source-only HF0/FourWheel candidate matrix with 32 role-axis-seed rows across stable_avoidable stable_aes drift_required_recovery and unavoidable_mitigation under nominal/default and fault-delay-noise axes
+- intervention conditions: normal recurrent reset-hidden zero-command-history held-actuator-history plus optional wrong-history only if pair construction remains clean and actor-invisible
+- output contract: M2773 must write source-only candidate rows intervention condition rows candidate/intervention matrix rows execution/failure rows action-response traces mitigation guards actor guards claim boundaries gates summary doc run-state and an M2774 audit manifest
+- actor boundary: P0 observation 72 action 3 deployed steer/throttle/brake mapping no hidden/oracle input no actor-input feature addition and role dynamics intervention outcome progress success and verdict labels actor-invisible
+- route decision: admit M2773 materialization preflight before any interpretation
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2772
+- follow-up manifest: `experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json`
+- next: `m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight`
