@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
+m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit
+m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
+m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight
 ```
 
 Current route:
@@ -38,6 +38,23 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2798 completed a design-only Route A clearance-localized corrective
+training/update plan. It admits M2799 as one bounded preflight from the M2791
+candidate, with M2655 source and M2782 base references. The target families are
+the M2796/M2797 structured blockers: `drift_required_recovery` at 48/48
+clearance-negative rows and `stable_aes` at 36/48 clearance-negative rows.
+`stable_avoidable`, where M2796 found only 1/48 negative rows, is an explicit
+behavior-retention guard. M2799 is limited to `max_updates=1`, 4 target training
+seeds per bucket, 2 proof seeds per bucket, 4 stable-avoidable retention seeds,
+4 behavior-retention seeds, rollback on guard failure, no checkpoint overwrite,
+and no promotion. Actor P0 observation 72/action 3, no hidden/oracle actor
+input, and no actor-visible atlas, role, dynamics, stress, clearance, outcome,
+route, progress, success, or verdict labels remain hard requirements.
+Mitigation rows stay outside ordinary denominators, and M2799 must separate
+proof, generalization, behavior-retention, and promotion gates. M2798 rejects
+training result, repair success, validation, ranking, promotion, performance,
+paper, current-sim, high-fidelity, full-driver, and self-ID claims.
 
 M2797 audited and accepted M2796 as complete and claim-safe source-only
 obstacle-clearance regression atlas evidence. It verified `status_pass=true`,
@@ -54,8 +71,8 @@ and `stable_avoidable` is 1/48 negative. Road-margin and speed positives remain
 diagnostic side effects and do not override clearance. Actor P0 observation
 72/action 3, no hidden/oracle actor input, actor-invisible role/dynamics/stress
 labels, and mitigation rows outside ordinary denominators are preserved. M2797
-routes to M2798, a design-only clearance-localized corrective training plan
-before any new training, rollout, ranking, or promotion.
+routed to the now-completed M2798 design-only clearance-localized corrective
+training plan before any new training, rollout, ranking, or promotion.
 
 M2796 completed the Route A source-only obstacle-clearance regression atlas
 from existing M2795/M2794/M2793 artifacts only. It wrote 144 clearance

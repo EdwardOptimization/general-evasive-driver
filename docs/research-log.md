@@ -50934,3 +50934,36 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no candidate-better verdict, validation readiness/result, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
 - follow-up manifest: `experiments/manifests/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.json`
 - next: `m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design`
+
+## 20260605T145808Z m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A design-only protocol can translate the accepted M2796 clearance-regression atlas into a bounded corrective training/update preflight that targets drift_required_recovery and stable_aes clearance loss while preserving stable_avoidable retention and actor boundaries.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design_20260605T145808Z`
+- command log: `runs/research/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design_20260605T145808Z/command.log`
+- success artifact: `docs/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.md`
+- notes: Completed: design admits M2799 bounded clearance-localized corrective training/update preflight from M2797 M2796 evidence target drift_required_recovery 48/48 negative and stable_aes 36/48 negative while preserving stable_avoidable 1/48 negative retention start from M2791 candidate with M2655 source and M2782 base references max_updates 1 target training seeds 4 proof seeds 2 stable-avoidable retention seeds 4 behavior-retention seeds 4 rollback no overwrite no promotion actor 72/action 3 no hidden oracle actor-visible atlas role dynamics stress clearance outcome route progress success or verdict labels mitigation outside denominators separate proof generalization behavior-retention and promotion gates rejects validation ranking promotion performance paper current-sim high-fidelity full driver and self-ID claims routes to M2799 preflight
+
+## M2798 Engineering Controller Route A Source-Only Belief-Stress Clearance-Localized Corrective Training Design
+
+- status: completed
+- decision: `admit_source_only_belief_stress_clearance_localized_corrective_training_preflight`
+- manifest: `experiments/manifests/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.json`
+- design doc: `docs/m2798-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-design.md`
+- parent audit: `docs/m2797-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-result-audit.md`
+- parent atlas summary: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json`
+- parent atlas aggregate rows: `runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/clearance_regression_aggregate_rows.csv`
+- design decision: admit one bounded M2799 corrective training/update preflight from the M2791 candidate with M2655 source and M2782 base as references
+- target families: drift_required_recovery 48/48 clearance-negative rows and stable_aes 36/48 clearance-negative rows from M2796/M2797
+- retention guard: stable_avoidable 1/48 clearance-negative rows must be preserved as behavior retention, not used as a performance claim
+- bounded update: max_updates 1, target training seeds per bucket 4, proof seeds per bucket 2, stable-avoidable retention seed count 4, behavior-retention seed count 4, rollback on guard failure, no checkpoint overwrite, no promotion
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input and no actor-visible role dynamics stress seed atlas clearance outcome progress route success or verdict labels
+- mitigation boundary: mitigation reference rows remain outside ordinary denominators
+- gate plan: M2799 must separate proof, generalization, behavior-retention, promotion, actor, mitigation, and claim gates
+- objective boundary: obstacle clearance remains the hard guard before road-margin speed yaw-rate conflict or action-delta objectives
+- rejected claims: no training result, repair success, validation readiness/result, ranking, winner selection, checkpoint promotion, success-rate verdict, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver completion, finite-window-vs-GRU result, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.json`
+- next: `m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight`
