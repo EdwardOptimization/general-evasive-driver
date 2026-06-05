@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit
+m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit
+m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
+m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight
 ```
 
 Current route:
@@ -38,6 +38,23 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2812 synthesized the M2809-M2811 offtrack-containment localization branch and
+selected
+`pivot_to_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel_materialization`.
+It accepts the localization branch as complete and claim-safe but not solved:
+M2810/M2811 preserve 12 localization rows, 2 success obstacle-pass rows, 0
+collision rows, 10 `off_track` rows, 10 positive-clearance offtrack rows, 4
+stress-axis contexts, 8 source-edge contexts, 44 guardrails, actor 72/action 3,
+no hidden/oracle actor input, actor-invisible labels, and guardrails outside
+ordinary denominators. M2812 rejects direct repair design, validation, ranking,
+performance, paper, high-fidelity, full-driver, and self-ID claims. The next
+admitted step is M2813, a no-rollout action-response mechanism panel over
+existing M2807/M2810/M2812 artifacts. It must account for 10 offtrack-containment
+rows and 2 success obstacle-pass rows, preserve action-rate, previous-command,
+current-action, action-trace, speed, offtrack-timing, and recoverability context
+as diagnostic non-ranking rows, preserve actor/claim/guardrail boundaries, and
+register a result audit before any repair or execution route.
 
 M2811 audited and accepted M2810 as complete, claim-safe, no-rollout
 offtrack-containment localization evidence. It verified `status_pass=true`,
@@ -54,7 +71,8 @@ contexts, or 2 success obstacle-pass rows into repair success, ranking,
 validation readiness, driver performance, paper evidence, current-sim or
 high-fidelity verdicts, full-driver completion, or self-ID claims. The next
 admitted step is M2812 branch synthesis before any repair design, execution,
-validation, ranking, packaging, Route B claim, or Route C claim.
+validation, ranking, packaging, Route B claim, or Route C claim; that synthesis
+is now completed above.
 
 M2810 completed no-rollout offtrack-containment localization from existing
 M2807/M2809 artifacts only. It wrote summary, failure-localization,

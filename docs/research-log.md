@@ -51136,3 +51136,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit_20260605T180000Z/command.log`
 - success artifact: `docs/m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit.md`
 - notes: Completed: audit accepts M2810 complete claim-safe no-rollout offtrack-containment localization status_pass true required artifacts present 12 localization rows 2 success obstacle-pass 0 collision 10 off_track 10 offtrack-containment rows 2 outcome buckets 4 stress-axis contexts 8 source-edge contexts 44 guardrails 37 prior-surface rows 7 blocker rows actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2812 synthesis
+
+## 20260605T181013Z m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2809-M2811 offtrack-containment localization evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z`
+- command log: `runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z/command.log`
+- success artifact: `docs/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2809-M2811 complete claim-safe offtrack-containment localization branch with M2810 12 localization rows 2 success obstacle-pass 0 collision 10 off_track 10 positive-clearance offtrack rows 4 stress-axis contexts 8 source-edge contexts 44 guardrails actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects direct repair validation ranking performance paper high-fidelity full driver and self-ID claims routes to M2813 action-response mechanism panel

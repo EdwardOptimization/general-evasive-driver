@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2817,
+    "completed": 2818,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit_20260605T180000Z/command.log",
+    "command_log": "runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit_20260605T180000Z",
+    "run_dir": "runs/research/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis_20260605T181013Z",
     "status": "completed",
-    "task_id": "m2811-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-panel-materialization-result-audit"
+    "task_id": "m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2809-M2811 offtrack-containment localization evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
-    "id": "m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2809-M2811 offtrack-containment localization evidence preserve M2810 12 localization rows 2 success obstacle-pass 0 collision 10 off_track 10 offtrack-containment rows 4 stress-axis contexts 8 source-edge contexts 44 guardrails actor 72/action 3 no hidden oracle labels guardrails outside denominators choose stop pivot package defer or materially different route no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28070,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2810-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --m2812-synthesis docs/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis.md --output-dir runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel",
+    "hypothesis": "A no-rollout action-response mechanism panel can turn M2810 offtrack-containment localization rows and M2807 action metrics into an auditable mechanism surface without ranking axes or overclaiming performance.",
+    "id": "m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-rollout action-response mechanism panel from existing M2807/M2810/M2812 artifacts account for 10 offtrack-containment rows and 2 success obstacle-pass rows preserve action-rate previous-command current-action action-trace speed offtrack-timing recoverability context as diagnostic non-ranking rows actor 72/action 3 no hidden oracle labels guardrails outside denominators no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28080,
     "status": "pending",
-    "success_artifact": "docs/m2812-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-localization-branch-synthesis.md"
+    "success_artifact": "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json"
   },
-  "updated_at_utc": "20260605T180000Z"
+  "updated_at_utc": "20260605T181013Z"
 }
