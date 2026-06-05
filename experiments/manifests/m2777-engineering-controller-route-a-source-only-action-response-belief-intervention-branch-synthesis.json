@@ -1,0 +1,261 @@
+{
+  "id": "m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_delta_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/role_dynamics_delta_aggregate_rows.csv",
+      "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_condition_delta_aggregate_rows.csv",
+      "docs/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.md",
+      "docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md",
+      "docs/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.md",
+      "docs/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.md",
+      "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json",
+      "experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json",
+      "experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json",
+      "experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json",
+      "experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M2772-M2776 source-only action-response belief intervention branch before another proof extension, artifact reanalysis, execution, training, ranking, or validation route"
+    ],
+    "derived_from": [
+      "m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit",
+      "m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight",
+      "m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit",
+      "m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight",
+      "m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design",
+      "m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis"
+    ],
+    "blocked_by": [
+      "M2776 accepts M2775 artifacts as complete and claim-safe but rejects direct interpretation",
+      "M2775 source-only deltas show modest finite sensitivity but cannot prove driver performance or self-ID",
+      "M2775 is no-new-rollout source-only reanalysis and not validation or high-fidelity evidence",
+      "another no-new-data reanalysis would increase process overhead without a branch synthesis decision"
+    ],
+    "supersedes": [
+      "direct self-ID interpretation from M2775 delta rows",
+      "ranking intervention conditions from M2775 aggregate rows",
+      "driver-performance interpretation from source-only delta rows",
+      "another no-new-data action-response belief intervention reanalysis before synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2777 must synthesize M2772-M2776 source-only action-response belief intervention design materialization audit delta-panel and audit evidence before another proof extension execution training ranking validation or performance claim",
+    "M2777 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2777 must preserve M2773 artifact accounting 32 candidate rows 4 intervention conditions 128 execution rows 0 failures 10240 trace rows 8 mitigation guards 7 actor guards 13 claim rows and 21 gates all pass",
+    "M2777 must preserve M2775 artifact accounting 96 delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows and 24 gates all pass",
+    "M2777 must preserve M2775 diagnostic deltas as source-only row accounting: road-departure removed 4 added 0 collision added 0 removed 0",
+    "M2777 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input no actor-input change actor-invisible labels and mitigation reference rows outside ordinary denominators",
+    "M2777 must decide continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting",
+    "M2777 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2777 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose role labels dynamics labels intervention labels outcome labels success labels progress labels route decisions or verdict labels to actor input",
+    "do not hide M2773 collision or road-departure diagnostic row accounting",
+    "do not hide M2775 modest delta magnitude or source-only scope",
+    "do not treat mitigation reference rows as ordinary denominators",
+    "do not rank intervention conditions source edges roles dynamics axes candidates checkpoints or controllers",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2777 synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_action_response_belief_intervention",
+    "evidence_axis": "source_only_action_response_belief_intervention_branch_synthesis",
+    "evidence_increment": "synthesizes M2772-M2776 source-only action-response belief intervention design materialization audit delta-panel and audit evidence before admitting another route",
+    "claim_scope": "Branch synthesis only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if synthesis cannot identify a bounded route that changes evidence beyond another no-new-data source-only reanalysis",
+      "stop if M2775 delta row counts would be rebranded as ranking validation performance or paper evidence",
+      "stop if mitigation reference rows would enter ordinary denominators",
+      "stop if actor contract or label invisibility would be changed",
+      "stop if the branch would claim current-sim high-fidelity full-driver or self-ID verdicts from source-only artifacts"
+    ],
+    "fallback_plan": [
+      "route to branch stop if M2772-M2776 add no evidence-changing route beyond complete source-only diagnostic artifacts",
+      "continue only if synthesis selects a new evidence axis with fresh closed-loop data or a genuinely stronger proof design",
+      "pivot to Route C high-fidelity interface preparation if source-only diagnostics are saturated and HF3 dependency can be addressed",
+      "defer to Route B only if a separately pre-registered fair controller-family matrix is higher leverage and no self-ID claim is made",
+      "route to artifact repair only if M2776 finds incomplete accounting or boundary contradiction"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2776 accepts M2775 complete claim-safe source-only delta-panel artifacts and local_search_guard requires synthesis before another no-new-data reanalysis",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-only action-response belief intervention branch synthesis",
+    "admission_evidence": [
+      "M2776 accepts M2775 artifacts as complete and claim-safe",
+      "M2775 writes 96 delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows and 24 gate rows",
+      "M2775 pairs 32 normal rows with 96 evaluator intervention rows over 7680 matched trace rows",
+      "M2775 records 4 road-departure removed rows and no collision changes as source-only diagnostic row accounting",
+      "M2775 preserves actor 72/action 3 no hidden/oracle actor input and no forbidden claims"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in synthesis",
+      "no source build adapter probe external simulation in synthesis",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md",
+      "M2777 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by synthesis if continuing or pivoting"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "M2773 and M2775 artifact completeness and diagnostic interpretation remain separate",
+      "M2775 modest source-only delta evidence is explicit",
+      "mitigation guard actor and claim boundaries remain visible",
+      "one bounded next route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2777 synthesizes source-only intervention artifacts and cannot by itself establish level3 self-identification or finite-window-vs-GRU superiority.",
+    "history_necessity_tests": [
+      "M2775 normal_recurrent versus reset_hidden_each_step delta rows",
+      "M2775 normal_recurrent versus zero_previous_command_history delta rows",
+      "M2775 normal_recurrent versus held_actuator_history delta rows"
+    ],
+    "temporal_evidence_window": "M2772-M2776 source-only action-response belief intervention branch",
+    "negative_result_policy": "If synthesis finds deltas weak ambiguous or insufficient preserve the result and route to pivot stop or a fresh evidence branch rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "source-only action-response belief intervention branch synthesis",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the source-only action-response belief intervention branch before admitting another route instead of repeating no-new-data source-only reanalysis",
+    "paper_verdict_delta": "no paper verdict; synthesis should prevent M2775 source-only deltas from being misread as performance or self-ID evidence while deciding whether the branch should continue pivot or stop",
+    "must_synthesize_if": [
+      "already_synthesis_milestone",
+      "M2777 cannot choose continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch",
+      "M2777 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2777 hides modest source-only delta magnitude or actor claim boundaries",
+      "another no-new-data source-only reanalysis is proposed without material evidence change"
+    ]
+  },
+  "hypothesis": "A branch synthesis can preserve M2772-M2776 source-only action-response belief intervention evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.",
+  "success_criteria": [
+    "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2773 status_pass true M2775 status_pass true and M2776 audit acceptance",
+    "synthesis records M2773 32 candidate rows 4 intervention conditions 128 execution rows 0 failures and 10240 trace rows as source-only diagnostic evidence only",
+    "synthesis records M2775 96 delta rows 24 role dynamics aggregate rows 3 intervention condition aggregate rows 4 road-departure removed rows 0 road-departure added rows and 0 collision changes as source-only diagnostic evidence only",
+    "synthesis preserves mitigation reference rows as outside ordinary denominators",
+    "synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels",
+    "synthesis registers one bounded follow-up manifest if continuing or pivoting",
+    "no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2777 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2777 changes actor input or action contract",
+    "M2777 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress role labels dynamics labels intervention labels route labels or verdicts to actor input",
+    "M2777 treats role dynamics intervention condition candidate checkpoint or controller context as ranking winner selection promotion or success-rate verdict evidence",
+    "M2777 treats mitigation reference rows as ordinary denominators",
+    "M2777 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2777 fails to synthesize M2772-M2776 and select a bounded follow-up route or stop"
+  ],
+  "decision_rule": "Pass only if M2777 synthesizes the source-only action-response belief intervention branch and selects continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md",
+    "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json",
+    "runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/intervention_delta_rows.csv",
+    "runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md"
+}

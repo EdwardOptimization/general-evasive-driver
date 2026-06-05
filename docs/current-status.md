@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight
+m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight
+m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit
+m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
 ```
 
 Current route:
@@ -1883,16 +1883,35 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json`
 - next: `m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit`
 
+## M2776 Engineering Controller Route A Source-Only Action-Response Belief Intervention Delta Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2775_route_to_source_only_action_response_belief_intervention_branch_synthesis`
+- manifest: `experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json`
+- audit doc: `docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md`
+- parent summary: `runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization/summary.json`
+- accepted parent result: M2775 status_pass true gate_matrix_pass true with 96 delta rows, 24 role/dynamics aggregate rows, 3 intervention-condition aggregate rows, 8 mitigation guards, 7 actor guards, 17 claim rows, and 24 gates all passing
+- pairing: complete 32 normal rows to 96 evaluator intervention rows over 7680 matched trace rows with 0 missing pairs and 0 duplicate execution pairs
+- diagnostic accounting: source-only deltas record 4 road-departure removals, 0 road-departure additions, 0 collision additions, and 0 collision removals; this is not a success-rate verdict or performance claim
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible labels and mitigation reference rows guarded outside ordinary denominators
+- audit decision: accept completeness and claim safety but reject direct performance self-ID ranking validation paper current-sim high-fidelity or full-driver interpretation
+- route decision: route to M2777 branch synthesis before any further proof extension, execution, training, or reanalysis
+- follow-up manifest: `experiments/manifests/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.json`
+- next: `m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis`
+
 ## Immediate Next Step
 
-M2776 should audit the M2775 source-only delta-panel artifacts before any
-synthesis or proof extension:
+M2777 should synthesize the complete M2772-M2776 source-only action-response
+belief intervention branch before any further proof extension, execution,
+training, or reanalysis:
 
 ```text
 true
 ```
 
-M2776 must audit M2775 summary, delta rows, aggregate rows, mitigation guards,
-actor guards, claim rows, and gates. It must preserve the source-only
-diagnostic reanalysis scope and reject ranking, validation, performance, paper,
-high-fidelity, full-driver, and self-ID interpretation from M2775 deltas.
+M2777 must answer evidence_summary, supported_claims, falsified_claims,
+failure_taxonomy_summary, public_gate_overfit_risk, and next_branch_decision.
+It must preserve M2773/M2775 artifact accounting, the modest source-only delta
+magnitude, actor 72/action 3, and no hidden/oracle actor input. It must reject
+ranking, validation, performance, paper, high-fidelity, full-driver, and
+self-ID interpretation from source-only deltas.
