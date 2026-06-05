@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2789,
+    "completed": 2790,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit_20260605T115226Z/command.log",
+    "command_log": "runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit_20260605T115226Z",
+    "run_dir": "runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z",
     "status": "completed",
-    "task_id": "m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit"
+    "task_id": "m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --m2783-audit docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json --output-dir runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --device cpu --seed-count 4 --horizon-steps 80",
-    "hypothesis": "A bounded paired source-only closed-loop delta panel can show how the M2782 candidate differs from the M2655 source checkpoint under belief-stress contexts while preserving actor and claim boundaries.",
-    "id": "m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run paired source-only closed-loop diagnostic delta panel over M2655 source and M2782 candidate checkpoints write paired execution rows paired delta rows proof/generalization/promotion gates actor/mitigation/claim rows gate matrix summary doc run-state and M2785 audit manifest no training validation ranking promotion success-rate verdict driver-performance paper current-sim high-fidelity full driver or self-ID claim",
-    "priority": 27790,
+    "command": "true",
+    "hypothesis": "M2784 paired closed-loop delta artifacts can be audited for completeness and claim safety before interpretation.",
+    "id": "m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2784 summary paired execution rows paired delta rows proof/generalization/promotion gates actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators no new execution training validation ranking promotion performance paper current-sim high-fidelity full driver or self-ID claim register one bounded follow-up or stop",
+    "priority": 27800,
     "status": "pending",
-    "success_artifact": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json"
+    "success_artifact": "docs/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.md"
   },
-  "updated_at_utc": "20260605T115226Z"
+  "updated_at_utc": "20260605T121101Z"
 }

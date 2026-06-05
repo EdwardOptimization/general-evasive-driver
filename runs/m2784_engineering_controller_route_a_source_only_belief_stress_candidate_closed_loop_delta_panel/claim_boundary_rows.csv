@@ -1,0 +1,12 @@
+claim_id,claim_family,claim_made,allowed,status_pass,evidence,claim_boundary
+validation_result,validation,False,False,True,M2784 does not run measured validation,Route A source-only paired closed-loop delta diagnostic preflight only
+ranking_result,ranking,False,False,True,M2784 does not rank checkpoints,Route A source-only paired closed-loop delta diagnostic preflight only
+winner_selection,promotion,False,False,True,M2784 selects no winner,Route A source-only paired closed-loop delta diagnostic preflight only
+checkpoint_promotion,promotion,False,False,True,M2784 promotes no checkpoint,Route A source-only paired closed-loop delta diagnostic preflight only
+success_rate_verdict,metric_artifact,False,False,True,M2784 emits no success-rate verdict,Route A source-only paired closed-loop delta diagnostic preflight only
+driver_performance,performance,False,False,True,M2784 is diagnostic delta evidence only,Route A source-only paired closed-loop delta diagnostic preflight only
+paper_result,paper,False,False,True,M2784 is not paper evidence,Route A source-only paired closed-loop delta diagnostic preflight only
+current_sim_verdict,current_sim,False,False,True,M2784 is not a current-sim verdict,Route A source-only paired closed-loop delta diagnostic preflight only
+high_fidelity_validation,high_fidelity,False,False,True,M2784 does not run HF validation,Route A source-only paired closed-loop delta diagnostic preflight only
+level3_self_id,self_id,False,False,True,M2784 is not self-ID evidence,Route A source-only paired closed-loop delta diagnostic preflight only
+paired_delta_artifacts_complete,allowed_artifact_completion,True,True,True,M2784 may claim paired diagnostic artifacts were written,Route A source-only paired closed-loop delta diagnostic preflight only

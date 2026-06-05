@@ -1,0 +1,40 @@
+{
+  "actor_contract": {
+    "action_shape": 3,
+    "actor_visible_stress_admission_curriculum_labels_detected": false,
+    "hidden_or_oracle_actor_inputs_required": false,
+    "observation_shape": 72
+  },
+  "claim_scope": "Route A source-only paired closed-loop delta diagnostic preflight only",
+  "forbidden_interpretation": "validation, ranking, winner selection, checkpoint promotion, success-rate verdict, repair success, driver performance, paper evidence, finite-window-vs-GRU conclusion, current-sim verdict, high-fidelity validation, full ideal driver completion, or level3 self-identification",
+  "generated_at_utc": "20260605T120825Z",
+  "milestone": "m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight",
+  "output_paths": {
+    "actor_contract_guard_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/actor_contract_guard_rows.csv",
+    "claim_boundary_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/claim_boundary_rows.csv",
+    "doc": "docs/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.md",
+    "follow_up_manifest": "experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json",
+    "gate_matrix": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/gate_matrix.csv",
+    "generalization_delta_gate_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/generalization_delta_gate_rows.csv",
+    "mitigation_reference_guard_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/mitigation_reference_guard_rows.csv",
+    "paired_delta_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_delta_rows.csv",
+    "paired_execution_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/paired_execution_rows.csv",
+    "promotion_guard_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/promotion_guard_rows.csv",
+    "proof_retention_gate_rows": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/proof_retention_gate_rows.csv",
+    "run_state": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/run_state.json",
+    "summary": "runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json"
+  },
+  "run_state_id": "m2784_belief_stress_candidate_closed_loop_delta_panel_state_v0",
+  "source_paths": {
+    "candidate_checkpoint": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt",
+    "checkpoint_manifest": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json",
+    "m2782_gate_matrix": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/gate_matrix.csv",
+    "m2782_summary": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json",
+    "m2783_audit": "docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md",
+    "mitigation_reference_guard_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/mitigation_reference_guard_rows.csv",
+    "source_checkpoint": "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "training_curriculum_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_curriculum_rows.csv",
+    "training_run_rows": "runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_run_rows.csv"
+  },
+  "status_pass": true
+}

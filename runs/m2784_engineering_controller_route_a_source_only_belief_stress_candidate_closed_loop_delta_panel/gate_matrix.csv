@@ -1,0 +1,23 @@
+gate_id,gate_tier,gate_family,status_pass,observed,expected,row_count,failure_type,claim_boundary
+proof_m2783_audit_present,proof,lineage,True,docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md,M2783 audit artifact exists,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_m2782_status_pass,proof,lineage,True,True,true,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_checkpoint_lineage_hashes,proof,lineage,True,source and candidate hashes,source and candidate hashes with candidate lineage,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_paired_execution_row_count,proof,artifact,True,144,144,144,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_paired_delta_row_count,proof,artifact,True,72,72,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_pair_completeness,proof,artifact,True,all pairs complete,all pairs complete,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_actor_contract_72_3,proof,actor_contract,True,all actor guards pass,all actor guards pass,7,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_no_hidden_or_oracle_actor_input,proof,actor_contract,True,false,false,144,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_actor_invisible_labels,proof,actor_contract,True,false,false,144,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_finite_action_observation,proof,metric_artifact,True,finite,finite,144,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_mitigation_rows_excluded,proof,proof_washout,True,mitigation rows excluded,mitigation rows excluded,8,,Route A source-only paired closed-loop delta diagnostic preflight only
+proof_no_ranking_winner_success_verdict,proof,claim_boundary,True,false,false,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_role_family_coverage,generalization,scenario_sampling,True,drift_required_recovery;stable_aes;stable_avoidable,stable_avoidable;stable_aes;drift_required_recovery,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_dynamics_axis_coverage,generalization,scenario_sampling,True,fresh_fault_delay_noise;fresh_nominal_or_role_default,fresh_nominal_or_role_default;fresh_fault_delay_noise,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_stress_family_coverage,generalization,scenario_sampling,True,held_actuator_history_stress;previous_command_history_stress;recurrent_hidden_reset_stress,recurrent_hidden_reset_stress;previous_command_history_stress;held_actuator_history_stress,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_requested_seed_count,generalization,seed_split,True,4,>=2,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_each_bucket_seed_coverage,generalization,seed_split,True,complete,complete,72,,Route A source-only paired closed-loop delta diagnostic preflight only
+generalization_pair_subject_coverage,generalization,artifact,True,candidate;source,source;candidate,144,,Route A source-only paired closed-loop delta diagnostic preflight only
+promotion_checkpoint_not_promoted,promotion,promotion_guard,True,false,false,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+promotion_no_winner_selected,promotion,promotion_guard,True,false,false,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+promotion_no_success_rate_verdict,promotion,promotion_guard,True,false,false,1,,Route A source-only paired closed-loop delta diagnostic preflight only
+promotion_no_active_config_overwrite,promotion,promotion_guard,True,false,false,1,,Route A source-only paired closed-loop delta diagnostic preflight only

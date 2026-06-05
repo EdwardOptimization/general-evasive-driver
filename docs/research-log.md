@@ -50433,3 +50433,38 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - follow-up manifest: `experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json`
 - next: `m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight`
 - rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+
+## 20260605T120825Z m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded paired source-only closed-loop delta panel can show how the M2782 candidate differs from the M2655 source checkpoint under belief-stress contexts while preserving actor and claim boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --m2783-audit docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md --m2782-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --candidate-checkpoint runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt --follow-up-manifest experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json --output-dir runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel --device cpu --seed-count 4 --horizon-steps 80`
+- returncode: `0`
+- run dir: `runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z`
+- command log: `runs/research/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight_20260605T120821Z/command.log`
+- success artifact: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json`
+- notes: Pending: run paired source-only closed-loop diagnostic delta panel over M2655 source and M2782 candidate checkpoints write paired execution rows paired delta rows proof/generalization/promotion gates actor/mitigation/claim rows gate matrix summary doc run-state and M2785 audit manifest no training validation ranking promotion success-rate verdict driver-performance paper current-sim high-fidelity full driver or self-ID claim
+
+## M2784 Engineering Controller Route A Source-Only Belief-Stress Candidate Closed-Loop Delta Panel Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel_preflight_pass`
+- manifest: `experiments/manifests/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel.py`
+- summary: `runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json`
+- doc: `docs/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.md`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- candidate checkpoint: `runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt`
+- source checkpoint hash: `e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`
+- candidate checkpoint hash: `96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`
+- artifact accounting: 18 curriculum buckets, 4 seeds, 80-step source-only closed-loop rollouts, 144 paired execution rows, 72 paired delta rows, 12 proof gates, 6 generalization gates, 4 promotion guards, 7 actor guards, 8 mitigation guards, 11 claim rows, and 22 gate-matrix rows all passing
+- execution scope: source-only backend reset/step and policy action were run for paired diagnostic rows only; no training, PPO, measured validation, ranking, winner selection, checkpoint promotion, success-rate verdict, external simulation, high-fidelity validation, or performance claim
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input; role dynamics stress admission curriculum outcome success progress route and verdict labels remain actor-invisible evaluator metadata
+- mitigation boundary: mitigation reference rows are context-only and excluded from ordinary denominators and paired delta rows
+- delta boundary: candidate-minus-source values are diagnostic row deltas only and are not a winner, ranking, promotion, repair-success, performance, or self-ID verdict
+- route decision: route to M2785 result audit before interpreting paired deltas or deciding continuation, synthesis, repair, or stop
+- follow-up manifest: `experiments/manifests/m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit.json`
+- next: `m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit`
+- rejected claims: no validation readiness/result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim

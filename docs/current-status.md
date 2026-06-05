@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
+m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit
+m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
+m2785-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-result-audit
 ```
 
 Current route:
@@ -38,6 +38,20 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2784 completed the Route A source-only paired closed-loop delta panel. It ran
+the M2655 source checkpoint and M2782 candidate checkpoint over 18 belief-stress
+curriculum buckets, 4 seeds, and 80 steps per closed-loop rollout. It wrote 144
+paired execution rows, 72 paired delta rows, 12 proof gates, 6 generalization
+gates, 4 promotion guards, 7 actor guards, 8 mitigation guards, 11 claim rows,
+and 22 gate rows all passing. Actor input stayed P0 observation 72/action 3 with
+no hidden/oracle actor input and no actor-visible role dynamics stress admission
+curriculum outcome success progress route or verdict labels. Mitigation rows
+remain outside ordinary denominators. M2784 rejects training, validation,
+ranking, winner selection, checkpoint promotion, success-rate verdict,
+driver-performance, paper, current-sim, high-fidelity, full ideal driver, and
+self-ID claims. The next bounded task is M2785 result audit before interpreting
+the paired deltas.
 
 M2730 synthesized the exact-executable offtrack repair branch and chose
 `pivot_to_route_a_evidence_index_after_exact_executable_repair_refresh`.

@@ -1,0 +1,113 @@
+# m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T121106Z
+- Type: infrastructure
+- Gate tier: proof
+- Promotion decision: route_to_source_only_belief_stress_candidate_closed_loop_delta_panel_result_audit
+- Decision reason: M2784 paired source-only closed-loop delta panel status_pass true wrote 144 paired execution rows 72 paired delta rows 12 proof gates 6 generalization gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows and 22 gate rows all pass over 18 curriculum buckets 4 seeds horizon 80 preserves actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside denominators rejects training validation ranking winner promotion success-rate verdict performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2785 audit
+
+## Hypothesis
+
+A bounded paired source-only closed-loop delta panel can show how the M2782 candidate differs from the M2655 source checkpoint under belief-stress contexts while preserving actor and claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoints/m2782_belief_stress_short_training_candidate.pt
+- parent_dataset: docs/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.md, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/summary.json, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/checkpoint_manifest.json, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_curriculum_rows.csv, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/training_run_rows.csv, runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json, experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json, experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json
+- parent_objective: run a bounded source-only closed-loop paired delta panel for M2655 source and M2782 candidate checkpoints after M2783 audit accepts artifact safety
+- derived_from: m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit, m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
+- blocked_by: M2782 is only one-step preflight evidence and cannot be interpreted without closed-loop diagnostic deltas, paired candidate-vs-source rows must remain diagnostic and non-ranking, mitigation rows must stay guarded outside ordinary denominators, M2638 high-fidelity source dependency remains unresolved and cannot be bypassed
+- supersedes: direct promotion of the M2782 candidate checkpoint, direct interpretation of M2782 one-step rows as driver performance, single-checkpoint success-rate verdict from M2782 artifacts
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json exists
+- docs/m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight.md exists
+- M2784 consumes M2783 M2782 M2655 artifacts only
+- M2784 writes paired execution rows paired delta rows proof retention gates generalization delta gates promotion guards actor guards mitigation guards claim rows gate matrix run-state and M2785 audit manifest
+- M2784 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels
+- M2784 keeps mitigation reference rows outside ordinary denominators
+- M2784 writes no validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2784 changes actor input or action contract
+- M2784 exposes role dynamics stress curriculum admission outcome route progress success or verdict labels to actor input
+- M2784 uses mitigation reference rows as ordinary successes
+- M2784 shrinks to a single seed
+- M2784 ranks source/candidate checkpoints selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2784 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2784 must run a paired source-only closed-loop diagnostic panel over M2655 source and M2782 candidate checkpoints after M2783 audit
+- M2784 must preserve actor P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible role dynamics stress curriculum admission outcome success progress route or verdict labels
+- M2784 must write paired execution rows paired delta rows proof retention gates generalization delta gates promotion guards actor guards mitigation guards claim rows gate matrix summary doc run-state and M2785 audit manifest
+- M2784 must keep mitigation reference rows outside ordinary denominators
+- M2784 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels intervention labels stress labels curriculum labels admission labels outcome labels success labels progress labels route labels or verdict labels to actor input
+- do not train or run PPO
+- do not use mitigation reference rows as ordinary successes
+- do not shrink to a single seed
+- do not tune one public proof row and compare as a discovery
+- do not rank source and candidate checkpoints
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success-rate or controller-family verdict metrics
+- do not execute measured validation
+- do not import external simulator dependencies
+- do not run external simulation
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim driver performance
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim high-fidelity validation
+- do not claim full ideal driver completion
+- do not claim level3 self-identification
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2784-engineering-controller-route-a-source-only-belief-stress-candidate-closed-loop-delta-panel-preflight
+- type: infrastructure
+- checkpoint: runs/m2784_engineering_controller_route_a_source_only_belief_stress_candidate_closed_loop_delta_panel/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_source_only_belief_stress_candidate_closed_loop_delta_panel_result_audit
+- reason: M2784 paired source-only closed-loop delta panel status_pass true wrote 144 paired execution rows 72 paired delta rows 12 proof gates 6 generalization gates 4 promotion guards 7 actor guards 8 mitigation guards 11 claim rows and 22 gate rows all pass over 18 curriculum buckets 4 seeds horizon 80 preserves actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside denominators rejects training validation ranking winner promotion success-rate verdict performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2785 audit
+
+## Next Blocker
+
+None recorded.
