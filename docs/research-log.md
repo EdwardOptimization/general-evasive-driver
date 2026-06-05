@@ -51172,3 +51172,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit_20260605T182917Z/command.log`
 - success artifact: `docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md`
 - notes: Completed: audit accepts M2813 complete claim-safe no-rollout action-response mechanism panel status_pass true required artifacts present 12 mechanism rows 10 offtrack-containment 2 success obstacle-pass 0 collision 2 contrast rows action metrics available true offtrack timing rows 10 recoverability available 0 guardrails 44 actor guards 12 claim rows 25 gates 22 actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2815 synthesis
+
+## 20260605T184503Z m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2812-M2814 action-response mechanism evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z`
+- command log: `runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z/command.log`
+- success artifact: `docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot accepts M2812-M2814 complete claim-safe action-response mechanism branch with M2813 12 mechanism rows 10 offtrack-containment 2 success obstacle-pass 0 collision 2 contrast rows action metrics available true offtrack timing rows 10 recoverability available 0 guardrails 44 actor guards 12 claim rows 25 gates 22 actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects direct repair ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2816 bounded recoverability-window instrumented execution preflight

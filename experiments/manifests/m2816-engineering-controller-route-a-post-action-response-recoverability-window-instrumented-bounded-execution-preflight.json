@@ -1,0 +1,270 @@
+{
+  "id": "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md",
+      "docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md",
+      "docs/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight.md",
+      "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json",
+      "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/action_response_mechanism_rows.csv",
+      "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/success_offtrack_contrast_rows.csv",
+      "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/guardrail_context_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/failure_localization_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.json",
+      "experiments/manifests/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.json",
+      "experiments/manifests/m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "collect bounded recoverability-window and post-offtrack action-response closed-loop diagnostics for the M2813 action-response mechanism branch before any repair ranking validation or promotion route"
+    ],
+    "derived_from": [
+      "m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis",
+      "m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit",
+      "m2813-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-preflight",
+      "m2807-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2815 rejects another no-rollout mechanism-table loop and admits new bounded recoverability-window closed-loop diagnostics",
+      "M2813 has 10 offtrack-containment rows and 2 success obstacle-pass rows but zero recoverability-window availability",
+      "M2813 action-response context is diagnostic and non-ranking",
+      "prior-surface same-clearance protected and HF3 guardrails remain active and outside ordinary denominators"
+    ],
+    "supersedes": [
+      "another immediate M2813-like mechanism table without new closed-loop data",
+      "direct repair design from M2813 mechanism rows without recoverability-window evidence",
+      "direct action-response stress-axis source-edge task-family or profile ranking from M2813 context rows",
+      "direct validation readiness or driver-performance claim from M2813"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2816 must consume M2815 synthesis M2814 audit M2813 mechanism rows M2810 localization rows and M2807 candidate execution rows before executing any bounded diagnostic row",
+    "M2816 must use a fixed pre-registered row set derived from the 10 offtrack-containment rows and 2 success obstacle-pass rows in M2813",
+    "M2816 may execute only the bounded current-sim closed-loop diagnostic needed to materialize recoverability-window and post-offtrack action-response rows",
+    "M2816 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators",
+    "M2816 must preserve prior-surface same-clearance protected and HF3 rows as non-executed guardrails outside ordinary denominators",
+    "M2816 must not train PPO repair tune rank axes select winners promote checkpoints compute success-rate verdicts or claim validation performance paper high-fidelity full-driver or self-ID evidence",
+    "M2816 must write recoverability-window post-offtrack action-response contrast guardrail actor-contract claim-boundary gate summary and doc artifacts",
+    "M2816 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train",
+    "do not run PPO",
+    "do not tune policy weights",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose action-response mechanism labels recoverability labels stress-axis labels source-edge labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not execute prior-surface same-clearance protected or HF3 guardrail rows as ordinary candidates",
+    "do not hide M2813 success obstacle-pass or offtrack-containment rows",
+    "do not hide absent or negative recoverability-window evidence",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families profiles task families action-response families stress axes source edges or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2816 diagnostics"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_action_response_recoverability_window",
+    "evidence_axis": "recoverability_window_instrumented_bounded_execution_preflight",
+    "evidence_increment": "changes from no-rollout mechanism materialization to new bounded closed-loop recoverability-window diagnostics for fixed M2813 rows",
+    "claim_scope": "Recoverability-window diagnostic preflight only; no training PPO repair ranking winner selection promotion success-rate verdict driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if the fixed M2813/M2807 row set cannot be resolved",
+      "stop if recoverability-window instrumentation would require actor input changes or hidden/oracle labels",
+      "stop if prior-surface same-clearance protected or HF3 guardrails would enter execution or ordinary denominators",
+      "stop if the panel would rank stress axes source edges task families profiles action-response families or controllers",
+      "stop if the panel would claim repair success validation readiness performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2813/M2807 row resolution fails",
+      "route to branch stop if recoverability-window instrumentation cannot preserve actor and guardrail boundaries",
+      "route to result audit if bounded instrumentation succeeds",
+      "keep HF3 selected-platform execution paused until source dependency blocker is resolved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2815 pivots from accepted action-response mechanism synthesis to bounded recoverability-window diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post-action-response recoverability-window instrumented bounded execution preflight",
+    "admission_evidence": [
+      "M2815 selects bounded recoverability-window closed-loop diagnostics instead of another no-rollout mechanism table",
+      "M2814 accepts M2813 complete claim-safe action-response mechanism artifacts",
+      "M2813 has 12 mechanism rows 10 offtrack-containment rows 2 success obstacle-pass rows and zero recoverability-window availability",
+      "M2813 preserves actor 72/action 3 no hidden oracle and actor-invisible labels",
+      "docs/post-m2470-route-plan.md requires Route A to keep changing evidence rather than accumulating static infrastructure"
+    ],
+    "blocked_shortcuts": [
+      "no training PPO policy repair or checkpoint promotion",
+      "no ranking winner selection success-rate verdict or driver-performance claim",
+      "no source build adapter probe external high-fidelity simulation or Route C validation claim",
+      "no paper current-sim verdict finite-window-vs-GRU self-ID full ideal driver claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight.py",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/recoverability_window_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/post_offtrack_action_response_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/success_offtrack_contrast_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md",
+      "M2816 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "recoverability-window artifacts exist for the fixed M2813 row set",
+      "post-offtrack action-response trace rows account for offtrack and success contrast rows",
+      "actor and claim boundaries are preserved",
+      "guardrail rows remain outside execution and ordinary denominators",
+      "one bounded result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2816 collects Route A recoverability-window diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2816; any finite-window GRU wrong-history reset-hidden zero-history or source-diverse intervention proof remains separately pre-registered."
+    ],
+    "temporal_evidence_window": "Fixed M2813/M2807 Route A action-response and recoverability-window diagnostic rows.",
+    "negative_result_policy": "If recoverability-window evidence is weak negative or absent preserve blockers and route to audit or synthesis instead of weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "bounded recoverability-window diagnostic row accounting",
+      "actor and claim boundary preserved or violated",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes from no-rollout action-response mechanism materialization to bounded closed-loop recoverability-window diagnostics",
+    "paper_verdict_delta": "no paper verdict; can determine whether the post-action-response branch has recoverability-window evidence before any repair or paper-route interpretation",
+    "must_synthesize_if": [
+      "M2816 cannot resolve the fixed M2813 row set",
+      "M2816 cannot collect recoverability-window evidence without actor or guardrail boundary changes",
+      "M2816 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2816 proposes repair execution or ranking without a result audit"
+    ]
+  },
+  "hypothesis": "A bounded instrumented closed-loop execution panel can produce recoverability-window and post-offtrack action-response traces for M2813 offtrack-containment rows while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json exists",
+    "docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md exists",
+    "recoverability-window artifacts account for the fixed M2813 offtrack-containment and success obstacle-pass rows",
+    "post-offtrack action-response trace rows remain diagnostic and non-ranking",
+    "stress-axis source-edge task-family profile and action-response context remains diagnostic and non-ranking",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered",
+    "no training PPO policy repair actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2816 trains PPO repairs policy weights promotes a checkpoint or selects a winner",
+    "M2816 changes actor input or action contract",
+    "M2816 exposes hidden dynamics oracle labels recoverability labels action-response labels source-edge labels task-family labels stress-axis labels route labels blocker labels protected labels success progress or verdict labels to actor input",
+    "M2816 treats action-response recoverability stress-axis source-edge task-family or profile context as ranking winner selection promotion or success-rate verdict evidence",
+    "M2816 treats prior-surface same-clearance protected or HF3 guardrail rows as execution rows or ordinary denominators",
+    "M2816 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2816 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2816 materializes complete claim-safe recoverability-window and post-offtrack action-response diagnostics for the fixed M2813 row set without training repair ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "recoverability_window_instrumented_bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --m2815-synthesis docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md --m2813-dir runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2810-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --device cpu --seed-start-index 281600 --horizon-steps 180 --recoverability-window-steps 40"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/recoverability_window_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/post_offtrack_action_response_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/success_offtrack_contrast_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md",
+    "docs/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit.md",
+    "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/summary.json",
+    "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/action_response_mechanism_rows.csv",
+    "runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel/gate_matrix.csv",
+    "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv",
+    "runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel/failure_localization_rows.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json",
+  "next_blocker": "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight"
+}

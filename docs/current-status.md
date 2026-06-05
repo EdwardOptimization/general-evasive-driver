@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
+m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit
+m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis
+m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2815 synthesized the M2812-M2814 action-response mechanism branch and selected
+`pivot_to_post_action_response_recoverability_window_instrumented_bounded_execution_preflight`.
+It accepts the branch as complete and claim-safe but still not solved: M2813
+preserves 12 mechanism rows, 10 offtrack-containment rows, 2 success
+obstacle-pass rows, 0 collision rows, 2 contrast rows, action-response metrics
+for all rows, 10 offtrack-timing rows, 0 recoverability-available rows, 44
+guardrails, 12 actor guards, 25 claim-boundary rows, and 22 gates. The branch
+keeps actor P0 observation 72/action 3, no hidden/oracle actor input,
+actor-invisible labels, and guardrails outside ordinary denominators. M2815
+rejects another no-rollout mechanism-table loop and rejects direct repair,
+ranking, validation, performance, paper, high-fidelity, full-driver, and
+self-ID claims. The next admitted step is M2816, a bounded instrumented
+closed-loop diagnostic preflight over the fixed M2813/M2807 rows to collect
+recoverability-window and post-offtrack action-response traces before any
+repair or interpretation route.
 
 M2814 audited and accepted M2813 as complete, claim-safe, no-rollout
 action-response mechanism materialization evidence. It verified
@@ -55,7 +71,8 @@ recoverability-available rows into repair success, ranking, validation
 readiness, driver performance, paper evidence, current-sim or high-fidelity
 verdicts, full-driver completion, or self-ID claims. The next admitted step is
 M2815 branch synthesis before any repair design, execution, validation,
-ranking, packaging, Route B claim, or Route C claim.
+ranking, packaging, Route B claim, or Route C claim; that synthesis is now
+completed above.
 
 M2813 completed no-rollout action-response mechanism panel materialization from
 existing M2807/M2810/M2812 artifacts only. It wrote summary,

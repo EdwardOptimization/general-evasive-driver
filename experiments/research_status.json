@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2820,
+    "completed": 2821,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit_20260605T182917Z/command.log",
+    "command_log": "runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit_20260605T182917Z",
+    "run_dir": "runs/research/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis_20260605T184503Z",
     "status": "completed",
-    "task_id": "m2814-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-panel-materialization-result-audit"
+    "task_id": "m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2812-M2814 action-response mechanism evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.",
-    "id": "m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2812-M2814 action-response mechanism branch verify M2813 12 mechanism rows 10 offtrack-containment 2 success obstacle-pass 2 contrast action metrics 10 offtrack timing 0 recoverability 44 guardrails actor 72/action 3 no hidden oracle labels guardrails outside denominators decide stop pivot or bounded follow-up without reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28100,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --m2815-synthesis docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md --m2813-dir runs/m2813_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_action_response_mechanism_panel --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2810-dir runs/m2810_engineering_controller_route_a_post_clearance_negative_non_same_repair_offtrack_containment_localization_panel --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --device cpu --seed-start-index 281600 --horizon-steps 180 --recoverability-window-steps 40",
+    "hypothesis": "A bounded instrumented closed-loop execution panel can produce recoverability-window and post-offtrack action-response traces for M2813 offtrack-containment rows while preserving actor and claim boundaries.",
+    "id": "m2816-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: execute bounded recoverability-window diagnostic preflight over fixed M2813/M2807 rows to collect post-offtrack action-response traces and recoverability-window rows with actor 72/action 3 no hidden oracle labels guardrails outside denominators no training repair ranking validation promotion performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28110,
     "status": "pending",
-    "success_artifact": "docs/m2815-engineering-controller-route-a-post-clearance-negative-non-same-repair-cross-axis-offtrack-containment-action-response-mechanism-branch-synthesis.md"
+    "success_artifact": "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260605T182917Z"
+  "updated_at_utc": "20260605T184503Z"
 }
