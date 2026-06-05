@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2829,
+    "completed": 2830,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design_20260605T204937Z/command.log",
+    "command_log": "runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design_20260605T204937Z",
+    "run_dir": "runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z",
     "status": "completed",
-    "task_id": "m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design"
+    "task_id": "m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_recoverability_negative_limited_package_materialization --m2823-design docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md --output-dir runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package --follow-up-manifest experiments/manifests/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.json",
-    "hypothesis": "A bounded materialization preflight can produce a machine-auditable Route A limited package refresh that preserves required artifacts provenance actor contract post-recoverability limitations known blockers and claim boundaries without publishing a package or claiming driver performance.",
-    "id": "m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize local Route A post-recoverability limited package refresh preserving M2816 negative recoverability M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels no reset rollout replay validation training repair ranking publication performance paper high-fidelity full-driver or self-ID claim and register audit repair synthesis stop or new route",
-    "priority": 28190,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2824 limited package artifacts while preserving actor blocker and claim boundaries before interpretation.",
+    "id": "m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2824 local package materialization preserving M2816 negative recoverability M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels no package publication execution ranking validation performance paper high-fidelity full-driver or self-ID claim and route only to bounded synthesis repair stop or new branch",
+    "priority": 28200,
     "status": "pending",
-    "success_artifact": "runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json"
+    "success_artifact": "docs/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T204937Z"
+  "updated_at_utc": "20260605T210407Z"
 }

@@ -51293,3 +51293,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design_20260605T204937Z/command.log`
 - success artifact: `docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md`
 - notes: Completed: design admits M2824 local post-recoverability Route A limited-package materialization preflight preserving M2816 negative recoverability M2804 prior blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels and rejects package publication reset rollout replay validation training repair ranking promotion performance paper high-fidelity full-driver and self-ID claims
+
+## 20260605T210407Z m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded materialization preflight can produce a machine-auditable Route A limited package refresh that preserves required artifacts provenance actor contract post-recoverability limitations known blockers and claim boundaries without publishing a package or claiming driver performance.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_recoverability_negative_limited_package_materialization --m2823-design docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md --output-dir runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package --follow-up-manifest experiments/manifests/m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z`
+- command log: `runs/research/m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight_20260605T210407Z/command.log`
+- success artifact: `runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json`
+- notes: Completed: materialized local Route A post-recoverability limited package refresh status_pass true package content covered 6/6 limitations covered 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects publication reset rollout replay validation training repair ranking promotion performance paper high-fidelity full-driver and self-ID claims routes to M2825 audit

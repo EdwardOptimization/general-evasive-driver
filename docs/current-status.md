@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
+m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design
+m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
+m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
 ```
 
 Current route:
@@ -38,6 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2824 materialized the local Route A post-recoverability-negative limited
+package refresh from existing artifacts only. It produced a passing package
+boundary artifact set with 18 manifest-schema rows, 14 artifact-inventory rows,
+14 provenance rows, 5 known-blocker disclosure rows, 7 recoverability-limitation
+rows, 11 actor/action contract rows, 27 claim-boundary rows, and 24 passing
+package gates. It covers the six Route A package content groups and four
+limitation groups while preserving M2816 negative recoverability accounting
+(7 post-event traces, 0 recoverability-window availability, 0 recoverability
+success, 1 diagnostic collision, 5 offtrack terminations), M2804 prior
+readiness blockers, the M2638 HF3 source dependency blocker, and Route B
+paper/self-ID separation. Actor P0 observation 72/action 3 and no hidden/oracle
+actor input remain preserved. M2824 does not publish a package and does not
+claim repair success, recoverability success, validation readiness, driver
+performance, paper evidence, high-fidelity validation, full-driver completion,
+or self-ID. The next task is M2825 result audit.
 
 M2823 designed and admitted a bounded Route A post-recoverability-negative
 limited-package materialization preflight. It reuses the earlier M2687/M2688

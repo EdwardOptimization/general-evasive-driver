@@ -1,0 +1,136 @@
+# m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T210821Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: route_to_post_recoverability_negative_limited_package_result_audit
+- Decision reason: M2824 materialized local Route A post-recoverability limited package refresh status_pass true package content covered 6/6 limitations covered 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects publication reset rollout replay validation training repair ranking promotion performance paper high-fidelity full-driver and self-ID claims routes to M2825 audit
+
+## Hypothesis
+
+A bounded materialization preflight can produce a machine-auditable Route A limited package refresh that preserves required artifacts, provenance, actor contract, post-recoverability limitations, known blockers, and claim boundaries without publishing a package or claiming driver performance.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.md, docs/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.md, docs/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit.md, runs/m2820_engineering_controller_route_a_post_recoverability_negative_readiness_index/summary.json, docs/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis.md, docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md, runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/summary.json, runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json, docs/m2687-engineering-controller-route-a-package-with-limitations-protocol-design.md, runs/m2688_engineering_controller_route_a_package_with_limitations_protocol_materialization/summary.json, docs/m2689-engineering-controller-route-a-package-with-limitations-protocol-materialization-result-audit.md, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json, public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json, runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json, docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.json, experiments/manifests/m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis.json, experiments/manifests/m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit.json, experiments/manifests/m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight.json
+- parent_objective: materialize a bounded post-recoverability Route A limited package protocol refresh
+- derived_from: m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design, m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis, m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit, m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight, m2688-engineering-controller-route-a-package-with-limitations-protocol-materialization-preflight
+- blocked_by: M2823 admits materialization only as a local package-boundary refresh, M2822 rejects another same recoverability repair or ranking loop, M2816/M2817 preserve 0 recoverability-window availability 0 recoverability success 1 collision and 5 offtrack terminations, M2804/M2805 prior readiness blockers remain active, M2638 HF3 source dependency remains unavailable, Route B paper and self-ID claims remain separate from Route A package claims
+- supersedes: direct public package publication without post-recoverability blocker refresh, direct same recoverability repair or ranking, direct validation readiness or driver-performance claim from package coverage, direct selected-platform HF3 execution while M2638 source dependency is unresolved
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json exists
+- package_manifest_schema_rows package_artifact_inventory_rows package_provenance_map_rows known_blocker_disclosure_rows recoverability_limitations_rows actor_action_contract_rows claim_boundary_rows and package_gate_matrix exist
+- summary records Route A package content and post-recoverability limitations as covered or records explicit blockers
+- materialized rows preserve M2816 negative recoverability M2804 prior blockers and M2638 HF3 source dependency blocker as visible limitations
+- materialized rows preserve P0 observation 72/action 3 actor boundary and no hidden/oracle actor input
+- M2824 registers one bounded follow-up result audit repair synthesis stop or new route manifest
+- no reset step rollout replay validation training PPO repair source build adapter probe external simulation package publication ranking winner promotion success-rate repair-success recoverability-success driver-performance validation-readiness paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2824 executes reset step rollout replay validation training PPO repair source build adapter probe or external simulation
+- M2824 publishes package artifacts as a release
+- M2824 changes actor input or action contract
+- M2824 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance recoverability labels package labels blocker labels controller labels collision success progress or precomputed answers to actor input
+- M2824 hides M2816 negative recoverability M2804 prior blockers or M2638 HF3 source dependency blocker
+- M2824 ranks controller families source families task families profiles stress axes recoverability families or scenario roles selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2824 claims repair success recoverability success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result
+- M2824 fails to materialize the bounded package refresh and follow-up route
+
+## Evidence Gates
+
+- M2824 must materialize the M2823 package design locally and must not publish the package
+- M2824 must write summary package_manifest_schema_rows package_artifact_inventory_rows package_provenance_map_rows known_blocker_disclosure_rows recoverability_limitations_rows actor_action_contract_rows claim_boundary_rows and package_gate_matrix artifacts
+- M2824 must cover Route A package content and post-recoverability limitations or record explicit source blockers
+- M2824 must preserve M2816 negative recoverability M2804 prior blockers and M2638 HF3 source dependency blocker as visible limitations
+- M2824 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible package blocker recoverability route or verdict labels
+- M2824 must register one bounded result audit repair synthesis stop or new route manifest
+- M2824 must not execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation
+- M2824 must not claim driver performance repair success recoverability success validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not publish package artifacts as a release
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start a backend
+- do not execute reset
+- do not execute policy actions
+- do not step environments
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose recoverability labels package labels blocker labels route decisions controller-family labels collision success progress or verdict labels to actor input
+- do not treat post-event recoverability traces as proof
+- do not hide 0 recoverability-window availability or 0 recoverability success
+- do not hide diagnostic collision or offtrack terminations
+- do not hide M2804 prior blockers
+- do not hide the HF3 source dependency blocker
+- do not rank controller families source families task families profiles stress axes recoverability families or scenario roles
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim recoverability success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-response sufficiency
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from package materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2824-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_post_recoverability_negative_limited_package_result_audit
+- reason: M2824 materialized local Route A post-recoverability limited package refresh status_pass true package content covered 6/6 limitations covered 4/4 schema rows 18 inventory rows 14 provenance rows 14 blockers 5 recoverability limitations 7 actor rows 11 claim rows 27 gates 24 all pass M2816 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack M2804 blockers M2638 HF3 blocker actor 72/action 3 no hidden oracle labels rejects publication reset rollout replay validation training repair ranking promotion performance paper high-fidelity full-driver and self-ID claims routes to M2825 audit
+
+## Next Blocker
+
+m2825-engineering-controller-route-a-post-recoverability-negative-limited-package-materialization-result-audit
