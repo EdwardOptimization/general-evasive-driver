@@ -49311,3 +49311,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2727
 - follow-up manifest: `experiments/manifests/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.json`
 - next: `m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight`
+
+## M2728 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight.py`
+- summary: `runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json`
+- doc: `docs/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.md`
+- execution rows: 31 repair execution rows 0 candidate execution failure rows 31/31 accounted all selected metrics finite
+- overlay and guardrails: 465 temporary overlay application rows active config overwrite false profile-specific tuning false 17 guardrail audit rows kept non-target and outside denominators
+- diagnostic outcome: 1/31 success 3/31 collision 27/31 off_track terminations with aggregates non-ranking and non-verdict
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2729 bounded offtrack repair execution result audit before interpretation ranking validation or performance claims
+- rejected claims: no replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2728
+- follow-up manifest: `experiments/manifests/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.json`
+- next: `m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit`

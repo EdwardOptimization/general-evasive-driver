@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
+m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
+m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
+m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
 ```
 
 Current route:
@@ -175,6 +175,19 @@ ranking, validation, performance, paper, current-sim, high-fidelity, full ideal
 driver, or self-ID claim.
 
 Next is M2728 bounded offtrack repair execution preflight before any
+interpretation, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
+
+M2728 executed that bounded repair preflight. It wrote 31 repair execution rows,
+0 failure rows, 465 overlay application rows, 17 guardrail audit rows, 4
+profile aggregates, 9 anchor aggregates, 12 actor rows, 38 claim rows, and 21
+gate rows, all passing. Active config overwrite remains false, guardrail and
+protected rows remain non-target, actor 72/action 3 and actor-invisible labels
+are preserved, and all selected metrics are finite. The diagnostic outcome is
+not a repair success claim: 1/31 success, 3/31 collision, and 27/31 off_track
+terminations, with all aggregates non-ranking and non-verdict.
+
+Next is M2729 bounded offtrack repair execution result audit before any further
 interpretation, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
 ```

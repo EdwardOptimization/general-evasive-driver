@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2733,
+    "completed": 2734,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md",
+    "command_log": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json",
         "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight",
         "status": "completed",
-    "task_id": "m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design"
+    "task_id": "m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight"
     },
     "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight --m2725-dir runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization --m2727-design docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md --output-dir runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight",
-    "hypothesis": "A bounded offtrack repair execution preflight can produce new closed-loop diagnostic evidence from the M2725 candidate pack under temporary shared overlays without changing actor inputs or overclaiming repair outcomes.",
-    "id": "m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute only 31 M2725 candidate target rows under temporary shared overlay write repair execution failure aggregate overlay guardrail actor claim gate run-state summary doc artifacts no active config overwrite no guardrail protected execution as ordinary targets no replay validation training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27230,
+    "command": "true",
+    "hypothesis": "M2728 bounded repair execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence step.",
+    "id": "m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2728 31 repair execution rows 0 failure rows 465 overlay application rows 17 guardrail audit rows 12 actor rows 38 claim rows 21 gates pass active config overwrite false diagnostic 1 success 3 collision 27 offtrack no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27240,
         "status": "pending",
-    "success_artifact": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json"
+    "success_artifact": "docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md"
     },
-  "updated_at_utc": "20260605T001033Z"
+  "updated_at_utc": "20260605T002901Z"
 }
