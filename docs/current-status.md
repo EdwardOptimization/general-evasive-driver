@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
+m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2820-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-preflight
+m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2821-engineering-controller-route-a-post-recoverability-negative-readiness-index-materialization-result-audit
+m2822-engineering-controller-route-a-post-recoverability-negative-readiness-index-result-synthesis
 ```
 
 Current route:
@@ -38,6 +38,19 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2821 audited and accepted M2820 as complete and claim-safe
+post-recoverability-negative Route A readiness/admission indexing. It verifies
+that M2820 preserved 19 evidence rows, 12 deliverable-readiness rows, 8 blocker
+rows, 7 next-action rows, 31 claim-boundary rows, and 42 passing gates while
+keeping the M2816/M2817 negative recoverability result visible: 7 post-event
+traces, 0 recoverability-window availability, 0 recoverability success, 1
+diagnostic collision, and 5 offtrack terminations. M2821 rejects same
+recoverability repair, ranking, validation, performance, paper, high-fidelity,
+full-driver, and self-ID interpretations. The next admitted step is M2822
+branch synthesis over M2819-M2821 before selecting stop, packaging with
+limitations, a non-same-surface Route A evidence route, Route B comparison, or
+Route C dependency handling.
 
 M2820 materialized the post-recoverability-negative Route A readiness/admission
 index from existing artifacts only. It produced a passing artifact set with 19
