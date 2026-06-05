@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight
+m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight
+m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit
+m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
 ```
 
 Current route:
@@ -1783,21 +1783,38 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json`
 - next: `m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit`
 
+## M2770 Engineering Controller Route A Action-Response Mechanism-Localized Bounded Repair Execution Result Audit
+
+- status: completed
+- decision: `accept_m2769_route_to_action_response_mechanism_localized_bounded_repair_result_synthesis`
+- manifest: `experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json`
+- audit doc: `docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md`
+- parent summary: `runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json`
+- parent doc: `docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md`
+- accepted parent result: M2769 status_pass true gate_matrix_pass true with 8 repair rows 3 checkpoints 24 candidate-resolution rows 8 baseline joins 24 execution rows 0 failure rows 4 context-only rows 31 guardrails 10 actor-contract guard rows 11 claim-boundary rows and 20 gate rows all passing
+- diagnostic accounting: 0/24 diagnostic success 3/24 collision 17 off_track and 4 speed_too_low terminations success_rate_diagnostic 0.0 collision_rate_diagnostic 0.125 clearance_margin_mean_diagnostic 8.995123866381123; this rejects repair-success interpretation
+- surface boundary: accepts M2769 artifact completeness but preserves the 4 context-only rows and 31 guardrails as non-executed outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor input contract change no active config overwrite no environment difficulty relaxation and actor-invisible mechanism repair-target context guardrail progress and verdict labels
+- route decision: route to M2771 branch synthesis because another same-surface actor-head bias sweep would increase local-search risk without first answering what M2766-M2770 changed
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2770
+- follow-up manifest: `experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json`
+- next: `m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis`
+
 ## Immediate Next Step
 
-M2767 should audit the M2766 mechanism-localization panel before any repair
-design, execution extension, validation, performance, paper, current-sim,
-high-fidelity, full-driver, or self-ID claim:
+M2771 should synthesize the M2766-M2770 mechanism-localized repair branch
+before any additional same-surface repair execution, validation, ranking,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim:
 
 ```text
-runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json
-docs/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.md
-experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json
+runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json
+docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md
+experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json
 ```
 
-M2767 must accept or reject M2766 artifact completeness and claim safety. It
-must preserve actor 72/action 3, no hidden/oracle input, actor-invisible
-mechanism labels, M2759 no-backfill lineage, and guardrails outside
-denominators. It must not execute replay, validation, training, ranking,
-promotion, or claim repair success, driver performance, paper evidence,
-current-sim, high-fidelity, full ideal driver, or self-ID evidence.
+M2771 must answer the six synthesis questions, preserve M2769 as complete but
+negative diagnostic accounting only, and choose one bounded next branch, pivot,
+or stop. It must keep the 4 context-only rows and 31 guardrails outside
+denominators, preserve actor 72/action 3 with no hidden/oracle input, and avoid
+repair-success, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claims.
