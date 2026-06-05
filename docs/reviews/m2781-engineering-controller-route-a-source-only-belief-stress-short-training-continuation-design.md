@@ -1,0 +1,123 @@
+# m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T112202Z
+- Type: gate
+- Gate tier: proof
+- Promotion decision: admit_source_only_belief_stress_short_training_continuation_preflight
+- Decision reason: M2781 design admits M2782 bounded source-only belief-stress short-training continuation preflight from audited M2779/M2780 artifacts preserves source-only diagnostic accounting actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators separates proof generalization and promotion gates and rejects M2781 execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims
+
+## Hypothesis
+
+A design-only protocol can safely convert the audited M2779 source-only belief-stress admission pack into a bounded short-training continuation branch without actor-input leakage or overclaiming.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/belief_stress_admission_rows.csv, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/stress_curriculum_rows.csv, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/mitigation_reference_guard_rows.csv, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/actor_contract_guard_rows.csv, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/claim_boundary_rows.csv, runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/gate_matrix.csv, docs/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.md
+- parent_config: experiments/manifests/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.json, experiments/manifests/m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight.json, experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json, experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json, experiments/manifests/m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight.json
+- parent_objective: design a bounded short-training continuation protocol from the audited source-only belief-stress admission pack without actor-input leakage or overclaiming
+- derived_from: m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit, m2779-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-preflight, m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design, m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis, m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit, m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight, m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
+- blocked_by: M2779 admission-pack rows are source-only diagnostic metadata and cannot be treated as training success or validation evidence, direct training from M2779 requires an explicit design that preserves actor-visible label exclusion and separates proof/generalization/promotion gates, M2773 weak collision and road-departure diagnostic accounting remains active and must not be hidden by curriculum admission rows, M2638 HF3 source dependency remains unresolved and cannot be bypassed by this short-training design
+- supersedes: direct PPO continuation from M2779 admission rows without a design, another source-only admission-pack reanalysis, ranking stress families or curriculum buckets from M2779 rows, self-ID or driver-performance interpretation from M2779 admission metadata
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md exists
+- M2781 defines objective seed budget checkpoint lineage stop criteria rollback criteria and failure taxonomy
+- M2781 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels
+- M2781 keeps mitigation reference rows outside ordinary denominators
+- M2781 separates proof generalization and promotion gates for any future M2782 branch
+- M2781 registers one bounded M2782 follow-up manifest or an explicit stop decision
+- M2781 makes no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2781 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2781 changes actor input or action contract
+- M2781 exposes role dynamics intervention stress curriculum admission outcome route progress success or verdict labels to actor input
+- M2781 treats M2779 source-only admission rows as performance validation or self-ID evidence
+- M2781 ranks stress families roles dynamics axes candidates controllers checkpoints or source edges selects a winner promotes a checkpoint or computes success-rate verdicts
+- M2781 weakens mitigation-reference denominators
+- M2781 fails to register a bounded M2782 follow-up manifest or stop decision
+- M2781 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2781 must define a bounded short-training continuation protocol from M2779 only after M2780 audit
+- M2781 must preserve actor P0 observation shape 72 action shape 3 steer throttle brake mapping no hidden/oracle actor input and no actor-visible role dynamics intervention stress curriculum admission outcome success progress route or verdict labels
+- M2781 must keep mitigation reference rows outside ordinary denominators and forbid their use as ordinary training wins
+- M2781 must specify proof generalization and promotion separation for any future M2782 training or execution branch
+- M2781 must define seed budget checkpoint lineage stop criteria failure taxonomy and rollback criteria without running training
+- M2781 must reject training execution rollout replay validation ranking winner selection promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not import external simulator dependencies
+- do not run external simulation
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose role labels dynamics labels intervention labels stress labels curriculum labels admission labels outcome labels success labels progress labels route labels or verdict labels to actor input
+- do not use mitigation reference rows as ordinary training successes
+- do not rank stress families roles dynamics axes candidates controllers checkpoints or source edges
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2781 design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
+- type: gate
+- checkpoint: docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_source_only_belief_stress_short_training_continuation_preflight
+- reason: M2781 design admits M2782 bounded source-only belief-stress short-training continuation preflight from audited M2779/M2780 artifacts preserves source-only diagnostic accounting actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside ordinary denominators separates proof generalization and promotion gates and rejects M2781 execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims
+
+## Next Blocker
+
+None recorded.

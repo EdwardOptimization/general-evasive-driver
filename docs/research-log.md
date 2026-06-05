@@ -50335,3 +50335,35 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: route to M2781 short-training continuation design before any training fresh closed-loop execution validation ranking or promotion
 - follow-up manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
 - next: `m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design`
+
+## 20260605T112044Z m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A design-only protocol can safely convert the audited M2779 source-only belief-stress admission pack into a bounded short-training continuation branch without actor-input leakage or overclaiming.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design_20260605T112044Z`
+- command log: `runs/research/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design_20260605T112044Z/command.log`
+- success artifact: `docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md`
+- notes: Pending: design bounded short-training continuation from M2780/M2779 define objective seed budget checkpoint lineage stop criteria rollback failure taxonomy proof/generalization/promotion separation actor 72/action 3 no hidden oracle no actor-visible stress admission curriculum outcome success progress route or verdict labels mitigation rows outside ordinary denominators no execution training ranking validation performance paper current-sim high-fidelity full driver or self-ID claim register M2782 follow-up or stop
+
+## M2781 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Design
+
+- status: completed
+- decision: `admit_source_only_belief_stress_short_training_continuation_preflight`
+- manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
+- design doc: `docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md`
+- parent audit: `docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md`
+- parent summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- parent evidence: M2779 status_pass true gate_matrix_pass true with 96 admission rows, 24 curriculum rows, 8 mitigation guards, 7 actor guards, 19 claim rows, and 39 gates all passing
+- source accounting preserved: M2773 32 candidate rows, 128 execution rows, 10240 trace rows, 32 collision diagnostic rows, and 68 road-departure diagnostic rows; M2775 96 delta rows, 7680 matched trace pairs, 4 road-departure removals, 0 road-departure additions, and 0 collision changes
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention stress admission curriculum outcome success progress route or verdict labels and mitigation reference rows outside ordinary denominators
+- M2782 seed budget: ordinary role families stable_avoidable, stable_aes, and drift_required_recovery; dynamics axes fresh_nominal_or_role_default and fresh_fault_delay_noise; stress families recurrent_hidden_reset_stress, previous_command_history_stress, and held_actuator_history_stress; 3 training seeds and 1 proof holdout seed per ordinary role/dynamics bucket
+- gate separation: proof gates, generalization gates, and promotion guards must be written separately; M2782 may write a candidate checkpoint but cannot promote it
+- stop criteria: fail closed on actor contract break, hidden/oracle actor feature use, actor-visible label leakage, incomplete seed split, mitigation-row denominator leakage, missing checkpoint lineage/hash, or protected mitigation regression
+- route decision: admit M2782 bounded short-training continuation preflight and require M2783 result audit before interpretation
+- follow-up manifest: `experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json`
+- next: `m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight`
+- rejected claims: no M2781 execution, training result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim

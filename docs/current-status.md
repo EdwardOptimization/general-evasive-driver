@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
+m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit
+m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design
+m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight
 ```
 
 Current route:
@@ -1969,19 +1969,33 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
 - next: `m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design`
 
+## M2781 Engineering Controller Route A Source-Only Belief-Stress Short-Training Continuation Design
+
+- status: completed
+- decision: `admit_source_only_belief_stress_short_training_continuation_preflight`
+- manifest: `experiments/manifests/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.json`
+- design doc: `docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md`
+- parent audit: `docs/m2780-engineering-controller-route-a-source-only-belief-stress-training-admission-pack-materialization-result-audit.md`
+- parent summary: `runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization/summary.json`
+- source checkpoint: `runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt`
+- admitted follow-up: `experiments/manifests/m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight.json`
+- route decision: M2782 may run bounded short-training continuation only inside the pre-registered preflight and must route to M2783 result audit before interpretation
+- preserved parent accounting: M2779 status_pass true gate_matrix_pass true with 96 admission rows, 24 curriculum rows, 8 mitigation guards, 7 actor guards, 19 claim rows, and 39 gates; M2773 and M2775 source-only diagnostic accounting remains preserved
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention stress admission curriculum outcome success progress route or verdict labels and mitigation reference rows outside ordinary denominators
+- gate separation: M2782 must write separate proof gate rows, generalization gate rows, promotion guard rows, actor guards, mitigation guards, claim rows, gate matrix, run-state, candidate checkpoint lineage, and one M2783 audit manifest
+- rejected claims: no M2781 execution, training result, ranking, winner, promotion, success-rate verdict, repair success, driver performance, paper result, current-sim verdict, high-fidelity validation, full ideal driver, or self-ID claim
+- next: `m2782-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-preflight`
+
 ## Immediate Next Step
 
-M2781 should design a bounded short-training continuation protocol from the
-audited M2779 source-only belief-stress admission pack:
+M2782 should execute only the bounded preflight registered by M2781:
 
 ```text
-true
+PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --m2781-design docs/m2781-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-design.md --m2779-dir runs/m2779_engineering_controller_route_a_source_only_belief_stress_training_admission_pack_materialization --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --follow-up-manifest experiments/manifests/m2783-engineering-controller-route-a-source-only-belief-stress-short-training-continuation-result-audit.json --output-dir runs/m2782_engineering_controller_route_a_source_only_belief_stress_short_training_continuation_preflight --device cpu --training-seeds-per-bucket 3 --proof-seeds-per-bucket 1 --max-updates 1
 ```
 
-M2781 must define objective, seed budget, checkpoint lineage, stop criteria,
-rollback criteria, failure taxonomy, proof/generalization/promotion separation,
-and a bounded M2782 follow-up or explicit stop. It must keep actor 72/action 3,
-no hidden/oracle input, no actor-visible stress/admission/curriculum/outcome
-labels, and mitigation reference rows outside ordinary denominators. It must
-not execute training, rollout, validation, ranking, promotion, or performance
-claims.
+M2782 may write a candidate checkpoint and diagnostic training/proof artifacts,
+but it must not validate, rank, promote, compute a success-rate verdict, claim
+driver performance, or make paper/current-sim/high-fidelity/full-driver/self-ID
+claims. Stress/admission/curriculum labels remain actor-invisible evaluator
+metadata.
