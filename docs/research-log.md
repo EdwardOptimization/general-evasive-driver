@@ -50217,3 +50217,32 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: route to M2777 branch synthesis before another proof extension execution training or no-new-data reanalysis
 - follow-up manifest: `experiments/manifests/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.json`
 - next: `m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis`
+
+## 20260605T102833Z m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2772-M2776 source-only action-response belief intervention evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis_20260605T102833Z`
+- command log: `runs/research/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis_20260605T102833Z/command.log`
+- success artifact: `docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md`
+- notes: Pending: synthesize M2772-M2776 source-only action-response belief intervention branch answer required synthesis questions preserve M2773 and M2775 artifact accounting M2775 modest source-only deltas actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full driver or self-ID claim decide continue pivot stop defer or promote_to_next_branch and register one bounded follow-up if needed
+
+## M2777 Engineering Controller Route A Source-Only Action-Response Belief Intervention Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot_to_route_a_source_only_belief_stress_training_protocol_design`
+- manifest: `experiments/manifests/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.json`
+- synthesis doc: `docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md`
+- parent audit: `docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md`
+- accepted branch: M2772-M2776 are complete and claim-safe as a source-only action-response belief intervention branch
+- M2773 accounting: status_pass true gate_matrix_pass true with 32 candidate rows 4 intervention conditions 128 execution rows 0 failure rows 10240 action-response trace rows 8 mitigation guards 7 actor guards 13 claim rows and 21 gate rows all passing
+- M2775 accounting: status_pass true gate_matrix_pass true with 96 normal-vs-intervention delta rows 24 role/dynamics aggregate rows 3 condition aggregate rows 8 mitigation guards 7 actor guards 17 claim rows and 24 gate rows all passing
+- M2775 pairing and deltas: 32 normal rows paired to 96 evaluator intervention rows over 7680 matched trace pairs with 0 missing pairs and 0 duplicate pairs; road-departure removed 4 road-departure added 0 collision added 0 collision removed 0
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible labels and mitigation reference rows guarded outside ordinary denominators
+- route decision: pivot away from another no-new-data intervention/delta reanalysis to M2778 source-only belief-stress training protocol design
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2777
+- follow-up manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
+- next: `m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design`

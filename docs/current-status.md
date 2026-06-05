@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit
+m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit
+m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis
+m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design
 ```
 
 Current route:
@@ -1899,19 +1899,36 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.json`
 - next: `m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis`
 
+## M2777 Engineering Controller Route A Source-Only Action-Response Belief Intervention Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot_to_route_a_source_only_belief_stress_training_protocol_design`
+- manifest: `experiments/manifests/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.json`
+- synthesis doc: `docs/m2777-engineering-controller-route-a-source-only-action-response-belief-intervention-branch-synthesis.md`
+- parent audit: `docs/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.md`
+- accepted branch: M2772-M2776 are complete and claim-safe as a source-only action-response belief intervention branch
+- M2773 accounting: 32 candidate rows, 4 intervention conditions, 128 execution rows, 0 failures, 10240 action-response traces, 8 mitigation guards, 7 actor guards, 13 claim rows, and 21 passing gates
+- M2775 accounting: 96 normal-vs-intervention delta rows, 24 role/dynamics aggregate rows, 3 intervention-condition aggregate rows, 7680 matched trace pairs, 0 missing pairs, and 0 duplicate execution pairs
+- M2775 deltas: road-departure removed 4, road-departure added 0, collision added 0, collision removed 0; these are source-only diagnostic deltas and not performance or self-ID evidence
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible labels and mitigation reference rows guarded outside ordinary denominators
+- route decision: pivot away from another no-new-data source-only reanalysis to M2778 source-only belief-stress training protocol design
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2777
+- follow-up manifest: `experiments/manifests/m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design.json`
+- next: `m2778-engineering-controller-route-a-source-only-belief-stress-training-protocol-design`
+
 ## Immediate Next Step
 
-M2777 should synthesize the complete M2772-M2776 source-only action-response
-belief intervention branch before any further proof extension, execution,
-training, or reanalysis:
+M2778 should design the bounded Route A source-only belief-stress
+training/admission protocol before any materialization, execution, training, or
+reanalysis:
 
 ```text
 true
 ```
 
-M2777 must answer evidence_summary, supported_claims, falsified_claims,
-failure_taxonomy_summary, public_gate_overfit_risk, and next_branch_decision.
-It must preserve M2773/M2775 artifact accounting, the modest source-only delta
-magnitude, actor 72/action 3, and no hidden/oracle actor input. It must reject
-ranking, validation, performance, paper, high-fidelity, full-driver, and
-self-ID interpretation from source-only deltas.
+M2778 must consume M2777, M2776, M2775, M2773, M2772, and the governing route
+plans. It must preserve M2773 weak diagnostic accounting, M2775 modest
+source-only deltas, actor 72/action 3, no hidden/oracle actor input, and
+mitigation-reference guards. It must reject execution, training, ranking,
+validation, performance, paper, current-sim, high-fidelity, full-driver, and
+self-ID claims, and it must register one bounded follow-up route or stop.
