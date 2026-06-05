@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-        "completed": 2730,
+        "completed": 2731,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-        "command_log": "docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md",
+        "command_log": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json",
         "returncode": 0,
-        "run_dir": "docs",
+        "run_dir": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization",
         "status": "completed",
-        "task_id": "m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight"
+        "task_id": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight"
     },
     "next_task": {
-        "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization --m2724-design docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md --m2721-dir runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel --output-dir runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization",
-        "hypothesis": "Artifact-only materialization can convert the M2724 design into source-bound repair candidate rows and guardrails without changing actor inputs or executing repair.",
-        "id": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight",
-        "kind": "infrastructure",
-        "notes": "Pending: materialize all 31 offtrack target rows into repair candidate artifacts with shared road containment overlay collision caution protected exclusion actor-contract and claim guardrails no reset rollout training repair execution ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-        "priority": 27200,
+        "command": "true",
+        "hypothesis": "M2725 candidate materialization artifacts can be audited as complete and claim-safe before selecting an execution-design or repair route.",
+        "id": "m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit",
+        "kind": "gate",
+        "notes": "Pending: audit M2725 status_pass true 31 candidate target rows 15 shared overlay rows 17 guardrail rows 9 actor rows 23 claim rows 17 gates all pass active config overwrite false repair execution false training false actor input change false labels actor-invisible no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+        "priority": 27210,
         "status": "pending",
-        "success_artifact": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json"
+        "success_artifact": "docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md"
     },
-    "updated_at_utc": "20260604T233744Z"
+    "updated_at_utc": "20260604T235727Z"
 }

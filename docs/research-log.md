@@ -49259,3 +49259,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2724
 - follow-up manifest: `experiments/manifests/m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight.json`
 - next: `m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight`
+
+## M2725 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Candidate Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization_pass`
+- manifest: `experiments/manifests/m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization.py`
+- summary: `runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json`
+- doc: `docs/m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight.md`
+- materialized rows: 31 candidate target rows 15 shared repair overlay rows 17 guardrail rows 9 actor rows 23 claim rows and 17 gate rows all pass
+- repair candidate boundary: candidate rows bind to all 31 M2721 offtrack target rows and keep active config overwrite repair execution training actor input change hidden/oracle feature injection ranking and winner selection false
+- guardrail boundary: 2 collision caution rows 3 diagnostic success context rows and 12 protected exclusion rows remain visible as non-target guardrails
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: route to M2726 candidate materialization result audit before any execution design repair execution ranking validation or performance interpretation
+- rejected claims: no reset step rollout replay validation training PPO private holdout profile-specific tuning active config overwrite ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2725
+- follow-up manifest: `experiments/manifests/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.json`
+- next: `m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit`

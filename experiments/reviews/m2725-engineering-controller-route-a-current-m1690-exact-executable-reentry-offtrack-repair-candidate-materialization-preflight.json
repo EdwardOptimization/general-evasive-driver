@@ -1,0 +1,143 @@
+{
+  "decision_reason": "M2725 materializes artifact-only repair candidates status_pass true with 31 candidate target rows 15 shared repair overlay rows 17 guardrail rows 9 actor rows 23 claim rows and 17 gates all pass active config overwrite false repair execution false training false actor input change false hidden oracle false labels actor-invisible no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2726 result audit",
+  "failure_criteria": [
+    "M2725 executes reset step rollout replay validation training PPO or private holdout",
+    "M2725 changes actor input or action contract",
+    "M2725 overwrites active configs",
+    "M2725 exposes target labels protected labels profile labels route labels success labels or verdicts to actor input",
+    "M2725 treats target-panel rows as ranking winner selection promotion or success-rate verdict evidence",
+    "M2725 hides collision caution diagnostic success context or protected exclusion rows",
+    "M2725 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2725 fails to register a result-audit follow-up"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not overwrite active configs",
+    "do not widen track or obstacle geometry to hide offtrack rows",
+    "do not expose target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not hide collision caution rows",
+    "do not hide diagnostic success context rows",
+    "do not hide protected proposal exclusions",
+    "do not treat protected rows as ordinary success denominators",
+    "do not tune profile-specific hyperparameters",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2725 materialization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260604T235833Z",
+  "hypothesis": "Artifact-only materialization can convert the M2724 design into source-bound repair candidate rows and guardrails without changing actor inputs or executing repair.",
+  "lineage": {
+    "blocked_by": [
+      "M2724 design is accepted but candidate artifacts have not been materialized",
+      "the 31 offtrack target rows need source-bound repair candidate rows before any execution design",
+      "collision caution diagnostic success and protected exclusion guardrails must be carried into materialization",
+      "active configs must not be overwritten"
+    ],
+    "derived_from": [
+      "m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight",
+      "m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis",
+      "m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.json",
+      "experiments/manifests/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.json",
+      "experiments/manifests/m2721-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-target-panel-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight.md",
+      "docs/m2723-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-branch-synthesis.md",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/summary.json",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/offtrack_target_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/collision_caution_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/diagnostic_success_context_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/protected_exclusion_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/actor_contract_join_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/claim_boundary_rows.csv",
+      "runs/m2721_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_target_panel/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize an artifact-only offtrack repair candidate pack from the accepted M2724 design before any execution"
+    ],
+    "supersedes": [
+      "direct repair execution from design prose",
+      "same-panel diagnostic repetition before candidate materialization",
+      "profile-specific tuning from target-panel rows",
+      "static current-sim verdict from repair design"
+    ]
+  },
+  "milestone": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight",
+  "next_blocker": "current-M1690 exact-executable reentry offtrack repair candidate materialization result audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization_result_audit",
+  "public_gates": [
+    "M2725 must materialize candidate target rows from all 31 M2721 offtrack target rows",
+    "M2725 must materialize shared repair overlay rows from M2724 without active config overwrite",
+    "M2725 must keep collision caution diagnostic success context and protected exclusion rows visible as guardrails",
+    "M2725 must preserve actor observation shape 72 action shape 3 no hidden or oracle actor input and actor-invisible target labels",
+    "M2725 must not execute reset step rollout replay validation training PPO private holdout profile-specific tuning or repair execution",
+    "M2725 must not rank profiles select a winner compute success-rate verdicts or claim repair success driver performance paper current-sim high-fidelity full ideal driver or self-ID evidence",
+    "M2725 must register one result-audit follow-up before any execution design"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization_result_audit",
+    "milestone": "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight",
+    "reason": "M2725 materializes artifact-only repair candidates status_pass true with 31 candidate target rows 15 shared repair overlay rows 17 guardrail rows 9 actor rows 23 claim rows and 17 gates all pass active config overwrite false repair execution false training false actor input change false hidden oracle false labels actor-invisible no ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2726 result audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json exists",
+    "all 31 offtrack target rows are accounted in candidate_target_rows.csv",
+    "shared repair overlay rows preserve M2724 design and do not overwrite active configs",
+    "collision caution diagnostic success context and protected exclusion rows are preserved as guardrails",
+    "actor observation shape 72 action shape 3 and no hidden or oracle actor inputs are preserved",
+    "target labels remain actor-invisible",
+    "one result-audit follow-up manifest is registered",
+    "no reset step rollout replay validation training PPO repair execution ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "type": "infrastructure"
+}

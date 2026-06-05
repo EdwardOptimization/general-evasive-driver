@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
+m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2724-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-design-preflight
+m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight
+m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
 ```
 
 Current route:
@@ -142,6 +142,16 @@ full ideal driver, or self-ID claims.
 
 Next is M2725 artifact-only repair candidate materialization before any repair
 execution extension, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
+
+M2725 materialized that candidate pack. It wrote 31 candidate target rows, 15
+shared repair overlay rows, 17 guardrail rows, 9 actor rows, 23 claim rows, and
+17 gate rows, all passing. Active config overwrite, repair execution, training,
+actor input change, hidden/oracle feature injection, ranking, winner selection,
+and actor-visible labels remain false.
+
+Next is M2726 candidate materialization result audit before any execution
+design, repair execution, validation, ranking, performance, paper, current-sim,
 high-fidelity, full ideal driver, or self-ID claim.
 ```
 
