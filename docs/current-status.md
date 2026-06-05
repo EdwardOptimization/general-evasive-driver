@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
+m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design
+m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
+m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit
 ```
 
 Current route:
@@ -327,6 +327,19 @@ denominators. M2752 makes no execution, ranking, validation, performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID claim. The next
 bounded step is M2753 implementation/execution preflight before any
 interpretation.
+
+M2753 completed that bounded diagnostic execution preflight. It executed all
+12 fixed non-same-panel M1690 `L3_online_gru` cross-axis stress candidates with
+0 failure rows. The diagnostic outcome is weak and negative: 0 diagnostic
+success rows, 3 obstacle_collision rows, and 9 off_track rows. M2753 wrote 4
+stress-axis aggregate rows, 25 prior-panel exclusion rows, 6 blocker guard rows,
+12 actor-contract guard rows, 15 claim-boundary rows, and 21 gate rows, all
+passing. M2746/M2737 prior-panel rows, protected mitigation blockers, and HF3
+source dependency blockers were not executed and remain outside ordinary
+denominators. Actor 72/action 3 and no hidden/oracle actor input are preserved.
+M2753 makes no ranking, validation readiness, driver performance, repair
+success, paper, current-sim, high-fidelity, full-driver, or self-ID claim. The
+next bounded step is M2754 result audit before interpretation.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
@@ -1495,21 +1508,18 @@ training repair success
 
 ## Immediate Next Step
 
-M2753 should implement and run the bounded Route A cross-axis stress
-generalization execution preflight admitted by M2752:
+M2754 should audit the bounded Route A cross-axis stress generalization
+execution preflight before interpretation:
 
 ```text
-experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json
 runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
+experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json
+docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md
 ```
 
-The preflight must account for the 12 selected non-same-panel M1690
-`L3_online_gru` rows, write the candidate, resolution, execution, failure,
-stress-axis aggregate, prior-panel exclusion, blocker guard, actor guard, claim
-boundary, gate, run-state, summary, and milestone-doc artifacts, and register a
-separate result audit before interpretation. It must avoid M2746/M2737
-prior-panel execution, protected/HF3 blocker execution, actor input changes,
-hidden/oracle labels, ranking, winner selection, promotion, success-rate
-verdicts, validation, training, PPO, source build, adapter probe, external
-simulation, driver-performance, paper, current-sim, high-fidelity,
-full-driver, or self-ID claims.
+The audit must accept or reject M2753 artifact completeness and boundary
+discipline. It must preserve the 0/12 diagnostic success, 3 collision, and 9
+off_track outcome as diagnostic row accounting only. It must not rank stress
+axes, source families, task families, profiles, or winners, and must not make
+validation, performance, paper, current-sim, high-fidelity, full-driver, or
+self-ID claims.

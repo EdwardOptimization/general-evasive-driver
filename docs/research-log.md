@@ -49755,3 +49755,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2752
 - follow-up manifest: `experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json`
 - next: `m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight`
+
+## M2753 Engineering Controller Route A Cross-Axis Stress Generalization Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight.py`
+- summary: `runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json`
+- doc: `docs/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.md`
+- candidate accounting: executed 12/12 fixed non-same-panel M1690 `L3_online_gru` cross-axis stress rows with 0 failure rows
+- diagnostic outcome: 0 diagnostic success rows, 3 obstacle_collision rows, and 9 off_track rows; this is diagnostic row accounting only and not a success-rate verdict
+- artifact accounting: wrote 12 candidate rows, 12 resolution rows, 12 execution rows, 0 failure rows, 4 stress-axis aggregate rows, 25 prior-panel exclusion rows, 6 blocker guard rows, 12 actor guard rows, 15 claim-boundary rows, and 21 gate rows all passing
+- guardrail boundary: M2746/M2737 prior-panel rows protected mitigation blockers and HF3 source dependency blockers were not executed and remain outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input stress-axis taxonomy scenario-role target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2754 result audit before any interpretation repair design validation ranking packaging or performance claim
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2753
+- follow-up manifest: `experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json`
+- next: `m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit`

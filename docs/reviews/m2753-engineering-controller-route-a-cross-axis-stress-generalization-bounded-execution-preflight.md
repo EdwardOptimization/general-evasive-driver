@@ -1,0 +1,127 @@
+# m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T052952Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: route_to_cross_axis_stress_generalization_bounded_execution_result_audit
+- Decision reason: M2753 bounded execution preflight status_pass true executed 12/12 fixed non-same-panel M1690 L3_online_gru cross-axis stress rows with 0 failures diagnostic outcomes 0 success 3 collision 9 off_track 4 stress-axis aggregates 25 prior-panel exclusions 6 blocker guards actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2754 result audit
+
+## Hypothesis
+
+A bounded cross-axis stress execution preflight can produce fresh non-same-panel closed-loop diagnostic rows from the M1690 L3_online_gru workload surface while preserving actor and claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.md, docs/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.md, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/execution_candidate_rows.csv, runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv, runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/next_action_admission_rows.csv, runs/m2749_engineering_controller_route_a_baseline_readiness_after_role_panel_diagnostic_index/blocker_matrix.csv, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json, experiments/manifests/m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis.json, experiments/manifests/m2749-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-preflight.json
+- parent_objective: execute a bounded actor-safe diagnostic preflight over the 12 fixed non-same-panel M1690 L3_online_gru cross-axis stress rows selected by M2752
+- derived_from: m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design, m2751-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-branch-synthesis, m2750-engineering-controller-route-a-baseline-readiness-after-role-panel-diagnostic-index-materialization-result-audit, m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
+- blocked_by: M2752 admits only bounded diagnostic execution over 12 fixed non-same-panel L3_online_gru M1690 rows, M2746/M2737 prior-panel task_source_ids must remain excluded from execution, protected mitigation and HF3 source dependency blockers remain active and outside ordinary denominators, M2753 must register a separate result audit before interpretation
+- supersedes: another readiness/audit loop after M2751, same-panel M2746-like execution continuation, same-surface repair loop from M2746 or M2749 rows, profile source-family stress-axis or task-family ranking from Route A diagnostics
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json exists
+- cross_axis_candidate_rows execution_candidate_resolution_rows candidate_execution_rows candidate_execution_failure_rows stress_axis_aggregate_rows prior_panel_exclusion_rows blocker_guard_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist
+- all 12 M2752 selected task_source_ids are resolved or explicitly accounted by failure rows
+- M2746/M2737 prior-panel protected and HF3 blocker rows are not executed and remain outside success denominators
+- actor 72/action 3 no hidden oracle and actor-invisible labels are preserved
+- one follow-up result audit manifest is registered
+- M2753 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim
+
+## Failure Criteria
+
+- M2753 executes prior-panel protected or HF3 blocker rows
+- M2753 changes actor inputs or action contract or exposes hidden/oracle actor labels
+- M2753 ranks controller families source families profiles task families stress axes selects a winner promotes a checkpoint or claims driver performance
+- M2753 hides failed rows or treats diagnostic execution as validation readiness
+
+## Evidence Gates
+
+- M2753 must consume M2752 design M2751 synthesis M1690 workload matrix M2746 and M2737 prior-panel execution rows and M2749 blocker/admission rows
+- M2753 must materialize cross_axis_candidate_rows execution_candidate_resolution_rows prior_panel_exclusion_rows blocker_guard_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary and doc artifacts
+- M2753 must account for exactly 12 fixed non-same-panel L3_online_gru M1690 task_source_ids selected by M2752
+- M2753 must execute only resolved selected candidate rows and must not execute M2746/M2737 prior-panel rows protected blocker rows or HF3 blocker rows
+- M2753 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible taxonomy scenario-role target stress-axis blocker route-decision success progress and verdict labels
+- M2753 must keep stress-axis source-family task-family and profile context diagnostic and non-ranking
+- M2753 must not execute replay validation training PPO source build adapter probe external simulation ranking promotion success-rate verdict computation or driver-performance claims
+- M2753 must register one result-audit follow-up manifest before any interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not run external high-fidelity simulation
+- do not execute source build
+- do not execute adapter probe
+- do not start an external backend
+- do not execute M2746 prior-panel rows
+- do not execute M2737 prior-panel rows
+- do not execute protected blocker rows
+- do not execute HF3 blocker rows
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose taxonomy labels scenario-role labels metric labels target labels blocker labels gate outcomes route decisions controller-family labels source-edge labels stress-axis labels success labels progress labels or verdict labels to actor input
+- do not add friction mass center-of-gravity tire brake steering-delay drive-delay sensor-noise actuator-delay or source-edge labels to actor input
+- do not hide the M2746 weak role-panel diagnostic result
+- do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators
+- do not open another same-panel public role execution loop from readiness rows
+- do not rank controller families source families task families profiles stress axes or scenario roles
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2753 diagnostic execution
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight
+- type: infrastructure
+- checkpoint: runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_cross_axis_stress_generalization_bounded_execution_result_audit
+- reason: M2753 bounded execution preflight status_pass true executed 12/12 fixed non-same-panel M1690 L3_online_gru cross-axis stress rows with 0 failures diagnostic outcomes 0 success 3 collision 9 off_track 4 stress-axis aggregates 25 prior-panel exclusions 6 blocker guards actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2754 result audit
+
+## Next Blocker
+
+None recorded.
