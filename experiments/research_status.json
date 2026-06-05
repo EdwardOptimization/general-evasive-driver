@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2761,
+    "completed": 2762,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md",
+    "command_log": "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
     "returncode": 0,
-    "run_dir": "",
+    "run_dir": "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel",
     "status": "completed",
-    "task_id": "m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis"
+    "task_id": "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2753-dir runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight --m2755-synthesis docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md --output-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel",
-    "hypothesis": "A no-rollout localization materialization can turn M2753 negative cross-axis diagnostic rows into an auditable failure surface without ranking axes or overclaiming performance.",
-    "id": "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize row-level failure localization from M2753 12 execution rows 0 success 3 obstacle_collision 9 off_track separating collision negative-clearance offtrack positive-clearance stress-axis source-edge prior-panel protected and HF3 guardrail rows while preserving actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims",
-    "priority": 27510,
+    "command": "true",
+    "hypothesis": "M2756 failure-localization panel artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
+    "id": "m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2756 localization artifacts for 12 localized execution rows 3 collision negative-clearance rows 9 offtrack positive-clearance rows 4 stress-axis contexts 8 source-edge contexts 25 prior-panel guardrails 6 blocker guardrails actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim before selecting the next bounded Route A route",
+    "priority": 27520,
     "status": "pending",
-    "success_artifact": "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json"
+    "success_artifact": "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T054451Z"
+  "updated_at_utc": "20260605T060839Z"
 }

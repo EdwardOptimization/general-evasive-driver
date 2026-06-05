@@ -366,6 +366,19 @@ and claim boundaries and makes no ranking, validation, driver-performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID claim. The next
 bounded step is M2756 no-rollout failure-localization panel materialization.
 
+M2756 materialized that no-rollout failure-localization panel from existing
+M2753/M2755 artifacts. It wrote 12 localization rows, 2 outcome buckets, 4
+stress-axis context rows, 8 source-edge context rows, 31 guardrail context rows,
+12 actor guard rows, 25 claim-boundary rows, and 24 gate rows, all passing. It
+separates the 12 M2753 negative diagnostic rows into 3 collision
+negative-clearance rows and 9 offtrack positive-clearance rows while preserving
+0 diagnostic success as row accounting only. Prior-panel, protected, and HF3
+guardrails remain non-executed and outside ordinary denominators. Actor
+72/action 3 and no hidden/oracle actor input are preserved. M2756 makes no
+ranking, validation, driver-performance, repair-success, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim. The next bounded step is M2757
+result audit before any repair design or route selection.
+
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
 remained proposed-new with 0 ready-existing rows, 0 exact existing M1690
@@ -1533,8 +1546,9 @@ training repair success
 
 ## Immediate Next Step
 
-M2756 should materialize a no-rollout post-cross-axis negative
-failure-localization panel before any follow-up execution or repair route:
+M2757 should audit the M2756 no-rollout post-cross-axis negative
+failure-localization panel before any follow-up execution, repair route, or
+route-selection claim:
 
 ```text
 runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json
@@ -1542,11 +1556,14 @@ docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bound
 docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md
 experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json
 runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json
+docs/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.md
+experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json
+docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md
 ```
 
-The panel must classify all 12 M2753 execution rows and preserve 0/12 success,
-3 collision, and 9 off_track as diagnostic row accounting only. It must
-separate collision negative-clearance rows, positive-clearance offtrack rows,
+The audit must verify that M2756 classified all 12 M2753 execution rows and
+preserved 0/12 success, 3 collision negative-clearance rows, and 9 offtrack
+positive-clearance rows as diagnostic row accounting only. It must verify
 stress-axis/source-edge context, prior-panel guards, protected blockers, and
-HF3 blockers without ranking axes or families and without validation,
+HF3 blockers remain non-ranking guardrail evidence without validation,
 performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.

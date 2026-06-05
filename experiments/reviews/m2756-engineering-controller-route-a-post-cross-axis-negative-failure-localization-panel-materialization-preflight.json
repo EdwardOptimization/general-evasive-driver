@@ -1,0 +1,148 @@
+{
+  "decision_reason": "M2756 materialization pass wrote 12 localization rows 2 outcome buckets 4 stress-axis contexts 8 source-edge contexts 31 guardrail rows 12 actor guard rows 25 claim rows and 24 gates all pass localized 3 collision negative-clearance rows and 9 offtrack positive-clearance rows from M2753 0-success diagnostics prior-panel protected and HF3 guardrails not executed outside denominators actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2757 result audit",
+  "failure_criteria": [
+    "M2756 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2756 changes actor input or action contract",
+    "M2756 exposes localization labels stress-axis labels source-edge labels task-family labels protected labels blocker labels route labels success labels or verdicts to actor input",
+    "M2756 drops success offtrack collision prior-panel guard protected blocker or HF3 blocker rows",
+    "M2756 treats stress-axis source-edge task-family or profile aggregates as ranking winner selection promotion or success-rate verdict evidence",
+    "M2756 treats prior-panel protected or HF3 rows as execution rows or ordinary denominators",
+    "M2756 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2756 fails to register a bounded result-audit follow-up"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose failure-localization labels stress-axis labels source-edge labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not hide M2753 collision or offtrack rows",
+    "do not hide M2753 positive-clearance offtrack rows",
+    "do not hide prior-panel protected or HF3 guardrail rows",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not rank controller families stress axes source edges profiles or task families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2756 localization materialization"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260605T061044Z",
+  "hypothesis": "A no-rollout localization materialization can turn M2753 negative cross-axis diagnostic rows into an auditable failure surface without ranking axes or overclaiming performance.",
+  "lineage": {
+    "blocked_by": [
+      "M2753 has 0 diagnostic success rows across 12 complete cross-axis executions",
+      "M2753 contains both obstacle_collision and off_track terminations that require row-level separation before repair or training decisions",
+      "stress-axis aggregates are non-ranking and cannot select a repair target by themselves",
+      "prior-panel protected and HF3 guardrails remain active and outside ordinary denominators"
+    ],
+    "derived_from": [
+      "m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis",
+      "m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit",
+      "m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight",
+      "m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.json",
+      "experiments/manifests/m2753-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-preflight.json",
+      "experiments/manifests/m2752-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2755-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-synthesis.md",
+      "docs/m2754-engineering-controller-route-a-cross-axis-stress-generalization-bounded-execution-result-audit.md",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/summary.json",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/cross_axis_candidate_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/stress_axis_aggregate_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/prior_panel_exclusion_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/blocker_guard_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "materialize a no-rollout failure-localization panel from M2753 negative cross-axis diagnostic rows after M2755 synthesis pivots away from same-surface execution"
+    ],
+    "supersedes": [
+      "another immediate M2753-like cross-axis execution before failure localization",
+      "direct repair design from M2753 aggregate counts",
+      "direct stress-axis source-edge task-family or profile ranking from M2753",
+      "driver-performance validation readiness paper current-sim high-fidelity full-driver or self-ID interpretation from M2753"
+    ]
+  },
+  "milestone": "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight",
+  "next_blocker": "M2756 post-cross-axis negative failure-localization panel materialization",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_post_cross_axis_negative_failure_localization_panel_result_audit",
+  "public_gates": [
+    "M2756 must consume M2755 synthesis M2754 audit M2753 summary candidate resolution execution failure aggregate guard actor claim and gate artifacts before writing localization rows",
+    "M2756 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation private holdout or profile-specific tuning",
+    "M2756 must classify all 12 M2753 execution rows while preserving 0 diagnostic success 3 obstacle_collision and 9 off_track outcomes",
+    "M2756 must separate obstacle_collision negative-clearance rows from positive-clearance offtrack rows and must keep stress-axis source-edge task-family and profile context diagnostic and non-ranking",
+    "M2756 must preserve M2746/M2737 prior-panel protected and HF3 rows as non-executed actor-invisible guardrails outside denominators",
+    "M2756 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators",
+    "M2756 must write failure-localization outcome-bucket stress-axis context source-edge context guardrail actor-contract claim-boundary gate summary and doc artifacts",
+    "M2756 must register one result-audit follow-up before any repair design execution extension ranking validation or performance claim"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_post_cross_axis_negative_failure_localization_panel_result_audit",
+    "milestone": "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight",
+    "reason": "M2756 materialization pass wrote 12 localization rows 2 outcome buckets 4 stress-axis contexts 8 source-edge contexts 31 guardrail rows 12 actor guard rows 25 claim rows and 24 gates all pass localized 3 collision negative-clearance rows and 9 offtrack positive-clearance rows from M2753 0-success diagnostics prior-panel protected and HF3 guardrails not executed outside denominators actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2757 result audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json exists",
+    "docs/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.md exists",
+    "localization artifacts account for 12 M2753 execution rows 25 prior-panel exclusion rows and 6 blocker guard rows",
+    "obstacle_collision negative-clearance offtrack positive-clearance offtrack prior-panel guard protected blocker and HF3 blocker rows remain separate",
+    "stress-axis source-edge task-family and profile context remains diagnostic and non-ranking",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered"
+  ],
+  "type": "infrastructure"
+}

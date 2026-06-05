@@ -49810,3 +49810,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2755
 - follow-up manifest: `experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json`
 - next: `m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight`
+
+## M2756 Engineering Controller Route A Post-Cross-Axis Negative Failure Localization Panel Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel_materialization_pass`
+- manifest: `experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel.py`
+- focused tests: `tests/test_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel.py`
+- summary: `runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json`
+- doc: `docs/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.md`
+- artifact accounting: wrote 12 localization rows, 2 outcome buckets, 4 stress-axis context rows, 8 source-edge context rows, 31 guardrail context rows, 12 actor guard rows, 25 claim-boundary rows, and 24 gate rows all passing
+- diagnostic accounting: localized the 12 M2753 negative execution rows into 3 collision negative-clearance rows and 9 offtrack positive-clearance rows while preserving 0 diagnostic success as non-verdict row accounting
+- context boundary: stress-axis and source-edge rows are diagnostic context only and do not rank axes, source edges, task families, profiles, or controllers
+- guardrail boundary: preserved 25 prior-panel exclusion rows and 6 blocker guard rows as non-executed guardrails outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: route to M2757 result audit before repair design execution extension ranking validation or performance interpretation
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2756
+- follow-up manifest: `experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json`
+- next: `m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit`
