@@ -49346,3 +49346,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2729
 - follow-up manifest: `experiments/manifests/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.json`
 - next: `m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis`
+
+## M2730 Engineering Controller Route A Current-M1690 Exact-Executable Reentry Offtrack Repair Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_evidence_index_after_exact_executable_repair_refresh`
+- manifest: `experiments/manifests/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.json`
+- synthesis doc: `docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md`
+- parent audit: `docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md`
+- accepted branch result: M2719-M2729 form a complete claim-safe offtrack repair diagnostic branch with M2728 31 repair execution rows 0 failure rows 465 overlay application rows 17 guardrail rows 4 profile aggregates 9 anchor aggregates 12 actor rows 38 claim rows and 21 gates all pass
+- negative diagnostic: M2728 remains 1/31 success 3/31 collision and 27/31 off_track terminations; profile aggregates remain non-ranking and non-verdict
+- route-plan check: same-surface offtrack repair should stop because another immediate repair execution would be public current-M1690 local search rather than new Route A evidence
+- HF3 boundary: M2638 source dependency blocker still pauses selected-platform HF3 execution until source root package route or dependency acquisition is supplied
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input target labels actor-invisible profile labels actor-invisible protected labels actor-invisible
+- route decision: pivot to M2731 Route A evidence/readiness index refresh after exact-executable repair synthesis
+- rejected claims: no reset step rollout replay validation training PPO private holdout active config overwrite profile-specific tuning ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID claim from M2730
+- follow-up manifest: `experiments/manifests/m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight.json`
+- next: `m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight`

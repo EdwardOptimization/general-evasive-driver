@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2735,
+    "completed": 2736,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit.md",
+    "command_log": "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md",
     "returncode": 0,
     "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit"
+    "task_id": "m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "Synthesize the M2719-M2729 offtrack repair branch after M2729 accepts M2728 but rejects direct repair-success interpretation.",
-    "id": "m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2719-M2729 before any further same-surface repair execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim; preserve M2728 diagnostic 1 success 3 collision 27 offtrack as non-ranking non-verdict evidence and select stop pivot or one bounded evidence-changing route",
-    "priority": 27250,
+    "hypothesis": "A current Route A evidence/readiness index can integrate M2728/M2729 negative exact-executable offtrack repair diagnostics with baseline contract protected HF3 and runtime artifacts and select a bounded non-same-surface next action without ranking validation or performance claims.",
+    "id": "m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize evidence_index blocker_matrix next_action_admission claim_boundary and gate_matrix rows from existing artifacts only; preserve M2728 1 success 3 collision 27 offtrack as non-ranking evidence preserve M2638 HF3 source dependency and protected blockers no execution training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27260,
     "status": "pending",
-    "success_artifact": "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md"
+    "success_artifact": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json"
   },
-  "updated_at_utc": "20260605T003750Z"
+  "updated_at_utc": "20260605T004733Z"
 }

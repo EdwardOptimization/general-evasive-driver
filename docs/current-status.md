@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
+m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2729-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-result-audit
+m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis
+m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
 ```
 
 Current route:
@@ -198,9 +198,20 @@ taxonomy through repair design, candidate materialization, bounded execution,
 and audit on the same surface, post-M2470 local-search discipline requires
 branch synthesis before any further repair execution.
 
-Next is M2730 offtrack repair result synthesis before any further execution,
-validation, ranking, performance, paper, current-sim, high-fidelity, full ideal
-driver, or self-ID claim.
+M2730 synthesized M2719-M2729 and chose `pivot`. The exact-executable offtrack
+repair branch is now closed as a complete claim-safe negative diagnostic: M2728
+ran the shared repair overlay but still produced only 1/31 success, 3/31
+collision, and 27/31 off_track terminations. M2730 rejects another immediate
+same-surface repair execution, profile ranking, validation, performance, paper,
+current-sim, high-fidelity, full ideal driver, or self-ID interpretation. HF3
+selected-platform execution remains paused by the M2638 source dependency
+blocker.
+
+Next is M2731 Route A evidence/readiness index refresh after exact-executable
+repair synthesis. It must consume existing artifacts only, preserve the M2728
+negative diagnostic and known blockers, and select a non-same-surface bounded
+next action or stop before any execution, validation, ranking, performance,
+paper, current-sim, high-fidelity, full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

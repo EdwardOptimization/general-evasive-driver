@@ -139,7 +139,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2729 accepts M2728 complete claim-safe bounded repair execution but rejects direct repair-success interpretation",
-    "synthesis_decision": "not_applicable",
+        "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2730-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -197,7 +197,7 @@
   "local_search_guard": {
     "actual_progress_type": "synthesis_decision",
     "process_overhead": "medium",
-    "local_search_risk": "medium",
+    "local_search_risk": "high",
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 1,
     "evidence_expansion": "synthesizes the target-to-repair-execution branch before admitting another route instead of repeating the same repair surface",
