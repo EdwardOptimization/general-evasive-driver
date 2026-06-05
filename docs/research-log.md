@@ -51413,3 +51413,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit_20260605T234050Z/command.log`
 - success artifact: `docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md`
 - notes: Completed: audit accepts M2832 complete claim-safe handoff status_pass true required artifacts present 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates all pass M2482 10 fixture rows M2484 3 reset 6 step M2498 300 telemetry rows unique role digests 3 M2501 900 telemetry rows M2505 pack M2508 300 runtime rows M2548 5 parity 7 action mapping 270 inference rows M2592 13 gates M2638 blocker active M2828 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels rejects external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2834 synthesis
+
+## 20260605T234840Z m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2831-M2833 handoff evidence while preventing local-search repetition and selecting a bounded next route or stop.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis_20260605T234840Z`
+- command log: `runs/research/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis_20260605T234840Z/command.log`
+- success artifact: `docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot closes M2831-M2833 Route C HF0 source-only interface evidence handoff branch as complete claim-safe handoff evidence preserving M2832 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates M2638 selected-platform source blocker M2828 mixed outcomes 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels rejects another handoff loop external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2835 selected-platform source dependency refresh or stop design

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit
+m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit
+m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
+m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
 ```
 
 Current route:
@@ -37,9 +37,29 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route C/HF0 source-only interface evidence handoff branch
-synthesis after M2833 accepted the M2832 handoff panel as complete and
-claim-safe.
+current branch is Route C selected-platform source dependency refresh-or-stop
+design after M2834 closed the Route C/HF0 source-only interface evidence
+handoff branch and rejected another handoff artifact loop.
+
+M2834 synthesized and closed M2831-M2833 with decision
+`pivot_to_route_c_selected_platform_source_dependency_refresh_or_stop_design`.
+It accepts the branch as complete and claim-safe source-only handoff evidence:
+M2832 preserved 17 handoff artifact inventory rows, 11 source-only interface
+handoff rows, 11 actor contract guard rows, 3 blocker boundary rows, 20 claim
+boundary rows, and 26 passing gates. It keeps M2482 10 fixture rows, M2484
+3 reset and 6 canned step rows, M2498 300 telemetry rows with 3 unique role
+reset digests, M2501 900 telemetry rows, M2505 public diagnostic pack, M2508
+300 runtime rows, M2548 5 HF0 parity checks, 7 action mapping checks, and
+270 actor inference rows, M2592/M2593 source-only adapter closure, M2638
+selected-platform source dependency blocker, and M2828 mixed diagnostic
+outcomes of 16 executed rows, 5 diagnostic success, 1 collision, and
+10 off_track. Actor 72/action 3, ActorView-only extraction, no hidden/oracle
+actor input, actor-invisible labels, and actor-invisible diagnostics remain
+preserved. M2834 rejects another handoff loop and rejects external HF3
+validation, ranking, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID claims. The next task is M2835 selected-platform
+source dependency refresh-or-stop design, which must either admit a bounded
+read-only dependency refresh route or keep Route C/HF3 stopped under M2638.
 
 M2833 audited and accepted M2832 as a complete and claim-safe Route C/HF0
 source-only interface evidence handoff materialization. The audit accepts M2832
@@ -56,7 +76,8 @@ and M2828 mixed diagnostic outcomes of 16 executed rows, 5 diagnostic success,
 no hidden/oracle actor input, actor-invisible labels, and claim boundaries
 remain preserved. M2833 rejects external HF3 validation, ranking, performance,
 paper, current-sim, high-fidelity, full-driver, and self-ID claims. The next
-task is M2834 branch synthesis before another handoff loop or route pivot.
+task was M2834 branch synthesis before another handoff loop or route pivot, now
+completed above.
 
 M2832 completed the Route C/HF0 source-only interface evidence handoff
 materialization. It wrote `summary.json`, 17 handoff artifact inventory rows,

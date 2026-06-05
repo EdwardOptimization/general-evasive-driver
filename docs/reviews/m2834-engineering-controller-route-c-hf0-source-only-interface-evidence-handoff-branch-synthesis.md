@@ -1,0 +1,122 @@
+# m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T235037Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_c_selected_platform_source_dependency_refresh_or_stop_design
+- Decision reason: M2834 synthesis decision pivot closes M2831-M2833 Route C HF0 source-only interface evidence handoff branch as complete claim-safe handoff evidence preserving M2832 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates M2638 selected-platform source blocker M2828 mixed outcomes 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels rejects another handoff loop external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2835 selected-platform source dependency refresh or stop design
+
+## Hypothesis
+
+A branch synthesis can preserve M2831-M2833 handoff evidence while preventing local-search repetition and selecting a bounded next route or stop.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.md, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/handoff_artifact_inventory_rows.csv, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/source_only_interface_handoff_rows.csv, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/actor_contract_guard_rows.csv, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/blocker_boundary_rows.csv, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/claim_boundary_rows.csv, runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/gate_matrix.csv, docs/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.md, docs/m2830-engineering-controller-route-a-post-package-source-diverse-closed-loop-evidence-expansion-branch-synthesis.md, docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit.json, experiments/manifests/m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight.json, experiments/manifests/m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design.json
+- parent_objective: synthesize M2831-M2833 Route C HF0 source-only interface evidence handoff branch before admitting another handoff loop dependency refresh stop or route pivot
+- derived_from: m2833-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-result-audit, m2832-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-materialization-preflight, m2831-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-design
+- blocked_by: M2833 accepts M2832 handoff artifacts only as claim-safe interface handoff evidence, M2638 selected-platform HF3 source dependency remains unavailable, M2828 mixed diagnostic outcomes remain nonverdict context, another source-only handoff artifact loop would risk local search unless synthesis selects a materially changed evidence axis
+- supersedes: direct interpretation of M2832 handoff rows without branch synthesis, another immediate Route C HF0 source-only handoff materialization without synthesis, direct selected-platform HF3 build probe reset validation or performance route while M2638 remains blocked, direct driver-performance high-fidelity validation paper current-sim full-driver or self-ID claim from source-only handoff artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2832 status_pass true and M2833 audit acceptance
+- synthesis records 17 inventory rows 11 handoff rows 11 actor guards 3 blocker rows 20 claim rows and 26 passing gates as handoff evidence only
+- synthesis preserves M2638 selected-platform source dependency blocker and M2828 mixed diagnostic outcomes
+- synthesis preserves actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels
+- synthesis selects a bounded next route or explicit stop without external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## Failure Criteria
+
+- M2834 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2834 changes actor input or action contract
+- M2834 weakens M2638 blocker or M2828 mixed outcome accounting
+- M2834 ranks controller families source families profiles stress axes scenario roles selects a winner promotes a checkpoint or computes success rate
+- M2834 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2834 must synthesize M2831-M2833 before any further Route C HF0 handoff loop dependency refresh stop or route pivot
+- M2834 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2834 must preserve M2832 artifact accounting 17 inventory rows 11 handoff rows 11 actor guards 3 blocker rows 20 claim rows and 26 passing gates
+- M2834 must preserve actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels
+- M2834 must preserve M2638 selected-platform HF3 source dependency blocker unless a valid source route is supplied
+- M2834 must preserve M2828 mixed diagnostic outcomes as nonverdict context
+- M2834 must select a bounded next route or explicit stop without external HF3 execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not install external simulator dependencies
+- do not fetch external source
+- do not import external high-fidelity simulation packages
+- do not mutate dependency or source trees
+- do not run source build
+- do not run adapter probe
+- do not start an external backend
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute rollout
+- do not replay
+- do not validate
+- do not train
+- do not run PPO
+- do not promote a checkpoint
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not hide M2638 selected-platform source dependency blocker
+- do not hide M2828 mixed outcomes
+- do not rank controller families source families profiles task families stress axes or scenario roles
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim driver performance
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
+- type: gate
+- checkpoint: docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_c_selected_platform_source_dependency_refresh_or_stop_design
+- reason: M2834 synthesis decision pivot closes M2831-M2833 Route C HF0 source-only interface evidence handoff branch as complete claim-safe handoff evidence preserving M2832 17 inventory rows 11 handoff rows 11 actor guards 3 blockers 20 claim rows 26 gates M2638 selected-platform source blocker M2828 mixed outcomes 16 executed 5 success 1 collision 10 off_track actor 72/action 3 no hidden oracle labels rejects another handoff loop external HF3 validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2835 selected-platform source dependency refresh or stop design
+
+## Next Blocker
+
+m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
