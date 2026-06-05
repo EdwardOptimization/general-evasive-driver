@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
+m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit
+m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design
+m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight
 ```
 
 Current route:
@@ -172,6 +172,22 @@ current-sim, high-fidelity, full-driver, and self-ID claims. The next bounded
 step is M2742 scenario-role metric panel design so the taxonomy becomes a
 Route A role/metric contract surface before any materialization or execution
 extension.
+
+M2742 completed that design. It defines six actor-invisible scenario roles from
+the M2740 taxonomy: 14 offtrack rows become `offtrack_containment_target` rows
+for future planning only, 1 collision row becomes `collision_caution_guard`, 3
+diagnostic success rows become `diagnostic_success_context`, 31 negative-context
+rows become `negative_context_guardrail`, 1 same-surface blocker becomes
+`blocked_same_surface_guard`, and 11 protected/HF3 blockers become
+`protected_hf3_exclusion_guard`. It defines required schemas for
+`scenario_role_rows.csv`, `metric_contract_rows.csv`, `target_panel_rows.csv`,
+`guardrail_context_rows.csv`, `actor_contract_guard_rows.csv`,
+`claim_boundary_rows.csv`, `gate_matrix.csv`, and `summary.json`. Actor 72/action
+3, no hidden/oracle input, and actor-invisible role/metric/target/protected/
+blocker/route/success/progress/verdict labels remain hard gates. M2742 admits
+M2743 materialization only; it still rejects execution, training, ranking,
+validation, performance, paper, current-sim, high-fidelity, full-driver, and
+self-ID claims.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

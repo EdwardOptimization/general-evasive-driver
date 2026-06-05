@@ -1,0 +1,278 @@
+{
+  "id": "m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.md",
+      "docs/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.md",
+      "docs/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.md",
+      "docs/post-m2470-route-plan.md",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/taxonomy_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/taxonomy_aggregate_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/source_family_context_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/task_family_context_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/guardrail_context_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/actor_contract_join_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/claim_boundary_rows.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.json",
+      "experiments/manifests/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.json",
+      "experiments/manifests/m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize actor-invisible scenario-role metric and target-panel artifacts from the accepted M2740 failure taxonomy and M2742 design before execution or interpretation"
+    ],
+    "derived_from": [
+      "m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design",
+      "m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit",
+      "m2740-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2742 design must be materialized before role and metric contracts can be audited",
+      "M2740 taxonomy remains offtrack-dominant and cannot be ranked as performance",
+      "collision caution diagnostic success context negative-context blocked protected and HF3 rows must remain separate",
+      "actor-invisible taxonomy role metric target and blocker labels must be preserved",
+      "another source-diverse execution before role materialization would repeat the same evidence surface"
+    ],
+    "supersedes": [
+      "direct repeat execution from M2740 taxonomy",
+      "direct repair candidate materialization without scenario-role metric contracts",
+      "source-family task-family profile ranking from taxonomy rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight.md",
+  "public_gates": [
+    "M2743 must consume M2742 design M2741 audit M2740 summary taxonomy aggregate source-family task-family guardrail actor-contract claim-boundary gate and Route A route-plan artifacts",
+    "M2743 must write scenario_role_rows metric_contract_rows target_panel_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix summary and doc artifacts",
+    "M2743 must materialize exactly six scenario roles: offtrack_containment_target collision_caution_guard diagnostic_success_context negative_context_guardrail blocked_same_surface_guard and protected_hf3_exclusion_guard",
+    "M2743 must account for 18 execution taxonomy rows with 14 offtrack targets admitted for future planning only 1 collision caution guard and 3 diagnostic success context rows",
+    "M2743 must preserve 31 negative-context guard rows 1 same-surface blocked guard row and 11 protected-or-HF3 blocker rows as non-executed actor-invisible guardrails outside denominators",
+    "M2743 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible scenario-role metric target protected blocker route-decision success progress and verdict labels",
+    "M2743 must keep source-family task-family and profile context diagnostic and non-ranking",
+    "M2743 must not execute reset step policy action rollout replay validation training PPO source build adapter probe external simulation private holdout or profile tuning",
+    "M2743 must not rank families profiles controllers or claim repair success performance validation paper current-sim high-fidelity full ideal driver or self-ID evidence",
+    "M2743 must register one bounded result-audit follow-up manifest if materialization succeeds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels scenario-role labels metric labels target labels off-track labels collision labels protected labels source-family labels task-family labels profile labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not hide M2740 offtrack collision diagnostic success negative-context blocked protected or HF3 rows",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not rank controller families source families profiles or task families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2743 materialization"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel",
+    "evidence_axis": "scenario_role_metric_panel_materialization",
+    "evidence_increment": "materializes actor-invisible role metric and target-panel artifacts from accepted M2740 taxonomy before any execution or repair route",
+    "claim_scope": "Materialization only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2742 design or M2740 taxonomy artifacts are missing",
+      "stop if materialization would rank source families task families profiles or controllers",
+      "stop if role metric target protected blocker route-decision success progress or verdict labels would enter actor input",
+      "stop if guardrail rows would be admitted as ordinary execution or success denominator rows",
+      "stop if materialization would claim validation performance paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2740 M2741 or M2742 artifacts are absent",
+      "route to schema repair if scenario roles cannot account for all taxonomy families",
+      "route to result audit if materialization succeeds",
+      "route to branch synthesis stop if materialization cannot preserve actor and guardrail boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2742 admits scenario-role metric panel materialization after accepting M2740 taxonomy",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-diverse failure taxonomy scenario-role metric panel materialization",
+    "admission_evidence": [
+      "M2742 defines the scenario-role metric panel design",
+      "M2741 accepts M2740 taxonomy as complete and claim-safe",
+      "M2740 preserves 61 taxonomy rows with offtrack collision success-context negative-context blocked and protected-or-HF3 categories"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy action rollout replay validation training PPO in materialization",
+      "no source build adapter probe external simulation",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization.py",
+      "tests/test_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization.py",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/scenario_role_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/metric_contract_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/target_panel_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/guardrail_context_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/actor_contract_guard_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/claim_boundary_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/gate_matrix.csv",
+      "docs/m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight.md",
+      "M2743 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "scenario role metric target guardrail actor claim gate and summary artifacts exist",
+      "18 execution taxonomy rows and 43 guardrail taxonomy rows are accounted",
+      "offtrack target collision caution diagnostic success context negative-context blocked protected and HF3 roles remain separate",
+      "actor and claim boundaries are preserved",
+      "one bounded result-audit follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2743 materializes Route A metric artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2743; any profile or history comparison must be separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2740 taxonomy artifacts M2741 audit and M2742 design only.",
+    "negative_result_policy": "If role materialization cannot preserve blockers keep blockers and route to synthesis or schema repair rather than forcing self-ID interpretation.",
+    "allowed_claims": [
+      "M2743 materializes a scenario-role metric panel for future audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes role metric and target-panel artifacts rather than repeating source-diverse execution",
+    "paper_verdict_delta": "no paper verdict; prepares Route A scenario-role metric report for later audit",
+    "must_synthesize_if": [
+      "M2743 cannot account for all M2740 taxonomy categories",
+      "M2743 would claim ranking repair success finite-window-vs-GRU current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2743 would admit execution or direct repair without result audit"
+    ]
+  },
+  "hypothesis": "M2742 scenario-role metric panel design can be materialized into actor-invisible role metric target guardrail actor claim and gate artifacts before execution or interpretation.",
+  "success_criteria": [
+    "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json exists",
+    "scenario_role_rows metric_contract_rows target_panel_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows and gate_matrix exist",
+    "materialization accounts for 18 execution taxonomy rows 31 negative-context guard rows and 12 blocked guard rows",
+    "offtrack collision diagnostic success negative-context blocked and protected-or-HF3 roles remain separate",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "source family task family and profile context remains diagnostic and rejects ranking performance validation paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "one result-audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2743 executes reset step policy action rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2743 changes actor input or action contract",
+    "M2743 treats scenario roles metric contracts or target panels as actor-visible labels",
+    "M2743 treats taxonomy rows as ranking winner selection promotion or success-rate verdict evidence",
+    "M2743 treats negative context protected or HF3 rows as execution rows or ordinary denominators",
+    "M2743 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2743 fails to register a bounded result-audit follow-up"
+  ],
+  "decision_rule": "Pass only if M2743 materializes complete claim-safe actor-invisible scenario-role metric target and guardrail artifacts from M2742 without execution or performance interpretation.",
+  "commands": [
+    {
+      "name": "source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization --m2740-dir runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy --m2742-design docs/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.md --output-dir runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/scenario_role_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/metric_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/target_panel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.md",
+    "docs/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.md",
+    "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json",
+    "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/taxonomy_rows.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization_result_audit",
+    "fail": "reject_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization"
+  },
+  "scoreboard_checkpoint": "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+  "next_blocker": "source-diverse failure taxonomy scenario-role metric panel materialization result audit"
+}

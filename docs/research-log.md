@@ -49559,3 +49559,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2741
 - follow-up manifest: `experiments/manifests/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.json`
 - next: `m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design`
+
+## M2742 Engineering Controller Route A Source-Diverse Failure Taxonomy Scenario-Role Metric Panel Design
+
+- status: completed
+- decision: `admit_source_diverse_failure_taxonomy_scenario_role_metric_panel_materialization`
+- manifest: `experiments/manifests/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.json`
+- design doc: `docs/m2742-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-design.md`
+- parent audit: `docs/m2741-engineering-controller-route-a-post-negative-diagnostic-source-diverse-failure-taxonomy-materialization-result-audit.md`
+- parent summary: `runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json`
+- accepted design surface: six actor-invisible roles over M2740 taxonomy: 14 offtrack rows as `offtrack_containment_target`, 1 collision row as `collision_caution_guard`, 3 diagnostic success rows as `diagnostic_success_context`, 31 negative-context rows as `negative_context_guardrail`, 1 same-surface blocker as `blocked_same_surface_guard`, and 11 protected-or-HF3 blockers as `protected_hf3_exclusion_guard`
+- output schema: M2743 must write scenario_role_rows metric_contract_rows target_panel_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix summary and doc artifacts
+- target admission: only offtrack rows are target-panel admitted for future planning; collision and diagnostic success rows remain guard/context rows; all execution_scheduled values remain false
+- guardrail boundary: 31 negative-context rows 1 blocked same-surface row and 11 protected-or-HF3 rows remain not run not admitted not actor-visible and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy scenario-role metric target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2743 materialization-only scenario-role metric panel before any execution repair implementation ranking validation or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2742
+- follow-up manifest: `experiments/manifests/m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight.json`
+- next: `m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight`
