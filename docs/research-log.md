@@ -50143,3 +50143,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - route decision: route to M2774 result audit before interpreting intervention deltas or selecting synthesis proof extension artifact repair or stop
 - follow-up manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
 - next: `m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit`
+
+## M2774 Engineering Controller Route A Source-Only Action-Response Belief Intervention Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2773_route_to_source_only_action_response_belief_intervention_delta_panel_materialization`
+- manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
+- audit doc: `docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md`
+- parent summary: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json`
+- accepted parent result: M2773 status_pass true gate_matrix_pass true with 32 candidate rows 4 intervention conditions 128 matrix rows 128 execution rows 0 failure rows 10240 action-response trace rows 8 mitigation guards 7 actor guards 13 claim rows and 21 gates all passing
+- diagnostic accounting: 32 collision rows and 68 road-departure rows are diagnostic row accounting only and not success-rate verdict ranking validation performance paper high-fidelity or self-ID evidence
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention outcome progress success or verdict labels all actions finite and within bounds
+- audit decision: accept completeness and claim safety but reject direct interpretation from raw M2773 rows
+- route decision: route to M2775 no-new-rollout normal-vs-intervention delta panel materialization before synthesis or proof extension
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2774
+- follow-up manifest: `experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json`
+- next: `m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight`

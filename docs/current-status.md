@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
+m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2773-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-preflight
+m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit
+m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight
 ```
 
 Current route:
@@ -1848,18 +1848,34 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
 - next: `m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit`
 
+## M2774 Engineering Controller Route A Source-Only Action-Response Belief Intervention Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2773_route_to_source_only_action_response_belief_intervention_delta_panel_materialization`
+- manifest: `experiments/manifests/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.json`
+- audit doc: `docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md`
+- parent summary: `runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight/summary.json`
+- accepted parent result: M2773 status_pass true gate_matrix_pass true with 32 candidate rows, 4 intervention conditions, 128 matrix rows, 128 execution rows, 0 failure rows, 10240 action-response trace rows, 8 mitigation guards, 7 actor guards, 13 claim rows, and 21 gates all passing
+- diagnostic accounting: 32 collision rows and 68 road-departure rows are diagnostic row accounting only and not success-rate verdict ranking validation performance paper high-fidelity or self-ID evidence
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible role dynamics intervention outcome progress success or verdict labels all actions finite and within bounds
+- audit decision: accept completeness and claim safety but reject direct interpretation from raw M2773 rows
+- route decision: route to M2775 no-new-rollout normal-vs-intervention delta panel materialization before synthesis or proof extension
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2774
+- follow-up manifest: `experiments/manifests/m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight.json`
+- next: `m2775-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-preflight`
+
 ## Immediate Next Step
 
-M2774 should audit the M2773 source-only action-response belief intervention
-materialization before any interpretation:
+M2775 should materialize a no-new-rollout delta panel from the accepted M2773
+source-only intervention rows before branch synthesis or proof extension:
 
 ```text
-true
+PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization --m2774-audit docs/m2774-engineering-controller-route-a-source-only-action-response-belief-intervention-materialization-result-audit.md --m2773-dir runs/m2773_engineering_controller_route_a_source_only_action_response_belief_intervention_materialization_preflight --follow-up-manifest experiments/manifests/m2776-engineering-controller-route-a-source-only-action-response-belief-intervention-delta-panel-materialization-result-audit.json --output-dir runs/m2775_engineering_controller_route_a_source_only_action_response_belief_intervention_delta_panel_materialization
 ```
 
-M2774 must audit M2773 summary, candidate rows, intervention rows, matrix rows,
-execution/failure rows, trace rows, mitigation guards, actor guards, claim
-boundaries, and gates. It must preserve diagnostic-only interpretation and
-reject ranking, validation, performance, paper, current-sim, high-fidelity,
-full ideal driver, and self-ID claims before selecting a bounded next route or
-stop.
+M2775 must pair every non-normal intervention row with the matching
+`normal_recurrent` row, write delta rows and aggregate rows, preserve
+mitigation reference rows outside ordinary denominators, and register an M2776
+audit manifest. It must not execute new rollouts, train, rank, validate,
+promote, or claim performance, paper, high-fidelity, full-driver, or self-ID
+evidence.
