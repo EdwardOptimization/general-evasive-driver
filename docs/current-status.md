@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit
+m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit
+m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight
+m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
 ```
 
 Current route:
@@ -38,6 +38,40 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2802 audited and accepted M2801 as complete and claim-safe source-only
+fresh-holdout triad diagnostic evidence. It verified `status_pass=true`,
+required artifacts present, all 38 gate rows passing, seed indices 12, 13, 14,
+and 15 disjoint from prior 0..11, horizon 160 greater than M2793 horizon 140,
+216 triad execution rows, 72 candidate-minus-source deltas, and 72
+candidate-minus-M2791-start deltas. The hard obstacle-clearance guard remains
+negative-skewed: candidate-minus-source has 23 positive and 49 negative rows
+with mean `-0.00365399786071096`, while candidate-minus-M2791-start has 23
+positive and 49 negative rows with mean `-0.001043581525003352`.
+`stable_avoidable` still has clearance-negative rows: 4 against source and 2
+against M2791 start. Actor P0 observation 72/action 3, no hidden/oracle actor
+input, actor-invisible labels, and mitigation rows outside ordinary
+denominators are preserved. M2802 rejects validation, ranking, promotion,
+repair-success, performance, paper, current-sim, high-fidelity, full-driver,
+and self-ID claims. It routes to M2803 branch synthesis before another
+clearance-localized corrective update, panel, promotion, or interpretation.
+
+M2801 completed the Route A source-only fresh-holdout source/M2791-start/M2799
+candidate triad closed-loop delta panel. It wrote summary, run-state, triad
+execution rows, candidate-minus-source deltas, candidate-minus-M2791-start
+deltas, proof gates, generalization holdout gates, behavior-retention gates,
+promotion guards, actor guards, mitigation guards, claim rows, gate matrix, the
+M2801 doc, and the M2802 audit manifest. All gates passed and the lineage is
+explicit: M2655 source hash
+`e6ecf4bc3f273ea8f7bd4149c068708a86c0969a982cac602635339639938b87`, M2791
+start hash `32b001944b688162ba9afb379aa6ed54f59920261d3a10ec8572d6e2da769651`,
+M2799 candidate hash
+`44bedadceae2e53efaa7c37cf5be211cb8652b9088a1d7e1f237843f69ab2f20`, and
+retained M2782 lineage hash
+`96944838f1075e6ce6d463f336056f1d81799d7ac69d419ca3a9644582cc0ae8`.
+M2801 is closed-loop diagnostic row accounting only and not a repair-success,
+validation, ranking, promotion, driver-performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID result.
 
 M2800 audited and accepted M2799 as complete and claim-safe
 clearance-localized corrective training/update preflight evidence. It verified
@@ -52,9 +86,8 @@ and `stable_avoidable` remains the retention family at 1/48 negative. Actor P0
 observation 72/action 3, no hidden/oracle actor input, actor-invisible labels,
 and mitigation rows outside ordinary denominators are preserved. M2800 rejects
 validation, ranking, promotion, repair-success, performance, paper,
-current-sim, high-fidelity, full-driver, and self-ID claims. It routes to
-M2801, a fresh-holdout source-only triad delta panel using seed indices 12..15
-and horizon 160 before interpreting the M2799 checkpoint.
+current-sim, high-fidelity, full-driver, and self-ID claims. It routed to the
+now-completed M2801 fresh-holdout triad panel.
 
 M2799 completed the bounded Route A clearance-localized corrective
 training/update preflight from the M2791 candidate. It wrote the M2799

@@ -1,0 +1,260 @@
+{
+  "id": "m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+      "docs/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.md",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/triad_execution_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_source_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/candidate_minus_base_delta_rows.csv",
+      "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+      "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md",
+      "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/summary.json",
+      "runs/m2796_engineering_controller_route_a_source_only_belief_stress_obstacle_clearance_regression_atlas/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.json",
+      "experiments/manifests/m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight.json",
+      "experiments/manifests/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.json",
+      "experiments/manifests/m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize M2796-M2802 clearance-localized corrective evidence before another same-axis repair, panel, ranking, promotion, or process-only extension"
+    ],
+    "derived_from": [
+      "m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit",
+      "m2801-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-preflight",
+      "m2799-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-preflight",
+      "m2796-engineering-controller-route-a-source-only-belief-stress-obstacle-clearance-regression-atlas-preflight"
+    ],
+    "blocked_by": [
+      "M2802 accepts M2801 complete and claim-safe but rejects direct validation ranking promotion performance paper high-fidelity full-driver and self-ID interpretation",
+      "M2801 fresh-holdout obstacle-clearance deltas are negative in 49/72 rows against both source and M2791 start candidate",
+      "M2801 still has stable_avoidable clearance-negative rows",
+      "another clearance-localized corrective update or same-style panel without synthesis would increase local-search risk"
+    ],
+    "supersedes": [
+      "direct promotion of the M2799 corrective checkpoint from M2801 deltas",
+      "another same-axis clearance-localized corrective update before synthesis",
+      "road-margin speed yaw-rate or action-delta interpretation that hides obstacle-clearance regression"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+  "synthesis_artifact": "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2803 must synthesize M2796-M2802 clearance-localized corrective evidence before another execution training ranking promotion or process-only extension",
+    "M2803 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2803 must preserve M2801 artifact accounting 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 9 behavior-retention gates 4 promotion guards and 38 gate rows all pass",
+    "M2803 must preserve fresh seed disjointness from prior seed_index 0..11 and horizon 160 greater than M2793 horizon 140",
+    "M2803 must keep M2801 obstacle-clearance negative rows visible as active behavior-regression risk",
+    "M2803 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input actor-invisible labels and mitigation reference rows outside ordinary denominators",
+    "M2803 must decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or continue only with a materially different evidence axis",
+    "M2803 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2803 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose atlas role dynamics stress clearance outcome success progress route or verdict labels to actor input",
+    "do not hide M2801 obstacle-clearance or stable_avoidable negative rows",
+    "do not treat mitigation reference rows as ordinary denominators",
+    "do not rank roles dynamics axes stress families candidates checkpoints or controllers",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2803 synthesis"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training",
+    "evidence_axis": "source_only_belief_stress_clearance_localized_corrective_branch_synthesis",
+    "evidence_increment": "synthesizes M2796-M2802 corrective training atlas preflight audit and fresh-holdout triad delta evidence before admitting another route",
+    "claim_scope": "Branch synthesis only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if synthesis cannot identify a bounded route that changes evidence beyond another same-axis corrective update or triad panel",
+      "stop if M2801 deltas would be rebranded as ranking validation performance or paper evidence",
+      "stop if mitigation reference rows would enter ordinary denominators",
+      "stop if actor contract or label invisibility would be changed",
+      "stop if the branch would claim current-sim high-fidelity full-driver or self-ID verdicts from source-only artifacts"
+    ],
+    "fallback_plan": [
+      "route to branch stop if M2796-M2802 add no evidence-changing route beyond complete source-only diagnostic artifacts",
+      "continue only if synthesis selects a materially different evidence axis with stronger architecture broader scenario distribution or explicit HF interface preparation",
+      "pivot to Route C high-fidelity interface preparation if source-only clearance-localized repair is saturated",
+      "defer to Route B only if a separately pre-registered fair controller-family matrix is higher leverage and no self-ID claim is made",
+      "route to artifact repair only if M2802 finds incomplete accounting or boundary contradiction"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2802 accepts M2801 complete claim-safe fresh-holdout triad closed-loop delta artifacts and local_search_guard requires synthesis before another same-axis extension",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-only clearance-localized corrective branch synthesis",
+    "admission_evidence": [
+      "M2802 accepts M2801 artifacts as complete and claim-safe",
+      "M2801 writes fresh-holdout triad execution and delta rows over seed indices 12 13 14 15 outside prior 0..11",
+      "M2801 preserves actor 72/action 3 no hidden oracle actor-invisible labels mitigation rows outside denominators",
+      "M2801 records source-only obstacle-clearance negative skew and rejects validation ranking promotion performance repair-success paper current-sim high-fidelity full-driver and self-ID claims"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in synthesis",
+      "no source build adapter probe external simulation in synthesis",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+      "M2803 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by synthesis if continuing or pivoting"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "M2801 artifact completeness and diagnostic interpretation remain separate",
+      "M2801 fresh-holdout source-only delta evidence is explicit",
+      "mitigation guard actor and claim boundaries remain visible",
+      "one bounded next route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2803 synthesizes source-only corrective artifacts and cannot establish level3 self-identification or finite-window-vs-GRU superiority.",
+    "history_necessity_tests": [
+      "M2801 recurrent_hidden_reset_stress rows",
+      "M2801 previous_command_history_stress rows",
+      "M2801 held_actuator_history_stress rows"
+    ],
+    "temporal_evidence_window": "M2796-M2802 source-only clearance-localized corrective branch",
+    "negative_result_policy": "If synthesis finds deltas weak negative or insufficient preserve the result and route to pivot stop or a fresh evidence branch rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "source-only clearance-localized corrective branch synthesis",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes clearance-localized source-only corrective evidence before admitting another route instead of repeating same-axis repair or panel work",
+    "paper_verdict_delta": "no paper verdict; synthesis should prevent M2801 source-only deltas from being misread as performance or self-ID evidence while deciding whether the branch should continue pivot or stop",
+    "must_synthesize_if": [
+      "already_synthesis_milestone",
+      "M2803 cannot choose stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a materially different continue route",
+      "M2803 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2803 hides M2801 obstacle-clearance negative skew small action deltas or actor claim boundaries",
+      "another process-only clearance-localized corrective audit or same-surface reanalysis is proposed without material evidence change"
+    ]
+  },
+  "hypothesis": "A branch synthesis can preserve M2796-M2802 source-only clearance-localized corrective evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.",
+  "success_criteria": [
+    "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2801 status_pass true required_artifacts_present true gate_matrix_pass true and M2802 audit acceptance",
+    "synthesis records M2801 seed indices 12 13 14 15 disjoint from previous 0..11 and horizon 160 greater than M2793 140",
+    "synthesis records M2801 216 triad execution rows 72 candidate-minus-source deltas 72 candidate-minus-base deltas 16 proof gates 9 generalization gates 9 behavior-retention gates 4 promotion guards and 38 gate rows as source-only diagnostic evidence only",
+    "synthesis records candidate-minus-source obstacle-clearance 23 positive 49 negative and candidate-minus-base obstacle-clearance 23 positive 49 negative as active behavior-regression risk",
+    "synthesis preserves mitigation reference rows as outside ordinary denominators",
+    "synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels",
+    "synthesis registers one bounded follow-up manifest if continuing or pivoting",
+    "no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2803 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout",
+    "M2803 changes actor input or action contract",
+    "M2803 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress atlas role labels dynamics labels stress labels route labels or verdicts to actor input",
+    "M2803 treats role dynamics stress family candidate checkpoint or controller context as ranking winner selection promotion or success-rate verdict evidence",
+    "M2803 treats mitigation reference rows as ordinary denominators",
+    "M2803 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2803 fails to synthesize M2796-M2802 and select a bounded follow-up route or stop"
+  ],
+  "decision_rule": "Pass only if M2803 synthesizes the source-only clearance-localized corrective branch and selects stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or a materially different continue route without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m2791_engineering_controller_route_a_source_only_belief_stress_guardrailed_multi_objective_training_preflight/checkpoints/m2791_guardrailed_multi_objective_candidate.pt",
+    "runs/m2799_engineering_controller_route_a_source_only_belief_stress_clearance_localized_corrective_training_preflight/checkpoints/m2799_clearance_localized_corrective_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2802-engineering-controller-route-a-source-only-belief-stress-clearance-localized-candidate-fresh-holdout-triad-delta-panel-result-audit.md",
+    "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/summary.json",
+    "runs/m2801_engineering_controller_route_a_source_only_belief_stress_clearance_localized_candidate_fresh_holdout_triad_delta_panel/gate_matrix.csv",
+    "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md"
+}
