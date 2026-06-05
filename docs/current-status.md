@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
+m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
+m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design
+m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight
 ```
 
 Current route:
@@ -94,6 +94,17 @@ repair loop, profile/source-family ranking, validation readiness, performance,
 paper, current-sim, high-fidelity, full-driver, and self-ID claims. Because
 another static materialization/audit chain would not add driver evidence, M2735
 routes to M2736 bounded execution design before any future execution.
+
+M2736 completed the bounded execution design. It admits M2737 as the next
+separately pre-registered diagnostic execution preflight over the 18 M2734
+candidate rows only: 9 M2693 rows resolved through M2693 target rows and 9
+M2716 task-source aggregates resolved through the fixed `L3_online_gru` current
+M1690 workload row. M2728 negative-context rows, direct same-surface repair
+rows, protected blockers, and HF3 blockers remain guardrails rather than
+execution candidates. M2736 preserves M2693/M2716 source-family separation,
+actor 72/action 3, no hidden/oracle actor input, and makes no execution,
+ranking, validation, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claim.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

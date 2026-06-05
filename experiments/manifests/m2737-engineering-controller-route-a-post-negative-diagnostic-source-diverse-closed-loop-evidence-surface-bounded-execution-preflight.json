@@ -1,0 +1,285 @@
+{
+  "id": "m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+      "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/evidence_surface_candidate_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/blocked_surface_rows.csv",
+      "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/negative_diagnostic_context_rows.csv",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/target_execution_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.json",
+      "experiments/manifests/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.json",
+      "experiments/manifests/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute a bounded source-diverse diagnostic preflight over resolved M2734 candidate rows without ranking or overclaiming"
+    ],
+    "derived_from": [
+      "m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design",
+      "m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit",
+      "m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2736 admits only bounded execution preflight after candidate resolution",
+      "M2728 same-surface repair execution remains blocked",
+      "M2734 protected and HF3 blocker rows remain outside execution candidates and success denominators",
+      "M2737 must register a separate result audit before interpretation"
+    ],
+    "supersedes": [
+      "another static materialization audit with no execution-admission change",
+      "direct same-surface M2728 repair continuation",
+      "profile ranking from M2734 candidate rows",
+      "validation readiness from M2734 materialization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2737 must resolve and account for all 18 M2734 candidate rows before execution",
+    "M2737 must execute only resolved non-same-surface M2734 candidate rows and must not execute M2728 negative context protected blocker or HF3 blocker rows",
+    "M2737 must preserve M2693 and M2716 source-family separation without ranking source families profiles task families or winners",
+    "M2737 must write execution_candidate_resolution candidate_execution candidate_failure source_family_aggregate task_family_aggregate negative_context_guard blocked_surface_guard actor_guard claim_boundary gate_matrix run_state summary and doc artifacts",
+    "M2737 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible taxonomy target protected blocker route-decision success progress and verdict labels",
+    "M2737 must not execute replay validation training PPO source build adapter probe external simulation ranking promotion success-rate verdict computation or driver-performance claims",
+    "M2737 must register one result-audit follow-up manifest before any interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start an external backend",
+    "do not execute M2728 same-surface repair rows",
+    "do not execute protected blocker rows",
+    "do not execute HF3 blocker rows",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not hide M2728 negative offtrack repair diagnostic rows",
+    "do not treat protected mitigation rows or HF3 source dependency blocker rows as ordinary success denominators",
+    "do not rank controller families source families profiles or task families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2737 diagnostic execution"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_negative_diagnostic_closed_loop_evidence_surface",
+    "evidence_axis": "source_diverse_post_negative_diagnostic_bounded_execution_preflight",
+    "evidence_increment": "produces new closed-loop diagnostic execution rows over the accepted M2734 source-diverse candidate surface after M2736 design",
+    "claim_scope": "Route A bounded diagnostic execution preflight only; reset step rollout and policy actions may be recorded for resolved M2734 candidate rows, but no replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if candidate resolution cannot account for all 18 M2734 candidates",
+      "stop if execution would include M2728 same-surface repair protected or HF3 blocker rows",
+      "stop if actor input or action contract would change",
+      "stop if hidden/oracle actor labels or verdict labels are required",
+      "stop if the run would rank profiles source families task families or winners"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if candidate resolution fails",
+      "route to branch synthesis stop if no non-same-surface execution can run cleanly",
+      "route to result audit if execution artifacts are complete",
+      "route to user-supplied HF3 dependency handling only if a valid source root package route or dependency acquisition manifest is present"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2736 admits bounded execution preflight after source-diverse surface audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post-negative diagnostic source-diverse closed-loop evidence-surface bounded execution preflight",
+    "admission_evidence": [
+      "M2736 defines the bounded execution protocol and admits M2737",
+      "M2734 materializes 18 source-diverse candidate rows split across M2693 and M2716",
+      "M2734 preserves M2728 negative diagnostic as non-ranking context and rejects same-surface repair admission",
+      "M2734 preserves protected and HF3 blockers outside success denominators with actor 72/action 3 no hidden oracle"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO source build adapter probe external simulation",
+      "no same-surface M2728 repair execution",
+      "no protected or HF3 blocker execution",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight.py",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/source_family_aggregate.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/task_family_aggregate.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/negative_context_guard_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/blocked_surface_guard_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/run_state.json",
+      "docs/m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight.md",
+      "M2737 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "execution artifacts are complete and all 18 candidates are accounted",
+      "negative context blocked protected and HF3 guardrails remain explicit",
+      "actor input and action contract remain unchanged",
+      "follow-up result audit is registered before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2737 runs Route A engineering diagnostic execution and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2737; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2736 Route A source-diverse execution preflight only.",
+    "negative_result_policy": "If execution remains poor, preserve negative results and route to result audit or synthesis instead of weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "Route A source-diverse bounded diagnostic execution artifact completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from source-diverse materialization and design to bounded closed-loop diagnostic execution over non-same-surface candidates",
+    "paper_verdict_delta": "no paper verdict; may add Route A engineering diagnostic rows but cannot support paper self-ID claims without separate proof and generalization gates",
+    "must_synthesize_if": [
+      "M2737 cannot produce complete execution artifacts",
+      "M2737 repeats M2728 same-surface repair execution",
+      "M2737 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2737 would rank controllers source families profiles select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A bounded source-diverse execution preflight can produce new closed-loop diagnostic rows from the audited M2734 candidate surface while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json exists",
+    "execution_candidate_resolution candidate_execution candidate_failure source_family_aggregate task_family_aggregate negative_context_guard blocked_surface_guard actor_guard claim_boundary gate_matrix run_state and doc artifacts exist",
+    "all 18 M2734 candidate rows are resolved or explicitly accounted by failure rows",
+    "M2728 negative context protected blockers and HF3 blockers are not executed and remain outside success denominators",
+    "actor 72/action 3 no hidden oracle and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2737 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2737 executes same-surface M2728 repair protected or HF3 blocker rows",
+    "M2737 changes actor inputs or action contract or exposes hidden/oracle actor labels",
+    "M2737 ranks controller families source families profiles task families selects a winner promotes a checkpoint or claims driver performance",
+    "M2737 hides failed rows or treats diagnostic execution as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2737 accounts for the full M2734 candidate surface, preserves negative/context/blocker and actor boundaries, writes complete execution artifacts, and registers a result audit without ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2734-dir runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface --m2736-design docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md --output-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/source_family_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/task_family_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/negative_context_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/blocked_surface_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/evidence_surface_candidate_rows.csv",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/blocked_surface_rows.csv",
+    "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/negative_diagnostic_context_rows.csv"
+  ]
+}

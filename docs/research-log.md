@@ -49451,3 +49451,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2735
 - follow-up manifest: `experiments/manifests/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.json`
 - next: `m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design`
+
+## M2736 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Closed-Loop Evidence Surface Bounded Execution Design
+
+- status: completed
+- decision: `admit_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.json`
+- design doc: `docs/m2736-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-design.md`
+- parent audit: `docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md`
+- parent summary: `runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json`
+- accepted input surface: 18 M2734 candidate rows split into 9 M2693 source-diverse current-sim offtrack rows and 9 M2716 exact-executable task-source aggregate rows, with same-surface M2728 repair false, protected/HF3 blocked false, hidden/oracle actor input false, and diagnostic-only no-verdict true for all candidates
+- resolution protocol: M2693 candidates resolve through M2693 `target_execution_rows.csv` by `target_id`; M2716 candidates resolve through M2716 `exact_execution_rows.csv` by `task_source_id` and the fixed `L3_online_gru` row only as the canonical recurrent policy-under-test, not as a profile winner selection
+- guardrail surface: 31 M2728 negative diagnostic context rows, 1 same-surface M2728 repair blocker row, 10 protected mitigation blocker rows, and 1 HF3 dependency blocker row are carried as actor-invisible guardrails rather than execution candidates or ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels target labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- route decision: route to M2737 bounded execution preflight over resolved M2734 candidate rows before any interpretation; M2737 must register a separate M2738 result audit
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2736
+- follow-up manifest: `experiments/manifests/m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight.json`
+- next: `m2737-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-bounded-execution-preflight`
