@@ -1,0 +1,291 @@
+{
+  "id": "m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.md",
+      "docs/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.md",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/scenario_role_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/metric_contract_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/target_panel_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/guardrail_context_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/actor_contract_guard_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/claim_boundary_rows.csv",
+      "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/gate_matrix.csv",
+      "runs/m2740_engineering_controller_route_a_post_negative_diagnostic_source_diverse_failure_taxonomy/summary.json",
+      "runs/m2693_engineering_controller_source_diverse_offtrack_protected_bounded_execution_preflight/target_execution_rows.csv",
+      "runs/m2716_engineering_controller_route_a_current_m1690_exact_executable_reentry_bounded_execution_preflight/exact_execution_rows.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.json",
+      "experiments/manifests/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.json",
+      "experiments/manifests/m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute a bounded actor-safe diagnostic preflight over the 14 audited M2743 offtrack target rows without executing guardrail rows or ranking outcomes"
+    ],
+    "derived_from": [
+      "m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design",
+      "m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit",
+      "m2743-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2745 admits only bounded diagnostic execution over the 14 offtrack target rows",
+      "collision caution diagnostic success negative-context blocked protected and HF3 rows remain non-executed guardrails",
+      "source-family task-family and profile context remains diagnostic and non-ranking",
+      "M2746 must register a separate result audit before interpretation"
+    ],
+    "supersedes": [
+      "another static scenario-role metric panel materialization without execution-admission change",
+      "direct execution from M2743 target rows without candidate resolution",
+      "profile ranking or repair success interpretation from M2743 role rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2746 must consume M2745 design M2744 audit and M2743 role metric target guardrail actor claim and gate artifacts",
+    "M2746 must materialize execution_candidate_rows and execution_candidate_resolution_rows before any reset or step",
+    "M2746 must account for exactly 14 M2743 offtrack_containment_target rows as execution candidates",
+    "M2746 must execute only resolved offtrack target rows and must not execute collision caution diagnostic success negative-context blocked protected or HF3 guardrail rows",
+    "M2746 must write candidate_execution_rows candidate_execution_failure_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary and doc artifacts",
+    "M2746 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible scenario-role metric target protected blocker route-decision success progress and verdict labels",
+    "M2746 must keep source-family task-family and profile context diagnostic and non-ranking",
+    "M2746 must not execute replay validation training PPO source build adapter probe external simulation ranking promotion success-rate verdict computation or driver-performance claims",
+    "M2746 must register one result-audit follow-up manifest before any interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start an external backend",
+    "do not execute collision caution rows",
+    "do not execute diagnostic success context rows",
+    "do not execute negative-context guard rows",
+    "do not execute blocked same-surface rows",
+    "do not execute protected blocker rows",
+    "do not execute HF3 blocker rows",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose scenario-role labels metric labels target labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not treat collision caution diagnostic success negative-context blocked protected or HF3 rows as ordinary success denominators",
+    "do not rank controller families source families profiles or task families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2746 diagnostic execution"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel",
+    "evidence_axis": "source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight",
+    "evidence_increment": "produces bounded closed-loop diagnostic rows over the accepted M2743 offtrack target rows after M2745 design",
+    "claim_scope": "Route A bounded diagnostic execution preflight only; reset step rollout and policy actions may be recorded for resolved offtrack target rows but no replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU self-ID current-sim high-fidelity validation or full ideal driver claim",
+    "stop_condition": [
+      "stop if candidate resolution cannot account for all 14 M2743 offtrack target rows",
+      "stop if execution would include collision caution diagnostic success negative-context blocked protected or HF3 guardrail rows",
+      "stop if actor input or action contract would change",
+      "stop if hidden/oracle actor labels or verdict labels are required",
+      "stop if the run would rank profiles source families task families or winners"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if candidate resolution fails",
+      "route to branch synthesis stop if no bounded actor-safe execution can run cleanly",
+      "route to result audit if execution artifacts are complete",
+      "route to user-supplied HF3 dependency handling only if a valid source root package route or dependency acquisition manifest is present"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2745 admits bounded execution preflight after scenario-role metric panel audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "source-diverse failure taxonomy scenario-role metric panel bounded execution preflight",
+    "admission_evidence": [
+      "M2745 defines the bounded execution protocol and admits M2746",
+      "M2744 accepts M2743 as complete and claim-safe",
+      "M2743 materializes 14 offtrack target rows and preserves collision diagnostic success negative-context blocked protected and HF3 rows as guardrails",
+      "M2743 preserves actor 72/action 3 no hidden oracle and actor-invisible labels"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO source build adapter probe external simulation",
+      "no collision caution diagnostic success negative-context blocked protected or HF3 guardrail execution",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight.py",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/execution_candidate_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/run_state.json",
+      "docs/m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight.md",
+      "M2746 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "execution artifacts are complete and all 14 offtrack candidates are accounted",
+      "collision diagnostic success negative-context blocked protected and HF3 guardrails remain explicit",
+      "actor input and action contract remain unchanged",
+      "follow-up result audit is registered before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2746 runs Route A engineering diagnostic execution and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2746; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "Post-M2745 Route A source-diverse role-panel execution preflight only.",
+    "negative_result_policy": "If execution remains poor, preserve negative results and route to result audit or synthesis instead of weakening gates or claiming self-ID.",
+    "allowed_claims": [
+      "Route A source-diverse bounded diagnostic execution artifact completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the scenario-role metric panel into bounded closed-loop diagnostic rows over audited offtrack target rows",
+    "paper_verdict_delta": "no paper verdict; may add Route A engineering diagnostic rows but cannot support paper self-ID claims without separate proof and generalization gates",
+    "must_synthesize_if": [
+      "M2746 cannot produce complete execution artifacts",
+      "M2746 executes collision caution diagnostic success negative-context blocked protected or HF3 guardrail rows",
+      "M2746 would claim repair success driver performance validation readiness paper evidence current-sim high-fidelity or self-ID",
+      "M2746 would rank controllers source families profiles select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A bounded role-panel execution preflight can produce closed-loop diagnostic rows from the audited M2743 offtrack target surface while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json exists",
+    "execution_candidate_rows execution_candidate_resolution_rows candidate_execution_rows candidate_execution_failure_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 14 M2743 offtrack target rows are resolved or explicitly accounted by failure rows",
+    "collision caution diagnostic success negative-context blocked protected and HF3 guardrails are not executed and remain outside success denominators",
+    "actor 72/action 3 no hidden oracle and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2746 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2746 executes guardrail rows",
+    "M2746 changes actor inputs or action contract or exposes hidden/oracle actor labels",
+    "M2746 ranks controller families source families profiles task families selects a winner promotes a checkpoint or claims driver performance",
+    "M2746 hides failed rows or treats diagnostic execution as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2746 accounts for the full 14-row candidate surface, preserves guardrail and actor boundaries, writes complete execution artifacts, and registers a result audit without ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight --m2743-dir runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel --m2745-design docs/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.md --output-dir runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/execution_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.md",
+    "docs/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.md",
+    "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json",
+    "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/target_panel_rows.csv",
+    "runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/guardrail_context_rows.csv"
+  ],
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_result_audit",
+    "fail": "reject_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight"
+  },
+  "scoreboard_checkpoint": "runs/m2746_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight/summary.json",
+  "next_blocker": "source-diverse failure taxonomy scenario-role metric panel bounded execution preflight"
+}

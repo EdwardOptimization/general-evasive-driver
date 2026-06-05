@@ -49613,3 +49613,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2744
 - follow-up manifest: `experiments/manifests/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.json`
 - next: `m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design`
+
+## M2745 Engineering Controller Route A Source-Diverse Failure Taxonomy Scenario-Role Metric Panel Bounded Execution Design
+
+- status: completed
+- decision: `admit_source_diverse_failure_taxonomy_scenario_role_metric_panel_bounded_execution_preflight`
+- manifest: `experiments/manifests/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.json`
+- design doc: `docs/m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design.md`
+- parent audit: `docs/m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit.md`
+- parent summary: `runs/m2743_engineering_controller_route_a_source_diverse_failure_taxonomy_scenario_role_metric_panel/summary.json`
+- accepted candidate surface: exactly 14 M2743 `offtrack_containment_target` target-panel rows with target_panel_admitted true guardrail_only false actor_visible_allowed false ranking_allowed false ordinary_success_denominator_allowed false and fixed `L3_online_gru` profile identity
+- resolution protocol: M2746 must write execution_candidate_rows and execution_candidate_resolution_rows before any reset or step preserve M2693/M2716 row identity and account each missing workload checkpoint runner config or actor-safe path through failure rows rather than substitution
+- guardrail boundary: 1 collision caution row 3 diagnostic success context rows 31 negative-context rows 1 blocked same-surface row and 11 protected/HF3 rows remain non-executed non-admitted actor-invisible guardrails outside ordinary denominators
+- execution boundary: M2746 may run one diagnostic rollout per resolved offtrack candidate row only and must not execute guardrail rows replay validation training PPO source build adapter probe external simulation private holdout ranking winner selection promotion or success-rate verdict computation
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input scenario-role metric target protected blocker route-decision success/progress and verdict labels actor-invisible
+- route decision: route to M2746 bounded execution preflight before any result audit interpretation repair implementation ranking validation or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2745
+- follow-up manifest: `experiments/manifests/m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight.json`
+- next: `m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight`

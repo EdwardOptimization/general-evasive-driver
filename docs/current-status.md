@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
+m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2744-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-materialization-result-audit
+m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
+m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
 ```
 
 Current route:
@@ -214,6 +214,21 @@ role/metric/target/protected/blocker/route/success/progress/verdict labels are
 preserved. M2744 rejects execution, training, ranking, validation, performance,
 paper, current-sim, high-fidelity, full-driver, and self-ID claims. The next
 bounded step is M2745 execution design over only the 14 offtrack target rows.
+
+M2745 completed that bounded execution design. It admits M2746 as a
+separately pre-registered Route A diagnostic execution preflight over exactly
+the 14 M2743 `offtrack_containment_target` rows. It requires candidate
+materialization and resolution before any reset or step, preserves the fixed
+`L3_online_gru` profile as a protocol identity rather than a winner, and
+requires failure rows instead of substitution if any workload, checkpoint, or
+runner config cannot be resolved. The 1 collision caution row, 3 diagnostic
+success context rows, 31 negative-context rows, 1 blocked same-surface row, and
+11 protected/HF3 rows remain non-executed guardrails outside denominators.
+Actor 72/action 3, no hidden/oracle input, and invisible role/metric/target/
+protected/blocker/route/success/progress/verdict labels remain hard gates.
+M2745 makes no execution, ranking, validation, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim. Next is M2746 bounded execution
+preflight before result audit or interpretation.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
