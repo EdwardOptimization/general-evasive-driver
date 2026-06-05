@@ -1596,13 +1596,32 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json`
 - next: `m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit`
 
+## M2760 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2759_route_to_post_cross_axis_negative_action_response_containment_probe_result_synthesis`
+- manifest: `experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json`
+- audit doc: `docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md`
+- parent summary: `runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json`
+- parent doc: `docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md`
+- accepted parent result: M2759 status_pass true with 12 candidate-resolution rows, 12 execution rows, 0 failure rows, 12 action-response probe rows, 12 containment probe rows, 51 mechanism-context rows, 31 guardrail rows, 6 actor-contract guard rows, 14 claim-boundary rows, and 23 gate rows all passing
+- diagnostic accounting: accepts 2 diagnostic success rows, 0 collision rows, 10 offtrack rows, and 2 blank termination rows as row accounting only, not a success-rate verdict
+- mechanism interpretation boundary: track-containment/offtrack symptoms dominate, but action-response finite proxy coverage is incomplete because all 12 action-response rows have finite_metric false
+- guardrail boundary: all 31 M2756 guardrail context rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment mechanism stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: route to M2761 result synthesis before repair design, further execution, validation, ranking, or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2760
+- follow-up manifest: `experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json`
+- next: `m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis`
+
 ## Immediate Next Step
 
-M2760 should audit the bounded action-response and containment diagnostic probe
-artifacts before any mechanism interpretation, repair route, validation,
-performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim:
+M2761 should synthesize M2758-M2760 probe evidence before any mechanism
+interpretation, repair route, validation, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim:
 
 ```text
+docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_candidate_resolution_rows.csv
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv
@@ -1610,10 +1629,10 @@ runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_respon
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/containment_probe_rows.csv
 runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/mechanism_context_rows.csv
 docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md
-docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md
-experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json
+experiments/manifests/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.json
 ```
 
-The audit must verify row accounting, evaluator-only telemetry, guardrail
-non-execution, actor 72/action 3, hidden-oracle absence, and claim boundaries,
-then select one bounded follow-up route.
+The synthesis must answer evidence summary, supported claims, falsified claims,
+failure taxonomy, public-gate overfit risk, and next branch decision. It must
+keep action-response finite proxy incompleteness explicit and select one
+bounded follow-up route or stop.

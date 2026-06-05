@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2765,
+    "completed": 2766,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+    "command_log": "docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md",
     "returncode": 0,
     "run_dir": "",
     "status": "completed",
-    "task_id": "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight"
+    "task_id": "m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "M2759 bounded probe execution artifacts can be audited as complete and claim-safe before selecting the next Route A evidence-changing step.",
-    "id": "m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit",
+    "hypothesis": "A result synthesis can preserve M2758-M2760 probe evidence while preventing local-search repetition and selecting a bounded next route that changes evidence pivots or stops.",
+    "id": "m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2759 summary candidate resolution execution failure action-response containment mechanism guard actor claim gate run-state and doc artifacts with 12 localized rows 3 collision negative-clearance 9 offtrack positive-clearance 31 guardrails outside execution actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim select one bounded follow-up route",
-    "priority": 27550,
+    "notes": "Pending: synthesize M2758-M2760 probe evidence answer evidence summary supported claims falsified claims failure taxonomy public-gate overfit risk and next branch decision preserve 12 execution rows 0 failure rows 2 diagnostic success 0 collision 10 offtrack 2 blank termination rows action-response finite proxy limitation 31 guardrails outside execution actor 72/action 3 no hidden oracle no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim select one bounded follow-up route or stop",
+    "priority": 27560,
     "status": "pending",
-    "success_artifact": "docs/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.md"
+    "success_artifact": "docs/m2761-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-result-synthesis.md"
   },
-  "updated_at_utc": "20260605T065350Z"
+  "updated_at_utc": "20260605T070013Z"
 }
