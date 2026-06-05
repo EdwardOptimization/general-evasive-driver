@@ -49382,3 +49382,19 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2731
 - follow-up manifest: `experiments/manifests/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.json`
 - next: `m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit`
+
+## M2732 Engineering Controller Route A Evidence Index After Exact-Executable Repair Refresh Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2731_route_to_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_design`
+- manifest: `experiments/manifests/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.json`
+- audit doc: `docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md`
+- parent summary: `runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json`
+- accepted parent result: M2731 status_pass true required artifacts present source artifacts present source_artifacts_reanalyzed_only true with 10 evidence rows 5 blocker rows 6 next-action admission rows 19 claim-boundary rows and 21 gates all pass
+- negative diagnostic preserved: M2728 remains 31 repair execution rows with 1/31 diagnostic success 3/31 collision and 27/31 off_track as non-ranking non-verdict evidence
+- blocker boundary: same-surface exact-executable repair remains closed by M2730 pivot M2667 protected mitigation blocker remains outside success denominators and M2638 HF3 source dependency remains paused
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels repair-target labels objective-gate labels route-decision labels and verdict labels actor-invisible
+- route decision: route to M2733 post-negative diagnostic source-diverse closed-loop evidence-surface design before any materialization execution ranking validation or performance claims
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2732
+- follow-up manifest: `experiments/manifests/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.json`
+- next: `m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design`

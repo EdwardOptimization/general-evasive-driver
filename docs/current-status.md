@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
+m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight
+m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit
+m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
 ```
 
 Current route:
@@ -54,6 +54,13 @@ dependency blocker, and actor P0 observation 72/action 3 with no hidden/oracle
 actor input. The only admitted next action is M2732 result audit; same-surface
 exact-executable offtrack repair execution, HF3 selected-platform execution,
 ranking, validation, and driver-performance claims remain not admitted.
+
+M2732 audited and accepted M2731 as complete and claim-safe evidence indexing.
+It keeps M2728 as negative non-ranking diagnostic evidence and rejects direct
+execution, ranking, validation, performance, paper, current-sim, high-fidelity,
+full ideal driver, and self-ID interpretation. The next bounded action is M2733
+post-negative diagnostic source-diverse closed-loop evidence-surface design,
+not another same-surface exact-executable offtrack repair loop.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows

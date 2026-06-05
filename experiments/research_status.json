@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2737,
+    "completed": 2738,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh/summary.json",
+    "command_log": "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md",
     "returncode": 0,
-    "run_dir": "runs/m2731_engineering_controller_route_a_evidence_index_after_exact_executable_repair_refresh",
+    "run_dir": "docs",
     "status": "completed",
-    "task_id": "m2731-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-preflight"
+    "task_id": "m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2731 evidence-index artifacts before Route A chooses synthesis stop or a new non-same-surface evidence route.",
-    "id": "m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit",
+    "hypothesis": "A bounded design can define a non-same-surface source-diverse Route A closed-loop evidence surface after M2732 accepts the negative-diagnostic evidence index.",
+    "id": "m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design",
     "kind": "gate",
-    "notes": "Pending: audit M2731 summary evidence_index blocker_matrix next_action_admission claim_boundary and gate_matrix preserve M2728 negative diagnostic protected blocker HF3 dependency actor 72/action 3 and no hidden oracle no execution training ranking performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27270,
+    "notes": "Pending: design non-same-surface source-diverse closed-loop evidence surface preserving M2728 negative diagnostic protected blocker HF3 dependency actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27280,
     "status": "pending",
-    "success_artifact": "docs/m2732-engineering-controller-route-a-evidence-index-after-exact-executable-repair-refresh-materialization-result-audit.md"
+    "success_artifact": "docs/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.md"
   },
-  "updated_at_utc": "20260605T010247Z"
+  "updated_at_utc": "20260605T011030Z"
 }
