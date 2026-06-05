@@ -49415,3 +49415,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2733
 - follow-up manifest: `experiments/manifests/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.json`
 - next: `m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight`
+
+## M2734 Engineering Controller Route A Post-Negative Diagnostic Source-Diverse Closed-Loop Evidence Surface Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_materialization_pass`
+- manifest: `experiments/manifests/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_materialization.py`
+- focused tests: `tests/test_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_materialization.py`
+- summary: `runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json`
+- doc: `docs/m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight.md`
+- materialized surface: wrote 6 input source rows, 18 evidence-surface candidate rows, 2 source-diversity bucket rows, 12 blocked surface rows, 31 negative diagnostic context rows, 10 actor-contract guard rows, 22 claim-boundary rows, and 26 gate rows all passing
+- source split: candidate rows are 9 M2693 source-diverse closed-loop diagnostic rows plus 9 M2716 exact-executable task-source aggregates; candidate rows remain diagnostic-only and non-ranking
+- negative diagnostic preserved: M2728 remains 31 repair execution rows with 1/31 diagnostic success, 3/31 collision, and 27/31 off_track as non-ranking non-verdict context
+- blocker boundary: direct same-surface M2728 repair execution is not admitted; M2667 protected mitigation blocker and M2638 HF3 source dependency blocker remain explicit and outside success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input taxonomy labels target labels protected labels blocker labels route-decision labels success/progress labels and verdict labels actor-invisible
+- route decision: route to M2735 result audit before any synthesis stop execution design ranking validation or performance claims
+- rejected claims: no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2734
+- follow-up manifest: `experiments/manifests/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.json`
+- next: `m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit`

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2739,
+    "completed": 2740,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "docs/m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design.md",
+    "command_log": "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json",
     "returncode": 0,
-    "run_dir": "docs",
+    "run_dir": "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface",
     "status": "completed",
-    "task_id": "m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design"
+    "task_id": "m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_materialization --output-dir runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface",
-    "hypothesis": "A materialization preflight can convert M2733 design into source-diverse evidence-surface rows from existing M2693 M2716 M2728 M2667 and M2638 artifacts without execution or overclaiming.",
-    "id": "m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize input_source evidence_surface_candidate source_diversity_bucket blocked_surface negative_diagnostic_context actor_contract_guard claim_boundary and gate rows from existing artifacts only preserve M2728 negative diagnostic protected blocker HF3 dependency actor 72/action 3 no hidden oracle no execution training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
-    "priority": 27290,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2734 evidence-surface materialization artifacts before Route A chooses a synthesis stop or execution-design route.",
+    "id": "m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2734 summary and row artifacts preserve 18 candidates 31 negative context rows M2728 1 success 3 collision 27 offtrack same-surface repair rejection protected/HF3 blockers actor 72/action 3 no hidden oracle no execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+    "priority": 27300,
     "status": "pending",
-    "success_artifact": "runs/m2734_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface/summary.json"
+    "success_artifact": "docs/m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260605T012520Z"
+  "updated_at_utc": "20260605T014743Z"
 }

@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
+m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2733-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-design
+m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2734-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-preflight
+m2735-engineering-controller-route-a-post-negative-diagnostic-source-diverse-closed-loop-evidence-surface-materialization-result-audit
 ```
 
 Current route:
@@ -70,6 +70,20 @@ M2728 as negative context, reject direct same-surface repair continuation,
 separate blocked protected/HF3 rows from candidate rows, preserve actor 72/action
 3 with no hidden/oracle labels, and make no execution/training/ranking/
 validation/performance/paper/current-sim/high-fidelity/full-driver/self-ID claim.
+
+M2734 completed the materialization-only evidence surface. It wrote 6 input
+source rows, 18 evidence-surface candidate rows, 2 source-diversity bucket rows,
+12 blocked surface rows, 31 negative diagnostic context rows, 10 actor-contract
+guard rows, 22 claim-boundary rows, and 26 gate rows. The 18 candidate rows are
+split as 9 M2693 source-diverse diagnostic rows and 9 M2716 exact-executable
+task-source aggregates. M2728 remains negative non-ranking context with 1/31
+success, 3/31 collision, and 27/31 off_track; direct same-surface repair
+execution is not admitted. Protected and HF3 blockers remain outside success
+denominators. Actor P0 observation 72/action 3 is preserved with no
+hidden/oracle actor input and no actor-visible taxonomy, target, protected,
+blocker, route-decision, success/progress, or verdict labels. M2734 makes no
+execution/training/ranking/validation/performance/paper/current-sim/
+high-fidelity/full-driver/self-ID claim. Next is M2735 result audit.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
