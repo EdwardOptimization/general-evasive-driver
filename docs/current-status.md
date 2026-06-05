@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
+m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis
+m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
+m2805-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-result-audit
 ```
 
 Current route:
@@ -38,6 +38,26 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2804 materialized the Route A post-clearance corrective readiness/admission
+index from existing artifacts only. It wrote summary, evidence index,
+deliverable readiness rows, blocker matrix, next-action admission rows, claim
+boundary rows, gate matrix, the M2804 doc, and the M2805 follow-up audit
+manifest. `status_pass=true`, required artifacts are present, all 38 gate rows
+pass, and the run records 15 evidence rows, 11 deliverable rows, 7 blocker rows,
+7 next-action rows, and 26 claim-boundary rows. The index preserves M2801/M2802
+negative clearance evidence without ranking or verdict conversion:
+candidate-minus-source obstacle clearance is 23 positive and 49 negative rows
+with mean `-0.00365399786071096`, and candidate-minus-M2791-start obstacle
+clearance is 23 positive and 49 negative rows with mean
+`-0.001043581525003352`. `stable_avoidable` remains an active behavior-retention
+risk with 4 negative rows against source and 2 against M2791 start. M2804 closes
+the same clearance-localized corrective repair loop, admits only the M2805
+result audit, preserves protected mitigation and HF3 source dependency blockers,
+and preserves actor P0 observation 72/action 3 with no hidden/oracle actor input
+or actor-visible labels. M2804 rejects reset, rollout, validation, training,
+ranking, promotion, performance, paper, current-sim, high-fidelity, full-driver,
+and self-ID claims.
 
 M2803 synthesized the M2796-M2802 source-only clearance-localized corrective
 branch and selected `pivot_to_route_a_post_clearance_corrective_readiness_index`.

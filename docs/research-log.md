@@ -51028,3 +51028,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis_20260605T160459Z/command.log`
 - success artifact: `docs/m2803-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-branch-synthesis.md`
 - notes: Pending: synthesize M2796-M2802 clearance-localized corrective branch after M2802 audit accepts M2801 artifacts and preserves obstacle-clearance negative skew source 23 positive 49 negative base 23 positive 49 negative stable_avoidable negatives actor and claim boundaries decide stop pivot package-with-limitations defer-to-Route-B defer-to-Route-C or materially different continue route no execution training ranking promotion performance paper high-fidelity full driver or self-ID claim
+
+## 20260605T163001Z m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A current Route A readiness/admission index can integrate M2801/M2802 negative clearance diagnostics with baseline contract protected HF3 runtime benchmark taxonomy role-panel and readiness artifacts and select a bounded non-same-repair next action without ranking validation or performance claims.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_clearance_corrective_readiness_index --output-dir runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index`
+- returncode: `0`
+- run dir: `runs/research/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight_20260605T163001Z`
+- command log: `runs/research/m2804-engineering-controller-route-a-post-clearance-corrective-readiness-index-materialization-preflight_20260605T163001Z/command.log`
+- success artifact: `runs/m2804_engineering_controller_route_a_post_clearance_corrective_readiness_index/summary.json`
+- notes: Pending: materialize Route A post-clearance-corrective readiness/admission index from existing artifacts M2803/M2802/M2801 M2799/M2800 M2749 M2541 M2505 M2508 M2638 and post-M2470 route plan preserve M2801 negative clearance source 23 positive 49 negative base 23 positive 49 negative stable_avoidable negatives source 4 base 2 actor 72/action 3 no hidden oracle labels mitigation outside denominators no reset rollout validation training ranking promotion performance paper high-fidelity full driver or self-ID claim
