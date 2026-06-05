@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
+m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2745-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-design
+m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2746-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-preflight
+m2747-engineering-controller-route-a-source-diverse-failure-taxonomy-scenario-role-metric-panel-bounded-execution-result-audit
 ```
 
 Current route:
@@ -229,6 +229,22 @@ protected/blocker/route/success/progress/verdict labels remain hard gates.
 M2745 makes no execution, ranking, validation, performance, paper, current-sim,
 high-fidelity, full-driver, or self-ID claim. Next is M2746 bounded execution
 preflight before result audit or interpretation.
+
+M2746 completed that bounded execution preflight. It materialized 14 execution
+candidate rows from the audited M2743 offtrack target panel, resolved and
+executed all 14 rows, split as 7 M2693 source-diverse rows and 7 M2716 fixed
+`L3_online_gru` rows, with 0 failure rows. It wrote 5 guardrail contexts, 18
+actor-contract guards, 34 claim-boundary rows, and 21 gate rows, all passing.
+Diagnostic termination counts are 1 obstacle_collision, 9 off_track, 3
+speed_too_low, and 1 unset_or_completed; diagnostic success count is 1 and
+diagnostic collision count is 1. The 1 collision caution row, 3 diagnostic
+success context rows, 31 negative-context rows, 1 blocked same-surface row, and
+11 protected/HF3 rows were not executed and remain outside denominators. Actor
+72/action 3, no hidden/oracle input, and invisible role/metric/target/protected/
+blocker/route/success/progress/verdict labels are preserved. M2746 makes no
+ranking, validation, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claim. Next is M2747 result audit before interpretation
+or another route decision.
 
 M2712 closed the protected workload fixture support
 extension as process/interface evidence only because all 12 protected rows
