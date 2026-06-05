@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2823,
+    "completed": 2824,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit_20260605T193405Z/command.log",
+    "command_log": "runs/research/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis_20260605T195232Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit_20260605T193405Z",
+    "run_dir": "runs/research/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis_20260605T195232Z",
     "status": "completed",
-    "task_id": "m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit"
+    "task_id": "m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2815-M2817 recoverability-window evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.",
-    "id": "m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis",
+    "hypothesis": "A design-only Route A post-recoverability negative readiness refresh can integrate M2816/M2817 negative recoverability diagnostics with existing Route A deliverables and HF3 blockers before any new evidence route is admitted.",
+    "id": "m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2815-M2817 recoverability-window diagnostics including 7 post-event traces 0 recoverability-window availability and 0 recoverability success before any repair design execution extension ranking validation performance paper high-fidelity full driver or self-ID claim",
-    "priority": 28130,
+    "notes": "Pending: design post-recoverability negative Route A readiness/admission refresh preserving 7 post-event traces 0 recoverability-window availability 0 recoverability success M2638 HF3 blocker actor 72/action 3 no hidden oracle no ranking validation performance paper high-fidelity full driver or self-ID claim",
+    "priority": 28140,
     "status": "pending",
-    "success_artifact": "docs/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis.md"
+    "success_artifact": "docs/m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design.md"
   },
-  "updated_at_utc": "20260605T193405Z"
+  "updated_at_utc": "20260605T195232Z"
 }

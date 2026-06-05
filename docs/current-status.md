@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
+m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit
+m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
+m2819-engineering-controller-route-a-post-recoverability-negative-readiness-index-design
 ```
 
 Current route:
@@ -38,6 +38,20 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A.
+
+M2818 synthesized the M2815-M2817 post-action-response recoverability-window
+branch and selected
+`pivot_to_post_recoverability_negative_route_a_readiness_index_design`. It
+accepts the branch as complete and claim-safe but closes it as a local loop:
+M2816/M2817 preserve 12 fixed rows, 12 execution rows, 0 execution failures, 7
+post-event traces, 0 recoverability-window availability, 0 recoverability
+success, 1 diagnostic collision, and 5 offtrack terminations. M2818 rejects
+direct repair, ranking, validation, performance, paper, high-fidelity,
+full-driver, and self-ID claims from these artifacts. The next admitted step is
+M2819, a design-only post-recoverability-negative Route A readiness/admission
+refresh that integrates the M2816/M2817 negative evidence with existing Route A
+deliverables and the M2638 HF3 source-dependency blocker before any new action
+is admitted.
 
 M2817 audited and accepted M2816 as complete and claim-safe bounded Route A
 recoverability-window diagnostic execution evidence. The acceptance is narrow:
@@ -48,7 +62,7 @@ evidence, not as repair or performance evidence; it rejects repair, ranking,
 validation, performance, paper, high-fidelity, full-driver, and self-ID claims.
 The next admitted step is M2818 branch synthesis over M2815-M2817 before any
 repair design, execution extension, ranking, validation, packaging, Route B
-claim, or Route C claim.
+claim, or Route C claim; that synthesis is now completed above.
 
 M2816 completed bounded recoverability-window instrumented execution over the
 fixed M2813/M2807 row set. It accounts for 12 fixed mechanism rows, 10 source

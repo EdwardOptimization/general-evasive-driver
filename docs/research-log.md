@@ -51221,3 +51221,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit_20260605T193405Z/command.log`
 - success artifact: `docs/m2817-engineering-controller-route-a-post-action-response-recoverability-window-instrumented-bounded-execution-result-audit.md`
 - notes: Completed: audit accepts M2816 complete claim-safe bounded recoverability-window diagnostics status_pass true required artifacts present 12 fixed rows 12 execution rows 0 failures 7 post-event traces 0 recoverability-window available 0 recoverability success 44 guardrails 14 actor guards 17 claim rows 32 gates actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects repair ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2818 synthesis
+
+## 20260605T195232Z m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2815-M2817 recoverability-window evidence while preventing local-search repetition and selecting a bounded next route that changes evidence or stops.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis_20260605T195232Z`
+- command log: `runs/research/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis_20260605T195232Z/command.log`
+- success artifact: `docs/m2818-engineering-controller-route-a-post-action-response-recoverability-window-branch-synthesis.md`
+- notes: Completed: synthesis decision pivot stops post-action-response recoverability-window local loop accepts M2815-M2817 complete claim-safe diagnostics M2816 12 fixed rows 12 execution rows 0 failures 7 post-event traces 0 recoverability-window availability 0 recoverability success 1 collision 5 offtrack terminations actor 72/action 3 no hidden oracle labels guardrails outside denominators rejects direct repair ranking validation performance paper high-fidelity full driver and self-ID claims routes to M2819 post-recoverability negative readiness-index design
