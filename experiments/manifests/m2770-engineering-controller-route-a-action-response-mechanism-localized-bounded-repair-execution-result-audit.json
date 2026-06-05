@@ -1,0 +1,172 @@
+{
+  "baseline_artifacts": [
+    "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json",
+    "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_rows.csv",
+    "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_failure_rows.csv",
+    "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2770 provides a bounded result audit of M2769 artifacts and preserves all actor guardrail and claim boundaries.",
+  "failure_criteria": [
+    "M2770 overclaims M2769 as repair success validation performance paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2770 hides M2769 failures context-only rows or guardrail violations",
+    "M2770 fails to register a bounded next step or synthesis route"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute replay validation training PPO source build adapter probe or external simulation",
+    "do not rank candidates repair target classes controllers source edges profiles task families or mechanism tags",
+    "do not select a winner promote a checkpoint or compute success-rate verdict",
+    "do not claim repair success driver performance validation readiness paper current-sim high-fidelity full ideal driver or self-ID",
+    "do not hide M2769 failures context-only rows or guardrail rows",
+    "do not change actor inputs or expose repair labels to actor input"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "M2769 bounded repair execution artifacts can be audited as complete and claim-safe before interpretation.",
+  "id": "m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2769 repair execution artifacts require result audit before repair-success validation ranking or performance claim"
+    ],
+    "derived_from": [
+      "m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight",
+      "m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design",
+      "m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.json",
+      "experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_resolution_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_checkpoint_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/baseline_join_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_failure_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/context_only_regression_rows.csv",
+      "runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/guardrail_context_rows.csv",
+      "docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md"
+    ],
+    "parent_objective": [
+      "audit M2769 bounded mechanism-localized repair execution artifacts before any repair interpretation"
+    ],
+    "supersedes": [
+      "repair success interpretation before auditing M2769",
+      "another repair execution before auditing M2769",
+      "checkpoint promotion or winner selection from M2769 preflight rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the new M2769 repair execution artifacts before another repair loop",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2770 cannot decide a bounded next step after complete M2769 artifacts",
+      "M2770 proposes another same-surface repair execution without a new evidence axis",
+      "M2770 would make validation performance paper current-sim high-fidelity full-driver or self-ID claims"
+    ],
+    "paper_verdict_delta": "no paper verdict; can decide whether Route A should synthesize, repair artifacts, or admit another bounded evidence step",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2770 must consume M2769 summary candidate resolution checkpoint baseline execution failure context guard actor claim and gate artifacts",
+    "M2770 must accept or reject artifact completeness and claim safety",
+    "M2770 must preserve the 8 repair rows 4 context-only rows and 31 guardrails with actor-invisible labels",
+    "M2770 must reject repair success driver performance validation ranking paper current-sim high-fidelity full ideal driver and self-ID claims",
+    "M2770 must route to bounded synthesis artifact repair or next design without executing replay validation training ranking or promotion"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2769 bounded repair execution artifacts are complete and claim-safe or explicitly rejected",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2770 audits Route A engineering repair artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2770; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If M2769 artifacts are incomplete or negative preserve the result and route to synthesis or artifact repair rather than weakening gates or claiming self-ID evidence.",
+    "temporal_evidence_window": "M2764-M2770 Route A action-response mechanism-localized repair artifacts only."
+  },
+  "success_criteria": [
+    "docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md exists",
+    "M2770 accepts or rejects M2769 bounded repair execution evidence",
+    "actor and claim boundaries are preserved",
+    "one bounded follow-up or synthesis route is registered"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2769 artifacts exist",
+      "M2769 registers this result-audit follow-up before interpretation"
+    ],
+    "allowed_updates": [
+      "docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md",
+      "M2770 status queue scoreboard research log and review",
+      "one bounded follow-up manifest if audit accepts artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training ranking promotion or performance claim",
+      "no actor input change or hidden oracle input"
+    ],
+    "next_stage_criteria": [
+      "M2770 accepts or rejects M2769 artifacts and claim boundaries",
+      "M2770 registers one bounded next step or synthesis route"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "mechanism-localized bounded repair execution result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_action_response_mechanism_localized_repair",
+    "claim_scope": "Route A repair execution result audit only; no replay validation training ranking promotion repair-success driver-performance paper current-sim high-fidelity self-ID or full ideal driver claim",
+    "evidence_axis": "action_response_mechanism_localized_bounded_repair_execution_result_audit",
+    "evidence_increment": "audits whether M2769 produced complete bounded repair candidate execution artifacts before interpretation",
+    "fallback_plan": [
+      "route to artifact repair if M2769 joins or artifact accounting are incomplete",
+      "route to branch synthesis if bounded repair execution adds negative or ambiguous evidence",
+      "route to a bounded next design only if the audit accepts complete non-ranking evidence"
+    ],
+    "stop_condition": [
+      "stop if M2769 artifacts are incomplete",
+      "stop if actor or claim boundaries were violated",
+      "stop if repair rows context-only rows or guardrails cannot be separated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2769 bounded repair execution artifacts require result audit"
+  }
+}

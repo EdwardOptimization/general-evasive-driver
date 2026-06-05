@@ -50056,3 +50056,22 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2768
 - follow-up manifest: `experiments/manifests/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.json`
 - next: `m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight`
+
+## M2769 Engineering Controller Route A Action-Response Mechanism-Localized Bounded Repair Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight_pass`
+- manifest: `experiments/manifests/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight.py`
+- summary: `runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json`
+- doc: `docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md`
+- artifact accounting: wrote 8 repair candidate rows 3 repair checkpoint rows 24 candidate-resolution rows 8 baseline join rows 24 repair execution rows 0 failure rows 4 context-only regression rows 31 guardrail rows 10 actor-contract guard rows 11 claim-boundary rows and 20 gate rows all passing
+- diagnostic accounting: success_rate_diagnostic 0.0 collision_rate_diagnostic 0.125 clearance_margin_mean_diagnostic 8.995123866381123 return_mean_diagnostic -70.16226008164865 all selected metrics finite; this is diagnostic accounting only and not a success-rate verdict or repair-success claim
+- surface boundary: exactly 8 M2766 admitted repair rows were executed under 3 actor-head bias candidates; the 4 diagnostic-success rows remain context-only and the 31 guardrails remain non-executed outside ordinary success denominators
+- telemetry boundary: preserves M2759 no-backfill and 8/8 finite M2764 baseline telemetry joins for the admitted repair rows
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor input contract change no active config overwrite no environment difficulty relaxation no profile-specific or per-row tuning and actor-invisible mechanism repair-target context guardrail progress and verdict labels
+- route decision: route to M2770 result audit before repair interpretation validation ranking performance or synthesis decision
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2769
+- follow-up manifest: `experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json`
+- next: `m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit`
