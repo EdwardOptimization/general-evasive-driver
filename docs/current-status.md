@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight
+m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight
+m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit
+m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight
 ```
 
 Current route:
@@ -1691,20 +1691,40 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
 - next: `m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit`
 
+## M2765 Engineering Controller Route A Action-Response Telemetry Instrumented Probe Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2764_route_to_action_response_telemetry_mechanism_localization_panel_materialization`
+- manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
+- audit doc: `docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md`
+- parent summary: `runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json`
+- parent doc: `docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md`
+- accepted parent result: M2764 status_pass true with 12 localized rows, 12 execution rows, 0 failure rows, 12 finite action-response rows, 12 telemetry coverage improved rows, 12 containment rows, 50 mechanism rows, 31 guardrail rows, 7 actor-contract guard rows, 17 claim-boundary rows, and 27 gate rows all passing
+- telemetry boundary: accepts 12/12 finite previous-command current-action and trace-delta fallback rows in fresh M2764 artifacts while preserving M2759 no-backfill and the M2762 forward schema contract
+- diagnostic accounting: preserves 4 diagnostic success rows, 1 obstacle-collision row, 7 off_track rows, and 4 blank termination rows as row accounting only, not a success-rate verdict
+- guardrail boundary: all 31 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry/action-response/containment/mechanism/stress-axis/source-edge/progress/verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2766 no-rollout mechanism-localization panel materialization before repair design, execution extension, validation, ranking, or performance claim
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2765
+- follow-up manifest: `experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json`
+- next: `m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight`
+
 ## Immediate Next Step
 
-M2765 should audit the M2764 bounded instrumented probe artifacts before any
-mechanism interpretation, containment repair, validation, performance, paper,
-current-sim, high-fidelity, full-driver, or self-ID claim:
+M2766 should materialize a no-rollout mechanism-localization panel from M2764
+finite action-response telemetry and containment outcomes before any repair
+design, execution extension, validation, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claim:
 
 ```text
-docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md
 runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json
-experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json
+docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md
+experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json
 ```
 
-M2765 must preserve M2759 no-backfill evidence, the M2762 forward telemetry
-contract, actor 72/action 3, no hidden/oracle input, actor-invisible evaluator
-labels, and guardrails outside execution. It must not replay, validate, train,
-rank, promote, or claim repair success, driver performance, paper evidence,
-current-sim, high-fidelity, full ideal driver, or self-ID evidence.
+M2766 must preserve all 12 M2764 localized rows, all 31 guardrails outside
+denominators, M2759 no-backfill lineage, the M2762 forward telemetry contract,
+actor 72/action 3, no hidden/oracle input, and actor-invisible evaluator
+labels. It must not execute reset, step, rollout, replay, validation, training,
+ranking, promotion, or claim repair success, driver performance, paper
+evidence, current-sim, high-fidelity, full ideal driver, or self-ID evidence.

@@ -49983,3 +49983,21 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2764
 - follow-up manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
 - next: `m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit`
+
+## M2765 Engineering Controller Route A Action-Response Telemetry Instrumented Probe Bounded Execution Result Audit
+
+- status: completed
+- decision: `accept_m2764_route_to_action_response_telemetry_mechanism_localization_panel_materialization`
+- manifest: `experiments/manifests/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.json`
+- audit doc: `docs/m2765-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-result-audit.md`
+- parent summary: `runs/m2764_engineering_controller_route_a_action_response_telemetry_instrumented_probe_bounded_execution_preflight/summary.json`
+- parent doc: `docs/m2764-engineering-controller-route-a-action-response-telemetry-instrumented-probe-bounded-execution-preflight.md`
+- accepted parent result: M2764 status_pass true with 12 localized rows 12 execution rows 0 failure rows 12 finite action-response rows 12 telemetry coverage improved rows 12 containment rows 50 mechanism rows 31 guardrail rows 7 actor-contract guard rows 17 claim-boundary rows and 27 gate rows all passing
+- telemetry boundary: accepts fresh M2764 finite previous-command current-action and trace-delta fallback telemetry for all 12 rows while preserving M2759 no-backfill and M2762 forward-contract lineage
+- diagnostic accounting: preserves 4 diagnostic success rows 1 obstacle-collision row 7 off_track rows and 4 blank termination rows as row accounting only and not a success-rate verdict
+- guardrail boundary: all 31 guardrail rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input telemetry/action-response/containment/mechanism/stress-axis/source-edge/progress/verdict labels actor-invisible and actor input contract unchanged
+- route decision: route to M2766 no-rollout mechanism-localization panel materialization so finite telemetry becomes a row-level mechanism/repair-target contract before repair design or another execution
+- rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2765
+- follow-up manifest: `experiments/manifests/m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight.json`
+- next: `m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight`
