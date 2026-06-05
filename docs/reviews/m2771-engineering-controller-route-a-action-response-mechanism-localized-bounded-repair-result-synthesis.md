@@ -1,0 +1,128 @@
+# m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260605T091837Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_source_only_action_response_belief_intervention_design
+- Decision reason: M2771 synthesis accepts M2766-M2770 as complete claim-safe but diagnostic-negative preserves M2769 8 repair rows 3 checkpoints 24 execution rows 0 failures 0/24 success 3/24 collision 17 offtrack 4 speed_too_low 4 context-only rows 31 guardrails actor 72/action 3 no hidden oracle rejects same-surface actor-head repair ranking validation performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2772 source-only action-response belief intervention design
+
+## Hypothesis
+
+A result synthesis can preserve M2766-M2770 mechanism-localized repair evidence while preventing local-search repetition and selecting a bounded next route that changes evidence, pivots, or stops.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md, docs/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.md, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_candidate_resolution_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_checkpoint_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/baseline_join_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/repair_execution_failure_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/context_only_regression_rows.csv, runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/guardrail_context_rows.csv, runs/m2766_engineering_controller_route_a_action_response_telemetry_mechanism_localization_panel_materialization/summary.json, docs/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.md, docs/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.json, experiments/manifests/m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight.json, experiments/manifests/m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design.json, experiments/manifests/m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit.json
+- parent_objective: synthesize M2766-M2770 mechanism-localized repair design execution and audit evidence before admitting another repair loop or route pivot
+- derived_from: m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit, m2769-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-preflight, m2768-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-design, m2767-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-result-audit, m2766-engineering-controller-route-a-action-response-telemetry-mechanism-localization-panel-materialization-preflight
+- blocked_by: M2770 accepts M2769 artifacts as complete and claim-safe but rejects repair-success interpretation, M2769 diagnostic accounting is 0/24 success 3/24 collision 17 off_track and 4 speed_too_low terminations, M2769 is a bounded actor-head candidate sweep not a ranking validation training or promotion run, another same-surface repair execution would increase local-search risk without a new evidence axis, docs/post-m2470-route-plan.md requires synthesis or pivot when current-sim and Route A infrastructure become the loop
+- supersedes: direct repair-success interpretation from M2769, candidate ranking or winner selection from M2769, checkpoint promotion from M2769, another mechanism-localized same-surface repair execution before synthesis, validation performance paper current-sim high-fidelity full-driver or self-ID interpretation from M2769
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2769 status_pass true and M2770 audit acceptance
+- synthesis records 8 repair rows 3 checkpoints 24 candidate-resolution rows 8 baseline joins 24 execution rows 0 failure rows 4 context-only rows 31 guardrails and 20 gates as diagnostic evidence only
+- synthesis records 0 diagnostic success 3 collision 17 offtrack and 4 speed_too_low rows as diagnostic row accounting only
+- synthesis preserves all context-only rows and guardrails as not run not admitted and outside denominators
+- synthesis preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels no active config overwrite and no environment relaxation
+- synthesis registers one bounded follow-up manifest if continuing or pivoting
+- no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation actor-input change hidden/oracle input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made
+
+## Failure Criteria
+
+- M2771 executes reset step rollout replay validation training PPO source build adapter probe external simulation or private holdout
+- M2771 changes actor input or action contract
+- M2771 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels blocker labels protected labels source-edge labels task-family labels mechanism labels route labels or verdicts to actor input
+- M2771 treats source-edge task-family profile mechanism candidate or context rows as ranking winner selection promotion or success-rate verdict evidence
+- M2771 treats context-only rows or guardrail rows as execution rows or ordinary denominators
+- M2771 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2771 fails to synthesize M2766-M2770 and select a bounded follow-up route or stop
+
+## Evidence Gates
+
+- M2771 must synthesize M2766-M2770 mechanism-localized repair panel design execution and audit evidence before any additional same-surface repair execution validation ranking or performance claim
+- M2771 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2771 must preserve M2769 artifact accounting 8 repair rows 3 checkpoints 24 candidate-resolution rows 8 baseline joins 24 execution rows 0 failure rows 4 context-only rows 31 guardrails 10 actor rows 11 claim rows and 20 gates all pass
+- M2771 must preserve M2769 diagnostic outcomes 0 diagnostic success 3 collision 17 offtrack and 4 speed_too_low rows as diagnostic row accounting only
+- M2771 must preserve the 4 context-only rows and 31 guardrails as non-executed outside ordinary denominators
+- M2771 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input no actor input contract change actor-invisible evaluator labels no active config overwrite and no environment relaxation
+- M2771 must decide continue pivot stop package-with-limitations defer-to-Route-B defer-to-Route-C or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting
+- M2771 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2771 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose mechanism repair-target context guardrail source-edge task-family candidate outcome success progress route decision or verdict labels to actor input
+- do not hide M2769 0/24 diagnostic success or 3/24 collision rows
+- do not hide the 4 context-only rows or 31 guardrails
+- do not treat context-only or guardrail rows as ordinary success denominators
+- do not rank candidates checkpoints source edges profiles task families mechanism tags or controllers
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2771 synthesis
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
+- type: gate
+- checkpoint: docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_source_only_action_response_belief_intervention_design
+- reason: M2771 synthesis accepts M2766-M2770 as complete claim-safe but diagnostic-negative preserves M2769 8 repair rows 3 checkpoints 24 execution rows 0 failures 0/24 success 3/24 collision 17 offtrack 4 speed_too_low 4 context-only rows 31 guardrails actor 72/action 3 no hidden oracle rejects same-surface actor-head repair ranking validation performance paper current-sim high-fidelity full ideal driver and self-ID claims routes to M2772 source-only action-response belief intervention design
+
+## Next Blocker
+
+None recorded.

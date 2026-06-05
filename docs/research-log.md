@@ -50091,3 +50091,20 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2770
 - follow-up manifest: `experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json`
 - next: `m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis`
+
+## M2771 Engineering Controller Route A Action-Response Mechanism-Localized Bounded Repair Result Synthesis
+
+- status: completed
+- decision: `pivot_to_route_a_source_only_action_response_belief_intervention_design`
+- manifest: `experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json`
+- synthesis doc: `docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md`
+- parent audit: `docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md`
+- parent summary: `runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json`
+- accepted branch: M2766-M2770 are complete and claim-safe as a mechanism-localized repair panel design execution audit and synthesis branch
+- negative diagnostic result: M2769 preserves 8 repair rows 3 checkpoints 24 candidate-resolution rows 8 baseline joins 24 execution rows 0 failure rows 4 context-only rows 31 guardrails 10 actor-contract guard rows 11 claim-boundary rows and 20 gates all passing but has 0/24 diagnostic success 3/24 collision 17 off_track and 4 speed_too_low
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor input contract change no active config overwrite no environment difficulty relaxation and actor-invisible mechanism repair-target context guardrail progress verdict role dynamics intervention success and outcome labels
+- route context: M2638 still blocks external selected-platform HF3 execution until source dependency is supplied; repo-local source-only HF0/FourWheel evidence remains available from M2492 M2641/M2643 and M2655
+- route decision: pivot away from same-surface current-sim actor-head bias repair to M2772 source-only action-response belief intervention design
+- rejected alternatives: no further M2769-like actor-head bias sweep direct HF3 build/probe package-only refresh Route B paper verdict ranking winner selection promotion validation performance paper current-sim high-fidelity full ideal driver or self-ID claim from M2771
+- follow-up manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
+- next: `m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design`

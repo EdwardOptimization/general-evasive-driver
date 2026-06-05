@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit
+m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit
+m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis
+m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design
 ```
 
 Current route:
@@ -1800,21 +1800,40 @@ training repair success
 - follow-up manifest: `experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json`
 - next: `m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis`
 
+## M2771 Engineering Controller Route A Action-Response Mechanism-Localized Bounded Repair Result Synthesis
+
+- status: completed
+- decision: `pivot_to_route_a_source_only_action_response_belief_intervention_design`
+- manifest: `experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json`
+- synthesis doc: `docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md`
+- parent audit: `docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md`
+- accepted branch: M2766-M2770 are complete and claim-safe as a mechanism-localized repair branch
+- negative diagnostic result: M2769 preserves 8 repair rows, 3 checkpoints, 24 execution rows, 0 failure rows, 4 context-only rows, 31 guardrails, actor 72/action 3, and no hidden/oracle actor input, but the accounting is 0/24 success, 3/24 collision, 17 off_track, and 4 speed_too_low
+- route context: direct HF3 execution remains blocked by the M2638 source dependency; the repo-local source-only HF0/FourWheel path and prior M2492/M2641/M2655 evidence remain available
+- route decision: pivot away from same-surface actor-head bias repair to M2772 source-only action-response belief intervention design
+- rejected claims: no repair success validation ranking winner promotion success-rate verdict driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2771
+- follow-up manifest: `experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json`
+- next: `m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design`
+
 ## Immediate Next Step
 
-M2771 should synthesize the M2766-M2770 mechanism-localized repair branch
-before any additional same-surface repair execution, validation, ranking,
-performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim:
+M2772 should write a design-only source-only HF0/FourWheel action-response
+belief intervention protocol before any reset, step, rollout, training,
+validation, ranking, performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID claim:
 
 ```text
-runs/m2769_engineering_controller_route_a_action_response_mechanism_localized_bounded_repair_execution_preflight/summary.json
-docs/m2770-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-execution-result-audit.md
-experiments/manifests/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.json
+docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md
+docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md
+docs/m2492-source-only-closed-loop-fixture-pilot-branch-synthesis.md
+runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json
+runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/summary.json
+experiments/manifests/m2772-engineering-controller-route-a-source-only-action-response-belief-intervention-design.json
 ```
 
-M2771 must answer the six synthesis questions, preserve M2769 as complete but
-negative diagnostic accounting only, and choose one bounded next branch, pivot,
-or stop. It must keep the 4 context-only rows and 31 guardrails outside
-denominators, preserve actor 72/action 3 with no hidden/oracle input, and avoid
-repair-success, validation, ranking, performance, paper, current-sim,
-high-fidelity, full ideal driver, or self-ID claims.
+M2772 must preserve actor 72/action 3 with no hidden/oracle input, keep role,
+dynamics, intervention, outcome, success, progress, and verdict labels
+actor-invisible, and specify normal recurrent plus evaluator-only history
+intervention conditions. It must use a source-only surface beyond the M2769
+8-row current-sim repair set and register one bounded M2773 materialization or
+stop route.
