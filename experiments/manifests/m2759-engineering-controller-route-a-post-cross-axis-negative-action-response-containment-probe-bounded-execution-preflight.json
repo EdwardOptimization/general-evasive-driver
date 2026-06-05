@@ -26,9 +26,13 @@
       "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/source_edge_context_rows.csv",
       "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv",
       "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/actor_contract_guard_rows.csv",
-      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/claim_boundary_rows.csv",
-      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/gate_matrix.csv",
-      "docs/post-m2470-route-plan.md"
+            "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/claim_boundary_rows.csv",
+            "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/gate_matrix.csv",
+            "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/cross_axis_candidate_rows.csv",
+            "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+            "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+            "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+            "docs/post-m2470-route-plan.md"
     ],
     "parent_config": [
       "experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json",
@@ -59,7 +63,7 @@
   },
   "review_artifact": "docs/reviews/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
   "public_gates": [
-    "M2759 must consume M2758 design M2757 audit and all M2756 localization guard actor claim and gate artifacts before execution",
+        "M2759 must consume M2758 design M2757 audit and all M2756 localization guard actor claim and gate artifacts before execution while using M2753 and M1690 only as resolver metadata for workload config checkpoint and executable spec paths",
     "M2759 may execute reset step policy action and rollout only for the 12 M2756 localized candidate rows",
     "M2759 must preserve the 3 collision negative-clearance and 9 offtrack positive-clearance strata without ranking axes source edges task families profiles or controllers",
     "M2759 must carry all 31 guardrail rows as non-executed guardrails outside ordinary success denominators",
@@ -153,9 +157,9 @@
       "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/claim_boundary_rows.csv",
       "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/gate_matrix.csv",
       "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/run_state.json",
-      "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
-      "M2759 status queue scoreboard research log and review",
-      "one bounded result-audit follow-up manifest"
+            "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md",
+            "M2759 status queue scoreboard research log and review",
+            "one bounded result-audit follow-up manifest"
     ],
     "next_stage_criteria": [
       "probe artifacts exist and account for all 12 localized rows",
@@ -215,7 +219,7 @@
   "commands": [
     {
       "name": "post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight",
-      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight --m2756-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2758-design docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md --output-dir runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight"
+            "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight --m2756-dir runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel --m2758-design docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md --m2753-dir runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --follow-up-manifest experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json --output-dir runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight"
     }
   ],
   "required_artifacts": [
@@ -277,10 +281,13 @@
   ],
   "baseline_artifacts": [
     "docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md",
-    "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md",
-    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
-    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
-    "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv"
+        "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md",
+        "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
+        "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
+        "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv",
+        "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+        "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+        "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json"
   ],
   "scoreboard_checkpoint": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
   "next_blocker": "M2759 post-cross-axis negative action-response containment probe bounded execution"

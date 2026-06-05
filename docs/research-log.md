@@ -49867,3 +49867,23 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - rejected claims: no reset step policy action rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2758
 - follow-up manifest: `experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json`
 - next: `m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight`
+
+## M2759 Engineering Controller Route A Post-Cross-Axis Negative Action-Response Containment Probe Bounded Execution Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight_pass`
+- manifest: `experiments/manifests/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.json`
+- implementation: `src/autodrift/engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight.py`
+- focused tests: `tests/test_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight.py`
+- summary: `runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json`
+- doc: `docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md`
+- artifact accounting: wrote 12 candidate-resolution rows, 12 execution rows, 0 failure rows, 12 action-response probe rows, 12 containment probe rows, 51 mechanism-context rows, 31 guardrail rows, 6 actor-contract guard rows, 14 claim-boundary rows, and 23 gate rows all passing
+- diagnostic accounting: 2 diagnostic success rows, 0 collision rows, 10 offtrack rows, and 2 blank termination rows; this remains diagnostic row accounting only and not a success-rate verdict
+- localized strata: preserves M2756 3 collision negative-clearance rows and 9 offtrack positive-clearance rows as non-ranking diagnostic strata
+- mechanism context: emitted evaluator-only collision negative-clearance offtrack positive-clearance action-response mismatch track-containment obstacle-timing and mixed-mechanism context tags
+- guardrail boundary: all 31 M2756 guardrail context rows remain non-executed and outside ordinary success denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input localization action-response containment mechanism stress-axis source-edge success/progress and verdict labels actor-invisible
+- route decision: route to M2760 result audit before mechanism interpretation repair design ranking validation or performance claim
+- rejected claims: no replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate verdict repair success driver-performance paper FW-vs-GRU current-sim high-fidelity full ideal driver or self-ID claim from M2759
+- follow-up manifest: `experiments/manifests/m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit.json`
+- next: `m2760-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-result-audit`

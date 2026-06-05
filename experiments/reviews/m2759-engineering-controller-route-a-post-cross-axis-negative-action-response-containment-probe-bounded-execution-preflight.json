@@ -1,0 +1,141 @@
+{
+  "decision_reason": "M2759 bounded probe execution pass wrote 12/12 execution rows 0 failures 12 action-response probe rows 12 containment probe rows 51 mechanism context rows 31 guardrail rows 6 actor guards 14 claim rows and 23 gates all pass diagnostic accounting 2 success 0 collision 10 offtrack 2 blank termination rows preserves 3 collision negative-clearance and 9 offtrack positive-clearance strata guardrails not executed actor 72/action 3 no hidden oracle rejects ranking validation training performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2760 result audit",
+  "failure_criteria": [
+    "M2759 changes actor input or action contract",
+    "M2759 exposes localization action-response containment stress-axis source-edge protected blocker route progress or verdict labels to actor input",
+    "M2759 executes rows outside the 12 localized candidates",
+    "M2759 treats prior-panel protected or HF3 guardrails as execution rows or ordinary denominators",
+    "M2759 trains runs PPO validates builds source probes adapters runs external simulation ranks winners promotes checkpoints or claims driver performance",
+    "M2759 fails to register a bounded result-audit follow-up"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose failure-localization labels stress-axis labels source-edge labels action-response labels containment labels task-family labels profile labels protected labels blocker labels gate outcomes route decisions success labels progress labels or verdict labels to actor input",
+    "do not execute rows outside the 12 M2756 localized candidates",
+    "do not hide M2756 collision or offtrack localization rows",
+    "do not treat prior-panel protected or HF3 guardrail rows as execution rows or ordinary success denominators",
+    "do not rank controller families stress axes source edges profiles or task families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2759 probe"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260605T065610Z",
+  "hypothesis": "A bounded diagnostic execution preflight can produce evaluator-only action-response and containment mechanism telemetry from the audited M2756 localized rows while preserving actor and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2758 admits execution only as a bounded diagnostic mechanism probe",
+      "M2756 localization does not identify whether action-response mismatch or containment dominates",
+      "prior-panel protected and HF3 guardrails must remain outside execution and ordinary denominators",
+      "actor input must remain human-view 72/action 3 with no hidden or oracle labels"
+    ],
+    "derived_from": [
+      "m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design",
+      "m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit",
+      "m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.json",
+      "experiments/manifests/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.json",
+      "experiments/manifests/m2756-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2758-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-design.md",
+      "docs/m2757-engineering-controller-route-a-post-cross-axis-negative-failure-localization-panel-materialization-result-audit.md",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/summary.json",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/failure_localization_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/outcome_bucket_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/stress_axis_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/source_edge_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/guardrail_context_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/actor_contract_guard_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/claim_boundary_rows.csv",
+      "runs/m2756_engineering_controller_route_a_post_cross_axis_negative_failure_localization_panel/gate_matrix.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/cross_axis_candidate_rows.csv",
+      "runs/m2753_engineering_controller_route_a_cross_axis_stress_generalization_bounded_execution_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "run a bounded diagnostic probe over the 12 M2756 localized rows to produce evaluator-only action-response and containment mechanism evidence"
+    ],
+    "supersedes": [
+      "direct repair execution from M2756 localization rows",
+      "another M2753-like cross-axis execution without mechanism telemetry",
+      "stress-axis or source-edge ranking from M2756 context rows",
+      "validation readiness or driver-performance interpretation before mechanism probe audit"
+    ]
+  },
+  "milestone": "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight",
+  "next_blocker": "M2759 post-cross-axis negative action-response containment probe bounded execution",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_post_cross_axis_negative_action_response_containment_probe_result_audit",
+  "public_gates": [
+    "M2759 must consume M2758 design M2757 audit and all M2756 localization guard actor claim and gate artifacts before execution while using M2753 and M1690 only as resolver metadata for workload config checkpoint and executable spec paths",
+    "M2759 may execute reset step policy action and rollout only for the 12 M2756 localized candidate rows",
+    "M2759 must preserve the 3 collision negative-clearance and 9 offtrack positive-clearance strata without ranking axes source edges task families profiles or controllers",
+    "M2759 must carry all 31 guardrail rows as non-executed guardrails outside ordinary success denominators",
+    "M2759 must write summary probe-candidate-resolution probe-execution probe-execution-failure action-response-probe containment-probe mechanism-context guard actor claim gate run-state and doc artifacts",
+    "M2759 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input no actor input contract change and actor-invisible localization action-response containment stress-axis source-edge progress and verdict labels",
+    "M2759 must not execute replay validation training PPO source build adapter probe external simulation private holdout ranking winner selection promotion or success-rate verdict computation",
+    "M2759 must register one result-audit follow-up before repair design execution extension ranking validation or performance claim"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_post_cross_axis_negative_action_response_containment_probe_result_audit",
+    "milestone": "m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight",
+    "reason": "M2759 bounded probe execution pass wrote 12/12 execution rows 0 failures 12 action-response probe rows 12 containment probe rows 51 mechanism context rows 31 guardrail rows 6 actor guards 14 claim rows and 23 gates all pass diagnostic accounting 2 success 0 collision 10 offtrack 2 blank termination rows preserves 3 collision negative-clearance and 9 offtrack positive-clearance strata guardrails not executed actor 72/action 3 no hidden oracle rejects ranking validation training performance paper current-sim high-fidelity full ideal driver or self-ID claim routes to M2760 result audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/summary.json exists",
+    "docs/m2759-engineering-controller-route-a-post-cross-axis-negative-action-response-containment-probe-bounded-execution-preflight.md exists",
+    "probe accounts for 12 M2756 localized rows 3 collision negative-clearance rows 9 offtrack positive-clearance rows and 31 guardrail rows",
+    "probe writes action-response containment and mechanism-context telemetry as evaluator-only diagnostic rows",
+    "actor 72/action 3 no hidden/oracle actor input actor-invisible labels and protected rows outside denominators are preserved",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim is made"
+  ],
+  "type": "infrastructure"
+}
