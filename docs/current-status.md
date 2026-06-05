@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
+m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit
+m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design
+m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight
 ```
 
 Current route:
@@ -165,6 +165,18 @@ execution-design step, not repair execution or a verdict.
 Next is M2727 bounded offtrack repair execution design before any repair
 execution, validation, ranking, performance, paper, current-sim, high-fidelity,
 full ideal driver, or self-ID claim.
+
+M2727 wrote the bounded execution design. It admits only a separately
+pre-registered M2728 repair execution preflight over the 31 M2725 candidate
+target rows, with temporary run-dir overlay application, active config overwrite
+false, collision caution/diagnostic success/protected exclusion rows preserved
+as guardrails, actor 72/action 3 and actor-invisible labels preserved, and no
+ranking, validation, performance, paper, current-sim, high-fidelity, full ideal
+driver, or self-ID claim.
+
+Next is M2728 bounded offtrack repair execution preflight before any
+interpretation, validation, ranking, performance, paper, current-sim,
+high-fidelity, full ideal driver, or self-ID claim.
 ```
 
 The Route A artifact set preserves P0 observation shape `72`, action shape `3`,

@@ -1,0 +1,295 @@
+{
+  "id": "m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md",
+      "docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/candidate_target_rows.csv",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/shared_repair_overlay_rows.csv",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/guardrail_rows.csv",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/actor_contract_rows.csv",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/claim_boundary_rows.csv",
+      "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/gate_matrix.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.json",
+      "experiments/manifests/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.json",
+      "experiments/manifests/m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute one bounded diagnostic repair preflight over the accepted M2725 offtrack candidate rows with temporary overlay handling"
+    ],
+    "derived_from": [
+      "m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design",
+      "m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit",
+      "m2725-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2725 materializes candidate overlays but no closed-loop repair evidence exists",
+      "M2727 admits execution only if temporary overlay application and rollback are preserved",
+      "M2728 must not overwrite active configs or expand beyond the 31 M2725 candidate rows",
+      "collision caution diagnostic success and protected exclusion rows must remain guardrails"
+    ],
+    "supersedes": [
+      "another static candidate materialization audit",
+      "direct performance interpretation from M2725 candidate rows",
+      "repair execution without row-level failure accounting",
+      "active config overwrite from candidate overlay rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.md",
+  "public_gates": [
+    "M2728 must consume M2727 design M2726 audit and M2725 candidate overlay guardrail actor claim and gate artifacts before execution",
+    "M2728 may execute reset step rollout and policy actions only for the 31 M2725 offtrack candidate target rows",
+    "M2728 must apply the shared repair overlay only as temporary in-memory or run-dir config snapshots and must not overwrite active configs",
+    "M2728 must preserve the 17 guardrail rows with collision caution diagnostic success context and protected exclusions visible outside execution denominators",
+    "M2728 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and the deployed steer throttle brake action contract",
+    "M2728 must keep target protected profile gate route progress success and verdict labels actor-invisible",
+    "M2728 must write repair execution rows failure rows profile aggregate anchor aggregate overlay application guardrail audit actor-contract claim-boundary gate run-state summary and doc artifacts",
+    "M2728 must keep outcomes diagnostic and must not rank controller families select winners promote checkpoints compute success-rate verdicts or claim finite-window-vs-GRU current-response current-sim driver-performance paper high-fidelity full ideal driver or self-ID evidence",
+    "M2728 must register one result-audit route before interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute any row outside the 31 M2725 candidate target rows",
+    "do not execute M2725 guardrail rows as ordinary target rows",
+    "do not execute protected exclusion rows",
+    "do not overwrite active configs",
+    "do not apply profile-specific tuning",
+    "do not run replay",
+    "do not run measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose taxonomy labels repair target labels off-track labels protected labels profile labels blocker labels gate outcomes route decisions controller-family labels success labels progress labels or verdict labels to actor input",
+    "do not treat protected rows as ordinary success denominators",
+    "do not hide failed candidate rows",
+    "do not hide collision caution rows",
+    "do not hide diagnostic success context rows",
+    "do not hide protected proposal exclusions",
+    "do not rank controller families",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from bounded repair execution preflight"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_current_m1690_exact_executable_reentry",
+    "evidence_axis": "current_m1690_exact_executable_reentry_offtrack_repair_bounded_closed_loop_diagnostic_execution",
+    "evidence_increment": "moves from audited repair candidate materialization into bounded closed-loop diagnostic execution on the 31 offtrack candidate rows with temporary overlay handling",
+    "claim_scope": "Bounded repair execution preflight only; reset step rollout and policy actions allowed for 31 M2725 candidate target rows under temporary overlay snapshots, but no replay validation training PPO private holdout profile-specific tuning ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-response current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2725 M2726 or M2727 artifacts are missing",
+      "stop if any candidate row lacks an existing workload id or overlay binding",
+      "stop if overlay application would overwrite active configs or require profile-specific tuning",
+      "stop if execution would include guardrail or protected exclusion rows as ordinary targets",
+      "stop if the runner requires actor-input changes hidden/oracle inputs actor-visible labels private holdout profile-specific tuning or protected denominators",
+      "stop if M2728 would rank profiles select a winner promote a checkpoint or claim performance validation paper current-sim high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to missing-artifact repair if M2725-M2727 artifacts are absent",
+      "route to execution-design repair if overlay application rollback or artifact schemas are incomplete",
+      "route to runner repair if failure-row recording or actor-boundary guards fail",
+      "route to result audit if bounded execution completes with clean guardrails",
+      "route to branch synthesis if execution cannot produce actionable evidence without violating claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2727 admits one bounded repair execution preflight after candidate materialization audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "current-M1690 exact-executable reentry offtrack repair bounded execution preflight",
+    "admission_evidence": [
+      "M2727 designs an actor-safe bounded execution protocol",
+      "M2726 accepts M2725 candidate materialization as complete and claim-safe",
+      "M2725 materializes 31 candidate target rows 15 shared overlay rows 17 guardrail rows 9 actor rows 23 claim rows and 17 passing gates",
+      "M2725 preserves active_config_overwritten false repair_execution_started false actor_input_change false and target_labels_actor_visible false"
+    ],
+    "blocked_shortcuts": [
+      "no replay validation training PPO private holdout profile-specific tuning",
+      "no active config overwrite",
+      "no guardrail or protected-row execution as ordinary targets",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight.py",
+      "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/*",
+      "docs/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.md",
+      "M2728 status queue scoreboard research log and review",
+      "one bounded result-audit follow-up manifest"
+    ],
+    "next_stage_criteria": [
+      "31 candidate rows complete or failures are recorded",
+      "overlay application and rollback rows exist",
+      "profile and anchor aggregates exist but remain diagnostic",
+      "guardrail rows remain non-target and protected rows remain excluded",
+      "actor-contract join rows pass",
+      "claim-boundary rows block ranking performance validation paper current-sim high-fidelity full-driver and self-ID claims",
+      "result audit route is explicit before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2728 can create bounded closed-loop repair diagnostic data across profiles but is not a self-ID or history-necessity proof.",
+    "history_necessity_tests": [
+      "None in M2728; profile outcome differences must remain diagnostic until a separately pre-registered controller-family or history-dependence comparison audit accepts them."
+    ],
+    "temporal_evidence_window": "M2725 candidate materialization, M2726 audit, and M2727 design only.",
+    "negative_result_policy": "If the repaired execution panel fails or is washed out, preserve exact failure rows and route to audit or synthesis rather than forcing performance or self-ID interpretation.",
+    "allowed_claims": [
+      "bounded current-M1690 exact-executable reentry offtrack repair execution preflight completed or failed with recorded artifacts",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces bounded closed-loop repair diagnostic data from the accepted candidate pack instead of another static materialization",
+    "paper_verdict_delta": "no paper verdict; can expose whether the shared offtrack repair overlay changes the current-M1690 exact-executable diagnostic surface before any larger comparison or validation route",
+    "must_synthesize_if": [
+      "M2728 cannot produce bounded execution rows with clean guardrails or recorded failures",
+      "M2728 requires private holdout profile-specific tuning actor-input changes hidden/oracle actor inputs actor-visible labels or active config overwrite",
+      "M2728 would claim ranking repair success finite-window-vs-GRU current-response current-sim paper validation driver-performance high-fidelity or self-ID result",
+      "M2728 repeats exact-executable execution washout without actionable evidence expansion"
+    ]
+  },
+  "hypothesis": "A bounded offtrack repair execution preflight can produce new closed-loop diagnostic evidence from the M2725 candidate pack under temporary shared overlays without changing actor inputs or overclaiming repair outcomes.",
+  "success_criteria": [
+    "docs/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.md exists",
+    "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json exists",
+    "repair_execution_rows.csv exists and covers the 31 M2725 candidate target rows or records failures",
+    "candidate_execution_failure_rows.csv exists",
+    "profile_aggregate.csv and anchor_aggregate.csv exist and remain diagnostic non-ranking rows",
+    "repair_overlay_application_rows.csv exists and verifies temporary overlay application with active_config_overwritten false",
+    "guardrail_audit_rows.csv exists and verifies collision caution diagnostic success and protected exclusion rows remain non-target guardrails",
+    "actor_contract_join_rows.csv verifies P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels",
+    "claim_boundary_rows.csv blocks repair success ranking driver-performance validation paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver and self-ID claims",
+    "gate_matrix.csv passes only if guardrails are clean failed cells are recorded and execution stays bounded to the M2725 candidate rows",
+    "run_state.json exists and records completion or failure rows",
+    "one result-audit follow-up manifest is registered",
+    "no replay validation training PPO private holdout profile-specific tuning active config overwrite actor-input change hidden/oracle input actor-visible labels protected execution ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2728 trains runs PPO replay uses private holdout promotes overwrites active configs or changes actor input/action contract",
+    "M2728 exposes hidden dynamics oracle labels slip tire force TTC reference trajectory path error heading error required clearance controller labels collision success progress target labels protected labels profile labels blocker labels or verdicts to actor input",
+    "M2728 drops failed candidate rows silently or expands beyond the M2725 candidate target rows silently",
+    "M2728 executes guardrail or protected exclusion rows as ordinary target rows or treats protected rows as ordinary success denominators",
+    "M2728 ranks controller families selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2728 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response current-sim verdict full ideal driver completion or self-ID result",
+    "M2728 fails to write bounded execution artifacts or recorded failure rows"
+  ],
+  "commands": [
+    {
+      "name": "current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight --m2725-dir runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization --m2727-design docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md --output-dir runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2728-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-preflight.md",
+      "type": "md"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/repair_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/candidate_execution_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/profile_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/anchor_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/repair_overlay_application_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/guardrail_audit_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/actor_contract_join_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2727-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-bounded-execution-design.md",
+    "docs/m2726-engineering-controller-route-a-current-m1690-exact-executable-reentry-offtrack-repair-candidate-materialization-result-audit.md",
+    "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/summary.json",
+    "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/candidate_target_rows.csv",
+    "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/shared_repair_overlay_rows.csv",
+    "runs/m2725_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_candidate_materialization/guardrail_rows.csv"
+  ],
+  "decision_rule": "Pass only if M2728 writes bounded diagnostic repair execution artifacts for the M2725 candidate rows, preserves temporary overlay rollback actor/action and guardrail boundaries, records failures explicitly, and makes no ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim.",
+  "metric_extractors": [],
+  "gates": [],
+  "decision_labels": {
+    "pass": "route_to_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_result_audit",
+    "fail": "reject_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight"
+  },
+  "scoreboard_checkpoint": "runs/m2728_engineering_controller_route_a_current_m1690_exact_executable_reentry_offtrack_repair_bounded_execution_preflight/summary.json",
+  "next_blocker": "current-M1690 exact-executable reentry offtrack repair bounded execution result audit"
+}
