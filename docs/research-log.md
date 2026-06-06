@@ -52806,3 +52806,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit_20260606T210803Z/command.log`
 - success artifact: `docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md`
 - notes: Completed: audit accepts M2948 scaffold as claim-safe infrastructure with 7 passing unit tests covering actor 72/action 3 zero-delta identity distribution-parent tanh path residual bounds action clamp forbidden evaluator-label inputs strict observation mapping shape mismatch failures and no torch load/save checkpoint side effects; rejects implementation readiness repair-success execution validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2950 post-scaffold integration design.
+
+## 20260606T211250Z m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2948/M2949 scaffold infrastructure result into exactly one post-scaffold integration route, artifact repair, pivot, or stop before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design_20260606T211250Z`
+- command log: `runs/research/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design_20260606T211250Z/command.log`
+- success artifact: `docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md`
+- notes: Completed: design decision admit_m2951_post_scaffold_integration_contract_materialization_preflight selects one no-execution materialization route for integration surface actor binding residual initialization residual bounds input guards side-effect guards claim boundaries and gate rows; preserves actor 72/action 3 no evaluator-label actor input and no checkpoint environment training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

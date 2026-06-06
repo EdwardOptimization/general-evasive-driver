@@ -1,0 +1,185 @@
+{
+  "baseline_artifacts": [
+    "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+    "docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md",
+    "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+    "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py",
+    "tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+    "runs/research/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold_20260606T210221Z/command.log"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight --m2948-doc docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md --m2949-audit docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md --m2950-design docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md --output-dir runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.json",
+      "name": "post_scaffold_integration_contract_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M2951 materializes post-scaffold integration contracts and registers a result audit without execution or overclaiming.",
+  "failure_criteria": [
+    "M2951 executes environment reset rollout replay validation training ranking promotion or dependency work",
+    "M2951 loads modifies saves ranks or promotes checkpoints",
+    "M2951 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2951 treats materialized contracts as implementation readiness repair success or performance verdict"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose evaluator-side labels privileged dynamics oracle labels future targets progress metrics or verdict labels to actor input",
+    "do not claim implementation readiness repair success performance validation paper high-fidelity or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A no-execution materialization preflight can convert the accepted M2950 post-scaffold integration design into machine-checkable integration surface, actor binding, residual initialization, residual bound, input guard, side-effect guard, claim boundary, and gate rows before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M2950 admits one materialization route only",
+      "integration contracts must be machine-checkable before candidate execution",
+      "materialization result must be audited before interpretation"
+    ],
+    "derived_from": [
+      "m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design",
+      "m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit",
+      "m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.json",
+      "experiments/manifests/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.json",
+      "experiments/manifests/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.json"
+    ],
+    "parent_dataset": [
+      "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+      "docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md",
+      "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py"
+    ],
+    "parent_objective": [
+      "materialize post-scaffold integration contracts without candidate execution"
+    ],
+    "supersedes": [
+      "manual integration interpretation after scaffold audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "turns post-scaffold integration design into machine-checkable materialization artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2951 cannot materialize complete contract rows",
+      "M2951 would require checkpoint mutation or evaluator-label actor inputs",
+      "M2951 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; may route to materialization result audit only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2951 must consume M2950 design M2949 audit and M2948 scaffold artifacts",
+    "M2951 must materialize integration surface actor binding residual initialization residual bound input guard side-effect guard claim boundary and gate rows",
+    "M2951 must preserve actor 72/action 3 and no hidden oracle future-target objective constraint diagnostic success progress or verdict actor input",
+    "M2951 must not execute reset rollout replay validation training ranking promotion dependency work adapter probe or external simulation",
+    "M2951 must not claim implementation readiness repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "post-scaffold integration contract materialization",
+      "actor and claim boundary preserved",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2951 is contract materialization only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2951; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If contracts cannot be materialized route to repair or stop rather than weakening interpretation standards.",
+    "temporal_evidence_window": "M2948-M2950 scaffold audit and integration design chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/summary.json exists",
+    "docs/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight.md exists",
+    "M2951 writes complete integration surface actor binding residual initialization residual bound input guard side-effect guard claim boundary and gate rows",
+    "M2951 registers one result-audit follow-up manifest",
+    "M2951 makes no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2950 admits one materialization route",
+      "M2949 accepts M2948 scaffold infrastructure as claim-safe",
+      "M2948 scaffold tests passed with 7 unit tests"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight.py",
+      "runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/*",
+      "docs/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight.md",
+      "one follow-up result audit manifest"
+    ],
+    "blocked_shortcuts": [
+      "no environment execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden oracle future-target or evaluator-label actor input",
+      "no materialized contracts as closed-loop evidence"
+    ],
+    "next_stage_criteria": [
+      "M2951 materialization artifacts exist",
+      "M2951 registers result audit",
+      "M2951 preserves no-execution and no-overclaim boundaries"
+    ],
+    "stage": "process",
+    "stage_objective": "Materialize post-scaffold integration contracts"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Post-scaffold integration contract materialization only; no candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_post_scaffold_integration_contract_materialization",
+    "evidence_increment": "materializes accepted integration design into machine-checkable contract artifacts",
+    "fallback_plan": [
+      "route to artifact repair if materialization rows are incomplete",
+      "route to stop or pivot if integration requires checkpoint mutation or evaluator-label actor inputs",
+      "route to result audit after materialization completes"
+    ],
+    "stop_condition": [
+      "stop if contracts cannot preserve actor 72/action 3",
+      "stop if materialization requires hidden oracle future-target or evaluator-label actor inputs",
+      "stop if materialization would be interpreted as repair success or driver performance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2950 admits one materialization route"
+  }
+}
