@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
+m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
+m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
+m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
 ```
 
 Current route:
@@ -95,14 +95,27 @@ completion, and self-ID interpretations. Route C/HF3 remains stopped because
 the fixed source root is missing; available toolchain commands do not admit a
 configure gate without source.
 
-The next task is M2883. It must select exactly one next route or stop state:
-keep Route C/HF3 stopped and pivot to Route A/B evidence, admit manual source
-provision only if source is supplied, admit dependency acquisition only if a
-later explicit allowance exists, route to an alternate backend contract design,
-or stop this Chrono branch. M2883 must not fetch/clone Chrono, create external
-dependency directories, install packages, configure, build, install,
-link/import, start a backend, reset, step, roll out, validate, rank, promote,
-or claim high-fidelity validation.
+M2883 completed the next dependency gate or stop design. It selects exactly
+one route:
+`stop_route_c_hf3_chrono_under_source_unavailable_pivot_to_route_b_capability_prediction_panel_inventory_preflight`.
+Chrono/HF3 remains stopped under `source_unavailable_claim_safe`; no manual
+source-provision route is admitted because source has not been supplied, no
+dependency-acquisition operation is admitted because there is no explicit
+allowance, and no alternate backend route is admitted now because it would be
+another dependency-process branch without new controller-family or self-ID
+evidence. M2883 rejects configure, build, import, reset, rollout, validation,
+performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims.
+
+The next task is M2884. It pivots to Route B and must run a read-only L0/L1/L2/L3
+capability-prediction panel inventory preflight from existing artifacts. The
+goal is to classify candidate rows as usable, guard, stale, protected,
+source-singleton, or missing-data before any new policy training. M2884 must
+preserve actor 72/action 3, no hidden/oracle actor input, and separation
+between deployable actor features and evaluator-only future-capability targets.
+It must not reset, step, roll out, validate, train, rank, promote, or claim
+driver performance, finite-window-vs-GRU verdict, current-sim verdict,
+high-fidelity validation, full-driver completion, or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

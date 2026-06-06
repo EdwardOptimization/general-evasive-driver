@@ -1,0 +1,115 @@
+{
+  "decision_reason": "M2883 design selects exactly one route stop Route C HF3 Chrono under source_unavailable and pivot to Route B L0/L1/L2/L3 capability-prediction panel inventory preflight preserves M2881/M2882 source root missing and CMakeLists missing as dependency-process evidence only rejects manual source provision without supplied source later dependency acquisition without explicit allowance alternate backend now configure build import reset rollout validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2884",
+  "failure_criteria": [
+    "M2883 fetches clones installs configures builds installs imports links probes starts a backend resets steps rolls out validates trains ranks promotes mutates dependency directories or publishes a package",
+    "M2883 changes actor input or action contract",
+    "M2883 weakens M2638/M2836 or hides M2877/M2878 weak diagnostic outcomes",
+    "M2883 claims dependency execution readiness source-build readiness adapter-probe readiness reset feasibility rollout feasibility validation readiness/result high-fidelity validation driver performance paper current-sim full-driver or self-ID result",
+    "M2883 leaves the next route ambiguous or selects multiple incompatible routes"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not fetch or clone Chrono source",
+    "do not create external dependency directories",
+    "do not install apt packages",
+    "do not install pip packages",
+    "do not configure Chrono",
+    "do not build Chrono",
+    "do not install Chrono",
+    "do not import pychrono or projectchrono",
+    "do not run a C++ link probe",
+    "do not start a backend",
+    "do not reset step rollout replay validate train rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not expose dependency route build probe reset validation or verdict labels to actor input",
+    "do not claim high-fidelity validation driver performance paper current-sim full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T111629Z",
+  "hypothesis": "A bounded Route C design can decide whether the source-unavailable Chrono branch should stay stopped route to a supplied-source path choose an alternate backend contract or pivot back to Route A/B evidence without executing dependency work.",
+  "lineage": {
+    "blocked_by": [
+      "M2881 found the fixed Chrono source root missing and M2882 accepted the result as source_unavailable_claim_safe",
+      "M2638/M2836 still forbid selected-platform HF3 execution until source or dependency evidence is admitted claim-safe",
+      "No configure build install link/import reset manual step policy smoke validation or high-fidelity gate has passed"
+    ],
+    "derived_from": [
+      "m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit",
+      "m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight",
+      "m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.json",
+      "experiments/manifests/m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight.json",
+      "experiments/manifests/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.md",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/source_availability_rows.csv",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/gate_rows.csv",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/claim_rows.csv",
+      "docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "decide the next Route C/HF3 dependency route after M2882 accepts a claim-safe source_unavailable M2881 result"
+    ],
+    "supersedes": [
+      "repeating a same-surface source-unavailable probe without a route decision",
+      "interpreting available cmake and compiler commands as permission to configure without source",
+      "continuing Route C/HF3 dependency execution after a missing source audit"
+    ]
+  },
+  "milestone": "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design",
+  "next_blocker": "m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "stop_route_c_hf3_chrono_under_source_unavailable_pivot_to_route_b_capability_prediction_panel_inventory_preflight",
+  "public_gates": [
+    "M2883 must write a repository-local route design or stop decision artifact",
+    "M2883 must preserve M2881/M2882 source_unavailable_claim_safe as dependency-process evidence only",
+    "M2883 must select exactly one next route: keep stopped and pivot to Route A/B evidence, admit manual source provision if source is supplied, admit dependency acquisition only if explicitly allowed later, route to an alternate backend contract design, or stop the Chrono branch",
+    "M2883 must not execute network fetch clone package install configure build install import link probe backend reset step rollout replay validation training ranking promotion or package publication",
+    "M2883 must not change actor inputs or the deployed action contract",
+    "M2883 must not claim dependency execution readiness source-build readiness adapter-probe readiness reset feasibility validation readiness driver performance high-fidelity validation paper current-sim full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+    "clearance_margin_mean": "",
+    "decision": "stop_route_c_hf3_chrono_under_source_unavailable_pivot_to_route_b_capability_prediction_panel_inventory_preflight",
+    "milestone": "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design",
+    "reason": "M2883 design selects exactly one route stop Route C HF3 Chrono under source_unavailable and pivot to Route B L0/L1/L2/L3 capability-prediction panel inventory preflight preserves M2881/M2882 source root missing and CMakeLists missing as dependency-process evidence only rejects manual source provision without supplied source later dependency acquisition without explicit allowance alternate backend now configure build import reset rollout validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2884",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md exists",
+    "design preserves M2881/M2882 source_unavailable_claim_safe as dependency-process evidence only",
+    "design selects exactly one next route or stop state",
+    "design does not execute dependency acquisition configure build import reset step rollout validation training ranking promotion or high-fidelity work",
+    "design preserves actor 72/action 3 no hidden/oracle actor input M2638/M2836 source dependency and Route A/B claim boundaries"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,211 @@
+{
+  "id": "m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded read-only inventory preflight can identify whether existing post-M2470 artifacts contain a source-diverse L0/L1/L2/L3 capability-prediction panel before new policy training.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+      "docs/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/post-m2470-route-plan.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+      "runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.json",
+      "experiments/manifests/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.json",
+      "experiments/manifests/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "materialize a candidate inventory for Route B capability-prediction evidence after the Chrono source-unavailable branch is stopped"
+    ],
+    "derived_from": [
+      "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design",
+      "m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit",
+      "paper-route-finite-window-vs-gru-plan",
+      "self-id-go-no-go-paper-route-plan"
+    ],
+    "blocked_by": [
+      "Route B requires a fair L0/L1/L2/L3 capability-prediction panel before more policy training or self-ID claims",
+      "Existing artifacts may be stale protected source-singleton diagnostic-only or missing deployable history fields",
+      "Chrono/HF3 source is unavailable so high-fidelity validation cannot be the immediate evidence route"
+    ],
+    "supersedes": [
+      "continuing the source-unavailable Chrono dependency branch without source",
+      "starting new PPO training before capability-prediction panel viability is known",
+      "claiming self-ID from source-singleton or diagnostic-only artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.md",
+  "public_gates": [
+    "M2884 must read only repository-local docs and artifacts",
+    "M2884 must produce summary candidate panel source inventory target inventory actor contract gate and claim rows",
+    "M2884 must classify candidate rows as usable guard stale protected source-singleton or missing-data rather than forcing admission",
+    "M2884 must preserve actor 72/action 3 and no hidden/oracle actor input",
+    "M2884 must separate deployable model features from evaluator-only future-capability targets",
+    "M2884 must not train reset step rollout validate rank promote or claim driver performance finite-window-vs-GRU verdict current-sim verdict high-fidelity validation full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not fetch clone install configure build import link probe or mutate dependencies",
+    "do not reset step rollout replay validate train PPO rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels success progress route labels or future targets to actor input",
+    "do not convert diagnostic-only protected or package-limitation rows into paper proof",
+    "do not claim driver performance paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory",
+    "evidence_axis": "route_b_capability_prediction_before_policy_training",
+    "evidence_increment": "materializes or falsifies the availability of a source-diverse capability-prediction candidate panel from existing artifacts before new controller-family training",
+    "claim_scope": "Read-only panel inventory only; no policy training closed-loop validation controller ranking finite-window-vs-GRU verdict high-fidelity validation full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if existing artifacts cannot provide deployable observation/action/response history and evaluator-only future-capability targets",
+      "stop if candidate rows are source-singleton stale protected public gates or package limitations without a source-diverse panel",
+      "stop if actor inputs would need hidden dynamics oracle labels or future targets",
+      "stop if the preflight would execute reset rollout training validation ranking or promotion"
+    ],
+    "fallback_plan": [
+      "write a negative inventory audit if rows are insufficient",
+      "route to a bounded new data-panel design only if gaps are concrete and actor-safe",
+      "route to gate-utility audit if old guarded surfaces dominate the candidate pool",
+      "return to Route A engineering evidence if capability-prediction panel viability is weak"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2883 stops the source-unavailable Chrono branch and pivots to Route B capability-prediction evidence",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Route B L0/L1/L2/L3 capability-prediction panel inventory preflight",
+    "admission_evidence": [
+      "M2883 selects pivot to Route B capability-prediction inventory",
+      "self-id and finite-window route plans require capability prediction before policy training",
+      "M2882 keeps Route C/HF3 stopped under source_unavailable",
+      "recent Route A diagnostic artifacts are complete but weak and must not be promoted without fair controller-family evidence"
+    ],
+    "blocked_shortcuts": [
+      "no new policy action execution rollout validation training PPO ranking winner selection or promotion",
+      "no hidden or oracle actor inputs",
+      "no high-fidelity dependency execution",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight.py",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/target_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/actor_contract_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/gate_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/claim_rows.csv",
+      "one bounded follow-up result-audit manifest",
+      "M2884 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "candidate and guard rows are classified",
+      "source diversity and stale/protected row risks are accounted for",
+      "deployable actor features are separated from evaluator-only targets",
+      "no reset rollout validation training ranking promotion or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2884 inventories candidate rows for later L0/L1/L2/L3 capability-prediction tests and does not claim history necessity.",
+    "history_necessity_tests": [
+      "None executed in M2884; the inventory should determine whether future braking yaw actuator lag recovery and first-critical-action targets can support later L0/L1/L2/L3 tests."
+    ],
+    "temporal_evidence_window": "Post-M2470 Route A diagnostic artifacts and Route B paper plans after Route C Chrono source-unavailable stop.",
+    "negative_result_policy": "If the artifact pool cannot support a source-diverse panel preserve that as a negative inventory result rather than weakening the actor contract or using stale proof rows.",
+    "allowed_claims": [
+      "candidate panel inventory availability or insufficiency",
+      "bounded follow-up audit or new panel design admission",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from dependency-process stop to a concrete candidate inventory for capability-prediction evidence",
+    "paper_verdict_delta": "potentially enables a later fair L0/L1/L2/L3 capability-prediction test but makes no verdict itself",
+    "must_synthesize_if": [
+      "M2884 cannot find source-diverse candidate rows",
+      "M2884 finds only stale protected public proof rows",
+      "M2884 would require hidden dynamics or oracle actor input",
+      "M2884 would become another audit-only process milestone without panel artifacts",
+      "M2884 would claim self-ID finite-window-vs-GRU driver performance or current-sim verdict"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json exists",
+    "candidate panel rows source inventory target inventory actor contract gate and claim rows exist",
+    "candidate rows are classified as usable guard stale protected source-singleton or missing-data",
+    "deployable actor features are separated from evaluator-only future-capability targets",
+    "source diversity and stale public-gate risks are accounted for",
+    "preflight registers at most one bounded result-audit follow-up manifest"
+  ],
+  "failure_criteria": [
+    "M2884 resets steps rolls out validates trains ranks promotes or executes policy action",
+    "M2884 changes actor input or action contract",
+    "M2884 exposes hidden dynamics oracle labels success progress route labels or future targets to actor input",
+    "M2884 claims driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2884 hides stale protected source-singleton or package-limitation status"
+  ],
+  "decision_rule": "Pass only if M2884 writes a complete read-only panel inventory artifact that preserves actor boundaries and separates usable candidate rows from guards or missing-data gaps.",
+  "commands": [
+    {
+      "name": "panel_inventory_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --output-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --follow-up-manifest experiments/manifests/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md",
+    "docs/post-m2470-route-plan.md",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+    "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+    "runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json",
+    "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+    "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+  "next_blocker": "m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit"
+}
