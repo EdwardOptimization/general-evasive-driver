@@ -52866,3 +52866,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit_20260606T214441Z/command.log`
 - success artifact: `docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md`
 - notes: Completed: audit accepts M2953 source-diverse evidence-surface materialization as claim-safe infrastructure status_pass true gate_matrix_pass true 10 evidence-source rows 4 source-diversity rows 8 panel/spec rows 88 contract-traceability rows 8 actor-contract guard rows 12 side-effect guard rows 19 claim-boundary rows and 14 gate rows; rejects candidate execution implementation readiness checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2955 candidate-execution admission design.
+
+## 20260606T215128Z m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can decide whether the accepted M2953/M2954 source-diverse evidence surface admits exactly one actor-head delta candidate-execution route requires artifact repair pivots or stops before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design_20260606T215128Z`
+- command log: `runs/research/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design_20260606T215128Z/command.log`
+- success artifact: `docs/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.md`
+- notes: Completed: design decision admit_m2956_actor_head_delta_execution_admission_materialization_preflight binds accepted M2953/M2954 actor-head delta surface to accepted M2916/M2917 Route A execution-admission rows before any candidate execution; preserves actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input and no reset rollout checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

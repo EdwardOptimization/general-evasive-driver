@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design",
+  "next_blocker": "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -122,7 +122,7 @@
     "negative_result_policy": "If no bounded actor-safe candidate-execution route can be selected route to repair, pivot, or stop.",
     "temporal_evidence_window": "M2953-M2954 source-diverse evidence-surface materialization and audit."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.md exists",
     "M2955 selects exactly one bounded next route, repair, pivot, or stop",

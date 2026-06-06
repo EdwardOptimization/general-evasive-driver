@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2960,
+    "completed": 2961,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit_20260606T214441Z/command.log",
+    "command_log": "runs/research/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design_20260606T215128Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit_20260606T214441Z",
+    "run_dir": "runs/research/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design_20260606T215128Z",
     "status": "completed",
-    "task_id": "m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit"
+    "task_id": "m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only milestone can decide whether the accepted M2953/M2954 source-diverse evidence surface admits exactly one actor-head delta candidate-execution route requires artifact repair pivots or stops before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design",
-    "kind": "gate",
-    "notes": "Pending: design candidate-execution admission from accepted M2953/M2954 source-diverse evidence surface; select exactly one bounded route repair pivot or stop; no candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29500,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight --m2953-dir runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight --m2954-audit docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md --m2955-design docs/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.md --m2916-dir runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight --m2917-audit docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md --output-dir runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.json",
+    "hypothesis": "A no-execution materialization preflight can bind the accepted M2953/M2954 actor-head delta surface to the accepted M2916/M2917 Route A execution-admission rows before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize actor-head delta execution-admission candidate rejection guardrail actor-delta contract claim-boundary and gate rows from M2953/M2954 and M2916/M2917 without candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29510,
     "status": "pending",
-    "success_artifact": "docs/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.md"
+    "success_artifact": "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T214441Z"
+  "updated_at_utc": "20260606T215128Z"
 }
