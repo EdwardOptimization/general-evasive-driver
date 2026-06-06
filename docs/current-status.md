@@ -3675,3 +3675,55 @@ preserve actor 72/action 3 and future-label invisibility, write proof,
 generalization, promotion, actor, claim, surface, and gate rows, and avoid
 validation, ranking, promotion, performance, paper, current-sim, high-fidelity,
 full-driver, or self-ID claims.
+
+## M2868 Engineering Controller Route A Localized Response-Prediction Candidate Closed-Loop Delta Panel Preflight
+
+- status: completed
+- decision: `pass_route_to_m2869_result_audit`
+- manifest: `experiments/manifests/m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight.json`
+- implementation artifact: `docs/m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight.md`
+- summary: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json`
+- paired execution rows: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/paired_execution_rows.csv`
+- paired delta rows: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/paired_delta_rows.csv`
+- surface delta rows: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/surface_delta_rows.csv`
+- follow-up manifest: `experiments/manifests/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.json`
+- run dir: `runs/research/m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight_20260606T070200Z`
+- accepted artifact evidence: status_pass true, gate_matrix_pass true, 48 completed paired execution rows, 24 paired delta rows, 2 surface delta rows
+- surface accounting: 16 M2850 explanatory rows and 8 fresh/disjoint rows remain separated and outside ordinary success denominators
+- actor and claim boundary: actor 72/action 3, no hidden/oracle actor input, no actor-visible labels, no ranking winner promotion success-rate verdict validation performance paper current-sim high-fidelity full-driver or self-ID claim
+- diagnostic outcome: baseline and candidate both show 0 success and 1 collision; terminal outcomes are unchanged on this bounded diagnostic panel
+- surface deltas: small mean clearance-margin increases but mixed return/speed changes, so no repair-success or performance interpretation
+- next: `m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit`
+
+## Immediate Next Step
+
+M2869 should audit M2868 before interpreting the localized response-prediction
+candidate. It must accept or reject artifact completeness, surface separation,
+actor/claim boundaries, and the no-ranking/no-promotion guard. It must not turn
+mixed diagnostic deltas into validation, performance, current-sim, high-fidelity,
+paper, full-driver, or self-ID claims.
+
+## M2869 Engineering Controller Route A Localized Response-Prediction Candidate Closed-Loop Delta Panel Result Audit
+
+- status: completed
+- decision: `accept_m2868_diagnostic_delta_panel_route_to_m2870_branch_synthesis`
+- manifest: `experiments/manifests/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.json`
+- audit artifact: `docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md`
+- parent summary: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json`
+- parent gate matrix: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/gate_matrix.csv`
+- follow-up manifest: `experiments/manifests/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.json`
+- run dir: `runs/research/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit_20260606T071244Z`
+- accepted result: M2868 complete claim-safe diagnostic artifacts, not performance evidence
+- closed-loop reading: candidate has slightly higher mean clearance margin but lower mean return/speed and unchanged terminal outcomes versus source
+- route decision: do not continue directly into another localized training loop; synthesize M2864-M2869 before deciding stop, pivot, or a bounded follow-up
+- next: `m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis`
+
+## Immediate Next Step
+
+M2870 should synthesize the localized response-prediction branch against the
+post-M2470 Route A split. It should decide whether this branch stops, pivots to
+actuator-level baseline packaging or high-fidelity interface preparation, or
+continues only under a bounded follow-up design with fresh evidence and rollback
+gates. It must not run training, validation, ranking, promotion, success-rate
+verdicts, performance, paper, current-sim, high-fidelity, full-driver, or self-ID
+claims.

@@ -51822,3 +51822,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit_20260606T064634Z/command.log`
 - success artifact: `docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md`
 - notes: Completed: audit accepts M2866 complete claim-safe bounded localized response-prediction training implementation artifacts status_pass true gate_matrix_pass true 36 weight rows 4 mask rows 2 surface rows 6 rollback rows actor 72/action 3 future labels actor-invisible rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2868 closed-loop delta panel
+
+## 20260606T070203Z m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded paired closed-loop delta panel can test how the M2866 localized response-prediction candidate differs from the M2848 source checkpoint on M2850 explanatory and fresh/disjoint surfaces while preserving actor and claim boundaries.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --m2867-audit docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md --m2866-summary runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/summary.json --m2857-surface-rows runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/telemetry_surface_rows.csv --baseline-checkpoint runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt --candidate-checkpoint runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt --output-dir runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel --follow-up-manifest experiments/manifests/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.json --device cpu --eval-seed-base 286800 --row-count 24 --horizon-steps 96`
+- returncode: `0`
+- run dir: `runs/research/m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight_20260606T070200Z`
+- command log: `runs/research/m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight_20260606T070200Z/command.log`
+- success artifact: `runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json`
+- notes: Pending: run bounded paired closed-loop M2848 source versus M2866 candidate delta panel with M2850 explanatory and fresh/disjoint surfaces separated, actor 72/action 3 preserved, and no validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## 20260606T071244Z m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2868 paired closed-loop delta artifacts before any interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit_20260606T071244Z`
+- command log: `runs/research/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit_20260606T071244Z/command.log`
+- success artifact: `docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md`
+- notes: Pending: audit M2868 complete paired closed-loop diagnostic delta artifacts surface separation actor and claim boundaries before interpretation
