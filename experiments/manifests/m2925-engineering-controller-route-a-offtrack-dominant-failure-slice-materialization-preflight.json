@@ -1,0 +1,215 @@
+{
+  "id": "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution materialization preflight can convert the M2924 offtrack-dominant failure-slice design into machine-checkable slice context guard actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md",
+      "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.json",
+      "experiments/manifests/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "materialize offtrack-dominant failure slices after M2924 design"
+    ],
+    "derived_from": [
+      "m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design",
+      "m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit",
+      "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2924 requires machine-checkable offtrack slice rows before any interpretation",
+      "M2922 records 38 off_track rows and 18 non-offtrack context rows that must remain accounted",
+      "source task checkpoint environment window severity and time bands must be localization dimensions not rankings"
+    ],
+    "supersedes": [
+      "manual offtrack slice interpretation without materialized rows",
+      "direct repair execution from M2924 design",
+      "direct validation or performance interpretation of M2922 offtrack dominance"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight.md",
+  "public_gates": [
+    "M2925 must consume M2924 design M2923 audit M2922 summary and M2919 execution rows",
+    "M2925 must write offtrack slice rows that account for exactly 38 off_track rows",
+    "M2925 must preserve exactly 18 non-offtrack context rows",
+    "M2925 must materialize source task checkpoint environment window severity and time-to-offtrack slices as localization rows not rankings",
+    "M2925 must preserve M2877 Route B Route C guardrail exclusions",
+    "M2925 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible labels",
+    "M2925 must write summary slice context guard actor claim gate run_state doc and one follow-up audit manifest",
+    "M2925 must not execute reset step rollout replay validation training PPO dependency work ranking winner selection promotion or success-rate verdict computation",
+    "M2925 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency acquisition or dependency smoke",
+    "do not change actor inputs or the deployed action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not drop the 18 non-offtrack rows",
+    "do not rank source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows",
+    "do not select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_failure_slice_materialization",
+    "evidence_increment": "turns M2924 offtrack-slice design into auditable materialized rows without execution",
+    "claim_scope": "Materialization only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2924 design is missing or claim-unsafe",
+      "stop if offtrack slice rows do not account for exactly 38 rows",
+      "stop if non-offtrack context rows do not account for exactly 18 rows",
+      "stop if actor or claim boundaries cannot be preserved",
+      "stop if materialization would execute policy or dependency work"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if source accounting is incomplete",
+      "route to M2926 result audit if materialization artifacts are complete",
+      "route to branch synthesis if no materialized slice can support an evidence-changing next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2924 admits offtrack-dominant failure-slice materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Materialize M2924 offtrack-dominant failure slice rows without execution",
+    "admission_evidence": [
+      "M2924 design admits M2925 materialization",
+      "M2923 accepts M2922 as complete and claim-safe",
+      "M2922/M2919 provide 38 off_track rows and 18 non-offtrack context rows"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion performance verdict or repair-success claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden oracle or future-target actor inputs",
+      "no M2877 Route B Route C guardrail execution",
+      "no paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight.py",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_source_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_task_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_checkpoint_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_environment_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_window_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_severity_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/non_offtrack_context_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/gate_matrix.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/run_state.json",
+      "docs/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight.md",
+      "M2925 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "offtrack slice artifacts account for 38 rows",
+      "non-offtrack context artifacts account for 18 rows",
+      "guardrail context actor and claim boundaries remain preserved",
+      "one follow-up result audit is registered before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2925 is Route A offtrack failure-slice materialization and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2925; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2922-M2924 Route A dependency-facing diagnostics audit and offtrack-slice design only.",
+    "negative_result_policy": "Preserve weak diagnostics and offtrack dominance as engineering evidence without weakening self-ID proof gates.",
+    "allowed_claims": [
+      "offtrack-dominant failure-slice materialization completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a new offtrack-dominant slice panel instead of repeating broad dependency-facing execution",
+    "paper_verdict_delta": "no paper verdict; may identify Route A engineering failure slices but cannot support paper or self-ID claims",
+    "must_synthesize_if": [
+      "M2925 cannot account for the 38 offtrack rows and 18 context rows",
+      "M2925 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU or self-ID",
+      "M2925 would rank controllers source families profiles task families checkpoints or slice bands",
+      "M2925 would propose another same-surface execution without a changed evidence question"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json exists",
+    "M2925 writes offtrack slice context guard actor claim gate run_state doc and follow-up audit manifest artifacts",
+    "M2925 accounts for exactly 38 off_track rows and exactly 18 non-offtrack context rows",
+    "M2925 preserves M2877 Route B Route C guardrails and actor 72/action 3",
+    "M2925 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2925 executes reset rollout replay validation training ranking promotion or dependency work",
+    "M2925 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2925 ranks controller families source families profiles task families source milestones checkpoints or slice bands selects a winner promotes a checkpoint or claims driver performance",
+    "M2925 hides non-offtrack rows or treats diagnostic localization as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2925 accounts for the offtrack and context rows, preserves guardrail and actor boundaries, writes complete slice artifacts, and registers a result audit without execution ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claims.",
+  "commands": [
+    {
+      "name": "offtrack_failure_slice_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2922-dir runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --m2919-dir runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight --m2923-audit docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md --m2924-design docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md --output-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --follow-up-manifest experiments/manifests/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json",
+  "next_blocker": "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight",
+  "status": "pending"
+}

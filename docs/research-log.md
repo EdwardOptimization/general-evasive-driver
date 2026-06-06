@@ -52494,3 +52494,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit_20260606T174725Z/command.log`
 - success artifact: `docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md`
 - notes: Completed: audit accepts M2922 complete claim-safe failure-localization materialization status_pass true gate_matrix_pass true 56 localized rows 0 failure rows outcomes 11 success 3 collision 38 offtrack 4 speed_too_low source split M2737 18 M2746 14 M2807 12 M2816 12 4 next-route audit candidates actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; selects M2924 offtrack-dominant failure-slice design.
+
+## 20260606T175124Z m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2922/M2923 offtrack-dominant localization into a claim-safe failure-slice investigation plan before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design_20260606T175124Z`
+- command log: `runs/research/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design_20260606T175124Z/command.log`
+- success artifact: `docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md`
+- notes: Completed: design admits M2925 offtrack-dominant failure-slice materialization preflight after M2923 accepts M2922 complete claim-safe materialization; defines 38 offtrack rows plus 18 non-offtrack context rows source split M2737 12 M2746 10 M2807 8 M2816 8 task split T4 21 T5 17 checkpoint context 28 public pilot 10 M2655 environment window severity and time bands actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.
