@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
+m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
+m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
+m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design
 ```
 
 Current route:
@@ -37,9 +37,24 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route C selected-platform source dependency refresh-or-stop
-result audit after M2835 rejected refresh and kept Route C/HF3 stopped under
-M2638 because no source/package route is currently present.
+current branch is post Route C/HF3 stop evidence-producing branch selection
+after M2836 accepted the M2835 stop decision and kept selected-platform HF3
+paused under M2638.
+
+M2836 audited and accepted M2835 as a complete and claim-safe selected-platform
+source dependency refresh-or-stop design. It confirms no valid source root,
+approved package route, dependency acquisition manifest, or alternate backend
+contract is present, so dependency refresh is not admitted and Route C/HF3
+stays stopped until source is supplied. M2836 preserves M2638
+dependency_source_unavailable, the M2834 pivot away from another handoff loop,
+M2832 handoff evidence, and M2828 mixed diagnostic outcomes as nonverdict
+context. Actor 72/action 3, ActorView-only extraction, no hidden/oracle actor
+input, actor-invisible labels, and actor-invisible diagnostics remain
+preserved. M2836 rejects external install/fetch/import, source build, adapter
+probe, backend start, reset, rollout, validation, ranking, performance, paper,
+current-sim, high-fidelity, full-driver, and self-ID claims. The next task is
+M2837 evidence-producing branch selection: choose a materially different Route
+A or Route B path rather than another Route C dependency artifact.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
@@ -56,7 +71,7 @@ diagnostics remain preserved. M2835 rejects external install/fetch/import,
 source build, adapter probe, backend start, reset, rollout, validation,
 ranking, performance, paper, current-sim, high-fidelity, full-driver, and
 self-ID claims. The next task is M2836 result audit before any Route A or Route
-B pivot.
+B pivot, now completed above.
 
 M2834 synthesized and closed M2831-M2833 with decision
 `pivot_to_route_c_selected_platform_source_dependency_refresh_or_stop_design`.

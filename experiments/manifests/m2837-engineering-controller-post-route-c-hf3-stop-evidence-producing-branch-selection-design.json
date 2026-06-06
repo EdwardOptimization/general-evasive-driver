@@ -1,0 +1,220 @@
+{
+  "id": "m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.md",
+      "docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.json",
+      "experiments/manifests/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.json"
+    ],
+    "parent_objective": [
+      "select the next evidence-producing Route A or Route B branch after Route C HF3 remains stopped under M2638"
+    ],
+    "derived_from": [
+      "m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit",
+      "m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design",
+      "m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis"
+    ],
+    "blocked_by": [
+      "Route C selected-platform HF3 remains stopped until source or package evidence is supplied",
+      "M2828 mixed diagnostic outcomes remain nonverdict context and require a materially different evidence-producing next route",
+      "M2831-M2836 process evidence does not change driver capability or paper verdict"
+    ],
+    "supersedes": [
+      "another Route C HF0 handoff artifact loop",
+      "another selected-platform dependency artifact without source/package evidence change",
+      "direct driver-performance validation paper current-sim high-fidelity full-driver or self-ID claim from Route C process artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+  "public_gates": [
+    "M2837 must select a materially different Route A or Route B evidence-producing branch after Route C HF3 is kept stopped",
+    "M2837 must reject another Route C dependency artifact unless valid source package dependency acquisition or alternate backend evidence is supplied",
+    "M2837 must preserve M2638 selected-platform source dependency blocker and M2828 mixed outcomes as nonverdict context",
+    "M2837 must preserve actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels diagnostics blockers routes and verdicts",
+    "M2837 must not execute install fetch import build probe backend reset step rollout replay validation training ranking promotion package publication or dependency mutation",
+    "M2837 must not claim driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full-driver completion or self-ID",
+    "M2837 must pre-register one bounded follow-up manifest that is evidence-producing or explicitly explains why no evidence-producing route is admissible"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not mutate dependency or source trees",
+    "do not run source build",
+    "do not run adapter probe",
+    "do not start an external backend",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not replay",
+    "do not validate",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not hide M2638 selected-platform source dependency blocker",
+    "do not hide M2828 mixed outcomes",
+    "do not repeat another HF0 source-only handoff artifact loop",
+    "do not repeat another selected-platform dependency artifact without source or package evidence",
+    "do not rank controller families source families profiles task families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim driver performance",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_post_route_c_hf3_stop_evidence_producing_branch_selection",
+    "evidence_axis": "post_route_c_hf3_stop_evidence_route_selection",
+    "evidence_increment": "selects a materially different evidence-producing Route A or Route B branch after Route C HF3 remains stopped under M2638",
+    "claim_scope": "Design-only branch selection; no external install fetch import source build adapter probe backend start reset rollout validation training ranking promotion package publication driver-performance paper current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2837 cannot select a materially different evidence-producing route",
+      "stop if the only proposed next action is another Route C dependency or handoff artifact without source/package evidence change",
+      "stop if M2638 selected-platform blocker would be weakened without supplied source evidence",
+      "stop if M2828 mixed outcomes would be upgraded to validation performance paper current-sim high-fidelity full-driver or self-ID evidence",
+      "stop if actor input or action contract boundaries would change"
+    ],
+    "fallback_plan": [
+      "select Route A if a bounded fresh closed-loop diagnostic panel can be run without changing actor inputs or claiming performance",
+      "select Route B if a bounded controller-family comparison design can make paper evidence more falsifiable without overclaiming",
+      "keep Route C stopped until source/package evidence changes",
+      "route to explicit stop only if neither Route A nor Route B has a bounded evidence-producing next step"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2836 accepts M2835 stop decision and closes the Route C dependency refresh-or-stop branch",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Post Route C HF3 stop evidence-producing branch selection design",
+    "admission_evidence": [
+      "M2836 accepts M2835 and keeps Route C HF3 stopped until source evidence is supplied",
+      "M2834 closes the M2831-M2833 handoff branch and rejects another immediate handoff loop",
+      "M2828 mixed outcomes remain diagnostic context and not a route verdict",
+      "docs/post-m2470-route-plan.md separates Route A engineering controller Route B paper evidence and Route C high-fidelity interface"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator install fetch import source build adapter probe backend start reset step rollout validation",
+      "no policy action execution training replay PPO ranking winner selection or promotion",
+      "no actor input expansion",
+      "no driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+      "M2837 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by the design"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "design selects a materially different evidence-producing Route A or Route B follow-up or explicitly stops",
+      "M2638 blocker actor contract and claim boundaries remain visible",
+      "M2831-M2836 process evidence remains process-only",
+      "one bounded follow-up manifest is pre-registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2837 selects a future evidence route and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2837; any finite-window GRU wrong-history reset-hidden zero-history or source-diverse intervention proof remains separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2836 Route C selected-platform source dependency stop audit and M2828 mixed diagnostic context.",
+    "negative_result_policy": "If neither Route A nor Route B has an admissible evidence-producing next step preserve blockers and route to explicit stop instead of weakening gates.",
+    "allowed_claims": [
+      "post Route C HF3 stop branch selection design",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes axis from Route C dependency stop audit to selection of a materially different evidence-producing Route A or Route B branch",
+    "paper_verdict_delta": "no paper verdict; design must select a route that can later produce driver evidence or paper comparison evidence rather than more process artifacts",
+    "must_synthesize_if": [
+      "M2837 cannot select Route A Route B or explicit stop",
+      "M2837 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2837 hides M2638 blocker M2828 mixed outcomes actor boundaries or claim boundaries",
+      "M2837 proposes another selected-platform dependency artifact without source/package evidence change"
+    ]
+  },
+  "hypothesis": "A post Route C HF3 stop branch-selection design can route the project away from dependency-process local search and toward a bounded Route A or Route B evidence-producing next step.",
+  "success_criteria": [
+    "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md exists",
+    "design selects a materially different evidence-producing Route A or Route B follow-up or explicitly stops",
+    "design preserves M2638 selected-platform source dependency blocker and rejects another Route C dependency artifact without source/package evidence change",
+    "design preserves M2828 mixed outcomes as nonverdict context and M2831-M2836 process evidence as process-only",
+    "design preserves actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels diagnostics blockers routes and verdicts",
+    "design pre-registers one bounded follow-up manifest without external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2837 executes install fetch import build probe backend reset step rollout replay validation training PPO source mutation dependency mutation or external simulation",
+    "M2837 changes actor input or action contract",
+    "M2837 weakens M2638 blocker or M2828 mixed outcome accounting",
+    "M2837 repeats another Route C dependency artifact without source/package evidence change",
+    "M2837 ranks controller families source families profiles stress axes scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2837 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2837 selects a materially different evidence-producing Route A or Route B follow-up or explicit stop while preserving M2638 actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "design",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+    "docs/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.md",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+  "next_blocker": "m2838-engineering-controller-post-route-c-hf3-stop-selected-evidence-branch-preflight"
+}
