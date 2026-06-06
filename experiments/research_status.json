@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2965,
+    "completed": 2966,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design_20260606T222703Z/command.log",
+    "command_log": "runs/research/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight_20260606T224318Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design_20260606T222703Z",
+    "run_dir": "runs/research/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight_20260606T224318Z",
     "status": "completed",
-    "task_id": "m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design"
+    "task_id": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --m2956-dir runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight --m2957-audit docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md --m2958-synthesis docs/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.md --m2959-design docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md --output-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --follow-up-manifest experiments/manifests/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.json --device cpu",
-    "hypothesis": "A bounded actor-head delta execution preflight can produce new closed-loop diagnostic rows over all 56 M2956-admitted rows while preserving actor checkpoint claim boundaries and excluding the 11 blocked stale fixed-source rows.",
-    "id": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute one bounded actor-head delta diagnostic preflight over the 56 M2956 admitted rows with read-only checkpoint loads and actor-head delta wrapper contract rows; keep 11 blocked stale rows non-executed; no validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29550,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2960 actor-head delta bounded execution preflight before any validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2960 summary gate matrix actor-head delta contract execution rows actor and claim boundaries; preserve 11 blocked stale fixed-source guardrails and zero-residual identity boundary; select exactly one next route or stop state without validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29560,
     "status": "pending",
-    "success_artifact": "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json"
+    "success_artifact": "docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md"
   },
-  "updated_at_utc": "20260606T222703Z"
+  "updated_at_utc": "20260606T224514Z"
 }

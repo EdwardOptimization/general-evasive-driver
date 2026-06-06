@@ -1,0 +1,146 @@
+{
+  "decision_reason": "M2960 actor-head delta bounded execution preflight status_pass true gate_matrix_pass true resolved 56 executed 56 failures 0 actor-head delta contract execution rows 56 all pass zero-residual identity wrapper read-only checkpoint loads residual_delta_abs_max 0.0 source split M2737 18 M2746 14 M2807 12 M2816 12 diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 all selected metrics finite true 11 blocked stale fixed-source rows excluded actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input no validation training ranking promotion checkpoint save mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims registered M2961 audit.",
+  "failure_criteria": [
+    "M2960 executes blocked stale fixed-source rows",
+    "M2960 changes actor inputs or action contract or exposes hidden/oracle/future-target actor labels",
+    "M2960 mutates saves ranks or promotes checkpoints",
+    "M2960 ranks controller families source families profiles task families checkpoints or candidates selects a winner promotes a checkpoint or claims driver performance",
+    "M2960 hides failed rows or treats diagnostic execution as validation readiness"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start an external backend",
+    "do not execute dependency acquisition or dependency smoke",
+    "do not execute the 11 blocked stale fixed-source rows",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not mutate save rank or promote checkpoints",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden oracle or future-target actor features",
+    "do not expose route source evaluator diagnostic success progress or verdict labels to actor input",
+    "do not treat blocked or guardrail rows as ordinary success denominators",
+    "do not rank controller families source families profiles task families checkpoints or candidate rows",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim implementation readiness",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim full ideal driver completion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2960 diagnostic execution"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T224514Z",
+  "hypothesis": "A bounded actor-head delta execution preflight can produce new closed-loop diagnostic rows over all 56 M2956-admitted rows while preserving actor checkpoint claim boundaries and excluding the 11 blocked stale fixed-source rows.",
+  "lineage": {
+    "blocked_by": [
+      "M2959 admits only one bounded diagnostic execution preflight after row resolution",
+      "11 stale fixed-source rows remain non-executed guardrails",
+      "M2960 must register a separate result audit before interpretation",
+      "M2960 must not mutate save rank or promote checkpoints"
+    ],
+    "derived_from": [
+      "m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design",
+      "m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis",
+      "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
+      "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.json",
+      "experiments/manifests/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.json",
+      "experiments/manifests/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.json",
+      "experiments/manifests/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md",
+      "docs/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.md",
+      "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_candidate_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_rejection_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/source_guardrail_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_delta_contract_guard_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "execute one bounded diagnostic preflight over the 56 accepted M2956 actor-head delta admitted rows without ranking or overclaiming"
+    ],
+    "supersedes": [
+      "another static actor-head delta admission audit with no closed-loop data",
+      "direct execution from M2956 rows without M2959 design",
+      "execution of blocked stale fixed-source rows",
+      "validation readiness from M2956 admission rows"
+    ]
+  },
+  "milestone": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
+  "next_blocker": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "actor_head_delta_bounded_execution_preflight_complete_route_to_m2961_result_audit",
+  "public_gates": [
+    "M2960 must consume M2959 design M2958 synthesis M2957 audit and M2956 admission candidate rejection guardrail actor claim and gate artifacts",
+    "M2960 must materialize execution_candidate_rows and execution_resolution_rows before any reset or step",
+    "M2960 must account for exactly 56 M2956 admitted rows as execution candidates",
+    "M2960 must not execute the 11 blocked stale fixed-source rows",
+    "M2960 must write actor_head_delta_contract_execution_rows bounded_execution_rows bounded_execution_failure_rows source_milestone_aggregate task_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2960 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible route source evaluator diagnostic success progress and verdict labels",
+    "M2960 must keep source-family task-family profile checkpoint and candidate context diagnostic and non-ranking",
+    "M2960 must not execute replay validation training PPO source build adapter probe external simulation dependency work ranking promotion success-rate verdict computation or driver-performance claims",
+    "M2960 must register one result-audit follow-up manifest before any interpretation"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "actor_head_delta_bounded_execution_preflight_complete_route_to_m2961_result_audit",
+    "milestone": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
+    "reason": "M2960 actor-head delta bounded execution preflight status_pass true gate_matrix_pass true resolved 56 executed 56 failures 0 actor-head delta contract execution rows 56 all pass zero-residual identity wrapper read-only checkpoint loads residual_delta_abs_max 0.0 source split M2737 18 M2746 14 M2807 12 M2816 12 diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 all selected metrics finite true 11 blocked stale fixed-source rows excluded actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input no validation training ranking promotion checkpoint save mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims registered M2961 audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json exists",
+    "execution_candidate_rows execution_resolution_rows actor_head_delta_contract_execution_rows bounded_execution_rows bounded_execution_failure_rows source_milestone_aggregate task_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2956 admitted rows are resolved or explicitly accounted by failure rows",
+    "the 11 blocked stale fixed-source rows are not executed and remain outside success denominators",
+    "actor 72/action 3 no hidden oracle future-target input and actor-invisible labels are preserved",
+    "checkpoints may be loaded read-only but are not mutated saved ranked or promoted",
+    "one follow-up result audit manifest is registered",
+    "M2960 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "type": "infrastructure"
+}
