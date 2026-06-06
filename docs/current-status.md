@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight
+m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight
+m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
+m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
 ```
 
 Current route:
@@ -37,9 +37,10 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch has stopped Route C/HF3 Chrono under source-unavailable and
-pivoted to Route B L0/L1/L2/L3 capability-prediction modeling-contract
-materialization result audit.
+current branch has stopped Route C/HF3 Chrono under source-unavailable,
+pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
+modeling-contract materialization audit, and now sits at implementation
+preflight.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -204,15 +205,24 @@ split semantics are preflight-only, and all required features, labels, and
 baselines are resolvable. M2891 rejects implementation, model fitting,
 training, ranking, promotion, verdict, paper, and self-ID claims.
 
-The next task is M2892. It must audit the M2891 summary plus feature, label,
-split, loss/metric, baseline, gate, and claim rows before any
-capability-prediction implementation or training. It must accept or reject
-the materialized modeling contract, preserve source-singleton and guard
-exclusions, preserve evaluator-only target boundaries and actor 72/action 3,
-and select exactly one bounded follow-up route or stop. It must not reset,
-step, roll out, validate, fit a model, train, rank, promote, or claim driver
-performance, finite-window-vs-GRU verdict, paper result, current-sim verdict,
-high-fidelity validation, full-driver completion, or self-ID evidence.
+M2892 completed the M2891 modeling-contract materialization result audit and
+accepts M2891 as complete and claim-safe. It accepts 12 feature rows, 6 label
+rows, 8 split rows, 6 loss/metric rows, 12 baseline rows, 13 gate rows, and
+14 claim rows. It preserves 17 usable task rows, 204 profile-task rows,
+6 evaluator-only target rows, 34 source-singleton exclusions, 21 guard
+exclusions, actor 72/action 3, no hidden/oracle actor input, and no
+future-target actor input. Paper holdout remains false, split semantics are
+preflight-only, and all required features, labels, and baselines are resolvable.
+M2892 rejects implementation, fitting, training, validation, ranking,
+promotion, verdict, paper, and self-ID claims.
+
+The next task is M2893. It may implement and smoke-test the
+capability-prediction schema, data-loader contract, target availability masks,
+feature/label boundary checks, and model-head shapes. It must not reset, step,
+roll out, replay, fit, train, validate, rank, promote, publish, select a winner,
+claim prediction quality, claim driver performance, claim finite-window-vs-GRU
+evidence, claim paper evidence, claim a current-sim or high-fidelity verdict,
+claim full-driver completion, or claim self-identification.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

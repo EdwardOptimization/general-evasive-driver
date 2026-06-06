@@ -52110,3 +52110,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight_20260606T124859Z/command.log`
 - success artifact: `runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json`
 - notes: Completed: materialization status_pass true gate_matrix_pass true wrote 12 feature 6 label 8 split 6 loss-metric 12 baseline 13 gate and 14 claim rows preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions evaluator-only targets actor 72/action 3 no hidden oracle or future target actor input paper holdout false preflight-only split true all required features labels baselines resolvable rejects implementation fitting training ranking promotion verdict paper and self-ID claims routes to M2892 audit
+
+## 20260606T125848Z m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2891 capability-prediction modeling-contract materialization before any implementation or training.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit_20260606T125848Z`
+- command log: `runs/research/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit_20260606T125848Z/command.log`
+- success artifact: `docs/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M2891 complete claim-safe modeling-contract materialization status_pass true gate_matrix_pass true 12 feature 6 label 8 split 6 loss-metric 12 baseline 13 gate 14 claim rows preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions 6 evaluator-only targets actor 72/action 3 no hidden oracle or future target actor input paper holdout false preflight-only split true all required features labels baselines resolvable rejects implementation fitting training ranking promotion verdict paper and self-ID claims routes to M2893 implementation preflight
