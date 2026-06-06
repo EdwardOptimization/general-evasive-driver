@@ -1,0 +1,94 @@
+# m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T182502Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: repair_admission_materialization_complete_route_to_m2929_result_audit
+- Decision reason: M2928 materialization status_pass true gate_matrix_pass true wrote 4 repair hypothesis rows 27 coverage constraint rows 7 shortcut exclusion rows 20 actor rows 27 claim rows and 16 gate rows preserved 38 offtrack rows 18 context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims registered M2929 audit.
+
+## Hypothesis
+
+A no-execution repair-admission materialization preflight can convert the M2927 branch synthesis into machine-checkable repair hypothesis coverage shortcut exclusion actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md, docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/non_offtrack_context_rows.csv, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/guardrail_context_rows.csv, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.json, experiments/manifests/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.json
+- parent_objective: materialize repair-admission rows after M2927 synthesis allows one evidence-changing continuation
+- derived_from: m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis, m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit, m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight
+- blocked_by: M2927 allows repair-admission materialization but not direct repair execution, M2925 offtrack and context rows must remain coverage constraints, direct execution would bypass actor and claim-boundary admission gates
+- supersedes: direct repair execution from M2925 slice rows, another branch-local design milestone before materialized repair admission, direct performance interpretation of offtrack localization
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json exists
+- M2928 writes repair hypothesis coverage shortcut actor claim gate run_state doc and follow-up audit manifest artifacts
+- M2928 preserves all 38 offtrack rows and all 18 non-offtrack context rows as coverage constraints
+- M2928 preserves M2877 Route B Route C guardrails and actor 72/action 3
+- M2928 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim
+
+## Failure Criteria
+
+- M2928 executes reset rollout replay validation training ranking promotion or dependency work
+- M2928 changes actor inputs or action contract or exposes hidden/oracle/future-target labels
+- M2928 ranks controller families source families profiles task families source milestones checkpoints or slice bands selects a winner promotes a checkpoint or claims driver performance
+- M2928 hides context rows or treats diagnostic localization as validation readiness
+
+## Evidence Gates
+
+- M2928 must consume M2925-M2927 artifacts and preserve the 38 offtrack plus 18 context denominator
+- M2928 must write repair hypothesis coverage shortcut exclusion actor claim gate run_state summary doc and one follow-up audit manifest
+- M2928 must keep source task checkpoint environment window severity and time bands as coverage constraints not rankings
+- M2928 must preserve M2877 Route B Route C guardrail exclusions
+- M2928 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible labels
+- M2928 must not execute reset step rollout replay validation training PPO dependency work ranking winner selection promotion or success-rate verdict computation
+- M2928 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset step rollout replay validation training PPO or private holdout
+- do not execute source build adapter probe external simulation dependency acquisition or dependency smoke
+- do not change actor inputs or the deployed action contract
+- do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input
+- do not drop the 18 non-offtrack context rows
+- do not rank source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows
+- do not select a winner promote a checkpoint or compute a success-rate verdict
+- do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: repair_admission_materialization_complete_route_to_m2929_result_audit
+- reason: M2928 materialization status_pass true gate_matrix_pass true wrote 4 repair hypothesis rows 27 coverage constraint rows 7 shortcut exclusion rows 20 actor rows 27 claim rows and 16 gate rows preserved 38 offtrack rows 18 context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims registered M2929 audit.
+
+## Next Blocker
+
+m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit

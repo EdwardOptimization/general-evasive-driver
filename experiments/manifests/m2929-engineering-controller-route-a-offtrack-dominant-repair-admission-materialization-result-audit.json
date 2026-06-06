@@ -1,0 +1,181 @@
+{
+  "baseline_artifacts": [
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/repair_hypothesis_rows.csv",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2929 audits M2928 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M2929 hides M2928 failures or missing artifacts",
+    "M2929 treats M2928 repair admission as validation readiness or performance verdict",
+    "M2929 changes actor input or action contract",
+    "M2929 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate rank promote publish select a winner or execute dependency work",
+    "do not fit train or run PPO",
+    "do not change actor input or action contract",
+    "do not convert M2928 repair-admission rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2928 repair-admission materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+  "id": "m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2928 materialization requires a result audit before any repair execution design",
+      "offtrack repair-admission rows are planning artifacts rather than validation or performance evidence"
+    ],
+    "derived_from": [
+      "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight",
+      "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
+      "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit",
+      "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight.json",
+      "experiments/manifests/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/repair_hypothesis_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/gate_matrix.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/run_state.json",
+      "docs/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight.md",
+      "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+      "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit M2928 repair-admission materialization artifacts before any repair execution design"
+    ],
+    "supersedes": [
+      "direct repair execution from M2927 without M2928 result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized offtrack-dominant repair-admission rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2929 cannot accept M2928 as complete and claim-safe",
+      "M2929 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M2929 would continue static design without new materialized evidence or synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may admit one bounded Route A repair execution design only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2929 must audit M2928 summary gate matrix actor and claim boundaries",
+    "M2929 must preserve the 38 offtrack and 18 non-offtrack coverage constraints",
+    "M2929 must preserve M2877 Route B Route C guardrail exclusions",
+    "M2929 must not claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M2929 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2928 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2929 audits Route A repair-admission materialization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2929; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2928 Route A offtrack-dominant repair-admission materialization only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md exists",
+    "M2929 audits M2928 artifacts row counts gates actor and claim boundaries",
+    "M2929 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2928 summary and gate matrix",
+      "M2928 repair hypothesis coverage shortcut actor claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+      "docs/reviews/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+      "M2929 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2929 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M2929 audit accepts or rejects M2928 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M2928 offtrack-dominant repair-admission materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no repair execution validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_repair_admission_result_audit",
+    "evidence_increment": "audits repair-admission materialization artifacts from M2928",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch synthesis if repair admission is complete but no execution route is viable",
+      "route to a bounded execution design only after audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M2928 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if offtrack or non-offtrack coverage accounting changed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2928 completes offtrack-dominant repair-admission materialization"
+  }
+}

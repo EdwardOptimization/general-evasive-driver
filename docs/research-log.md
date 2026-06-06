@@ -52542,3 +52542,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z/command.log`
 - success artifact: `docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md`
 - notes: Completed: branch synthesis decision continue integrates M2919-M2926 offtrack-localization evidence 56 diagnostic rows 38 offtrack rows 18 context rows accepted M2925/M2926 materialization and audit local-search guard satisfied rejects performance validation ranking promotion paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims; admits M2928 repair-admission materialization preflight with no repair execution.
+
+## 20260606T182244Z m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-execution repair-admission materialization preflight can convert the M2927 branch synthesis into machine-checkable repair hypothesis coverage shortcut exclusion actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2926-audit docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md --m2927-synthesis docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md --output-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight_20260606T182243Z`
+- command log: `runs/research/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight_20260606T182243Z/command.log`
+- success artifact: `runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json`
+- notes: Completed: repair-admission materialization status_pass true gate_matrix_pass true materialized 4 repair hypothesis rows 27 coverage constraint rows and 7 shortcut exclusion rows; preserved 38 offtrack rows 18 non-offtrack context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M2929 audit.

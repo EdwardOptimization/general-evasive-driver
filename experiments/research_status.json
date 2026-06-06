@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2933,
+    "completed": 2934,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z/command.log",
+    "command_log": "runs/research/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight_20260606T182243Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z",
+    "run_dir": "runs/research/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight_20260606T182243Z",
     "status": "completed",
-    "task_id": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis"
+    "task_id": "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2926-audit docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md --m2927-synthesis docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md --output-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.json",
-    "hypothesis": "A no-execution repair-admission materialization preflight can convert the M2927 branch synthesis into machine-checkable repair hypothesis coverage shortcut exclusion actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
-    "id": "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize repair-admission rows from M2927 synthesis and M2925/M2926 slice artifacts preserving 38 offtrack rows 18 context rows guardrails actor 72/action 3 no hidden/oracle/future-target actor input and no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29230,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2928 repair-admission materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2928 repair-admission materialization artifacts summary gate matrix actor and claim boundaries preserving 38 offtrack rows 18 context rows shortcut exclusions guardrails actor 72/action 3 and no repair execution validation ranking promotion performance paper high-fidelity or self-ID claims.",
+    "priority": 29240,
     "status": "pending",
-    "success_artifact": "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T181207Z"
+  "updated_at_utc": "20260606T182456Z"
 }
