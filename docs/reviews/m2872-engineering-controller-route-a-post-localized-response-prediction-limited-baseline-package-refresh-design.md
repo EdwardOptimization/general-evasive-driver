@@ -1,0 +1,125 @@
+# m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T074513Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_post_localized_response_prediction_limited_baseline_package_refresh_materialization_preflight
+- Decision reason: M2872 design admits M2873 local materialization of a post-M2870 Route A limited baseline package refresh from existing artifacts including M2824 package M2667 protected readiness M2838 source-diverse negative diagnostics M2868 no-terminal-improvement and M2836 HF3 blocker while rejecting publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims
+
+## Hypothesis
+
+A design-only post-localized-response-prediction Route A limited package refresh can turn the current evidence index into a bounded local deliverable without overclaiming driver performance.
+
+## Lineage
+
+- parent_checkpoint: runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md, docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md, docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md, runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json, docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json, docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md, docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json, docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md, docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json, docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md, runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json, docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md, runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json, runs/m2541_engineering_controller_route_a_baseline_and_interface_materialization/summary.json, public_benchmark_packs/engineering_controller_source_only_diagnostics_m2505/summary.json, runs/m2508_engineering_controller_runtime_inference_cost_report/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.json, experiments/manifests/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.json, experiments/manifests/m2823-engineering-controller-route-a-post-recoverability-negative-limited-package-design.json
+- parent_objective: design a post-M2870 Route A limited baseline package refresh that includes the latest negative diagnostic evidence without claiming performance
+- derived_from: m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis, m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis, m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis, m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis
+- blocked_by: M2871 admits package refresh only as a local limitation-boundary design after the localized response-prediction branch closed weak, M2824 limited package predates M2838/M2840 and M2868/M2870 evidence, M2868/M2869 show no terminal success or collision improvement from localized response-prediction, M2838/M2840 show weak fresh source-diverse diagnostics with 1 success 2 collisions and 13 off_track rows, M2638/M2836 keep selected-platform HF3 stopped until source or an approved dependency route is supplied
+- supersedes: reusing the M2824 package as current without post-M2870 limitations, direct continuation into another localized response-prediction training loop, another M2838-like or M2868-like same-surface diagnostic loop, package publication or validation claim from existing Route A artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md exists
+- design specifies package refresh artifact contract and claim boundaries
+- design includes M2824/M2826 prior package evidence plus M2838/M2840 and M2868/M2870 latest negative diagnostics
+- design preserves protected mitigation HF3 blocker actor 72/action 3 and no hidden/oracle label boundaries
+- design registers a package materialization or explicit stop follow-up
+- design does not claim repair success validation performance paper high-fidelity current-sim full-driver or self-ID evidence
+
+## Failure Criteria
+
+- M2872 executes reset step rollout replay validation training PPO repair source build adapter probe dependency acquisition or external simulation
+- M2872 publishes a package
+- M2872 changes actor input or action contract
+- M2872 hides M2838 M2868 protected mitigation or HF3 blocker limitations
+- M2872 ranks controllers source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate
+- M2872 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2872 must design only a local Route A limited baseline package refresh and must not materialize or publish the package
+- M2872 must include M2824/M2826 prior package evidence plus M2838/M2840 and M2868/M2870 latest negative diagnostic evidence
+- M2872 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels
+- M2872 must preserve protected mitigation offtrack/collision recoverability localized-response-prediction and HF3 blocker limitations as explicit package rows
+- M2872 must pre-register a later package materialization manifest or explicit stop
+- M2872 must not run training validation ranking promotion success-rate verdict computation or claim driver performance paper current-sim high-fidelity full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not fetch or install external dependencies
+- do not publish a package
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not hide M2838 offtrack/collision evidence
+- do not hide M2868 no-terminal-improvement evidence
+- do not hide M2657/M2667 protected mitigation blocker evidence
+- do not weaken M2638/M2836 HF3 source dependency blocker
+- do not rank controller families source families task families profiles stress axes or scenario roles
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from the Route A package refresh design
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
+- type: gate
+- checkpoint: docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_post_localized_response_prediction_limited_baseline_package_refresh_materialization_preflight
+- reason: M2872 design admits M2873 local materialization of a post-M2870 Route A limited baseline package refresh from existing artifacts including M2824 package M2667 protected readiness M2838 source-diverse negative diagnostics M2868 no-terminal-improvement and M2836 HF3 blocker while rejecting publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims
+
+## Next Blocker
+
+m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight

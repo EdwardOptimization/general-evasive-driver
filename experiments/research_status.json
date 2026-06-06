@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2877,
+    "completed": 2878,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis_20260606T073412Z/command.log",
+    "command_log": "runs/research/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design_20260606T074519Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis_20260606T073412Z",
+    "run_dir": "runs/research/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design_20260606T074519Z",
     "status": "completed",
-    "task_id": "m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis"
+    "task_id": "m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A design-only Route A limited baseline package refresh can include post-M2870 negative diagnostics and package boundaries without overclaiming performance.",
-    "id": "m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design",
-    "kind": "gate",
-    "notes": "Pending: design post-M2870 local Route A limited package refresh with explicit limitations and no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28670,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_localized_response_prediction_limited_package_refresh_materialization --m2872-design docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md --output-dir runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh --follow-up-manifest experiments/manifests/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.json",
+    "hypothesis": "A bounded materialization preflight can produce a machine-auditable post-M2870 Route A limited baseline package refresh without publishing a package or claiming driver performance.",
+    "id": "m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize local package refresh rows from existing artifacts including M2824 package M2838 negative source-diverse diagnostics M2868 no-terminal-improvement protected blocker and HF3 blocker with actor 72/action 3 preserved and no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28680,
     "status": "pending",
-    "success_artifact": "docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md"
+    "success_artifact": "runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json"
   },
-  "updated_at_utc": "20260606T073421Z"
+  "updated_at_utc": "20260606T074528Z"
 }

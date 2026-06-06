@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis
+m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis
+m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
+m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
 ```
 
 Current route:
@@ -38,20 +38,21 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A post localized response-prediction limited package
-refresh design after M2871 admitted a package-boundary refresh as the next
-action.
+refresh materialization after M2872 admitted one local package-boundary
+materialization preflight.
 
-M2871 refreshed the Route A evidence index after M2870 closed localized
-response-prediction continuation. It integrates M2641/M2643 source-only fresh
-generalization, M2657/M2660/M2667 target/protected and readiness evidence,
-M2771 negative mechanism-localized repair, M2824/M2826 prior limited package,
-M2836 active HF3 source blocker, M2838/M2840 fresh source-diverse negative
-diagnostics, and M2868/M2870 localized response-prediction negative diagnostics.
-M2871 rejects further localized training, same-surface diagnostic panels, HF3
-bypass, ranking, validation, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID claims. The next task is M2872: design a post-M2870
-local Route A limited baseline package refresh with explicit limitations and no
-package publication.
+M2872 completed a design-only post-M2870 Route A limited baseline package
+refresh. The design keeps M2824/M2826 as the prior package boundary and adds
+explicit requirements for M2667/M2669 protected readiness blockers, M2838/M2840
+fresh source-diverse negative diagnostics, M2868/M2870 localized
+response-prediction no-terminal-improvement, and M2836 active HF3 source
+dependency blocker. It defines a local materialization contract for summary,
+schema, inventory, provenance, latest negative evidence, known blocker,
+actor/action, claim-boundary, and gate-matrix rows. M2872 rejects package
+publication, reset/rollout/replay, validation, training, ranking, promotion,
+success-rate verdicts, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID claims. The next task is M2873: materialize those
+local package refresh rows from existing artifacts only.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
@@ -3782,3 +3783,30 @@ rows, actor boundary rows, claim-boundary rows, gate matrix, and a later
 materialization-or-stop follow-up without publishing a package or running reset,
 rollout, replay, validation, training, ranking, promotion, performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID claims.
+
+## M2872 Engineering Controller Route A Post Localized Response-Prediction Limited Baseline Package Refresh Design
+
+- status: completed
+- decision: `admit_post_localized_response_prediction_limited_baseline_package_refresh_materialization_preflight`
+- manifest: `experiments/manifests/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.json`
+- design artifact: `docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md`
+- review artifact: `docs/reviews/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md`
+- run dir: `runs/research/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design_20260606T074519Z`
+- parent synthesis: `docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md`
+- follow-up manifest: `experiments/manifests/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.json`
+- package refresh contract: summary, package manifest schema, artifact inventory, provenance, latest negative evidence, known blocker disclosure, actor/action contract, claim boundary, and package gate matrix rows
+- required evidence: M2824/M2826 prior package, M2667/M2669 protected readiness, M2838/M2840 fresh source-diverse negative diagnostics, M2868/M2870 localized response-prediction no-terminal-improvement, and M2836 HF3 blocker
+- actor boundary: observation 72/action 3 with no hidden/oracle actor input and no actor-visible package, blocker, diagnostic, route, success, progress, or verdict labels
+- claim boundary: no package publication, reset, rollout, replay, validation, training, ranking, promotion, success-rate verdict, performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim
+- next: `m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight`
+
+## Immediate Next Step
+
+M2873 should materialize the M2872 local package refresh contract from existing
+artifacts only. It must write the package refresh summary, schema, inventory,
+provenance, latest negative evidence, known blocker, actor/action,
+claim-boundary, and gate-matrix rows while preserving M2824, M2667, M2838,
+M2868, and M2836 limitations. It must register a bounded result audit and must
+not publish a package or run reset, rollout, replay, validation, training,
+ranking, promotion, performance, paper, current-sim, high-fidelity, full-driver,
+or self-ID claims.
