@@ -52590,3 +52590,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight_20260606T185648Z/command.log`
 - success artifact: `runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json`
 - notes: Completed: single-candidate repair execution preflight status_pass true gate_matrix_pass true resolved 56 executed 56 failures 0 diagnostic outcomes success 6 collision 9 offtrack 32 speed_too_low 10 all selected metrics finite true preserved 38 offtrack 18 context rows 27 coverage constraints 7 shortcut exclusions M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no validation training ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M2932 audit.
+
+## 20260606T190430Z m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2931 single-candidate repair execution preflight before any validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z`
+- command log: `runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z/command.log`
+- success artifact: `docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md`
+- notes: Completed: audit accepts M2931 complete claim-safe single-candidate repair execution preflight status_pass true gate_matrix_pass true 56 resolved 56 executed 0 failures diagnostic outcomes success 6 collision 9 offtrack 32 speed_too_low 10 all selected metrics finite true preserves 38 offtrack 18 context rows 27 coverage constraints 7 shortcut exclusions M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no validation training ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M2933 result synthesis.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2937,
+    "completed": 2938,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight_20260606T185648Z/command.log",
+    "command_log": "runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight_20260606T185648Z",
+    "run_dir": "runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z",
     "status": "completed",
-    "task_id": "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight"
+    "task_id": "m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M2931 single-candidate repair execution preflight before any validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit",
+    "hypothesis": "A bounded result synthesis can integrate the M2925-M2932 offtrack-dominant repair diagnostic chain, preserve the mixed M2931 outcome without overclaiming, and select one evidence-changing continuation pivot or stop route before any further repair execution validation ranking promotion or performance claim.",
+    "id": "m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2931 complete claim-safe single-candidate repair diagnostic execution artifacts before any validation ranking promotion repair-success performance paper high-fidelity or self-ID interpretation.",
-    "priority": 29270,
+    "notes": "Pending: synthesize M2925-M2932 offtrack-dominant single-candidate repair diagnostic evidence and choose continue pivot or stop without validation ranking promotion repair-success performance paper high-fidelity or self-ID claims.",
+    "priority": 29280,
     "status": "pending",
-    "success_artifact": "docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md"
+    "success_artifact": "docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md"
   },
-  "updated_at_utc": "20260606T185850Z"
+  "updated_at_utc": "20260606T190508Z"
 }
