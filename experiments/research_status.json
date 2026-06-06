@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2881,
+    "completed": 2882,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis_20260606T083236Z/command.log",
+    "command_log": "runs/research/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design_20260606T084551Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis_20260606T083236Z",
+    "run_dir": "runs/research/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design_20260606T084551Z",
     "status": "completed",
-    "task_id": "m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis"
+    "task_id": "m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design can convert the completed post-M2875 package refresh branch into a fixed non-same-surface Route A fresh closed-loop diagnostic evidence surface without executing policy rollout or overclaiming performance.",
-    "id": "m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design",
-    "kind": "gate",
-    "notes": "Pending: design fixed post-package-refresh fresh closed-loop Route A evidence surface with prior-surface exclusions actor 72/action 3 no hidden oracle labels and one bounded evidence-producing preflight or stop while rejecting package publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims",
-    "priority": 28710,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2876-design docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md --m2873-dir runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2816-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --m2828-dir runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --m2838-dir runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight --m2868-dir runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel --follow-up-manifest experiments/manifests/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.json --output-dir runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight --eval-seed-base 287700 --device cpu",
+    "hypothesis": "A bounded M2877 implementation and execution preflight can produce fresh Route A closed-loop diagnostic rows over the fixed 11-row post-package-refresh M1690 L3_online_gru surface while preserving actor and claim boundaries.",
+    "id": "m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and execute fixed 11-row non-same-surface Route A fresh closed-loop diagnostic surface admitted by M2876 preserving actor 72/action 3 no hidden oracle labels prior-surface exclusions package/protected/HF3 guardrails and no validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28720,
     "status": "pending",
-    "success_artifact": "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md"
+    "success_artifact": "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T083236Z"
+  "updated_at_utc": "20260606T084551Z"
 }

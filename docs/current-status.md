@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis
+m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis
+m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
+m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight
 ```
 
 Current route:
@@ -38,25 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A post package-refresh fresh closed-loop evidence
-surface design after M2875 closed the package refresh branch.
+preflight after M2876 admitted the fixed diagnostic surface.
 
-M2875 completed the M2871-M2874 branch synthesis with decision
-`pivot_to_route_a_post_package_refresh_fresh_closed_loop_evidence_surface_design`.
-It accepts the M2873/M2874 package refresh as complete and claim-safe process
-evidence only, freezes the local package boundary, and stops further package
-schema/inventory/provenance/audit work unless a later synthesis proves it
-changes an admission decision. The synthesis preserves M2824 recoverability
-0/0 and collision/offtrack 1/5, M2667 protected blocking/regressed rows 25/79,
-M2838 diagnostic success/collision/offtrack 1/2/13, M2868 baseline/candidate
-success 0/0 and collision 1/1, and the M2638/M2836 selected-platform HF3
-source dependency blocker. Actor 72/action 3, no hidden/oracle actor input,
-and actor-invisible package, blocker, diagnostic, route, success/progress, and
-verdict labels remain preserved. M2875 rejects package publication,
-validation, ranking, promotion, performance, paper, current-sim,
-high-fidelity, full-driver, and self-ID claims. The next task is M2876: design
-a fixed non-same-surface Route A fresh closed-loop diagnostic evidence surface
-with prior-surface exclusions and one bounded evidence-producing follow-up or
-explicit stop.
+M2876 completed the post-package-refresh fresh closed-loop evidence surface
+design. It admits M2877 as one bounded evidence-producing Route A preflight
+over exactly the 11 remaining non-same-surface M1690 `L3_online_gru` rows after
+excluding the 61 unique task-source ids already used by M2737, M2807, M2816,
+M2828, M2838, and M2868. The admitted rows are four T4 actuator-delay/response
+rows and seven T5 near-boundary, delay, loss, or retargeted-boundary rows. M2876
+explicitly rejects padding the panel back to 16 by reusing prior rows. Actor
+72/action 3, no hidden/oracle actor input, no actor-visible package, blocker,
+diagnostic, route, success/progress, or verdict labels, and the M2638/M2836 HF3
+source dependency blocker remain preserved. M2876 rejects package publication,
+validation, ranking, promotion, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID claims. The next task is M2877: implement and execute
+the fixed 11-row diagnostic preflight, write complete M2877-specific execution
+artifacts, and pre-register M2878 result audit before interpretation.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
