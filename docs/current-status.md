@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
+m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
+m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
+m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
 ```
 
 Current route:
@@ -83,11 +83,23 @@ promotion, or high-fidelity validation was run. M2881 wrote a complete
 repo-local artifact with 10 source availability rows, 9 passing gate rows, and
 12 claim rows; all forbidden action flags remain false.
 
-The next task is M2882. It must audit M2881 before any later Route C/HF3
-dependency gate is admitted. If the audit accepts M2881, the admissible
-interpretation is still only dependency-process evidence: Route C/HF3 remains
-stopped until source is supplied or a later bounded dependency route is
-explicitly admitted. M2882 must not fetch/clone Chrono, create external
+M2882 completed the result audit and accepts M2881 as complete and claim-safe.
+The accepted outcome remains negative and narrow:
+`accept_m2881_source_unavailable_claim_safe_keep_route_c_hf3_stopped_route_to_m2883_next_dependency_gate_or_stop_design`.
+M2882 preserves source availability as dependency-process evidence only. It
+rejects dependency execution readiness, source-build readiness, configure/build
+readiness, import/link readiness, backend availability, reset feasibility,
+rollout feasibility, validation readiness/result, driver performance, paper
+evidence, current-sim verdict, high-fidelity validation, full-driver
+completion, and self-ID interpretations. Route C/HF3 remains stopped because
+the fixed source root is missing; available toolchain commands do not admit a
+configure gate without source.
+
+The next task is M2883. It must select exactly one next route or stop state:
+keep Route C/HF3 stopped and pivot to Route A/B evidence, admit manual source
+provision only if source is supplied, admit dependency acquisition only if a
+later explicit allowance exists, route to an alternate backend contract design,
+or stop this Chrono branch. M2883 must not fetch/clone Chrono, create external
 dependency directories, install packages, configure, build, install,
 link/import, start a backend, reset, step, roll out, validate, rank, promote,
 or claim high-fidelity validation.

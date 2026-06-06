@@ -1,0 +1,104 @@
+{
+  "decision_reason": "M2882 audit accepts M2881 complete claim-safe source availability artifact outcome source_unavailable_claim_safe fixed source root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source missing CMakeLists missing repo boundary outside repo cmake /usr/bin/cmake cxx /usr/bin/c++ available no external mutation no forbidden execution rejects configure build import reset rollout validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2883 next dependency gate or stop design",
+  "failure_criteria": [
+    "M2882 fetches clones installs configures builds imports resets steps rolls out validates trains ranks promotes or mutates dependencies",
+    "M2882 changes actor input or action contract",
+    "M2882 weakens M2638/M2836 or hides M2877/M2878 diagnostic-only boundaries",
+    "M2882 claims validation readiness/result high-fidelity validation driver performance paper current-sim full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not fetch or clone Chrono source",
+    "do not create external dependency directories",
+    "do not install packages",
+    "do not configure Chrono",
+    "do not build Chrono",
+    "do not install Chrono",
+    "do not import pychrono or projectchrono",
+    "do not run a C++ link probe",
+    "do not start a backend",
+    "do not reset step rollout replay validate train rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not claim high-fidelity validation driver performance paper current-sim full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T110648Z",
+  "hypothesis": "A bounded result audit can accept or reject the M2881 read-only Chrono source availability artifact before any configure build install link/import reset or validation gate.",
+  "lineage": {
+    "blocked_by": [
+      "M2881 source availability outcome must be audited before any configure build install link/import reset manual step policy smoke or validation gate",
+      "M2638/M2836 still forbid selected-platform HF3 execution until source dependency evidence is accepted as claim-safe"
+    ],
+    "derived_from": [
+      "m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight",
+      "m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight.json",
+      "experiments/manifests/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/source_availability_rows.csv",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/gate_rows.csv",
+      "docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md",
+      "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit the claim safety and completeness of the read-only Chrono source availability artifact"
+    ],
+    "supersedes": [
+      "direct configure/build/install route without source availability audit",
+      "interpreting M2881 source rows as high-fidelity validation or driver-performance evidence"
+    ]
+  },
+  "milestone": "m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit",
+  "next_blocker": "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2881_source_unavailable_claim_safe_keep_route_c_hf3_stopped_route_to_m2883_next_dependency_gate_or_stop_design",
+  "public_gates": [
+    "M2882 must audit M2881 summary source availability rows gate rows and claim rows",
+    "M2882 must classify the outcome as source_available_claim_safe source_unavailable_claim_safe or preflight_failed_claim_safe",
+    "M2882 must preserve fixed source root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source expected tag 10.0.0 and expected commit prefix 9faf13d",
+    "M2882 must preserve no external dependency mutation and no forbidden Chrono configure build install import reset step rollout or validation",
+    "M2882 must not claim dependency execution readiness source-build readiness adapter-probe readiness reset feasibility validation readiness driver performance high-fidelity validation paper current-sim full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2881_source_unavailable_claim_safe_keep_route_c_hf3_stopped_route_to_m2883_next_dependency_gate_or_stop_design",
+    "milestone": "m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit",
+    "reason": "M2882 audit accepts M2881 complete claim-safe source availability artifact outcome source_unavailable_claim_safe fixed source root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source missing CMakeLists missing repo boundary outside repo cmake /usr/bin/cmake cxx /usr/bin/c++ available no external mutation no forbidden execution rejects configure build import reset rollout validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2883 next dependency gate or stop design",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.md exists",
+    "audit accepts or rejects M2881 artifact completeness and claim safety",
+    "audit preserves source availability as dependency-process evidence only",
+    "audit selects exactly one bounded next route or keeps Route C/HF3 stopped"
+  ],
+  "type": "gate"
+}
