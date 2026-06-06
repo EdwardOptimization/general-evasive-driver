@@ -52554,3 +52554,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight_20260606T182243Z/command.log`
 - success artifact: `runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json`
 - notes: Completed: repair-admission materialization status_pass true gate_matrix_pass true materialized 4 repair hypothesis rows 27 coverage constraint rows and 7 shortcut exclusion rows; preserved 38 offtrack rows 18 non-offtrack context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M2929 audit.
+
+## 20260606T183044Z m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2928 repair-admission materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit_20260606T183044Z`
+- command log: `runs/research/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit_20260606T183044Z/command.log`
+- success artifact: `docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md`
+- notes: Completed: audit accepts M2928 complete claim-safe repair-admission materialization status_pass true gate_matrix_pass true 4 repair hypothesis rows 27 coverage constraint rows 7 shortcut exclusion rows 20 actor rows 27 claim rows and 16 gate rows; preserved 38 offtrack rows 18 context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M2930 repair execution design.

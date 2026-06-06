@@ -97,7 +97,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit",
+  "next_blocker": "m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -128,7 +128,7 @@
     "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2928 Route A offtrack-dominant repair-admission materialization only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md exists",
     "M2929 audits M2928 artifacts row counts gates actor and claim boundaries",
