@@ -1,0 +1,180 @@
+{
+  "baseline_artifacts": [
+    "docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md",
+    "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+    "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py",
+    "tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+    "runs/research/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold_20260606T210221Z/command.log",
+    "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "post_scaffold_integration_design_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2950 selects exactly one bounded post-scaffold integration route, artifact repair, pivot, or stop while preserving actor and claim boundaries without execution or overclaiming.",
+  "failure_criteria": [
+    "M2950 implements training execution validation ranking promotion or checkpoint mutation",
+    "M2950 exposes evaluator labels hidden dynamics oracle labels or future targets to actor input",
+    "M2950 treats M2948 scaffold tests as implementation readiness repair success or performance evidence",
+    "M2950 leaves the next route ambiguous or selects multiple incompatible routes"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose evaluator-side labels privileged dynamics oracle labels future targets progress metrics or verdict labels to actor input",
+    "do not claim implementation readiness repair success performance validation paper high-fidelity or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded design-only milestone can convert the accepted M2948/M2949 scaffold infrastructure result into exactly one post-scaffold integration route, artifact repair, pivot, or stop before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design",
+  "lineage": {
+    "blocked_by": [
+      "M2949 accepts M2948 scaffold infrastructure but rejects implementation readiness",
+      "post-scaffold integration must define binding and artifact boundaries before execution",
+      "candidate execution remains blocked until a later audited route admits it"
+    ],
+    "derived_from": [
+      "m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit",
+      "m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold",
+      "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.json",
+      "experiments/manifests/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.json",
+      "experiments/manifests/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md",
+      "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+      "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py",
+      "tests/test_constraint_balanced_actor_head_delta_scaffold.py"
+    ],
+    "parent_objective": [
+      "decide how the accepted scaffold can be integrated without executing a candidate"
+    ],
+    "supersedes": [
+      "direct training or execution after scaffold unit tests"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "moves from accepted scaffold infrastructure to a bounded post-scaffold integration decision",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2950 cannot choose exactly one next route",
+      "M2950 would add another scaffold repair instead of deciding integration boundaries",
+      "M2950 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; may admit one bounded integration/materialization route or force repair/stop",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2950 must consume M2949 audit and M2948 scaffold artifacts",
+    "M2950 must select exactly one bounded post-scaffold integration route artifact repair pivot or stop",
+    "M2950 must preserve actor 72/action 3 and no hidden oracle future-target objective constraint diagnostic success progress or verdict actor input",
+    "M2950 must not execute reset rollout replay validation training ranking promotion dependency work adapter probe or external simulation",
+    "M2950 must not claim implementation readiness repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+  "scoreboard_checkpoint": "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "post-scaffold integration design",
+      "actor and claim boundary preserved",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2950 is integration design only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2950; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If no bounded integration path remains route to repair or stop rather than weakening interpretation standards.",
+    "temporal_evidence_window": "M2948-M2949 actor-head delta scaffold result and audit."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md exists",
+    "M2950 selects one bounded post-scaffold integration route artifact repair pivot or stop",
+    "M2950 preserves actor 72/action 3 and no-privileged-input boundaries",
+    "M2950 makes no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2949 accepts M2948 scaffold infrastructure as claim-safe",
+      "M2948 scaffold tests passed with 7 unit tests",
+      "M2947 local-search synthesis admitted one scaffold route",
+      "M2946 admitted the bounded implementation route after contract materialization"
+    ],
+    "allowed_updates": [
+      "docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+      "docs/reviews/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md",
+      "M2950 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2950 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no environment execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden oracle future-target or evaluator-label actor input",
+      "no scaffold unit tests as closed-loop evidence"
+    ],
+    "next_stage_criteria": [
+      "M2950 chooses exactly one next route repair pivot or stop",
+      "M2950 preserves no-execution and no-overclaim boundaries"
+    ],
+    "stage": "process",
+    "stage_objective": "Design one bounded post-scaffold integration route"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Post-scaffold integration design only; no candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_post_scaffold_integration_design",
+    "evidence_increment": "decides the next integration route after accepted scaffold infrastructure",
+    "fallback_plan": [
+      "route to artifact repair if scaffold or audit evidence is incomplete",
+      "route to stop or pivot if integration would require checkpoint mutation or evaluator-label actor inputs",
+      "admit one bounded materialization route only if integration boundaries are complete"
+    ],
+    "stop_condition": [
+      "stop if integration cannot preserve actor 72/action 3",
+      "stop if integration requires hidden oracle future-target or evaluator-label actor inputs",
+      "stop if integration would be interpreted as repair success or driver performance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2949 accepts M2948 scaffold infrastructure"
+  }
+}
