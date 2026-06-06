@@ -1,0 +1,278 @@
+{
+  "id": "m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution post-zero-residual materialization preflight can convert accepted M2960/M2961/M2962 actor-head delta diagnostic rows into machine-checkable failure-localization and residual-objective admission surfaces before any nonzero residual training execution validation ranking promotion or performance claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md",
+      "docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/execution_candidate_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/execution_resolution_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_head_delta_contract_execution_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_failure_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/source_milestone_aggregate.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/task_family_aggregate.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight.md",
+      "docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md",
+      "docs/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.json",
+      "experiments/manifests/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight.json",
+      "experiments/manifests/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.json"
+    ],
+    "parent_objective": [
+      "materialize post-zero-residual failure-localization and residual-objective admission rows after M2962 chooses no-execution evidence reanalysis over another actor-head delta execution"
+    ],
+    "derived_from": [
+      "m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis",
+      "m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit",
+      "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
+      "m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design"
+    ],
+    "blocked_by": [
+      "M2960 diagnostic outcomes remain weak with 13 success 7 collision 35 off_track and 1 speed_too_low",
+      "M2960 proves zero-residual wrapper execution and row accounting but not a trained residual repair",
+      "M2962 rejects another immediate M2960-like zero-residual execution without failure localization and objective admission",
+      "11 blocked stale fixed-source rows must remain non-executed guardrails outside ordinary denominators"
+    ],
+    "supersedes": [
+      "direct nonzero residual training from M2960 rows without objective admission",
+      "direct repair execution from M2960 rows without failure localization",
+      "direct performance interpretation of M2960 rows",
+      "another zero-residual actor-head delta execution before row-level localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight.md",
+  "public_gates": [
+    "M2963 must consume M2960 execution candidate resolution contract execution bounded execution failure aggregate guard actor claim and gate artifacts plus M2961 audit and M2962 synthesis",
+    "M2963 must write post-zero-residual failure-localization and residual-objective admission rows before any repair execution training validation ranking promotion or new rollout",
+    "M2963 must preserve the full 56-row M2960 execution denominator and must not cherry-pick only the 13 success rows or only one public failure slice",
+    "M2963 must preserve the 11 blocked stale fixed-source rows as non-executed guardrails outside ordinary denominators",
+    "M2963 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible labels",
+    "M2963 must write failure_localization_rows residual_objective_admission_rows source_milestone_aggregate task_family_aggregate outcome_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2963 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation dependency work ranking winner selection promotion or success-rate verdict computation",
+    "M2963 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency acquisition or dependency smoke",
+    "do not train or select a nonzero residual head",
+    "do not promote a checkpoint",
+    "do not change actor inputs or the deployed action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels objective labels admission labels or verdict labels to actor input",
+    "do not drop weak or negative M2960 rows",
+    "do not hide the 11 blocked stale fixed-source guardrail rows",
+    "do not rank controller families source families profiles task families source milestones checkpoints or candidates",
+    "do not select a winner or compute success-rate verdict metrics",
+    "do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_post_zero_residual_failure_localization_objective_admission",
+    "evidence_increment": "materializes M2960 zero-residual diagnostic execution rows into auditable failure-localization and residual-objective admission surfaces after M2962 synthesis",
+    "claim_scope": "Post-zero-residual failure-localization and objective-admission materialization only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2960 artifacts are missing or gate_matrix_pass is false",
+      "stop if materialization would drop failed rows or guardrails",
+      "stop if materialization would rank controllers source families profiles task families source milestones checkpoints or candidates",
+      "stop if actor or claim boundaries cannot be preserved",
+      "stop if M2963 would execute policy dependency work or train a residual head"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2960 artifacts are incomplete",
+      "route to M2964 result audit if localization and objective-admission artifacts are complete",
+      "route to branch stop if no claim-safe residual objective-admission surface can be materialized",
+      "pivot to a different Route A evidence surface if post-zero-residual rows cannot identify an evidence-changing next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2962 selects post-zero-residual failure-localization objective-admission materialization after M2960 complete but weak zero-residual diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Materialize M2960 post-zero-residual failure-localization and residual-objective admission rows without execution",
+    "admission_evidence": [
+      "M2962 synthesis chooses no-execution post-zero-residual failure localization and objective admission",
+      "M2961 accepts M2960 as complete and claim-safe",
+      "M2960 writes 56 execution rows 0 failure rows and weak diagnostic outcomes 13 success 7 collision 35 off_track 1 speed_too_low",
+      "M2960 preserves actor 72/action 3 zero-residual identity wrapper read-only checkpoint loads and 11 blocked stale fixed-source guardrails"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion model-quality verdict or driver-performance claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no blocked stale fixed-source guardrail execution",
+      "no paper high-fidelity current-sim finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight.py",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/failure_localization_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/residual_objective_admission_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/source_milestone_aggregate.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/task_family_aggregate.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/outcome_family_aggregate.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/guardrail_context_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/actor_contract_guard_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/claim_boundary_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/gate_matrix.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/run_state.json",
+      "docs/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight.md",
+      "M2963 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "failure-localization artifacts account for all 56 M2960 execution rows",
+      "residual-objective admission rows preserve the zero-residual diagnostic boundary and do not train a residual",
+      "guardrail context actor and claim boundaries remain preserved",
+      "one follow-up result audit is registered before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2963 is Route A diagnostic failure localization and objective admission materialization and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2963; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2960-M2962 Route A actor-head delta zero-residual diagnostics and synthesis only.",
+    "negative_result_policy": "Preserve negative or insufficient diagnostics and route to result audit pivot or stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "Route A actor-head delta post-zero-residual failure-localization artifact completeness",
+      "Route A actor-head delta residual-objective admission artifact completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns complete M2960 zero-residual closed-loop diagnostics into auditable failure-localization and residual-objective admission rows rather than repeating the same execution surface",
+    "paper_verdict_delta": "no paper verdict; may identify Route A engineering failure slices and claim-safe residual-objective admission constraints but cannot support paper self-ID claims without separate proof and generalization gates",
+    "must_synthesize_if": [
+      "M2963 cannot identify any evidence-changing next-route candidates",
+      "M2963 would claim driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU or self-ID",
+      "M2963 would rank controllers source families profiles task families source milestones checkpoints or candidates",
+      "M2963 would propose another same-surface execution without a changed evidence question"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json exists",
+    "failure_localization_rows residual_objective_admission_rows source_milestone_aggregate task_family_aggregate outcome_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2960 execution rows are accounted in localization rows",
+    "the 11 blocked stale fixed-source guardrails remain explicit and non-executed",
+    "actor 72/action 3 no hidden/oracle/future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2963 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2963 executes reset rollout replay validation training ranking promotion or dependency work",
+    "M2963 trains selects ranks or promotes a nonzero residual head",
+    "M2963 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2963 ranks controller families source families profiles task families source milestones checkpoints or candidates selects a winner promotes a checkpoint or claims driver performance",
+    "M2963 hides failed rows or treats diagnostic localization as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2963 accounts for the full M2960 diagnostic surface, preserves guardrail and actor boundaries, writes complete localization and objective-admission artifacts, and registers a result audit without execution training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claims.",
+  "commands": [
+    {
+      "name": "post_zero_residual_failure_localization_objective_admission_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --m2961-audit docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md --m2962-synthesis docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md --output-dir runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --follow-up-manifest experiments/manifests/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/failure_localization_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/residual_objective_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/source_milestone_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/task_family_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/outcome_family_aggregate.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md",
+    "docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_rows.csv",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/source_milestone_aggregate.csv",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/task_family_aggregate.csv",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json",
+  "next_blocker": "m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit",
+  "status": "pending"
+}

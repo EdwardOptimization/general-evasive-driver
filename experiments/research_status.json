@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2967,
+    "completed": 2968,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit_20260606T225234Z/command.log",
+    "command_log": "runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit_20260606T225234Z",
+    "run_dir": "runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z",
     "status": "completed",
-    "task_id": "m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit"
+    "task_id": "m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result synthesis can preserve M2947-M2961 actor-head delta evidence prevent direct overinterpretation of M2960 zero-residual diagnostics and select one evidence-changing continuation pivot or stop route.",
-    "id": "m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2947-M2961 actor-head delta evidence after M2961 accepts M2960 as complete and claim-safe; answer required synthesis questions and select continue pivot stop or promote_to_next_branch without execution validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29570,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --m2961-audit docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md --m2962-synthesis docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md --output-dir runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --follow-up-manifest experiments/manifests/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.json",
+    "hypothesis": "A no-execution post-zero-residual materialization can convert M2960 actor-head delta diagnostics into failure-localization and residual-objective admission surfaces before training execution validation ranking promotion or performance claims.",
+    "id": "m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize all 56 M2960 zero-residual diagnostic rows into failure-localization objective-admission guard actor claim gate summary doc and M2964 audit manifest without reset step rollout replay training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29580,
     "status": "pending",
-    "success_artifact": "docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md"
+    "success_artifact": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T225234Z"
+  "updated_at_utc": "20260606T230128Z"
 }

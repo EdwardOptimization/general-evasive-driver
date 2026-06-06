@@ -52950,3 +52950,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit_20260606T225234Z/command.log`
 - success artifact: `docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md`
 - notes: Completed: audit accepts M2960 complete claim-safe actor-head delta bounded execution preflight status_pass true gate_matrix_pass true 56 candidates 56 resolved 56 contract execution rows 56 bounded execution rows 0 failures diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 all selected metrics finite true zero-residual identity wrapper read-only checkpoint loads residual_delta_abs_max 0.0; preserves 11 blocked stale fixed-source guardrails actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input and no validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2962 result synthesis.
+
+## 20260606T230128Z m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can preserve M2947-M2961 actor-head delta evidence prevent direct overinterpretation of M2960 zero-residual diagnostics and select one evidence-changing continuation pivot or stop route.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z`
+- command log: `runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z/command.log`
+- success artifact: `docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md`
+- notes: Completed: synthesis preserves M2947-M2961 actor-head delta evidence and accepts M2960 zero-residual bounded execution only as claim-safe diagnostic row accounting; records 56 candidates 56 resolved 56 contract execution rows 56 bounded execution rows 0 failures diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 and 11 blocked stale fixed-source guardrails; rejects repair-success validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2963 post-zero-residual failure-localization objective-admission materialization.
