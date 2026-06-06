@@ -3010,3 +3010,26 @@ M2841 should design the selected next route after the weak M2838 diagnostic
 branch. It must choose a bounded limited-baseline freeze, architecture/training
 redesign, defer-to-Route-B, defer-to-Route-C, or explicit stop path without
 executing policy actions or upgrading M2838 into performance evidence.
+
+## M2841 Engineering Controller Post Route C HF3 Stop Fresh Source-Diverse Closed-Loop Evidence Synthesis Selected Next Route Design
+
+- status: completed
+- decision: `admit_route_a_driver_like_recurrent_belief_architecture_training_redesign_design`
+- manifest: `experiments/manifests/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.json`
+- design artifact: `docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md`
+- parent synthesis: `docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md`
+- follow-up manifest: `experiments/manifests/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.json`
+- selected route: Route A driver-like recurrent-belief architecture/training redesign design
+- rejected immediate routes: limited-baseline freeze, same-surface M2838-like execution, Route C/HF3 retry without source, direct Route B self-ID claim
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: design-only route decision; no execution validation training ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit`
+
+## Immediate Next Step
+
+M2842 should audit the M2841 selected route before any concrete architecture or
+training redesign protocol is admitted. It must either accept the recurrent
+belief architecture/training redesign route or send the branch to limited
+baseline freeze or stop; it must not execute training or convert M2838 weak
+diagnostics into performance evidence.

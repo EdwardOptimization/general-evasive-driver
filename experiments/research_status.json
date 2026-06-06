@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2846,
+    "completed": 2847,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis_20260606T010457Z/command.log",
+    "command_log": "runs/research/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design_20260606T011711Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis_20260606T010457Z",
+    "run_dir": "runs/research/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design_20260606T011711Z",
     "status": "completed",
-    "task_id": "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis"
+    "task_id": "m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A design-only selected next-route milestone can convert M2840 weak diagnostic synthesis into a bounded freeze redesign defer or stop decision without repeating same-surface execution.",
-    "id": "m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design",
+    "hypothesis": "A bounded result audit can accept or reject M2841 selected next-route design while preserving weak diagnostic evidence actor boundaries and claim boundaries before any architecture redesign continues.",
+    "id": "m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit",
     "kind": "gate",
-    "notes": "Pending: design next route after M2840 choose limited-baseline freeze architecture redesign defer-to-Route-B defer-to-Route-C or stop preserve M2838 1 success 2 collision 13 off_track actor 72/action 3 no hidden oracle labels prior-surface and HF3 blockers reject execution validation ranking performance paper current-sim high-fidelity full-driver self-ID claims",
-    "priority": 28360,
+    "notes": "Pending: audit M2841 selected Route A recurrent-belief architecture/training redesign design versus freeze defer or stop preserve M2838 1 success 2 collision 13 off_track actor 72/action 3 no hidden oracle labels prior-surface and HF3 blockers reject execution validation ranking performance paper current-sim high-fidelity full-driver self-ID claims",
+    "priority": 28370,
     "status": "pending",
-    "success_artifact": "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md"
+    "success_artifact": "docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md"
   },
-  "updated_at_utc": "20260606T010457Z"
+  "updated_at_utc": "20260606T011711Z"
 }
