@@ -52158,3 +52158,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis_20260606T132730Z/command.log`
 - success artifact: `docs/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.md`
 - notes: Completed: synthesis decision continue admits M2896 bounded capability-prediction fitting design after accepted M2890-M2894 preflight chain preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions 18 schema 12 loader smoke 12 model-head smoke target_scalar_dim 19 actor 72/action 3 no hidden oracle future target actor input evaluator-only targets paper holdout false preflight-only split rejects direct fitting training validation ranking model-quality verdict paper and self-ID claims
+
+## 20260606T133519Z m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2890-M2895 capability-prediction preflight chain into a split-aware fitting recipe without running optimizer steps training validation ranking or model-quality claims.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design_20260606T133519Z`
+- command log: `runs/research/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design_20260606T133519Z/command.log`
+- success artifact: `docs/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design.md`
+- notes: Completed: fitting design admits M2897 result audit defines SmoothL1/BCE availability-mask loss train-only robust normalization task_source_id split isolation AdamW 3e-4 weight_decay 1e-4 max 128 optimizer steps per profile seed list 289800/289801/289802 baseline reporting public-row overfit fresh-panel triggers rollback and audit gates preserves actor 72/action 3 evaluator-only targets source-singleton guard exclusions paper holdout false preflight-only split no optimizer fitting training validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims

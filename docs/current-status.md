@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis
+m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis
+m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
+m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
 ```
 
 Current route:
@@ -41,8 +41,9 @@ current branch has stopped Route C/HF3 Chrono under source-unavailable,
 pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
 modeling-contract materialization audit, completed implementation preflight,
 accepted the implementation result audit, completed implementation branch
-synthesis, and now sits at fitting design before any optimizer step, fitting,
-training, validation, ranking, or model-quality route.
+synthesis, completed fitting design, and now sits at fitting-design result
+audit before any optimizer step, fitting, training, validation, ranking, or
+model-quality route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -252,13 +253,25 @@ preflight-only split semantics. M2895 rejects direct fitting, training,
 validation, ranking, model-quality verdict, paper, current-sim, high-fidelity,
 full-driver, finite-window-vs-GRU, and self-ID claims.
 
-The next task is M2896. It must design the capability-prediction fitting
-recipe before any optimizer step. It must define optimizer scope, loss and
-target-mask semantics, task_source_id split isolation, seed discipline,
-baseline reporting, public-row overfit guards, fresh/source-diverse panel
-triggers, rollback criteria, and audit gates while preserving actor,
-evaluator-only target, split, holdout, source-singleton, guard, and claim
-boundaries.
+M2896 completed the fitting design and admits only M2897 result audit. It
+defines a later implementation-preflight recipe using SmoothL1/Huber regression
+for continuous targets, BCE-with-logits for explicitly binary recoverability
+entries, availability-mask loss mass normalization, train-split-only robust
+normalization, and task_source_id split isolation. The bounded optimizer recipe
+for a later preflight is AdamW with learning rate 0.0003, weight decay 0.0001,
+global-norm clipping 1.0, at most 128 optimizer steps per profile, and fixed
+seeds 289800/289801/289802 with no profile-specific tuning or target-family
+weight tuning. M2896 preserves actor 72/action 3, evaluator-only targets,
+source-singleton and guard exclusions, paper holdout false, and preflight-only
+split semantics. It rejects optimizer execution, fitting, training, validation,
+ranking, model-quality verdict, paper, current-sim, high-fidelity, full-driver,
+finite-window-vs-GRU, and self-ID claims.
+
+The next task is M2897. It must audit whether M2896's optimizer scope, loss,
+target-mask, split, seed, baseline, public-row overfit, fresh-panel trigger,
+rollback, and audit semantics are complete and claim-safe before any fitting
+implementation preflight. It must accept or reject the design and select
+exactly one bounded next route.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
