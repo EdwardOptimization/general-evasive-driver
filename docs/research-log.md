@@ -52830,3 +52830,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight_20260606T212105Z/command.log`
 - success artifact: `runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/summary.json`
 - notes: Completed: post-scaffold integration contract materialization preflight status_pass true gate_matrix_pass true wrote 1 integration surface row 5 actor-binding rows 4 residual-initialization rows 4 residual-bound rows 35 input-guard rows 12 side-effect-guard rows 15 claim-boundary rows and 12 gate rows; no candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2952 audit.
+
+## 20260606T212810Z m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2951 post-scaffold integration contract materialization before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit_20260606T212810Z`
+- command log: `runs/research/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit_20260606T212810Z/command.log`
+- success artifact: `docs/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M2951 materialization as claim-safe infrastructure status_pass true gate_matrix_pass true 1 integration surface row 5 actor-binding rows 4 residual-initialization rows 4 residual-bound rows 35 input-guard rows 12 side-effect-guard rows 15 claim-boundary rows and 12 gate rows; rejects candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2953 source-diverse evidence-surface materialization.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2957,
+    "completed": 2958,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight_20260606T212105Z/command.log",
+    "command_log": "runs/research/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit_20260606T212810Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight_20260606T212105Z",
+    "run_dir": "runs/research/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit_20260606T212810Z",
     "status": "completed",
-    "task_id": "m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight"
+    "task_id": "m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M2951 post-scaffold integration contract materialization before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2951 post-scaffold integration materialization summary rows doc and gate matrix as infrastructure only; no candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29470,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight --m2951-dir runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight --m2952-audit docs/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.md --output-dir runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight --follow-up-manifest experiments/manifests/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.json",
+    "hypothesis": "A no-execution materialization preflight can turn accepted post-scaffold integration contracts into a source-diverse evidence surface for later candidate-execution admission before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2953-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize source-diverse evidence-surface panel/spec and traceability rows without candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29480,
     "status": "pending",
-    "success_artifact": "docs/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.md"
+    "success_artifact": "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T212227Z"
+  "updated_at_utc": "20260606T212810Z"
 }
