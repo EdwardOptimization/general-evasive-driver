@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2964,
+    "completed": 2965,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis_20260606T222009Z/command.log",
+    "command_log": "runs/research/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design_20260606T222703Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis_20260606T222009Z",
+    "run_dir": "runs/research/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design_20260606T222703Z",
     "status": "completed",
-    "task_id": "m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis"
+    "task_id": "m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded execution-design milestone can convert the accepted M2956-M2958 actor-head delta admission branch into one later actor-safe diagnostic candidate execution plan without running reset rollout validation training ranking promotion checkpoint mutation repair-success performance paper high-fidelity or self-ID claims.",
-    "id": "m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design",
-    "kind": "gate",
-    "notes": "Pending: design one bounded actor-head delta diagnostic execution route or stop state from M2956-M2958 while preserving 56 admitted rows 11 blocked stale rows actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input and no candidate execution validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29540,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --m2956-dir runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight --m2957-audit docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md --m2958-synthesis docs/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.md --m2959-design docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md --output-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --follow-up-manifest experiments/manifests/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.json --device cpu",
+    "hypothesis": "A bounded actor-head delta execution preflight can produce new closed-loop diagnostic rows over all 56 M2956-admitted rows while preserving actor checkpoint claim boundaries and excluding the 11 blocked stale fixed-source rows.",
+    "id": "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: execute one bounded actor-head delta diagnostic preflight over the 56 M2956 admitted rows with read-only checkpoint loads and actor-head delta wrapper contract rows; keep 11 blocked stale rows non-executed; no validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29550,
     "status": "pending",
-    "success_artifact": "docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md"
+    "success_artifact": "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T222009Z"
+  "updated_at_utc": "20260606T222703Z"
 }
