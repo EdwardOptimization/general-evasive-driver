@@ -1,0 +1,219 @@
+{
+  "id": "m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A Route A evidence-index refresh and admission synthesis can integrate the post-M2470 baseline, source-only, target/protected, HF blocker, and localized response-prediction evidence before admitting exactly one evidence-expanding next action.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/post-m2470-route-plan.md",
+      "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
+      "docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md",
+      "runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json",
+      "runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/surface_delta_rows.csv",
+      "docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md",
+      "runs/m2657_engineering_controller_route_a_source_only_target_protected_tradeoff_report/summary.json",
+      "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+      "runs/m2641_engineering_controller_route_a_source_only_fresh_generalization_panel/summary.json",
+      "docs/m2639-engineering-controller-route-a-baseline-evidence-index-refresh-materialization-preflight.md",
+      "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.json",
+      "experiments/manifests/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.json",
+      "experiments/manifests/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.json",
+      "experiments/manifests/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "refresh Route A admission after M2870 pivoted away from another localized response-prediction training loop"
+    ],
+    "derived_from": [
+      "m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis",
+      "m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit",
+      "m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit",
+      "m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis"
+    ],
+    "blocked_by": [
+      "M2868 localized response-prediction deltas did not improve terminal success or collision outcomes",
+      "M2641 source-only fresh generalization and M2657/M2660 target/protected indexing already cover earlier Route A baseline evidence",
+      "M2638/M2836 keep selected-platform HF3 execution stopped until source dependency is supplied",
+      "post-M2470 Route A requires avoiding local current-sim diagnostic loops before further training"
+    ],
+    "supersedes": [
+      "direct continuation from M2870 into another localized response-prediction training recipe",
+      "repeating the M2641 source-only fresh generalization panel as the immediate next action"
+    ],
+    "invalidates": []
+  },
+  "public_gates": [
+    "M2871 must refresh the Route A evidence index across baseline/interface evidence, source-only fresh generalization, target/protected blockers, Route C HF blocker state, and M2868/M2869 localized response-prediction deltas",
+    "M2871 must decide exactly one next admissible action: freeze/package Route A baseline evidence, admit a materially fresh diagnostic panel, route to source-only/HF0 interface preparation, admit bounded training with fresh-surface rollback gates, or stop the local Route A repair/training branch",
+    "M2871 must not repeat M2641, M2657, M2769, M2838, or M2868 as a same-surface/local-search loop",
+    "M2871 must preserve actor 72/action 3, no hidden/oracle inputs, actor-invisible diagnostic labels, and future-label invisibility",
+    "M2871 must not run training validation ranking promotion success-rate verdict computation or claim driver performance paper current-sim high-fidelity validation full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not run PPO",
+    "do not run validation",
+    "do not rank checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not repeat M2641 source-only fresh generalization as a default next panel",
+    "do not repeat M2868 localized response-prediction delta rows as ordinary validation denominators",
+    "do not bypass M2638/M2836 selected-platform source dependency blocker",
+    "do not change actor inputs or action contract",
+    "do not expose route decisions taxonomy labels future response labels or verdict labels to actor input",
+    "do not claim repair success driver performance validation readiness/result paper finite-window-vs-GRU current-sim high-fidelity full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_localized_response_prediction_evidence_index_refresh",
+    "evidence_axis": "route_a_admission_after_localized_response_prediction_pivot",
+    "evidence_increment": "refreshes Route A evidence and blocker index after M2870 closed a complete but weak localized response-prediction branch",
+    "claim_scope": "Evidence-index refresh and admission synthesis only; no training validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if M2871 cannot identify a materially evidence-expanding next action",
+      "stop if the selected next action repeats a fixed public diagnostic surface",
+      "stop if the selected next action would weaken protected mitigation blockers or HF3 source dependency blockers",
+      "stop if actor 72/action 3 or diagnostic-label invisibility cannot be preserved"
+    ],
+    "fallback_plan": [
+      "freeze or package Route A actuator-level baseline evidence if evidence expansion is no longer justified",
+      "route to source-only or HF0 interface preparation if it expands evidence without bypassing source blockers",
+      "admit bounded training only after a fresh-surface design and rollback gate specification",
+      "stop the local Route A repair/training branch if no admissible evidence-expanding route exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2870 pivoted away from direct localized response-prediction continuation after complete but mixed M2868/M2869 diagnostic deltas",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+    "synthesis_questions": [
+      "evidence_index_summary",
+      "supported_claims",
+      "falsified_claims",
+      "active_blockers",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "admission_options",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize the current Route A evidence index after localized response-prediction closure and admit exactly one next evidence-expanding action",
+    "admission_evidence": [
+      "M2870 closes direct localized response-prediction continuation with a pivot decision",
+      "M2868/M2869 provide complete but weak paired closed-loop diagnostic deltas",
+      "M2641/M2643 and M2657/M2660 provide existing source-only and target/protected Route A evidence that should not be repeated blindly",
+      "post-M2470 route plan requires Route A actuator-level baseline progress without turning local diagnostics into the main loop"
+    ],
+    "blocked_shortcuts": [
+      "no training PPO validation ranking promotion or success-rate verdict",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+      "no public-only optimization denominator",
+      "no selected-platform HF3 execution while M2638/M2836 source blocker remains active"
+    ],
+    "allowed_updates": [
+      "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+      "one bounded follow-up manifest if synthesis admits a next route",
+      "M2871 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists and answers required questions",
+      "synthesis chooses exactly one next admissible action or explicit stop",
+      "actor and claim boundaries are preserved",
+      "no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims are made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2871 is Route A evidence-index synthesis only and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2868/M2869 localized response-prediction deltas are not level3 self-identification evidence.",
+      "M2871 must keep Route B self-ID claims outside Route A admission decisions."
+    ],
+    "temporal_evidence_window": "post-M2470 Route A evidence through M2870.",
+    "negative_result_policy": "Preserve negative and weak diagnostic results in the evidence index rather than weakening gates or rebranding diagnostics as performance.",
+    "allowed_claims": [
+      "evidence-index refresh",
+      "admission synthesis decision",
+      "bounded follow-up route registration or stop decision",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "re-indexes cross-branch Route A evidence and blockers before selecting the next route rather than continuing the localized response-prediction training loop",
+    "paper_verdict_delta": "no paper verdict; M2871 keeps Route A admission separate from Route B self-ID evidence",
+    "must_synthesize_if": [
+      "M2871 cannot reconcile M2641/M2657/M2660 and M2868/M2869 evidence",
+      "M2871 would repeat an already-indexed source-only or localized diagnostic surface",
+      "M2871 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2871 would continue without bounded rollback fresh-surface and audit gates"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md exists",
+    "synthesis answers evidence_index_summary supported_claims falsified_claims active_blockers public_gate_overfit_risk admission_options and next_branch_decision",
+    "synthesis chooses exactly one next admissible action or explicit stop",
+    "synthesis preserves actor 72/action 3 no hidden/oracle labels future-label invisibility and claim boundary",
+    "synthesis registers at most one bounded follow-up route without training validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2871 runs training PPO validation ranking promotion or success-rate verdict computation",
+    "M2871 repeats M2641 M2657 M2769 M2838 or M2868 as a same-surface local-search loop",
+    "M2871 hides weak or negative diagnostic evidence or rebrands it as performance evidence",
+    "M2871 changes actor input/action contract or actor label visibility",
+    "M2871 bypasses the selected-platform HF3 source dependency blocker",
+    "M2871 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2871 writes a complete evidence-index refresh and admission synthesis that chooses one bounded next route or explicit stop while preserving actor diagnostic and claim boundaries without training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "evidence_index_refresh_and_admission_synthesis",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/post-m2470-route-plan.md",
+    "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
+    "docs/m2660-engineering-controller-route-a-baseline-evidence-index-after-target-protected-report-refresh-materialization-result-audit.md",
+    "docs/m2643-engineering-controller-route-a-baseline-source-only-fresh-generalization-panel-materialization-result-synthesis.md",
+    "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md"
+  ],
+  "review_artifact": "docs/reviews/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+  "scoreboard_checkpoint": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+  "next_blocker": ""
+}

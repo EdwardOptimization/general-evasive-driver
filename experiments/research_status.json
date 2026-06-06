@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2875,
+    "completed": 2876,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit_20260606T071244Z/command.log",
+    "command_log": "runs/research/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis_20260606T072352Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit_20260606T071244Z",
+    "run_dir": "runs/research/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis_20260606T072352Z",
     "status": "completed",
-    "task_id": "m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit"
+    "task_id": "m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A branch synthesis can decide whether the M2864-M2869 localized response-prediction route should stop pivot or continue after complete but mixed closed-loop diagnostic deltas.",
-    "id": "m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis",
+    "hypothesis": "A Route A evidence index refresh can integrate post-M2470 baseline source-only target-protected HF blocker and localized response-prediction evidence before admitting one next action.",
+    "id": "m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis",
     "kind": "gate",
-    "notes": "Pending: synthesize localized response-prediction branch after M2868 produced complete but mixed diagnostic deltas and no terminal outcome improvement",
-    "priority": 28650,
+    "notes": "Pending: refresh Route A evidence index after M2870 pivot and admit one evidence-expanding next action or explicit stop",
+    "priority": 28660,
     "status": "pending",
-    "success_artifact": "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md"
+    "success_artifact": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md"
   },
-  "updated_at_utc": "20260606T071314Z"
+  "updated_at_utc": "20260606T072401Z"
 }

@@ -93,12 +93,13 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2869 accepted complete M2868 diagnostic deltas but rejected direct performance interpretation",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
       "supported_claims",
       "falsified_claims",
+      "failure_taxonomy_summary",
       "public_gate_overfit_risk",
       "route_a_progress_delta",
       "next_branch_decision"
@@ -196,5 +197,5 @@
   ],
   "review_artifact": "docs/reviews/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
   "scoreboard_checkpoint": "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
-  "next_blocker": ""
+  "next_blocker": "m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis"
 }

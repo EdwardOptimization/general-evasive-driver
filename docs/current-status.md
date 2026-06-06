@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
+m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
+m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design
+m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis
 ```
 
 Current route:
@@ -37,24 +37,21 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is post Route C/HF3 stop evidence-producing branch selection
-after M2836 accepted the M2835 stop decision and kept selected-platform HF3
-paused under M2638.
+current branch is Route A post localized response-prediction evidence-index
+refresh after M2870 pivoted away from another direct localized
+response-prediction training loop.
 
-M2836 audited and accepted M2835 as a complete and claim-safe selected-platform
-source dependency refresh-or-stop design. It confirms no valid source root,
-approved package route, dependency acquisition manifest, or alternate backend
-contract is present, so dependency refresh is not admitted and Route C/HF3
-stays stopped until source is supplied. M2836 preserves M2638
-dependency_source_unavailable, the M2834 pivot away from another handoff loop,
-M2832 handoff evidence, and M2828 mixed diagnostic outcomes as nonverdict
-context. Actor 72/action 3, ActorView-only extraction, no hidden/oracle actor
-input, actor-invisible labels, and actor-invisible diagnostics remain
-preserved. M2836 rejects external install/fetch/import, source build, adapter
-probe, backend start, reset, rollout, validation, ranking, performance, paper,
-current-sim, high-fidelity, full-driver, and self-ID claims. The next task is
-M2837 evidence-producing branch selection: choose a materially different Route
-A or Route B path rather than another Route C dependency artifact.
+M2870 synthesized M2864-M2869 and accepted the localized response-prediction
+branch as complete and claim-safe diagnostic evidence only. M2868/M2869 wrote
+48 paired executions, 24 paired deltas, and 2 surface deltas over 16 M2850
+explanatory and 8 fresh/disjoint rows. Actor 72/action 3, future-label
+invisibility, no hidden/oracle actor input, and no ranking/promotion/validation
+claims were preserved. Terminal outcomes did not improve: source and candidate
+both had 0 success and 1 collision, with unchanged termination and collision
+pair counts. The candidate only produced small mean clearance-margin gains with
+lower mean return/speed and mixed sideslip deltas. M2870 therefore rejects
+direct continuation into another localized response-prediction training loop and
+routes to M2871 Route A evidence-index refresh and admission synthesis.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
@@ -3727,3 +3724,33 @@ continues only under a bounded follow-up design with fresh evidence and rollback
 gates. It must not run training, validation, ranking, promotion, success-rate
 verdicts, performance, paper, current-sim, high-fidelity, full-driver, or self-ID
 claims.
+
+## M2870 Engineering Controller Route A Localized Response-Prediction Branch Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_post_localized_response_prediction_evidence_index_refresh_and_admission_synthesis`
+- manifest: `experiments/manifests/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.json`
+- synthesis artifact: `docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md`
+- review artifact: `docs/reviews/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md`
+- run dir: `runs/research/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis_20260606T072352Z`
+- parent audit: `docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md`
+- follow-up manifest: `experiments/manifests/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.json`
+- evidence reading: M2864-M2869 are complete and claim-safe but do not improve terminal closed-loop outcomes
+- closed-loop outcome: baseline and candidate both show 0 success and 1 collision across 24 paired diagnostic rows
+- surface deltas: candidate has small mean clearance-margin gains but lower mean return/speed and mixed sideslip deltas across separated M2850 explanatory and fresh/disjoint surfaces
+- route decision: do not continue directly into another localized response-prediction training loop
+- claim boundary: no validation ranking promotion success-rate verdict repair-success performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis`
+
+## Immediate Next Step
+
+M2871 should refresh the Route A evidence index after the M2870 pivot. It should
+integrate the post-M2470 route plan, M2641/M2643 source-only fresh
+generalization, M2657/M2660 target/protected indexing, Route C/HF3 source
+blockers, M2771 negative mechanism-localized repair synthesis, M2838/M2840
+fresh source-diverse diagnostics, and M2868/M2869 localized response-prediction
+deltas. It must admit exactly one next evidence-expanding action or explicit
+stop while preserving actor 72/action 3, actor-invisible labels, no
+hidden/oracle inputs, and no training, validation, ranking, promotion,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.
