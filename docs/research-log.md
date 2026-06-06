@@ -52758,3 +52758,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit_20260606T204014Z/command.log`
 - success artifact: `docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md`
 - notes: Completed: audit accepts M2944 complete claim-safe implementation-contract materialization status_pass true gate_matrix_pass true 1 implementation surface row 7 delta-contract rows 5 objective-binding rows 56 traceability rows 8 blocked-shortcut rows 19 actor guards and 30 claim-boundary rows; rejects implementation readiness repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2946 implementation-admission design before code implementation execution training or validation.
+
+## 20260606T204632Z m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can decide whether the accepted M2944/M2945 residual actor-head delta implementation contracts admit exactly one claim-safe implementation route, require artifact repair, or force stop/pivot before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design_20260606T204632Z`
+- command log: `runs/research/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design_20260606T204632Z/command.log`
+- success artifact: `docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md`
+- notes: Completed: admission decision admit_m2947_scaffold_local_search_synthesis_before_m2948_scaffold selects one bounded residual actor-head delta scaffold route but routes through local-search synthesis first; preserves actor 72/action 3 zero-delta parent-action identity residual bound enforcement no hidden oracle future-target or evaluator-label actor input no checkpoint load modify save rank promote and no environment execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

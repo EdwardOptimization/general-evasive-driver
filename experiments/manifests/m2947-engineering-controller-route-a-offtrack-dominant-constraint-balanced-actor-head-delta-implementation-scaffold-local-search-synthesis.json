@@ -1,0 +1,206 @@
+{
+  "id": "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
+      "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.json",
+      "experiments/manifests/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.json",
+      "experiments/manifests/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize the recent non-evidence implementation-admission chain before opening a code scaffold milestone"
+    ],
+    "derived_from": [
+      "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
+      "m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit",
+      "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight",
+      "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
+      "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+      "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight",
+      "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design"
+    ],
+    "blocked_by": [
+      "M2946 admits a bounded scaffold route",
+      "local_search_guard blocks another direct non-evidence implementation/design milestone on the same branch",
+      "the next code milestone must be admitted through an explicit synthesis decision"
+    ],
+    "supersedes": [
+      "direct M2947 scaffold registration after M2946 admission"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+  "public_gates": [
+    "M2947 must synthesize the M2940-M2946 Route A implementation-design chain and the local-search non-evidence limit",
+    "M2947 must decide exactly one of continue to M2948 scaffold pivot stop or artifact repair",
+    "M2947 must preserve actor 72/action 3 no hidden oracle future-target objective constraint diagnostic success progress or verdict actor input",
+    "M2947 must preserve M2944/M2945 traceability objective-binding shortcut actor and claim-boundary evidence",
+    "M2947 must not implement code load modify save rank or promote checkpoints execute reset rollout replay validation training PPO dependency work adapter probe or external simulation",
+    "M2947 must not claim implementation readiness repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use a non_evidence_streak_limit override to bypass synthesis",
+    "do not implement residual-head code or scaffold tests in M2947",
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose evaluator-side labels privileged dynamics oracle labels future targets progress metrics or verdict labels to actor input",
+    "do not claim implementation readiness repair success performance validation paper high-fidelity or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_scaffold_local_search_synthesis",
+    "evidence_increment": "synthesizes the accepted M2940-M2946 non-execution implementation-design chain before admitting any scaffold code milestone",
+    "claim_scope": "Local-search synthesis only; no code implementation candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the branch has become process-only without a bounded evidence-producing next route",
+      "stop if scaffold admission would drop M2944 traceability objective shortcut actor or claim boundaries",
+      "stop if implementation would require full-policy rewrite checkpoint mutation or evaluator-label actor input",
+      "stop if scaffold tests would be interpreted as implementation readiness repair success or driver performance"
+    ],
+    "fallback_plan": [
+      "continue to M2948 scaffold only if one bounded no-execution scaffold route remains claim-safe",
+      "route to artifact repair if M2944/M2945/M2946 evidence is incomplete or inconsistent",
+      "pivot to a data or panel evidence milestone if the branch needs evidence rather than another design artifact",
+      "stop the branch if no actor-safe implementation path remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "local_search_guard reports six consecutive non-evidence milestones if direct scaffold follows M2946",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "implementation_scaffold_admission",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize the Route A actor-head delta implementation-admission chain before opening a scaffold code milestone",
+    "admission_evidence": [
+      "M2946 admits a bounded residual actor-head delta scaffold route",
+      "M2945 accepts M2944 contract materialization as complete and claim-safe",
+      "M2944 provides implementation surface delta objective traceability shortcut actor claim and gate artifacts",
+      "research validator local_search_guard blocks another direct non-evidence milestone without synthesis"
+    ],
+    "blocked_shortcuts": [
+      "no implementation execution validation ranking promotion repair-success or performance verdict",
+      "no scaffold code tests training replay PPO or checkpoint promotion in M2947",
+      "no hidden oracle future-target or evaluator-label actor input",
+      "no non_evidence_streak_limit override to bypass synthesis"
+    ],
+    "allowed_updates": [
+      "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+      "docs/reviews/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+      "M2947 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2947 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "required synthesis questions are answered",
+      "exactly one continue pivot stop or artifact-repair decision is selected",
+      "actor 72/action 3 and no-privileged-input boundaries remain preserved",
+      "no code implementation execution training validation ranking repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2947 is a local-search synthesis over Route A implementation admission and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2947; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2940-M2946 Route A offtrack-dominant actor-head delta design admission chain.",
+    "negative_result_policy": "If synthesis cannot justify one bounded scaffold route preserve that blocker and pivot or stop rather than weakening self-ID or implementation standards.",
+    "allowed_claims": [
+      "branch local-search synthesis decision",
+      "bounded scaffold route admission to M2948 if claim-safe",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "resets the local-search non-evidence chain by explicitly synthesizing whether implementation scaffolding remains the right next action",
+    "paper_verdict_delta": "no paper verdict; may admit M2948 scaffold or force repair pivot or stop",
+    "must_synthesize_if": [
+      "M2947 cannot choose exactly one next route",
+      "M2947 would bypass local-search guard by raising the non-evidence limit",
+      "M2947 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence",
+      "M2947 would admit scaffold code without preserving M2944/M2945 actor and claim boundaries"
+    ]
+  },
+  "hypothesis": "A bounded local-search synthesis can decide whether the accepted M2940-M2946 Route A actor-head delta implementation-admission chain should continue to one M2948 scaffold milestone, pivot, repair artifacts, or stop before any code implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "success_criteria": [
+    "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md exists",
+    "M2947 answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk implementation_scaffold_admission and next_branch_decision",
+    "M2947 selects exactly one of continue to M2948 scaffold pivot stop or artifact repair",
+    "M2947 preserves M2944/M2945 actor traceability objective shortcut and claim boundaries",
+    "M2947 registers at most one bounded follow-up route without implementation execution training validation ranking repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2947 implements residual scaffold code tests or checkpoint changes",
+    "M2947 executes environment reset rollout replay validation training ranking promotion dependency build adapter probe or external simulation",
+    "M2947 changes actor inputs or action contract or exposes hidden oracle future-target labels",
+    "M2947 bypasses local-search guard with a non_evidence_streak_limit override",
+    "M2947 treats synthesis as implementation readiness repair success or performance verdict"
+  ],
+  "decision_rule": "Pass only if M2947 writes a local-search synthesis artifact that selects one bounded next route or stop after M2940-M2946 without implementation execution training validation ranking promotion or verdict claims.",
+  "commands": [
+    {
+      "name": "local_search_synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
+    "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
+    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv",
+    "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
+    "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+  "next_blocker": "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis",
+  "status": "pending"
+}

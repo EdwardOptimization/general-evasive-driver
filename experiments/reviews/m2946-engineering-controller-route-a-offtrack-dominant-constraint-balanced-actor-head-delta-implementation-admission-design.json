@@ -1,20 +1,5 @@
 {
-  "baseline_artifacts": [
-    "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
-    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
-    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
-    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "admission_design_only"
-    }
-  ],
-  "decision_rule": "Pass only if M2946 selects one bounded implementation route, artifact repair, stop, or pivot state while preserving M2944 contracts and claim boundaries without overclaiming.",
+  "decision_reason": "M2946 admits one bounded residual actor-head delta scaffold route but routes through local-search synthesis before code; preserves actor 72/action 3 zero-delta parent-action identity residual-bound enforcement no privileged/evaluator-label actor input no checkpoint environment training execution validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
   "failure_criteria": [
     "M2946 implements code modifies checkpoints executes trains validates ranks promotes or selects a candidate winner",
     "M2946 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
@@ -41,8 +26,8 @@
     "do not convert admission design into implementation readiness repair-success performance validation paper high-fidelity or self-ID claims"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260606T205404Z",
   "hypothesis": "A bounded design-only milestone can decide whether the accepted M2944/M2945 residual actor-head delta implementation contracts admit exactly one claim-safe implementation route, require artifact repair, or force stop/pivot before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-  "id": "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
   "lineage": {
     "blocked_by": [
       "M2945 accepts M2944 contracts but rejects immediate implementation",
@@ -84,23 +69,10 @@
       "implementation readiness claim from contract rows"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "synthesis_decision",
-    "evidence_expansion": "moves from audited implementation contracts to an explicit admission decision before any code implementation",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M2946 cannot select one bounded route or stop/pivot",
-      "M2946 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence",
-      "M2946 would admit implementation without preserving actor and claim boundaries"
-    ],
-    "paper_verdict_delta": "no paper verdict; may decide whether a bounded implementation route is allowed or branch should stop/pivot",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 1,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
   "next_blocker": "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m2947_scaffold_local_search_synthesis_before_m2948_scaffold",
   "public_gates": [
     "M2946 must consume M2945 audit M2944 summary implementation surface delta objective traceability shortcut actor claim and gate artifacts",
     "M2946 must select exactly one bounded implementation route, artifact repair, stop, or pivot state",
@@ -109,78 +81,25 @@
     "M2946 must not implement code modify checkpoints execute train validate rank select a winner promote or compute success-rate verdicts",
     "M2946 must not claim implementation readiness repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
-      "type": "markdown"
-    }
-  ],
-  "review_artifact": "docs/reviews/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
-  "scoreboard_checkpoint": "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "bounded implementation admission design completeness",
-      "actor and claim boundary preserved",
-      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M2946 is Route A implementation admission design and cannot infer history necessity or self-ID.",
-    "history_necessity_tests": [
-      "None in M2946; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
-    ],
-    "negative_result_policy": "Preserve contract evidence and route to stop or pivot rather than weakening self-ID standards.",
-    "temporal_evidence_window": "M2941-M2945 Route A actor-head delta implementation-contract chain."
+  "scoreboard": {
+    "checkpoint": "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_m2947_scaffold_local_search_synthesis_before_m2948_scaffold",
+    "milestone": "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
+    "reason": "M2946 admits one bounded residual actor-head delta scaffold route but routes through local-search synthesis before code; preserves actor 72/action 3 zero-delta parent-action identity residual-bound enforcement no privileged/evaluator-label actor input no checkpoint environment training execution validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
-  "status": "completed",
   "success_criteria": [
     "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md exists",
     "M2946 selects one bounded implementation route artifact repair stop or pivot state",
     "M2946 preserves all M2944 contract counts actor boundaries and claim boundaries",
     "M2946 makes no implementation execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M2945 accepts M2944 as complete and claim-safe",
-      "M2944 provides implementation surface delta objective traceability shortcut actor claim and gate artifacts"
-    ],
-    "allowed_updates": [
-      "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
-      "docs/reviews/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
-      "M2946 status queue scoreboard research log and review",
-      "one follow-up manifest only if M2946 selects exactly one next route"
-    ],
-    "blocked_shortcuts": [
-      "no implementation execution validation ranking promotion repair-success or performance verdict",
-      "no training replay PPO or checkpoint promotion",
-      "no hidden/oracle/future-target actor input",
-      "no full-policy rewrite evaluator-label conditioning or traceability dropping"
-    ],
-    "next_stage_criteria": [
-      "M2946 selects exactly one bounded implementation route, artifact repair, stop, or pivot state",
-      "M2946 preserves all M2944 contracts and actor/claim boundaries"
-    ],
-    "stage": "process",
-    "stage_objective": "Decide one bounded implementation admission route or stop/pivot"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
-    "claim_scope": "Design/admission only; no implementation execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_implementation_admission_design",
-    "evidence_increment": "decides whether audited implementation contracts admit one bounded implementation route without executing it",
-    "fallback_plan": [
-      "route to artifact repair if M2944 evidence is incomplete",
-      "route to stop or pivot if no bounded implementation route remains",
-      "route to implementation admission materialization only if one complete claim-safe route is selected"
-    ],
-    "stop_condition": [
-      "stop if implementation admission cannot preserve actor and claim boundaries",
-      "stop if traceability objective binding or shortcut rows would be dropped",
-      "stop if implementation would require full-policy rewrite or evaluator-label actor input",
-      "stop if admission would be interpreted as implementation readiness or repair success"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M2945 accepts M2944 implementation-contract materialization"
-  }
+  "type": "gate"
 }
