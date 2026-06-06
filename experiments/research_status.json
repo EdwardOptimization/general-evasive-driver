@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2936,
+    "completed": 2937,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design_20260606T183921Z/command.log",
+    "command_log": "runs/research/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight_20260606T185648Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design_20260606T183921Z",
+    "run_dir": "runs/research/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight_20260606T185648Z",
     "status": "completed",
-    "task_id": "m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design"
+    "task_id": "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_execution_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2928-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2929-audit docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md --m2930-design docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md --output-dir runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight --follow-up-manifest experiments/manifests/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.json --device cpu",
-    "hypothesis": "A bounded single-candidate repair execution preflight can produce claim-safe diagnostic closed-loop rows for the fixed M2655 repair candidate over the full M2925 offtrack-dominant panel while preserving actor coverage shortcut guardrail and claim boundaries.",
-    "id": "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: execute fixed M2655 repair candidate over the 56-row M2925 offtrack-dominant panel for diagnostic closed-loop evidence only preserving 38 offtrack 18 context rows coverage constraints shortcut exclusions guardrails actor 72/action 3 and no validation training ranking promotion repair-success performance paper high-fidelity or self-ID claims.",
-    "priority": 29260,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2931 single-candidate repair execution preflight before any validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2931 complete claim-safe single-candidate repair diagnostic execution artifacts before any validation ranking promotion repair-success performance paper high-fidelity or self-ID interpretation.",
+    "priority": 29270,
     "status": "pending",
-    "success_artifact": "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json"
+    "success_artifact": "docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md"
   },
-  "updated_at_utc": "20260606T184010Z"
+  "updated_at_utc": "20260606T185850Z"
 }
