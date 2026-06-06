@@ -3101,3 +3101,30 @@ M2845 should design exact implementation-preflight boundaries before code or
 training. It must name code/config modules, response-target extraction, artifact
 schemas, trainable parameter trace, proof/generalization/promotion rows, and a
 bounded implementation-preflight follow-up route.
+
+## M2845 Engineering Controller Route A Response-Predictive Recurrent-Belief Core Training Implementation Preflight Design
+
+- status: completed
+- decision: `admit_m2846_response_predictive_recurrent_belief_core_training_implementation_preflight`
+- manifest: `experiments/manifests/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.json`
+- design artifact: `docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md`
+- parent audit: `docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md`
+- follow-up manifest: `experiments/manifests/m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight.json`
+- admitted route: M2846 bounded implementation preflight with a new runner and bounded training smoke
+- implementation boundary: use existing `train_ppo.py` recurrent sequence training and response prediction support plus `config.py` environment builders and artifact writers
+- response target boundary: observation indices 0-8 only for ego response and actuator state; previous command fields hidden dynamics and evaluator labels are excluded from response targets
+- required proof boundary: parameter trace must include recurrent/fusion or response-prediction group mutation and must reject actor_mean.bias-only continuation
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: design-only route acceptance; no implementation execution training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight`
+
+## Immediate Next Step
+
+M2846 should implement the response-predictive recurrent-belief core training
+preflight runner and execute only its bounded training smoke. It must write
+response target schema rows, parameter-group trace rows, proof/generalization
+promotion guards, actor/claim boundary rows, a summary artifact, and an M2847
+result-audit manifest; it must not promote a checkpoint or claim validation,
+driver performance, current-sim, high-fidelity, paper, full-driver, or self-ID
+evidence.

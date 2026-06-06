@@ -1,0 +1,227 @@
+{
+  "id": "m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+      "docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md",
+      "docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "docs/observation-contract.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.json",
+      "experiments/manifests/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.json",
+      "experiments/manifests/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.json"
+    ],
+    "parent_objective": [
+      "implement and execute a bounded response-predictive recurrent-belief core training preflight that writes artifact and gate rows without promoting or validating"
+    ],
+    "derived_from": [
+      "m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design",
+      "m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit"
+    ],
+    "blocked_by": [
+      "M2846 must preserve actor 72/action 3 and no hidden/oracle actor input",
+      "M2846 must use response target indices 0-8 only",
+      "M2846 must produce recurrent/fusion or response-prediction parameter evidence and reject actor_mean.bias-only continuation",
+      "M2846 must keep M2838 weak diagnostic rows visible as 1 success 2 collision and 13 off_track",
+      "M2846 must write proof generalization and promotion rows before interpretation"
+    ],
+    "supersedes": [
+      "design-only implementation boundary without executable runner",
+      "direct unbounded PPO training without artifact gates",
+      "direct actor_mean.bias-only continuation",
+      "same-surface M2838-like execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight.md",
+  "public_gates": [
+    "M2846 must add or update only bounded implementation-preflight code/config needed for response-predictive recurrent-belief core training",
+    "M2846 must execute only the registered bounded training smoke and write required artifacts",
+    "M2846 must preserve actor 72/action 3 no hidden/oracle actor input and no actor-visible evaluator labels",
+    "M2846 must write response target schema rows for observation indices 0-8 and exclude previous-command fields hidden dynamics and evaluator labels from targets",
+    "M2846 must write trainable parameter group trace rows proving recurrent/fusion or response-prediction parameter evidence and rejecting actor_mean.bias-only continuation",
+    "M2846 must write proof generalization promotion actor claim and gate rows and preserve M2838 weak diagnostic accounting",
+    "M2846 must not validate rank select a winner promote replace baseline compute success-rate verdict claim performance paper current-sim high-fidelity full-driver or self-ID result"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run unbounded PPO",
+    "do not exceed the M2846 bounded smoke budget selected by the runner",
+    "do not run measured validation",
+    "do not rank checkpoints controllers source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not overwrite active configs",
+    "do not replace any baseline checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not install external dependencies",
+    "do not fetch external source",
+    "do not mutate dependency or source trees",
+    "do not change actor inputs",
+    "do not change deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "do not hide M2838 weak diagnostic outcomes",
+    "do not hide prior-surface protected or HF3 guardrail rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2846 implementation preflight"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_driver_like_recurrent_belief_architecture_training_redesign",
+    "evidence_axis": "response_predictive_recurrent_belief_core_training_implementation_preflight",
+    "evidence_increment": "adds and executes a bounded implementation preflight runner for the accepted response-predictive recurrent-belief core protocol",
+    "claim_scope": "Implementation preflight only; bounded training smoke and artifact gates are allowed but no validation ranking winner selection promotion success-rate verdict dependency acquisition source build driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if actor 72/action 3 cannot be preserved",
+      "stop if response prediction requires hidden/oracle targets",
+      "stop if parameter trace shows actor_mean.bias-only change",
+      "stop if required proof generalization promotion rows cannot be written",
+      "stop if M2838 weak outcomes would become success denominators or actor-visible labels"
+    ],
+    "fallback_plan": [
+      "route to result audit if the implementation preflight writes complete artifacts",
+      "route to result audit with failure classification if bounded training smoke fails",
+      "route to implementation repair design only after audit identifies a narrow code issue",
+      "route to limited-baseline freeze if the implementation cannot change evidence safely",
+      "route to explicit branch stop if claim-safe implementation is not possible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2845 admits exact implementation-preflight boundaries after M2844 protocol acceptance",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "implement and execute response-predictive recurrent-belief core training preflight",
+    "admission_evidence": [
+      "M2845 defines code/config artifact boundaries for implementation preflight",
+      "M2844 accepts M2843 response-predictive recurrent-belief core protocol",
+      "train_ppo.py already supports recurrent sequence training and response prediction auxiliary loss",
+      "M2838 weak diagnostic evidence remains 1 success 2 collision 13 off_track",
+      "M2771 and M2782/M2786 block actor-head-only continuation as the redesign"
+    ],
+    "blocked_shortcuts": [
+      "no measured validation or benchmark verdict in implementation preflight",
+      "no ranking winner selection promotion or baseline replacement",
+      "no hidden/oracle actor inputs or evaluator labels",
+      "no source build adapter probe dependency acquisition external simulation",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight.py",
+      "focused tests for M2846 runner behavior if needed",
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/*",
+      "docs/m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight.md",
+      "M2846 status queue scoreboard and review",
+      "one bounded follow-up result-audit manifest"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "candidate checkpoint is written under run directory only or failure is classified",
+      "response target schema and parameter trace rows exist",
+      "proof generalization promotion actor claim and gate rows exist",
+      "one bounded result-audit route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2846 may collect implementation smoke hidden-intervention rows but does not run a fair self-ID or finite-window-vs-GRU matrix.",
+    "history_necessity_tests": [
+      "Wrong-history reset-hidden zero-history rows may be emitted as proof diagnostics only; no self-ID result is claimed."
+    ],
+    "temporal_evidence_window": "M2838-M2845 weak diagnostics protocol audit and implementation-preflight design artifacts.",
+    "negative_result_policy": "If M2846 fails or shows actor-head-only mutation, record the negative implementation evidence and route to audit rather than weakening gates.",
+    "allowed_claims": [
+      "bounded implementation preflight artifact completion",
+      "candidate checkpoint written for audit only if produced",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from design/audit into executable response-predictive recurrent-belief training preflight artifacts",
+    "paper_verdict_delta": "no paper verdict; implementation preflight is Route A engineering path preparation",
+    "must_synthesize_if": [
+      "M2846 cannot preserve actor 72/action 3",
+      "M2846 response targets require hidden/oracle fields",
+      "M2846 produces only actor_mean.bias changes",
+      "M2846 cannot write proof generalization promotion rows",
+      "M2846 claims validation readiness driver performance paper current-sim high-fidelity or self-ID evidence"
+    ]
+  },
+  "hypothesis": "A bounded implementation preflight can materialize and execute the response-predictive recurrent-belief core training runner while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json exists",
+    "implementation preflight runner exists and uses the existing 72/action 3 human_view_online_gru actor contract",
+    "response target schema covers observation indices 0-8 and excludes hidden/oracle fields and evaluator labels",
+    "parameter trace proves recurrent/fusion or response-prediction parameter evidence and rejects actor_mean.bias-only continuation",
+    "proof generalization promotion actor claim and gate rows exist",
+    "M2838 1 success 2 collision 13 off_track remains diagnostic evidence only",
+    "no validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims are made and one result-audit follow-up manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2846 changes actor input or action contract",
+    "M2846 exposes hidden/oracle actor features or evaluator labels to actor input",
+    "M2846 uses hidden/oracle or label targets for response prediction",
+    "M2846 overwrites active configs or replaces a baseline checkpoint",
+    "M2846 ranks controllers or checkpoints selects a winner promotes a checkpoint or computes success-rate verdict",
+    "M2846 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2846 writes complete bounded implementation-preflight artifacts under the unchanged actor contract and claim boundary; otherwise record the implementation failure and route to audit.",
+  "commands": [
+    {
+      "name": "implementation_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight --m2845-design docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md --m2844-audit docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md --source-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --output-dir runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight --follow-up-manifest experiments/manifests/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+    "docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md",
+    "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json",
+  "next_blocker": "m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit"
+}
