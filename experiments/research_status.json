@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2971,
+    "completed": 2972,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design_20260606T232700Z/command.log",
+    "command_log": "runs/research/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight_20260606T233726Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design_20260606T232700Z",
+    "run_dir": "runs/research/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight_20260606T233726Z",
     "status": "completed",
-    "task_id": "m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design"
+    "task_id": "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight --m2963-dir runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --m2964-audit docs/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.md --m2965-design docs/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design.md --output-dir runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight --follow-up-manifest experiments/manifests/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.json",
-    "hypothesis": "A no-execution objective materialization preflight can convert the accepted M2965 nonzero residual objective design into machine-checkable objective family row-assignment guard actor claim and gate artifacts before any training execution validation ranking promotion or performance claim.",
-    "id": "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M2965 objective design into objective family component row-assignment success identity stale guard actor claim and gate artifacts while preserving all M2963 rows actor 72/action 3 guardrails and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29610,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2966 nonzero residual objective materialization before any residual training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2966 summary objective family component row-assignment success identity stale guard actor claim and gate artifacts then select one next route or stop without training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29620,
     "status": "pending",
-    "success_artifact": "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T232700Z"
+  "updated_at_utc": "20260606T233729Z"
 }

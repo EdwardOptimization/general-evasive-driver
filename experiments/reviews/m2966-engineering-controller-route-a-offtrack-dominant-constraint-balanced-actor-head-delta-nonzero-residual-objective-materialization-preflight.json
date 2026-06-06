@@ -1,0 +1,113 @@
+{
+  "decision_reason": "M2966 materializes M2965 objective design into objective family, component, row-assignment, success identity, stale guard, actor, claim, and gate artifacts with status_pass true gate_matrix_pass true 4 objective families, 4 components, 56 row assignments, 13 success identity guard rows, 11 stale guardrails, 12 actor guards, 23 claim rows, and 17 gate rows; preserves actor 72/action 3 no hidden oracle future-target or objective labels actor-visible and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2967 result audit.",
+  "failure_criteria": [
+    "M2966 executes reset rollout replay validation training PPO ranking promotion dependency work source build adapter probe or external simulation",
+    "M2966 trains selects ranks or promotes a nonzero residual head",
+    "M2966 changes actor input or action contract or exposes hidden oracle future-target evaluator diagnostic success progress objective admission or verdict labels",
+    "M2966 drops weak rows hides guardrails or turns success rows into a positive training objective",
+    "M2966 claims implementation readiness repair success model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not fit train select rank or promote a nonzero residual head",
+    "do not mutate save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels objective labels admission labels or verdict labels to actor input",
+    "do not drop weak failed or success guard rows",
+    "do not hide or execute the 11 blocked stale fixed-source guardrail rows",
+    "do not rank controller families source families profiles task families source milestones checkpoints or candidates",
+    "do not claim implementation readiness repair success validation readiness validation result driver performance paper current-sim high-fidelity finite-window-vs-GRU full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T233823Z",
+  "hypothesis": "A no-execution objective materialization preflight can convert the accepted M2965 nonzero residual objective design into machine-checkable objective family row-assignment guard actor claim and gate artifacts before any training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2965 admits only a no-execution objective materialization preflight",
+      "M2963 objective-admission rows require machine-checkable objective and guard rows before training",
+      "success identity rows must remain guard context rather than positive residual targets",
+      "11 blocked stale fixed-source rows must remain non-executed guardrails outside ordinary denominators"
+    ],
+    "derived_from": [
+      "m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design",
+      "m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit",
+      "m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design.json",
+      "experiments/manifests/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.json",
+      "experiments/manifests/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design.md",
+      "docs/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.md",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/failure_localization_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/residual_objective_admission_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/guardrail_context_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/actor_contract_guard_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/claim_boundary_rows.csv",
+      "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize the accepted M2965 nonzero residual objective design without execution or training"
+    ],
+    "supersedes": [
+      "direct nonzero residual training from M2965 design text",
+      "direct repair execution from M2963 failure-localization rows",
+      "direct objective-family interpretation without materialized guard rows"
+    ]
+  },
+  "milestone": "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight",
+  "next_blocker": "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "nonzero_residual_objective_materialized_route_to_m2967_result_audit",
+  "public_gates": [
+    "M2966 must consume accepted M2965 design M2964 audit and M2963 objective-admission artifacts",
+    "M2966 must materialize objective_family_rows objective_component_rows row_assignment_rows success_identity_guard_rows stale_guardrail_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2966 must account for all 56 M2963 localized rows and all 4 objective-admission rows",
+    "M2966 must preserve the 13 success rows as identity guard rows only and the 11 blocked stale fixed-source rows as non-executed guardrails",
+    "M2966 must preserve actor 72/action 3 and no hidden oracle future-target evaluator diagnostic success progress objective admission or verdict actor input",
+    "M2966 must not execute reset step rollout replay validation training PPO dependency work source build adapter probe external simulation ranking winner selection promotion checkpoint mutation or success-rate verdict computation",
+    "M2966 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "nonzero_residual_objective_materialized_route_to_m2967_result_audit",
+    "milestone": "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight",
+    "reason": "M2966 materializes M2965 objective design into objective family, component, row-assignment, success identity, stale guard, actor, claim, and gate artifacts with status_pass true gate_matrix_pass true 4 objective families, 4 components, 56 row assignments, 13 success identity guard rows, 11 stale guardrails, 12 actor guards, 23 claim rows, and 17 gate rows; preserves actor 72/action 3 no hidden oracle future-target or objective labels actor-visible and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2967 result audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json exists",
+    "objective_family_rows objective_component_rows row_assignment_rows success_identity_guard_rows stale_guardrail_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2963 localized rows and all 4 M2963 objective-admission rows are accounted",
+    "the 13 success rows remain identity guards and the 11 blocked stale fixed-source guardrails remain non-executed",
+    "actor 72/action 3 no hidden/oracle/future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2966 makes no training execution validation ranking repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "type": "infrastructure"
+}
