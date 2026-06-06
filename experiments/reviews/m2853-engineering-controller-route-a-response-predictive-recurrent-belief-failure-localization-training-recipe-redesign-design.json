@@ -1,0 +1,144 @@
+{
+  "decision_reason": "M2853 design admits M2854 existing-artifact failure-localization materialization preflight preserving M2850 16 pairs 32 execution rows 16 delta rows zero success zero collision positive clearance deltas M2838 outside ordinary denominators actor 72/action 3 no hidden oracle labels and rejecting direct continuation validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims",
+  "failure_criteria": [
+    "M2853 runs reset step rollout replay validation training PPO ranking promotion or success-rate verdict computation",
+    "M2853 hides M2850 zero-success diagnostics or rebrands positive clearance deltas as performance ranking or repair-success evidence",
+    "M2853 hides M2838 weak diagnostic accounting or admits it to ordinary denominators",
+    "M2853 changes actor input/action contract or actor label visibility",
+    "M2853 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role outcome route success progress or verdict labels to actor input",
+    "do not hide M2850 zero-success diagnostic outcomes",
+    "do not hide positive clearance deltas or convert them into ranking rows",
+    "do not hide M2838 weak diagnostic accounting",
+    "do not treat M2838 or M2850 rows as ordinary success denominators",
+    "do not optimize only fixed public M2850 rows",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2853 design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T040528Z",
+  "hypothesis": "A design-only failure-localization and training-recipe redesign can convert M2850 zero-success positive-clearance diagnostic deltas into a bounded evidence-producing next route without repeating direct continuation or claiming performance.",
+  "lineage": {
+    "blocked_by": [
+      "M2852 pivots away from another direct continuation or same fixed paired delta panel",
+      "M2850 records zero diagnostic successes zero diagnostic collisions and zero termination-pair changes despite 16/16 positive clearance-margin deltas",
+      "M2850 positive clearance deltas are diagnostic only and cannot be used as ranking promotion validation or repair-success evidence",
+      "M2838 weak diagnostic accounting must remain visible and outside ordinary denominators",
+      "the next route must identify row-level failure mechanisms before any revised training recipe or new evidence-producing panel is admitted"
+    ],
+    "derived_from": [
+      "m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis",
+      "m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit",
+      "m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight",
+      "m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight",
+      "m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.json",
+      "experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json",
+      "experiments/manifests/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.json",
+      "experiments/manifests/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md",
+      "docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json",
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "design a new failure-localization and training-recipe redesign route after M2852 pivots away from direct response-predictive recurrent-belief continuation"
+    ],
+    "supersedes": [
+      "another immediate response-predictive recurrent-belief continuation",
+      "another M2850-like fixed paired delta panel without failure-localization design",
+      "direct promotion of the M2848 checkpoint",
+      "direct interpretation of positive clearance deltas as repair success"
+    ]
+  },
+  "milestone": "m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design",
+  "next_blocker": "m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_existing_artifact_failure_localization_materialization_preflight",
+  "public_gates": [
+    "M2853 must write a design artifact for response-predictive recurrent-belief failure localization and training-recipe redesign before any new execution training continuation validation ranking or promotion route",
+    "M2853 must preserve M2850 artifact accounting 16 pairs 32 paired execution rows 16 paired delta rows 15 proof gates 8 generalization gates 4 promotion guards 17 actor guards 16 claim rows and 27 gate rows",
+    "M2853 must preserve M2850 diagnostic outcomes 0 success 0 collision 30 empty terminations and 2 speed_too_low rows as diagnostic accounting only",
+    "M2853 must preserve the positive clearance delta rows without converting them into ranking winner promotion repair-success validation or performance claims",
+    "M2853 must define row-level localization axes for why positive clearance deltas did not change task outcomes",
+    "M2853 must define how a later evidence-producing route avoids optimizing only fixed public M2850 rows",
+    "M2853 must preserve M2838 weak diagnostic accounting outside ordinary denominators",
+    "M2853 must preserve actor observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2853 must register one bounded follow-up manifest if it admits a localization materialization or revised training-recipe preflight",
+    "M2853 must not run reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2853 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_existing_artifact_failure_localization_materialization_preflight",
+    "milestone": "m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design",
+    "reason": "M2853 design admits M2854 existing-artifact failure-localization materialization preflight preserving M2850 16 pairs 32 execution rows 16 delta rows zero success zero collision positive clearance deltas M2838 outside ordinary denominators actor 72/action 3 no hidden oracle labels and rejecting direct continuation validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.md exists",
+    "M2853 design defines row-level failure-localization axes for M2850 positive clearance deltas with zero diagnostic successes and unchanged terminations",
+    "M2853 design defines how a later evidence-producing route avoids optimizing only fixed public M2850 rows",
+    "M2853 preserves M2850 artifact accounting zero-success diagnostics positive clearance deltas M2838 weak diagnostic accounting actor contract and claim boundary",
+    "M2853 registers one bounded follow-up manifest or explicit stop decision without execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "type": "gate"
+}

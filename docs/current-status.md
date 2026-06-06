@@ -3330,3 +3330,45 @@ guard, and register one bounded follow-up route or stop decision. It must not
 run reset, step, rollout, replay, validation, training, PPO, ranking,
 promotion, success-rate verdict computation, or claim driver-performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2853 Engineering Controller Route A Response-Predictive Recurrent-Belief Failure Localization Training Recipe Redesign Design
+
+- status: completed
+- decision: `admit_existing_artifact_failure_localization_materialization_preflight`
+- manifest: `experiments/manifests/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.json`
+- design artifact: `docs/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.md`
+- follow-up manifest: `experiments/manifests/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight.json`
+- run dir: `runs/research/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design_20260606T040323Z`
+- design result: M2853 admits M2854 existing-artifact row-level failure-localization materialization before any revised training recipe or direct continuation
+- artifact constraint: M2850 has rollout-level rows only, so M2853 does not claim temporal onset localization and routes step timing questions to later telemetry
+- preserved evidence: M2850 zero-success diagnostics, positive clearance deltas, M2838 weak diagnostic accounting outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role outcome route or verdict labels
+- claim boundary: no execution training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight`
+
+## M2854 Engineering Controller Route A Response-Predictive Recurrent-Belief Existing-Artifact Failure Localization Materialization Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization_pass`
+- manifest: `experiments/manifests/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight.json`
+- result artifact: `docs/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight.md`
+- summary: `runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json`
+- run dir: `runs/research/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight_20260606T040333Z`
+- follow-up manifest: `experiments/manifests/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.json`
+- materialized artifacts: 16 row-level failure-localization rows, 6 taxonomy rows, 4 training-recipe redesign rows, 5 public-row overfit guards, 4 actor guards, 14 claim rows, 10 gate rows
+- gate result: `gate_matrix_pass=true`, `required_artifacts_present=true`, actor contract 72/action 3 preserved
+- localization result: 15 rows bucketed as `clearance_progress_tradeoff`, 1 row bucketed as `low_speed_invariant_noncompletion`
+- diagnostic counts: 16 clearance-improved rows, 15 return-degraded rows, 15 speed-degraded rows, 2 speed_too_low subject rows, 16 rows requiring future step trace for temporal onset localization
+- preserved evidence: M2850 0 diagnostic success, 0 diagnostic collision, termination counts `{"": 30, "speed_too_low": 2}`, M2838 1 success, 2 collision, 13 off_track outside ordinary denominators
+- claim boundary: existing-artifact localization only; no environment execution training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit`
+
+## Immediate Next Step
+
+M2855 should audit M2854's summary, row-localization, taxonomy,
+training-recipe, public-overfit, actor, claim, and gate artifacts. The audit
+should decide whether M2854 supports a per-step telemetry route, a revised
+training-recipe design, a branch stop, or a candidate freeze. It must not run
+reset, step, rollout, replay, validation, training, PPO, ranking, promotion,
+success-rate verdict computation, or claim driver-performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID evidence.

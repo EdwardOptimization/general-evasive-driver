@@ -1,0 +1,123 @@
+# m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T040528Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: route_to_m2855_existing_artifact_failure_localization_result_audit
+- Decision reason: M2854 materialization status_pass true wrote 16 row-level failure localization rows 6 taxonomy rows 4 training-recipe rows 5 public-overfit guards actor/claim guards and 10 gate rows gate_matrix_pass true buckets 15 clearance_progress_tradeoff 1 low_speed_invariant_noncompletion requires step trace 16 preserves M2850 zero success zero collision 30 empty terminations 2 speed_too_low 16/16 positive clearance deltas M2838 outside ordinary denominators actor 72/action 3 no hidden oracle labels rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2855 audit
+
+## Hypothesis
+
+A bounded existing-artifact materialization can convert M2850 paired diagnostic rows into row-level failure-localization and training-recipe redesign artifacts without rerunning the environment or overclaiming performance.
+
+## Lineage
+
+- parent_checkpoint: runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt
+- parent_dataset: docs/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.md, docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md, docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md, runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json, runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv, runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json, runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.json, experiments/manifests/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.json, experiments/manifests/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.json
+- parent_objective: materialize existing-artifact row-level failure localization before any revised training recipe or new response-predictive recurrent-belief continuation
+- derived_from: m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design, m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis, m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight
+- blocked_by: M2853 admits existing-artifact localization before revised training or another delta panel, M2850 provides only rollout-level paired rows and does not include per-step telemetry or recurrent-state probes, M2850 positive clearance deltas remain diagnostic only and cannot be used as ranking promotion validation or repair-success evidence, M2838 and M2850 rows must remain outside ordinary success denominators
+- supersedes: another direct response-predictive recurrent-belief continuation before failure localization, another fixed M2850-like paired delta panel without derived localization artifacts, direct optimization of M2850 positive clearance deltas
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json exists
+- row_failure_localization_rows.csv exists and covers 16 M2850 pairs
+- localization_taxonomy_rows.csv training_recipe_redesign_rows.csv public_row_overfit_guard_rows.csv actor_contract_guard_rows.csv claim_boundary_rows.csv and gate_matrix.csv exist
+- M2854 preserves M2850 artifact accounting zero-success diagnostics positive clearance deltas M2838 weak diagnostic accounting actor contract and claim boundary
+- M2854 registers one bounded M2855 result-audit manifest and makes no execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## Failure Criteria
+
+- M2854 runs reset step rollout replay validation training PPO ranking promotion or success-rate verdict computation
+- M2854 hides M2850 zero-success diagnostics or rebrands positive clearance deltas as performance ranking or repair-success evidence
+- M2854 hides M2838 weak diagnostic accounting or admits it to ordinary denominators
+- M2854 changes actor input/action contract or actor label visibility
+- M2854 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2854 must read existing M2850 summary paired execution rows and paired delta rows without executing reset step rollout replay validation training PPO private holdout source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2854 must write summary row_failure_localization_rows localization_taxonomy_rows training_recipe_redesign_rows public_row_overfit_guard_rows actor_contract_guard_rows claim_boundary_rows gate_matrix and run_state artifacts
+- M2854 must preserve M2850 artifact accounting 16 pairs 32 paired execution rows and 16 paired delta rows
+- M2854 must preserve M2850 diagnostic outcomes 0 success 0 collision 30 empty terminations and 2 speed_too_low rows as diagnostic accounting only
+- M2854 must preserve positive clearance deltas without converting them into ranking winner promotion repair-success validation or performance claims
+- M2854 must explicitly flag that M2850 has rollout-level rows only and cannot localize temporal onset without a future per-step telemetry route
+- M2854 must preserve M2838 weak diagnostic accounting outside ordinary denominators
+- M2854 must preserve actor observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible labels
+- M2854 must register one bounded M2855 result-audit manifest
+- M2854 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute measured validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose source stress-axis scenario-role outcome route success progress or verdict labels to actor input
+- do not hide M2850 zero-success diagnostic outcomes
+- do not hide positive clearance deltas or convert them into ranking rows
+- do not hide M2838 weak diagnostic accounting
+- do not treat M2838 or M2850 rows as ordinary success denominators
+- do not optimize only fixed public M2850 rows
+- do not rank baseline and candidate checkpoints
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2854 materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_m2855_existing_artifact_failure_localization_result_audit
+- reason: M2854 materialization status_pass true wrote 16 row-level failure localization rows 6 taxonomy rows 4 training-recipe rows 5 public-overfit guards actor/claim guards and 10 gate rows gate_matrix_pass true buckets 15 clearance_progress_tradeoff 1 low_speed_invariant_noncompletion requires step trace 16 preserves M2850 zero success zero collision 30 empty terminations 2 speed_too_low 16/16 positive clearance deltas M2838 outside ordinary denominators actor 72/action 3 no hidden oracle labels rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2855 audit
+
+## Next Blocker
+
+m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit
