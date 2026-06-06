@@ -142,7 +142,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2851 accepts M2850 complete claim-safe paired closed-loop delta artifacts with weak zero-success diagnostic outcomes",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -248,5 +248,5 @@
     "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv"
   ],
   "scoreboard_checkpoint": "docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md",
-  "next_blocker": ""
+  "next_blocker": "m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design"
 }

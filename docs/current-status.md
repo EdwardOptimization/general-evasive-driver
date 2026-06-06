@@ -3302,3 +3302,31 @@ accounting, actor 72/action 3, and all claim boundaries; it must not run new
 execution, training, validation, ranking, promotion, success-rate verdict
 computation, or claim driver-performance, paper, current-sim, high-fidelity,
 full-driver, or self-ID evidence.
+
+## M2852 Engineering Controller Route A Response-Predictive Recurrent-Belief Closed-Loop Delta Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_failure_localization_training_recipe_redesign_design`
+- manifest: `experiments/manifests/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.json`
+- synthesis artifact: `docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md`
+- follow-up manifest: `experiments/manifests/m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design.json`
+- run dir: `runs/research/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis_20260606T034038Z`
+- accepted result: M2843-M2851 form a complete claim-safe response-predictive recurrent-belief branch, but the closed-loop result is weak diagnostic evidence only
+- preserved M2850 accounting: 16 fixed M1690 L3 pairs, 32 execution rows, 16 paired delta rows, 15 proof gates, 8 generalization gates, 4 promotion guards, 17 actor guards, 16 claim rows, 27 gate rows
+- preserved M2850 outcomes: 0 diagnostic success, 0 diagnostic collision, termination counts `{"": 30, "speed_too_low": 2}`
+- delta interpretation: candidate-minus-baseline min-clearance-margin deltas are positive on 16/16 rows with mean 0.04809967522105241, but termination outcomes do not change and return/speed are mostly lower
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting remains visible and outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role outcome route or verdict labels
+- claim boundary: no training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2853-engineering-controller-route-a-response-predictive-recurrent-belief-failure-localization-training-recipe-redesign-design`
+
+## Immediate Next Step
+
+M2853 should write a design-only failure-localization and training-recipe
+redesign artifact. It should identify row-level axes that explain why positive
+clearance deltas did not change task outcomes, define a public-row overfit
+guard, and register one bounded follow-up route or stop decision. It must not
+run reset, step, rollout, replay, validation, training, PPO, ranking,
+promotion, success-rate verdict computation, or claim driver-performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID evidence.

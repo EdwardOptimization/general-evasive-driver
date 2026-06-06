@@ -51629,3 +51629,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit_20260606T033023Z/command.log`
 - success artifact: `docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md`
 - notes: Completed: audit accepts M2850 complete claim-safe paired delta artifacts 32 execution rows 16 delta rows gate_matrix_pass true actor 72/action 3 no hidden oracle labels M2850 zero success zero collision positive clearance deltas diagnostic only M2838 weak accounting outside denominators rejects ranking promotion performance paper current-sim high-fidelity full-driver self-ID claims routes to M2852 synthesis
+
+## 20260606T034038Z m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2843-M2851 response-predictive recurrent-belief evidence while preventing direct continuation local-search repetition and selecting a bounded next route or stop.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis_20260606T034038Z`
+- command log: `runs/research/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis_20260606T034038Z/command.log`
+- success artifact: `docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md`
+- notes: Completed: synthesis decision pivot closes direct M2843-M2851 response-predictive recurrent-belief continuation/delta loop as complete but weak diagnostic evidence preserves M2850 zero success zero collision positive clearance deltas M2838 outside ordinary denominators actor 72/action 3 and claim boundaries rejects ranking promotion performance paper current-sim high-fidelity full-driver self-ID claims routes to M2853 failure localization training-recipe redesign design
