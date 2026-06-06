@@ -1,0 +1,175 @@
+{
+  "baseline_artifacts": [
+    "runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2860 audits M2859 artifacts under unchanged actor and claim boundaries without new execution or overclaiming.",
+  "failure_criteria": [
+    "M2860 runs new training validation ranking promotion or success-rate verdict computation",
+    "M2860 hides M2859 gate failures or weakens actor/claim boundaries",
+    "M2860 claims repair success driver performance validation readiness/result high-fidelity validation paper current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not run validation",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not expose future labels to actor input",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver completion or self-ID result"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M2859 response-prediction trace artifacts before recipe interpretation.",
+  "id": "m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2860 must audit M2859 response-prediction trace and gap artifacts before training recipe changes",
+      "M2860 must preserve actor-invisible future labels",
+      "M2860 must reject validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims"
+    ],
+    "derived_from": [
+      "m2859-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2859-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-preflight.json",
+      "experiments/manifests/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/summary.json",
+      "runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/response_prediction_trace_rows.csv",
+      "runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/response_prediction_episode_rows.csv",
+      "runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/instrumentation_gap_rows.csv",
+      "docs/m2859-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-preflight.md",
+      "docs/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.md",
+      "runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json",
+      "runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/telemetry_surface_rows.csv"
+    ],
+    "parent_objective": [
+      "audit M2859 response-prediction trace instrumentation repair before recipe interpretation"
+    ],
+    "supersedes": [
+      "unaudited M2859 response-prediction trace interpretation"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits new response-prediction trace instrumentation",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2859 response-prediction artifacts are incomplete",
+      "M2859 cannot resolve availability beyond M2857",
+      "M2859 exposes future labels or hidden/oracle inputs to actor input",
+      "M2859 results are used as validation performance self-ID or paper evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit governs Route A response-prediction trace interpretation before recipe changes",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2861-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2860 must audit M2859 summary response prediction trace episode gap actor claim and gate artifacts",
+    "M2860 must verify response-prediction targets stayed actor-invisible and post-episode diagnostic only",
+    "M2860 must preserve actor 72/action 3 no hidden/oracle actor inputs and M2850/M2857 diagnostic boundaries",
+    "M2860 must not run training validation ranking promotion or success-rate verdict computation",
+    "M2860 must register one bounded next route or stop decision if M2859 artifacts are accepted"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2859 response-prediction trace instrumentation accepted or rejected",
+      "bounded follow-up route registration",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2860 audits Route A response-prediction traces and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2859 response-prediction traces are not level3 self-identification evidence."
+    ],
+    "negative_result_policy": "If response-prediction traces are inconclusive, preserve the result and route to synthesis rather than weakening gates.",
+    "temporal_evidence_window": "M2843-M2859 response-predictive recurrent-belief branch."
+  },
+  "success_criteria": [
+    "docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md exists",
+    "audit checks M2859 summary trace episode gap actor claim and gate rows",
+    "audit preserves actor 72/action 3 no hidden/oracle labels future-label invisibility and claim boundary",
+    "audit registers one bounded follow-up route or stop decision"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2859 summary and trace artifacts are expected before M2860 runs",
+      "M2859 gap rows require audit before recipe interpretation"
+    ],
+    "allowed_updates": [
+      "docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md",
+      "M2860 status queue scoreboard and review",
+      "one bounded follow-up manifest if audit accepts a next route"
+    ],
+    "blocked_shortcuts": [
+      "no training PPO validation ranking promotion or success-rate verdict",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2859 artifacts are accepted or rejected",
+      "response-prediction trace/gap interpretation is preserved",
+      "one bounded next route or stop is registered"
+    ],
+    "stage": "process",
+    "stage_objective": "audit M2859 response-prediction trace instrumentation repair"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_response_predictive_recurrent_belief_failure_localization_training_recipe_redesign",
+    "claim_scope": "Result audit only; no training validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "evidence_axis": "response_prediction_trace_instrumentation_repair_result_audit",
+    "evidence_increment": "audits M2859 response-prediction trace instrumentation before deciding recipe or synthesis route",
+    "fallback_plan": [
+      "route to branch synthesis if response prediction remains inconclusive",
+      "route to training recipe design if response prediction traces are accepted",
+      "route to instrumentation repair if only schema/lineage failed"
+    ],
+    "stop_condition": [
+      "stop if M2859 response prediction artifacts are incomplete",
+      "stop if future labels became actor-visible",
+      "stop if M2859 traces are used as ranking validation or optimization evidence",
+      "stop if response-prediction trace evidence remains inconclusive after this repair"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2859 has produced response-prediction trace artifacts requiring audit"
+  }
+}
