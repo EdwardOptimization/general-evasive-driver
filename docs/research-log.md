@@ -52134,3 +52134,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight_20260606T130956Z/command.log`
 - success artifact: `runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/summary.json`
 - notes: Completed: implementation preflight status_pass true gate_matrix_pass true wrote 18 schema rows 12 loader smoke rows 12 model-head smoke rows 9 gate rows and 17 claim rows target_scalar_dim 19 preserves actor 72/action 3 no hidden oracle or future target actor input evaluator-only targets paper holdout false preflight-only split no optimizer fitting training validation ranking promotion model-quality verdict paper or self-ID claims routes to M2894 audit
+
+## 20260606T131959Z m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2893 capability-prediction implementation preflight before fitting training validation ranking or model-quality claims.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit_20260606T131959Z`
+- command log: `runs/research/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit_20260606T131959Z/command.log`
+- success artifact: `docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md`
+- notes: Completed: audit accepts M2893 complete claim-safe implementation preflight status_pass true gate_matrix_pass true 18 schema 12 loader smoke 12 model-head smoke 9 gate 17 claim rows target_scalar_dim 19 preserves actor 72/action 3 no hidden oracle or future target actor input evaluator-only targets paper holdout false preflight-only split no optimizer fitting training validation ranking promotion model-quality verdict paper self-ID claims routes to M2895 branch synthesis

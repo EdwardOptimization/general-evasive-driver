@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
+m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
+m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit
+m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis
 ```
 
 Current route:
@@ -40,7 +40,9 @@ mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch has stopped Route C/HF3 Chrono under source-unavailable,
 pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
 modeling-contract materialization audit, completed implementation preflight,
-and now sits at implementation result audit.
+accepted the implementation result audit, and now sits at implementation
+branch synthesis before any fitting, training, validation, ranking, or
+model-quality route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -226,13 +228,26 @@ No optimizer step ran, no fitted weights were persisted, and M2893 rejects
 model fitting, training, validation, ranking, promotion, model-quality verdict,
 paper, and self-ID claims.
 
-The next task is M2894. It must audit the M2893 summary plus schema, loader
-smoke, model-head smoke, gate, and claim rows before any fitting, training,
-validation, ranking, or model-quality claim. It must accept or reject the
-implementation preflight, preserve actor and evaluator-only target boundaries,
-preserve source-singleton and guard exclusions, preserve paper holdout false
-and preflight-only split semantics, and select exactly one bounded follow-up
-route or stop.
+M2894 completed the M2893 implementation result audit and accepts M2893 as
+complete and claim-safe. It accepts status_pass true, gate_matrix_pass true,
+18 schema rows, 12 loader smoke rows, 12 model-head smoke rows, 9 gate rows,
+17 claim rows, and target_scalar_dim 19. It preserves actor 72/action 3, no
+hidden/oracle actor input, no future-target actor input, evaluator-only
+targets, paper holdout false, preflight-only split semantics, source-singleton
+exclusions, and guard exclusions. It rejects optimizer, fitting, training,
+validation, ranking, promotion, model-quality verdict, paper, current-sim,
+high-fidelity, full-driver, and self-ID claims. Because M2890-M2894 are five
+non-evidence milestones since the M2889 synthesis reset, M2894 routes to
+M2895 branch synthesis instead of direct fitting or training design.
+
+The next task is M2895. It must synthesize the M2890-M2894
+capability-prediction modeling-contract, materialization, audit,
+implementation-preflight, and audit chain before any fitting, training,
+validation, ranking, or model-quality claim. It must decide exactly one next
+route among fitting/training design, fresh/source-diverse data design, contract
+or implementation repair, Route A pivot, Route C pivot, or stop while
+preserving actor, evaluator-only target, split, holdout, source-singleton,
+guard, and claim boundaries.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
