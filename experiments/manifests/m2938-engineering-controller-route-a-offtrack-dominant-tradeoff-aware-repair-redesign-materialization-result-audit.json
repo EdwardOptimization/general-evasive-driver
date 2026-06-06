@@ -97,7 +97,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 1
   },
-  "next_blocker": "m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit",
+  "next_blocker": "m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -127,7 +127,7 @@
     "negative_result_policy": "Preserve negative or insufficient constraints and route to pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2919-to-M2937 Route A offtrack repair diagnostic and materialization chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md exists",
     "M2938 audits M2937 artifacts row counts gates actor and claim boundaries",

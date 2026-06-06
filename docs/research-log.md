@@ -52662,3 +52662,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight_20260606T194936Z/command.log`
 - success artifact: `runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/summary.json`
 - notes: Completed: tradeoff-aware materialization preflight status_pass true gate_matrix_pass true materialized 56 transition constraint rows 24 offtrack-persistence constraints 10 collision/speed-substitution constraints 9 context-retention constraints 4 positive-reference rows and 5 candidate-surface rows; preserves actor 72/action 3 no hidden oracle or future-target actor input no execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2938 audit.
+
+## 20260606T195537Z m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2937 tradeoff-aware repair redesign materialization before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit_20260606T195537Z`
+- command log: `runs/research/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit_20260606T195537Z/command.log`
+- success artifact: `docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md`
+- notes: Completed: audit accepts M2937 complete claim-safe tradeoff-aware materialization status_pass true gate_matrix_pass true 56 transition constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface rows; rejects repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2939 continuation-or-stop synthesis before another narrow repair loop.
