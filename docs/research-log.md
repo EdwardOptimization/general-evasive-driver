@@ -53034,3 +53034,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis_20260606T234609Z/command.log`
 - success artifact: `docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md`
 - notes: Completed: synthesis decision continue_to_m2969_nonzero_residual_training_admission_design after M2962-M2967 objective branch; preserves M2960 diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 plus M2966 4 objective families 56 row assignments 13 success identity guard rows and 11 stale guardrails; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
+
+## 20260606T235201Z m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can decide whether the accepted M2966/M2967 objective materialization surface admits exactly one guarded nonzero residual training preflight requires artifact repair pivots or stops before any training execution validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design_20260606T235201Z`
+- command log: `runs/research/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design_20260606T235201Z/command.log`
+- success artifact: `docs/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.md`
+- notes: Completed: design admits M2970 no-execution guarded residual training-admission materialization over 43 non-success training candidates 13 success identity guard rows and 11 stale guardrails from M2966 while preserving actor 72/action 3 no privileged actor inputs and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

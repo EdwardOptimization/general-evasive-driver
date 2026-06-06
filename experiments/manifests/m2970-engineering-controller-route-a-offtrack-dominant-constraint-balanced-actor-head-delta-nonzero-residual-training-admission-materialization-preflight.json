@@ -1,0 +1,257 @@
+{
+  "id": "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution training-admission materialization preflight can convert the accepted M2969 guarded residual training-admission design into machine-checkable training candidate guard objective-balance actor claim and gate artifacts before any training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.md",
+      "docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md",
+      "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/objective_family_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/objective_component_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/row_assignment_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/success_identity_guard_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/stale_guardrail_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.json",
+      "experiments/manifests/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.json",
+      "experiments/manifests/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize one guarded residual training-admission surface without training or execution"
+    ],
+    "derived_from": [
+      "m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design",
+      "m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis",
+      "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+      "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2969 admits only a no-execution training-admission materialization preflight",
+      "M2966 objective rows require training-admission materialization and result audit before any residual fitting",
+      "success identity collision speed-floor and stale guardrails must remain active before training"
+    ],
+    "supersedes": [
+      "direct residual training from M2966 objective rows without training-admission materialization",
+      "direct residual execution or validation from M2966 objective rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight.md",
+  "public_gates": [
+    "M2970 must consume M2969 design M2968 synthesis M2967 audit and M2966 objective materialization artifacts",
+    "M2970 must materialize training_admission_profile_rows training_admission_candidate_rows training_admission_guard_rows objective_balance_rows success_identity_guard_rows stale_guardrail_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2970 must account for all 56 row assignments 43 non-success training candidates 13 success identity guards and 11 stale guardrails",
+    "M2970 must preserve actor 72/action 3 and no hidden oracle future-target evaluator diagnostic success progress objective admission or verdict actor input",
+    "M2970 must not execute reset step rollout replay validation training PPO dependency work source build adapter probe external simulation ranking winner selection promotion checkpoint mutation or success-rate verdict computation",
+    "M2970 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not fit train select rank or promote a nonzero residual head",
+    "do not mutate save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels objective labels admission labels or verdict labels to actor input",
+    "do not drop weak failed or success guard rows",
+    "do not hide or execute the 11 blocked stale fixed-source guardrail rows",
+    "do not rank controller families source families profiles task families source milestones checkpoints or candidates",
+    "do not claim implementation readiness repair success validation readiness validation result driver performance paper current-sim high-fidelity finite-window-vs-GRU full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_training_admission_materialization",
+    "evidence_increment": "materializes the M2969 training-admission design into machine-checkable candidate guard objective-balance actor claim and gate artifacts without execution or training",
+    "claim_scope": "Training-admission materialization only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if M2969 design artifact is missing",
+      "stop if M2966 objective rows cannot be accounted",
+      "stop if success identity collision speed-floor or stale guardrails would be weakened",
+      "stop if materialization would drop weak rows or guardrails",
+      "stop if actor or claim boundaries cannot be preserved"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2966 or M2969 inputs are incomplete",
+      "route to branch synthesis if materialization cannot preserve claim safety",
+      "route to result audit if training-admission materialization is complete",
+      "route to stop if any privileged actor input would be required"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2969 admits one no-execution training-admission materialization preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Materialize the M2969 guarded residual training-admission design into auditable candidate and guard rows",
+    "admission_evidence": [
+      "M2969 design admits M2970 training-admission materialization preflight",
+      "M2968 synthesis chooses continue to M2969 design only",
+      "M2967 accepts M2966 as complete and claim-safe objective materialization",
+      "M2966 writes 4 objective family rows 4 objective component rows 56 row assignments 13 success identity guard rows 11 stale guardrails 12 actor guards 23 claim rows and 17 gate rows"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout replay validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO residual fitting or promoted fitted weights",
+      "no hidden oracle future-target evaluator-label diagnostic-label success-label progress-label objective-label admission-label or verdict actor input",
+      "no materialized training-admission rows as training instructions before a later audit and manifest"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight.py",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_profile_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_guard_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/objective_balance_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/success_identity_guard_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/stale_guardrail_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/gate_matrix.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/run_state.json",
+      "docs/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight.md",
+      "M2970 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "M2970 training-admission materialization artifacts exist",
+      "M2970 accounts for all M2966 candidate and guard rows",
+      "M2970 preserves actor input action guardrail and claim boundaries",
+      "M2970 registers one result audit before any interpretation or training"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2970 is Route A training-admission materialization only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2970; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2966-M2969 Route A actor-head delta objective materialization synthesis and training-admission design.",
+    "negative_result_policy": "Preserve weak diagnostics and route to audit synthesis or stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "nonzero residual training-admission materialization completeness",
+      "actor objective and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M2969 design into machine-checkable training-admission materialization artifacts without new closed-loop data",
+    "paper_verdict_delta": "no paper verdict; Route A training-admission materialization remains separate from paper and self-ID evidence",
+    "must_synthesize_if": [
+      "M2970 cannot materialize complete training-admission and guard artifacts",
+      "M2970 would require privileged actor input or drop guardrail rows",
+      "M2970 would claim training repair success validation driver performance paper high-fidelity finite-window-vs-GRU current-sim or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json exists",
+    "training_admission_profile_rows training_admission_candidate_rows training_admission_guard_rows objective_balance_rows success_identity_guard_rows stale_guardrail_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2966 row assignments 43 training candidates 13 success identity guards and 11 stale guardrails are accounted",
+    "actor 72/action 3 no hidden/oracle/future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2970 makes no training execution validation ranking repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2970 executes reset rollout replay validation training PPO ranking promotion dependency work source build adapter probe or external simulation",
+    "M2970 trains selects ranks or promotes a nonzero residual head",
+    "M2970 changes actor input or action contract or exposes hidden oracle future-target evaluator diagnostic success progress objective admission or verdict labels",
+    "M2970 drops weak rows hides guardrails or turns success rows into a positive training target",
+    "M2970 claims implementation readiness repair success model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M2970 materializes complete training-admission and guard artifacts while preserving M2966 accounting actor guardrail and claim boundaries and registers a result audit without execution or training.",
+  "commands": [
+    {
+      "name": "nonzero_residual_training_admission_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --m2966-dir runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight --m2967-audit docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md --m2968-synthesis docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md --m2969-design docs/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.md --output-dir runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_profile_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/objective_balance_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/success_identity_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/stale_guardrail_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.md",
+    "docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md",
+    "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md",
+    "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json",
+    "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/row_assignment_rows.csv",
+    "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json",
+  "next_blocker": "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight",
+  "status": "pending"
+}
