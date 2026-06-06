@@ -53022,3 +53022,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit_20260606T234207Z/command.log`
 - success artifact: `docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md`
 - notes: Completed: audit accepts M2966 objective materialization as complete and claim-safe with status_pass true gate_matrix_pass true 4 objective families 4 components 56 row assignments 13 success identity guard rows 11 stale guardrails 12 actor guards 23 claim rows and 17 gate rows; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2968 objective branch synthesis before training-admission design.
+
+## 20260606T234609Z m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate M2962-M2967 actor-head delta post-zero-residual localization objective-admission design and materialization evidence and decide whether Route A should continue to training-admission design pivot stop or open a new evidence branch before any residual training execution validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis_20260606T234609Z`
+- command log: `runs/research/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis_20260606T234609Z/command.log`
+- success artifact: `docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md`
+- notes: Completed: synthesis decision continue_to_m2969_nonzero_residual_training_admission_design after M2962-M2967 objective branch; preserves M2960 diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 plus M2966 4 objective families 56 row assignments 13 success identity guard rows and 11 stale guardrails; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
