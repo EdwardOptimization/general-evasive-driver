@@ -3372,3 +3372,58 @@ training-recipe design, a branch stop, or a candidate freeze. It must not run
 reset, step, rollout, replay, validation, training, PPO, ranking, promotion,
 success-rate verdict computation, or claim driver-performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2855 Engineering Controller Route A Response-Predictive Recurrent-Belief Existing-Artifact Failure Localization Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2854_claim_safe_localization_route_to_m2856_per_step_telemetry_panel_design`
+- manifest: `experiments/manifests/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.json`
+- audit artifact: `docs/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.md`
+- parent summary: `runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json`
+- follow-up manifest: `experiments/manifests/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.json`
+- run dir: `runs/research/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit_20260606T041041Z`
+- accepted result: M2854 complete claim-safe existing-artifact localization artifacts
+- artifact accounting: 16 row-level localization rows, 6 taxonomy rows, 4 training-recipe rows, 5 public-overfit guards, actor/claim guards and gate matrix pass
+- localization interpretation: 15 rows are `clearance_progress_tradeoff`, 1 row is `low_speed_invariant_noncompletion`, and 16/16 rows require future step trace before temporal onset localization
+- preserved evidence: M2850 zero diagnostic success and zero diagnostic collision, M2850 positive clearance deltas, M2838 weak accounting outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role outcome route or verdict labels
+- claim boundary: no execution training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design`
+
+## Immediate Next Step
+
+M2856 should design a per-step telemetry panel with two bounded surfaces: a
+M2850 explanatory trace surface for diagnostic explanation only, and a fresh or
+disjoint telemetry surface to prevent public-row overfit. It must define
+telemetry fields that can localize clearance/progress tradeoff, low-speed
+onset, action-response lag, and response-prediction timing while preserving
+actor 72/action 3 and no hidden/oracle actor input. It must not execute the
+panel or claim performance, validation, paper, current-sim, high-fidelity,
+full-driver, or self-ID evidence.
+
+## M2856 Engineering Controller Route A Response-Predictive Recurrent-Belief Per-Step Telemetry Panel Design
+
+- status: completed
+- decision: `admit_m2857_per_step_telemetry_panel_materialization_preflight`
+- manifest: `experiments/manifests/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.json`
+- design artifact: `docs/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.md`
+- parent audit: `docs/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.md`
+- follow-up manifest: `experiments/manifests/m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight.json`
+- run dir: `runs/research/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design_20260606T041734Z`
+- admitted surface A: M2850 explanatory trace surface for diagnostic explanation only over the 16 M2850 task_source_id/profile pairs with M2846 baseline and M2848 candidate checkpoints
+- admitted surface B: fresh/disjoint telemetry surface preferring M1690 L3_online_gru task_source_ids disjoint from M2850 M2838 M2828 and protected M2816/M2807/M2759/M2737 surfaces or writing overlap guards if full disjointness is unavailable
+- telemetry fields: per-step deployable response/action channels commands clearance return increments low-speed onset action-response lag response-prediction availability/error if computable and actor visibility guard fields
+- actor boundary: actor observation shape 72 action shape 3 no hidden/oracle actor input and response-prediction labels actor-invisible at action time
+- preserved diagnostics: M2850 zero-success diagnostics positive clearance deltas M2854 step-trace requirement and M2838 weak accounting outside ordinary denominators
+- claim boundary: design only; no execution training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight`
+
+## Immediate Next Step
+
+M2857 should implement and run the bounded per-step telemetry panel
+materialization. It should preserve the M2850 explanatory surface as diagnostic
+explanation only, add a fresh/disjoint telemetry surface or explicit overlap
+guard, write per-step trace and episode localization artifacts, register M2858
+result audit, and keep actor 72/action 3 no hidden/oracle actor input. It must
+not claim validation, ranking, performance, repair success, paper,
+current-sim, high-fidelity, full-driver, or self-ID evidence.

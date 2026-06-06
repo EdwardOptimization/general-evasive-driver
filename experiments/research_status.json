@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2860,
+    "completed": 2862,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight_20260606T040333Z/command.log",
+    "command_log": "runs/research/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design_20260606T041734Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight_20260606T040333Z",
+    "run_dir": "runs/research/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design_20260606T041734Z",
     "status": "completed",
-    "task_id": "m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight"
+    "task_id": "m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2854 existing-artifact failure-localization artifacts before they influence a telemetry or training-recipe route.",
-    "id": "m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M2854 summary localization taxonomy training-recipe overfit actor claim and gate artifacts preserving M2850 zero-success diagnostics positive clearance deltas M2838 weak accounting actor 72/action 3 and claim boundaries no execution training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28500,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization --m2856-design docs/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.md --m2854-summary runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json --m2854-localization-rows runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/row_failure_localization_rows.csv --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --executable-specs runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json --baseline-checkpoint runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt --candidate-checkpoint runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt --output-dir runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization --follow-up-manifest experiments/manifests/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.json --eval-seed-base 285700 --m2850-row-count 16 --fresh-row-count 8 --horizon-steps 96 --device cpu",
+    "hypothesis": "A bounded per-step telemetry materialization can localize clearance-progress tradeoff and low-speed onset over M2850 explanatory and fresh/disjoint diagnostic surfaces without changing actor inputs or overclaiming performance.",
+    "id": "m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize per-step telemetry over M2850 explanatory and fresh/disjoint diagnostic surfaces preserving actor 72/action 3 no hidden oracle labels M2850 zero-success diagnostics M2854 step-trace requirement M2838 weak accounting and claim boundaries no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28520,
     "status": "pending",
-    "success_artifact": "docs/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.md"
+    "success_artifact": "runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json"
   },
-  "updated_at_utc": "20260606T040513Z"
+  "updated_at_utc": "20260606T042315Z"
 }
