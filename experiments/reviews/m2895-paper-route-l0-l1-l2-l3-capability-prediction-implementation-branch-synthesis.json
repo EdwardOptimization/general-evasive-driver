@@ -1,0 +1,118 @@
+{
+  "decision_reason": "M2895 synthesis decision continue admits M2896 bounded capability-prediction fitting design after accepted M2890-M2894 preflight chain preserves 17 usable 204 profile-task rows 34 source-singleton exclusions 21 guard exclusions 18 schema rows 12 loader smoke rows 12 model-head smoke rows target_scalar_dim 19 actor 72/action 3 no hidden oracle future target actor input evaluator-only targets paper holdout false preflight-only split rejects direct fitting training validation ranking model-quality verdict paper and self-ID claims",
+  "failure_criteria": [
+    "M2895 resets steps rolls out replays validates fits trains ranks promotes or executes policy action",
+    "M2895 changes actor input or action contract",
+    "M2895 exposes future targets hidden dynamics or oracle labels to actor input",
+    "M2895 claims driver performance model quality finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2895 leaves the next route ambiguous or selects multiple incompatible actions"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit a model train run PPO rank promote publish a package or select a winner",
+    "do not run optimizer steps or persist fitted weights",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets success progress route labels or verdict labels to actor input",
+    "do not convert M2893 schema loader or model-head smoke rows into model-quality paper or controller-family ranking claims",
+    "do not claim driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T132836Z",
+  "hypothesis": "A bounded branch synthesis can integrate the accepted M2890-M2894 capability-prediction modeling and implementation preflight chain before any fitting training validation ranking or model-quality claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2890-M2894 are five non-evidence milestones since the M2889 synthesis reset",
+      "implementation-preflight smoke artifacts remain preflight evidence only",
+      "17 usable rows remain public and preflight-only",
+      "fitting or training design must not begin by inertia after a smoke audit"
+    ],
+    "derived_from": [
+      "m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit",
+      "m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight",
+      "m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit",
+      "m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight",
+      "m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.json",
+      "experiments/manifests/m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight.json",
+      "experiments/manifests/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.json",
+      "experiments/manifests/m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight.json",
+      "experiments/manifests/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.json",
+      "experiments/manifests/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/summary.json",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/schema_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/loader_smoke_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/model_head_smoke_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/gate_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/claim_rows.csv",
+      "docs/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.md",
+      "runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json",
+      "docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md",
+      "docs/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize whether the accepted Route B capability-prediction design materialization and implementation-preflight chain is sufficient to admit a next fitting or training design"
+    ],
+    "supersedes": [
+      "starting capability-prediction fitting directly after M2894",
+      "treating implementation-preflight smoke rows as model-quality evidence",
+      "continuing the branch through another narrow design or repair milestone before synthesis"
+    ]
+  },
+  "milestone": "m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis",
+  "next_blocker": "m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_admit_m2896_bounded_capability_prediction_fitting_design",
+  "public_gates": [
+    "M2895 must synthesize M2890-M2894 design materialization audit implementation preflight and audit evidence",
+    "M2895 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2895 must decide exactly one next route: fitting or training design fresh/source-diverse data design contract or implementation repair Route A pivot Route C pivot or stop",
+    "M2895 must preserve actor 72/action 3 no hidden/oracle actor input no future-target actor input and evaluator-only targets",
+    "M2895 must preserve source-singleton and guard exclusions paper holdout false and preflight-only split semantics",
+    "M2895 must not reset step rollout replay validate fit train rank promote publish select a winner or claim model quality driver performance finite-window-vs-GRU paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_admit_m2896_bounded_capability_prediction_fitting_design",
+    "milestone": "m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis",
+    "reason": "M2895 synthesis decision continue admits M2896 bounded capability-prediction fitting design after accepted M2890-M2894 preflight chain preserves 17 usable 204 profile-task rows 34 source-singleton exclusions 21 guard exclusions 18 schema rows 12 loader smoke rows 12 model-head smoke rows target_scalar_dim 19 actor 72/action 3 no hidden oracle future target actor input evaluator-only targets paper holdout false preflight-only split rejects direct fitting training validation ranking model-quality verdict paper and self-ID claims",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk admission_options and next_branch_decision",
+    "synthesis selects exactly one next route or stop decision",
+    "synthesis preserves actor 72/action 3 and evaluator-only future target boundaries",
+    "synthesis registers at most one bounded follow-up route without fitting training ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "type": "gate"
+}

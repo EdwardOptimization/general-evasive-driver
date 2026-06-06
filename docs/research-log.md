@@ -52146,3 +52146,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit_20260606T131959Z/command.log`
 - success artifact: `docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md`
 - notes: Completed: audit accepts M2893 complete claim-safe implementation preflight status_pass true gate_matrix_pass true 18 schema 12 loader smoke 12 model-head smoke 9 gate 17 claim rows target_scalar_dim 19 preserves actor 72/action 3 no hidden oracle or future target actor input evaluator-only targets paper holdout false preflight-only split no optimizer fitting training validation ranking promotion model-quality verdict paper self-ID claims routes to M2895 branch synthesis
+
+## 20260606T132730Z m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate the accepted M2890-M2894 capability-prediction modeling and implementation preflight chain before any fitting training validation ranking or model-quality claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis_20260606T132730Z`
+- command log: `runs/research/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis_20260606T132730Z/command.log`
+- success artifact: `docs/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.md`
+- notes: Completed: synthesis decision continue admits M2896 bounded capability-prediction fitting design after accepted M2890-M2894 preflight chain preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions 18 schema 12 loader smoke 12 model-head smoke target_scalar_dim 19 actor 72/action 3 no hidden oracle future target actor input evaluator-only targets paper holdout false preflight-only split rejects direct fitting training validation ranking model-quality verdict paper and self-ID claims
