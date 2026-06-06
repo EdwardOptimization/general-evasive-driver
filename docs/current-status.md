@@ -3185,3 +3185,34 @@ recurrent-belief training evidence than the 8-step smoke while keeping actor
 diagnostic accounting, proof/generalization/promotion separation, and no
 validation, ranking, promotion, success-rate verdict, performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID claim.
+
+## M2848 Engineering Controller Route A Response-Predictive Recurrent-Belief Core Training Bounded Continuation Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight_pass`
+- manifest: `experiments/manifests/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.json`
+- result artifact: `docs/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.md`
+- summary: `runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json`
+- candidate checkpoint: `runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt`
+- follow-up manifest: `experiments/manifests/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.json`
+- bounded run: 32 total steps, 16 rollout steps, 1 env, 2 update epochs, CPU, `human_view_online_gru`, recurrent sequence training, response prediction dim 9 horizon 4
+- source load mode: `strict` from the M2846 candidate checkpoint
+- response prediction continuation: finite loss 0.32993096113204956
+- parameter evidence: response_encoder, online_gru_cell, response_context_fusion, actor_mean, critic, log_std, and response_prediction_head changed; non-actor-head groups changed; not actor-head-only
+- proof gates: 13/13 pass
+- generalization admission gates: 6/6 pass, with no validation or single-seed verdict claim
+- promotion guards: 6/6 pass, checkpoint not promoted and active configs not overwritten
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: bounded continuation-preflight only; no validation ranking promotion success-rate verdict performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit`
+
+## Immediate Next Step
+
+M2849 should audit the M2848 summary, checkpoint manifest, response target
+schema, parameter trace, proof/generalization/promotion gates, actor guard rows,
+claim rows, and M2838 diagnostic accounting before any further continuation. It
+must accept or reject the continuation-preflight evidence and either register a
+bounded next route or stop/freeze the branch; it must not run new training,
+validation, ranking, promotion, or claim driver-performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID evidence.
