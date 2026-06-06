@@ -52686,3 +52686,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis_20260606T200001Z/command.log`
 - success artifact: `docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md`
 - notes: Completed: synthesis decision continue_to_m2940_tradeoff_aware_candidate_design integrates M2934-M2938 outcome-shift localization redesign materialization and audit evidence; preserves 56 transition rows 38 offtrack targets 18 context rows 24 persistent offtrack constraints 10 collision/speed substitution constraints 9 context-retention constraints 4 positive-reference rows and 5 candidate-surface rows as design accounting only; rejects repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2940 candidate design and not execution.
+
+## 20260606T200517Z m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the M2939 synthesis into exactly one actor-safe tradeoff-aware candidate route that addresses persistent offtrack, collision/speed substitution, context retention, and positive-reference preservation before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design_20260606T200517Z`
+- command log: `runs/research/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design_20260606T200517Z/command.log`
+- success artifact: `docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md`
+- notes: Completed: design decision admit_m2941_constraint_balanced_candidate_materialization_preflight selects one constraint_balanced_actor_head_delta_candidate route; preserves all 56 transition rows 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface rows as actor-invisible evaluator constraints; keeps actor 72/action 3 no hidden oracle or future-target actor input and makes no execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
