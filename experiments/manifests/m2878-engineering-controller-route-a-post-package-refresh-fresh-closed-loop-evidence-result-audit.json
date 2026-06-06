@@ -1,0 +1,211 @@
+{
+  "id": "m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded result audit can accept or reject M2877 post-package-refresh fresh closed-loop diagnostic artifacts before any interpretation.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/fresh_candidate_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/execution_candidate_resolution_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/candidate_execution_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/candidate_execution_failure_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/scenario_role_metric_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/failure_taxonomy_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/prior_surface_exclusion_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/package_limitation_guard_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/actor_contract_guard_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/claim_boundary_rows.csv",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/gate_matrix.csv",
+      "docs/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.md",
+      "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md",
+      "docs/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.json",
+      "experiments/manifests/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.json"
+    ],
+    "parent_objective": [
+      "audit M2877 fixed 11-row post-package-refresh Route A fresh closed-loop diagnostic artifacts before interpretation"
+    ],
+    "derived_from": [
+      "m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight",
+      "m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design"
+    ],
+    "blocked_by": [
+      "M2878 must audit M2877 artifact completeness before any diagnostic interpretation",
+      "M2878 must verify exactly 11 M2876-selected M1690 L3_online_gru task-source ids are accounted",
+      "M2878 must verify M2737 M2807 M2816 M2828 M2838 and M2868 prior surfaces remain excluded",
+      "M2878 must preserve M2873 package limitations protected blockers and M2638/M2836 HF3 blocker outside ordinary denominators",
+      "M2878 must reject validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims"
+    ],
+    "supersedes": [
+      "unaudited M2877 diagnostic interpretation",
+      "using M2877 diagnostic rows as validation or performance evidence",
+      "using M2877 diagnostic rows as Route B paper or self-ID evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+  "public_gates": [
+    "M2878 must audit M2877 summary gate matrix fresh candidate rows resolution rows execution rows failure rows scenario-role rows failure-taxonomy rows prior-surface exclusion rows package-limitation guard rows actor-contract guard rows and claim-boundary rows",
+    "M2878 must accept or reject M2877 complete fixed 11-row surface accounting before any interpretation",
+    "M2878 must verify actor 72/action 3 no hidden/oracle actor input and no actor-visible package blocker diagnostic route success progress or verdict labels",
+    "M2878 must verify prior-surface package protected and HF3 blocker guardrails remain outside execution candidates and ordinary success denominators",
+    "M2878 must register one bounded synthesis repair stop or route manifest if continuing",
+    "M2878 must not execute reset step policy action rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation",
+    "M2878 must not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start external simulation",
+    "do not publish package artifacts",
+    "do not rank controllers checkpoints source families task families stress axes profiles or scenario roles",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide M2877 failed rows if any",
+    "do not treat M2877 diagnostic outcomes as validation performance paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_surface",
+    "evidence_axis": "route_a_fresh_closed_loop_diagnostic_execution_after_package_refresh_result_audit",
+    "evidence_increment": "audits M2877 bounded closed-loop diagnostic rows over the 11 remaining non-same-surface M1690 L3_online_gru task-source ids",
+    "claim_scope": "Result audit only; no reset rollout validation training ranking promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if M2877 artifacts are incomplete",
+      "stop if M2877 failed to account for all 11 selected task-source ids",
+      "stop if M2877 executed prior-surface package protected or HF3 blocker rows",
+      "stop if M2877 changed actor input or exposed hidden/oracle labels",
+      "stop if M2877 results are used as ranking validation performance paper current-sim high-fidelity or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if required artifacts are missing",
+      "route to claim-boundary repair if forbidden claims appear",
+      "route to branch synthesis if M2877 is accepted but the next scientific route is not obvious",
+      "stop the branch if M2877 shows no actionable Route A evidence increment"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2877 produces bounded fresh closed-loop diagnostic artifacts requiring audit before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2877 post-package-refresh fresh closed-loop diagnostic artifacts",
+    "admission_evidence": [
+      "M2876 admits exactly 11 non-same-surface M1690 L3_online_gru task-source ids for M2877",
+      "M2877 is expected to produce complete diagnostic execution artifacts and preserve claim boundaries",
+      "M2873 package rows and M2638/M2836 HF3 blocker remain boundary evidence only"
+    ],
+    "blocked_shortcuts": [
+      "no new reset rollout replay validation training PPO repair publication ranking promotion or performance claim in the audit",
+      "no package interpretation or driver-performance interpretation before M2877 artifact completeness and claim safety are audited",
+      "no current-sim high-fidelity paper full-driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+      "M2878 status queue scoreboard research log and review",
+      "one bounded follow-up synthesis repair stop or route manifest"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2877 artifact completeness and claim safety are accepted or rejected",
+      "actor and claim boundaries remain preserved",
+      "one bounded follow-up or stop is registered if continuing"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2878 audits Route A engineering diagnostic rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2878; Route B finite-window/GRU and self-ID evidence remain separate.",
+      "M2877 diagnostic rows do not test wrong-history reset-hidden zero-history or level3 self-ID."
+    ],
+    "temporal_evidence_window": "Post-M2877 Route A fresh closed-loop diagnostic execution.",
+    "negative_result_policy": "Preserve negative diagnostics and failed rows rather than weakening gates or rebranding diagnostic execution as performance.",
+    "allowed_claims": [
+      "M2877 artifact completeness and claim-safety audit only",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits new M2877 fresh closed-loop diagnostic data before interpretation rather than opening another package process loop",
+    "paper_verdict_delta": "no paper verdict; preserves Route A diagnostic and Route B separation",
+    "must_synthesize_if": [
+      "M2878 accepts M2877 and another direct execution step would repeat the same surface logic",
+      "M2878 rejects M2877 for artifact incompleteness or claim-boundary failure",
+      "M2878 cannot select a bounded follow-up without repeating package or prior-surface loops"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md exists",
+    "audit accepts or rejects M2877 artifact completeness and claim safety",
+    "audit verifies all 11 M2876 selected task-source ids are accounted",
+    "audit verifies prior-surface package protected and HF3 guardrails remain preserved",
+    "audit registers one bounded follow-up or explicit stop",
+    "audit makes no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2878 runs reset rollout replay validation training PPO repair source build adapter probe external simulation ranking publication promotion or success-rate verdict computation",
+    "M2878 hides M2877 failed rows or guard failures",
+    "M2878 claims repair success recoverability success localized-response-prediction success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2878 writes a complete claim-safe audit of M2877 artifacts without forbidden execution or claims.",
+  "commands": [
+    {
+      "name": "result_audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+    "docs/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.md",
+    "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+  "next_blocker": "m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis"
+}

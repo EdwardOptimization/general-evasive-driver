@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
+m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
+m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight
+m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit
 ```
 
 Current route:
@@ -38,22 +38,22 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A post package-refresh fresh closed-loop evidence
-preflight after M2876 admitted the fixed diagnostic surface.
+result audit after M2877 executed the fixed diagnostic surface admitted by
+M2876.
 
-M2876 completed the post-package-refresh fresh closed-loop evidence surface
-design. It admits M2877 as one bounded evidence-producing Route A preflight
-over exactly the 11 remaining non-same-surface M1690 `L3_online_gru` rows after
-excluding the 61 unique task-source ids already used by M2737, M2807, M2816,
-M2828, M2838, and M2868. The admitted rows are four T4 actuator-delay/response
-rows and seven T5 near-boundary, delay, loss, or retargeted-boundary rows. M2876
-explicitly rejects padding the panel back to 16 by reusing prior rows. Actor
-72/action 3, no hidden/oracle actor input, no actor-visible package, blocker,
-diagnostic, route, success/progress, or verdict labels, and the M2638/M2836 HF3
-source dependency blocker remain preserved. M2876 rejects package publication,
-validation, ranking, promotion, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID claims. The next task is M2877: implement and execute
-the fixed 11-row diagnostic preflight, write complete M2877-specific execution
-artifacts, and pre-register M2878 result audit before interpretation.
+M2877 completed the post-package-refresh fresh closed-loop evidence preflight
+with `status_pass=true` and `gate_matrix_pass=true`. It resolved all 11 fixed
+M1690 `L3_online_gru` task-source ids selected by M2876, executed 11 diagnostic
+rollouts, and wrote 0 failure rows. Diagnostic outcomes were 3 success, 0
+collision, and 8 off_track, with termination counts `{'': 3, 'off_track': 8}`.
+The run preserved 61 prior-surface exclusions from M2737, M2807, M2816, M2828,
+M2838, and M2868, plus 43 package/protected/HF3 guard rows. Actor 72/action 3,
+no hidden/oracle actor input, no actor-visible package, blocker, diagnostic,
+route, success/progress, or verdict labels, no prior-surface/package/protected/
+HF3 execution, and no ordinary success denominator remain preserved. M2877
+rejects validation, ranking, promotion, performance, paper, current-sim,
+high-fidelity, full-driver, and self-ID claims. The next task is M2878: audit
+M2877 artifact completeness and claim safety before any interpretation.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
