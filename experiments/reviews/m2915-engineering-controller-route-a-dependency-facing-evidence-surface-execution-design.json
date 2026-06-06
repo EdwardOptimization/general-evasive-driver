@@ -1,0 +1,105 @@
+{
+  "decision_reason": "M2915 design admits M2916 no-execution execution-admission materialization preflight after accepted M2913/M2914 family-level surface one ordinary engineering candidate family C1 and no row-level execution-admission rows bounded source inventory M2737 18 M2746 14 M2807 12 M2816 12 and M2877 11 fixed weak diagnostic guard rows preserves Route B source-family insufficiency Route C source_unavailable actor 72/action 3 no hidden oracle future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims.",
+  "failure_criteria": [
+    "M2915 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2915 changes actor input or action contract",
+    "M2915 hides Route B source-family insufficiency or Route C source_unavailable",
+    "M2915 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2915 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate rank promote publish or select a winner",
+    "do not fit train or run PPO",
+    "do not fetch clone configure build install import link probe or start an external backend",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels progress labels diagnostics or verdict labels to actor input",
+    "do not convert M2913 materialization rows into performance paper high-fidelity or self-ID claims",
+    "do not claim model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T164320Z",
+  "hypothesis": "A bounded execution-design milestone can convert the accepted M2913/M2914 Route A dependency-facing evidence surface into a later actor-safe execution plan without running reset rollout validation training ranking promotion dependency work or performance paper high-fidelity or self-ID claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2913 materialized one ordinary engineering candidate family but no execution has been designed or admitted",
+      "M2914 accepts materialization only as an input to execution design",
+      "Route B source-family insufficiency and Route C source_unavailable remain context only"
+    ],
+    "derived_from": [
+      "m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit",
+      "m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.json",
+      "experiments/manifests/m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.md",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/summary.json",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/route_context_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/candidate_family_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/exclusion_family_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/denominator_policy_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/failure_taxonomy_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/actor_contract_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/gate_rows.csv"
+    ],
+    "parent_objective": [
+      "design a later bounded Route A execution plan after accepting the M2913 materialized evidence surface"
+    ],
+    "supersedes": [
+      "direct execution from materialized rows without an execution design"
+    ]
+  },
+  "milestone": "m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design",
+  "next_blocker": "m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m2916_dependency_facing_execution_admission_materialization_preflight",
+  "public_gates": [
+    "M2915 must write a bounded execution-design artifact before any execution",
+    "M2915 must use M2913 row families denominator policy failure taxonomy actor contract and claim boundaries",
+    "M2915 must preserve Route B source-family insufficiency and Route C source_unavailable as context only",
+    "M2915 must not execute reset rollout replay validation training ranking promotion dependency acquisition configure build import reset step or policy smoke",
+    "M2915 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2915 must not claim validation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_m2916_dependency_facing_execution_admission_materialization_preflight",
+    "milestone": "m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design",
+    "reason": "M2915 design admits M2916 no-execution execution-admission materialization preflight after accepted M2913/M2914 family-level surface one ordinary engineering candidate family C1 and no row-level execution-admission rows bounded source inventory M2737 18 M2746 14 M2807 12 M2816 12 and M2877 11 fixed weak diagnostic guard rows preserves Route B source-family insufficiency Route C source_unavailable actor 72/action 3 no hidden oracle future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md exists",
+    "design summarizes M2913/M2914 materialization and accepted boundaries",
+    "design selects exactly one next route or stop state",
+    "design preserves actor Route B Route C denominator and claim boundaries",
+    "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+  ],
+  "type": "gate"
+}

@@ -142,3 +142,32 @@ When adding new process manifests, use the validator enum for `actual_progress_t
 - Related Files: experiments/manifests/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.json
 
 ---
+
+## [ERR-20260607-001] manifest_missing_failure_types
+
+**Logged**: 2026-06-07T00:43:53+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift process-v2 manifest validation rejects new manifests that omit `failure_types`.
+
+### Error
+```text
+error: m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight: process-v2 manifest missing fields ['failure_types']
+```
+
+### Context
+- Command attempted: `make research-validate`
+- The M2916 manifest was hand-written from a nearby template but omitted the top-level process-v2 `failure_types` list.
+- The fix was to add the standard harness failure taxonomy list before rerunning validation.
+
+### Suggested Fix
+When adding a new AutoDrift manifest, copy the complete process-v2 skeleton first: `gate_tier`, `promotion_decision`, `failure_types`, `lineage`, `review_artifact`, `public_gates`, `private_holdout_policy`, and `forbidden_shortcuts`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json
+
+---
