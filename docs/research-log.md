@@ -52974,3 +52974,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight_20260606T231329Z/command.log`
 - success artifact: `runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json`
 - notes: Completed: materialized all 56 M2960 zero-residual diagnostic rows into 56 failure-localization rows, 4 objective-admission rows with 3 admitted for M2964 audit, 4 source aggregates, 2 task aggregates, 4 outcome aggregates, 57 guardrail rows, 24 actor guards, 29 claim rows, and 20 gate rows; status_pass true gate_matrix_pass true outcomes success 13 collision 7 offtrack 35 speed_too_low 1 actor 72/action 3 zero-residual boundary preserved no reset step rollout replay training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2964 result audit.
+
+## 20260606T232146Z m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2963 post-zero-residual failure-localization and residual-objective admission materialization before any repair execution training validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit_20260606T232146Z`
+- command log: `runs/research/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit_20260606T232146Z/command.log`
+- success artifact: `docs/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.md`
+- notes: Completed: audit accepts M2963 post-zero-residual failure-localization and residual-objective admission materialization as complete and claim-safe with 56 localized rows 4 objective-admission rows 3 non-success objective families admitted only for later design 11 blocked stale fixed-source guardrails actor 72/action 3 and gate_matrix_pass true; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2965 nonzero residual objective design.
