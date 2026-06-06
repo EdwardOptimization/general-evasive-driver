@@ -1,0 +1,100 @@
+{
+  "decision_reason": "M2945 accepts M2944 complete claim-safe implementation-contract materialization with 1 implementation surface row, 7 delta-contract rows, 5 objective-binding rows, 56 traceability rows, 8 blocked shortcuts, 19 actor guards and 30 claim-boundary rows; rejects implementation readiness repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2946 implementation-admission design before code implementation or execution.",
+  "failure_criteria": [
+    "M2945 hides M2944 failures or missing artifacts",
+    "M2945 treats M2944 contracts as implementation readiness repair success validation readiness or performance verdict",
+    "M2945 selects implementation without preserving actor and claim boundaries"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement residual-head code modify checkpoints rerun reset rollout replay validate rank promote publish select a winner or execute dependency work",
+    "do not fit train or run PPO",
+    "do not change actor input or action contract",
+    "do not convert materialized implementation contracts into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T204115Z",
+  "hypothesis": "A bounded result audit can accept or reject the M2944 residual actor-head delta implementation-contract materialization before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2944 materialization requires a result audit before interpretation",
+      "implementation contract rows must not become implementation readiness validation or performance evidence"
+    ],
+    "derived_from": [
+      "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight",
+      "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
+      "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+      "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.json",
+      "experiments/manifests/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/implementation_surface_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/delta_contract_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/objective_binding_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/constraint_traceability_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/blocked_shortcut_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/run_state.json",
+      "docs/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.md",
+      "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
+      "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit M2944 residual actor-head delta implementation-contract materialization before interpretation"
+    ],
+    "supersedes": [
+      "direct residual actor-head implementation without contract audit"
+    ]
+  },
+  "milestone": "m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit",
+  "next_blocker": "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2944_contract_materialization_claim_safe_route_to_m2946_implementation_admission_design",
+  "public_gates": [
+    "M2945 must audit M2944 summary gate matrix actor and claim boundaries",
+    "M2945 must preserve implementation surface delta objective traceability shortcut actor and claim row counts",
+    "M2945 must not claim implementation readiness repair success validation ranking performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2945 must select exactly one next route or stop state"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2944_contract_materialization_claim_safe_route_to_m2946_implementation_admission_design",
+    "milestone": "m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit",
+    "reason": "M2945 accepts M2944 complete claim-safe implementation-contract materialization with 1 implementation surface row, 7 delta-contract rows, 5 objective-binding rows, 56 traceability rows, 8 blocked shortcuts, 19 actor guards and 30 claim-boundary rows; rejects implementation readiness repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2946 implementation-admission design before code implementation or execution.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md exists",
+    "M2945 audits M2944 artifacts row counts gates actor and claim boundaries",
+    "M2945 selects exactly one next route or stop state",
+    "no implementation validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "type": "gate"
+}
