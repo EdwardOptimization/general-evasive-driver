@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
+m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
+m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
+m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit
 ```
 
 Current route:
@@ -42,9 +42,10 @@ pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
 modeling-contract materialization audit, completed implementation preflight,
 accepted the implementation result audit, completed implementation branch
 synthesis, completed fitting design, accepted the fitting-design result audit,
-and now sits at bounded fitting implementation preflight before any validation,
-ranking, model-quality verdict, paper, finite-window-vs-GRU, current-sim,
-high-fidelity, full-driver, or self-ID route.
+completed bounded fitting implementation preflight, and now sits at fitting
+implementation result audit before any validation, ranking, model-quality
+verdict, paper, finite-window-vs-GRU, current-sim, high-fidelity, full-driver,
+or self-ID route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -284,16 +285,38 @@ It rejects optimizer-result, fitting-result, training, validation, ranking,
 model-quality verdict, paper, current-sim, high-fidelity, full-driver,
 finite-window-vs-GRU, and self-ID claims.
 
-The next task is M2898. It must implement the accepted M2896 fixed fitting
-recipe over the accepted M2893 schema, loader, target-mask, and model-head
-surface. It may run bounded optimizer steps and persist fitted preflight
-weights only as run-local implementation artifacts. It must write fitting
-recipe, task_source_id split, target-normalization, availability-mask,
-optimizer-step, profile diagnostic, baseline diagnostic, overfit guard,
-rollback, claim, summary, and follow-up audit artifacts. It must not validate,
-rank, select a winner, promote weights, claim model quality, claim paper
-evidence, claim finite-window-vs-GRU evidence, claim current-sim or
-high-fidelity validation, or claim level3 self-ID.
+M2898 completed the bounded fitting implementation preflight with decision
+`fitting_implementation_preflight_complete_route_to_m2899_result_audit`. It
+wrote the accepted fixed M2896 recipe as implementation-preflight artifacts:
+12 fitting recipe rows, 17 task_source_id split rows, 19 target-normalization
+rows, 323 availability-mask rows, 4608 AdamW optimizer-step rows, 72 profile
+diagnostic rows, 53 baseline rows, 6 overfit guard rows, 7 rollback rows,
+16 claim rows, and `summary.json`. It used SmoothL1/Huber for continuous
+active targets, BCE-with-logits for `recoverability_window_success`,
+train-split-only robust normalization, task_source_id split isolation, AdamW
+learning rate 0.0003, weight decay 0.0001, global-norm clipping 1.0, at most
+128 optimizer steps per profile, and seeds 289800/289801/289802. The run
+covered 17 source task rows, 204 profile-task rows, target_scalar_dim 19,
+13 active target scalars, 221 active/available target entries, and a
+smoke_fit/smoke_eval split of 14/3 task_source_id values. It persisted
+36 fitted preflight weights under the M2898 run directory only, with no
+checkpoint promotion and no winner selection.
+
+M2898 preserves actor 72/action 3, no hidden/oracle actor input, no
+future-target actor input, evaluator-only targets, source-singleton and guard
+exclusions, paper holdout false, and preflight-only split semantics. It rejects
+validation, ranking, promotion, model-quality verdict, paper, current-sim,
+high-fidelity, full-driver, finite-window-vs-GRU, and self-ID claims. The
+fresh/source-diverse panel trigger remains required before any model-quality or
+paper claim.
+
+The next task is M2899. It must audit M2898's summary, fitting recipe,
+task_source split, target normalization, availability masks, optimizer-step
+rows, profile diagnostics, baseline diagnostics, overfit guards, rollback
+rows, claim rows, and run-local preflight weights. It must accept or reject
+M2898 as implementation-preflight evidence only and select exactly one bounded
+next route before any validation, ranking, model-quality, paper, or self-ID
+claim.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
