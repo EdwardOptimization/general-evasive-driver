@@ -1,0 +1,202 @@
+{
+  "id": "m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json",
+      "docs/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md",
+      "docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md",
+      "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+      "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
+      "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.json",
+      "experiments/manifests/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.json"
+    ],
+    "parent_objective": [
+      "audit the post-M2870 Route A limited package refresh materialization before interpretation"
+    ],
+    "derived_from": [
+      "m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight",
+      "m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design"
+    ],
+    "blocked_by": [
+      "M2874 must accept or reject M2873 artifact completeness and claim safety before any package interpretation",
+      "M2873 package refresh is local artifact materialization only and cannot publish or validate a package",
+      "M2873 must preserve M2824 M2667 M2838 M2868 and M2836 limitation rows"
+    ],
+    "supersedes": [
+      "interpreting M2873 rows before audit",
+      "using M2873 package rows as validation readiness or driver-performance evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+  "public_gates": [
+    "M2874 must audit M2873 summary schema inventory provenance latest negative evidence blocker actor/action claim-boundary and gate rows",
+    "M2874 must accept or reject M2873 artifact completeness and claim safety before any interpretation",
+    "M2874 must preserve M2824 prior package M2667 protected readiness M2838 fresh source-diverse negative diagnostics M2868 no-terminal-improvement and M2836 HF3 blocker limitations",
+    "M2874 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2874 must register one bounded follow-up synthesis repair stop or route manifest",
+    "M2874 must not publish a package or execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2874 must not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not publish a package",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start external simulation",
+    "do not fetch or install external dependencies",
+    "do not rank controllers or checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide M2873 negative evidence or blocker rows",
+    "do not weaken M2638/M2836 HF3 blocker",
+    "do not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_localized_response_prediction_limited_package_refresh",
+    "evidence_axis": "route_a_limited_baseline_package_refresh_after_negative_response_prediction",
+    "evidence_increment": "audits M2873 package refresh materialization artifacts before interpretation",
+    "claim_scope": "Route A package refresh materialization audit only; no package publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if M2873 artifacts are incomplete",
+      "stop if M2873 hides M2824 M2667 M2838 M2868 or M2836 limitations",
+      "stop if M2873 makes forbidden claims",
+      "stop if another package process step would not change evidence"
+    ],
+    "fallback_plan": [
+      "route to materialization repair if required artifacts are missing",
+      "route to claim-boundary repair if forbidden claims appear",
+      "route to branch synthesis if M2873 is accepted",
+      "stop the package refresh branch if limitations cannot be represented without overclaiming"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2873 materialization produces package refresh rows requiring audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "audit M2873 post localized response-prediction package refresh materialization",
+    "admission_evidence": [
+      "M2873 is expected to materialize package refresh rows from existing artifacts only",
+      "M2872 admits exactly one package refresh materialization preflight before audit",
+      "M2871 admits package-boundary refresh after localized response-prediction closes weak"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout replay validation training PPO repair publication ranking promotion or performance claim",
+      "no package interpretation before M2873 artifact completeness and claim safety are audited",
+      "no current-sim high-fidelity paper full-driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+      "M2874 status queue scoreboard research log and review",
+      "one bounded follow-up synthesis repair stop or route manifest"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2873 artifact completeness and claim safety are accepted or rejected",
+      "actor and claim boundaries remain preserved",
+      "one bounded follow-up or stop is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2874 audits Route A package rows and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2874; Route B finite-window/GRU and self-ID evidence remain separate.",
+      "M2873 package rows do not test wrong-history reset-hidden zero-history or level3 self-ID."
+    ],
+    "temporal_evidence_window": "Post-M2873 package refresh audit.",
+    "negative_result_policy": "Preserve negative diagnostics as package limitations rather than weakening gates or rebranding them as performance.",
+    "allowed_claims": [
+      "M2873 artifact completeness and claim-safety audit only",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits the package refresh materialization before interpretation rather than opening another local training loop",
+    "paper_verdict_delta": "no paper verdict; preserves Route A limitations and Route B separation",
+    "must_synthesize_if": [
+      "M2874 accepts M2873 and another package process step would not change evidence",
+      "M2874 rejects M2873 for hidden negative evidence or claim-boundary failure",
+      "M2874 cannot select a bounded follow-up without repeating package process"
+    ]
+  },
+  "hypothesis": "A bounded audit can accept or reject M2873 package refresh materialization artifacts before any interpretation.",
+  "success_criteria": [
+    "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md exists",
+    "audit accepts or rejects M2873 artifact completeness and claim safety",
+    "audit preserves M2824 M2667 M2838 M2868 M2836 actor and claim boundaries",
+    "audit registers one bounded follow-up or explicit stop",
+    "audit makes no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2874 runs reset rollout replay validation training PPO repair source build adapter probe external simulation ranking publication promotion or success-rate verdict computation",
+    "M2874 hides M2873 negative evidence or blockers",
+    "M2874 claims repair success recoverability success localized-response-prediction success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2874 writes a complete claim-safe audit of M2873 artifacts without forbidden execution or claims.",
+  "commands": [
+    {
+      "name": "result_audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json",
+    "docs/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md",
+    "docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+  "next_blocker": ""
+}

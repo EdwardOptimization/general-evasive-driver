@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
+m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design
+m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
+m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit
 ```
 
 Current route:
@@ -38,21 +38,21 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A post localized response-prediction limited package
-refresh materialization after M2872 admitted one local package-boundary
-materialization preflight.
+refresh result audit after M2873 materialized the local package-boundary rows.
 
-M2872 completed a design-only post-M2870 Route A limited baseline package
-refresh. The design keeps M2824/M2826 as the prior package boundary and adds
-explicit requirements for M2667/M2669 protected readiness blockers, M2838/M2840
-fresh source-diverse negative diagnostics, M2868/M2870 localized
-response-prediction no-terminal-improvement, and M2836 active HF3 source
-dependency blocker. It defines a local materialization contract for summary,
-schema, inventory, provenance, latest negative evidence, known blocker,
-actor/action, claim-boundary, and gate-matrix rows. M2872 rejects package
-publication, reset/rollout/replay, validation, training, ranking, promotion,
-success-rate verdicts, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID claims. The next task is M2873: materialize those
-local package refresh rows from existing artifacts only.
+M2873 completed a local package refresh materialization from existing artifacts
+only. It wrote 20 schema rows, 18 artifact inventory rows, 18 provenance rows,
+5 latest negative evidence rows, 8 known blocker rows, 13 actor/action rows,
+35 claim-boundary rows, and 25 passing gate rows. The latest negative evidence
+keeps M2824 recoverability 0/0 and collision/offtrack 1/5, M2667 protected
+blocking/regressed rows 25/79, M2838 diagnostic success/collision/offtrack
+1/2/13, and M2868 baseline/candidate success 0/0 and collision 1/1. Actor
+72/action 3, no hidden/oracle actor input, and actor-invisible package,
+blocker, diagnostic, route, success/progress, and verdict labels remain
+preserved. M2873 rejects publication, validation, ranking, promotion,
+performance, paper, current-sim, high-fidelity, full-driver, and self-ID
+claims. The next task is M2874: audit M2873 artifact completeness and claim
+safety before interpretation.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
@@ -3810,3 +3810,29 @@ M2868, and M2836 limitations. It must register a bounded result audit and must
 not publish a package or run reset, rollout, replay, validation, training,
 ranking, promotion, performance, paper, current-sim, high-fidelity, full-driver,
 or self-ID claims.
+
+## M2873 Engineering Controller Route A Post Localized Response-Prediction Limited Baseline Package Refresh Materialization Preflight
+
+- status: completed
+- result_class: `engineering_controller_route_a_post_localized_response_prediction_limited_package_refresh_materialization_pass`
+- manifest: `experiments/manifests/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.json`
+- materialization artifact: `docs/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md`
+- review artifact: `docs/reviews/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md`
+- run dir: `runs/research/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight_20260606T080622Z`
+- summary: `runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json`
+- package rows: 20 schema, 18 inventory, 18 provenance, 5 latest negative evidence, 8 known blockers, 13 actor/action, 35 claim-boundary, and 25 gate rows
+- latest negative evidence: M2824 recoverability 0/0 and collision/offtrack 1/5, M2667 protected blocking/regressed 25/79, M2838 success/collision/offtrack 1/2/13, M2868 baseline/candidate success 0/0 and collision 1/1
+- actor boundary: observation 72/action 3 with no hidden/oracle actor input and no actor-visible package, blocker, diagnostic, route, success, progress, or verdict labels
+- claim boundary: no package publication, reset, rollout, replay, validation, training, ranking, promotion, success-rate verdict, performance, paper, current-sim, high-fidelity, full-driver, or self-ID claim
+- follow-up manifest: `experiments/manifests/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.json`
+- next: `m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit`
+
+## Immediate Next Step
+
+M2874 should audit M2873 before any package interpretation. It must check the
+M2873 summary, schema, inventory, provenance, latest negative evidence, blocker,
+actor/action, claim-boundary, and gate rows; accept or reject artifact
+completeness and claim safety; preserve M2824, M2667, M2838, M2868, and M2836
+limitations; and register a bounded follow-up synthesis, repair, stop, or route
+manifest without package publication, validation, ranking, promotion,
+performance, paper, current-sim, high-fidelity, full-driver, or self-ID claims.

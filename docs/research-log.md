@@ -51882,3 +51882,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design_20260606T074519Z/command.log`
 - success artifact: `docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md`
 - notes: Completed: design admits M2873 local package refresh materialization with artifact contract summary schema inventory provenance latest negative evidence blockers actor/action claim-boundary gate matrix includes M2824 package M2667 protected readiness M2838 fresh source-diverse negatives M2868 no-terminal-improvement M2836 HF3 blocker actor 72/action 3 no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## 20260606T080622Z m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded materialization preflight can produce a machine-auditable post-M2870 Route A limited baseline package refresh without publishing a package or claiming driver performance.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_localized_response_prediction_limited_package_refresh_materialization --m2872-design docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md --output-dir runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh --follow-up-manifest experiments/manifests/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight_20260606T080622Z`
+- command log: `runs/research/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight_20260606T080622Z/command.log`
+- success artifact: `runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json`
+- notes: Completed: materialized local package refresh status_pass true gate_matrix_pass true schema 20 inventory 18 provenance 18 latest negative evidence 5 blockers 8 actor rows 13 claim rows 35 gates 25 includes M2824 recoverability 0/0 and collision/offtrack 1/5 M2667 protected 25/79 M2838 success/collision/offtrack 1/2/13 M2868 baseline/candidate success 0/0 collision 1/1 actor 72/action 3 no hidden oracle labels no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2874 audit
