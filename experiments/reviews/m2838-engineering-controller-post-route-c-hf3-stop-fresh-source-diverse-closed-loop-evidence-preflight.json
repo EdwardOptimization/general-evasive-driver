@@ -1,0 +1,145 @@
+{
+  "decision_reason": "M2838 preflight status_pass true fixed 16 resolved 16 executed 16 failure-rows 0 diagnostic outcomes 1 success 2 collision 13 off_track prior-surface exclusions 43 unique task-source ids actor 72/action 3 no hidden oracle labels M2737 M2759 M2807 M2816 M2828 protected HF3 blockers not executed rejects replay validation training ranking performance paper current-sim high-fidelity full-driver self-ID claim routes to M2839 audit",
+  "failure_criteria": [
+    "M2838 executes prior-surface protected or HF3 blocker rows",
+    "M2838 changes actor inputs or action contract or exposes hidden/oracle actor labels",
+    "M2838 ranks controller families source families profiles task families stress axes scenario roles selects a winner promotes a checkpoint or claims driver performance",
+    "M2838 hides failed rows or treats diagnostic execution as validation readiness"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start an external backend",
+    "do not execute M2737 prior-surface rows",
+    "do not execute M2759 prior-surface rows",
+    "do not execute M2807 prior-surface rows",
+    "do not execute M2816 recoverability-window rows",
+    "do not execute M2828 prior-surface rows",
+    "do not execute protected blocker rows",
+    "do not execute HF3 blocker rows",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role metric route success progress or verdict labels to actor input",
+    "do not add friction mass center-of-gravity tire brake steering-delay drive-delay sensor-noise actuator-delay source-edge clearance or scenario-role labels to actor input",
+    "do not hide M2828 mixed outcomes or M2638 HF3 dependency blocker",
+    "do not rank controller families source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-response sufficiency",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion",
+    "do not claim driver performance from M2838 diagnostic execution"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T004141Z",
+  "hypothesis": "A bounded post Route C HF3 stop fresh source-diverse closed-loop evidence preflight can produce new Route A diagnostic execution rows from an unused M1690 L3_online_gru workload while preserving actor and claim boundaries.",
+  "lineage": {
+    "blocked_by": [
+      "M2837 admits only the fixed 16-row unused M1690 L3_online_gru diagnostic surface",
+      "M2737 M2759 M2807 M2816 and M2828 task-source ids must remain excluded from execution",
+      "M2638 selected-platform HF3 source dependency remains unavailable",
+      "Route B paper and self-ID claims remain separate from this Route A diagnostic execution"
+    ],
+    "derived_from": [
+      "m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design",
+      "m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.json",
+      "experiments/manifests/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight/probe_execution_rows.csv",
+      "runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight/candidate_execution_rows.csv",
+      "runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight/instrumented_execution_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/candidate_execution_rows.csv",
+      "runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "execute a bounded fresh Route A source-diverse 16-row M1690 L3_online_gru diagnostic surface after Route C HF3 remains stopped"
+    ],
+    "supersedes": [
+      "another Route C dependency artifact without source/package evidence",
+      "another M2828 same-surface execution loop",
+      "direct validation readiness or driver-performance claim from diagnostic execution"
+    ]
+  },
+  "milestone": "m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight",
+  "next_blocker": "m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "route_to_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_result_audit",
+  "public_gates": [
+    "M2838 must consume the M2837 fixed 16-row surface and M1690 workload matrix",
+    "M2838 must materialize selected candidate resolution execution failure scenario-role metric failure-taxonomy prior-surface actor claim gate run-state summary and doc artifacts",
+    "M2838 must account for exactly the 16 fixed M2837 selected M1690 L3_online_gru task_source_ids",
+    "M2838 must execute only resolved selected candidate rows and must not execute M2737 M2759 M2807 M2816 M2828 prior-surface rows protected blocker rows or HF3 blocker rows",
+    "M2838 must preserve P0 observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible route source stress-axis scenario-role success progress and verdict labels",
+    "M2838 must keep source-family scenario-role task-family profile stress-axis and blocker context diagnostic and non-ranking",
+    "M2838 must not execute replay validation training PPO source build adapter probe external simulation ranking promotion success-rate verdict computation or driver-performance claims",
+    "M2838 must register one result-audit follow-up manifest before any interpretation"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "route_to_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_result_audit",
+    "milestone": "m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight",
+    "reason": "M2838 preflight status_pass true fixed 16 resolved 16 executed 16 failure-rows 0 diagnostic outcomes 1 success 2 collision 13 off_track prior-surface exclusions 43 unique task-source ids actor 72/action 3 no hidden oracle labels M2737 M2759 M2807 M2816 M2828 protected HF3 blockers not executed rejects replay validation training ranking performance paper current-sim high-fidelity full-driver self-ID claim routes to M2839 audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json exists",
+    "selected_candidate_rows execution_candidate_resolution_rows candidate_execution_rows candidate_execution_failure_rows scenario_role_metric_rows failure_taxonomy_rows prior_surface_exclusion_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 16 M2837 selected task_source_ids are resolved or explicitly accounted by failure rows",
+    "M2737 M2759 M2807 M2816 M2828 protected and HF3 blocker rows are not executed and remain outside success denominators",
+    "actor 72/action 3 no hidden oracle and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2838 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "type": "infrastructure"
+}

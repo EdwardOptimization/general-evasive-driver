@@ -2934,3 +2934,29 @@ M2838 must account for exactly the fixed M2837 16-row surface, execute only
 resolved selected rows, write explicit failure rows for unresolved candidates,
 preserve the actor 72/action 3 contract, keep M2638 Route C/HF3 stopped, and
 register M2839 result audit before any interpretation.
+
+## M2838 Engineering Controller Post Route C HF3 Stop Fresh Source-Diverse Closed-Loop Evidence Preflight
+
+- status: completed
+- result class: `engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight_pass`
+- manifest: `experiments/manifests/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.json`
+- implementation: `src/autodrift/engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight.py`
+- focused tests: `tests/test_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight.py`
+- summary: `runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json`
+- doc: `docs/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.md`
+- fixed surface: 16 selected M1690 `L3_online_gru` ids from M2837
+- resolved/executed/failures: 16 resolved, 16 executed, 0 failure rows
+- diagnostic accounting: 1 success, 2 collision, 13 off_track
+- prior-surface exclusions: 43 unique task-source ids across M2737, M2759, M2807, M2816, and M2828
+- gate matrix: all pass
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: diagnostic row accounting only; no replay validation training ranking promotion success-rate verdict driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- follow-up manifest: `experiments/manifests/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.json`
+- next: `m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit`
+
+## Immediate Next Step
+
+M2839 should audit M2838 artifacts before interpretation. It must either accept
+or reject the M2838 artifact set and preserve the diagnostic-only boundary; it
+must not upgrade the 1/16 diagnostic success result into performance,
+validation, paper, current-sim, high-fidelity, full-driver, or self-ID evidence.
