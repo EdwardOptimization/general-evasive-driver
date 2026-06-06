@@ -1,19 +1,5 @@
 {
-  "baseline_artifacts": [
-    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/summary.json",
-    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/gate_matrix.csv",
-    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoint_manifest.json"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "result_audit"
-    }
-  ],
-  "decision_rule": "Pass only if M2867 audits M2866 artifacts under unchanged actor and claim boundaries without new execution or overclaiming.",
+  "decision_reason": "M2867 audit accepts M2866 complete claim-safe implementation artifacts status_pass true gate_matrix_pass true exact M2864 response-loss weights valid-target mask accounting public/fresh surface accounting rollback gates actor 72/action 3 future-label invisibility rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2868 closed-loop delta panel",
   "failure_criteria": [
     "M2867 runs new training validation ranking promotion or success-rate verdict computation",
     "M2867 hides M2866 gate failures or weakens actor/claim boundaries",
@@ -45,8 +31,8 @@
     "do not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260606T064645Z",
   "hypothesis": "A bounded result audit can accept or reject M2866 localized response-prediction training implementation artifacts before any interpretation.",
-  "id": "m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit",
   "lineage": {
     "blocked_by": [
       "M2867 must audit M2866 artifact completeness, gate matrix, checkpoint lineage, and claim boundary",
@@ -93,24 +79,10 @@
       "unaudited localized response-prediction training implementation interpretation"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits executable localized response-prediction implementation artifacts from M2866",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M2866 cannot preserve actor 72/action 3",
-      "M2866 response labels require hidden/oracle actor fields",
-      "M2866 cannot prove M2864 weight/mask/surface/rollback contracts",
-      "M2866 claims validation readiness driver performance paper current-sim high-fidelity or self-ID evidence"
-    ],
-    "paper_verdict_delta": "no paper verdict; audit governs Route A engineering training continuation",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 2,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit",
   "next_blocker": "m2868-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "accept_m2866_route_to_m2868_closed_loop_delta_panel",
   "public_gates": [
     "M2867 must audit whether M2866 wrote complete implementation-preflight artifacts",
     "M2867 must verify actor 72/action 3 and no hidden/oracle actor input were preserved",
@@ -120,27 +92,19 @@
     "M2867 must verify rollback gates and claim rows before any next training decision",
     "M2867 must not validate rank promote compute success-rate verdict claim performance paper current-sim high-fidelity full-driver or self-ID result"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md",
-      "type": "md"
-    }
-  ],
-  "review_artifact": "docs/reviews/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md",
-  "scoreboard_checkpoint": "docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "M2866 bounded implementation preflight accepted or rejected",
-      "bounded follow-up route registration",
-      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M2867 audits localized response-prediction implementation only and does not run finite-window-vs-GRU or self-ID tests.",
-    "history_necessity_tests": [
-      "M2866 hidden intervention rows are diagnostic artifact rows only and cannot support a self-ID claim."
-    ],
-    "negative_result_policy": "If M2866 failed or triggered rollback gates, preserve the negative evidence and route to repair design, synthesis, or stop rather than weakening gates.",
-    "temporal_evidence_window": "M2866 implementation artifacts plus M2864/M2865 design audit constraints."
+  "scoreboard": {
+    "checkpoint": "docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2866_route_to_m2868_closed_loop_delta_panel",
+    "milestone": "m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit",
+    "reason": "M2867 audit accepts M2866 complete claim-safe implementation artifacts status_pass true gate_matrix_pass true exact M2864 response-loss weights valid-target mask accounting public/fresh surface accounting rollback gates actor 72/action 3 future-label invisibility rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2868 closed-loop delta panel",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
   "success_criteria": [
     "docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md exists",
@@ -148,49 +112,5 @@
     "audit preserves actor 72/action 3 no hidden/oracle labels public/fresh split and claim boundary",
     "audit registers one bounded follow-up route if continuing"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M2866 summary artifact is expected before M2867 runs",
-      "M2866 checkpoint manifest weight rows mask rows surface rows rollback rows and gate rows require audit before interpretation"
-    ],
-    "allowed_updates": [
-      "docs/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.md",
-      "M2867 status queue scoreboard and review",
-      "one bounded follow-up manifest if audit accepts a next route"
-    ],
-    "blocked_shortcuts": [
-      "no new training or validation in result audit",
-      "no ranking winner selection promotion or success-rate verdict",
-      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
-    ],
-    "next_stage_criteria": [
-      "M2866 status and gate rows are accepted or rejected",
-      "failure types are classified if any gate failed",
-      "one bounded next route or stop is registered"
-    ],
-    "stage": "process",
-    "stage_objective": "audit M2866 localized response-prediction implementation preflight artifacts"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_response_predictive_recurrent_belief_failure_localization_training_recipe_redesign",
-    "claim_scope": "Result audit only; no validation ranking winner selection promotion success-rate verdict driver-performance paper current-sim high-fidelity validation self-ID or full ideal driver claim",
-    "evidence_axis": "localized_response_prediction_training_implementation_result_audit",
-    "evidence_increment": "audits M2866 bounded implementation-preflight artifacts before any interpretation or further training",
-    "fallback_plan": [
-      "route to implementation repair design only if a narrow artifact or runner issue is identified",
-      "route to bounded follow-up training design only if M2866 passes and audit admits more training evidence",
-      "route to branch synthesis if implementation evidence does not justify more local training"
-    ],
-    "stop_condition": [
-      "stop if M2866 changed actor 72/action 3",
-      "stop if response labels became actor-visible",
-      "stop if M2866 weight rows deviate from M2864",
-      "stop if mask/surface/rollback rows are incomplete",
-      "stop if M2866 claims validation readiness driver performance paper current-sim high-fidelity or self-ID evidence"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M2866 implementation preflight has produced executable artifacts requiring audit"
-  }
+  "type": "gate"
 }
