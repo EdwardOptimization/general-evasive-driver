@@ -1,0 +1,211 @@
+{
+  "id": "m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A read-only source availability preflight can determine whether the fixed Chrono 10.0.0 source root is locally available for later HF3 dependency gates without fetching source configuring building importing resetting or claiming high-fidelity validation.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md",
+      "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.json",
+      "experiments/manifests/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "run a read-only Chrono source availability preflight after M2880 admits the dependency-acquisition manifest design"
+    ],
+    "derived_from": [
+      "m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design",
+      "m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis",
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design"
+    ],
+    "blocked_by": [
+      "M2880 admits source availability as the next ordered gate before configure build install link/import reset manual step or policy smoke",
+      "Chrono source availability under /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source is not yet measured in a repo-local artifact",
+      "M2638/M2836 still forbid selected-platform HF3 execution until source or dependency-acquisition evidence is claim-safe"
+    ],
+    "supersedes": [
+      "direct configure build install link/import reset manual step policy smoke or validation before source availability is audited",
+      "treating the M2880 design document as proof that Chrono source exists locally",
+      "using /home/quyaonan/workspace/chrono as the selected path after M2880 fixes the hf_backends path contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight.md",
+  "public_gates": [
+    "M2881 must read the M2880 design and check only the fixed source root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source",
+    "M2881 must report whether source root exists and whether CMakeLists.txt exists",
+    "M2881 must report whether the source root is outside general-evasive-driver",
+    "M2881 must report git HEAD and whether it starts with 9faf13d when git metadata is available",
+    "M2881 may check cmake and compiler command availability without installing anything",
+    "M2881 must write repo-local summary and probe rows under runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight",
+    "M2881 must not create external directories fetch clone install configure build install link import start a backend reset step rollout replay validate train rank promote mutate dependencies or claim high-fidelity validation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not create /home/quyaonan/workspace/hf_backends",
+    "do not fetch or clone Chrono source",
+    "do not use network access for dependency acquisition",
+    "do not install apt packages",
+    "do not install pip packages",
+    "do not modify system Python",
+    "do not mutate Chrono source build install or logs directories",
+    "do not configure Chrono",
+    "do not build Chrono",
+    "do not install Chrono",
+    "do not import pychrono or projectchrono",
+    "do not run a C++ link probe",
+    "do not start a high-fidelity backend",
+    "do not execute backend reset",
+    "do not step a backend",
+    "do not execute policy action",
+    "do not run rollout replay validation training PPO ranking promotion or package publication",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not expose source availability git build probe reset validation or verdict labels to actor input",
+    "do not claim dependency execution readiness source-build readiness adapter-probe readiness reset feasibility rollout feasibility validation readiness driver performance paper evidence current-sim verdict high-fidelity validation full-driver completion or self-ID"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_c_hf3_chrono_source_availability_preflight",
+    "evidence_axis": "route_c_hf3_chrono_source_availability",
+    "evidence_increment": "produces the first repo-local read-only source availability artifact for the M2880 Chrono 10.0.0 hf_backends path contract before any configure build install link/import reset step or validation work",
+    "claim_scope": "Read-only source availability preflight only; no network fetch source configure build install import link probe backend start reset step rollout validation training ranking promotion package publication driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if the preflight would create external directories or mutate Chrono source build install or logs paths",
+      "stop if source availability cannot be checked without network or package installation",
+      "stop if source availability rows would be interpreted as configure build import reset validation performance or high-fidelity evidence",
+      "stop if actor input or action contract boundaries would change"
+    ],
+    "fallback_plan": [
+      "classify missing source root or CMakeLists.txt as source_unavailable and keep Route C/HF3 stopped",
+      "route to a result audit if the source availability artifact is complete and claim-safe",
+      "if tooling fails without dependency mutation preserve the failure as preflight_failed_claim_safe and route to audit",
+      "do not proceed to configure until a later audit accepts source availability"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2880 admits a bounded read-only source availability preflight as the first Chrono dependency gate",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Read-only Route C/HF3 Chrono source availability preflight",
+    "admission_evidence": [
+      "M2880 admits M2881 as the first ordered gate in the Chrono dependency acquisition ladder",
+      "M2880 fixes Chrono version 10.0.0 tag 10.0.0 expected commit prefix 9faf13d and external hf_backends paths",
+      "M2638/M2836 require source/package/dependency acquisition evidence before selected-platform HF3 execution",
+      "M2879 preserves M2877/M2878 as Route A diagnostic-only evidence and pivots to Route C dependency handling"
+    ],
+    "blocked_shortcuts": [
+      "no network fetch clone package install configure build install import link probe backend reset step rollout validation",
+      "no policy action execution training replay PPO ranking winner selection or promotion",
+      "no mutation of external dependency directories",
+      "no actor input expansion or action contract change",
+      "no driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_c_hf3_chrono_source_availability_preflight.py",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/source_availability_rows.csv",
+      "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/gate_rows.csv",
+      "one bounded follow-up result-audit manifest if the artifact is complete",
+      "M2881 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "summary artifact exists",
+      "source root CMakeLists path boundary optional git metadata and toolchain command availability are accounted for",
+      "external dependency directories are not created or mutated",
+      "source availability outcome is classified as source_available_claim_safe source_unavailable_claim_safe or preflight_failed_claim_safe",
+      "no configure build install import link reset step rollout validation or high-fidelity claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2881 checks source availability only and does not test history necessity current-frame substitution or controller-family evidence.",
+    "history_necessity_tests": [
+      "None in M2881; Route B finite-window GRU wrong-history reset-hidden zero-history and self-ID evidence remain separate."
+    ],
+    "temporal_evidence_window": "M2880 Chrono dependency-acquisition manifest design and M2638/M2836 source dependency blocker chain.",
+    "negative_result_policy": "If source is missing or incompatible preserve source_unavailable as a dependency blocker rather than weakening HF3 gates or converting it into driver-performance evidence.",
+    "allowed_claims": [
+      "read-only Chrono source availability outcome",
+      "bounded source availability result-audit admission or Route C stop decision",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces a repo-local source availability artifact for the previously unmeasured M2880 hf_backends Chrono path contract",
+    "paper_verdict_delta": "no paper verdict; M2881 only determines whether Route C/HF3 can continue to later dependency gates",
+    "must_synthesize_if": [
+      "M2881 cannot classify source availability without dependency mutation",
+      "M2881 would execute network fetch configure build install import reset step rollout validation or package install",
+      "M2881 would claim validation readiness driver performance paper current-sim high-fidelity full-driver or self-ID evidence",
+      "M2881 would weaken M2638/M2836 or hide M2877/M2878 weak diagnostic outcomes"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json exists",
+    "source availability rows account for source root existence CMakeLists.txt existence repo-boundary status optional git metadata and expected commit prefix compatibility",
+    "gate rows classify source availability without external dependency mutation",
+    "summary classifies outcome as source_available_claim_safe source_unavailable_claim_safe or preflight_failed_claim_safe",
+    "preflight preserves actor 72/action 3 no hidden/oracle actor input M2638/M2836 source dependency and M2877/M2878 diagnostic-only claim boundaries",
+    "preflight registers at most one bounded result-audit follow-up manifest"
+  ],
+  "failure_criteria": [
+    "M2881 creates external dependency directories fetches clones installs configures builds installs imports links probes starts a backend resets steps rolls out validates trains ranks promotes mutates system packages mutates Chrono directories or publishes a package",
+    "M2881 changes actor input or action contract",
+    "M2881 weakens M2638/M2836 or hides M2877/M2878 weak diagnostic outcomes",
+    "M2881 claims dependency execution readiness source-build readiness adapter-probe readiness reset feasibility rollout feasibility validation readiness/result high-fidelity validation driver performance paper current-sim full-driver or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2881 writes a complete read-only source availability artifact for the fixed Chrono 10.0.0 source root without external dependency mutation or high-fidelity validation claims.",
+  "commands": [
+    {
+      "name": "source_availability_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_c_hf3_chrono_source_availability_preflight --m2880-design docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md --source-root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source --expected-tag 10.0.0 --expected-commit-prefix 9faf13d --output-dir runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight --follow-up-manifest experiments/manifests/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md",
+    "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json",
+  "next_blocker": "m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit"
+}

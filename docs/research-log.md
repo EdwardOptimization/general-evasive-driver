@@ -51966,3 +51966,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis_20260606T101034Z/command.log`
 - success artifact: `docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md`
 - notes: Completed: synthesis decision pivot closes M2876-M2878 post-package-refresh fresh diagnostic branch as complete but weak Route A evidence preserving M2877 11/11 resolved 11 execution rows 0 failure rows diagnostic success/collision/offtrack 3/0/8 61 prior exclusions package protected HF3 guardrails actor 72/action 3 no hidden oracle labels rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2880 Chrono dependency-acquisition manifest design
+
+## 20260606T104404Z m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A design-only Route C HF3 milestone can convert the M2879 pivot and Chrono 10.0.0 route into a bounded dependency acquisition manifest without fetching source building Chrono or claiming high-fidelity validation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design_20260606T104404Z`
+- command log: `runs/research/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design_20260606T104404Z/command.log`
+- success artifact: `docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md`
+- notes: Completed: design admits M2881 read-only Chrono source availability preflight fixes Chrono 10.0.0 tag 10.0.0 expected commit prefix 9faf13d hf_backends external source build install logs paths gate ladder source configure build install link/import reset manual step policy smoke failure taxonomy actor 72/action 3 no hidden oracle labels no fetch build import reset rollout validation performance paper high-fidelity or self-ID claims

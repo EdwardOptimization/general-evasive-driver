@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
+m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
+m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
+m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
 ```
 
 Current route:
@@ -38,7 +38,7 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch has pivoted from Route A post-package-refresh fresh diagnostic
-synthesis to Route C/HF3 Chrono dependency-acquisition manifest design.
+synthesis to Route C/HF3 Chrono source availability.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -55,14 +55,29 @@ ordinary success denominator. M2879 rejects another direct fixed-surface Route
 A execution step and rejects validation, ranking, promotion, performance,
 paper, current-sim, high-fidelity, full-driver, and self-ID interpretations.
 
-The next task is M2880. It must write a design-only Route C/HF3 Chrono
-dependency-acquisition manifest using Project Chrono / Chrono::Vehicle 10.0.0,
-source URL `https://github.com/projectchrono/chrono.git`, tag `10.0.0`,
-expected commit prefix `9faf13d`, and external paths under
+M2880 completed the design-only Route C/HF3 Chrono dependency-acquisition
+manifest and admits M2881 as the next read-only source-availability preflight.
+The selected backend route is Project Chrono / Chrono::Vehicle 10.0.0, source
+URL `https://github.com/projectchrono/chrono.git`, tag `10.0.0`, expected
+commit prefix `9faf13d`, and external paths under
 `/home/quyaonan/workspace/hf_backends/chrono/10.0.0/` for `source`, `build`,
-`install`, and `logs`. The required gate ladder is source availability,
-configure, build, install, link/import, reset, manual step, then policy smoke.
-M2880 must not fetch, clone, install packages, configure, build, install,
+`install`, and `logs`. M2880 fixes the required gate ladder as source
+availability, configure, build, install, link/import, reset, manual step, then
+policy smoke. It also fixes the Route C dependency failure taxonomy:
+source_unavailable, toolchain_missing, configure_dependency_missing,
+build_failure, install_failure, import_or_link_probe_failure,
+adapter_contract_failure, reset_failure, step_failure, and
+claim_boundary_violation. M2880 did not fetch, clone, install packages,
+configure, build, install, link/import, start a backend, reset, step, roll out,
+validate, rank, promote, or claim high-fidelity validation.
+
+The next task is M2881. It must implement and run only a read-only source
+availability preflight for
+`/home/quyaonan/workspace/hf_backends/chrono/10.0.0/source`: source root
+existence, `CMakeLists.txt` existence, repo-boundary status, optional git
+metadata and expected commit prefix compatibility, plus toolchain command
+availability without installing anything. M2881 must not create external
+directories, fetch/clone Chrono, install packages, configure, build, install,
 link/import, start a backend, reset, step, roll out, validate, rank, promote,
 or claim high-fidelity validation.
 
