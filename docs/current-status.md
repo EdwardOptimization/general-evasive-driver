@@ -3033,3 +3033,25 @@ training redesign protocol is admitted. It must either accept the recurrent
 belief architecture/training redesign route or send the branch to limited
 baseline freeze or stop; it must not execute training or convert M2838 weak
 diagnostics into performance evidence.
+
+## M2842 Engineering Controller Route A Post HF3 Stop Negative Evidence Architecture Redesign Or Freeze Result Audit
+
+- status: completed
+- audit decision: `accept_m2841_route_to_driver_like_recurrent_belief_architecture_training_redesign_protocol_design`
+- manifest: `experiments/manifests/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.json`
+- audit artifact: `docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md`
+- parent design: `docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md`
+- follow-up manifest: `experiments/manifests/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.json`
+- accepted route: Route A driver-like recurrent-belief architecture/training redesign protocol design
+- rejected immediate routes: limited-baseline freeze, same-surface M2838-like execution, scalar actor-head bias repeat, Route C/HF3 retry without source, direct Route B self-ID claim
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: audit-only route acceptance; no implementation training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design`
+
+## Immediate Next Step
+
+M2843 should design a concrete recurrent-belief architecture/training protocol
+before any implementation or training. It must specify architecture change,
+training recipe, proof gates, generalization gates, promotion gates, artifacts,
+and one bounded follow-up route while preserving the actor input contract.
