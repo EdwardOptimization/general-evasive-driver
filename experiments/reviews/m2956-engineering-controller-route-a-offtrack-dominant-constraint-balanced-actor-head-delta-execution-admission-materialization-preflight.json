@@ -1,0 +1,99 @@
+{
+  "decision_reason": "M2956 materializes actor-head delta execution-admission surface status_pass true gate_matrix_pass true with 17 input-surface rows, 56 candidate rows, 11 rejection rows, 46 source-guardrail rows including 35 M2916 guardrail rows and 11 rejection guardrail rows, 28 actor-delta contract guard rows, 19 claim-boundary rows and 17 gate rows; accounts for 67 M2916 source candidate rows including 56 admitted and 11 stale fixed blocked rows; rejects candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2957 result audit.",
+  "failure_criteria": [
+    "M2956 executes environment reset rollout replay validation training ranking promotion or dependency work",
+    "M2956 loads modifies saves ranks or promotes checkpoints",
+    "M2956 admits evaluator labels hidden dynamics oracle labels future targets progress metrics or verdict labels as actor input",
+    "M2956 does not account for all admitted and blocked M2916 candidate rows",
+    "M2956 treats materialized admission rows as repair success driver performance validation paper high-fidelity or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not treat materialization rows as candidate execution repair success or performance evidence",
+    "do not use evaluator labels hidden dynamics oracle labels future targets progress metrics or verdict labels as actor input",
+    "do not claim implementation readiness repair success driver performance validation paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T220648Z",
+  "hypothesis": "A no-execution materialization preflight can bind the accepted M2953/M2954 actor-head delta surface to the accepted M2916/M2917 Route A execution-admission rows before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2955 admits one materialization route before any candidate execution",
+      "M2953/M2954 provide actor-head delta contracts but not concrete executable row identities",
+      "M2916/M2917 provide accepted concrete Route A execution-admission rows but no actor-head delta binding"
+    ],
+    "derived_from": [
+      "m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design",
+      "m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit",
+      "m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.json",
+      "experiments/manifests/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.json",
+      "experiments/manifests/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/summary.json",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/panel_spec_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/contract_traceability_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv",
+      "docs/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.md"
+    ],
+    "parent_objective": [
+      "materialize actor-head delta execution-admission rows before candidate execution"
+    ],
+    "supersedes": [
+      "direct actor-head delta candidate execution without row-level binding to M2916 admitted rows"
+    ]
+  },
+  "milestone": "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight",
+  "next_blocker": "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "actor_head_delta_execution_admission_materialized_route_to_m2957_result_audit",
+  "public_gates": [
+    "M2956 must consume M2955 design, M2953/M2954 actor-head delta surface artifacts, and M2916/M2917 execution-admission artifacts",
+    "M2956 must write actor-head delta execution-admission candidate, rejection, guardrail, actor-delta contract, claim-boundary, and gate rows",
+    "M2956 must preserve actor 72/action 3 and no hidden oracle future-target evaluator-label progress or verdict actor input",
+    "M2956 must not execute reset rollout replay validation training ranking promotion dependency work adapter probe or external simulation",
+    "M2956 must not claim implementation readiness repair success driver performance validation paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "actor_head_delta_execution_admission_materialized_route_to_m2957_result_audit",
+    "milestone": "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight",
+    "reason": "M2956 materializes actor-head delta execution-admission surface status_pass true gate_matrix_pass true with 17 input-surface rows, 56 candidate rows, 11 rejection rows, 46 source-guardrail rows including 35 M2916 guardrail rows and 11 rejection guardrail rows, 28 actor-delta contract guard rows, 19 claim-boundary rows and 17 gate rows; accounts for 67 M2916 source candidate rows including 56 admitted and 11 stale fixed blocked rows; rejects candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2957 result audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json exists",
+    "docs/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.md exists",
+    "M2956 accounts for accepted and blocked M2916 rows",
+    "M2956 registers one result-audit follow-up manifest",
+    "M2956 makes no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "type": "infrastructure"
+}

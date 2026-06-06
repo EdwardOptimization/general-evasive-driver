@@ -97,7 +97,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight",
+  "next_blocker": "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -133,7 +133,7 @@
     "negative_result_policy": "If rows cannot be actor-safe or fully accounted route to repair or stop rather than weakening interpretation standards.",
     "temporal_evidence_window": "M2953-M2955 actor-head delta surface and M2916-M2917 execution-admission materialization."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json exists",
     "docs/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.md exists",

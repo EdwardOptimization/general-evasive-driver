@@ -1,0 +1,169 @@
+{
+  "baseline_artifacts": [
+    "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json",
+    "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_candidate_rows.csv",
+    "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_rejection_rows.csv",
+    "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/gate_matrix.csv",
+    "docs/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "actor_head_delta_execution_admission_result_audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2957 writes a bounded result-audit artifact for M2956 and preserves all actor execution and claim boundaries without execution.",
+  "failure_criteria": [
+    "M2957 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2957 changes actor input or action contract",
+    "M2957 claims implementation readiness driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2957 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not treat M2956 materialization rows as repair success or performance evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M2956 actor-head delta execution-admission materialization before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2956 materialization must be audited before any bounded execution design"
+    ],
+    "derived_from": [
+      "m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.json",
+      "experiments/manifests/m2955-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-candidate-execution-admission-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/summary.json",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_candidate_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/actor_head_delta_execution_admission_rejection_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/source_guardrail_rows.csv",
+      "runs/m2956_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_execution_admission_materialization_preflight/gate_matrix.csv",
+      "docs/m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2956 actor-head delta execution-admission materialization"
+    ],
+    "supersedes": [
+      "direct bounded execution design from unaudited M2956 rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized actor-head delta execution-admission rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2957 cannot accept reject repair pivot or stop M2956 artifacts",
+      "M2957 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; may admit one bounded execution design or force repair/stop",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2957 must audit M2956 row counts and gates",
+    "M2957 must preserve actor 72/action 3 and no hidden/oracle/future-target/evaluator-label actor input",
+    "M2957 must not execute reset rollout validation training ranking promotion dependency work adapter probe or external simulation",
+    "M2957 must not claim implementation readiness repair success driver performance validation paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2956 materialization audit",
+      "actor and claim boundary preserved",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2957 audits materialized rows only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2957; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If row accounting fails route to repair or stop rather than weakening interpretation standards.",
+    "temporal_evidence_window": "M2956 materialization."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md exists",
+    "audit summarizes M2956 row counts and gates",
+    "audit preserves actor and claim boundaries",
+    "audit selects exactly one next route or stop state",
+    "no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2956 materialization preflight completed"
+    ],
+    "allowed_updates": [
+      "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+      "docs/reviews/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md",
+      "M2957 status queue scoreboard research log and review",
+      "one follow-up manifest only if audit selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no environment execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden oracle future-target evaluator-label progress or verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M2957 audit artifact exists",
+      "M2957 accepts rejects repairs pivots or stops M2956 materialization",
+      "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit actor-head delta execution-admission materialization"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_execution_admission_materialization_result_audit",
+    "evidence_increment": "audits newly materialized actor-head delta execution-admission rows",
+    "fallback_plan": [
+      "route to artifact repair if row accounting is incomplete",
+      "route to stop or pivot if rows require privileged actor input",
+      "admit one bounded execution-design route only after audit acceptance"
+    ],
+    "stop_condition": [
+      "stop if M2956 rows are incomplete",
+      "stop if actor or claim boundaries are violated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2956 materialization completed"
+  }
+}
