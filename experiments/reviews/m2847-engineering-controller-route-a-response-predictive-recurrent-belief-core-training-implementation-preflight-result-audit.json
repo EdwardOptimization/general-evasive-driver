@@ -1,19 +1,5 @@
 {
-  "baseline_artifacts": [
-    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json",
-    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/gate_matrix.csv",
-    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoint_manifest.json"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "result_audit"
-    }
-  ],
-  "decision_rule": "Pass only if M2847 audits M2846 artifacts under the unchanged actor and claim boundaries without new execution or overclaiming.",
+  "decision_reason": "M2847 audit accepts M2846 implementation preflight complete claim-safe status_pass true artifacts present gate_matrix_pass true actor 72/action 3 no hidden oracle labels response targets 0-8 previous commands excluded parameter trace non actor head groups response_encoder online_gru_cell response_context_fusion response_prediction_head changed M2838 1 success 2 collision 13 off_track diagnostic boundary no new training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2848 bounded continuation preflight",
   "failure_criteria": [
     "M2847 runs new training validation ranking promotion or success-rate verdict computation",
     "M2847 hides M2846 gate failures or weakens actor/claim boundaries",
@@ -43,8 +29,8 @@
     "do not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260606T022743Z",
   "hypothesis": "A bounded result audit can accept or reject M2846 implementation-preflight artifacts before any continuation or interpretation.",
-  "id": "m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit",
   "lineage": {
     "blocked_by": [
       "M2847 must audit M2846 summary status gates artifact completeness checkpoint lineage and claim boundaries",
@@ -86,25 +72,10 @@
       "unaudited implementation preflight interpretation"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits new executable implementation-preflight artifacts from M2846",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M2846 cannot preserve actor 72/action 3",
-      "M2846 response targets require hidden/oracle fields",
-      "M2846 produces only actor_mean.bias changes",
-      "M2846 cannot write proof generalization promotion rows",
-      "M2846 claims validation readiness driver performance paper current-sim high-fidelity or self-ID evidence"
-    ],
-    "paper_verdict_delta": "no paper verdict; audit governs Route A engineering implementation continuation",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 2,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit",
   "next_blocker": "m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "accept_m2846_response_predictive_recurrent_belief_core_training_implementation_preflight_route_to_m2848_bounded_continuation_preflight",
   "public_gates": [
     "M2847 must audit whether M2846 wrote complete implementation-preflight artifacts",
     "M2847 must verify actor 72/action 3 and no hidden/oracle actor input were preserved",
@@ -113,27 +84,19 @@
     "M2847 must verify proof generalization promotion actor claim and gate rows before any next implementation/training decision",
     "M2847 must not validate rank promote compute success-rate verdict claim performance paper current-sim high-fidelity full-driver or self-ID result"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md",
-      "type": "md"
-    }
-  ],
-  "review_artifact": "docs/reviews/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md",
-  "scoreboard_checkpoint": "docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "M2846 implementation preflight accepted or rejected",
-      "bounded follow-up route registration",
-      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M2847 audits implementation preflight only and does not run finite-window-vs-GRU or self-ID tests.",
-    "history_necessity_tests": [
-      "Hidden intervention rows from M2846 are diagnostic artifact rows only and cannot support a self-ID claim."
-    ],
-    "negative_result_policy": "If M2846 failed, preserve the negative implementation evidence and route to repair design, freeze, or stop rather than weakening gates.",
-    "temporal_evidence_window": "M2846 implementation preflight artifacts plus M2838 weak diagnostic accounting."
+  "scoreboard": {
+    "checkpoint": "docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2846_response_predictive_recurrent_belief_core_training_implementation_preflight_route_to_m2848_bounded_continuation_preflight",
+    "milestone": "m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit",
+    "reason": "M2847 audit accepts M2846 implementation preflight complete claim-safe status_pass true artifacts present gate_matrix_pass true actor 72/action 3 no hidden oracle labels response targets 0-8 previous commands excluded parameter trace non actor head groups response_encoder online_gru_cell response_context_fusion response_prediction_head changed M2838 1 success 2 collision 13 off_track diagnostic boundary no new training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2848 bounded continuation preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
   "success_criteria": [
     "docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md exists",
@@ -141,49 +104,5 @@
     "audit preserves actor 72/action 3 no hidden/oracle labels M2838 diagnostic boundary and claim boundary",
     "audit registers one bounded follow-up route if continuing"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M2846 summary artifact is expected before M2847 runs",
-      "M2846 checkpoint manifest parameter trace response target schema and gate rows require audit before interpretation"
-    ],
-    "allowed_updates": [
-      "docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md",
-      "M2847 status queue scoreboard and review",
-      "one bounded follow-up manifest if audit accepts a next route"
-    ],
-    "blocked_shortcuts": [
-      "no new training or validation in result audit",
-      "no ranking winner selection promotion or success-rate verdict",
-      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
-    ],
-    "next_stage_criteria": [
-      "M2846 status and gate rows are accepted or rejected",
-      "failure types are classified if any gate failed",
-      "one bounded next route or stop is registered"
-    ],
-    "stage": "process",
-    "stage_objective": "audit M2846 response-predictive recurrent-belief implementation preflight artifacts"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_driver_like_recurrent_belief_architecture_training_redesign",
-    "claim_scope": "Result audit only; no validation ranking winner selection promotion success-rate verdict driver-performance paper current-sim high-fidelity validation self-ID or full ideal driver claim",
-    "evidence_axis": "response_predictive_recurrent_belief_core_training_implementation_preflight_result_audit",
-    "evidence_increment": "audits M2846 executable implementation-preflight artifacts before any interpretation or continuation",
-    "fallback_plan": [
-      "route to implementation repair design only if a narrow artifact or runner issue is identified",
-      "route to bounded continuation design only if M2846 passes and audit admits more training evidence",
-      "route to limited-baseline freeze or branch stop if implementation cannot produce non-actor-head evidence safely"
-    ],
-    "stop_condition": [
-      "stop if M2846 changed actor 72/action 3",
-      "stop if response targets include hidden/oracle fields or previous-command target leakage",
-      "stop if parameter trace is actor_mean.bias-only",
-      "stop if proof generalization promotion rows are incomplete",
-      "stop if M2846 claims validation readiness driver performance paper current-sim high-fidelity or self-ID evidence"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M2846 implementation preflight has produced executable artifacts requiring audit"
-  }
+  "type": "gate"
 }

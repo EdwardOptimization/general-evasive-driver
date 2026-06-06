@@ -3159,3 +3159,29 @@ accept or reject the implementation-preflight evidence and either register a
 bounded continuation/repair route or stop/freeze the branch; it must not run new
 training, validation, ranking, promotion, or claim driver-performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2847 Engineering Controller Route A Response-Predictive Recurrent-Belief Core Training Implementation Preflight Result Audit
+
+- status: completed
+- audit decision: `accept_m2846_response_predictive_recurrent_belief_core_training_implementation_preflight_route_to_m2848_bounded_continuation_preflight`
+- manifest: `experiments/manifests/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.json`
+- audit artifact: `docs/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.md`
+- parent summary: `runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json`
+- follow-up manifest: `experiments/manifests/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.json`
+- accepted result: M2846 implementation preflight status_pass true with required artifacts present and gate_matrix_pass true
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- response target boundary: indices 0-8 included; previous command indices 9-11 excluded from prediction targets
+- parameter evidence: response_encoder online_gru_cell response_context_fusion response_prediction_head changed; not actor-head-only
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- claim boundary: audit-only acceptance; no new training validation ranking promotion success-rate verdict performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight`
+
+## Immediate Next Step
+
+M2848 should implement and execute a bounded continuation preflight from the
+M2846 candidate checkpoint. It should produce more response-predictive
+recurrent-belief training evidence than the 8-step smoke while keeping actor
+72/action 3, response targets 0-8, no hidden/oracle labels, M2838 weak
+diagnostic accounting, proof/generalization/promotion separation, and no
+validation, ranking, promotion, success-rate verdict, performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID claim.
