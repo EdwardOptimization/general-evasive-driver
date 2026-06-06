@@ -113,3 +113,32 @@ Use the Makefile targets that exist in this repository. For this research harnes
 - Related Files: Makefile
 
 ---
+
+## [ERR-20260606-003] manifest_actual_progress_type_enum
+
+**Logged**: 2026-06-06T09:06:31+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift manifest validation rejects non-enum `local_search_guard.actual_progress_type` values.
+
+### Error
+```text
+error: m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design: local_search_guard.actual_progress_type must be one of ['design_only', 'evidence_reanalysis', 'new_baseline_comparison', 'new_closed_loop_data', 'new_dataset_or_panel', 'new_scenario_distribution', 'new_tool_or_infra', 'repair_only', 'result_audit', 'synthesis_decision']
+```
+
+### Context
+- Command attempted: `make research-validate`
+- Invalid value used: `route_design`
+- Correct value for design-only route milestones: `design_only`
+
+### Suggested Fix
+When adding new process manifests, use the validator enum for `actual_progress_type`; descriptive route labels should stay in `branch`, `evidence_axis`, or milestone text.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.json
+
+---

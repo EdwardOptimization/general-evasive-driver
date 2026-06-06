@@ -2986,3 +2986,27 @@ or materially different continue route. It must not repeat another same-surface
 diagnostic loop or upgrade the 1/16 diagnostic success result into validation,
 ranking, performance, paper, current-sim, high-fidelity, full-driver, or self-ID
 evidence.
+
+## M2840 Engineering Controller Post Route C HF3 Stop Fresh Source-Diverse Closed-Loop Evidence Result Synthesis
+
+- status: completed
+- synthesis decision: `pivot`
+- next branch decision: `pivot_to_route_a_negative_evidence_architecture_redesign_or_freeze_design`
+- manifest: `experiments/manifests/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.json`
+- synthesis artifact: `docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md`
+- parent audit: `docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md`
+- parent summary: `runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json`
+- follow-up manifest: `experiments/manifests/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.json`
+- accepted evidence: M2837-M2839 complete and claim-safe post Route C/HF3 stop fresh source-diverse Route A diagnostic branch
+- diagnostic accounting: 1 success, 2 collision, 13 off_track over 16 fixed rows
+- boundary: M2638/M2836 Route C/HF3 stop remains active; prior surfaces and HF3 blockers remain guardrails outside denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: weak diagnostic synthesis only; no same-surface execution loop validation ranking performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design`
+
+## Immediate Next Step
+
+M2841 should design the selected next route after the weak M2838 diagnostic
+branch. It must choose a bounded limited-baseline freeze, architecture/training
+redesign, defer-to-Route-B, defer-to-Route-C, or explicit stop path without
+executing policy actions or upgrading M2838 into performance evidence.

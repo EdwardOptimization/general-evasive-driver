@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2845,
+    "completed": 2846,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit_20260606T004854Z/command.log",
+    "command_log": "runs/research/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis_20260606T010457Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit_20260606T004854Z",
+    "run_dir": "runs/research/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis_20260606T010457Z",
     "status": "completed",
-    "task_id": "m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit"
+    "task_id": "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A branch synthesis can preserve M2837-M2839 post Route C HF3 stop fresh source-diverse evidence while preventing another same-surface diagnostic loop and selecting a bounded next route or stop.",
-    "id": "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis",
+    "hypothesis": "A design-only selected next-route milestone can convert M2840 weak diagnostic synthesis into a bounded freeze redesign defer or stop decision without repeating same-surface execution.",
+    "id": "m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M2837 M2838 M2839 evidence answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision preserve 16 fixed rows 1 success 2 collision 13 off_track 43 prior task-source guardrails actor 72/action 3 no hidden oracle labels reject validation ranking performance paper current-sim high-fidelity full-driver self-ID claims",
-    "priority": 28350,
+    "notes": "Pending: design next route after M2840 choose limited-baseline freeze architecture redesign defer-to-Route-B defer-to-Route-C or stop preserve M2838 1 success 2 collision 13 off_track actor 72/action 3 no hidden oracle labels prior-surface and HF3 blockers reject execution validation ranking performance paper current-sim high-fidelity full-driver self-ID claims",
+    "priority": 28360,
     "status": "pending",
-    "success_artifact": "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md"
+    "success_artifact": "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md"
   },
-  "updated_at_utc": "20260606T004854Z"
+  "updated_at_utc": "20260606T010457Z"
 }

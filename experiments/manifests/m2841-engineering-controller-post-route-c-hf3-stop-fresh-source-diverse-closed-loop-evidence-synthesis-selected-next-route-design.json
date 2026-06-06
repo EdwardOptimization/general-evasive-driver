@@ -1,0 +1,238 @@
+{
+  "id": "m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md",
+      "docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/candidate_execution_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/failure_taxonomy_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/scenario_role_metric_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/prior_surface_exclusion_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/actor_contract_guard_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/claim_boundary_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/gate_matrix.csv",
+      "docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md",
+      "docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md",
+      "docs/m2800-engineering-controller-route-a-source-only-belief-stress-clearance-localized-corrective-training-result-audit.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.json",
+      "experiments/manifests/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.json",
+      "experiments/manifests/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.json"
+    ],
+    "parent_objective": [
+      "design the bounded next route selected by M2840 after weak post Route C HF3 stop fresh source-diverse Route A diagnostics"
+    ],
+    "derived_from": [
+      "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis",
+      "m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit",
+      "m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight",
+      "m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit"
+    ],
+    "blocked_by": [
+      "M2840 rejects another M2838-like same-surface diagnostic execution loop",
+      "M2838 outcomes are weak with 1 diagnostic success 2 collisions and 13 off_track terminations",
+      "M2771 rejects repeating scalar actor-head bias repair after a negative repair branch",
+      "M2836 keeps Route C HF3 selected-platform source dependency stopped until source is supplied",
+      "M2841 must choose architecture redesign freeze defer-to-Route-B defer-to-Route-C or explicit stop without overclaiming"
+    ],
+    "supersedes": [
+      "direct repeat of M2838 fresh source-diverse diagnostic execution",
+      "direct Route C HF3 dependency retry without source",
+      "direct package or performance claim from M2838 weak diagnostic rows",
+      "direct Route B self-ID claim without a fair controller-family matrix"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md",
+  "public_gates": [
+    "M2841 must design the next route selected by M2840 without executing reset step rollout replay validation training PPO source build adapter probe or external simulation",
+    "M2841 must preserve M2838 weak diagnostic accounting 1 success 2 collisions and 13 off_track as diagnostic evidence only",
+    "M2841 must choose one bounded next route among limited-baseline freeze architecture/training redesign defer-to-Route-B defer-to-Route-C or explicit stop",
+    "M2841 must reject another same-surface M2838-like diagnostic execution unless it first changes controller architecture training recipe source distribution or claim boundary in a separately pre-registered route",
+    "M2841 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible source stress-axis scenario-role route success progress and verdict labels",
+    "M2841 must preserve M2737 M2759 M2807 M2816 M2828 prior-surface protected rows and HF3 blocker guardrails outside ordinary denominators",
+    "M2841 must not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not install external dependencies",
+    "do not fetch external source",
+    "do not mutate dependency or source trees",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "do not hide M2838 weak diagnostic outcomes",
+    "do not hide prior-surface protected or HF3 guardrail rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2841 design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_post_route_c_hf3_stop_negative_evidence_next_route_design",
+    "evidence_axis": "negative_evidence_architecture_redesign_or_freeze_design",
+    "evidence_increment": "designs a bounded next route after M2840 rejects another same-surface diagnostic execution loop",
+    "claim_scope": "Design only; no reset rollout replay validation training PPO ranking winner selection promotion success-rate verdict dependency acquisition source build driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if design cannot choose a bounded route beyond same-surface diagnostic execution",
+      "stop if M2838 weak outcomes would be rebranded as performance validation paper or self-ID evidence",
+      "stop if actor contract or label invisibility would change",
+      "stop if Route C HF3 dependency stop would be weakened without supplied source or approved dependency route",
+      "stop if Route B self-ID claim would be made without a fair controller-family matrix"
+    ],
+    "fallback_plan": [
+      "select explicit branch stop if no bounded architecture redesign or limited-baseline freeze route is defensible",
+      "select limited-baseline freeze only with explicit known failure taxonomy and no performance claim",
+      "select architecture/training redesign only with same actor contract and no scalar actor-head bias repair repeat",
+      "defer to Route B only through a separate fair controller-family matrix design",
+      "defer to Route C only through supplied source approved dependency route package route or alternate backend contract"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2840 selects pivot_to_route_a_negative_evidence_architecture_redesign_or_freeze_design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "post Route C HF3 stop negative evidence selected next route design",
+    "admission_evidence": [
+      "M2840 selects architecture-redesign-or-freeze design instead of another M2838-like diagnostic loop",
+      "M2838 writes complete claim-safe but weak diagnostic artifacts with 1 success 2 collisions and 13 off_track rows",
+      "M2771 rejects another scalar actor-head bias repair loop after negative repair evidence",
+      "M2836 preserves Route C HF3 source dependency stop",
+      "docs/post-m2470-route-plan.md requires avoiding loops that do not change evidence or claim boundaries"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO repair in design",
+      "no source build adapter probe dependency acquisition external simulation in design",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md",
+      "M2841 status queue scoreboard and review",
+      "one bounded follow-up manifest selected by design if continuing or pivoting"
+    ],
+    "next_stage_criteria": [
+      "design artifact exists",
+      "design selects one bounded next route or explicit stop",
+      "M2838 weak diagnostic interpretation remains separate from validation or performance claims",
+      "prior-surface HF3 actor and claim boundaries remain visible",
+      "one bounded follow-up manifest is registered if the branch continues"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2841 is design-only and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2841; any finite-window GRU wrong-history reset-hidden zero-history or source-diverse intervention proof remains separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2837-M2840 post Route C HF3 stop fresh source-diverse diagnostic and synthesis artifacts.",
+    "negative_result_policy": "Preserve weak or negative diagnostic evidence and choose stop freeze architecture redesign or separate paper/HF route rather than forcing self-ID interpretation.",
+    "allowed_claims": [
+      "post Route C HF3 stop negative evidence selected next route design",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts weak fresh diagnostic evidence into a route-selection design instead of repeating execution",
+    "paper_verdict_delta": "no paper verdict; design prevents M2838 artifacts from being misread as performance or self-ID evidence while selecting stop freeze redesign or route defer",
+    "must_synthesize_if": [
+      "M2841 cannot choose a bounded next route or explicit stop",
+      "M2841 would admit another M2838-like execution without material route change",
+      "M2841 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2841 hides weak outcomes prior-surface protected or HF3 guardrails",
+      "M2841 would rank controllers source families profiles stress axes scenario roles select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A design-only selected next-route milestone can convert M2840 weak diagnostic synthesis into a bounded freeze redesign defer or stop decision without repeating same-surface execution.",
+  "success_criteria": [
+    "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md exists",
+    "design selects one bounded next route among limited-baseline freeze architecture/training redesign defer-to-Route-B defer-to-Route-C or explicit stop",
+    "design preserves M2838 1 success 2 collision 13 off_track as diagnostic evidence only",
+    "design preserves M2737 M2759 M2807 M2816 M2828 prior-surface guardrails and M2638/M2836 Route C HF3 source dependency stop",
+    "design preserves actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "design registers one bounded follow-up manifest if continuing or pivoting and makes no execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2841 executes reset step rollout replay validation training PPO source build adapter probe dependency acquisition or external simulation",
+    "M2841 changes actor input or action contract",
+    "M2841 exposes source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "M2841 weakens prior-surface protected or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2841 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2841 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2841 selects one bounded next route or explicit stop while preserving weak diagnostic evidence actor boundaries and claim boundaries without execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "selected_next_route_design",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md",
+    "docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md",
+    "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md",
+  "next_blocker": "m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit"
+}
