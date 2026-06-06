@@ -52338,3 +52338,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis_20260606T161036Z/command.log`
 - success artifact: `docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md`
 - notes: Completed: synthesis decision pivot closes the current Route B fresh/source-diverse repair and source-acquisition branch as source-family-insufficient after M2908/M2909 executed 34 fixed rows with candidate-support 24 independent source-family evidence 0 same-family rejection 17 repaired projections 17 and unsatisfied design targets; admits M2911 Route A dependency-facing synthesis with no validation ranking promotion model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## 20260606T161526Z m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded Route A dependency-facing synthesis can choose one actor-safe engineering-controller or dependency-facing next action after Route B source-family insufficiency and Route C source-unavailable evidence.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis_20260606T161526Z`
+- command log: `runs/research/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis_20260606T161526Z/command.log`
+- success artifact: `docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md`
+- notes: Completed: synthesis decision continue admits M2912 Route A dependency-facing evidence surface design after integrating M2910 Route B source-family insufficiency M2879 Route A weak diagnostics 3 success 0 collision 8 off_track and M2883 Route C source_unavailable; rejects same-family Route B direct Route C execution and direct Route A fixed-surface execution with no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

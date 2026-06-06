@@ -1,0 +1,95 @@
+# m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T161615Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_route_a_dependency_facing_evidence_surface_design
+- Decision reason: M2911 synthesis decision continue admits M2912 Route A dependency-facing evidence surface design after integrating M2910 Route B source-family insufficiency M2879 Route A weak diagnostics 3 success 0 collision 8 off_track and M2883 Route C source_unavailable; rejects same-family Route B direct Route C execution and direct Route A fixed-surface execution no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## Hypothesis
+
+A bounded Route A dependency-facing synthesis can convert the closed Route B source-family-insufficient branch plus known Route C source-unavailable blocker into exactly one actor-safe engineering-controller or dependency-facing next action without validation ranking promotion performance paper high-fidelity or self-ID claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt
+- parent_dataset: docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md, docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md, runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/summary.json, docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md, docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md, docs/post-m2470-route-plan.md, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md
+- parent_config: experiments/manifests/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.json, experiments/manifests/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.json, experiments/manifests/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.json, experiments/manifests/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.json
+- parent_objective: choose the next actor-safe evidence-producing route after Route B source-family repair is closed as insufficient
+- derived_from: m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis, m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit, m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis, m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
+- blocked_by: M2910 closes the current Route B fresh/source-diverse repair and source-acquisition branch as source-family-insufficient, M2879 records weak Route A post-package fresh diagnostic evidence that should not be hidden or overclaimed, M2883 keeps Route C/HF3 Chrono stopped under source_unavailable until source or an alternate backend route is supplied, post-M2470 route plan requires separating engineering controller progress from paper/self-ID and high-fidelity dependency gates
+- supersedes: another same-family Route B source-acquisition loop, direct Route B model-quality validation from partial candidate-support evidence, direct Route C configure build import reset or validation while source remains unavailable
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md exists
+- synthesis integrates M2910 Route B source-family insufficiency M2879 Route A weak diagnostic evidence and M2883 Route C source_unavailable blocker
+- synthesis selects exactly one bounded next route or stop state
+- synthesis preserves actor Route B paper and Route C dependency boundaries
+- no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made
+
+## Failure Criteria
+
+- M2911 repeats same-family Route B source acquisition
+- M2911 hides or overclaims Route A weak diagnostic evidence or Route C source_unavailable state
+- M2911 changes actor input or action contract
+- M2911 executes reset rollout validation training dependency acquisition configure build import link backend reset step or policy smoke
+- M2911 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+- M2911 leaves the next route ambiguous or selects multiple incompatible routes
+
+## Evidence Gates
+
+- M2911 must synthesize M2910 Route B source-family insufficiency with M2879 Route A weak diagnostic evidence and M2883 Route C source_unavailable blocker
+- M2911 must select exactly one bounded next route or stop state
+- M2911 must not re-enter another same-family Route B acquisition loop
+- M2911 must preserve actor 72/action 3 and no hidden/oracle/future-target actor inputs
+- M2911 must preserve Route C source configure build import reset step rollout validation gate ordering
+- M2911 must not claim validation ranking promotion model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not reset step rollout replay validate rank promote publish or select a winner
+- do not fit train or run PPO
+- do not fetch clone configure build install import link probe or start an external backend
+- do not change actor input or action contract
+- do not expose hidden dynamics oracle labels future targets route labels success labels progress labels diagnostics or verdict labels to actor input
+- do not reinterpret same-family source execution as independent source-family evidence
+- do not weaken Route B source diversity target coverage or paper holdout boundaries
+- do not claim model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis
+- type: gate
+- checkpoint: docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_route_a_dependency_facing_evidence_surface_design
+- reason: M2911 synthesis decision continue admits M2912 Route A dependency-facing evidence surface design after integrating M2910 Route B source-family insufficiency M2879 Route A weak diagnostics 3 success 0 collision 8 off_track and M2883 Route C source_unavailable; rejects same-family Route B direct Route C execution and direct Route A fixed-surface execution no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## Next Blocker
+
+m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design

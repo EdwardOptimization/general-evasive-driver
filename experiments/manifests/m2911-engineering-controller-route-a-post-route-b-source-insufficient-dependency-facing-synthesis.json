@@ -95,9 +95,19 @@
       "route to Route C only if source availability or an alternate backend route changes",
       "write a stop decision for the branch if no actor-safe evidence-producing action remains"
     ],
+    "synthesis_artifact": "docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md",
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2910 pivots after Route B source-acquisition adds candidate support but zero independent source-family evidence",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "continue",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "route_options",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "process",
@@ -201,6 +211,6 @@
     "docs/paper-route-finite-window-vs-gru-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md",
-  "next_blocker": "m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis",
-  "status": "pending"
+  "next_blocker": "m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design",
+  "status": "completed"
 }

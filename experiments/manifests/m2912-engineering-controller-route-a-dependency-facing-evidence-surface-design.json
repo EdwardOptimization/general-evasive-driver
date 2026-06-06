@@ -1,0 +1,199 @@
+{
+  "id": "m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded Route A dependency-facing evidence surface design can identify a materially different actor-safe engineering-controller evidence surface after M2911 without executing reset rollout validation training ranking dependency work or paper claims.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md",
+      "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+      "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.json",
+      "experiments/manifests/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.json",
+      "experiments/manifests/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.json",
+      "experiments/manifests/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.json"
+    ],
+    "parent_objective": [
+      "design the next actor-safe Route A engineering-controller evidence surface after source-family-insufficient Route B and source-unavailable Route C blockers"
+    ],
+    "derived_from": [
+      "m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis",
+      "m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis",
+      "m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis",
+      "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design"
+    ],
+    "blocked_by": [
+      "M2911 rejects direct Route B acquisition direct Route C execution and direct Route A fixed-surface execution",
+      "M2879 latest Route A fresh diagnostic branch remains weak with 3 success 0 collision and 8 off_track rows",
+      "M2910 Route B panel remains source-family-insufficient",
+      "M2883 Route C Chrono source remains unavailable"
+    ],
+    "supersedes": [
+      "direct execution without a new evidence surface design",
+      "using Route B acquisition rows or Route A diagnostic rows as ordinary validation proof"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md",
+  "public_gates": [
+    "M2912 must write a Route A dependency-facing evidence surface design before any execution",
+    "M2912 must identify candidate row families exclusion families denominator policy claim boundaries and failure taxonomy",
+    "M2912 must preserve M2910 Route B source-family insufficiency and M2883 Route C source_unavailable blocker",
+    "M2912 must not execute reset rollout replay validation training ranking promotion dependency acquisition configure build import reset or step work",
+    "M2912 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2912 must not claim validation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate rank promote publish or select a winner",
+    "do not fit train or run PPO",
+    "do not fetch clone configure build install import link probe or start an external backend",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels progress labels diagnostics or verdict labels to actor input",
+    "do not reuse same-family Route B acquisition rows as source-family proof",
+    "do not reuse Route A fixed diagnostic rows as validation proof",
+    "do not claim model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_evidence_surface_design",
+    "evidence_increment": "designs a materially different Route A evidence surface after M2911 before any execution",
+    "claim_scope": "Design-only Route A evidence surface; no reset rollout validation ranking promotion model-quality driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2912 cannot identify a materially different Route A evidence surface",
+      "stop if M2912 would admit direct execution without candidate and exclusion design",
+      "stop if M2912 would hide Route B source-family insufficiency or Route C source_unavailable",
+      "stop if actor input or action contract boundaries would change",
+      "stop if M2912 would claim validation performance paper high-fidelity or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to a result audit or stop decision if no actor-safe evidence surface is found",
+      "route to a bounded materialization preflight if the design identifies candidate and exclusion rows",
+      "return to Route C only if source availability or alternate backend evidence changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2911 admits Route A dependency-facing evidence surface design after Route B source-family insufficiency",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Design a Route A dependency-facing evidence surface without execution",
+    "admission_evidence": [
+      "M2911 admits a Route A dependency-facing evidence surface design",
+      "M2910 closes Route B source-family acquisition as insufficient",
+      "M2879 records weak Route A diagnostics that require a materially different evidence surface",
+      "M2883 keeps Route C source-unavailable and blocks direct dependency execution"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion model-quality verdict or driver-performance claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no same-family Route B acquisition as source-family proof",
+      "no Route C configure build import reset step rollout or high-fidelity claim while source remains unavailable"
+    ],
+    "allowed_updates": [
+      "docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md",
+      "docs/reviews/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md",
+      "M2912 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if M2912 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M2912 design artifact exists",
+      "candidate row families exclusion families denominator policy claim boundaries and failure taxonomy are defined",
+      "Route A Route B Route C boundaries remain preserved",
+      "no validation ranking promotion model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2912 is a design-only evidence surface milestone and cannot substitute Route A engineering diagnostics for history-necessity evidence.",
+    "history_necessity_tests": [
+      "None in M2912; self-ID evidence remains blocked until source-diverse fair L0/L1/L2/L3 tests are admitted."
+    ],
+    "temporal_evidence_window": "M2910-M2911 Route B source-insufficient and Route A dependency-facing synthesis chain.",
+    "negative_result_policy": "Preserve source-family insufficiency and Route A weak diagnostics rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded Route A evidence surface design outcome",
+      "candidate and exclusion design readiness for a later preflight",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "requires a materially different Route A evidence surface before any execution",
+    "paper_verdict_delta": "no paper verdict; Route A engineering evidence remains separate from Route B self-ID evidence",
+    "must_synthesize_if": [
+      "M2912 cannot identify a materially different evidence surface",
+      "M2912 would repeat fixed Route A or Route B same-family surfaces",
+      "M2912 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2912 would bypass Route C source-unavailable blocker or Route B source-diversity thresholds"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md exists",
+    "design identifies candidate row families exclusion families denominator policy claim boundaries and failure taxonomy",
+    "design preserves M2910 Route B source-family insufficiency M2879 Route A weak diagnostics and M2883 Route C source_unavailable blocker",
+    "design registers at most one bounded follow-up route",
+    "no reset rollout validation training ranking promotion dependency execution performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2912 executes reset rollout replay validation training ranking promotion dependency acquisition configure build import link backend reset step or policy smoke",
+    "M2912 changes actor input or action contract",
+    "M2912 hides Route A weak diagnostics Route B source-family insufficiency or Route C source_unavailable",
+    "M2912 reuses exhausted fixed surfaces as ordinary proof",
+    "M2912 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2912 leaves candidate row families exclusion families denominator policy claim boundaries or failure taxonomy undefined"
+  ],
+  "decision_rule": "Pass only if M2912 writes a bounded design artifact for a materially different Route A dependency-facing evidence surface without executing reset rollout validation training ranking promotion dependency work or making performance paper high-fidelity or self-ID claims.",
+  "commands": [
+    {
+      "name": "design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md",
+    "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+    "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+    "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md",
+  "next_blocker": "m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design",
+  "status": "pending"
+}
