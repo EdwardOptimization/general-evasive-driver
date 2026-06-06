@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2968,
+    "completed": 2969,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z/command.log",
+    "command_log": "runs/research/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight_20260606T231329Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis_20260606T230128Z",
+    "run_dir": "runs/research/m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight_20260606T231329Z",
     "status": "completed",
-    "task_id": "m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis"
+    "task_id": "m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --m2961-audit docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md --m2962-synthesis docs/m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis.md --output-dir runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight --follow-up-manifest experiments/manifests/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.json",
-    "hypothesis": "A no-execution post-zero-residual materialization can convert M2960 actor-head delta diagnostics into failure-localization and residual-objective admission surfaces before training execution validation ranking promotion or performance claims.",
-    "id": "m2963-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize all 56 M2960 zero-residual diagnostic rows into failure-localization objective-admission guard actor claim gate summary doc and M2964 audit manifest without reset step rollout replay training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29580,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2963 post-zero-residual failure-localization and residual-objective admission materialization before any repair execution training validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2963 summary gate matrix actor and claim boundaries preserve 56 localized rows 4 objective-admission rows and 11 blocked stale fixed-source guardrails then select one next route or stop without training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29590,
     "status": "pending",
-    "success_artifact": "runs/m2963_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_zero_residual_failure_localization_objective_admission_preflight/summary.json"
+    "success_artifact": "docs/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.md"
   },
-  "updated_at_utc": "20260606T230128Z"
+  "updated_at_utc": "20260606T231330Z"
 }
