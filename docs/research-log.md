@@ -51858,3 +51858,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis_20260606T072352Z/command.log`
 - success artifact: `docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md`
 - notes: Completed: synthesis decision pivot closes direct localized response-prediction continuation after M2868/M2869 complete but weak diagnostic deltas and routes to M2871 Route A evidence index refresh admission synthesis
+
+## 20260606T073412Z m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A Route A evidence index refresh can integrate post-M2470 baseline source-only target-protected HF blocker and localized response-prediction evidence before admitting one next action.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis_20260606T073412Z`
+- command log: `runs/research/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis_20260606T073412Z/command.log`
+- success artifact: `docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md`
+- notes: Completed: synthesis decision pivot integrates Route A evidence and admits M2872 post-M2870 limited baseline package refresh design while rejecting further localized training same-surface panels HF3 bypass ranking validation performance paper current-sim high-fidelity full-driver and self-ID claims

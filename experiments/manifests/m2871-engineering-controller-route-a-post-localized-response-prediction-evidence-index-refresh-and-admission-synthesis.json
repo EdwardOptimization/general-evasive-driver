@@ -103,9 +103,10 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2870 pivoted away from direct localized response-prediction continuation after complete but mixed M2868/M2869 diagnostic deltas",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
     "synthesis_questions": [
+      "evidence_summary",
       "evidence_index_summary",
       "supported_claims",
       "falsified_claims",
@@ -215,5 +216,5 @@
   ],
   "review_artifact": "docs/reviews/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
   "scoreboard_checkpoint": "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
-  "next_blocker": ""
+  "next_blocker": "m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design"
 }
