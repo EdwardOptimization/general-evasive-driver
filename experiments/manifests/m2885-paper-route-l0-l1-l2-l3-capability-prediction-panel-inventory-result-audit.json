@@ -1,0 +1,172 @@
+{
+  "baseline_artifacts": [
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/target_inventory_rows.csv",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/actor_contract_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2885 writes a claim-safe audit of M2884 inventory before any further Route B action.",
+  "failure_criteria": [
+    "M2885 resets steps rolls out validates trains ranks promotes or executes policy action",
+    "M2885 changes actor input or action contract",
+    "M2885 claims driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout validate train rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not convert inventory rows into paper proof",
+    "do not claim driver performance paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2884 capability-prediction panel inventory before any training or controller-family verdict.",
+  "id": "m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2884 inventory must be audited before any capability-prediction training data design or controller-family comparison",
+      "Route B must preserve actor boundaries and reject stale protected source-singleton proof rows"
+    ],
+    "derived_from": [
+      "m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight",
+      "m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/target_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/actor_contract_rows.csv",
+      "docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md"
+    ],
+    "parent_objective": [
+      "audit whether M2884 produced a claim-safe candidate inventory for Route B capability prediction"
+    ],
+    "supersedes": [
+      "starting new PPO or controller-family ranking directly after M2883",
+      "using M2884 inventory rows as self-ID or paper proof without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the newly materialized panel inventory",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2885 cannot decide whether M2884 inventory is sufficient",
+      "M2885 would claim self-ID finite-window-vs-GRU driver performance or current-sim verdict"
+    ],
+    "paper_verdict_delta": "no verdict; may admit later capability-prediction design if accepted",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2885 must audit M2884 summary candidate source target actor gate and claim rows",
+    "M2885 must accept or reject the panel inventory classification and source-diversity boundaries",
+    "M2885 must preserve evaluator-only future targets outside actor input",
+    "M2885 must not claim driver performance finite-window-vs-GRU verdict current-sim verdict high-fidelity validation full-driver or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2884 inventory accepted or rejected",
+      "bounded follow-up route or stop decision",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2885 audits inventory only and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2885; later tests require accepted panel inventory and fair L0/L1/L2/L3 comparison."
+    ],
+    "negative_result_policy": "Preserve insufficient inventory as a negative result rather than weakening actor contract or source-diversity gates.",
+    "temporal_evidence_window": "M2883-M2884 Route B capability-prediction inventory branch."
+  },
+  "success_criteria": [
+    "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md exists",
+    "audit accepts or rejects M2884 inventory completeness and claim safety",
+    "audit selects exactly one bounded next route or stop decision"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2884 wrote read-only panel inventory artifacts",
+      "M2883 selected Route B capability-prediction inventory after stopping Chrono/HF3 under source_unavailable"
+    ],
+    "allowed_updates": [
+      "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+      "M2885 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if the audit selects a route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation training ranking promotion",
+      "no hidden or oracle actor inputs",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2884 inventory is accepted or rejected",
+      "one next Route B action or stop decision is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "M2884 capability-prediction panel inventory result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory",
+    "claim_scope": "Result audit only; no training validation ranking finite-window-vs-GRU verdict or self-ID claim",
+    "evidence_axis": "route_b_capability_prediction_before_policy_training_result_audit",
+    "evidence_increment": "audits the M2884 candidate panel inventory before any next data or training design is admitted",
+    "fallback_plan": [
+      "route to a negative inventory synthesis if the panel is insufficient",
+      "route to bounded new data-panel design if gaps are concrete and actor-safe",
+      "route to capability-prediction implementation only if inventory is accepted claim-safe"
+    ],
+    "stop_condition": [
+      "stop if M2884 rows are missing incomplete stale protected source-singleton only or actor-unsafe",
+      "stop if M2885 would interpret inventory rows as paper proof or driver performance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2884 writes panel inventory artifacts"
+  }
+}

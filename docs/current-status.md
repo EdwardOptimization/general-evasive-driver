@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
+m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design
+m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
+m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
 ```
 
 Current route:
@@ -107,15 +107,26 @@ evidence. M2883 rejects configure, build, import, reset, rollout, validation,
 performance, paper, current-sim, high-fidelity, full-driver, and self-ID
 claims.
 
-The next task is M2884. It pivots to Route B and must run a read-only L0/L1/L2/L3
-capability-prediction panel inventory preflight from existing artifacts. The
-goal is to classify candidate rows as usable, guard, stale, protected,
-source-singleton, or missing-data before any new policy training. M2884 must
-preserve actor 72/action 3, no hidden/oracle actor input, and separation
-between deployable actor features and evaluator-only future-capability targets.
-It must not reset, step, roll out, validate, train, rank, promote, or claim
-driver performance, finite-window-vs-GRU verdict, current-sim verdict,
+M2884 completed the Route B read-only L0/L1/L2/L3 capability-prediction panel
+inventory preflight. It wrote a claim-safe inventory with 72 candidate
+task-source rows from the M1690 controller-family workload matrix, classified
+as 17 usable, 34 source-singleton, and 21 guard rows. It also wrote 10 source
+inventory rows, 6 evaluator-only target rows, 5 actor-contract rows, 7 passing
+gate rows, and 7 claim rows. The evaluator-only target families are future
+braking deceleration envelope, future yaw authority, future lateral
+acceleration response, actuator response lag proxy, recovery margin after
+maneuver, and first-critical action quality. Actor 72/action 3 is preserved,
+hidden/oracle actor input remains false, evaluator targets are not actor
+visible, and all false-claim flags remain false. M2884 did not reset, step,
+roll out, validate, train, rank, promote, or claim driver performance,
+finite-window-vs-GRU verdict, paper result, current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
+
+The next task is M2885. It must audit M2884 before any capability-prediction
+training data design or controller-family comparison. The audit must decide
+whether the 17 usable rows are sufficient to admit a bounded Route B
+capability-prediction design, whether the 34 source-singleton and 21 guard rows
+require a new data panel, or whether the branch should stop or synthesize.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
