@@ -1,0 +1,105 @@
+{
+  "decision_reason": "M2851 accepts M2850 complete claim-safe paired closed-loop delta artifacts 32 execution rows 16 delta rows gate_matrix_pass true actor 72/action 3 no hidden oracle labels M2850 zero success zero collision positive clearance deltas diagnostic only M2838 outside ordinary denominators rejects ranking promotion validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2852 synthesis",
+  "failure_criteria": [
+    "M2851 runs new training validation ranking promotion or success-rate verdict computation",
+    "M2851 hides M2850 gate failures or weakens actor/claim boundaries",
+    "M2851 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not run validation",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not change actor inputs",
+    "do not inject hidden or oracle actor features",
+    "do not hide M2838 weak diagnostic outcomes",
+    "do not claim repair success driver performance validation readiness/result paper finite-window-vs-GRU current-sim high-fidelity full ideal driver completion or self-ID result"
+  ],
+  "gate_tier": "proof",
+  "generated_at_utc": "20260606T033116Z",
+  "hypothesis": "A bounded result audit can accept or reject M2850 paired closed-loop delta artifacts before any interpretation.",
+  "lineage": {
+    "blocked_by": [
+      "M2851 must audit paired execution/delta completeness before any interpretation",
+      "M2851 must preserve M2838 weak diagnostic accounting outside ordinary denominators",
+      "M2851 must reject ranking winner promotion success-rate verdict validation performance paper current-sim high-fidelity full-driver and self-ID claims"
+    ],
+    "derived_from": [
+      "m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.json",
+      "experiments/manifests/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/proof_retention_gate_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/generalization_delta_gate_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/promotion_guard_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/actor_contract_guard_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/claim_boundary_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/gate_matrix.csv",
+      "docs/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.md",
+      "docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit M2850 paired closed-loop baseline-vs-candidate delta artifacts before interpretation"
+    ],
+    "supersedes": [
+      "unaudited M2850 paired closed-loop delta interpretation"
+    ]
+  },
+  "milestone": "m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit",
+  "next_blocker": "",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2850_claim_safe_delta_artifacts_route_to_m2852_branch_synthesis",
+  "public_gates": [
+    "M2851 must audit whether M2850 wrote complete paired baseline/candidate execution rows and paired delta rows",
+    "M2851 must verify actor 72/action 3 no hidden/oracle actor input and no actor-visible labels",
+    "M2851 must verify proof retention generalization delta promotion guard actor guard claim and gate rows pass",
+    "M2851 must verify M2838 weak diagnostic accounting remains visible and outside ordinary denominators",
+    "M2851 must not validate rank promote select a winner compute success-rate verdict or claim performance paper current-sim high-fidelity full-driver or self-ID result"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2850_claim_safe_delta_artifacts_route_to_m2852_branch_synthesis",
+    "milestone": "m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit",
+    "reason": "M2851 accepts M2850 complete claim-safe paired closed-loop delta artifacts 32 execution rows 16 delta rows gate_matrix_pass true actor 72/action 3 no hidden oracle labels M2850 zero success zero collision positive clearance deltas diagnostic only M2838 outside ordinary denominators rejects ranking promotion validation performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2852 synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md exists",
+    "audit checks M2850 summary paired execution rows paired delta rows proof generalization promotion actor claim and gate rows",
+    "audit preserves actor 72/action 3 no hidden/oracle labels M2838 diagnostic boundary and claim boundary",
+    "audit registers one bounded follow-up route if continuing"
+  ],
+  "type": "gate"
+}

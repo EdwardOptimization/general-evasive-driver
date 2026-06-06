@@ -3272,3 +3272,33 @@ reject the paired delta artifacts and either register a bounded next route or
 stop/freeze the branch; it must not run new training, validation, ranking,
 promotion, success-rate verdict computation, or claim driver-performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2851 Engineering Controller Route A Response-Predictive Recurrent-Belief Candidate Closed-Loop Delta Panel Result Audit
+
+- status: completed
+- audit decision: `accept_m2850_claim_safe_delta_artifacts_route_to_m2852_branch_synthesis`
+- manifest: `experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json`
+- audit artifact: `docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md`
+- parent summary: `runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json`
+- follow-up manifest: `experiments/manifests/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.json`
+- accepted result: M2850 paired closed-loop delta panel status_pass true with required artifacts present and gate_matrix_pass true
+- paired panel accounting: 16 fixed M1690 L3 pairs, 32 execution rows, 16 finite delta rows, 32/32 execution rows completed
+- diagnostic outcomes: 0 success, 0 collision, termination counts `{"": 30, "speed_too_low": 2}`
+- delta evidence: candidate-minus-baseline min-clearance-margin was positive on 16/16 rows with mean 0.04809967522105241, but return and speed_mean were mostly lower and termination outcomes did not change
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role outcome route or verdict labels
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting remains visible and outside ordinary denominators
+- claim boundary: audit-only acceptance; no training validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis`
+
+## Immediate Next Step
+
+M2852 should synthesize the M2843-M2851 response-predictive recurrent-belief
+branch before any further continuation or paired-delta work. It should decide
+whether to continue with a materially different evidence axis, pivot to
+localization or a new training recipe, freeze this checkpoint lineage as
+diagnostic-only, or stop the branch. It must preserve M2850 zero-success
+diagnostic accounting, the positive clearance deltas, M2838 weak diagnostic
+accounting, actor 72/action 3, and all claim boundaries; it must not run new
+execution, training, validation, ranking, promotion, success-rate verdict
+computation, or claim driver-performance, paper, current-sim, high-fidelity,
+full-driver, or self-ID evidence.
