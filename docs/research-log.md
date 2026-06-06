@@ -52254,3 +52254,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit_20260606T145726Z/command.log`
 - success artifact: `docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md`
 - notes: Completed: audit accepts M2902 complete claim-safe materialization preflight while preserving negative fresh/source-diverse result decision accept_m2902_materialization_claim_safe_insufficient_diversity_route_to_m2904_repair_source_acquisition_design audited 72 taxonomy 6 source-diversity 5 split 6 target 34 seed-gap 21 guard 10 gate 6 rollback 8 claim rows fresh_candidate 0 target_family_coverage 0 source_family 0 task_family 0 claim_made 0 target_actor_visible 0 split_denominator_admitted 0 source-singleton seed gaps require candidate_artifact_count>=2 count 24 and source_family_tag_count>=2 count 17 preserves actor 72/action 3 evaluator-only targets paper holdout false preflight-only split no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims routes to M2904 repair/source-acquisition design
+
+## 20260606T150420Z m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2903 negative fresh/source-diverse panel audit into a source-acquisition repair plan without validation ranking model-quality paper or self-ID claims.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design_20260606T150420Z`
+- command log: `runs/research/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design_20260606T150420Z/command.log`
+- success artifact: `docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md`
+- notes: Completed: design admits M2905 repair/source-acquisition materialization preflight after M2903 negative audit zero fresh candidates preserves M2901 thresholds source-singleton seed gaps remain repair inputs only 34 seed-gap rows split candidate_artifact_count>=2 only 17 source_family_tag_count>=2 only 10 dual gap 7 T4 15 T5 19 public-reference source-singleton and guard rows stay out of validation proof and ordinary denominators actor 72/action 3 evaluator-only targets paper holdout false no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims

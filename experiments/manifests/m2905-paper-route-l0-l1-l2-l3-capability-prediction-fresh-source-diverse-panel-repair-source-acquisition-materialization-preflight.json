@@ -1,0 +1,204 @@
+{
+  "id": "m2905-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded materialization preflight can convert the M2904 repair/source-acquisition design into machine-auditable seed-gap repair acquisition rows without validation ranking model-quality paper or self-ID claims.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+      "docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/seed_gap_rows.csv",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/panel_row_taxonomy_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.json",
+      "experiments/manifests/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.json",
+      "experiments/manifests/m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize repair/source-acquisition rows for the audited zero-fresh-candidate Route B blocker"
+    ],
+    "derived_from": [
+      "m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design",
+      "m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit",
+      "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2902/M2903 found zero fresh_source_diverse_candidate rows",
+      "34 source-singleton seed-gap rows require candidate/source-family repair before Route B model-quality work",
+      "source-singleton and guard rows must remain excluded from validation paper proof and ordinary denominators"
+    ],
+    "supersedes": [
+      "direct model-quality validation from the 17 public reference rows",
+      "direct paper proof from source-singleton rows",
+      "another design-only repair loop without materialized repair rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2905-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-preflight.md",
+  "public_gates": [
+    "M2905 must write summary seed-gap repair candidate-support source-family dual-repair acquisition-required projection exclusion split target gate rollback and claim rows",
+    "M2905 must preserve M2901 fresh/source-diverse thresholds without weakening them",
+    "M2905 must keep public reference source-singleton and guard rows out of validation paper proof and ordinary denominators",
+    "M2905 must preserve actor 72/action 3 no hidden/oracle actor input no future-target actor input and evaluator-only target boundaries",
+    "M2905 must register exactly one bounded result-audit manifest",
+    "M2905 must not reset step rollout replay validate fit train rank promote publish select a winner or claim model quality driver performance finite-window-vs-GRU paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit train run PPO rank promote publish a package or select a winner",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels or verdict labels to actor input",
+    "do not downgrade source-diversity thresholds to force a pass",
+    "do not treat public reference source-singleton or guard rows as model-quality or paper denominators",
+    "do not claim prediction quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_fresh_panel_expansion",
+    "evidence_axis": "fresh_source_diverse_panel_repair_source_acquisition_materialization",
+    "evidence_increment": "materializes a repair/source-acquisition accounting panel from the audited seed gaps before any validation interpretation",
+    "claim_scope": "repair_source_acquisition_materialization_only_no_validation_no_model_quality_no_driver_performance_claim",
+    "stop_condition": [
+      "stop if M2905 cannot write complete repair/acquisition accounting rows",
+      "stop if M2905 would weaken M2901 source-diversity thresholds",
+      "stop if source-singleton or guard rows enter proof or ordinary denominators",
+      "stop if actor-visible evaluator targets or oracle labels would be required",
+      "stop if M2905 would claim model quality driver performance current-sim paper finite-window-vs-GRU high-fidelity full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "route to M2906 result audit for either positive or negative repair materialization",
+      "route to source-acquisition execution only if the audit accepts a claim-safe acquisition-required surface",
+      "pivot to Route A closed-loop evidence if Route B cannot acquire source-diverse rows",
+      "write a stop synthesis if repair materialization cannot preserve boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2904 admits repair/source-acquisition materialization after zero admitted fresh candidates",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Route B repair/source-acquisition materialization preflight for fresh/source-diverse panel blocker",
+    "admission_evidence": [
+      "M2904 designs repair/source-acquisition lanes for M2903 zero-fresh-candidate audit",
+      "M2903 accepts M2902 as complete and claim-safe while preserving zero fresh candidates",
+      "M2902 writes 34 source-singleton seed-gap rows and 21 guard exclusions"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion",
+      "no additional optimizer step and no promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no source-singleton or guard rows as proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight/*",
+      "one bounded result-audit manifest",
+      "M2905 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "repair/source acquisition rows exist",
+      "candidate-support and source-family gaps are explicitly counted",
+      "projected fresh/source-diverse candidate counts are reported without threshold weakening",
+      "target actor split holdout and exclusion boundaries remain preserved",
+      "no validation ranking promotion model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2905 materializes repair accounting only and cannot substitute source-acquisition rows for history-necessity evidence.",
+    "history_necessity_tests": [
+      "None in M2905; later tests require accepted source-diverse panel data and fair L0/L1/L2/L3 comparisons."
+    ],
+    "temporal_evidence_window": "M2884-M2904 Route B capability-prediction panel inventory dataset contract fitting design materialization audit and repair design chain.",
+    "negative_result_policy": "If M2905 finds repair acquisition is still insufficient, preserve the negative result and route to audit/pivot/stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "bounded repair/source-acquisition materialization preflight result",
+      "projected fresh/source-diverse criteria satisfied or not satisfied under unchanged thresholds",
+      "bounded follow-up audit repair pivot or stop decision",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a new repair/source-acquisition accounting panel from audited seed gaps instead of tuning public proof rows",
+    "paper_verdict_delta": "no verdict; may determine whether Route B can acquire the prerequisite fresh/source-diverse panel evidence",
+    "must_synthesize_if": [
+      "M2905 cannot choose between audit repair Route A pivot Route C pivot or stop",
+      "M2905 would claim model quality self-ID finite-window-vs-GRU driver performance or current-sim verdict",
+      "M2905 would let source-singleton or guard rows enter paper proof",
+      "M2905 would expose evaluator-only future targets to actor input",
+      "M2905 fails source-diversity criteria and another repair-only loop is proposed"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight/summary.json exists",
+    "seed-gap repair candidate-support source-family dual-repair acquisition-required projection exclusion split target gate rollback and claim rows exist",
+    "summary records projected fresh/source-diverse target satisfaction without changing thresholds",
+    "materialization preserves actor 72/action 3 and evaluator-only target boundaries",
+    "materialization registers one bounded follow-up result-audit manifest",
+    "no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2905 resets steps rolls out replays validates fits trains ranks promotes or executes policy action",
+    "M2905 changes actor input or action contract",
+    "M2905 exposes future targets hidden dynamics or oracle labels to actor input",
+    "M2905 weakens source-diversity criteria to pass",
+    "M2905 treats source-singleton or guard rows as validation paper proof or ordinary denominators",
+    "M2905 claims driver performance model quality finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2905 fails to register a result-audit route"
+  ],
+  "decision_rule": "Pass only if M2905 materializes the bounded repair/source-acquisition accounting surface from M2904 while preserving actor target split holdout and claim boundaries without validation ranking or verdict claims.",
+  "commands": [
+    {
+      "name": "repair_source_acquisition_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --m2904-design docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md --m2903-audit docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md --m2902-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --output-dir runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --follow-up-manifest experiments/manifests/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit.json"
+    }
+  ],
+  "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --m2904-design docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md --m2903-audit docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md --m2902-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --output-dir runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --follow-up-manifest experiments/manifests/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit.json",
+  "required_artifacts": [
+    {
+      "path": "runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight/summary.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+    "docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md",
+    "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json",
+    "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/seed_gap_rows.csv",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight/summary.json",
+  "next_blocker": "m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit"
+}

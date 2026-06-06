@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2909,
+    "completed": 2910,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit_20260606T145726Z/command.log",
+    "command_log": "runs/research/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design_20260606T150420Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit_20260606T145726Z",
+    "run_dir": "runs/research/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design_20260606T150420Z",
     "status": "completed",
-    "task_id": "m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit"
+    "task_id": "m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only milestone can convert the accepted M2903 negative fresh/source-diverse panel audit into a source-acquisition repair plan without validation ranking model-quality paper or self-ID claims.",
-    "id": "m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design",
-    "kind": "gate",
-    "notes": "Pending: design bounded repair/source-acquisition route for M2903 negative audit with zero fresh candidates preserve M2901 thresholds keep source-singleton seed gaps and guard rows out of validation proof and ordinary denominators no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28990,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --m2904-design docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md --m2903-audit docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md --m2902-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --output-dir runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight --follow-up-manifest experiments/manifests/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit.json",
+    "hypothesis": "A bounded materialization preflight can convert the M2904 repair/source-acquisition design into machine-auditable seed-gap repair acquisition rows without validation ranking model-quality paper or self-ID claims.",
+    "id": "m2905-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize M2904 repair/source-acquisition accounting rows from M2902 seed gaps and M2884 inventory preserving original M2901 thresholds actor 72/action 3 evaluator-only targets source-singleton and guard exclusions no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 29000,
     "status": "pending",
-    "success_artifact": "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md"
+    "success_artifact": "runs/m2905_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_repair_source_acquisition_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T145835Z"
+  "updated_at_utc": "20260606T150448Z"
 }
