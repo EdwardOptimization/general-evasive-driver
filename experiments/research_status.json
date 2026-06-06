@@ -1,19 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2913,
+    "completed": 2914,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis_20260606T153214Z/command.log",
+    "command_log": "runs/research/m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight_20260606T155043Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis_20260606T153214Z",
+    "run_dir": "runs/research/m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight_20260606T155043Z",
     "status": "completed",
-    "task_id": "m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis"
+    "task_id": "m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight"
   },
-  "next_task": "m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight",
-  "updated_at_utc": "20260606T153302Z"
+  "next_task": {
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_result_audit --m2908-summary runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/summary.json --m2908-dir runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight --output-doc docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md",
+    "hypothesis": "A bounded result audit can preserve M2908 source-acquisition execution results and choose continuation pivot synthesis or stop without validation ranking model-quality paper or self-ID claims.",
+    "id": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2908 source-acquisition execution rows candidate-support source-family projections and boundaries without threshold weakening validation ranking promotion model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29040,
+    "status": "pending",
+    "success_artifact": "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md"
+  },
+  "updated_at_utc": "20260606T155045Z"
 }
