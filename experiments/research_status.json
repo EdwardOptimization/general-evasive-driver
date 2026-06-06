@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2869,
+    "completed": 2870,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis_20260606T054537Z/command.log",
+    "command_log": "runs/research/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design_20260606T055935Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis_20260606T054537Z",
+    "run_dir": "runs/research/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design_20260606T055935Z",
     "status": "completed",
-    "task_id": "m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis"
+    "task_id": "m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded design-only milestone can convert M2861 localized response-prediction recipe signals into an implementation preflight plan without running training or overclaiming performance.",
-    "id": "m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design",
+    "hypothesis": "A bounded result audit can accept or reject M2864 localized response-prediction training recipe design before any implementation preflight.",
+    "id": "m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit",
     "kind": "gate",
-    "notes": "Pending: design bounded localized response-prediction training recipe from M2861 actuator ego-response and horizon-boundary signals preserving actor 72/action 3 future-label invisibility public-row overfit guards rollback gates and no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28590,
+    "notes": "Pending: audit M2864 loss weighting horizon masking public-row overfit fresh-surface rollback actor and claim boundaries before any implementation preflight and without training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28600,
     "status": "pending",
-    "success_artifact": "docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md"
+    "success_artifact": "docs/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.md"
   },
-  "updated_at_utc": "20260606T054836Z"
+  "updated_at_utc": "20260606T060119Z"
 }

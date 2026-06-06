@@ -3573,3 +3573,29 @@ loss weighting/masking, public-row overfit guards, rollback gates, fresh-surface
 requirements, and a result audit before any implementation; it must not run
 training, validation, ranking, promotion, success-rate verdicts, performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID claims.
+
+## M2864 Engineering Controller Route A Response-Predictive Recurrent-Belief Localized Response-Prediction Training Recipe Design
+
+- status: completed
+- decision: `admit_m2865_localized_response_prediction_training_recipe_design_result_audit`
+- manifest: `experiments/manifests/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.json`
+- design artifact: `docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md`
+- parent synthesis: `docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md`
+- parent summary: `runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json`
+- follow-up manifest: `experiments/manifests/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.json`
+- run dir: `runs/research/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design_20260606T055935Z`
+- accepted design: bounded response-prediction auxiliary loss with explicit channel/horizon weights loss-mass normalization and valid-target masking
+- recipe inputs: M2861 155 actuator loss review rows 134 ego-response loss review rows and 863 horizon-boundary masking preserved rows
+- overfit guards: M2850-derived rows remain explanatory proof rows only and future implementation must include a fresh/disjoint response-prediction surface
+- rollback gates: actor contract change future-label exposure target-mask regression public-only improvement or closed-loop telemetry washout must rollback
+- actor and claim boundary: actor 72/action 3 future labels actor-invisible no hidden/oracle actor input, no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit`
+
+## Immediate Next Step
+
+M2865 should audit the M2864 design before any implementation preflight. It
+should accept only if the loss weighting table, valid-target horizon masking,
+public-row overfit guards, fresh/disjoint surface requirement, rollback gates,
+actor contract, and claim boundary are complete. It must not run training,
+validation, ranking, promotion, success-rate verdicts, performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID claims.
