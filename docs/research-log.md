@@ -52782,3 +52782,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis_20260606T205726Z/command.log`
 - success artifact: `docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md`
 - notes: Completed: local-search synthesis decision continue_to_m2948_bounded_actor_head_delta_implementation_scaffold integrates the M2940-M2946 non-evidence implementation-admission chain; preserves M2944/M2945 actor 72/action 3 traceability objective shortcut and claim boundaries; rejects code implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2948 scaffold.
+
+## 20260606T210222Z m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded implementation-scaffold milestone can add a reusable residual actor-head delta wrapper that preserves the 72-to-3 actor contract, zero-delta parent-action identity, residual bound enforcement, no privileged inputs, and no checkpoint/environment/training side effects before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `PYTHONPATH=src pytest -q tests/test_constraint_balanced_actor_head_delta_scaffold.py`
+- returncode: `0`
+- run dir: `runs/research/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold_20260606T210221Z`
+- command log: `runs/research/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold_20260606T210221Z/command.log`
+- success artifact: `docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md`
+- notes: Completed: scaffold module and focused tests pass 7 unit tests for actor 72/action 3 zero-delta parent-action identity distribution-parent tanh path residual bound enforcement action clamp forbidden evaluator-label inputs strict observation mapping shape mismatch failures and no torch load/save checkpoint side effects; no environment execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2949 result audit.
