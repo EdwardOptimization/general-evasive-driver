@@ -1,21 +1,5 @@
 {
-  "baseline_artifacts": [
-    "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
-    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json",
-    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/candidate_route_rows.csv",
-    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
-    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "design_only"
-    }
-  ],
-  "decision_rule": "Pass only if M2943 defines one complete actor-safe candidate implementation design or stop state while preserving M2941 constraints and claim boundaries without overclaiming.",
+  "decision_reason": "M2943 selects frozen_trunk_bounded_residual_actor_head_delta_design and routes to M2944 implementation-contract materialization; preserves actor 72/action 3 no hidden/oracle/future-target actor input, all 56 carryforward constraints, 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 objective-balance rows as actor-invisible evaluator constraints; rejects direct implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims.",
   "failure_criteria": [
     "M2943 implements executes trains validates ranks promotes or selects a candidate winner",
     "M2943 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
@@ -41,8 +25,8 @@
     "do not convert design rows into repair-success performance validation paper high-fidelity or self-ID claims"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260606T202835Z",
   "hypothesis": "A bounded design-only milestone can convert the accepted M2941/M2942 constraint-balanced candidate materialization into exactly one actor-safe candidate implementation design before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-  "id": "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
   "lineage": {
     "blocked_by": [
       "M2942 accepts M2941 materialization but rejects immediate implementation or execution",
@@ -84,24 +68,10 @@
       "target-only actor-head change that drops substitution or context constraints"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "design_only",
-    "evidence_expansion": "moves from accepted materialized constraints to a concrete implementation design question instead of another fixed-candidate execution",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M2943 cannot preserve actor and claim boundaries",
-      "M2943 would drop objective or carryforward constraint families",
-      "M2943 would claim validation readiness repair success driver performance paper high-fidelity or self-ID evidence",
-      "M2943 would route directly to execution without materializing implementation contracts"
-    ],
-    "paper_verdict_delta": "no paper verdict; may determine whether a bounded implementation materialization is allowed or the branch should stop/pivot",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 1,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
   "next_blocker": "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "admit_m2944_actor_head_delta_implementation_contract_materialization_preflight",
   "public_gates": [
     "M2943 must consume M2942 audit M2941 summary route objective carryforward shortcut actor claim and gate artifacts",
     "M2943 must define exactly one bounded actor-safe implementation design or stop state",
@@ -110,29 +80,20 @@
     "M2943 must not implement execute reset rollout replay train validate rank select a winner promote a checkpoint or compute a success-rate verdict",
     "M2943 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
-      "type": "markdown"
-    }
-  ],
-  "review_artifact": "docs/reviews/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
-  "scoreboard_checkpoint": "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "bounded candidate implementation design completeness",
-      "actor and claim boundary preserved",
-      "no repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M2943 is Route A candidate implementation design and cannot infer history necessity or self-ID.",
-    "history_necessity_tests": [
-      "None in M2943; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
-    ],
-    "negative_result_policy": "Preserve constraint and shortcut evidence and route to stop or pivot rather than weakening self-ID standards.",
-    "temporal_evidence_window": "M2937-M2942 Route A tradeoff-aware candidate materialization chain."
+  "scoreboard": {
+    "checkpoint": "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_m2944_actor_head_delta_implementation_contract_materialization_preflight",
+    "milestone": "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
+    "reason": "M2943 selects frozen_trunk_bounded_residual_actor_head_delta_design and routes to M2944 implementation-contract materialization; preserves actor 72/action 3 no hidden/oracle/future-target actor input, all 56 carryforward constraints, 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 objective-balance rows as actor-invisible evaluator constraints; rejects direct implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
-  "status": "completed",
   "success_criteria": [
     "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md exists",
     "M2943 defines exactly one actor-safe candidate implementation design or stop state",
@@ -140,49 +101,5 @@
     "M2943 preserves actor 72/action 3 and no hidden/oracle/future-target actor input",
     "M2943 makes no implementation execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M2942 accepts M2941 materialization as complete and claim-safe",
-      "M2941 provides route objective carryforward shortcut actor claim and gate artifacts"
-    ],
-    "allowed_updates": [
-      "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
-      "docs/reviews/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
-      "M2943 status queue scoreboard research log and review",
-      "one follow-up materialization manifest only if M2943 admits exactly one bounded implementation surface"
-    ],
-    "blocked_shortcuts": [
-      "no implementation execution validation ranking promotion repair-success or performance verdict",
-      "no training replay PPO or checkpoint promotion",
-      "no hidden/oracle/future-target actor input",
-      "no dropping substitution context positive-reference or full-panel constraints"
-    ],
-    "next_stage_criteria": [
-      "M2943 selects exactly one complete actor-safe implementation design or stop state",
-      "M2943 preserves all M2941 constraints and actor/claim boundaries"
-    ],
-    "stage": "process",
-    "stage_objective": "Design one claim-safe actor-head delta candidate implementation surface"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
-    "claim_scope": "Design only; no implementation execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_constraint_balanced_candidate_implementation_design",
-    "evidence_increment": "turns accepted materialized candidate route into one concrete actor-safe implementation design before any candidate implementation or execution",
-    "fallback_plan": [
-      "route to stop or pivot if no deployable actor-safe implementation design exists",
-      "route to artifact repair if M2941/M2942 evidence is incomplete",
-      "route to a bounded implementation materialization only if M2943 defines one complete claim-safe design"
-    ],
-    "stop_condition": [
-      "stop if the implementation design cannot preserve actor 72/action 3",
-      "stop if evaluator-side constraints would become actor-visible labels",
-      "stop if any objective family would be dropped or hidden",
-      "stop if the design would require execution training validation ranking promotion or overclaiming"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M2942 accepts M2941 materialization"
-  }
+  "type": "gate"
 }

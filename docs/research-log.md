@@ -52722,3 +52722,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit_20260606T202232Z/command.log`
 - success artifact: `docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md`
 - notes: Completed: audit accepts M2941 complete claim-safe materialization status_pass true gate_matrix_pass true 1 candidate route row 5 objective-balance rows 56 carryforward constraints 7 blocked-shortcut rows 17 actor guards and 28 claim-boundary rows; preserves 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface counts; rejects repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2943 candidate implementation design before any implementation execution training or validation.
+
+## 20260606T202731Z m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2941/M2942 constraint-balanced candidate materialization into exactly one actor-safe candidate implementation design before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design_20260606T202731Z`
+- command log: `runs/research/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design_20260606T202731Z/command.log`
+- success artifact: `docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md`
+- notes: Completed: design decision admit_m2944_actor_head_delta_implementation_contract_materialization_preflight selects frozen_trunk_bounded_residual_actor_head_delta_design; preserves actor 72/action 3 no hidden oracle or future-target actor input and all 56 carryforward constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 objective-balance rows as actor-invisible evaluator constraints; rejects direct implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2944 implementation-contract materialization.

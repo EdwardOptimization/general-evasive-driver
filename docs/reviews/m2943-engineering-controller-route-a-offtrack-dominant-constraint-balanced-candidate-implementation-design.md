@@ -1,0 +1,91 @@
+# m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T202835Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_m2944_actor_head_delta_implementation_contract_materialization_preflight
+- Decision reason: M2943 selects frozen_trunk_bounded_residual_actor_head_delta_design and routes to M2944 implementation-contract materialization; preserves actor 72/action 3 no hidden/oracle/future-target actor input, all 56 carryforward constraints, 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 objective-balance rows as actor-invisible evaluator constraints; rejects direct implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
+
+## Hypothesis
+
+A bounded design-only milestone can convert the accepted M2941/M2942 constraint-balanced candidate materialization into exactly one actor-safe candidate implementation design before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md, docs/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.md, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/candidate_route_rows.csv, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/objective_balance_rows.csv, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/constraint_carryforward_rows.csv, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/blocked_shortcut_rows.csv, runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.json, experiments/manifests/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.json, experiments/manifests/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.json
+- parent_objective: design one bounded actor-safe implementation surface for the accepted constraint-balanced candidate route
+- derived_from: m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit, m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight, m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design, m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis
+- blocked_by: M2942 accepts M2941 materialization but rejects immediate implementation or execution, candidate implementation design must preserve actor 72/action 3 and evaluator-side constraints, the design must not expose route objective constraint or verdict labels to the actor
+- supersedes: immediate candidate implementation without design audit, direct execution of materialized candidate route, target-only actor-head change that drops substitution or context constraints
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md exists
+- M2943 defines exactly one actor-safe candidate implementation design or stop state
+- M2943 preserves all 56 carryforward constraints and expected objective counts
+- M2943 preserves actor 72/action 3 and no hidden/oracle/future-target actor input
+- M2943 makes no implementation execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim
+
+## Failure Criteria
+
+- M2943 implements executes trains validates ranks promotes or selects a candidate winner
+- M2943 changes actor inputs or action contract or exposes hidden/oracle/future-target labels
+- M2943 hides panel rows context regressions offtrack regressions substitution failures or positive references
+- M2943 treats implementation design as validation readiness repair success or performance verdict
+
+## Evidence Gates
+
+- M2943 must consume M2942 audit M2941 summary route objective carryforward shortcut actor claim and gate artifacts
+- M2943 must define exactly one bounded actor-safe implementation design or stop state
+- M2943 must preserve all 56 carryforward constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 objective-balance rows
+- M2943 must preserve actor observation/action 72/3 and no hidden oracle future-target route objective constraint diagnostic success or verdict labels as actor input
+- M2943 must not implement execute reset rollout replay train validate rank select a winner promote a checkpoint or compute a success-rate verdict
+- M2943 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not implement train validate replay rollout rank promote or execute a candidate
+- do not change actor observation/action contract
+- do not expose hidden dynamics oracle labels future targets route labels objective labels constraint labels diagnostic labels success labels progress labels or verdict labels to actor input
+- do not drop persistent offtrack collision/speed substitution context-retention positive-reference or full-panel accounting constraints
+- do not select a winner promote a checkpoint or compute a success-rate verdict
+- do not convert design rows into repair-success performance validation paper high-fidelity or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design
+- type: gate
+- checkpoint: docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m2944_actor_head_delta_implementation_contract_materialization_preflight
+- reason: M2943 selects frozen_trunk_bounded_residual_actor_head_delta_design and routes to M2944 implementation-contract materialization; preserves actor 72/action 3 no hidden/oracle/future-target actor input, all 56 carryforward constraints, 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 objective-balance rows as actor-invisible evaluator constraints; rejects direct implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
+
+## Next Blocker
+
+m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight

@@ -1,0 +1,207 @@
+{
+  "baseline_artifacts": [
+    "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
+    "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json",
+    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight --m2941-dir runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight --m2942-audit docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md --m2943-design docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md --output-dir runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.json",
+      "name": "actor_head_delta_implementation_contract_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M2944 materializes complete residual actor-head delta implementation-contract artifacts while preserving actor guardrail shortcut coverage and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M2944 implements residual-head code modifies checkpoints executes reset rollout replay validation training ranking promotion or dependency work outside its no-execution materialization scope",
+    "M2944 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2944 ranks candidates selects a winner promotes a checkpoint or claims driver performance",
+    "M2944 hides panel rows context regressions offtrack regressions substitution failures or treats materialization as validation readiness"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement residual-head code or modify checkpoints",
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not change actor inputs or action contract",
+    "do not expose hidden dynamics oracle labels future targets route objective constraint diagnostic success progress or verdict labels to actor input",
+    "do not hide persistent offtrack collision/speed substitution context-retention positive-reference or full-panel rows",
+    "do not rank candidate rows select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not convert implementation contracts into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A no-execution materialization preflight can convert the M2943 bounded residual actor-head delta implementation design into machine-checkable implementation surface, delta contract, objective binding, traceability, shortcut, actor, claim, and gate rows before any implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M2943 admits only materialization of implementation contracts before implementation",
+      "residual actor-head design must be machine-checkable before code or execution work",
+      "actor and claim boundaries must remain explicit before candidate implementation"
+    ],
+    "derived_from": [
+      "m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design",
+      "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+      "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight",
+      "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.json",
+      "experiments/manifests/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.json",
+      "experiments/manifests/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2943-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-implementation-design.md",
+      "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/candidate_route_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/objective_balance_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/constraint_carryforward_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/blocked_shortcut_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize M2943 residual actor-head delta implementation contracts"
+    ],
+    "supersedes": [
+      "direct residual actor-head implementation without contract materialization",
+      "full-policy rewrite or target-only residual repair"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "turns M2943 implementation design into a machine-checkable contract surface rather than executing an unmaterialized candidate",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2944 cannot account for all M2941 carryforward rows",
+      "M2944 would claim validation readiness repair success driver performance paper high-fidelity or self-ID evidence",
+      "M2944 would rank checkpoints source families task families environments windows severity bands or candidate rows",
+      "M2944 suggests direct implementation or execution without a materially different evidence question"
+    ],
+    "paper_verdict_delta": "no paper verdict; may inform whether bounded implementation work is allowed after audit",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2944 must consume M2943 design M2942 audit and M2941 materialized route/objective/carryforward artifacts",
+    "M2944 must materialize implementation surface delta contract objective binding traceability shortcut actor claim gate run_state doc and follow-up audit manifest artifacts",
+    "M2944 must account for all 56 carryforward constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 objective-balance rows",
+    "M2944 must keep all evaluator constraints actor-invisible and preserve actor 72/action 3",
+    "M2944 must not implement execute reset step rollout replay validation training PPO ranking winner selection promotion or success-rate verdict computation",
+    "M2944 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded implementation-contract materialization completeness",
+      "actor and claim boundary preserved",
+      "no repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2944 is Route A implementation-contract materialization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2944; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve mixed and negative constraint evidence and route to audit before interpretation rather than weakening self-ID standards.",
+    "temporal_evidence_window": "M2941-M2943 Route A constraint-balanced candidate design chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json exists",
+    "M2944 writes implementation surface delta contract objective binding traceability shortcut actor claim gate run_state doc and follow-up audit manifest artifacts",
+    "M2944 accounts for all 56 carryforward constraints and expected objective counts",
+    "M2944 preserves actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2944 makes no implementation execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2943 design admits M2944 implementation-contract materialization",
+      "M2942 accepts M2941 materialization as complete and claim-safe",
+      "M2941 provides route objective carryforward shortcut actor claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight.py",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/implementation_surface_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/delta_contract_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/objective_binding_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/constraint_traceability_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/blocked_shortcut_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/run_state.json",
+      "docs/m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight.md",
+      "M2944 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "blocked_shortcuts": [
+      "no implementation execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden/oracle/future-target actor input",
+      "no full-policy rewrite or evaluator-label conditioning"
+    ],
+    "next_stage_criteria": [
+      "M2944 artifacts account for all M2941 carryforward rows and expected objective counts",
+      "M2944 preserves residual-head contract actor guardrail shortcut and claim boundaries",
+      "M2944 registers M2945 result audit before interpretation",
+      "no implementation validation ranking promotion repair-success performance paper high-fidelity or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Materialize claim-safe residual actor-head delta implementation contract rows"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "No-execution implementation-contract materialization only; no implementation validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_implementation_contract_materialization",
+    "evidence_increment": "materializes the M2943 actor-head delta implementation design into machine-checkable contracts before implementation",
+    "fallback_plan": [
+      "route to artifact repair if joins or counts are incomplete",
+      "route to M2945 result audit if materialization artifacts are complete",
+      "route to branch synthesis or stop if materialization cannot preserve a bounded implementation route without overclaiming"
+    ],
+    "stop_condition": [
+      "stop if M2944 cannot account for all M2941 carryforward and objective rows",
+      "stop if M2944 cannot preserve actor-invisible evaluator constraints",
+      "stop if residual-head contract rows would permit full-policy rewrite or evaluator-label actor input",
+      "stop if candidate rows would rank select or promote a winner",
+      "stop if results would be interpreted before follow-up audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2943 selects residual actor-head delta implementation contract materialization"
+  }
+}
