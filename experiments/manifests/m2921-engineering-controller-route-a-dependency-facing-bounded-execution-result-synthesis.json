@@ -1,0 +1,248 @@
+{
+  "id": "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded result synthesis can preserve M2911-M2920 dependency-facing Route A evidence, prevent direct overinterpretation of M2919 diagnostics, and select one evidence-changing continuation, pivot, or stop route.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/execution_candidate_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/execution_resolution_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_failure_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/source_milestone_aggregate.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/task_family_aggregate.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight.md",
+      "docs/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.md",
+      "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+      "docs/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.json",
+      "experiments/manifests/m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight.json",
+      "experiments/manifests/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.json",
+      "experiments/manifests/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.json",
+      "experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize the M2911-M2920 Route A dependency-facing branch after M2920 accepts M2919 as complete and claim-safe but rejects direct interpretation"
+    ],
+    "derived_from": [
+      "m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit",
+      "m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight",
+      "m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design",
+      "m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit",
+      "m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight",
+      "m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis"
+    ],
+    "blocked_by": [
+      "M2919 produced complete and claim-safe dependency-facing execution artifacts but diagnostic outcomes remain weak with 11 success 3 collision 38 off_track and 4 speed_too_low",
+      "M2919 source-family task-family profile and row context remains diagnostic and non-ranking",
+      "M2877 fixed weak diagnostic rows Route B source-family insufficiency and Route C source_unavailable remain non-executed guardrails or context only",
+      "another immediate dependency-facing bounded execution would risk local search unless synthesis identifies a changed evidence surface"
+    ],
+    "supersedes": [
+      "direct interpretation of M2919 diagnostic execution rows",
+      "direct source-family profile task-family or controller ranking from M2919 rows",
+      "direct validation or driver-performance claim from M2919 bounded execution",
+      "another immediate dependency-facing execution without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+  "synthesis_artifact": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+  "synthesis_questions": [
+    "evidence_summary",
+    "supported_claims",
+    "falsified_claims",
+    "failure_taxonomy_summary",
+    "public_gate_overfit_risk",
+    "next_branch_decision"
+  ],
+  "public_gates": [
+    "M2921 must synthesize M2911-M2920 dependency-facing Route A evidence before any additional execution repair validation ranking or performance claim",
+    "M2921 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2921 must explicitly separate M2919 diagnostic behavior rows from validation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID evidence",
+    "M2921 must preserve M2919 56 candidate rows 56 resolved rows 56 execution rows 0 failure rows 46 guardrail context rows 19 actor guard rows 34 claim rows and 19 gates unless it finds a documented contradiction",
+    "M2921 must preserve M2919 diagnostic outcomes 11 success 3 collision 38 off_track and 4 speed_too_low as diagnostic row accounting only",
+    "M2921 must preserve the 11 M2877 fixed weak diagnostic rows Route B source-family insufficiency and Route C source_unavailable as non-executed guardrails or context outside ordinary denominators",
+    "M2921 must preserve P0 observation shape 72 action shape 3 no hidden/oracle/future-target actor input actor-invisible labels and protected rows outside denominators",
+    "M2921 must decide continue pivot stop or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting",
+    "M2921 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation dependency work ranking winner selection promotion or success-rate verdict computation",
+    "M2921 must not claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay measured validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency acquisition or dependency smoke",
+    "do not promote a checkpoint",
+    "do not change actor inputs or the deployed action contract",
+    "do not inject hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels into actor input",
+    "do not hide M2919 weak or negative diagnostic outcomes",
+    "do not hide M2877 Route B Route C guardrail or context rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families profiles task families or source milestones",
+    "do not select a winner or compute success-rate verdict metrics",
+    "do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_bounded_execution_result_synthesis",
+    "evidence_increment": "synthesizes M2911-M2920 dependency-facing design materialization audit execution and result-audit evidence before admitting another execution or repair route",
+    "claim_scope": "Branch synthesis only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if synthesis cannot identify a bounded route that changes evidence beyond another M2919-like dependency-facing diagnostic execution",
+      "stop if M2919 diagnostic row counts would be rebranded as ranking validation performance or paper evidence",
+      "stop if M2877 Route B or Route C guardrails would enter execution or ordinary denominators",
+      "stop if actor contract or label invisibility would be changed",
+      "stop if the branch would claim current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID verdicts from M2919 diagnostic execution artifacts"
+    ],
+    "fallback_plan": [
+      "route to branch stop if M2919 adds no evidence-changing route beyond complete diagnostic artifacts",
+      "route to failure localization only if synthesis identifies a new row-level question not already covered by M2916/M2919 accounting",
+      "pivot to a different Route A evidence surface only if it preserves actor 72/action 3 and avoids hidden/oracle/future-target labels",
+      "return to Route B only if a source-diverse paper-evidence path changes outside this milestone",
+      "return to Route C only if source availability changes outside this milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2920 accepts M2919 complete claim-safe bounded dependency-facing execution but rejects direct interpretation",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Route A dependency-facing bounded execution result synthesis",
+    "admission_evidence": [
+      "M2920 accepts M2919 as complete and claim-safe bounded dependency-facing diagnostic execution evidence",
+      "M2919 writes 56 execution candidate rows 56 resolution rows 56 bounded execution rows 0 failure rows 46 guardrail context rows 19 actor guards 34 claim rows and 19 gate rows",
+      "M2919 records weak diagnostic outcomes with 11 success 3 collision 38 off_track and 4 speed_too_low while keeping row counts non-ranking",
+      "M2919 preserves 11 M2877 fixed weak diagnostic rows Route B source-family insufficiency and Route C source_unavailable as non-executed guardrails or context",
+      "docs/post-m2470-route-plan.md requires avoiding static or same-surface loops that do not change evidence or claim boundaries"
+    ],
+    "blocked_shortcuts": [
+      "no reset step policy rollout replay validation training PPO in synthesis",
+      "no source build adapter probe external simulation dependency execution in synthesis",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+      "docs/reviews/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+      "M2921 status queue scoreboard research log and review",
+      "one bounded follow-up manifest selected by synthesis if continuing or pivoting"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists",
+      "synthesis answers the six required synthesis questions",
+      "M2919 artifact completeness and diagnostic interpretation remain separate",
+      "guardrail context actor and claim boundaries remain visible",
+      "one bounded next route is selected or the branch is stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2921 synthesizes Route A diagnostic execution artifacts and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2921; any finite-window GRU wrong-history reset-hidden zero-history or source-diverse intervention proof remains separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2911-M2920 Route A dependency-facing evidence-surface artifacts.",
+    "negative_result_policy": "If synthesis finds execution evidence negative or ambiguous preserve blockers and route to pivot or stop rather than forcing self-ID interpretation.",
+    "allowed_claims": [
+      "Route A dependency-facing bounded execution result synthesis",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes the dependency-facing bounded execution branch before admitting another route instead of repeating a similar diagnostic execution surface",
+    "paper_verdict_delta": "no paper verdict; synthesis should prevent M2919 artifacts from being misread as Route A performance or self-ID evidence while deciding whether the branch should continue pivot or stop",
+    "must_synthesize_if": [
+      "already_synthesis_milestone",
+      "M2921 cannot choose continue pivot stop or promote_to_next_branch",
+      "M2921 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU or self-ID evidence",
+      "M2921 hides weak outcomes M2877 Route B or Route C guardrails",
+      "another M2919-like execution is proposed without material evidence change"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis records M2919 status_pass true and M2920 audit acceptance",
+    "synthesis records 56 candidate rows 56 resolved rows 56 execution rows 0 failure rows 11 success 3 collision 38 off_track and 4 speed_too_low as diagnostic evidence only",
+    "synthesis preserves M2877 Route B and Route C guardrails as not run not admitted and outside denominators",
+    "synthesis preserves P0 observation 72 action 3 no hidden/oracle/future-target actor input actor-invisible labels",
+    "synthesis registers one bounded follow-up manifest if continuing or pivoting",
+    "no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation dependency execution actor-input change hidden/oracle/future-target input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2921 executes reset step rollout replay validation training PPO source build adapter probe external simulation dependency work or private holdout",
+    "M2921 changes actor input or action contract",
+    "M2921 exposes hidden dynamics oracle labels future targets controller labels collision success progress target labels blocker labels protected labels source-family labels task-family labels source-milestone labels route labels or verdicts to actor input",
+    "M2921 treats source-family task-family profile or source-milestone context as ranking winner selection promotion or success-rate verdict evidence",
+    "M2921 treats M2877 Route B or Route C guardrail rows as execution rows or ordinary denominators",
+    "M2921 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2921 fails to synthesize M2911-M2920 and select a bounded follow-up route or stop"
+  ],
+  "decision_rule": "Pass only if M2921 synthesizes the dependency-facing bounded execution branch and selects continue pivot stop or promote_to_next_branch without execution ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claims.",
+  "commands": [
+    {
+      "name": "synthesis_only",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/gate_matrix.csv",
+    "docs/m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+  "next_blocker": "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis",
+  "status": "pending"
+}
