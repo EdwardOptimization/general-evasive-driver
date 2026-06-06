@@ -1,0 +1,123 @@
+{
+  "decision_reason": "M2934 materializes complete claim-safe outcome-shift localization with 56 joined rows 38 offtrack targets and 18 context rows; only 4 offtrack-to-success versus 24 persistent offtrack 10 offtrack-to-collision/speed and 9 success-context regressions to offtrack/collision; M2931 diagnostic offtrack count remains 32 while transition-label offtrack count is 31 due one collision/off_track overlap; no repair-success validation ranking performance paper high-fidelity or self-ID claim.",
+  "failure_criteria": [
+    "M2934 executes reset rollout replay validation training ranking promotion dependency work outside its no-execution localization scope",
+    "M2934 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2934 ranks source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows selects a winner promotes a checkpoint or claims driver performance",
+    "M2934 hides panel rows context regressions or offtrack regressions or treats transition localization as validation readiness"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute dependency source build adapter probe or external simulation work",
+    "do not change actor inputs or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not hide context regressions or offtrack-to-collision/speed regressions",
+    "do not rank source milestones task families checkpoints environments windows severity bands time bands or candidate rows",
+    "do not select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not convert transition counts into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T192959Z",
+  "hypothesis": "A no-execution outcome-shift localization preflight can convert the accepted M2931 fixed-candidate repair diagnostics into machine-checkable M2919-to-M2931 transition rows that expose offtrack repairs, offtrack regressions, and context regressions before any further repair design, training, validation, ranking, or promotion.",
+  "lineage": {
+    "blocked_by": [
+      "M2931 outcomes are mixed and cannot justify another repair route without row-level localization",
+      "M2931 has four offtrack-to-success repairs but also offtrack-to-collision/speed regressions and context regressions",
+      "M2928 coverage constraints shortcut exclusions and M2877 Route B Route C guardrails must remain protected",
+      "M2934 cannot run new environment, policy, validation, training, ranking, or promotion work"
+    ],
+    "derived_from": [
+      "m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis",
+      "m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit",
+      "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight",
+      "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight",
+      "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight",
+      "m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.json",
+      "experiments/manifests/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.json",
+      "experiments/manifests/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md",
+      "docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_candidate_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_resolution_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_failure_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/coverage_constraint_audit_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/gate_matrix.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/non_offtrack_context_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize row-level outcome shifts after M2933 selects outcome-shift localization as the bounded next route"
+    ],
+    "supersedes": [
+      "direct fixed-candidate repair reinterpretation without transition localization",
+      "direct next repair execution after M2931"
+    ]
+  },
+  "milestone": "m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight",
+  "next_blocker": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "outcome_shift_localization_complete_route_to_m2935_result_audit",
+  "public_gates": [
+    "M2934 must consume M2933 synthesis M2932 audit M2931 repair execution artifacts M2919 baseline execution artifacts and M2925/M2928 coverage artifacts",
+    "M2934 must account for all 56 M2925 panel rows and join each row to its M2919 baseline outcome and M2931 repair diagnostic outcome",
+    "M2934 must preserve row-level transition counts including offtrack to success 4 offtrack to offtrack 24 offtrack to collision 4 offtrack to speed_too_low 6 success to offtrack 5 success to collision 4 success to success 2 collision to collision 1 collision to offtrack 1 collision to speed_too_low 1 speed_too_low to speed_too_low 3 and speed_too_low to offtrack 1",
+    "M2934 must materialize offtrack-target repaired persisting and regressed rows plus non-offtrack context preserved and regressed rows",
+    "M2934 must preserve M2931 diagnostic outcomes 6 success 9 collision 32 off_track and 10 speed_too_low and M2919 diagnostic outcomes 11 success 3 collision 38 off_track and 4 speed_too_low as diagnostic row accounting only",
+    "M2934 must preserve all 27 M2928 coverage constraints all 7 shortcut exclusion families M2877 Route B Route C guardrails and actor 72/action 3",
+    "M2934 must not execute reset step rollout replay validation training PPO source build dependency work adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2934 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2934 must write summary transition row aggregate context coverage guard actor claim gate run_state doc and follow-up audit manifest artifacts"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "outcome_shift_localization_complete_route_to_m2935_result_audit",
+    "milestone": "m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight",
+    "reason": "M2934 materializes complete claim-safe outcome-shift localization with 56 joined rows 38 offtrack targets and 18 context rows; only 4 offtrack-to-success versus 24 persistent offtrack 10 offtrack-to-collision/speed and 9 success-context regressions to offtrack/collision; M2931 diagnostic offtrack count remains 32 while transition-label offtrack count is 31 due one collision/off_track overlap; no repair-success validation ranking performance paper high-fidelity or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/summary.json exists",
+    "M2934 writes outcome shift offtrack target context regression aggregate coverage guard actor claim gate run_state doc and follow-up audit manifest artifacts",
+    "M2934 accounts for all 38 offtrack repair-target rows and 18 non-offtrack context rows",
+    "M2934 preserves M2919 and M2931 diagnostic outcome counts as row accounting only",
+    "M2934 preserves all 27 coverage constraints all 7 shortcut exclusions M2877 Route B Route C guardrails and actor 72/action 3",
+    "M2934 makes no training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "type": "infrastructure"
+}
