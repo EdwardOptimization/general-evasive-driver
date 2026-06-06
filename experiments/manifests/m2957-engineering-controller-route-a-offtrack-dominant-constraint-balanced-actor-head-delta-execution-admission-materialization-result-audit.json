@@ -85,7 +85,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit",
+  "next_blocker": "m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -116,7 +116,7 @@
     "negative_result_policy": "If row accounting fails route to repair or stop rather than weakening interpretation standards.",
     "temporal_evidence_window": "M2956 materialization."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md exists",
     "audit summarizes M2956 row counts and gates",
