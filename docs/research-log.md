@@ -52098,3 +52098,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design_20260606T124037Z/command.log`
 - success artifact: `docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md`
 - notes: Completed: design admits M2891 read-only capability-prediction modeling contract materialization preflight defines actor-safe features evaluator-only labels split semantics target normalization missing-value policy losses metrics baselines gates and one follow-up preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions 6 evaluator-only targets actor 72/action 3 rejects immediate implementation fitting training ranking promotion verdict paper and self-ID claims
+
+## 20260606T124859Z m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A read-only preflight can materialize the M2890 actor-safe capability-prediction modeling contract into machine-checkable feature label split loss metric baseline gate and claim rows before any implementation or training.
+- command: `PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight --m2887-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2890-design docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md --output-dir runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight_20260606T124859Z`
+- command log: `runs/research/m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight_20260606T124859Z/command.log`
+- success artifact: `runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json`
+- notes: Completed: materialization status_pass true gate_matrix_pass true wrote 12 feature 6 label 8 split 6 loss-metric 12 baseline 13 gate and 14 claim rows preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions evaluator-only targets actor 72/action 3 no hidden oracle or future target actor input paper holdout false preflight-only split true all required features labels baselines resolvable rejects implementation fitting training ranking promotion verdict paper and self-ID claims routes to M2892 audit
