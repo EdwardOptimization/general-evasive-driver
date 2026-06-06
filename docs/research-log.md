@@ -52410,3 +52410,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight_20260606T165240Z/command.log`
 - success artifact: `runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json`
 - notes: Completed: materialization status_pass true gate_matrix_pass true decision dependency_facing_execution_admission_materialized_route_to_m2917_result_audit wrote 17 input source 67 source 67 candidate 11 rejection 35 guardrail 10 actor 10 claim and 19 gate rows admitted 56 rows for separate bounded execution manifest and blocked 11 M2877 fixed weak diagnostic guard rows source rows M2737 18 M2746 14 M2807 12 M2816 12 M2877 11 source missing 0 Route B context-only true Route C context-only true actor 72/action 3 no hidden/oracle/future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims; registered M2917 audit.
+
+## 20260606T165720Z m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2916 Route A dependency-facing execution-admission materialization before any behavior execution validation ranking promotion dependency execution performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit_20260606T165720Z`
+- command log: `runs/research/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit_20260606T165720Z/command.log`
+- success artifact: `docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md`
+- notes: Completed: audit accepts M2916 complete claim-safe no-execution execution-admission materialization status_pass true gate_matrix_pass true 17 input source 67 source 67 candidate 11 rejection 35 guardrail 10 actor 10 claim and 19 gate rows admitted 56 rows to future bounded execution design only blocked 11 M2877 fixed weak diagnostic guard rows source missing 0 actor 72/action 3 no hidden/oracle/future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims; routes to M2918 bounded execution design.
