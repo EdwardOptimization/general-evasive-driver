@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design
+m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design
+m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design
+m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight
 ```
 
 Current route:
@@ -44,9 +44,10 @@ accepted the implementation result audit, completed implementation branch
 synthesis, completed fitting design, accepted the fitting-design result audit,
 completed bounded fitting implementation preflight, accepted the fitting
 implementation result audit, completed fitting-implementation audit synthesis,
-and now sits at fresh/source-diverse panel design before any validation,
-ranking, model-quality verdict, paper, finite-window-vs-GRU, current-sim,
-high-fidelity, full-driver, or self-ID route.
+completed fresh/source-diverse panel design, and now sits at fresh/source-diverse
+panel materialization preflight before any validation, ranking, model-quality
+verdict, paper, finite-window-vs-GRU, current-sim, high-fidelity, full-driver,
+or self-ID route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -341,14 +342,31 @@ fresh/source-diverse panel trigger. M2900 rejects direct model-quality
 validation, ranking, promotion, paper, finite-window-vs-GRU, current-sim,
 high-fidelity, full-driver, and self-ID claims.
 
-The next task is M2901. It must design the fresh/source-diverse
-capability-prediction panel expansion criteria: source-family diversity,
-max single-source share, target coverage, split semantics,
-source-singleton-as-seed semantics, guard exclusions, rollback gates, audit
-criteria, and the M2902 materialization preflight. It must not materialize
-rows, validate, rank, promote, publish, select a winner, or claim model-quality,
-paper, finite-window-vs-GRU, current-sim, high-fidelity, full-driver,
-driver-performance, or self-ID evidence.
+M2901 completed the fresh/source-diverse panel design with decision
+`admit_m2902_fresh_source_diverse_panel_materialization_preflight`. It defines
+a row taxonomy of public_reference_usable, source_singleton_seed,
+fresh_source_diverse_candidate, fresh_panel_gap, guard_exclusion, and
+rejected_boundary_violation. It requires source-diverse candidates to stay
+outside the 17 public reference rows, avoid guard classification, preserve
+complete profile/config/checkpoint coverage, satisfy candidate_artifact_count
+at least 2, source_family_tag_count at least 2, diagnostic_artifact_count at
+least 2, cover evaluator-only targets, and preserve actor 72/action 3 with no
+hidden/oracle or future-target actor input. It sets later design targets of at
+least 24 fresh candidate task rows, 288 profile-task rows, at least 3 source
+families, at least 2 task families, max single-source share at most 0.40,
+max single-task-family share at most 0.70, and all 6 target families covered.
+M2901 rejects materialization, validation, ranking, model-quality verdict,
+paper, finite-window-vs-GRU, current-sim, high-fidelity, full-driver, and
+self-ID claims.
+
+The next task is M2902. It must materialize M2901's panel taxonomy,
+source-diversity accounting, split contract, target coverage, seed/gap rows,
+guard exclusions, rollback rows, claim rows, and M2903 result-audit manifest
+from existing repo-local artifacts only. M2902 may report a negative
+materialization result if the fresh/source-diverse thresholds are not met; it
+must not weaken those thresholds, validate, rank, promote, publish, select a
+winner, or claim model-quality, paper, finite-window-vs-GRU, current-sim,
+high-fidelity, full-driver, driver-performance, or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

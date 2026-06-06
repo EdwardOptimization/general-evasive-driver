@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2906,
+    "completed": 2907,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design_20260606T142107Z/command.log",
+    "command_log": "runs/research/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design_20260606T142950Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design_20260606T142107Z",
+    "run_dir": "runs/research/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design_20260606T142950Z",
     "status": "completed",
-    "task_id": "m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design"
+    "task_id": "m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only milestone can convert the M2900 synthesis into a fresh/source-diverse capability-prediction panel expansion spec before any materialization validation ranking model-quality or paper claim.",
-    "id": "m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design",
-    "kind": "gate",
-    "notes": "Pending: design fresh/source-diverse panel expansion criteria source-family diversity max single-source share target coverage split semantics source-singleton-as-seed guard exclusions rollback audit and M2902 materialization preflight before any model-quality validation ranking promotion paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28960,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --m2901-design docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --m2887-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2898-dir runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight --output-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --follow-up-manifest experiments/manifests/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.json",
+    "hypothesis": "A bounded materialization preflight can convert the M2901 fresh/source-diverse panel design into machine-auditable panel taxonomy source-diversity split target seed/gap guard rollback and claim rows without validation ranking model-quality or paper claims.",
+    "id": "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize M2901 fresh/source-diverse panel taxonomy source diversity split target coverage seed/gap guard rollback claim rows and M2903 audit manifest from existing repo-local artifacts only preserving actor 72/action 3 evaluator-only targets public/reference/source-singleton/guard exclusions no validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28970,
     "status": "pending",
-    "success_artifact": "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md"
+    "success_artifact": "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T142108Z"
+  "updated_at_utc": "20260606T142950Z"
 }
