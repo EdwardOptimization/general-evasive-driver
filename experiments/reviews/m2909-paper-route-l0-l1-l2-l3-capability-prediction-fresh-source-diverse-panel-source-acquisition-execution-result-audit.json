@@ -1,0 +1,102 @@
+{
+  "decision_reason": "M2909 accepts M2908 as complete and claim-safe: fixed 34 acquisition rows executed 34 failures 0 candidate-support evidence added 24 independent source-family evidence added 0 same-family source-family rejection 17 repaired projections 17 projected design targets unsatisfied claim_made 0 target_actor_visible 0 split_denominator_admitted 0; routes to M2910 synthesis without validation ranking model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+  "failure_criteria": [
+    "M2909 changes M2908 row classifications or thresholds to force a pass",
+    "M2909 admits source-acquisition rows into validation paper proof or ordinary denominators",
+    "M2909 treats same-family execution as independent source-family evidence",
+    "M2909 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2909 fails to select a bounded continuation pivot synthesis or stop route after auditing M2908"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not train replay run PPO rank promote select winners or publish packages",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels diagnostics or verdict labels to actor input",
+    "do not substitute rows outside the M2905 acquisition-required surface",
+    "do not treat same-family execution as independent source-family evidence",
+    "do not treat M2908 rows as validation paper proof model-quality or ordinary success denominators",
+    "do not claim driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T160226Z",
+  "hypothesis": "A bounded result audit can accept, reject, or pivot after M2908 source-acquisition execution without validation ranking model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+  "lineage": {
+    "blocked_by": [
+      "M2908 is execution preflight only",
+      "source-family acquisitions may remain unresolved because same-family rollouts are not independent source-family evidence",
+      "acquisition-required rows must remain out of validation paper proof and ordinary denominators"
+    ],
+    "derived_from": [
+      "m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight",
+      "m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis",
+      "m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight.json",
+      "experiments/manifests/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis.json",
+      "experiments/manifests/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/summary.json",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/source_acquisition_input_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/source_acquisition_execution_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/acquisition_failure_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/repaired_candidate_projection_rows.csv"
+    ],
+    "parent_objective": [
+      "audit M2908 bounded source-acquisition execution and preserve positive or negative acquisition result"
+    ],
+    "supersedes": [
+      "interpreting M2908 rollout success as driver performance",
+      "treating same source-family execution as independent source-family repair evidence"
+    ]
+  },
+  "milestone": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+  "next_blocker": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2908_source_acquisition_execution_claim_safe_partial_candidate_support_source_family_insufficient_route_to_m2910_continuation_or_pivot_synthesis",
+  "public_gates": [
+    "M2909 must audit all M2908 source-acquisition input execution failure evidence projection split target actor claim gate and run-state artifacts",
+    "M2909 must preserve the fixed M2905 row set and no-substitution boundary",
+    "M2909 must preserve candidate-support and source-family evidence exactly without threshold weakening",
+    "M2909 must keep source-acquisition rows out of validation paper proof and ordinary success denominators",
+    "M2909 must choose continuation pivot synthesis or stop without model-quality driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2908_source_acquisition_execution_claim_safe_partial_candidate_support_source_family_insufficient_route_to_m2910_continuation_or_pivot_synthesis",
+    "milestone": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+    "reason": "M2909 accepts M2908 as complete and claim-safe: fixed 34 acquisition rows executed 34 failures 0 candidate-support evidence added 24 independent source-family evidence added 0 same-family source-family rejection 17 repaired projections 17 projected design targets unsatisfied claim_made 0 target_actor_visible 0 split_denominator_admitted 0; routes to M2910 synthesis without validation ranking model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md exists",
+    "M2908 summary and row artifacts are audited",
+    "candidate-support and source-family evidence is preserved without threshold weakening",
+    "one bounded continuation pivot synthesis or stop decision is selected",
+    "no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+  ],
+  "type": "gate"
+}

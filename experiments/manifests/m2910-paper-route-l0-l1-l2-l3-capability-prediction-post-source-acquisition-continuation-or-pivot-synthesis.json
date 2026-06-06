@@ -1,0 +1,206 @@
+{
+  "baseline_artifacts": [
+    "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/summary.json",
+    "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/source_family_evidence_rows.csv",
+    "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/repaired_candidate_projection_rows.csv",
+    "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "command": "true",
+  "commands": [
+    {
+      "command": "true",
+      "name": "synthesis_doc"
+    }
+  ],
+  "created_at_utc": "2026-06-06T16:01:20.771159+00:00",
+  "decision_rule": "Pass only if M2910 makes a bounded route decision after the accepted partial source-acquisition audit and avoids another same-family repair loop.",
+  "expected_artifacts": [
+    "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md"
+  ],
+  "failure_criteria": [
+    "M2910 adds another same-family execution milestone as source-family repair",
+    "M2910 weakens source-diversity or target-coverage thresholds to force a pass",
+    "M2910 treats acquisition-required rows as proof or denominators",
+    "M2910 claims driver performance model quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2910 fails to select one bounded next route or stop decision"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not train replay run PPO validate rank promote publish or select a winner",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels diagnostics or verdict labels to actor input",
+    "do not reinterpret same-family execution as independent source-family evidence",
+    "do not downgrade source-diversity or target coverage thresholds to force Route B readiness",
+    "do not claim model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded synthesis gate can decide whether Route B should pursue independent source-family acquisition, pivot to Route A or Route C, or stop after M2909 preserves M2908 partial candidate-support but source-family-insufficient execution evidence.",
+  "id": "m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "M2908 adds candidate-support evidence but zero independent source-family evidence",
+      "M2908 projects only 17 repaired candidates with 204 profile tasks and 5 target families below Route B design targets",
+      "same-family execution cannot be reinterpreted as independent source-family acquisition"
+    ],
+    "derived_from": [
+      "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+      "m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight",
+      "m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.json",
+      "experiments/manifests/m2908-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-preflight.json",
+      "experiments/manifests/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/summary.json",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/source_acquisition_execution_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/candidate_support_evidence_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/source_family_evidence_rows.csv",
+      "runs/m2908_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_source_acquisition_execution_preflight/repaired_candidate_projection_rows.csv",
+      "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "choose whether partial candidate-support acquisition can continue through independent source-family acquisition or must pivot/stop"
+    ],
+    "supersedes": [
+      "another same-family source-acquisition execution loop",
+      "direct model-quality validation from partial acquisition evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "forces route synthesis after partial source acquisition cannot satisfy source-family gates",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2910 cannot choose independent source-family acquisition Route A pivot Route C pivot or stop",
+      "M2910 would claim model quality self-ID finite-window-vs-GRU driver performance or current-sim verdict",
+      "M2910 would let acquisition-required rows enter paper proof",
+      "M2910 would expose evaluator-only future targets to actor input",
+      "another same-family execution loop is proposed as source-family acquisition"
+    ],
+    "paper_verdict_delta": "no verdict; may choose independent acquisition pivot or stop Route B",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "m2909_result": {
+    "decision": "accept_m2908_source_acquisition_execution_claim_safe_partial_candidate_support_source_family_insufficient_route_to_m2910_continuation_or_pivot_synthesis",
+    "summary_doc": "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md"
+  },
+  "next_blocker": "m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2910 must synthesize the accepted M2908/M2909 partial acquisition result",
+    "M2910 must choose exactly one next route: independent source-family acquisition, Route A pivot, Route C pivot, or stop",
+    "M2910 must not admit another same-family execution loop as source-family repair",
+    "M2910 must preserve actor 72/action 3 and evaluator-only target boundaries",
+    "M2910 must keep acquisition-required rows out of validation paper proof and ordinary denominators"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+  "risk": "medium",
+  "scoreboard_checkpoint": "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded route synthesis outcome",
+      "M2908/M2909 preserve partial candidate-support acquisition and source-family insufficiency",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2910 is a synthesis gate and cannot substitute partial acquisition rows for history-necessity or self-ID evidence.",
+    "history_necessity_tests": [
+      "None in M2910; later evidence requires accepted source-diverse panel data and fair L0/L1/L2/L3 comparisons."
+    ],
+    "negative_result_policy": "Preserve source-family insufficiency and choose independent acquisition, pivot, or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2884-M2909 Route B capability-prediction fresh-panel design, materialization, repair, source-acquisition execution, and audit chain."
+  },
+  "source_milestone": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md exists",
+    "synthesis summarizes M2908/M2909 partial source-acquisition result",
+    "synthesis chooses exactly one independent acquisition pivot or stop route",
+    "synthesis preserves source-diversity thresholds and exclusion boundaries",
+    "no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2909 accepts M2908 as complete and claim-safe",
+      "M2908 executes 34 acquisition-required rows and adds 24 candidate-support artifacts",
+      "M2908 adds zero independent source-family evidence and leaves design targets unsatisfied"
+    ],
+    "allowed_updates": [
+      "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+      "docs/reviews/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
+      "M2910 status queue scoreboard research log and review",
+      "one bounded follow-up source acquisition Route A Route C or stop manifest"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no same-family execution as independent source-family proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2910 chooses exactly one next route",
+      "the chosen route can change evidence or explicitly stops/pivots",
+      "target actor split holdout and exclusion boundaries remain preserved",
+      "no validation ranking promotion model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Route B post-source-acquisition continuation or pivot synthesis"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_fresh_panel_expansion",
+    "claim_scope": "source_acquisition_execution_result_audit_only_no_validation_no_model_quality_no_driver_performance_claim",
+    "evidence_axis": "post_source_acquisition_continuation_or_pivot_synthesis",
+    "evidence_increment": "forces route synthesis after M2908 creates partial candidate-support evidence but no independent source-family evidence",
+    "fallback_plan": [
+      "route to Route A engineering controller evidence if Route B remains source-insufficient",
+      "route to Route C high-fidelity interface preparation only if source availability changes",
+      "write a stop decision if no actor-safe evidence-producing next action remains"
+    ],
+    "stop_condition": [
+      "stop if no independent source-family acquisition path exists",
+      "stop if the next action would repeat same-family source execution",
+      "stop if source-diversity or target coverage thresholds would be weakened",
+      "stop if acquisition rows would enter validation paper proof or ordinary denominators",
+      "stop if model-quality driver-performance paper current-sim high-fidelity full-driver or self-ID evidence would be claimed"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2909 accepts M2908 as claim-safe but Route B design targets remain unsatisfied"
+  }
+}
