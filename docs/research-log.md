@@ -52626,3 +52626,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight_20260606T192718Z/command.log`
 - success artifact: `runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/summary.json`
 - notes: Completed: outcome-shift localization preflight status_pass true gate_matrix_pass true materialized 56 M2919-to-M2931 transition rows 38 offtrack target rows 18 context rows 27 coverage audit rows and source/task aggregates; transition counts preserve 4 offtrack-to-success 24 offtrack-to-offtrack 4 offtrack-to-collision 6 offtrack-to-speed_too_low 5 success-to-offtrack 4 success-to-collision 2 success-to-success and context non-success shifts; preserves M2931 diagnostic counts success 6 collision 9 offtrack 32 speed_too_low 10 while transition-label buckets are success 6 collision 9 offtrack 31 speed_too_low 10 because one diagnostic row overlaps collision/off_track; preserves actor 72/action 3 M2877 Route B Route C guardrails and no hidden oracle future-target actor input; no training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2935 audit.
+
+## 20260606T193400Z m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2934 outcome-shift localization before any further repair design, training, validation, ranking, promotion, performance, paper, high-fidelity, or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit_20260606T193400Z`
+- command log: `runs/research/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit_20260606T193400Z/command.log`
+- success artifact: `docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md`
+- notes: Completed: audit accepts M2934 complete claim-safe outcome-shift localization status_pass true gate_matrix_pass true 56 transition rows 38 offtrack target rows 18 context rows 27 coverage audit rows actor guards and claim rows; preserves transition evidence 4 offtrack-to-success 24 persistent offtrack 10 offtrack-to-collision/speed and 9 success-context regressions to offtrack/collision; rejects repair-success validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims; routes to M2936 tradeoff-aware outcome-shift-informed repair redesign instead of another fixed-candidate execution.

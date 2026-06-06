@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2940,
+    "completed": 2941,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight_20260606T192718Z/command.log",
+    "command_log": "runs/research/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit_20260606T193400Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight_20260606T192718Z",
+    "run_dir": "runs/research/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit_20260606T193400Z",
     "status": "completed",
-    "task_id": "m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight"
+    "task_id": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M2934 outcome-shift localization before any further repair design, training, validation, ranking, promotion, performance, paper, high-fidelity, or self-ID claim.",
-    "id": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit",
+    "hypothesis": "A bounded design-only milestone can convert the accepted M2934/M2935 outcome-shift localization into one actor-safe tradeoff-aware repair redesign that addresses persistent offtrack, collision/speed substitution, and success-context regression before any further execution, training, validation, ranking, promotion, performance, paper, high-fidelity, or self-ID claim.",
+    "id": "m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign",
     "kind": "gate",
-    "notes": "Pending: audit M2934 outcome-shift localization artifacts and decide one bounded next route or stop without validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29300,
+    "notes": "Pending: write tradeoff-aware outcome-shift-informed repair redesign that preserves persistent offtrack collision/speed substitution and success-context regression constraints before any execution training validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "priority": 29310,
     "status": "pending",
-    "success_artifact": "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md"
+    "success_artifact": "docs/m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign.md"
   },
-  "updated_at_utc": "20260606T192959Z"
+  "updated_at_utc": "20260606T193530Z"
 }

@@ -1,21 +1,5 @@
 {
-  "baseline_artifacts": [
-    "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/summary.json",
-    "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/outcome_shift_rows.csv",
-    "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/gate_matrix.csv",
-    "docs/m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight.md"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
-    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "audit_only"
-    }
-  ],
-  "decision_rule": "Pass only if M2935 preserves M2934 transition localization evidence and chooses one bounded next route or stop state without overclaiming.",
+  "decision_reason": "M2935 accepts M2934 localization as complete and claim-safe while preserving negative tradeoff evidence: 4 offtrack-to-success, 24 persistent offtrack, 10 offtrack-to-collision/speed, 9 success-context regressions; decision routes to M2936 tradeoff-aware repair redesign and rejects direct repair-success validation ranking performance paper high-fidelity or self-ID claims.",
   "failure_criteria": [
     "M2935 hides M2934 failures or missing artifacts",
     "M2935 treats M2934 transition localization as repair success validation readiness or performance verdict",
@@ -38,8 +22,8 @@
     "do not convert transition counts into repair-success performance validation paper high-fidelity or self-ID claims"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260606T193457Z",
   "hypothesis": "A bounded result audit can accept or reject the M2934 outcome-shift localization before any further repair design, training, validation, ranking, promotion, performance, paper, high-fidelity, or self-ID claim.",
-  "id": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit",
   "lineage": {
     "blocked_by": [
       "M2934 materialization requires a result audit before interpretation",
@@ -85,23 +69,10 @@
       "direct next repair design from M2933 without transition audit"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits newly materialized M2919-to-M2931 outcome shifts including regressions",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M2935 cannot accept M2934 as complete and claim-safe",
-      "M2935 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
-      "M2935 would continue another fixed-candidate execution without a materially changed evidence question"
-    ],
-    "paper_verdict_delta": "no paper verdict; audit may admit a bounded next design or stop/pivot Route A repair",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 1,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit",
   "next_blocker": "m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "accept_m2934_outcome_shift_localization_claim_safe_route_to_m2936_repair_redesign",
   "public_gates": [
     "M2935 must audit M2934 summary gate matrix actor and claim boundaries",
     "M2935 must preserve all 56 transition rows and all expected M2919-to-M2931 transition counts",
@@ -109,76 +80,25 @@
     "M2935 must not claim repair success validation ranking performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
     "M2935 must select exactly one next route or stop state"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
-      "type": "markdown"
-    }
-  ],
-  "review_artifact": "docs/reviews/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
-  "scoreboard_checkpoint": "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "M2934 artifact completeness and claim-safety audit",
-      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M2935 audits Route A outcome-shift localization and cannot infer history necessity or self-ID.",
-    "history_necessity_tests": [
-      "None in M2935; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
-    ],
-    "negative_result_policy": "Preserve negative or insufficient transitions and route to pivot or stop rather than weakening self-ID gates.",
-    "temporal_evidence_window": "M2919-to-M2934 Route A offtrack repair diagnostic chain."
+  "scoreboard": {
+    "checkpoint": "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2934_outcome_shift_localization_claim_safe_route_to_m2936_repair_redesign",
+    "milestone": "m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit",
+    "reason": "M2935 accepts M2934 localization as complete and claim-safe while preserving negative tradeoff evidence: 4 offtrack-to-success, 24 persistent offtrack, 10 offtrack-to-collision/speed, 9 success-context regressions; decision routes to M2936 tradeoff-aware repair redesign and rejects direct repair-success validation ranking performance paper high-fidelity or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
-  "status": "completed",
   "success_criteria": [
     "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md exists",
     "M2935 audits M2934 artifacts row counts gates actor and claim boundaries",
     "M2935 selects exactly one next route or stop state",
     "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M2934 summary and gate matrix",
-      "M2934 transition rows source/task aggregates coverage actor claim artifacts"
-    ],
-    "allowed_updates": [
-      "docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
-      "docs/reviews/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md",
-      "M2935 status queue scoreboard research log and review",
-      "one follow-up manifest only if M2935 selects exactly one next route"
-    ],
-    "blocked_shortcuts": [
-      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
-      "no training replay PPO or checkpoint promotion",
-      "no hidden/oracle/future-target actor input"
-    ],
-    "next_stage_criteria": [
-      "M2935 audit accepts or rejects M2934 as complete and claim-safe",
-      "next route or stop state is explicit"
-    ],
-    "stage": "process",
-    "stage_objective": "Audit M2934 offtrack repair outcome-shift localization artifacts"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
-    "claim_scope": "Result audit only; no repair design validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_repair_execution_outcome_shift_localization_result_audit",
-    "evidence_increment": "audits M2934 row-level M2919-to-M2931 outcome-shift localization artifacts",
-    "fallback_plan": [
-      "route to artifact repair if accounting failed",
-      "route to branch stop or pivot if transition localization shows no bounded repair route",
-      "route to a bounded next design only after audit accepts claim safety"
-    ],
-    "stop_condition": [
-      "stop if M2934 artifacts are missing or gate matrix fails",
-      "stop if row joins or transition counts are incomplete",
-      "stop if actor or claim boundaries were violated",
-      "stop if the audit cannot choose a bounded next design pivot stop or synthesis route without overclaiming"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M2934 completes row-level outcome-shift localization"
-  }
+  "type": "gate"
 }
