@@ -52326,3 +52326,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit_20260606T160120Z/command.log`
 - success artifact: `docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md`
 - notes: Completed: result audit accepts M2908 claim-safe source-acquisition execution fixed 34 rows executed 34 failures 0 candidate-support evidence added 24 independent source-family evidence added 0 same-family source-family rejection 17 repaired projections 17 projected design targets unsatisfied claim_made 0 denominator admitted 0 actor 72/action 3 no hidden/oracle or future target actor input no validation ranking model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; route to M2910 continuation-or-pivot synthesis.
+
+## 20260606T161036Z m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded synthesis gate can decide whether Route B should pursue independent source-family acquisition pivot to Route A or Route C or stop after M2909 preserves M2908 partial candidate-support but source-family-insufficient execution evidence.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis_20260606T161036Z`
+- command log: `runs/research/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis_20260606T161036Z/command.log`
+- success artifact: `docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md`
+- notes: Completed: synthesis decision pivot closes the current Route B fresh/source-diverse repair and source-acquisition branch as source-family-insufficient after M2908/M2909 executed 34 fixed rows with candidate-support 24 independent source-family evidence 0 same-family rejection 17 repaired projections 17 and unsatisfied design targets; admits M2911 Route A dependency-facing synthesis with no validation ranking promotion model-quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

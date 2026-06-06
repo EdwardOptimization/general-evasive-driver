@@ -111,7 +111,7 @@
     "decision": "accept_m2908_source_acquisition_execution_claim_safe_partial_candidate_support_source_family_insufficient_route_to_m2910_continuation_or_pivot_synthesis",
     "summary_doc": "docs/m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit.md"
   },
-  "next_blocker": "m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis",
+  "next_blocker": "m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -145,7 +145,7 @@
     "temporal_evidence_window": "M2884-M2909 Route B capability-prediction fresh-panel design, materialization, repair, source-acquisition execution, and audit chain."
   },
   "source_milestone": "m2909-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-acquisition-execution-result-audit",
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md exists",
     "synthesis summarizes M2908/M2909 partial source-acquisition result",
@@ -163,7 +163,7 @@
       "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
       "docs/reviews/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
       "M2910 status queue scoreboard research log and review",
-      "one bounded follow-up source acquisition Route A Route C or stop manifest"
+      "one bounded Route A engineering-controller dependency-facing follow-up manifest"
     ],
     "blocked_shortcuts": [
       "no validation ranking promotion",
@@ -184,12 +184,12 @@
   "type": "gate",
   "workflow_synthesis": {
     "branch": "paper_route_l0_l1_l2_l3_capability_prediction_fresh_panel_expansion",
-    "claim_scope": "source_acquisition_execution_result_audit_only_no_validation_no_model_quality_no_driver_performance_claim",
+    "claim_scope": "post_source_acquisition_route_synthesis_only_no_validation_no_model_quality_no_driver_performance_claim",
     "evidence_axis": "post_source_acquisition_continuation_or_pivot_synthesis",
     "evidence_increment": "forces route synthesis after M2908 creates partial candidate-support evidence but no independent source-family evidence",
     "fallback_plan": [
-      "route to Route A engineering controller evidence if Route B remains source-insufficient",
-      "route to Route C high-fidelity interface preparation only if source availability changes",
+      "route to Route A engineering controller evidence after Route B source-family insufficiency",
+      "route to Route C high-fidelity interface preparation only if source availability changes later",
       "write a stop decision if no actor-safe evidence-producing next action remains"
     ],
     "stop_condition": [
@@ -199,8 +199,18 @@
       "stop if acquisition rows would enter validation paper proof or ordinary denominators",
       "stop if model-quality driver-performance paper current-sim high-fidelity full-driver or self-ID evidence would be claimed"
     ],
+    "synthesis_artifact": "docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md",
     "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "route_options",
+      "next_branch_decision"
+    ],
     "synthesis_trigger": "M2909 accepts M2908 as claim-safe but Route B design targets remain unsatisfied"
   }
 }
