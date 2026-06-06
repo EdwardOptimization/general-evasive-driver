@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2930,
+    "completed": 2931,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design_20260606T175124Z/command.log",
+    "command_log": "runs/research/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight_20260606T180138Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design_20260606T175124Z",
+    "run_dir": "runs/research/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight_20260606T180138Z",
     "status": "completed",
-    "task_id": "m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design"
+    "task_id": "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2922-dir runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --m2919-dir runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight --m2923-audit docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md --m2924-design docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md --output-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --follow-up-manifest experiments/manifests/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.json",
-    "hypothesis": "A no-execution materialization preflight can convert the M2924 offtrack-dominant failure-slice design into machine-checkable slice context guard actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
-    "id": "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M2924 offtrack-dominant failure slices over 38 off_track rows and 18 non-offtrack context rows preserving M2877 Route B Route C guardrails actor 72/action 3 no hidden/oracle/future-target actor input and no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29200,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2925 offtrack-dominant failure-slice materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2925 offtrack-dominant slice materialization artifacts row counts gates actor contract guardrails and claim boundaries then select exactly one next route or stop state without repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 29210,
     "status": "pending",
-    "success_artifact": "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T175152Z"
+  "updated_at_utc": "20260606T180229Z"
 }
