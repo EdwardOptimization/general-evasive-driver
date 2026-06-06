@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
+m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit
+m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight
+m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit
 ```
 
 Current route:
@@ -39,8 +39,8 @@ docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch has stopped Route C/HF3 Chrono under source-unavailable,
 pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
-modeling-contract materialization audit, and now sits at implementation
-preflight.
+modeling-contract materialization audit, completed implementation preflight,
+and now sits at implementation result audit.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -216,13 +216,23 @@ preflight-only, and all required features, labels, and baselines are resolvable.
 M2892 rejects implementation, fitting, training, validation, ranking,
 promotion, verdict, paper, and self-ID claims.
 
-The next task is M2893. It may implement and smoke-test the
-capability-prediction schema, data-loader contract, target availability masks,
-feature/label boundary checks, and model-head shapes. It must not reset, step,
-roll out, replay, fit, train, validate, rank, promote, publish, select a winner,
-claim prediction quality, claim driver performance, claim finite-window-vs-GRU
-evidence, claim paper evidence, claim a current-sim or high-fidelity verdict,
-claim full-driver completion, or claim self-identification.
+M2893 completed the capability-prediction implementation preflight. It wrote
+18 schema rows, 12 loader smoke rows, 12 model-head shape smoke rows, 9 gate
+rows, and 17 claim rows. The preflight preserves actor 72/action 3, no
+hidden/oracle actor input, no future-target actor input, evaluator-only targets,
+paper holdout false, and preflight-only split semantics. It materializes a
+target scalar dimension of 19 across the six evaluator-only target families.
+No optimizer step ran, no fitted weights were persisted, and M2893 rejects
+model fitting, training, validation, ranking, promotion, model-quality verdict,
+paper, and self-ID claims.
+
+The next task is M2894. It must audit the M2893 summary plus schema, loader
+smoke, model-head smoke, gate, and claim rows before any fitting, training,
+validation, ranking, or model-quality claim. It must accept or reject the
+implementation preflight, preserve actor and evaluator-only target boundaries,
+preserve source-singleton and guard exclusions, preserve paper holdout false
+and preflight-only split semantics, and select exactly one bounded follow-up
+route or stop.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

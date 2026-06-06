@@ -1,0 +1,181 @@
+{
+  "baseline_artifacts": [
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/summary.json",
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/schema_rows.csv",
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/loader_smoke_rows.csv",
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/model_head_smoke_rows.csv",
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/gate_rows.csv",
+    "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/claim_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2894 writes a claim-safe audit of M2893 implementation preflight before any fitting training validation ranking or verdict claim.",
+  "failure_criteria": [
+    "M2894 resets steps rolls out validates fits trains ranks promotes or executes policy action",
+    "M2894 changes actor input or action contract",
+    "M2894 claims model quality driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit a model train rank promote or publish a package",
+    "do not run optimizer steps or persist fitted weights",
+    "do not convert implementation-preflight smoke into model-quality paper or controller-family ranking claims",
+    "do not claim driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2893 capability-prediction implementation preflight before any fitting training validation ranking or model-quality claim.",
+  "id": "m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2893 must be audited before any fitting training validation ranking or model-quality claim",
+      "schema loader and model-head smoke artifacts remain preflight evidence only",
+      "17 usable rows remain public and preflight-only"
+    ],
+    "derived_from": [
+      "m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight",
+      "m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit",
+      "m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2893-paper-route-l0-l1-l2-l3-capability-prediction-implementation-preflight.json",
+      "experiments/manifests/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.json",
+      "experiments/manifests/m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/summary.json",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/schema_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/loader_smoke_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/model_head_smoke_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/gate_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/claim_rows.csv",
+      "docs/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.md",
+      "runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit whether M2893 materialized actor-safe implementation preflight smoke artifacts"
+    ],
+    "supersedes": [
+      "starting capability-prediction fitting without implementation-preflight audit",
+      "treating schema loader or model-head shape smoke as model quality evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the newly materialized implementation-preflight smoke artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2894 cannot decide whether M2893 implementation preflight is sufficient",
+      "M2894 would claim self-ID finite-window-vs-GRU driver performance model quality or current-sim verdict"
+    ],
+    "paper_verdict_delta": "no verdict; may admit later fitting or training design if accepted",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2895-paper-route-l0-l1-l2-l3-capability-prediction-selected-implementation-follow-up",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2894 must audit M2893 summary schema loader smoke model-head gate and claim rows",
+    "M2894 must accept or reject actor-safe implementation-preflight completeness",
+    "M2894 must preserve no optimizer fitting training validation ranking promotion or model-quality claims",
+    "M2894 must preserve actor target exclusion holdout and preflight-only split boundaries"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2893 implementation preflight accepted or rejected",
+      "bounded follow-up route or stop decision",
+      "no model-quality driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2894 audits implementation preflight only and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2894; later tests require accepted fitting/training and fair L0/L1/L2/L3 comparisons."
+    ],
+    "negative_result_policy": "Preserve insufficient implementation or boundary failure as a negative result rather than weakening actor contract.",
+    "temporal_evidence_window": "M2887-M2893 Route B dataset modeling-contract and implementation-preflight artifacts."
+  },
+  "success_criteria": [
+    "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md exists",
+    "audit accepts or rejects M2893 implementation-preflight completeness and claim safety",
+    "audit selects exactly one bounded next route or stop decision"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2893 wrote implementation-preflight smoke artifacts",
+      "M2892 admitted implementation preflight only before fitting or training"
+    ],
+    "allowed_updates": [
+      "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+      "M2894 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if the audit selects a route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation model fitting training ranking promotion",
+      "no optimizer step and no fitted weights",
+      "no hidden or oracle actor inputs",
+      "no source-singleton or guard rows as paper proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2893 implementation preflight is accepted or rejected",
+      "one next Route B action or stop decision is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "M2893 capability-prediction implementation-preflight result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract",
+    "claim_scope": "Result audit only; no fitting training validation ranking model quality finite-window-vs-GRU verdict driver performance paper current-sim high-fidelity full-driver or self-ID claim",
+    "evidence_axis": "route_b_capability_prediction_implementation_result_audit",
+    "evidence_increment": "audits code-level schema loader and model-head smoke artifacts before any fitting",
+    "fallback_plan": [
+      "route to implementation repair if smoke artifacts are incomplete but actor-safe",
+      "route to contract repair if M2891 rows are insufficient",
+      "route to synthesis or fresh/source-diverse panel design if the branch is becoming public-row overfit",
+      "route to fitting/training design only if audit accepts implementation completeness and boundaries"
+    ],
+    "stop_condition": [
+      "stop if schema loader target masks or model-head smoke rows are incomplete",
+      "stop if actor or evaluator-only target boundaries fail",
+      "stop if M2894 would claim model quality driver performance or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2893 writes implementation-preflight smoke artifacts"
+  }
+}
