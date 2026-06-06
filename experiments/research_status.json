@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2892,
+    "completed": 2893,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design_20260606T115429Z/command.log",
+    "command_log": "runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design_20260606T115429Z",
+    "run_dir": "runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z",
     "status": "completed",
-    "task_id": "m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design"
+    "task_id": "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --follow-up-manifest experiments/manifests/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.json",
-    "hypothesis": "A read-only materialization preflight can convert the 17 accepted M2884/M2885 usable rows into an actor-safe L0/L1/L2/L3 capability-prediction dataset contract before any modeling or training.",
-    "id": "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize read-only dataset contract for 17 usable rows and expected 204 profile-task rows preserve 34 source-singleton and 21 guard exclusions evaluator-only targets actor 72/action 3 no hidden oracle input no reset rollout validation training ranking promotion verdict paper self-ID claims",
-    "priority": 28820,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2887 capability-prediction dataset materialization before any modeling or training.",
+    "id": "m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2887 materialization status_pass true gate_matrix_pass true 17 usable task rows 204 profile-task rows 34 source-singleton exclusions 21 guard exclusions 6 evaluator-only target rows actor 72/action 3 no hidden oracle input no training ranking promotion verdict paper self-ID claims",
+    "priority": 28830,
     "status": "pending",
-    "success_artifact": "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T115645Z"
+  "updated_at_utc": "20260606T121043Z"
 }

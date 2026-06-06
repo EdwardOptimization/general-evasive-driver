@@ -52050,3 +52050,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design_20260606T115429Z/command.log`
 - success artifact: `docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md`
 - notes: Completed: design selects exactly one next action admit M2887 read-only capability-prediction dataset materialization over 17 usable M2884/M2885 rows expected 204 profile-task rows preserves 34 source-singleton and 21 guard exclusions evaluator-only targets actor 72/action 3 no hidden oracle input rejects reset rollout validation training ranking promotion verdict paper current-sim high-fidelity full-driver and self-ID claims
+
+## 20260606T120431Z m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A read-only materialization preflight can convert the 17 accepted M2884/M2885 usable rows into an actor-safe L0/L1/L2/L3 capability-prediction dataset contract before any modeling or training.
+- command: `PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --follow-up-manifest experiments/manifests/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z`
+- command log: `runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z/command.log`
+- success artifact: `runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json`
+- notes: Completed: materialization status_pass true gate_matrix_pass true wrote 17 usable task rows 204 profile-task rows 6 evaluator-only target rows 34 source-singleton exclusions 21 guard exclusions 5 actor contract rows actor 72/action 3 no hidden oracle input no reset rollout validation training ranking promotion verdict paper current-sim high-fidelity full-driver or self-ID claims routes to M2888 audit

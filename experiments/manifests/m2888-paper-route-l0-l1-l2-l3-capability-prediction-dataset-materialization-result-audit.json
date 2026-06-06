@@ -1,0 +1,177 @@
+{
+  "baseline_artifacts": [
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json",
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/usable_task_rows.csv",
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/profile_task_rows.csv",
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/evaluator_target_rows.csv",
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/actor_feature_contract_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit"
+    }
+  ],
+  "decision_rule": "Pass only if M2888 writes a claim-safe audit of M2887 materialization before any modeling or training.",
+  "failure_criteria": [
+    "M2888 resets steps rolls out validates trains ranks promotes or executes policy action",
+    "M2888 changes actor input or action contract",
+    "M2888 claims driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout validate train rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not convert materialized rows into paper proof or controller-family ranking",
+    "do not claim driver performance paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2887 capability-prediction dataset materialization before any modeling or training.",
+  "id": "m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2887 dataset materialization must be audited before modeling implementation",
+      "17 usable rows remain a dataset contract and not paper proof by themselves",
+      "34 source-singleton rows and 21 guard rows must remain excluded"
+    ],
+    "derived_from": [
+      "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight",
+      "m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design",
+      "m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/usable_task_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/profile_task_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/evaluator_target_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/excluded_source_singleton_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/excluded_guard_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/actor_feature_contract_rows.csv",
+      "docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md",
+      "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit whether M2887 materialized a complete actor-safe capability-prediction dataset contract"
+    ],
+    "supersedes": [
+      "starting capability-prediction modeling directly from inventory rows without materialization audit",
+      "treating materialized rows as controller-family verdict evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the newly materialized dataset contract",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2888 cannot decide whether M2887 materialization is sufficient",
+      "M2888 would claim self-ID finite-window-vs-GRU driver performance or current-sim verdict"
+    ],
+    "paper_verdict_delta": "no verdict; may admit later capability-prediction modeling design if accepted",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2888 must audit M2887 summary row counts gates actor contract target boundary and claim rows",
+    "M2888 must accept or reject the 17 usable task rows and 204 profile-task rows",
+    "M2888 must preserve source-singleton and guard exclusions and evaluator-only target boundaries",
+    "M2888 must not train validate rank promote or claim driver performance finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2887 materialization accepted or rejected",
+      "bounded follow-up route or stop decision",
+      "no driver-performance paper current-sim high-fidelity full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2888 audits dataset materialization only and does not test history necessity.",
+    "history_necessity_tests": [
+      "None in M2888; later tests require fair L0/L1/L2/L3 capability-prediction comparisons."
+    ],
+    "negative_result_policy": "Preserve insufficient dataset or boundary failure as a negative result rather than weakening actor contract.",
+    "temporal_evidence_window": "M2884-M2887 Route B capability-prediction inventory and dataset contract."
+  },
+  "success_criteria": [
+    "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md exists",
+    "audit accepts or rejects M2887 materialization completeness and claim safety",
+    "audit selects exactly one bounded next route or stop decision"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2887 wrote dataset contract artifacts",
+      "M2886 admitted read-only materialization over 17 usable rows"
+    ],
+    "allowed_updates": [
+      "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md",
+      "M2888 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if the audit selects a route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation training ranking promotion",
+      "no hidden or oracle actor inputs",
+      "no source-singleton or guard rows as paper proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "M2887 materialization is accepted or rejected",
+      "one next Route B action or stop decision is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "M2887 capability-prediction dataset materialization result audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization",
+    "claim_scope": "Result audit only; no model training validation ranking finite-window-vs-GRU verdict or self-ID claim",
+    "evidence_axis": "route_b_capability_prediction_dataset_contract_result_audit",
+    "evidence_increment": "audits the first actor-safe capability-prediction dataset contract before any modeling",
+    "fallback_plan": [
+      "route to dataset repair if materialization is incomplete but actor-safe",
+      "route to fresh/source-diverse data-panel design if the 17-row contract is too weak",
+      "route to capability-prediction modeling design only if audit accepts completeness and boundaries"
+    ],
+    "stop_condition": [
+      "stop if row counts target boundaries or actor contract fail",
+      "stop if source-singleton or guard exclusions are weakened",
+      "stop if the audit would claim driver performance or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2887 writes dataset materialization artifacts"
+  }
+}

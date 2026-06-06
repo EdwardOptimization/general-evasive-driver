@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
+m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
+m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
+m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
 ```
 
 Current route:
@@ -146,14 +146,27 @@ finite-window-vs-GRU verdicts, driver-performance claims, current-sim verdicts,
 high-fidelity validation readiness/results, full-driver completion, and self-ID
 interpretations.
 
-The next task is M2887. It must materialize the actor-safe dataset contract
-from existing M2884/M2885/M2886 and M1690 artifacts only, write the 17 usable
-task rows, 204 profile-task rows, evaluator-target rows, source-singleton and
-guard exclusion rows, actor-feature contract rows, dataset gates, claim rows,
-and a bounded result-audit follow-up manifest. It must not reset, step, roll
-out, replay, validate, train, rank, promote, publish a package, or claim driver
+M2887 completed the read-only capability-prediction dataset materialization
+preflight. It wrote a complete actor-safe dataset contract with 17 usable task
+rows, 204 profile-task rows across the 12-profile L0/L1/L2/L3 matrix,
+6 evaluator-only target rows, 34 source-singleton exclusion rows,
+21 guard exclusion rows, 5 actor-feature contract rows, 9 passing dataset
+gates, and 12 claim rows. Actor 72/action 3 is preserved, hidden/oracle actor
+input remains false, evaluator targets remain actor-invisible, source-singleton
+rows are not paper proof, guard rows are not ordinary success denominators, and
+all false-claim flags remain false. M2887 did not reset, step, roll out,
+replay, validate, train, rank, promote, publish a package, or claim driver
 performance, finite-window-vs-GRU verdict, paper result, current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
+
+The next task is M2888. It must audit M2887 before any modeling or training,
+accept or reject the 17 usable rows and 204 profile-task rows, preserve the
+34 source-singleton and 21 guard exclusions, preserve evaluator-only target
+boundaries and actor 72/action 3, and select exactly one bounded next Route B
+action or stop. It must not reset, step, roll out, validate, train, rank,
+promote, or claim driver performance, finite-window-vs-GRU verdict, paper
+result, current-sim verdict, high-fidelity validation, full-driver completion,
+or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

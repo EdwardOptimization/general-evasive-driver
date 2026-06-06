@@ -106,6 +106,7 @@
     ],
     "allowed_updates": [
       "src/autodrift/paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight.py",
+      "tests/test_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight.py",
       "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json",
       "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/usable_task_rows.csv",
       "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/profile_task_rows.csv",

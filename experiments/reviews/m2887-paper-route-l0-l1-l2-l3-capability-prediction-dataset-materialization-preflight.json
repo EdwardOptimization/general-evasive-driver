@@ -1,0 +1,104 @@
+{
+  "decision_reason": "M2887 materialization status_pass true gate_matrix_pass true wrote 17 usable task rows 204 profile-task rows 6 evaluator-only target rows 34 source-singleton exclusions 21 guard exclusions 5 actor contract rows actor 72/action 3 no hidden oracle input false claim flags all false no reset rollout validation training ranking promotion driver performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims routes to M2888 audit",
+  "failure_criteria": [
+    "M2887 resets steps rolls out validates trains ranks promotes or executes policy action",
+    "M2887 changes actor input or action contract",
+    "M2887 exposes future targets hidden dynamics or oracle labels to actor input",
+    "M2887 claims driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2887 hides source-singleton or guard exclusions"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate train PPO rank promote or publish a package",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels success progress route labels or future targets to actor input",
+    "do not treat materialized rows as controller-family comparison results",
+    "do not claim driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260606T120844Z",
+  "hypothesis": "A read-only materialization preflight can convert the 17 accepted M2884/M2885 usable rows into an actor-safe L0/L1/L2/L3 capability-prediction dataset contract before any modeling or training.",
+  "lineage": {
+    "blocked_by": [
+      "M2886 admits only read-only dataset materialization before modeling or training",
+      "34 source-singleton rows and 21 guard rows must remain excluded from paper proof",
+      "Evaluator-only future capability targets must remain outside actor input"
+    ],
+    "derived_from": [
+      "m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design",
+      "m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit",
+      "m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.json",
+      "experiments/manifests/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md",
+      "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/target_inventory_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/actor_contract_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize an actor-safe capability-prediction dataset contract over the 17 accepted usable rows"
+    ],
+    "supersedes": [
+      "starting capability-prediction modeling before dataset contract materialization",
+      "training or ranking directly from inventory rows",
+      "using source-singleton or guard rows as self-ID proof"
+    ]
+  },
+  "milestone": "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight",
+  "next_blocker": "m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "dataset_materialization_complete_route_to_m2888_result_audit",
+  "public_gates": [
+    "M2887 must read only repository-local M2884/M2885/M2886 and M1690 artifacts",
+    "M2887 must materialize exactly the 17 accepted usable task-source rows unless it writes a claim-safe insufficiency result",
+    "M2887 must materialize expected 204 profile-task rows for 17 rows times 12 required profiles",
+    "M2887 must keep 34 source-singleton rows and 21 guard rows in explicit exclusion artifacts",
+    "M2887 must preserve actor 72/action 3 no hidden/oracle actor input and evaluator-only future targets",
+    "M2887 must not reset step rollout replay validate train PPO rank promote or claim driver performance finite-window-vs-GRU verdict current-sim verdict high-fidelity validation full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "dataset_materialization_complete_route_to_m2888_result_audit",
+    "milestone": "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight",
+    "reason": "M2887 materialization status_pass true gate_matrix_pass true wrote 17 usable task rows 204 profile-task rows 6 evaluator-only target rows 34 source-singleton exclusions 21 guard exclusions 5 actor contract rows actor 72/action 3 no hidden oracle input false claim flags all false no reset rollout validation training ranking promotion driver performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims routes to M2888 audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json exists",
+    "17 usable task rows are materialized",
+    "204 profile-task rows are materialized for the 12-profile L0/L1/L2/L3 matrix",
+    "source-singleton and guard rows are explicitly excluded",
+    "actor features and evaluator-only targets are separated",
+    "preflight registers at most one bounded result-audit follow-up manifest"
+  ],
+  "type": "infrastructure"
+}
