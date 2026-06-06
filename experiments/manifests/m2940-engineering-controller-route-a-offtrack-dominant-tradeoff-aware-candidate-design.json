@@ -1,0 +1,201 @@
+{
+  "id": "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded design-only milestone can convert the M2939 synthesis into exactly one actor-safe tradeoff-aware candidate route that addresses persistent offtrack, collision/speed substitution, context retention, and positive-reference preservation before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md",
+      "docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/summary.json",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/transition_constraint_rows.csv",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/offtrack_persistence_constraint_rows.csv",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/collision_speed_substitution_constraint_rows.csv",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/context_retention_constraint_rows.csv",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/positive_transition_reference_rows.csv",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/candidate_surface_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.json",
+      "experiments/manifests/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.json",
+      "experiments/manifests/m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design one bounded tradeoff-aware candidate route after M2939 synthesis continues"
+    ],
+    "derived_from": [
+      "m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis",
+      "m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit",
+      "m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight",
+      "m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign"
+    ],
+    "blocked_by": [
+      "M2939 permits only one bounded tradeoff-aware candidate design route before execution",
+      "M2937 constraints remain actor-invisible evaluator-side design accounting",
+      "direct execution would bypass synthesis and materialization audit boundaries"
+    ],
+    "supersedes": [
+      "direct fixed-candidate execution after M2939",
+      "target-only offtrack candidate design that drops context-retention or substitution constraints"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+  "public_gates": [
+    "M2940 must consume M2939 synthesis M2938 audit and M2937 materialized constraints",
+    "M2940 must define exactly one bounded candidate design route or stop state",
+    "M2940 must preserve all 56 transition rows 24 persistent offtrack constraints 10 collision/speed substitution constraints 9 context-retention constraints and 4 positive-reference rows as actor-invisible evaluator constraints",
+    "M2940 must not admit a target-only design that can improve offtrack count by worsening collision speed or context outcomes",
+    "M2940 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2940 must not execute reset rollout replay validation training PPO source build dependency work adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2940 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency work",
+    "do not change actor inputs or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not drop context-retention collision/speed substitution or persistent-offtrack constraints",
+    "do not rank source milestones task families checkpoints environments windows severity bands time bands candidate rows or candidate designs",
+    "do not select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not convert design constraints into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_tradeoff_aware_candidate_design",
+    "evidence_increment": "converts the M2939 synthesis decision into one actor-safe tradeoff-aware candidate design route before any materialization or execution",
+    "claim_scope": "Candidate design only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2940 cannot define a candidate design that handles persistent offtrack collision/speed substitution context retention and positive references together",
+      "stop if M2940 would change actor input or expose evaluator labels",
+      "stop if M2940 would drop any constraint family or turn constraints into rankings",
+      "stop if M2940 would execute policy environment dependency validation or training work",
+      "stop if claim boundaries cannot be preserved"
+    ],
+    "fallback_plan": [
+      "route to branch stop if no bounded actor-safe candidate design exists",
+      "route to a no-execution materialization preflight only after M2940 selects exactly one design",
+      "route to synthesis if another narrow loop is proposed without a materially changed evidence question"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2939 continue decision selects one candidate-design route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Design one bounded Route A tradeoff-aware candidate route",
+    "admission_evidence": [
+      "M2939 synthesis decision continue_to_m2940_tradeoff_aware_candidate_design",
+      "M2938 accepts M2937 complete claim-safe materialization",
+      "M2937 materializes 56 transition constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface rows",
+      "M2937 preserves actor 72/action 3 and no hidden/oracle/future-target actor input"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion performance verdict or repair-success claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no target-only offtrack repair that hides context regressions or substitution failures",
+      "no transition aggregates or constraint counts as rankings",
+      "no paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+      "docs/reviews/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+      "M2940 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if M2940 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M2940 design artifact exists",
+      "M2940 defines exactly one bounded next route or stop state",
+      "all four constraint families remain explicit",
+      "actor guardrail denominator shortcut and claim boundaries remain preserved",
+      "no validation ranking promotion repair-success performance paper high-fidelity or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2940 is a Route A repair candidate design milestone and cannot substitute candidate design for history necessity.",
+    "history_necessity_tests": [
+      "None in M2940; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2934-M2939 Route A offtrack repair diagnostic materialization audit and synthesis chain.",
+    "negative_result_policy": "Preserve blocker context and route to stop or pivot if no actor-safe candidate design exists rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded candidate design decision",
+      "no repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "continues after a synthesis reset into one materially changed candidate-design question constrained by the M2937 tradeoff-aware surface",
+    "paper_verdict_delta": "no paper verdict; may admit materialization of one candidate design but still no validation or performance claim",
+    "must_synthesize_if": [
+      "M2940 cannot choose a single next route or stop state",
+      "M2940 would claim validation readiness repair success driver performance paper high-fidelity or self-ID evidence",
+      "M2940 would bypass context regressions collision/speed substitutions persistent offtrack or M2877 Route B Route C guard blockers",
+      "M2940 would admit another fixed-candidate execution without a materially changed evidence question"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md exists",
+    "design summarizes M2939 synthesis and M2937/M2938 materialization/audit boundaries",
+    "design selects exactly one next route or stop state",
+    "design preserves actor guardrail denominator shortcut and claim boundaries",
+    "design explicitly handles persistent offtrack collision/speed substitution context retention and positive-reference preservation",
+    "no validation ranking promotion repair-success performance paper high-fidelity or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2940 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2940 changes actor input or action contract",
+    "M2940 hides transition counts context regressions collision/speed substitutions persistent offtrack Route B Route C or M2877 guard rows",
+    "M2940 claims repair success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2940 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M2940 writes a bounded tradeoff-aware candidate design artifact and chooses one next route or stop state while preserving actor denominator shortcut guardrail and claim boundaries without execution.",
+  "commands": [
+    {
+      "name": "candidate_design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md",
+    "docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md",
+    "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/summary.json",
+    "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/transition_constraint_rows.csv",
+    "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+  "next_blocker": "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design",
+  "status": "pending"
+}

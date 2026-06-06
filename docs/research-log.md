@@ -52674,3 +52674,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit_20260606T195537Z/command.log`
 - success artifact: `docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md`
 - notes: Completed: audit accepts M2937 complete claim-safe tradeoff-aware materialization status_pass true gate_matrix_pass true 56 transition constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface rows; rejects repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2939 continuation-or-stop synthesis before another narrow repair loop.
+
+## 20260606T200001Z m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded synthesis gate can integrate the accepted M2937/M2938 tradeoff-aware materialization result and choose exactly one next route: one bounded tradeoff-aware candidate design, Route A pivot, or stop, before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis_20260606T200001Z`
+- command log: `runs/research/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis_20260606T200001Z/command.log`
+- success artifact: `docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md`
+- notes: Completed: synthesis decision continue_to_m2940_tradeoff_aware_candidate_design integrates M2934-M2938 outcome-shift localization redesign materialization and audit evidence; preserves 56 transition rows 38 offtrack targets 18 context rows 24 persistent offtrack constraints 10 collision/speed substitution constraints 9 context-retention constraints 4 positive-reference rows and 5 candidate-surface rows as design accounting only; rejects repair-success validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2940 candidate design and not execution.
