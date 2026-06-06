@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
+m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design
+m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
+m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
 ```
 
 Current route:
@@ -41,9 +41,10 @@ current branch has stopped Route C/HF3 Chrono under source-unavailable,
 pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
 modeling-contract materialization audit, completed implementation preflight,
 accepted the implementation result audit, completed implementation branch
-synthesis, completed fitting design, and now sits at fitting-design result
-audit before any optimizer step, fitting, training, validation, ranking, or
-model-quality route.
+synthesis, completed fitting design, accepted the fitting-design result audit,
+and now sits at bounded fitting implementation preflight before any validation,
+ranking, model-quality verdict, paper, finite-window-vs-GRU, current-sim,
+high-fidelity, full-driver, or self-ID route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -267,11 +268,32 @@ split semantics. It rejects optimizer execution, fitting, training, validation,
 ranking, model-quality verdict, paper, current-sim, high-fidelity, full-driver,
 finite-window-vs-GRU, and self-ID claims.
 
-The next task is M2897. It must audit whether M2896's optimizer scope, loss,
-target-mask, split, seed, baseline, public-row overfit, fresh-panel trigger,
-rollback, and audit semantics are complete and claim-safe before any fitting
-implementation preflight. It must accept or reject the design and select
-exactly one bounded next route.
+M2897 completed the M2896 fitting-design result audit with decision
+`accept_m2896_capability_prediction_fitting_design_claim_safe_route_to_m2898_implementation_preflight`.
+It accepts M2896 as complete and claim-safe for exactly one bounded fitting
+implementation preflight. The accepted design covers SmoothL1/Huber regression,
+BCE-with-logits for explicitly binary recoverability entries, availability-mask
+loss mass normalization, train-split-only robust normalization,
+task_source_id split isolation, AdamW learning rate 0.0003, weight decay
+0.0001, global-norm clipping 1.0, at most 128 optimizer steps per profile,
+fixed seeds 289800/289801/289802, baseline diagnostics, public-row overfit
+guards, fresh/source-diverse panel triggers, rollback gates, and audit gates.
+M2897 preserves actor 72/action 3, evaluator-only targets, source-singleton
+and guard exclusions, paper holdout false, and preflight-only split semantics.
+It rejects optimizer-result, fitting-result, training, validation, ranking,
+model-quality verdict, paper, current-sim, high-fidelity, full-driver,
+finite-window-vs-GRU, and self-ID claims.
+
+The next task is M2898. It must implement the accepted M2896 fixed fitting
+recipe over the accepted M2893 schema, loader, target-mask, and model-head
+surface. It may run bounded optimizer steps and persist fitted preflight
+weights only as run-local implementation artifacts. It must write fitting
+recipe, task_source_id split, target-normalization, availability-mask,
+optimizer-step, profile diagnostic, baseline diagnostic, overfit guard,
+rollback, claim, summary, and follow-up audit artifacts. It must not validate,
+rank, select a winner, promote weights, claim model quality, claim paper
+evidence, claim finite-window-vs-GRU evidence, claim current-sim or
+high-fidelity validation, or claim level3 self-ID.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

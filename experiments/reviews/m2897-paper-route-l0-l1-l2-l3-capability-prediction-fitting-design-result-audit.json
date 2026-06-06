@@ -1,0 +1,109 @@
+{
+  "decision_reason": "M2897 audit accepts M2896 complete claim-safe fitting design SmoothL1/BCE availability-mask loss train-only robust normalization task_source_id split isolation AdamW lr 0.0003 weight_decay 0.0001 max 128 optimizer steps per profile seeds 289800/289801/289802 baseline public-row overfit fresh-panel rollback audit gates actor 72/action 3 evaluator-only targets source-singleton guard exclusions paper holdout false preflight-only split rejects optimizer fitting training validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver and self-ID claims routes to M2898 implementation preflight",
+  "failure_criteria": [
+    "M2897 resets steps rolls out replays validates fits trains ranks promotes or executes policy action",
+    "M2897 runs optimizer steps or persists fitted weights",
+    "M2897 changes actor input or action contract",
+    "M2897 exposes future targets hidden dynamics or oracle labels to actor input",
+    "M2897 claims driver performance model quality finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2897 leaves the next route ambiguous or selects multiple incompatible actions"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit a model train run PPO rank promote publish a package or select a winner",
+    "do not run optimizer steps or persist fitted weights",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets success progress route labels or verdict labels to actor input",
+    "do not treat 17 public rows source-singleton rows or guard rows as paper proof",
+    "do not claim prediction quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T134526Z",
+  "hypothesis": "A bounded result audit can accept or reject the M2896 capability-prediction fitting design before any optimizer step fitted weights training validation ranking or model-quality claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2896 must be audited before any optimizer step or fitted weights",
+      "17 usable rows remain public and preflight-only",
+      "paper holdout remains false",
+      "source-singleton and guard rows must remain excluded from proof and denominators",
+      "evaluator-only targets must remain actor-invisible"
+    ],
+    "derived_from": [
+      "m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design",
+      "m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis",
+      "m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design.json",
+      "experiments/manifests/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.json",
+      "experiments/manifests/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design.md",
+      "docs/m2895-paper-route-l0-l1-l2-l3-capability-prediction-implementation-branch-synthesis.md",
+      "docs/m2894-paper-route-l0-l1-l2-l3-capability-prediction-implementation-result-audit.md",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/summary.json",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/schema_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/loader_smoke_rows.csv",
+      "runs/m2893_paper_route_l0_l1_l2_l3_capability_prediction_implementation_preflight/model_head_smoke_rows.csv",
+      "docs/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.md",
+      "runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit whether M2896 defines a complete actor-safe fitting recipe before any optimizer or training work"
+    ],
+    "supersedes": [
+      "starting fitting implementation directly from M2896 without audit",
+      "treating fitting recipe design as model-quality evidence",
+      "optimizing public preflight rows without rollback gates"
+    ]
+  },
+  "milestone": "m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit",
+  "next_blocker": "m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2896_capability_prediction_fitting_design_claim_safe_route_to_m2898_implementation_preflight",
+  "public_gates": [
+    "M2897 must audit M2896 optimizer scope loss target-mask split seed baseline overfit rollback and audit semantics",
+    "M2897 must accept or reject whether M2896 is sufficient for one bounded implementation preflight",
+    "M2897 must preserve actor 72/action 3 no hidden/oracle actor input no future-target actor input and evaluator-only targets",
+    "M2897 must preserve source-singleton and guard exclusions paper holdout false and preflight-only split semantics",
+    "M2897 must not run optimizer steps fit weights train validate rank promote select a winner or claim model quality driver performance finite-window-vs-GRU paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2896_capability_prediction_fitting_design_claim_safe_route_to_m2898_implementation_preflight",
+    "milestone": "m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit",
+    "reason": "M2897 audit accepts M2896 complete claim-safe fitting design SmoothL1/BCE availability-mask loss train-only robust normalization task_source_id split isolation AdamW lr 0.0003 weight_decay 0.0001 max 128 optimizer steps per profile seeds 289800/289801/289802 baseline public-row overfit fresh-panel rollback audit gates actor 72/action 3 evaluator-only targets source-singleton guard exclusions paper holdout false preflight-only split rejects optimizer fitting training validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver and self-ID claims routes to M2898 implementation preflight",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit.md exists",
+    "audit accepts or rejects M2896 fitting design completeness and claim safety",
+    "audit selects exactly one next route or stop decision",
+    "audit preserves actor 72/action 3 and evaluator-only future target boundaries",
+    "audit registers at most one bounded follow-up route without optimizer fitting training ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "type": "gate"
+}

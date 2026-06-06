@@ -52170,3 +52170,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design_20260606T133519Z/command.log`
 - success artifact: `docs/m2896-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design.md`
 - notes: Completed: fitting design admits M2897 result audit defines SmoothL1/BCE availability-mask loss train-only robust normalization task_source_id split isolation AdamW 3e-4 weight_decay 1e-4 max 128 optimizer steps per profile seed list 289800/289801/289802 baseline reporting public-row overfit fresh-panel triggers rollback and audit gates preserves actor 72/action 3 evaluator-only targets source-singleton guard exclusions paper holdout false preflight-only split no optimizer fitting training validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims
+
+## 20260606T134431Z m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2896 capability-prediction fitting design before any optimizer step fitted weights training validation ranking or model-quality claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit_20260606T134431Z`
+- command log: `runs/research/m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit_20260606T134431Z/command.log`
+- success artifact: `docs/m2897-paper-route-l0-l1-l2-l3-capability-prediction-fitting-design-result-audit.md`
+- notes: Completed: audit accepts M2896 complete claim-safe fitting design SmoothL1/BCE availability-mask loss train-only robust normalization task_source_id split isolation AdamW 3e-4 weight_decay 1e-4 max 128 optimizer steps per profile seeds 289800/289801/289802 baseline public-row overfit fresh-panel rollback audit gates actor 72/action 3 evaluator-only targets source-singleton guard exclusions paper holdout false preflight-only split no optimizer fitting training validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims routes to M2898 implementation preflight
