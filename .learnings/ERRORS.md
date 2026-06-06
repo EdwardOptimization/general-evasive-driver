@@ -84,3 +84,32 @@ For repository CSV status files, restore from `HEAD` before replaying intended r
 - Related Files: experiments/research_queue.csv, experiments/scoreboard.csv
 
 ---
+
+## [ERR-20260606-002] missing_make_precommit_target
+
+**Logged**: 2026-06-06T08:53:18+08:00
+**Priority**: low
+**Status**: pending
+**Area**: tests
+
+### Summary
+The AutoDrift Makefile does not define a `precommit` target.
+
+### Error
+```text
+make: *** No rule to make target 'precommit'.  Stop.
+```
+
+### Context
+- Command attempted: `make precommit`
+- Purpose: run a final repository gate after M2839 audit and M2840 synthesis manifest updates.
+- Actual Makefile gates are `check-diff`, `research-validate`, `test-light`, and full `test`.
+
+### Suggested Fix
+Use the Makefile targets that exist in this repository. For this research harness, run `make check-diff`, `make research-validate`, and `make test-light` unless a task specifically requires full `make test`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: Makefile
+
+---

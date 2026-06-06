@@ -2960,3 +2960,29 @@ M2839 should audit M2838 artifacts before interpretation. It must either accept
 or reject the M2838 artifact set and preserve the diagnostic-only boundary; it
 must not upgrade the 1/16 diagnostic success result into performance,
 validation, paper, current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2839 Engineering Controller Post Route C HF3 Stop Fresh Source-Diverse Closed-Loop Evidence Result Audit
+
+- status: completed
+- audit decision: `accept_m2838_route_to_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_result_synthesis`
+- manifest: `experiments/manifests/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.json`
+- audit artifact: `docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md`
+- parent summary: `runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json`
+- parent doc: `docs/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.md`
+- follow-up manifest: `experiments/manifests/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.json`
+- accepted artifact accounting: M2838 status_pass true required artifacts present 16 selected rows 16 resolved 16 executed 0 failure rows 16 scenario-role metric rows 16 failure taxonomy rows 61 prior-surface rows 13 actor guards 19 claim rows and 22 passing gates
+- diagnostic accounting: 1 success, 2 collision, 13 off_track
+- prior-surface exclusions: 43 unique task-source ids across M2737, M2759, M2807, M2816, and M2828
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: diagnostic row accounting only; no replay validation training ranking promotion success-rate verdict driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis`
+
+## Immediate Next Step
+
+M2840 should synthesize M2837-M2839 before any further execution or
+reinterpretation. It must preserve M2838 as complete but weak diagnostic
+evidence, answer the six synthesis questions, and select a bounded stop, pivot,
+or materially different continue route. It must not repeat another same-surface
+diagnostic loop or upgrade the 1/16 diagnostic success result into validation,
+ranking, performance, paper, current-sim, high-fidelity, full-driver, or self-ID
+evidence.

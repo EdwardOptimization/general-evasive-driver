@@ -1,0 +1,119 @@
+# m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T004953Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2838_route_to_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_result_synthesis
+- Decision reason: M2839 audit accepts M2838 complete claim-safe post Route C HF3 stop fresh source-diverse diagnostic execution status_pass true required artifacts present fixed 16 selected rows 16 resolved 16 executed 0 failure rows 1 diagnostic success 2 collision 13 off_track 43 prior unique task-source ids actor 72/action 3 no hidden oracle labels M2737 M2759 M2807 M2816 M2828 protected and HF3 blockers not executed rejects validation ranking performance paper current-sim high-fidelity full-driver self-ID claims routes to M2840 synthesis
+
+## Hypothesis
+
+A bounded result audit can accept or reject M2838 fresh source-diverse execution artifacts while preserving actor blocker and claim boundaries before interpretation.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/selected_candidate_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/execution_candidate_resolution_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/candidate_execution_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/candidate_execution_failure_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/scenario_role_metric_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/failure_taxonomy_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/prior_surface_exclusion_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/actor_contract_guard_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/claim_boundary_rows.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/gate_matrix.csv, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/run_state.json, docs/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.md, docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.json, experiments/manifests/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.json
+- parent_objective: audit M2838 post Route C HF3 stop fresh source-diverse closed-loop diagnostic artifacts before interpretation
+- derived_from: m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight, m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design, m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
+- blocked_by: M2838 execution rows are diagnostic and require result audit before interpretation, M2737 M2759 M2807 M2816 M2828 prior-surface rows protected rows and HF3 blocker rows must remain outside execution and ordinary success denominators, M2838 must not be converted into ranking validation readiness driver-performance paper current-sim high-fidelity full-driver or self-ID evidence without separate gates
+- supersedes: direct interpretation from M2838 summary without audit, direct source-family scenario-role ranking or winner selection from M2838 diagnostic rows, direct validation readiness or driver-performance claim from M2838 execution artifacts
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md exists
+- audit records M2838 status_pass required artifacts candidate execution failure prior-surface actor claim and gate counts
+- audit verifies prior-surface protected and HF3 blocker rows were not executed and remain outside ordinary success denominators
+- audit preserves P0 observation 72 action 3 no hidden/oracle actor input actor-invisible labels
+- audit makes no reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner promotion success-rate driver-performance validation-readiness paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID claim
+
+## Failure Criteria
+
+- M2839 executes reset step rollout replay validation training PPO source build adapter probe or external simulation
+- M2839 changes actor input or action contract
+- M2839 exposes source stress-axis scenario-role route decision success progress or verdict labels to actor input
+- M2839 weakens prior-surface protected or HF3 blocker gates or treats blocker rows as success denominators
+- M2839 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate
+- M2839 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2839 must audit M2838 required artifacts for completeness before any interpretation
+- M2839 must verify exactly 16 fixed M2837 selected candidates are resolved or explicitly accounted by failure rows
+- M2839 must verify M2737 M2759 M2807 M2816 M2828 prior-surface protected and HF3 blocker rows were not executed and remain outside ordinary success denominators
+- M2839 must verify actor 72/action 3 no hidden/oracle actor input and actor-invisible source stress-axis scenario-role blocker route success progress and verdict labels
+- M2839 must preserve M2838 outcomes as diagnostic row accounting only and must not rank source families task families profiles stress axes scenario roles or winners
+- M2839 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2839 must not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not execute source build
+- do not execute adapter probe
+- do not execute external simulation
+- do not promote a checkpoint
+- do not change actor inputs
+- do not change the deployed action contract
+- do not inject hidden or oracle actor features
+- do not expose source stress-axis scenario-role route success progress or verdict labels to actor input
+- do not treat prior-surface protected or HF3 blocker rows as ordinary success denominators
+- do not rank controller families source families task families profiles stress axes or scenario roles
+- do not select a winner
+- do not compute success rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim full ideal driver completion
+- do not claim driver performance from M2838 diagnostic execution
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+
+## Scoreboard
+
+- milestone: m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit
+- type: gate
+- checkpoint: docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2838_route_to_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_result_synthesis
+- reason: M2839 audit accepts M2838 complete claim-safe post Route C HF3 stop fresh source-diverse diagnostic execution status_pass true required artifacts present fixed 16 selected rows 16 resolved 16 executed 0 failure rows 1 diagnostic success 2 collision 13 off_track 43 prior unique task-source ids actor 72/action 3 no hidden oracle labels M2737 M2759 M2807 M2816 M2828 protected and HF3 blockers not executed rejects validation ranking performance paper current-sim high-fidelity full-driver self-ID claims routes to M2840 synthesis
+
+## Next Blocker
+
+m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis

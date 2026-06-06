@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2844,
+    "completed": 2845,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight_20260606T003929Z/command.log",
+    "command_log": "runs/research/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit_20260606T004854Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight_20260606T003929Z",
+    "run_dir": "runs/research/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit_20260606T004854Z",
     "status": "completed",
-    "task_id": "m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight"
+    "task_id": "m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject M2838 fresh source-diverse execution artifacts while preserving actor blocker and claim boundaries before interpretation.",
-    "id": "m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit",
+    "hypothesis": "A branch synthesis can preserve M2837-M2839 post Route C HF3 stop fresh source-diverse evidence while preventing another same-surface diagnostic loop and selecting a bounded next route or stop.",
+    "id": "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2838 required artifacts fixed 16 selected rows execution failure scenario-role failure-taxonomy prior-surface actor claim and gate rows before interpretation preserving M2737 M2759 M2807 M2816 M2828 protected HF3 blockers actor 72/action 3 no hidden oracle labels and rejecting reset rollout validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims",
-    "priority": 28340,
+    "notes": "Pending: synthesize M2837 M2838 M2839 evidence answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk next_branch_decision preserve 16 fixed rows 1 success 2 collision 13 off_track 43 prior task-source guardrails actor 72/action 3 no hidden oracle labels reject validation ranking performance paper current-sim high-fidelity full-driver self-ID claims",
+    "priority": 28350,
     "status": "pending",
-    "success_artifact": "docs/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.md"
+    "success_artifact": "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md"
   },
-  "updated_at_utc": "20260606T003930Z"
+  "updated_at_utc": "20260606T004854Z"
 }
