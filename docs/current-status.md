@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
+m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis
+m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design
+m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit
 ```
 
 Current route:
@@ -38,8 +38,25 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route C selected-platform source dependency refresh-or-stop
-design after M2834 closed the Route C/HF0 source-only interface evidence
-handoff branch and rejected another handoff artifact loop.
+result audit after M2835 rejected refresh and kept Route C/HF3 stopped under
+M2638 because no source/package route is currently present.
+
+M2835 completed the selected-platform source dependency refresh-or-stop design
+with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
+It found `/home/quyaonan/workspace/chrono` and its `CMakeLists.txt` missing,
+with no approved package route, dependency acquisition manifest, or alternate
+backend contract admitted in this route. Therefore M2835 rejects a read-only
+dependency refresh preflight now and keeps Route C/HF3 stopped under M2638. It
+preserves the M2834 pivot away from another handoff loop, M2832 17 inventory
+rows, 11 handoff rows, 11 actor guards, 3 blocker rows, 20 claim rows, and
+26 gates, plus M2828 mixed outcomes of 16 executed rows, 5 diagnostic success,
+1 collision, and 10 off_track. Actor 72/action 3, ActorView-only extraction,
+no hidden/oracle actor input, actor-invisible labels, and actor-invisible
+diagnostics remain preserved. M2835 rejects external install/fetch/import,
+source build, adapter probe, backend start, reset, rollout, validation,
+ranking, performance, paper, current-sim, high-fidelity, full-driver, and
+self-ID claims. The next task is M2836 result audit before any Route A or Route
+B pivot.
 
 M2834 synthesized and closed M2831-M2833 with decision
 `pivot_to_route_c_selected_platform_source_dependency_refresh_or_stop_design`.
@@ -59,7 +76,8 @@ preserved. M2834 rejects another handoff loop and rejects external HF3
 validation, ranking, performance, paper, current-sim, high-fidelity,
 full-driver, and self-ID claims. The next task is M2835 selected-platform
 source dependency refresh-or-stop design, which must either admit a bounded
-read-only dependency refresh route or keep Route C/HF3 stopped under M2638.
+read-only dependency refresh route or keep Route C/HF3 stopped under M2638, now
+completed above.
 
 M2833 audited and accepted M2832 as a complete and claim-safe Route C/HF0
 source-only interface evidence handoff materialization. The audit accepts M2832

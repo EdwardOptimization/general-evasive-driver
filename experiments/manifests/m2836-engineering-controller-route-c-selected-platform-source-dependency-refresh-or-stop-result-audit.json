@@ -1,0 +1,220 @@
+{
+  "id": "m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.md",
+      "docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md",
+      "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+      "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.json",
+      "experiments/manifests/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.json"
+    ],
+    "parent_objective": [
+      "audit the M2835 selected-platform source dependency refresh-or-stop design before any Route A Route B or Route C continuation"
+    ],
+    "derived_from": [
+      "m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design",
+      "m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis",
+      "m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design"
+    ],
+    "blocked_by": [
+      "M2835 rejects selected-platform dependency refresh because no valid source root approved package route dependency acquisition manifest or alternate backend contract is present",
+      "M2638 selected-platform HF3 source dependency remains unavailable",
+      "M2831-M2834 handoff artifacts support source-only interface handoff only and not validation performance paper high-fidelity full-driver or self-ID claims"
+    ],
+    "supersedes": [
+      "direct Route C selected-platform dependency refresh without result audit",
+      "direct external HF3 install fetch import build probe backend reset rollout validation or performance route while M2638 remains blocked",
+      "another Route C HF0 source-only handoff artifact loop after M2834"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+  "public_gates": [
+    "M2836 must audit whether M2835 correctly rejects or admits a selected-platform source dependency refresh",
+    "M2836 must preserve M2638 selected-platform source dependency blocker unless valid source or package evidence is present",
+    "M2836 must preserve M2834 pivot away from another HF0 source-only handoff artifact loop",
+    "M2836 must preserve actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels diagnostics blockers routes and verdicts",
+    "M2836 must preserve M2832 handoff counts and M2828 mixed outcomes as nonverdict context",
+    "M2836 must not execute install fetch import build probe backend reset step rollout replay validation training ranking promotion package publication or dependency mutation",
+    "M2836 must not claim driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full-driver completion or self-ID"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not mutate dependency or source trees",
+    "do not run source build",
+    "do not run adapter probe",
+    "do not start an external backend",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not replay",
+    "do not validate",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not hide M2638 selected-platform source dependency blocker",
+    "do not hide M2828 mixed outcomes",
+    "do not repeat another HF0 source-only handoff artifact loop",
+    "do not rank controller families source families profiles task families stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not claim driver performance",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim full ideal driver completion"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_c_selected_platform_source_dependency_refresh_or_stop",
+    "evidence_axis": "selected_platform_source_dependency_refresh_or_stop_result_audit",
+    "evidence_increment": "audits the M2835 stop decision before any next-route pivot and prevents a direct dependency-refresh local-search loop",
+    "claim_scope": "Result audit only; no external install fetch import source build adapter probe backend start reset rollout validation training ranking promotion package publication driver-performance paper current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2835 lacks a valid source root approved package route admitted dependency acquisition manifest or alternate backend contract",
+      "stop if M2836 would weaken M2638 selected-platform blocker without supplied source evidence",
+      "stop if M2836 would turn M2831-M2834 source-only handoff artifacts into validation performance paper high-fidelity full-driver or self-ID evidence",
+      "stop if actor input or action contract boundaries would change"
+    ],
+    "fallback_plan": [
+      "accept M2835 and keep Route C HF3 stopped until source or package evidence is supplied",
+      "if M2835 is incomplete route to artifact repair only for missing audit fields",
+      "after accepted stop route to a materially different Route A or Route B evidence-producing manifest",
+      "do not route to another dependency handoff artifact unless source/package evidence changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2835 writes selected-platform source dependency refresh-or-stop design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Route C selected-platform source dependency refresh-or-stop result audit",
+    "admission_evidence": [
+      "M2835 rejects dependency refresh because no valid source root approved package route dependency acquisition manifest or alternate backend contract is present",
+      "M2834 closes the M2831-M2833 handoff branch and rejects another immediate handoff loop",
+      "M2638 keeps selected-platform HF3 execution paused until source dependency is supplied",
+      "docs/post-m2470-route-plan.md requires high-fidelity interface preparation without letting static artifacts become the main loop"
+    ],
+    "blocked_shortcuts": [
+      "no external simulator install fetch import source build adapter probe backend start reset step rollout validation",
+      "no policy action execution training replay PPO ranking winner selection or promotion",
+      "no package publication",
+      "no actor input expansion",
+      "no driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "M2836 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only after the audit accepts rejects or repairs M2835"
+    ],
+    "next_stage_criteria": [
+      "audit artifact exists",
+      "audit accepts rejects or routes repair for M2835",
+      "M2638 blocker actor contract and claim boundaries remain visible",
+      "M2831-M2834 handoff evidence remains handoff-only",
+      "one bounded next route is selected or Route C remains stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2836 audits a dependency route decision and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2836; any finite-window GRU wrong-history reset-hidden zero-history or source-diverse intervention proof remains separately pre-registered."
+    ],
+    "temporal_evidence_window": "M2835 Route C selected-platform source dependency refresh-or-stop design and M2638 selected-platform source dependency blocker.",
+    "negative_result_policy": "If no source dependency route is present preserve blockers and route to stop or a materially different branch instead of weakening gates.",
+    "allowed_claims": [
+      "Route C selected-platform source dependency refresh-or-stop result audit",
+      "bounded next-route decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "audits and closes the source dependency refresh-or-stop decision before requiring a materially different evidence-producing route",
+    "paper_verdict_delta": "no paper verdict; audit should prevent dependency blocker and handoff artifacts from being misread as validation performance high-fidelity or self-ID evidence",
+    "must_synthesize_if": [
+      "M2836 cannot choose accept stop reject repair Route A pivot or Route B deferral",
+      "M2836 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2836 hides M2638 blocker M2828 mixed outcomes actor boundaries or claim boundaries",
+      "M2836 proposes another selected-platform dependency artifact without source/package evidence change"
+    ]
+  },
+  "hypothesis": "A bounded result audit can accept or reject the M2835 Route C selected-platform source dependency refresh-or-stop decision while preserving M2638 actor and claim boundaries.",
+  "success_criteria": [
+    "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md exists",
+    "audit accepts rejects or routes repair for M2835",
+    "audit records whether selected-platform source dependency refresh is admissible or Route C HF3 remains stopped",
+    "audit preserves M2638 selected-platform source dependency blocker and M2834 pivot away from another handoff loop",
+    "audit preserves M2832 handoff evidence as handoff-only and M2828 mixed outcomes as nonverdict context",
+    "audit preserves actor 72/action 3 ActorView-only extraction no hidden/oracle actor input and actor-invisible labels diagnostics blockers routes and verdicts",
+    "audit selects a bounded next route or explicit stop without external HF3 validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2836 executes install fetch import build probe backend reset step rollout replay validation training PPO source mutation dependency mutation or external simulation",
+    "M2836 changes actor input or action contract",
+    "M2836 weakens M2638 blocker or M2828 mixed outcome accounting",
+    "M2836 repeats another HF0 source-only handoff artifact loop",
+    "M2836 ranks controller families source families profiles stress axes scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2836 claims driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2836 audits M2835 and selects a bounded next route or explicit stop while preserving M2638 actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2835-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-design.md",
+    "docs/m2834-engineering-controller-route-c-hf0-source-only-interface-evidence-handoff-branch-synthesis.md",
+    "docs/m2638-engineering-controller-route-c-hf3-source-dependency-blocker-report-and-user-supplied-source-contract-design.md",
+    "runs/m2832_engineering_controller_route_c_hf0_source_only_interface_evidence_handoff_materialization/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+  "next_blocker": "m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design"
+}
