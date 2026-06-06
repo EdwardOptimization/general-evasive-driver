@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
+m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
+m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
+m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
 ```
 
 Current route:
@@ -37,8 +37,8 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch has pivoted from Route A post-package-refresh fresh diagnostic
-synthesis to Route C/HF3 Chrono source availability.
+current branch has stopped Route C/HF3 Chrono under source-unavailable and
+pivoted to Route B L0/L1/L2/L3 capability-prediction dataset materialization.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -133,12 +133,26 @@ current-response sufficiency, recurrent self-ID, current-sim verdict,
 high-fidelity validation readiness/result, winner selection, and checkpoint
 promotion interpretations.
 
-The next task is M2886. It must synthesize the accepted M2884/M2885 inventory
-and select exactly one next Route B action: read-only capability-prediction
-dataset materialization over the 17 usable rows, fresh/source-diverse data
-panel design, gate-utility audit, Route A pivot, or stop. It must not reset,
-step, roll out, validate, train, rank, promote, or claim driver performance,
-finite-window-vs-GRU verdict, paper result, current-sim verdict,
+M2886 completed the Route B panel audit synthesis and selects exactly one next
+action:
+`admit_m2887_read_only_capability_prediction_dataset_materialization_over_17_usable_rows`.
+The admitted M2887 step is read-only dataset materialization over the 17 usable
+M2884/M2885 rows with an expected 204 profile-task rows across the 12-profile
+L0/L1/L2/L3 matrix. The 34 source-singleton rows and 21 guard rows remain
+explicitly excluded from paper proof and ordinary success denominators. The
+6 future-capability target families remain evaluator-only labels and must not
+enter actor input. M2886 rejects training, ranking, controller-family verdicts,
+finite-window-vs-GRU verdicts, driver-performance claims, current-sim verdicts,
+high-fidelity validation readiness/results, full-driver completion, and self-ID
+interpretations.
+
+The next task is M2887. It must materialize the actor-safe dataset contract
+from existing M2884/M2885/M2886 and M1690 artifacts only, write the 17 usable
+task rows, 204 profile-task rows, evaluator-target rows, source-singleton and
+guard exclusion rows, actor-feature contract rows, dataset gates, claim rows,
+and a bounded result-audit follow-up manifest. It must not reset, step, roll
+out, replay, validate, train, rank, promote, publish a package, or claim driver
+performance, finite-window-vs-GRU verdict, paper result, current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design

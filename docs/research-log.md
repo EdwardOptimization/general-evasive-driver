@@ -52038,3 +52038,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit_20260606T114350Z/command.log`
 - success artifact: `docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md`
 - notes: Completed: audit accepts M2884 complete claim-safe panel inventory status_pass true gate_matrix_pass true 72 candidate rows 17 usable 34 source-singleton 21 guard 6 evaluator-only target rows actor 72/action 3 no hidden oracle input rejects training ranking promotion driver performance paper finite-window-vs-GRU current-sim high-fidelity full-driver and self-ID claims routes to M2886 design
+
+## 20260606T115429Z m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded Route B design can synthesize the accepted M2884/M2885 inventory and choose whether to materialize a capability-prediction dataset from the 17 usable rows or first design a fresh source-diverse data panel.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design_20260606T115429Z`
+- command log: `runs/research/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design_20260606T115429Z/command.log`
+- success artifact: `docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md`
+- notes: Completed: design selects exactly one next action admit M2887 read-only capability-prediction dataset materialization over 17 usable M2884/M2885 rows expected 204 profile-task rows preserves 34 source-singleton and 21 guard exclusions evaluator-only targets actor 72/action 3 no hidden oracle input rejects reset rollout validation training ranking promotion verdict paper current-sim high-fidelity full-driver and self-ID claims

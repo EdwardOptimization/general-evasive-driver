@@ -1,0 +1,90 @@
+# m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T115606Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_m2887_read_only_capability_prediction_dataset_materialization_over_17_usable_rows
+- Decision reason: M2886 design selects exactly one next action read-only capability-prediction dataset materialization over the 17 accepted usable M2884/M2885 rows with expected 204 profile-task rows preserves 34 source-singleton and 21 guard exclusions evaluator-only future targets actor 72/action 3 no hidden oracle input rejects reset rollout validation training ranking promotion driver performance paper finite-window-vs-GRU current-sim high-fidelity full-driver and self-ID claims routes to M2887 materialization preflight
+
+## Hypothesis
+
+A bounded Route B design can synthesize the accepted M2884/M2885 inventory and choose whether to materialize a capability-prediction dataset from the 17 usable rows or first design a fresh source-diverse data panel.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt
+- parent_dataset: docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/summary.json, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/target_inventory_rows.csv, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/actor_contract_rows.csv, docs/self-id-go-no-go-paper-route-plan.md, docs/paper-route-finite-window-vs-gru-plan.md, docs/post-m2470-route-plan.md
+- parent_config: experiments/manifests/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.json, experiments/manifests/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.json
+- parent_objective: choose the next bounded Route B action after accepting a claim-safe capability-prediction panel inventory
+- derived_from: m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit, m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight, paper-route-finite-window-vs-gru-plan, self-id-go-no-go-paper-route-plan
+- blocked_by: M2884 inventory is available but still has only 17 usable rows with 34 source-singleton and 21 guard rows, Capability prediction must be designed before training controller families or claiming finite-window-vs-GRU evidence, Evaluator-only future-capability targets must remain outside actor input
+- supersedes: starting capability-prediction implementation without an audit/design decision, using source-singleton or guard rows as paper proof, training or ranking directly on the 17 usable rows as if they were a benchmark
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md exists
+- design preserves M2884/M2885 as inventory evidence only
+- design selects exactly one next Route B action or stop decision
+- design preserves actor 72/action 3 and evaluator-only future target boundaries
+
+## Failure Criteria
+
+- M2886 resets steps rolls out validates trains ranks promotes or executes policy action
+- M2886 changes actor input or action contract
+- M2886 exposes future targets hidden dynamics or oracle labels to actor input
+- M2886 claims driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence
+- M2886 leaves the next route ambiguous or selects multiple incompatible actions
+
+## Evidence Gates
+
+- M2886 must write a repository-local design or synthesis artifact
+- M2886 must preserve M2884/M2885 as inventory evidence only
+- M2886 must select exactly one next action: read-only dataset materialization over 17 usable rows, fresh/source-diverse data-panel design, gate-utility audit, Route A pivot, or stop
+- M2886 must keep 34 source-singleton rows and 21 guard rows out of paper proof and ordinary success denominators
+- M2886 must preserve actor 72/action 3 no hidden/oracle actor input and evaluator-only future targets
+- M2886 must not reset step rollout validate train rank promote or claim driver performance finite-window-vs-GRU verdict current-sim verdict high-fidelity validation full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not reset step rollout replay validate train PPO rank promote or publish a package
+- do not change actor input or action contract
+- do not expose hidden dynamics oracle labels success progress route labels or future targets to actor input
+- do not treat inventory rows as controller-family comparison results
+- do not claim driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
+- type: gate
+- checkpoint: docs/m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m2887_read_only_capability_prediction_dataset_materialization_over_17_usable_rows
+- reason: M2886 design selects exactly one next action read-only capability-prediction dataset materialization over the 17 accepted usable M2884/M2885 rows with expected 204 profile-task rows preserves 34 source-singleton and 21 guard exclusions evaluator-only future targets actor 72/action 3 no hidden oracle input rejects reset rollout validation training ranking promotion driver performance paper finite-window-vs-GRU current-sim high-fidelity full-driver and self-ID claims routes to M2887 materialization preflight
+
+## Next Blocker
+
+m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
