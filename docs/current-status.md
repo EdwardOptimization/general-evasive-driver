@@ -3055,3 +3055,26 @@ M2843 should design a concrete recurrent-belief architecture/training protocol
 before any implementation or training. It must specify architecture change,
 training recipe, proof gates, generalization gates, promotion gates, artifacts,
 and one bounded follow-up route while preserving the actor input contract.
+
+## M2843 Engineering Controller Route A Driver-Like Recurrent-Belief Architecture Training Redesign Protocol Design
+
+- status: completed
+- decision: `admit_response_predictive_recurrent_belief_core_training_protocol_route_to_m2844_audit`
+- manifest: `experiments/manifests/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.json`
+- design artifact: `docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md`
+- parent audit: `docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md`
+- follow-up manifest: `experiments/manifests/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.json`
+- admitted protocol: response-predictive recurrent-belief core training using the existing `human_view_online_gru` actor 72/action 3 contract
+- architecture boundary: training-only next-response prediction head target observation indices 0-8 horizon 4; trainable response_encoder online_gru_cell response_context_fusion actor_mean critic log_std response_prediction_head
+- rejected route: actor_mean.bias-only M2782 continuation scalar actor-head repair same-surface M2838 execution Route C retry direct Route B self-ID claim
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: protocol design only; no implementation training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit`
+
+## Immediate Next Step
+
+M2844 should audit whether the M2843 protocol is concrete and claim-safe before
+any implementation or training. It must accept or reject the response-predictive
+recurrent-belief core route and either admit a bounded implementation preflight
+design or send the branch to limited-baseline freeze or stop.

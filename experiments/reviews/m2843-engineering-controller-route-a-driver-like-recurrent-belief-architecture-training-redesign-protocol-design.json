@@ -1,0 +1,139 @@
+{
+  "decision_reason": "M2843 protocol admits response-predictive recurrent-belief core training route preserving actor 72/action 3 no hidden oracle labels M2838 1 success 2 collision 13 off_track diagnostic boundary and rejecting actor_mean.bias-only continuation same-surface execution validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2844 audit",
+  "failure_criteria": [
+    "M2843 executes reset step rollout replay validation training PPO source build adapter probe dependency acquisition or external simulation",
+    "M2843 changes actor input or action contract without a separate audited route",
+    "M2843 exposes source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "M2843 weakens prior-surface protected or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2843 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2843 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not create or promote a checkpoint",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not install external dependencies",
+    "do not fetch external source",
+    "do not mutate dependency or source trees",
+    "do not change actor inputs without a separate audited contract migration route",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "do not hide M2838 weak diagnostic outcomes",
+    "do not hide prior-surface protected or HF3 guardrail rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2843 design"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T013845Z",
+  "hypothesis": "A concrete protocol design can turn the accepted M2841 route into a bounded recurrent-belief architecture/training redesign without changing actor inputs or overclaiming weak diagnostics.",
+  "lineage": {
+    "blocked_by": [
+      "M2842 accepts only a protocol design before architecture implementation or training",
+      "M2838 weak diagnostic outcomes must stay visible and cannot become a success-rate verdict",
+      "M2771 rejects another scalar actor-head bias repair loop",
+      "M2638/M2836 keep Route C HF3 stopped until source or approved dependency route is supplied",
+      "proof generalization and promotion gates must be separated before any checkpoint candidate is created"
+    ],
+    "derived_from": [
+      "m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit",
+      "m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design",
+      "m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.json",
+      "experiments/manifests/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.json",
+      "experiments/manifests/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md",
+      "docs/m2841-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-synthesis-selected-next-route-design.md",
+      "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/failure_taxonomy_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/actor_contract_guard_rows.csv",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/claim_boundary_rows.csv",
+      "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md",
+      "docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "design a concrete Route A recurrent-belief architecture/training redesign protocol before implementation or training"
+    ],
+    "supersedes": [
+      "direct architecture implementation without protocol design",
+      "direct training continuation without proof/generalization/promotion gate design",
+      "direct same-surface M2838-like execution",
+      "direct scalar actor-head bias repair repeat"
+    ]
+  },
+  "milestone": "m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design",
+  "next_blocker": "m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_response_predictive_recurrent_belief_core_training_protocol_route_to_m2844_audit",
+  "public_gates": [
+    "M2843 must design a concrete recurrent-belief architecture/training redesign protocol before any implementation training execution or checkpoint creation",
+    "M2843 must preserve actor 72/action 3 no hidden/oracle actor input unless a separate audited contract migration route is registered",
+    "M2843 must specify proof gates generalization gates and promotion gates separately",
+    "M2843 must use M2838 weak diagnostic rows as evaluator-side negative evidence only and must not compute a success-rate verdict from them",
+    "M2843 must reject scalar actor-head bias repair repeat same-surface M2838-like execution direct Route C HF3 retry and direct Route B self-ID claim",
+    "M2843 must not claim repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result",
+    "M2843 must register one bounded follow-up manifest for protocol audit or implementation preflight if the design is accepted"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_response_predictive_recurrent_belief_core_training_protocol_route_to_m2844_audit",
+    "milestone": "m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design",
+    "reason": "M2843 protocol admits response-predictive recurrent-belief core training route preserving actor 72/action 3 no hidden oracle labels M2838 1 success 2 collision 13 off_track diagnostic boundary and rejecting actor_mean.bias-only continuation same-surface execution validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2844 audit",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md exists",
+    "protocol design specifies recurrent-belief architecture change training recipe proof gates generalization gates promotion gates artifacts and follow-up route",
+    "protocol preserves actor 72/action 3 no hidden/oracle actor input or registers a separate audited contract migration route",
+    "protocol preserves M2838 1 success 2 collision 13 off_track as diagnostic evidence only",
+    "protocol rejects same-surface M2838-like execution scalar actor-head bias repair Route C HF3 retry and direct Route B self-ID claim",
+    "protocol registers one bounded follow-up manifest and makes no execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "type": "gate"
+}

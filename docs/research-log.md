@@ -51521,3 +51521,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit_20260606T012257Z/command.log`
 - success artifact: `docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md`
 - notes: Completed: audit accepts M2841 route to driver-like recurrent-belief architecture/training redesign protocol design preserving M2838 1 success 2 collision 13 off_track actor 72/action 3 no hidden oracle labels M2638 M2836 HF3 stop and rejecting limited-baseline freeze as immediate route same-surface M2838 execution scalar actor-head bias repeat Route C retry Route B self-ID claim validation ranking performance paper current-sim high-fidelity full-driver self-ID claims routes to M2843 protocol design
+
+## 20260606T013732Z m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A concrete protocol design can turn the accepted M2841 route into a bounded recurrent-belief architecture/training redesign without changing actor inputs or overclaiming weak diagnostics.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design_20260606T013732Z`
+- command log: `runs/research/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design_20260606T013732Z/command.log`
+- success artifact: `docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md`
+- notes: Completed: protocol admits response-predictive recurrent-belief core training route using existing human_view_online_gru actor 72/action 3 contract with training-only next-response prediction head target observation indices 0-8 horizon 4 trainable response_encoder online_gru_cell response_context_fusion actor_mean critic log_std response_prediction_head rejects actor_mean.bias-only M2782 continuation same-surface M2838 execution Route C retry Route B self-ID claim preserves M2838 1 success 2 collision 13 off_track no implementation training validation ranking performance paper current-sim high-fidelity full-driver self-ID claim routes to M2844 audit
