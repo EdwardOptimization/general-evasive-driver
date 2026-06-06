@@ -51978,3 +51978,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design_20260606T104404Z/command.log`
 - success artifact: `docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md`
 - notes: Completed: design admits M2881 read-only Chrono source availability preflight fixes Chrono 10.0.0 tag 10.0.0 expected commit prefix 9faf13d hf_backends external source build install logs paths gate ladder source configure build install link/import reset manual step policy smoke failure taxonomy actor 72/action 3 no hidden oracle labels no fetch build import reset rollout validation performance paper high-fidelity or self-ID claims
+
+## 20260606T105612Z m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A read-only source availability preflight can determine whether the fixed Chrono 10.0.0 source root is locally available for later HF3 dependency gates without fetching source configuring building importing resetting or claiming high-fidelity validation.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_c_hf3_chrono_source_availability_preflight --m2880-design docs/m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design.md --source-root /home/quyaonan/workspace/hf_backends/chrono/10.0.0/source --expected-tag 10.0.0 --expected-commit-prefix 9faf13d --output-dir runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight --follow-up-manifest experiments/manifests/m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight_20260606T105612Z`
+- command log: `runs/research/m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight_20260606T105612Z/command.log`
+- success artifact: `runs/m2881_engineering_controller_route_c_hf3_chrono_source_availability_preflight/summary.json`
+- notes: Completed: source availability preflight status_pass true gate_matrix_pass true outcome source_unavailable_claim_safe fixed source root missing CMakeLists missing repo boundary outside repo cmake available /usr/bin/cmake cxx available /usr/bin/c++ no external dir creation fetch configure build import reset rollout validation performance paper high-fidelity or self-ID claims routes to M2882 audit

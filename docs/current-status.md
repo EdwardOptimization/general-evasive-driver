@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
+m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
 ```
 
 Latest attempted milestone:
 
 ```text
-m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
+m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2881-engineering-controller-route-c-hf3-chrono-source-availability-preflight
+m2882-engineering-controller-route-c-hf3-chrono-source-availability-result-audit
 ```
 
 Current route:
@@ -71,13 +71,24 @@ claim_boundary_violation. M2880 did not fetch, clone, install packages,
 configure, build, install, link/import, start a backend, reset, step, roll out,
 validate, rank, promote, or claim high-fidelity validation.
 
-The next task is M2881. It must implement and run only a read-only source
-availability preflight for
-`/home/quyaonan/workspace/hf_backends/chrono/10.0.0/source`: source root
-existence, `CMakeLists.txt` existence, repo-boundary status, optional git
-metadata and expected commit prefix compatibility, plus toolchain command
-availability without installing anything. M2881 must not create external
-directories, fetch/clone Chrono, install packages, configure, build, install,
+M2881 completed the read-only source-availability preflight for
+`/home/quyaonan/workspace/hf_backends/chrono/10.0.0/source`. The result is
+`source_unavailable_claim_safe`: the fixed source root is missing and therefore
+`CMakeLists.txt` is missing. The resolved source path remains outside
+`general-evasive-driver`; optional git metadata was not checked because no
+source tree exists. Toolchain command metadata is available for later gates
+(`/usr/bin/cmake` and `/usr/bin/c++`), but no configure, build, install,
+link/import, backend start, reset, step, rollout, validation, ranking,
+promotion, or high-fidelity validation was run. M2881 wrote a complete
+repo-local artifact with 10 source availability rows, 9 passing gate rows, and
+12 claim rows; all forbidden action flags remain false.
+
+The next task is M2882. It must audit M2881 before any later Route C/HF3
+dependency gate is admitted. If the audit accepts M2881, the admissible
+interpretation is still only dependency-process evidence: Route C/HF3 remains
+stopped until source is supplied or a later bounded dependency route is
+explicitly admitted. M2882 must not fetch/clone Chrono, create external
+dependency directories, install packages, configure, build, install,
 link/import, start a backend, reset, step, roll out, validate, rank, promote,
 or claim high-fidelity validation.
 
