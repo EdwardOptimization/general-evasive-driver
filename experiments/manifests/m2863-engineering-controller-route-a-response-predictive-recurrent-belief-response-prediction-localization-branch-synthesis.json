@@ -1,0 +1,189 @@
+{
+  "id": "m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A branch synthesis can preserve M2843-M2862 response-predictive recurrent-belief localization evidence, satisfy cadence, and decide whether to continue to bounded recipe design or pivot.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_dataset": [
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json",
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_recipe_signal_rows.csv",
+      "docs/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.md",
+      "docs/m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.json",
+      "experiments/manifests/m2861-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize M2843-M2862 response-predictive recurrent-belief localization evidence before continuing the branch"
+    ],
+    "derived_from": [
+      "m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit",
+      "m2852-engineering-controller-route-a-response-predictive-recurrent-belief-closed-loop-delta-result-synthesis"
+    ],
+    "blocked_by": [
+      "branch cadence requires synthesis before another non-synthesis milestone",
+      "M2861 recipe signals are diagnostic and cannot directly admit training",
+      "M2863 must preserve actor and claim boundaries before route selection"
+    ],
+    "supersedes": [
+      "direct M2863 recipe design without branch synthesis"
+    ],
+    "invalidates": []
+  },
+  "public_gates": [
+    "M2863 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2863 must preserve M2861 diagnostic recipe signals without turning them into performance claims",
+    "M2863 must select continue pivot stop or promote_to_next_branch under workflow_synthesis",
+    "M2863 must register one bounded follow-up route if continuing",
+    "M2863 must not run training validation ranking promotion or success-rate verdict computation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not run PPO",
+    "do not run validation",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not expose future labels to actor input",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_response_predictive_recurrent_belief_failure_localization_training_recipe_redesign",
+    "evidence_axis": "response_prediction_localization_branch_synthesis",
+    "evidence_increment": "synthesizes M2843-M2862 localized response-prediction evidence and resets cadence before any recipe design",
+    "claim_scope": "Branch synthesis only; no training validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if M2861 recipe signals do not justify a bounded next design",
+      "stop if continuing would optimize only fixed public M2850 rows",
+      "stop if actor inputs or label visibility would change",
+      "stop if the next route cannot define rollback and audit gates"
+    ],
+    "fallback_plan": [
+      "pivot to branch stop if M2861 evidence is too diffuse",
+      "pivot to instrumentation repair if response-prediction localization is incomplete",
+      "continue to bounded recipe design if the design can require rollback fresh-surface and audit gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "branch cadence reached after M2862 and before another design milestone",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize response-prediction localization branch evidence before recipe design",
+    "admission_evidence": [
+      "M2862 accepted M2861 response-prediction localization artifacts as claim-safe diagnostic evidence",
+      "M2861 produced 1152 localization rows 36 channel summaries and 3 recipe signal rows",
+      "research_validate cadence requires branch synthesis before continuing"
+    ],
+    "blocked_shortcuts": [
+      "no training PPO validation ranking promotion or success-rate verdict",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+      "experiments/manifests/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.json",
+      "M2863 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists and answers required questions",
+      "synthesis decision is recorded",
+      "actor and claim boundaries are preserved",
+      "one bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2863 synthesizes Route A diagnostics and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2863 synthesis is not level3 self-identification evidence."
+    ],
+    "temporal_evidence_window": "M2843-M2862 response-predictive recurrent-belief branch.",
+    "negative_result_policy": "If the branch evidence is too weak, preserve it and pivot or stop rather than forcing training.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "bounded M2864 design manifest registration",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes accumulated response-prediction localization evidence and prevents another non-synthesis local-search milestone",
+    "paper_verdict_delta": "no paper verdict; synthesis separates Route A diagnostic recipe work from self-ID evidence",
+    "must_synthesize_if": [
+      "M2863 cannot answer the required synthesis questions",
+      "M2863 would optimize only fixed public M2850 rows",
+      "M2863 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2863 would continue without bounded rollback and audit gates"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "synthesis decision is continue pivot stop or promote_to_next_branch",
+    "synthesis preserves actor 72/action 3 no hidden/oracle labels future-label invisibility and claim boundary",
+    "synthesis registers one bounded follow-up route without training validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2863 runs training PPO validation ranking promotion or success-rate verdict computation",
+    "M2863 hides M2861 localized recipe signals or rebrands them as performance evidence",
+    "M2863 changes actor input/action contract or actor label visibility",
+    "M2863 uses M2850 explanatory rows as ordinary validation or optimization denominators",
+    "M2863 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2863 writes a complete branch synthesis and selects a bounded follow-up while preserving actor diagnostic and claim boundaries without training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "branch_synthesis",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.md",
+    "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json",
+    "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_recipe_signal_rows.csv"
+  ],
+  "review_artifact": "docs/reviews/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+  "scoreboard_checkpoint": "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+  "next_blocker": "m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design"
+}

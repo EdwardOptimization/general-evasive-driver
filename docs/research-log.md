@@ -51738,3 +51738,39 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit_20260606T050629Z/command.log`
 - success artifact: `docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md`
 - notes: Completed: audit accepts M2859 complete claim-safe response-prediction trace instrumentation artifacts 12288 trace rows 11968 valid rows 320 gap rows 32 episodes gate_matrix_pass true actor 72/action 3 future labels actor-invisible rejects training validation ranking promotion performance paper current-sim high-fidelity full-driver self-ID claims routes to M2861 trace localization materialization
+
+## 20260606T051921Z m2861-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded existing-artifact response-prediction trace localization materialization can convert M2859 trace and gap rows into channel/horizon/subject recipe signals without rerunning the environment or overclaiming performance.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization --m2860-audit docs/m2860-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-result-audit.md --m2859-summary runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/summary.json --response-prediction-trace-rows runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/response_prediction_trace_rows.csv --response-prediction-episode-rows runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/response_prediction_episode_rows.csv --instrumentation-gap-rows runs/m2859_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_instrumentation_repair/instrumentation_gap_rows.csv --m2857-localization-rows runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/telemetry_localization_rows.csv --output-dir runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization --follow-up-manifest experiments/manifests/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m2861-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-preflight_20260606T051920Z`
+- command log: `runs/research/m2861-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-preflight_20260606T051920Z/command.log`
+- success artifact: `runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json`
+- notes: Completed: materialization status_pass true wrote 1152 response-prediction localization rows 36 channel summary rows 3 recipe signal rows gate_matrix_pass true signals 155 actuator loss review 134 ego-response loss review 863 horizon-boundary masking preserved actor 72/action 3 future-label invisible no environment rerun training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2862 audit
+
+## 20260606T052303Z m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2861 response-prediction trace localization artifacts before recipe interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit_20260606T052303Z`
+- command log: `runs/research/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit_20260606T052303Z/command.log`
+- success artifact: `docs/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.md`
+- notes: Completed: audit accepts M2861 complete claim-safe response-prediction localization artifacts 1152 localization rows 36 channel summaries 3 recipe signals gate_matrix_pass true actor 72/action 3 future-label invisible rejects training validation ranking promotion performance paper current-sim high-fidelity full-driver self-ID claims routes to M2863 branch synthesis
+
+## 20260606T054537Z m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A branch synthesis can preserve M2843-M2862 response-predictive recurrent-belief localization evidence satisfy cadence and decide whether to continue to bounded recipe design or pivot.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis_20260606T054537Z`
+- command log: `runs/research/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis_20260606T054537Z/command.log`
+- success artifact: `docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md`
+- notes: Completed: synthesis decision continue preserves M2843-M2862 diagnostic evidence M2861 1152 localization rows 36 channel summaries 3 recipe signals actor 72/action 3 future-label invisible rejects direct training ranking validation performance paper current-sim high-fidelity full-driver self-ID claims routes to M2864 localized response-prediction training recipe design

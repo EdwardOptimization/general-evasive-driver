@@ -1,0 +1,184 @@
+{
+  "id": "m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded design-only milestone can convert M2861 localized response-prediction recipe signals into an implementation preflight plan without running training or overclaiming performance.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json",
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_localization_rows.csv",
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_channel_summary_rows.csv",
+      "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_recipe_signal_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.json",
+      "experiments/manifests/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.json"
+    ],
+    "parent_objective": [
+      "design a bounded localized response-prediction training recipe before implementation"
+    ],
+    "derived_from": [
+      "m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis",
+      "m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit"
+    ],
+    "blocked_by": [
+      "M2864 must specify a bounded recipe before any PPO continuation",
+      "M2864 must preserve actor 72/action 3 no hidden/oracle actor inputs and future-label invisibility",
+      "M2864 must reject validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims"
+    ],
+    "supersedes": [
+      "direct training from M2861 localized response-prediction recipe signals"
+    ],
+    "invalidates": []
+  },
+  "public_gates": [
+    "M2864 must write a design artifact that translates M2861 recipe signals into bounded implementation-preflight requirements",
+    "M2864 must preserve actor 72/action 3 no hidden/oracle actor inputs and future-label invisibility",
+    "M2864 must define public-row overfit guards fresh-surface requirements rollback criteria and audit criteria",
+    "M2864 must not run training validation ranking promotion or success-rate verdict computation",
+    "M2864 must register one bounded M2865 result-audit manifest"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run training",
+    "do not run PPO",
+    "do not run validation",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not expose future labels to actor input",
+    "do not claim repair success driver performance validation paper current-sim high-fidelity full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_response_predictive_recurrent_belief_failure_localization_training_recipe_redesign",
+    "evidence_axis": "localized_response_prediction_training_recipe_design",
+    "evidence_increment": "converts M2861 localized recipe signals into a bounded implementation-preflight plan without changing model weights",
+    "claim_scope": "Design only; no training validation ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if M2864 cannot define a bounded recipe from M2861 signals",
+      "stop if the design would optimize only fixed public M2850 diagnostic rows",
+      "stop if the design changes actor inputs or exposes future labels",
+      "stop if the design cannot define rollback criteria and audit boundaries"
+    ],
+    "fallback_plan": [
+      "route to branch synthesis if M2861 recipe signals are too diffuse",
+      "route to instrumentation repair if the localization schema is insufficient",
+      "route to implementation preflight only if the design defines bounded recipe changes and rollback gates"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2863 synthesis continued the branch to bounded localized response-prediction recipe design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "design a bounded localized response-prediction training recipe",
+    "admission_evidence": [
+      "M2863 synthesis continued the branch after cadence review",
+      "M2862 accepted M2861 response-prediction localization artifacts as claim-safe diagnostic evidence",
+      "M2861 produced 289 relative high-error localization rows and explicit recipe signals for actuator and ego-response loss review",
+      "M2861 preserved horizon-boundary masking as a recipe signal rather than a performance claim"
+    ],
+    "blocked_shortcuts": [
+      "no training PPO validation ranking promotion or success-rate verdict",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md",
+      "experiments/manifests/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.json",
+      "M2864 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "localized response-prediction recipe design artifact exists",
+      "implementation preflight requirements are bounded and auditable",
+      "actor and claim boundaries are preserved",
+      "one bounded M2865 result audit is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2864 is Route A recipe design and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2864 design is not level3 self-identification evidence."
+    ],
+    "temporal_evidence_window": "M2843-M2863 response-predictive recurrent-belief branch.",
+    "negative_result_policy": "If the recipe cannot be bounded from M2861 signals, preserve the negative result and route to synthesis rather than forcing training.",
+    "allowed_claims": [
+      "localized response-prediction training recipe design",
+      "bounded M2865 result-audit manifest registration",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs a bounded implementation route from M2861 localized evidence after M2863 synthesis rather than adding another aggregate diagnostic panel",
+    "paper_verdict_delta": "no paper verdict; design keeps Route A recipe work separate from self-ID or driver-performance evidence",
+    "must_synthesize_if": [
+      "M2864 cannot define bounded recipe changes from M2861 signals",
+      "M2864 would optimize only fixed public M2850 rows",
+      "M2864 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2864 would change actor input contract or actor label visibility",
+      "M2864 proposes direct training without rollback and audit gates"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md exists",
+    "design maps M2861 actuator ego-response and horizon-boundary signals to bounded implementation requirements",
+    "design defines public-row overfit guards fresh-surface requirements rollback criteria and audit criteria",
+    "design preserves actor 72/action 3 no hidden/oracle labels future-label invisibility and claim boundary",
+    "design registers one bounded M2865 result-audit manifest and makes no training validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2864 runs training PPO validation ranking promotion or success-rate verdict computation",
+    "M2864 hides M2861 localized recipe signals or rebrands them as performance evidence",
+    "M2864 changes actor input/action contract or actor label visibility",
+    "M2864 uses M2850 explanatory rows as ordinary validation or optimization denominators",
+    "M2864 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2864 writes a bounded localized response-prediction training-recipe design while preserving actor diagnostic and claim boundaries without training validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "design_audit",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2863-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-localization-branch-synthesis.md",
+    "docs/m2862-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-localization-materialization-result-audit.md",
+    "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json",
+    "runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/response_prediction_recipe_signal_rows.csv"
+  ],
+  "review_artifact": "docs/reviews/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md",
+  "scoreboard_checkpoint": "docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md",
+  "next_blocker": "m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit"
+}
