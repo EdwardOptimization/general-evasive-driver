@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
+m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design
 ```
 
 Latest attempted milestone:
 
 ```text
-m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
+m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design
+m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design
 ```
 
 Current route:
@@ -38,8 +38,8 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch has stopped Route C/HF3 Chrono under source-unavailable and
-pivoted to Route B L0/L1/L2/L3 capability-prediction post-materialization
-synthesis.
+pivoted to Route B L0/L1/L2/L3 capability-prediction modeling-contract
+design.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -169,13 +169,25 @@ input. It is not training, ranking, driver-performance evidence,
 finite-window-vs-GRU evidence, a paper verdict, a current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
 
-The next task is M2889. It must synthesize the accepted M2887/M2888 dataset
-contract before any modeling implementation or training and choose exactly one
-next action: a bounded capability-prediction modeling design, a
-fresh/source-diverse data-panel design, a dataset repair or utility audit, a
-Route A or Route C pivot, or stop. It must preserve the 34 source-singleton
-and 21 guard exclusions, preserve evaluator-only target boundaries and actor
-72/action 3, and must not reset, step, roll out, validate, train, rank,
+M2889 completed the post-materialization synthesis and selects exactly one
+next action:
+`continue_admit_m2890_bounded_capability_prediction_modeling_contract_design`.
+It accepts M2887/M2888 as sufficient for a bounded capability-prediction
+modeling-contract design, while keeping the accepted evidence at dataset
+contract level only. M2889 preserves 17 usable task rows, 204 profile-task
+rows, 6 evaluator-only target rows, 34 source-singleton exclusions,
+21 guard exclusions, actor 72/action 3, and no hidden/oracle actor input. It
+rejects immediate fresh data design, dataset repair, Route A pivot, Route C
+pivot, and stop as the next action, and rejects implementation, model fitting,
+training, ranking, promotion, verdict, paper, and self-ID claims.
+
+The next task is M2890. It must define the actor-safe feature contract,
+evaluator-only label contract, target normalization, missing-value policy,
+train/eval/holdout split semantics, L0/L1/L2/L3 and current-tiled baselines,
+losses, metrics, gates, and at most one follow-up route before any capability
+prediction implementation or training. It must preserve source-singleton and
+guard exclusions, preserve evaluator-only target boundaries and actor 72/action
+3, and must not reset, step, roll out, validate, fit a model, train, rank,
 promote, or claim driver performance, finite-window-vs-GRU verdict, paper
 result, current-sim verdict, high-fidelity validation, full-driver completion,
 or self-ID evidence.
