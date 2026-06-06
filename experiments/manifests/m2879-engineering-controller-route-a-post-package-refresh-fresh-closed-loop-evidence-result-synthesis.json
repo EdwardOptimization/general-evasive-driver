@@ -1,0 +1,226 @@
+{
+  "id": "m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded synthesis can decide whether the M2876-M2878 post-package-refresh fresh closed-loop diagnostic branch should continue, pivot, route elsewhere, or stop after M2878 accepted complete claim-safe M2877 artifacts.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/post-m2470-route-plan.md",
+      "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+      "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+      "docs/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.md",
+      "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md",
+      "docs/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis.md",
+      "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+      "runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json",
+      "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.json",
+      "experiments/manifests/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.json",
+      "experiments/manifests/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.json"
+    ],
+    "parent_objective": [
+      "synthesize M2876-M2878 post-package-refresh fresh closed-loop diagnostic evidence and select one bounded next route"
+    ],
+    "derived_from": [
+      "m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit",
+      "m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight",
+      "m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design"
+    ],
+    "blocked_by": [
+      "M2877 is complete and claim-safe but remains diagnostic only with 3 success 0 collision and 8 off_track rows",
+      "M2877 cannot be interpreted as validation performance paper current-sim high-fidelity full-driver or self-ID evidence",
+      "M2873 package/protected/HF3 limitations remain guardrails outside ordinary denominators",
+      "post-M2470 route plan requires avoiding static package or narrow diagnostic loops that do not change Route A Route B or Route C decisions"
+    ],
+    "supersedes": [
+      "continuing from M2878 into another direct fixed-surface execution without synthesis",
+      "using M2877 diagnostic rows as validation readiness or driver-performance evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+  "public_gates": [
+    "M2879 must synthesize M2876-M2878 evidence against docs/post-m2470-route-plan.md",
+    "M2879 must separate complete diagnostic execution from validation performance Route B self-ID evidence and Route C high-fidelity readiness",
+    "M2879 must assess whether M2877's 3/11 diagnostic success and 8/11 off_track outcomes change the next Route A admission decision",
+    "M2879 must choose exactly one next decision: continue Route A with a materially different evidence increment, route to failure analysis, route to Route B comparison, route to Route C dependency handling, or stop",
+    "M2879 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible package blocker diagnostic route success progress and verdict labels",
+    "M2879 must not execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion package publication or success-rate verdict computation",
+    "M2879 must not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start external simulation",
+    "do not publish a package",
+    "do not rank controllers checkpoints families scenario roles or stress axes",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide M2877 off_track outcomes or guardrails",
+    "do not weaken M2638/M2836 HF3 blocker",
+    "do not change actor inputs or action contract",
+    "do not expose package blocker diagnostic route success progress or verdict labels to actor input",
+    "do not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_surface",
+    "evidence_axis": "route_a_fresh_closed_loop_diagnostic_result_synthesis_after_package_refresh",
+    "evidence_increment": "synthesizes M2876-M2878 fixed 11-row fresh closed-loop diagnostic evidence after M2878 accepted M2877 artifact completeness and claim safety",
+    "claim_scope": "Branch synthesis only; no validation ranking winner promotion success-rate verdict repair-success recoverability-success localized-response-prediction-success driver-performance paper current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if the next proposed task is another direct fixed-surface execution without material evidence expansion",
+      "stop if M2877 off_track outcomes or guardrails cannot be preserved without overclaiming",
+      "stop if the branch cannot identify a materially evidence-producing Route A follow-up",
+      "stop if the branch would bypass Route B self-ID separation or Route C HF3 source dependency blockers"
+    ],
+    "fallback_plan": [
+      "freeze M2877 as claim-safe diagnostic evidence only",
+      "route to failure analysis if the 8 off_track rows identify a bounded non-overfit mechanism question",
+      "route to Route B comparison if controller-family evidence is the next actual blocker",
+      "route to Route C dependency handling if high-fidelity source availability is the next actual blocker",
+      "stop the post-package-refresh fresh surface branch if no admissible evidence-expanding route exists"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2878 accepted M2877 complete claim-safe diagnostic artifacts and another direct execution step risks repeating the same surface logic",
+    "synthesis_decision": "not_applicable",
+    "synthesis_artifact": "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "route_a_progress_delta",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "synthesize the post-package-refresh fresh closed-loop diagnostic branch and decide whether to continue stop pivot or route elsewhere",
+    "admission_evidence": [
+      "M2878 accepts M2877 as complete and claim-safe diagnostic execution",
+      "M2877 executed all 11 fixed M2876 task-source ids with 3 success 0 collision and 8 off_track outcomes",
+      "M2877 preserves 61 prior-surface exclusions and package/protected/HF3 guardrails",
+      "post-M2470 route plan requires Route A engineering progress without turning package or narrow diagnostic surfaces into the main loop"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout replay validation training PPO repair package publication ranking promotion or success-rate verdict",
+      "no driver-performance paper current-sim high-fidelity full ideal driver or self-ID claim",
+      "no diagnostic rows as ordinary validation denominator",
+      "no selected-platform HF3 execution while M2638/M2836 source blocker remains active"
+    ],
+    "allowed_updates": [
+      "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "one bounded follow-up manifest if synthesis admits a next route",
+      "M2879 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "synthesis artifact exists and answers required questions",
+      "synthesis chooses exactly one next route continue stop pivot or defer decision",
+      "actor and claim boundaries remain preserved",
+      "at most one bounded follow-up route is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2879 synthesizes Route A diagnostic evidence only and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2877/M2878 diagnostic rows do not test wrong-history reset-hidden zero-history or level3 self-ID.",
+      "M2879 must keep Route B finite-window GRU and self-ID evidence outside Route A diagnostic interpretation."
+    ],
+    "temporal_evidence_window": "Post-M2875 Route A fresh closed-loop diagnostic branch through M2878.",
+    "negative_result_policy": "Preserve off_track diagnostics and blocker rows as limitations rather than weakening gates or rebranding diagnostic rows as performance.",
+    "allowed_claims": [
+      "branch synthesis decision",
+      "bounded follow-up route registration freeze or stop decision",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-response sufficiency current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes M2877 fresh closed-loop diagnostic evidence before allowing another direct execution or repair route",
+    "paper_verdict_delta": "no paper verdict; M2879 keeps Route A diagnostic evidence separate from Route B self-ID evidence",
+    "must_synthesize_if": [
+      "M2879 cannot answer the required synthesis questions",
+      "M2879 would continue direct fixed-surface execution without material evidence expansion",
+      "M2879 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2879 would bypass M2638/M2836 HF3 source dependency blocker or Route B separation"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md exists",
+    "synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk route_a_progress_delta and next_branch_decision",
+    "synthesis chooses exactly one next route continue stop pivot defer or explicit stop decision",
+    "synthesis preserves M2877 actor prior-surface package protected HF3 and claim boundaries",
+    "synthesis registers at most one bounded follow-up route without package publication validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2879 runs reset rollout replay validation training PPO repair source build adapter probe external simulation package publication ranking promotion or success-rate verdict computation",
+    "M2879 hides M2877 off_track outcomes or guardrails",
+    "M2879 changes actor input/action contract or actor label visibility",
+    "M2879 continues fixed-surface execution work without material evidence expansion",
+    "M2879 claims repair success recoverability success localized-response-prediction success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response sufficiency current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2879 writes a complete branch synthesis and chooses one bounded next route continue stop pivot defer or explicit stop while preserving actor diagnostic and claim boundaries without package publication validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "result_synthesis",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/post-m2470-route-plan.md",
+    "docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md",
+    "runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json",
+    "docs/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight.md",
+    "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md",
+    "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+  "next_blocker": "m2880-engineering-controller-route-a-post-package-refresh-next-route-admission-design"
+}

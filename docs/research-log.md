@@ -51942,3 +51942,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2877-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-preflight_20260606T090818Z/command.log`
 - success artifact: `runs/m2877_engineering_controller_route_a_post_package_refresh_fresh_closed_loop_evidence_preflight/summary.json`
 - notes: Completed: M2877 preflight status_pass true gate_matrix_pass true resolved fixed 11-row post-package-refresh fresh closed-loop Route A diagnostic surface 11/11 wrote 11 execution rows 0 failure rows diagnostic success/collision/offtrack 3/0/8 termination counts blank 3 off_track 8 prior exclusions 61 package guards 43 actor 72/action 3 no hidden oracle labels no prior-surface package protected HF3 execution no ordinary denominator no validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2878 audit
+
+## 20260606T091402Z m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2877 post-package-refresh fresh closed-loop diagnostic artifacts before any interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit_20260606T091402Z`
+- command log: `runs/research/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit_20260606T091402Z/command.log`
+- success artifact: `docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md`
+- notes: Completed: audit accepts M2877 complete claim-safe diagnostic artifacts status_pass true gate_matrix_pass true 11 fixed M1690 L3_online_gru rows resolved 11 execution rows 0 failure rows diagnostic success/collision/offtrack 3/0/8 prior exclusions 61 package guards 43 actor 72/action 3 no hidden oracle labels no prior-surface package protected HF3 execution no ordinary denominator rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2879 synthesis
