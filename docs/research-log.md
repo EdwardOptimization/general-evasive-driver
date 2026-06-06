@@ -52902,3 +52902,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit_20260606T221417Z/command.log`
 - success artifact: `docs/m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit.md`
 - notes: Completed: audit accepts M2956 actor-head delta execution-admission materialization as claim-safe infrastructure status_pass true gate_matrix_pass true with 17 input-surface rows 56 candidate rows 11 rejection rows 46 source-guardrail rows including 35 M2916 guardrail rows and 11 rejection guardrail rows 28 actor-delta contract guard rows 19 claim-boundary rows and 17 gate rows; rejects candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2958 branch synthesis because local-search cadence requires synthesis before another design milestone.
+
+## 20260606T222009Z m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate M2947-M2957 actor-head delta scaffold integration source-surface and execution-admission evidence and decide whether Route A should proceed to bounded execution design pivot stop or open a new evidence branch before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis_20260606T222009Z`
+- command log: `runs/research/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis_20260606T222009Z/command.log`
+- success artifact: `docs/m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis.md`
+- notes: Completed: synthesis decision continue_to_m2959_actor_head_delta_bounded_execution_design after M2947-M2957 actor-head delta scaffold integration source-surface and admission evidence; preserves 56 admitted rows 11 blocked stale rows actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input and no candidate execution validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
