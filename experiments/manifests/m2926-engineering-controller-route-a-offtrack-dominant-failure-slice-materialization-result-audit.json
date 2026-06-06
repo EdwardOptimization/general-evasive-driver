@@ -98,7 +98,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit",
+  "next_blocker": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -129,7 +129,7 @@
     "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2925 Route A offtrack-dominant failure slice materialization only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md exists",
     "M2926 audits M2925 artifacts row counts gates actor and claim boundaries",

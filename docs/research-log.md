@@ -52518,3 +52518,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight_20260606T180138Z/command.log`
 - success artifact: `runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json`
 - notes: Completed: materialization status_pass true gate_matrix_pass true read 56 M2919 diagnostic rows materialized 38 offtrack rows and preserved 18 non-offtrack context rows source split M2737 12 M2746 10 M2807 8 M2816 8 task split T4 21 T5 17 checkpoint context 28 public pilot 10 M2655 environment window overshoot and time bands accounted guardrail rows preserved actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M2926 audit.
+
+## 20260606T180531Z m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2925 offtrack-dominant failure-slice materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z`
+- command log: `runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z/command.log`
+- success artifact: `docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md`
+- notes: Completed: audit accepts M2925 complete claim-safe offtrack slice materialization status_pass true gate_matrix_pass true 56 rows read 38 offtrack rows 18 context rows source task checkpoint environment window overshoot and time bands accounted actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; selects M2927 offtrack-localization branch synthesis because local-search guard requires synthesis before another process/design milestone.

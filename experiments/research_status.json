@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2931,
+    "completed": 2932,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight_20260606T180138Z/command.log",
+    "command_log": "runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight_20260606T180138Z",
+    "run_dir": "runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z",
     "status": "completed",
-    "task_id": "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight"
+    "task_id": "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M2925 offtrack-dominant failure-slice materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
-    "id": "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit",
+    "hypothesis": "A bounded branch synthesis can integrate M2922-M2926 offtrack-dominant localization evidence and decide whether Route A should proceed to repair admission materialization pivot stop or synthesize a new evidence branch before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M2925 offtrack-dominant slice materialization artifacts row counts gates actor contract guardrails and claim boundaries then select exactly one next route or stop state without repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29210,
+    "notes": "Pending: synthesize M2919-M2926 Route A offtrack-localization evidence and process overhead after local-search guard fired then choose continue pivot stop or promote_to_next_branch without repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 29220,
     "status": "pending",
-    "success_artifact": "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md"
+    "success_artifact": "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md"
   },
-  "updated_at_utc": "20260606T180229Z"
+  "updated_at_utc": "20260606T180815Z"
 }

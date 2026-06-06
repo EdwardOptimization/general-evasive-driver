@@ -1,0 +1,204 @@
+{
+  "id": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded branch synthesis can integrate M2922-M2926 offtrack-dominant localization evidence and decide whether Route A should proceed to repair admission materialization pivot stop or synthesize a new evidence branch before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json",
+      "docs/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.md",
+      "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+      "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+      "docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.json",
+      "experiments/manifests/m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight.json",
+      "experiments/manifests/m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design.json"
+    ],
+    "parent_objective": [
+      "synthesize the offtrack-dominant localization branch after validator-enforced non-evidence cadence fires"
+    ],
+    "derived_from": [
+      "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit",
+      "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight",
+      "m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design",
+      "m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit",
+      "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+      "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis"
+    ],
+    "blocked_by": [
+      "local-search guard requires synthesis after consecutive non-evidence offtrack-localization milestones",
+      "M2922-M2926 produce localization and audit artifacts but no repair execution evidence",
+      "direct repair admission design would extend process overhead without branch synthesis"
+    ],
+    "supersedes": [
+      "direct repair-admission design without offtrack branch synthesis",
+      "another no-execution design milestone on the same branch before synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+  "public_gates": [
+    "M2927 must summarize M2919-M2926 evidence and process overhead",
+    "M2927 must decide continue pivot stop or promote_to_next_branch",
+    "M2927 must state supported claims falsified claims and rejected overclaims",
+    "M2927 must address public-gate overfit risk and whether offtrack localization changes the evidence state",
+    "M2927 must preserve M2877 Route B Route C guardrail exclusions and actor 72/action 3",
+    "M2927 must not execute reset step rollout replay validation training PPO dependency work ranking winner selection promotion or success-rate verdict computation",
+    "M2927 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency acquisition or dependency smoke",
+    "do not change actor inputs or the deployed action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not drop the 18 non-offtrack context rows",
+    "do not rank source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows",
+    "do not select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_localization_branch_synthesis",
+    "evidence_increment": "synthesizes M2922-M2926 offtrack-localization artifacts and decides whether to continue pivot stop or open a new evidence branch",
+    "claim_scope": "Branch synthesis only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if accepted localization evidence does not justify a materially different next route",
+      "stop if the next route would be another same-surface process milestone",
+      "stop if actor or claim boundaries cannot be preserved",
+      "stop if the synthesis would claim performance validation paper or self-ID"
+    ],
+    "fallback_plan": [
+      "pivot to a new evidence branch if repair admission would remain process-only",
+      "route to repair-admission materialization only if synthesis shows a changed evidence question",
+      "stop the branch if no evidence-changing next route is available"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "validator-enforced local-search guard after consecutive offtrack-localization process milestones",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize offtrack-dominant localization evidence and choose a claim-safe next branch action",
+    "admission_evidence": [
+      "M2926 accepts M2925 as complete and claim-safe",
+      "M2925 materializes 38 offtrack rows and 18 non-offtrack context rows",
+      "local-search guard requires synthesis before another process/design milestone"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion performance verdict or repair-success claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden oracle or future-target actor inputs",
+      "no M2877 Route B Route C guardrail execution",
+      "no paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+      "docs/reviews/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+      "M2927 status queue scoreboard research log and review",
+      "one follow-up manifest if M2927 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M2927 selects continue pivot stop or promote_to_next_branch",
+      "next route or stop state is explicit",
+      "actor guardrail and claim boundaries remain explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2927 synthesizes Route A offtrack localization and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2927; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2919-M2926 Route A dependency-facing diagnostics localization and audit only.",
+    "negative_result_policy": "Preserve weak diagnostics and offtrack dominance as engineering evidence without weakening self-ID proof gates.",
+    "allowed_claims": [
+      "offtrack-localization branch synthesis completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes accepted offtrack-localization evidence before deciding whether repair admission is justified",
+    "paper_verdict_delta": "no paper verdict; may justify a later Route A engineering repair-admission route only after synthesis",
+    "must_synthesize_if": [
+      "M2927 cannot identify a materially different next route",
+      "M2927 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU or self-ID",
+      "M2927 would rank controllers source families profiles task families checkpoints or slice bands"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md exists",
+    "M2927 answers all synthesis_questions",
+    "M2927 selects continue pivot stop or promote_to_next_branch",
+    "M2927 preserves all 38 offtrack rows and all 18 non-offtrack context rows",
+    "M2927 preserves M2877 Route B Route C guardrails and actor 72/action 3",
+    "M2927 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2927 executes reset rollout replay validation training ranking promotion or dependency work",
+    "M2927 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2927 ranks controller families source families profiles task families source milestones checkpoints or slice bands selects a winner promotes a checkpoint or claims driver performance",
+    "M2927 hides context rows or treats diagnostic localization as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2927 synthesizes the branch and selects one next route or stop state while preserving actor guardrail and claim boundaries without execution or overclaiming.",
+  "commands": [
+    {
+      "name": "offtrack_localization_branch_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md",
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json",
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv",
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md",
+  "next_blocker": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
+  "status": "pending"
+}
