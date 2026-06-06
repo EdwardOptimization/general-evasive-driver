@@ -3128,3 +3128,34 @@ promotion guards, actor/claim boundary rows, a summary artifact, and an M2847
 result-audit manifest; it must not promote a checkpoint or claim validation,
 driver performance, current-sim, high-fidelity, paper, full-driver, or self-ID
 evidence.
+
+## M2846 Engineering Controller Route A Response-Predictive Recurrent-Belief Core Training Implementation Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight_pass`
+- manifest: `experiments/manifests/m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight.json`
+- result artifact: `docs/m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight.md`
+- summary: `runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json`
+- candidate checkpoint: `runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt`
+- follow-up manifest: `experiments/manifests/m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit.json`
+- bounded run: 8 total steps, 1 env, CPU, `human_view_online_gru`, recurrent sequence training, response prediction dim 9 horizon 4
+- source load mode: `partial_response_prediction_head` because M2655 used response dim 12 and M2846 restricts targets to indices 0-8
+- response prediction smoke: finite loss 0.3585260510444641
+- parameter evidence: response_encoder, online_gru_cell, response_context_fusion, critic, log_std, and response_prediction_head changed; actor_mean did not change; not actor-head-only
+- proof gates: 11/11 pass
+- generalization admission gates: 6/6 pass, with no validation or single-seed verdict claim
+- promotion guards: 6/6 pass, checkpoint not promoted and active configs not overwritten
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: implementation-preflight only; no validation ranking promotion success-rate verdict performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2847-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-result-audit`
+
+## Immediate Next Step
+
+M2847 should audit the M2846 summary, checkpoint manifest, response target
+schema, parameter trace, proof/generalization/promotion gates, actor guard rows,
+claim rows, and M2838 diagnostic accounting before any continuation. It must
+accept or reject the implementation-preflight evidence and either register a
+bounded continuation/repair route or stop/freeze the branch; it must not run new
+training, validation, ranking, promotion, or claim driver-performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID evidence.
