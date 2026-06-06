@@ -16,6 +16,8 @@ from autodrift.train_ppo import (
     load_training_seed_csv,
     load_init_checkpoint_state,
     train,
+    response_prediction_weight_tensor,
+    weighted_response_prediction_loss,
 )
 
 
@@ -1359,3 +1361,30 @@ def test_response_prediction_targets_mask_future_observations_across_done():
     np.testing.assert_allclose(target[2, 0, 1], [4.0, 14.0])
     assert mask[2, 0, 1] == 1.0
     assert mask[3, 0, 1] == 0.0
+
+
+def test_weighted_response_prediction_loss_supports_horizon_channel_weights():
+    pred = torch.tensor([[[[[2.0, 0.0], [0.0, 4.0]]]]])
+    target = torch.zeros_like(pred)
+    mask = torch.ones((1, 1, 1, 2, 1))
+    uniform = weighted_response_prediction_loss(pred, target, mask, None)
+    weights = response_prediction_weight_tensor(
+        "[[1.0, 3.0], [2.0, 4.0]]",
+        horizon=2,
+        response_dim=2,
+        device=torch.device("cpu"),
+    )
+    weighted = weighted_response_prediction_loss(pred, target, mask, weights)
+
+    assert float(uniform.item()) == pytest.approx(5.0)
+    assert float(weighted.item()) == pytest.approx(6.8)
+
+
+def test_response_prediction_weight_tensor_rejects_bad_shape():
+    with pytest.raises(ValueError, match="one row per horizon"):
+        response_prediction_weight_tensor(
+            "[[1.0, 1.0]]",
+            horizon=2,
+            response_dim=2,
+            device=torch.device("cpu"),
+        )

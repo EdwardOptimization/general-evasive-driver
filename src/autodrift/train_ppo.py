@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import dataclass, field, fields, replace
+import json
 from pathlib import Path
 import sys
 from typing import Any
@@ -192,6 +193,7 @@ class PPOConfig:
     response_prediction_dim: int = 0
     response_prediction_horizon: int = 1
     response_prediction_stride: int = 1
+    response_prediction_weight_json: str = ""
     hidden_contrast_aux_coef: float = 0.0
     hidden_contrast_margin: float = 0.05
     action_contrast_aux_coef: float = 0.0
@@ -864,6 +866,54 @@ def build_response_prediction_targets(
     return target, mask
 
 
+def response_prediction_weight_tensor(
+    weight_json: str,
+    *,
+    horizon: int,
+    response_dim: int,
+    device: torch.device,
+) -> torch.Tensor | None:
+    """Return a horizon/channel weight matrix or None for legacy uniform loss."""
+
+    if not str(weight_json).strip():
+        return None
+    parsed = json.loads(weight_json)
+    if not isinstance(parsed, list) or len(parsed) != int(horizon):
+        raise ValueError("response_prediction_weight_json must be a list with one row per horizon")
+    rows: list[list[float]] = []
+    for horizon_index, row in enumerate(parsed):
+        if not isinstance(row, list) or len(row) != int(response_dim):
+            raise ValueError(
+                "response_prediction_weight_json rows must have response_prediction_dim entries "
+                f"(bad row {horizon_index})"
+            )
+        values = [float(value) for value in row]
+        if any(value <= 0.0 for value in values):
+            raise ValueError("response_prediction_weight_json entries must be positive")
+        rows.append(values)
+    return torch.as_tensor(rows, dtype=torch.float32, device=device)
+
+
+def weighted_response_prediction_loss(
+    response_pred: torch.Tensor,
+    response_target: torch.Tensor,
+    response_mask: torch.Tensor,
+    response_weight: torch.Tensor | None,
+) -> torch.Tensor:
+    response_error = torch.square(response_pred - response_target)
+    if response_weight is None:
+        weighted_mask = response_mask.expand_as(response_error)
+    else:
+        if response_weight.shape != response_error.shape[-2:]:
+            raise ValueError(
+                "response prediction weight shape must match horizon and response dimension: "
+                f"{tuple(response_weight.shape)} vs {tuple(response_error.shape[-2:])}"
+            )
+        view_shape = (1,) * (response_error.ndim - 2) + tuple(response_weight.shape)
+        weighted_mask = response_mask * response_weight.view(view_shape)
+    return (response_error * weighted_mask).sum() / torch.clamp(weighted_mask.sum(), min=1.0)
+
+
 def load_training_seed_csv(path: Path | str) -> list[int]:
     seed_path = Path(path)
     with seed_path.open(newline="", encoding="utf-8") as handle:
@@ -1025,6 +1075,14 @@ def train(
             raise ValueError("response_prediction_horizon must be at least 1")
         if config.response_prediction_stride < 1:
             raise ValueError("response_prediction_stride must be at least 1")
+        response_prediction_weights = response_prediction_weight_tensor(
+            config.response_prediction_weight_json,
+            horizon=config.response_prediction_horizon,
+            response_dim=config.response_prediction_dim,
+            device=device,
+        )
+    else:
+        response_prediction_weights = None
     if config.hidden_contrast_aux_coef > 0.0:
         if not uses_online_recurrent or not config.recurrent_sequence_training:
             raise ValueError("hidden contrast auxiliary loss requires online recurrent sequence training")
@@ -1687,10 +1745,11 @@ def train(
                         )
                         response_target = response_target_t[:, mb_env].detach()
                         response_mask = response_mask_t[:, mb_env].unsqueeze(-1)
-                        response_error = torch.square(response_pred - response_target)
-                        response_loss = (response_error * response_mask).sum() / torch.clamp(
-                            response_mask.sum() * config.response_prediction_dim,
-                            min=1.0,
+                        response_loss = weighted_response_prediction_loss(
+                            response_pred,
+                            response_target,
+                            response_mask,
+                            response_prediction_weights,
                         )
                         loss = loss + config.response_prediction_aux_coef * response_loss
                         response_loss_values.append(float(response_loss.detach().cpu().item()))

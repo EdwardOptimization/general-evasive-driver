@@ -3623,3 +3623,29 @@ valid-target masking and loss-mass normalization, write public/fresh surface
 accounting and rollback gate rows, preserve actor 72/action 3 and future-label
 invisibility, and avoid validation, ranking, promotion, performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID claims.
+
+## M2866 Engineering Controller Route A Response-Predictive Recurrent-Belief Localized Response-Prediction Training Implementation Preflight
+
+- status: completed
+- decision: `pass_route_to_m2867_implementation_result_audit`
+- manifest: `experiments/manifests/m2866-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-preflight.json`
+- implementation artifact: `docs/m2866-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-preflight.md`
+- summary: `runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/summary.json`
+- candidate checkpoint: `runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt`
+- parent audit: `docs/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.md`
+- follow-up manifest: `experiments/manifests/m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit.json`
+- run dir: `runs/research/m2866-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-preflight_20260606T062837Z`
+- accepted implementation evidence: status_pass true, gate_matrix_pass true, source checkpoint load_mode strict, response_prediction_loss_mean 0.24616368114948273
+- M2864 contract artifacts: 36 response-loss weight rows, 4 valid-target mask accounting rows, 2 public/fresh surface accounting rows, 6 rollback gate rows, no triggered rollback gates
+- M2861 accounting carried forward: 3 recipe-signal rows, 36 channel summaries, 863 terminal-gap accounted rows
+- actor and claim boundary: actor 72/action 3 future labels actor-invisible no hidden/oracle actor input, no validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2867-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-result-audit`
+
+## Immediate Next Step
+
+M2867 should audit M2866 before interpreting the candidate checkpoint. It must
+verify artifact completeness, checkpoint lineage, the exact M2864 weight table,
+valid-target mask accounting, public/fresh surface separation, rollback gates,
+actor/claim guard rows, and gate matrix. It must not run training, validation,
+ranking, promotion, success-rate verdicts, performance, paper, current-sim,
+high-fidelity, full-driver, or self-ID claims.
