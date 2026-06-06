@@ -3599,3 +3599,27 @@ public-row overfit guards, fresh/disjoint surface requirement, rollback gates,
 actor contract, and claim boundary are complete. It must not run training,
 validation, ranking, promotion, success-rate verdicts, performance, paper,
 current-sim, high-fidelity, full-driver, or self-ID claims.
+
+## M2865 Engineering Controller Route A Response-Predictive Recurrent-Belief Localized Response-Prediction Training Recipe Design Result Audit
+
+- status: completed
+- decision: `accept_m2864_recipe_design_route_to_m2866_implementation_preflight`
+- manifest: `experiments/manifests/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.json`
+- audit artifact: `docs/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit.md`
+- parent design: `docs/m2864-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design.md`
+- parent summary: `runs/m2861_engineering_controller_route_a_response_predictive_recurrent_belief_response_prediction_trace_localization_materialization/summary.json`
+- follow-up manifest: `experiments/manifests/m2866-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-preflight.json`
+- run dir: `runs/research/m2865-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-recipe-design-result-audit_20260606T061003Z`
+- accepted result: M2864 complete claim-safe bounded recipe design for implementation preflight
+- accepted gates: loss weighting table, valid-target horizon masking, public-row overfit guards, fresh/disjoint surface requirement, rollback gates, actor contract, and claim boundary
+- actor and claim boundary: actor 72/action 3 future labels actor-invisible no hidden/oracle actor input, no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2866-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-training-implementation-preflight`
+
+## Immediate Next Step
+
+M2866 should implement and execute the bounded localized response-prediction
+training preflight. It must apply exactly the M2864 loss-weight table with
+valid-target masking and loss-mass normalization, write public/fresh surface
+accounting and rollback gate rows, preserve actor 72/action 3 and future-label
+invisibility, and avoid validation, ranking, promotion, performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID claims.
