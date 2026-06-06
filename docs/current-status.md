@@ -2903,3 +2903,34 @@ M2784 must compare M2655 source and M2782 candidate checkpoint rows as paired
 source-only diagnostic deltas only. It must not train, validate, rank, promote,
 select a winner, compute a success-rate verdict, or claim driver-performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2837 Engineering Controller Post Route C HF3 Stop Evidence-Producing Branch Selection Design
+
+- status: completed
+- decision: `select_route_a_post_route_c_hf3_stop_fresh_source_diverse_closed_loop_evidence_preflight`
+- manifest: `experiments/manifests/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.json`
+- design doc: `docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md`
+- parent audit: `docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md`
+- route plan: `docs/post-m2470-route-plan.md`
+- follow-up manifest: `experiments/manifests/m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight.json`
+- selected route: Route A engineering controller evidence
+- selected surface: 16 fixed unused M1690 `L3_online_gru` task-source ids
+- prior-surface exclusions: M2737, M2759, M2807, M2816, and M2828
+- fixed selected ids: `m1680-spec-0012`, `m1680-spec-0019`, `m1680-spec-0020`, `m1680-spec-0024`, `m1680-spec-0025`, `m1680-spec-0027`, `m1680-spec-0028`, `m1680-spec-0029`, `m1680-spec-0054`, `m1680-spec-0055`, `m1680-spec-0056`, `m1680-spec-0057`, `m1680-spec-0059`, `m1680-spec-0060`, `m1680-spec-0061`, `m1680-spec-0062`
+- actor boundary: P0 observation 72 action 3 ActorView-only extraction no hidden/oracle actor input labels diagnostics blockers routes and verdicts actor-invisible
+- claim boundary: design-only branch selection; no reset step rollout replay validation training ranking promotion success-rate verdict driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2838-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-preflight`
+
+## Immediate Next Step
+
+M2838 should implement and run the Route A post Route C HF3 stop fresh
+source-diverse closed-loop diagnostic preflight:
+
+```text
+PYTHONPATH=src python -m autodrift.engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2837-design docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md --m2737-dir runs/m2737_engineering_controller_route_a_post_negative_diagnostic_source_diverse_closed_loop_evidence_surface_bounded_execution_preflight --m2759-dir runs/m2759_engineering_controller_route_a_post_cross_axis_negative_action_response_containment_probe_bounded_execution_preflight --m2807-dir runs/m2807_engineering_controller_route_a_post_clearance_negative_non_same_repair_cross_axis_bounded_execution_preflight --m2816-dir runs/m2816_engineering_controller_route_a_post_action_response_recoverability_window_instrumented_bounded_execution_preflight --m2828-dir runs/m2828_engineering_controller_route_a_post_package_source_diverse_closed_loop_evidence_expansion_preflight --follow-up-manifest experiments/manifests/m2839-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-audit.json --output-dir runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight --eval-seed-base 283800 --device cpu
+```
+
+M2838 must account for exactly the fixed M2837 16-row surface, execute only
+resolved selected rows, write explicit failure rows for unresolved candidates,
+preserve the actor 72/action 3 contract, keep M2638 Route C/HF3 stopped, and
+register M2839 result audit before any interpretation.

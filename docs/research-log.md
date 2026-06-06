@@ -51449,3 +51449,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit_20260606T000507Z/command.log`
 - success artifact: `docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md`
 - notes: Completed: audit accepts M2835 as complete claim-safe selected-platform source dependency refresh-or-stop design rejects dependency refresh now keeps Route C HF3 stopped until source supplied because no valid source root approved package route dependency acquisition manifest or alternate backend contract is present preserves M2638 dependency_source_unavailable M2834 pivot away from another handoff loop M2832 handoff evidence M2828 mixed outcomes actor 72/action 3 no hidden oracle labels rejects external install fetch import build probe backend reset rollout validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2837 evidence-producing branch selection
+
+## 20260606T001645Z m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A post Route C HF3 stop branch-selection design can route the project away from dependency-process local search and toward a bounded Route A or Route B evidence-producing next step.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design_20260606T001645Z`
+- command log: `runs/research/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design_20260606T001645Z/command.log`
+- success artifact: `docs/m2837-engineering-controller-post-route-c-hf3-stop-evidence-producing-branch-selection-design.md`
+- notes: Completed: selects Route A fresh source-diverse closed-loop diagnostic preflight M2838 over exactly 16 unused M1690 L3_online_gru rows disjoint from M2737 M2759 M2807 M2816 M2828 while preserving M2638 HF3 blocker M2836 stop decision actor 72/action 3 no hidden oracle labels and rejecting Route C dependency continuation validation ranking performance paper current-sim high-fidelity full-driver and self-ID claims
