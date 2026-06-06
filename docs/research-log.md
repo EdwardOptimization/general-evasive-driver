@@ -52422,3 +52422,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit_20260606T165720Z/command.log`
 - success artifact: `docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md`
 - notes: Completed: audit accepts M2916 complete claim-safe no-execution execution-admission materialization status_pass true gate_matrix_pass true 17 input source 67 source 67 candidate 11 rejection 35 guardrail 10 actor 10 claim and 19 gate rows admitted 56 rows to future bounded execution design only blocked 11 M2877 fixed weak diagnostic guard rows source missing 0 actor 72/action 3 no hidden/oracle/future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims; routes to M2918 bounded execution design.
+
+## 20260606T170620Z m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded execution-design milestone can convert the accepted M2916/M2917 Route A dependency-facing execution-admission surface into one later actor-safe diagnostic execution plan without running reset rollout validation training ranking promotion dependency work or performance paper high-fidelity or self-ID claims.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design_20260606T170620Z`
+- command log: `runs/research/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design_20260606T170620Z/command.log`
+- success artifact: `docs/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.md`
+- notes: Completed: design admits M2919 bounded diagnostic execution preflight over all 56 M2916 admitted rows without subsampling M2737 18 M2746 14 M2807 12 M2816 12 while preserving 11 M2877 fixed weak diagnostic rows as guardrails and Route B source-family insufficiency Route C source_unavailable as context-only; actor 72/action 3 no hidden/oracle/future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims in M2918; M2919 must record one diagnostic rollout or failure row per admitted row and register M2920 audit.

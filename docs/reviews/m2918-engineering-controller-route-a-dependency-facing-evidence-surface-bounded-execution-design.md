@@ -1,0 +1,95 @@
+# m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T170639Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: admit_m2919_dependency_facing_bounded_execution_preflight
+- Decision reason: M2918 design admits M2919 bounded diagnostic execution preflight over all 56 M2916 admitted rows without subsampling M2737 18 M2746 14 M2807 12 M2816 12 excludes 11 M2877 fixed weak diagnostic rows as guardrails preserves Route B source-family insufficiency Route C source_unavailable actor 72/action 3 no hidden oracle future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims in M2918 and requires M2919 to register M2920 audit before interpretation.
+
+## Hypothesis
+
+A bounded execution-design milestone can convert the accepted M2916/M2917 Route A dependency-facing execution-admission surface into one later actor-safe diagnostic execution plan without running reset rollout validation training ranking promotion dependency work or performance paper high-fidelity or self-ID claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt
+- parent_dataset: docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_input_source_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_source_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_rejection_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/guardrail_context_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/actor_contract_guard_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/claim_boundary_rows.csv, runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.json, experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json
+- parent_objective: design a later bounded Route A diagnostic execution plan after accepting the M2916 execution-admission materialization
+- derived_from: m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit, m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight
+- blocked_by: M2916 admitted 56 rows only to a future bounded execution design, M2917 accepts materialization only as an input to execution design, 11 M2877 fixed weak diagnostic rows remain guardrail-only, Route B source-family insufficiency and Route C source_unavailable remain context only
+- supersedes: direct execution from M2916 admission rows without a bounded execution design
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.md exists
+- design summarizes M2916/M2917 materialization and accepted boundaries
+- design selects exactly one next route or stop state
+- design preserves actor Route B Route C M2877 denominator and claim boundaries
+- no validation ranking promotion performance paper high-fidelity or self-ID claim is made
+
+## Failure Criteria
+
+- M2918 executes reset rollout replay validation training ranking promotion dependency work
+- M2918 changes actor input or action contract
+- M2918 hides Route B source-family insufficiency Route C source_unavailable or M2877 guard rows
+- M2918 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+- M2918 leaves the next route ambiguous
+
+## Evidence Gates
+
+- M2918 must write a bounded execution-design artifact before any execution
+- M2918 must consume M2916 source candidate rejection guardrail actor claim and gate artifacts
+- M2918 must select exactly one later route or stop state
+- M2918 must preserve the 11 M2877 fixed weak diagnostic rows as guardrails
+- M2918 must preserve Route B source-family insufficiency and Route C source_unavailable as context only
+- M2918 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input
+- M2918 must not execute reset rollout replay validation training ranking promotion dependency acquisition configure build import reset step or policy smoke
+- M2918 must not claim validation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not reset step rollout replay validate rank promote publish or select a winner
+- do not fit train or run PPO
+- do not fetch clone configure build install import link probe or start an external backend
+- do not change actor input or action contract
+- do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input
+- do not convert M2916 admitted rows into performance paper high-fidelity or self-ID claims
+- do not treat M2877 guard rows as validation readiness
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design
+- type: gate
+- checkpoint: docs/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: admit_m2919_dependency_facing_bounded_execution_preflight
+- reason: M2918 design admits M2919 bounded diagnostic execution preflight over all 56 M2916 admitted rows without subsampling M2737 18 M2746 14 M2807 12 M2816 12 excludes 11 M2877 fixed weak diagnostic rows as guardrails preserves Route B source-family insufficiency Route C source_unavailable actor 72/action 3 no hidden oracle future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims in M2918 and requires M2919 to register M2920 audit before interpretation.
+
+## Next Blocker
+
+m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight
