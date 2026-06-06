@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
+m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight
+m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit
+m2886-paper-route-l0-l1-l2-l3-capability-prediction-panel-audit-synthesis-or-data-design
 ```
 
 Current route:
@@ -122,11 +122,24 @@ roll out, validate, train, rank, promote, or claim driver performance,
 finite-window-vs-GRU verdict, paper result, current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
 
-The next task is M2885. It must audit M2884 before any capability-prediction
-training data design or controller-family comparison. The audit must decide
-whether the 17 usable rows are sufficient to admit a bounded Route B
-capability-prediction design, whether the 34 source-singleton and 21 guard rows
-require a new data panel, or whether the branch should stop or synthesize.
+M2885 completed the M2884 inventory result audit and accepts the inventory as
+complete and claim-safe. The accepted claim remains narrow: M2884 shows that
+17 task-source rows are usable candidates for a later Route B L0/L1/L2/L3
+capability-prediction design, while 34 rows remain source-singleton and
+21 rows remain guard rows. The 6 future-capability target families remain
+evaluator-only labels and must not enter actor input. M2885 rejects driver
+performance, controller-family ranking, finite-window-vs-GRU verdict,
+current-response sufficiency, recurrent self-ID, current-sim verdict,
+high-fidelity validation readiness/result, winner selection, and checkpoint
+promotion interpretations.
+
+The next task is M2886. It must synthesize the accepted M2884/M2885 inventory
+and select exactly one next Route B action: read-only capability-prediction
+dataset materialization over the 17 usable rows, fresh/source-diverse data
+panel design, gate-utility audit, Route A pivot, or stop. It must not reset,
+step, roll out, validate, train, rank, promote, or claim driver performance,
+finite-window-vs-GRU verdict, paper result, current-sim verdict,
+high-fidelity validation, full-driver completion, or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
