@@ -52086,3 +52086,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design_20260606T122632Z/command.log`
 - success artifact: `docs/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design.md`
 - notes: Completed: synthesis decision continue admits M2890 bounded capability-prediction modeling contract design after accepted M2887/M2888 dataset contract preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions evaluator-only targets actor 72/action 3 rejects immediate fresh data repair Route A Route C stop and rejects implementation fitting training ranking promotion verdict paper self-ID claims
+
+## 20260606T124037Z m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design gate can convert the accepted M2887/M2888 dataset contract and M2889 synthesis into an actor-safe capability-prediction modeling contract before any implementation or training.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design_20260606T124037Z`
+- command log: `runs/research/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design_20260606T124037Z/command.log`
+- success artifact: `docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md`
+- notes: Completed: design admits M2891 read-only capability-prediction modeling contract materialization preflight defines actor-safe features evaluator-only labels split semantics target normalization missing-value policy losses metrics baselines gates and one follow-up preserves 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions 6 evaluator-only targets actor 72/action 3 rejects immediate implementation fitting training ranking promotion verdict paper and self-ID claims

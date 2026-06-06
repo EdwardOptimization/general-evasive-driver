@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2895,
+    "completed": 2896,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design_20260606T122632Z/command.log",
+    "command_log": "runs/research/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design_20260606T124037Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design_20260606T122632Z",
+    "run_dir": "runs/research/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design_20260606T124037Z",
     "status": "completed",
-    "task_id": "m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design"
+    "task_id": "m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design gate can convert the accepted M2887/M2888 dataset contract and M2889 synthesis into an actor-safe capability-prediction modeling contract before any implementation or training.",
-    "id": "m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design",
-    "kind": "gate",
-    "notes": "Pending: design actor-safe capability-prediction modeling contract after M2889 define features labels split semantics target normalization missing-value policy losses metrics baselines gates and one follow-up preserve 17 usable 204 profile-task 34 source-singleton exclusion 21 guard exclusion evaluator-only targets actor 72/action 3 no reset rollout validation fitting training ranking promotion verdict paper or self-ID claims",
-    "priority": 28850,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight --m2887-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2890-design docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md --output-dir runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2892-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-result-audit.json",
+    "hypothesis": "A read-only preflight can materialize the M2890 actor-safe capability-prediction modeling contract into machine-checkable feature label split loss metric baseline gate and claim rows before any implementation or training.",
+    "id": "m2891-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize actor-safe modeling contract rows after M2890 feature label split loss metric baseline gate claim rows preserve 17 usable 204 profile-task 34 source-singleton exclusions 21 guard exclusions evaluator-only targets actor 72/action 3 no reset rollout validation fitting training ranking promotion verdict paper self-ID claims route to result audit",
+    "priority": 28860,
     "status": "pending",
-    "success_artifact": "docs/m2890-paper-route-l0-l1-l2-l3-capability-prediction-modeling-contract-design.md"
+    "success_artifact": "runs/m2891_paper_route_l0_l1_l2_l3_capability_prediction_modeling_contract_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T122632Z"
+  "updated_at_utc": "20260606T124037Z"
 }
