@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2952,
+    "completed": 2953,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design_20260606T204632Z/command.log",
+    "command_log": "runs/research/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis_20260606T205726Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design_20260606T204632Z",
+    "run_dir": "runs/research/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis_20260606T205726Z",
     "status": "completed",
-    "task_id": "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design"
+    "task_id": "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded local-search synthesis can decide whether the accepted M2940-M2946 Route A actor-head delta implementation-admission chain should continue to one M2948 scaffold milestone, pivot, repair artifacts, or stop before any code implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2940-M2946 non-evidence implementation-admission chain and decide continue to M2948 scaffold pivot stop or artifact repair; no code checkpoint environment training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29420,
+    "command": "PYTHONPATH=src pytest -q tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+    "hypothesis": "A bounded implementation-scaffold milestone can add a reusable residual actor-head delta wrapper that preserves the 72-to-3 actor contract, zero-delta parent-action identity, residual bound enforcement, no privileged inputs, and no checkpoint/environment/training side effects before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold",
+    "kind": "infrastructure",
+    "notes": "Pending: add bounded residual actor-head delta scaffold and focused tests for actor 72/action 3 zero-delta parent-action identity residual bound enforcement forbidden evaluator-label inputs and no checkpoint environment training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29430,
     "status": "pending",
-    "success_artifact": "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md"
+    "success_artifact": "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md"
   },
-  "updated_at_utc": "20260606T205359Z"
+  "updated_at_utc": "20260606T205726Z"
 }

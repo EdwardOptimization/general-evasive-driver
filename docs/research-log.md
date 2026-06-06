@@ -52770,3 +52770,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design_20260606T204632Z/command.log`
 - success artifact: `docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md`
 - notes: Completed: admission decision admit_m2947_scaffold_local_search_synthesis_before_m2948_scaffold selects one bounded residual actor-head delta scaffold route but routes through local-search synthesis first; preserves actor 72/action 3 zero-delta parent-action identity residual bound enforcement no hidden oracle future-target or evaluator-label actor input no checkpoint load modify save rank promote and no environment execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## 20260606T205726Z m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded local-search synthesis can decide whether the accepted M2940-M2946 Route A actor-head delta implementation-admission chain should continue to one M2948 scaffold milestone, pivot, repair artifacts, or stop before any code implementation execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis_20260606T205726Z`
+- command log: `runs/research/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis_20260606T205726Z/command.log`
+- success artifact: `docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md`
+- notes: Completed: local-search synthesis decision continue_to_m2948_bounded_actor_head_delta_implementation_scaffold integrates the M2940-M2946 non-evidence implementation-admission chain; preserves M2944/M2945 actor 72/action 3 traceability objective shortcut and claim boundaries; rejects code implementation execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2948 scaffold.

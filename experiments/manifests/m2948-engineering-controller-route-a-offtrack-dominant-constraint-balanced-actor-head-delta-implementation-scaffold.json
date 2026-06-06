@@ -1,0 +1,202 @@
+{
+  "baseline_artifacts": [
+    "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+    "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
+    "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
+    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+    "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src pytest -q tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+      "name": "scaffold_tests"
+    }
+  ],
+  "decision_rule": "Pass only if M2948 adds a bounded residual actor-head delta scaffold with focused tests while preserving actor and claim boundaries without execution or overclaiming.",
+  "failure_criteria": [
+    "M2948 executes environment reset rollout replay validation training ranking promotion or dependency work",
+    "M2948 loads modifies saves ranks or promotes checkpoints",
+    "M2948 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2948 treats scaffold tests as implementation readiness repair success or performance verdict"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose evaluator-side labels privileged dynamics oracle labels future targets progress metrics or verdict labels to actor input",
+    "do not implement task-specific rule switching or controller-mode branches",
+    "do not claim implementation readiness repair success performance validation paper high-fidelity or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded implementation-scaffold milestone can add a reusable residual actor-head delta wrapper that preserves the 72-to-3 actor contract, zero-delta parent-action identity, residual bound enforcement, no privileged inputs, and no checkpoint/environment/training side effects before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold",
+  "lineage": {
+    "blocked_by": [
+      "M2947 admits only bounded scaffold code and tests before candidate execution",
+      "scaffold must preserve actor observation/action contract and zero-delta identity",
+      "scaffold must not read evaluator labels or mutate checkpoints"
+    ],
+    "derived_from": [
+      "m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis",
+      "m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design",
+      "m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit",
+      "m2944-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.json",
+      "experiments/manifests/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.json",
+      "experiments/manifests/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m2947-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-local-search-synthesis.md",
+      "docs/m2946-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-admission-design.md",
+      "docs/m2945-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-contract-materialization-result-audit.md",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/summary.json",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/delta_contract_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/objective_binding_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/constraint_traceability_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/blocked_shortcut_rows.csv",
+      "runs/m2944_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_implementation_contract_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "add a bounded residual actor-head delta scaffold without executing or training a candidate"
+    ],
+    "supersedes": [
+      "manual residual actor-head patch without scaffold tests",
+      "checkpoint mutation before scaffold contract tests"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "moves from local-search synthesis into executable scaffold code tests while preserving no-execution boundaries",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2948 cannot preserve actor and claim boundaries",
+      "M2948 would require privileged evaluator labels or checkpoint mutation",
+      "M2948 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; enables later bounded implementation audit work but does not create driver evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2948 must consume M2947 synthesis and M2944/M2946 contract evidence",
+    "M2948 must add a reusable residual actor-head delta scaffold and focused unit tests",
+    "M2948 must preserve actor observation shape 72 action shape 3 and deployed steer throttle brake mapping",
+    "M2948 must test zero-delta parent-action identity and residual bound enforcement",
+    "M2948 must not read hidden oracle future-target route objective constraint diagnostic success progress or verdict labels as actor input",
+    "M2948 must not load modify save rank or promote checkpoints and must not execute reset rollout replay validation training PPO dependency work adapter probe or external simulation",
+    "M2948 must not claim implementation readiness repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py",
+      "type": "python"
+    },
+    {
+      "path": "tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+      "type": "python"
+    },
+    {
+      "path": "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+  "scoreboard_checkpoint": "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded scaffold code and tests exist",
+      "actor and claim boundary preserved",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2948 is implementation scaffold infrastructure and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2948; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve contract and shortcut evidence and route to audit rather than weakening self-ID standards.",
+    "temporal_evidence_window": "M2944-M2947 Route A actor-head delta implementation-admission chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py exists",
+    "tests/test_constraint_balanced_actor_head_delta_scaffold.py exists and passes",
+    "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md exists",
+    "M2948 tests cover shape 72-to-3 zero-delta identity residual bound enforcement forbidden input labels and no checkpoint/environment side effects",
+    "M2948 makes no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2947 synthesis continues to one bounded scaffold route",
+      "M2946 admits one bounded residual actor-head delta scaffold route after local-search synthesis",
+      "M2945 accepts M2944 contract materialization as complete and claim-safe",
+      "M2944 provides implementation surface delta objective traceability shortcut actor claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "src/autodrift/constraint_balanced_actor_head_delta_scaffold.py",
+      "tests/test_constraint_balanced_actor_head_delta_scaffold.py",
+      "docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+      "docs/reviews/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md",
+      "M2948 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "blocked_shortcuts": [
+      "no environment execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden/oracle/future-target actor input",
+      "no evaluator-label conditioning or rule-switch branches"
+    ],
+    "next_stage_criteria": [
+      "M2948 scaffold tests pass for shape contract zero-delta identity residual bounds and forbidden inputs",
+      "M2948 registers a result audit before interpretation",
+      "no candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Add bounded residual actor-head delta scaffold code and unit tests"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Implementation scaffold only; no candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_implementation_scaffold",
+    "evidence_increment": "adds the first bounded scaffold code path after local-search synthesis and audited implementation-contract admission without checkpoint mutation or execution",
+    "fallback_plan": [
+      "route to artifact repair if admission or contract docs are inconsistent",
+      "route to stop or pivot if a deployable no-oracle residual scaffold cannot be expressed",
+      "route to scaffold result audit only after focused tests pass"
+    ],
+    "stop_condition": [
+      "stop if scaffold cannot preserve 72-to-3 actor contract",
+      "stop if zero-delta parent-action identity cannot be tested",
+      "stop if residual bounds require checkpoint mutation or execution to verify",
+      "stop if scaffold would read evaluator or privileged labels"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2947 local-search synthesis admits one bounded residual actor-head delta implementation scaffold route"
+  }
+}
