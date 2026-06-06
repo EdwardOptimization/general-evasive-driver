@@ -1,0 +1,178 @@
+{
+  "baseline_artifacts": [
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/outcome_family_rows.csv",
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/next_route_candidate_rows.csv",
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2923 audits M2922 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M2923 hides M2922 failures or missing artifacts",
+    "M2923 treats M2922 localization as validation readiness or performance verdict",
+    "M2923 changes actor input or action contract",
+    "M2923 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate rank promote publish select a winner or execute dependency work",
+    "do not fit train or run PPO",
+    "do not change actor input or action contract",
+    "do not convert M2922 localization rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2922 dependency-facing failure-localization materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+  "id": "m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2922 localization requires a result audit before any repair execution or route commitment",
+      "M2877 Route B and Route C guardrails must remain protected context"
+    ],
+    "derived_from": [
+      "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+      "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.json",
+      "experiments/manifests/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/outcome_family_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/source_milestone_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/task_family_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/checkpoint_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/next_route_candidate_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/run_state.json",
+      "docs/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.md",
+      "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md"
+    ],
+    "parent_objective": [
+      "audit M2922 failure-localization materialization artifacts before any route interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M2922 next-route candidate rows without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized Route A dependency-facing failure localization rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2923 cannot accept M2922 as complete and claim-safe",
+      "M2923 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M2923 would continue static design without new data or synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may inform Route A engineering continuation only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2923 must audit M2922 summary gate matrix actor and claim boundaries",
+    "M2923 must preserve M2877 Route B Route C guardrail exclusions",
+    "M2923 must not claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M2923 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2922 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2923 audits Route A failure localization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2923; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2922 Route A dependency-facing failure localization only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md exists",
+    "M2923 audits M2922 artifacts row counts gates actor and claim boundaries",
+    "M2923 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2922 summary and gate matrix",
+      "M2922 outcome source task checkpoint next-route guard actor claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+      "docs/reviews/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md",
+      "M2923 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2923 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M2923 audit accepts or rejects M2922 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M2922 dependency-facing failure-localization materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_failure_localization_result_audit",
+    "evidence_increment": "audits failure-localization artifacts from M2922",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch synthesis if localization is complete but no route candidate is viable",
+      "route to a bounded design only after audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M2922 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if guardrails entered execution or denominators"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2922 completes failure-localization materialization"
+  }
+}
