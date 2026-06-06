@@ -52602,3 +52602,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z/command.log`
 - success artifact: `docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md`
 - notes: Completed: audit accepts M2931 complete claim-safe single-candidate repair execution preflight status_pass true gate_matrix_pass true 56 resolved 56 executed 0 failures diagnostic outcomes success 6 collision 9 offtrack 32 speed_too_low 10 all selected metrics finite true preserves 38 offtrack 18 context rows 27 coverage constraints 7 shortcut exclusions M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no validation training ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M2933 result synthesis.
+
+## 20260606T191417Z m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can integrate the M2925-M2932 offtrack-dominant repair diagnostic chain, preserve the mixed M2931 outcome without overclaiming, and select one evidence-changing continuation pivot or stop route before any further repair execution validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis_20260606T191417Z`
+- command log: `runs/research/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis_20260606T191417Z/command.log`
+- success artifact: `docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md`
+- notes: Completed: result synthesis decision continue_to_m2934_outcome_shift_localization_preflight integrates M2925-M2932 offtrack-dominant repair diagnostic evidence; preserves M2919 to M2931 same-panel outcome shifts 38 to 32 offtrack 11 to 6 success 3 to 9 collision and 4 to 10 speed_too_low; records 4 offtrack-to-success rows 24 persistent offtrack rows 10 offtrack-to-collision/speed rows and 9 success-context regressions to offtrack/collision; rejects repair-success validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims; registers M2934 no-execution outcome-shift localization preflight.

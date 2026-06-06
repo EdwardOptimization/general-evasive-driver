@@ -1,0 +1,106 @@
+# m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T191540Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: continue_to_m2934_outcome_shift_localization_preflight
+- Decision reason: Completed: synthesis accepts M2931/M2932 as complete claim-safe mixed diagnostics and continues to M2934 outcome-shift localization; M2919 to M2931 same-panel outcomes shift success 11 to 6 collision 3 to 9 offtrack 38 to 32 speed_too_low 4 to 10; only 4 offtrack-to-success rows while 24 offtrack stay offtrack 10 offtrack rows shift to collision/speed and 9 success-context rows regress to offtrack/collision; no validation ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+
+## Hypothesis
+
+A bounded result synthesis can integrate the M2925-M2932 offtrack-dominant repair diagnostic chain, preserve the mixed M2931 outcome without overclaiming, and select one evidence-changing continuation pivot or stop route before any further repair execution validation ranking promotion or performance claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md, docs/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.md, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_candidate_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_resolution_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_failure_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_target_context_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/coverage_constraint_audit_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/source_milestone_aggregate.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/task_family_aggregate.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/guardrail_context_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/actor_contract_guard_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/claim_boundary_rows.csv, runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/gate_matrix.csv, runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json, runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv, runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv, runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/summary.json, runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json, docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md, docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md
+- parent_config: experiments/manifests/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.json, experiments/manifests/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.json, experiments/manifests/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.json, experiments/manifests/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight.json
+- parent_objective: synthesize the offtrack-dominant single-candidate repair execution result after M2932 accepts M2931 as complete and claim-safe but rejects direct interpretation
+- derived_from: m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit, m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight, m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design, m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit, m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight, m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight
+- blocked_by: M2931 produced complete and claim-safe diagnostics but outcomes are mixed with 6 success 9 collision 32 off_track and 10 speed_too_low, M2931 cannot be interpreted as repair success or driver performance, M2928 coverage constraints shortcut exclusions and M2877 Route B Route C guardrails must remain protected, another repair execution or design route requires synthesis to identify a materially changed evidence question
+- supersedes: direct interpretation of M2931 diagnostic execution rows, direct repair-success or performance claim from M2931, another immediate offtrack repair execution without synthesis
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- synthesis records M2931 status_pass true and M2932 audit acceptance
+- synthesis records 56 candidate rows 56 resolved rows 56 execution rows 0 failure rows 6 success 9 collision 32 off_track and 10 speed_too_low as diagnostic evidence only
+- synthesis preserves M2928 coverage constraints shortcut exclusions and M2877 Route B Route C guardrails as not run not admitted and outside denominators
+- synthesis preserves P0 observation 72 action 3 no hidden/oracle/future-target actor input actor-invisible labels
+- synthesis registers one bounded follow-up manifest if continuing or pivoting
+- no reset step rollout replay validation training PPO private holdout source build adapter probe external simulation dependency execution actor-input change hidden/oracle/future-target input actor-visible labels ranking winner promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full ideal driver completion finite-window-vs-GRU or self-ID claim is made
+
+## Failure Criteria
+
+- M2933 executes reset step rollout replay validation training PPO source build adapter probe external simulation dependency work or private holdout
+- M2933 changes actor input or action contract
+- M2933 exposes hidden dynamics oracle labels future targets controller labels collision success progress target labels blocker labels protected labels source-family labels task-family labels source-milestone labels route labels or verdicts to actor input
+- M2933 treats source-family task-family profile checkpoint environment window severity time or source-milestone context as ranking winner selection promotion or success-rate verdict evidence
+- M2933 treats M2877 Route B or Route C guardrail rows as execution rows or ordinary denominators
+- M2933 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+- M2933 fails to synthesize M2925-M2932 and select a bounded follow-up route or stop
+
+## Evidence Gates
+
+- M2933 must synthesize M2925-M2932 offtrack-dominant repair diagnostic evidence before any additional repair execution training validation ranking or performance claim
+- M2933 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision
+- M2933 must preserve M2931 56 candidate rows 56 resolved rows 56 execution rows 0 failure rows 27 coverage audit rows 21 actor guard rows 36 claim rows and 22 gates unless it finds a documented contradiction
+- M2933 must preserve M2931 diagnostic outcomes 6 success 9 collision 32 off_track and 10 speed_too_low as diagnostic row accounting only
+- M2933 must explicitly separate M2931 diagnostic row counts from validation repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID evidence
+- M2933 must compare M2931 to M2919 only as bounded same-panel diagnostic context and not as a performance ranking or winner selection
+- M2933 must preserve M2877 Route B and Route C guardrails as non-executed context outside denominators
+- M2933 must preserve P0 observation shape 72 action shape 3 no hidden/oracle/future-target actor input actor-invisible labels and protected rows outside denominators
+- M2933 must decide continue pivot stop or promote_to_next_branch and register one bounded follow-up manifest if continuing or pivoting
+- M2933 must not execute reset step rollout replay validation training PPO private holdout source build adapter probe external simulation dependency work ranking winner selection promotion or success-rate verdict computation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset step rollout replay measured validation training PPO or private holdout
+- do not execute source build adapter probe external simulation dependency acquisition or dependency smoke
+- do not promote a checkpoint
+- do not change actor inputs or the deployed action contract
+- do not inject hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels into actor input
+- do not hide M2931 mixed or negative diagnostic outcomes
+- do not hide M2877 Route B or Route C guardrail or context rows
+- do not treat coverage guardrail or context rows as ordinary success denominators
+- do not rank source milestones task families checkpoints environments windows severity bands or candidate rows
+- do not select a winner or compute success-rate verdict metrics
+- do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis
+- type: gate
+- checkpoint: docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: continue_to_m2934_outcome_shift_localization_preflight
+- reason: Completed: synthesis accepts M2931/M2932 as complete claim-safe mixed diagnostics and continues to M2934 outcome-shift localization; M2919 to M2931 same-panel outcomes shift success 11 to 6 collision 3 to 9 offtrack 38 to 32 speed_too_low 4 to 10; only 4 offtrack-to-success rows while 24 offtrack stay offtrack 10 offtrack rows shift to collision/speed and 9 success-context rows regress to offtrack/collision; no validation ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+
+## Next Blocker
+
+m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2938,
+    "completed": 2939,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z/command.log",
+    "command_log": "runs/research/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis_20260606T191417Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit_20260606T190430Z",
+    "run_dir": "runs/research/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis_20260606T191417Z",
     "status": "completed",
-    "task_id": "m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit"
+    "task_id": "m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result synthesis can integrate the M2925-M2932 offtrack-dominant repair diagnostic chain, preserve the mixed M2931 outcome without overclaiming, and select one evidence-changing continuation pivot or stop route before any further repair execution validation ranking promotion or performance claim.",
-    "id": "m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2925-M2932 offtrack-dominant single-candidate repair diagnostic evidence and choose continue pivot or stop without validation ranking promotion repair-success performance paper high-fidelity or self-ID claims.",
-    "priority": 29280,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight --m2919-dir runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2928-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2931-dir runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight --m2932-audit docs/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.md --m2933-synthesis docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md --output-dir runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight --follow-up-manifest experiments/manifests/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.json",
+    "hypothesis": "A no-execution outcome-shift localization preflight can convert the accepted M2931 fixed-candidate repair diagnostics into machine-checkable M2919-to-M2931 transition rows that expose offtrack repairs, offtrack regressions, and context regressions before any further repair design, training, validation, ranking, or promotion.",
+    "id": "m2934-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-execution M2919-to-M2931 outcome-shift localization rows and aggregates preserving all 56 panel rows 38 offtrack targets 18 context rows 27 coverage constraints 7 shortcut exclusions M2877 Route B Route C guardrails actor 72/action 3 with no training validation ranking promotion repair-success performance paper high-fidelity or self-ID claims.",
+    "priority": 29290,
     "status": "pending",
-    "success_artifact": "docs/m2933-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-synthesis.md"
+    "success_artifact": "runs/m2934_engineering_controller_route_a_offtrack_dominant_repair_execution_outcome_shift_localization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T190508Z"
+  "updated_at_utc": "20260606T191534Z"
 }
