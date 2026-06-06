@@ -97,7 +97,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+  "next_blocker": "m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -127,7 +127,7 @@
     "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2966 Route A actor-head delta objective materialization only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md exists",
     "M2967 audits M2966 artifacts row counts gates actor and claim boundaries",

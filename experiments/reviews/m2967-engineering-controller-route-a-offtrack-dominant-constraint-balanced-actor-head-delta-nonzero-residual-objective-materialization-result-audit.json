@@ -1,0 +1,98 @@
+{
+  "decision_reason": "M2967 accepts M2966 objective materialization as complete and claim-safe with status_pass true gate_matrix_pass true 4 objective families, 4 components, 56 row assignments, 13 success identity guard rows, 11 stale guardrails, 12 actor guards, 23 claim rows, and 17 gate rows; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2968 objective branch synthesis before any training-admission design.",
+  "failure_criteria": [
+    "M2967 hides M2966 failures or missing artifacts",
+    "M2967 treats M2966 objective materialization as training readiness performance verdict or repair success",
+    "M2967 changes actor input or action contract",
+    "M2967 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate train rank promote publish select a winner or execute dependency work",
+    "do not fit train select or execute a nonzero residual head",
+    "do not change actor input or action contract",
+    "do not convert M2966 objective rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T234242Z",
+  "hypothesis": "A bounded result audit can accept or reject the M2966 nonzero residual objective materialization before any residual training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2966 objective rows require a result audit before training or execution",
+      "objective rows are materialization artifacts only and cannot be interpreted as repair success",
+      "11 blocked stale fixed-source rows must remain protected guardrails"
+    ],
+    "derived_from": [
+      "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight",
+      "m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight.json",
+      "experiments/manifests/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/summary.json",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/objective_family_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/objective_component_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/row_assignment_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/success_identity_guard_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/stale_guardrail_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/gate_matrix.csv",
+      "docs/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2966 objective materialization before any nonzero residual training or execution design"
+    ],
+    "supersedes": [
+      "direct nonzero residual training from M2966 objective materialization without result audit",
+      "direct performance interpretation of M2966 objective rows"
+    ]
+  },
+  "milestone": "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+  "next_blocker": "m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2966_nonzero_residual_objective_materialization_claim_safe_route_to_m2968_objective_branch_synthesis",
+  "public_gates": [
+    "M2967 must audit M2966 summary objective row actor and claim boundaries",
+    "M2967 must preserve 56 row assignments 4 objective families 13 success identity guards and 11 blocked stale fixed-source guardrails",
+    "M2967 must not claim repair success validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M2967 must select exactly one next route or stop state"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2966_nonzero_residual_objective_materialization_claim_safe_route_to_m2968_objective_branch_synthesis",
+    "milestone": "m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit",
+    "reason": "M2967 accepts M2966 objective materialization as complete and claim-safe with status_pass true gate_matrix_pass true 4 objective families, 4 components, 56 row assignments, 13 success identity guard rows, 11 stale guardrails, 12 actor guards, 23 claim rows, and 17 gate rows; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2968 objective branch synthesis before any training-admission design.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md exists",
+    "M2967 audits M2966 artifacts row counts gates actor and claim boundaries",
+    "M2967 selects exactly one next route or stop state",
+    "no training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "type": "gate"
+}
