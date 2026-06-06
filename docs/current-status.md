@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
+m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight
+m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
+m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design
 ```
 
 Current route:
@@ -38,7 +38,8 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch has stopped Route C/HF3 Chrono under source-unavailable and
-pivoted to Route B L0/L1/L2/L3 capability-prediction dataset materialization.
+pivoted to Route B L0/L1/L2/L3 capability-prediction post-materialization
+synthesis.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -159,11 +160,22 @@ replay, validate, train, rank, promote, publish a package, or claim driver
 performance, finite-window-vs-GRU verdict, paper result, current-sim verdict,
 high-fidelity validation, full-driver completion, or self-ID evidence.
 
-The next task is M2888. It must audit M2887 before any modeling or training,
-accept or reject the 17 usable rows and 204 profile-task rows, preserve the
-34 source-singleton and 21 guard exclusions, preserve evaluator-only target
-boundaries and actor 72/action 3, and select exactly one bounded next Route B
-action or stop. It must not reset, step, roll out, validate, train, rank,
+M2888 completed the M2887 dataset-materialization result audit and accepts
+M2887 as complete and claim-safe. The accepted evidence remains narrow:
+M2887 is dataset-contract evidence over 17 usable task rows and 204
+profile-task rows, with 6 evaluator-only target rows, 34 source-singleton
+exclusions, 21 guard exclusions, actor 72/action 3, and no hidden/oracle actor
+input. It is not training, ranking, driver-performance evidence,
+finite-window-vs-GRU evidence, a paper verdict, a current-sim verdict,
+high-fidelity validation, full-driver completion, or self-ID evidence.
+
+The next task is M2889. It must synthesize the accepted M2887/M2888 dataset
+contract before any modeling implementation or training and choose exactly one
+next action: a bounded capability-prediction modeling design, a
+fresh/source-diverse data-panel design, a dataset repair or utility audit, a
+Route A or Route C pivot, or stop. It must preserve the 34 source-singleton
+and 21 guard exclusions, preserve evaluator-only target boundaries and actor
+72/action 3, and must not reset, step, roll out, validate, train, rank,
 promote, or claim driver performance, finite-window-vs-GRU verdict, paper
 result, current-sim verdict, high-fidelity validation, full-driver completion,
 or self-ID evidence.

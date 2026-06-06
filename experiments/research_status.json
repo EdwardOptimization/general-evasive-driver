@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2893,
+    "completed": 2894,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z/command.log",
+    "command_log": "runs/research/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit_20260606T121553Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z",
+    "run_dir": "runs/research/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit_20260606T121553Z",
     "status": "completed",
-    "task_id": "m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight"
+    "task_id": "m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M2887 capability-prediction dataset materialization before any modeling or training.",
-    "id": "m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit",
+    "hypothesis": "A bounded post-materialization synthesis can convert the accepted M2887 dataset contract into exactly one next Route B action before any capability-prediction implementation or training.",
+    "id": "m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design",
     "kind": "gate",
-    "notes": "Pending: audit M2887 materialization status_pass true gate_matrix_pass true 17 usable task rows 204 profile-task rows 34 source-singleton exclusions 21 guard exclusions 6 evaluator-only target rows actor 72/action 3 no hidden oracle input no training ranking promotion verdict paper self-ID claims",
-    "priority": 28830,
+    "notes": "Pending: synthesize accepted M2887/M2888 dataset contract choose exactly one modeling design fresh/source-diverse data-panel design dataset repair utility audit Route A/C pivot or stop preserve 17 usable 204 profile-task 34 source-singleton exclusion 21 guard exclusion evaluator-only targets actor 72/action 3 no training ranking promotion verdict paper self-ID claims",
+    "priority": 28840,
     "status": "pending",
-    "success_artifact": "docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md"
+    "success_artifact": "docs/m2889-paper-route-l0-l1-l2-l3-capability-prediction-materialization-audit-synthesis-or-modeling-design.md"
   },
-  "updated_at_utc": "20260606T121043Z"
+  "updated_at_utc": "20260606T121553Z"
 }

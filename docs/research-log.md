@@ -52062,3 +52062,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2887-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-preflight_20260606T120431Z/command.log`
 - success artifact: `runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json`
 - notes: Completed: materialization status_pass true gate_matrix_pass true wrote 17 usable task rows 204 profile-task rows 6 evaluator-only target rows 34 source-singleton exclusions 21 guard exclusions 5 actor contract rows actor 72/action 3 no hidden oracle input no reset rollout validation training ranking promotion verdict paper current-sim high-fidelity full-driver or self-ID claims routes to M2888 audit
+
+## 20260606T121553Z m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2887 capability-prediction dataset materialization before any modeling or training.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit_20260606T121553Z`
+- command log: `runs/research/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit_20260606T121553Z/command.log`
+- success artifact: `docs/m2888-paper-route-l0-l1-l2-l3-capability-prediction-dataset-materialization-result-audit.md`
+- notes: Completed: audit accepts M2887 complete claim-safe dataset materialization status_pass true gate_matrix_pass true 17 usable task rows 204 profile-task rows 6 evaluator-only target rows 34 source-singleton exclusions 21 guard exclusions actor 72/action 3 no hidden oracle input rejects training ranking promotion driver performance finite-window-vs-GRU current-sim high-fidelity full-driver paper and self-ID claims routes to M2889 synthesis/modeling design
