@@ -1,0 +1,195 @@
+{
+  "baseline_artifacts": [
+    "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json",
+    "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/seed_gap_rows.csv",
+    "docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md",
+    "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "command": "true",
+  "commands": [
+    {
+      "command": "true",
+      "name": "design_doc"
+    }
+  ],
+  "created_at_utc": "2026-06-06T14:57:26.361196+00:00",
+  "decision_rule": "Pass only if M2904 designs a claim-safe repair/source-acquisition route for the audited zero-fresh-candidate result without validation or threshold weakening.",
+  "expected_artifacts": [
+    "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md"
+  ],
+  "failure_criteria": [
+    "M2904 weakens source-diversity thresholds to force a pass",
+    "M2904 treats public reference source-singleton or guard rows as proof or denominators",
+    "M2904 admits model-quality validation without new fresh/source-diverse candidates",
+    "M2904 claims driver performance model quality paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2904 fails to select one bounded next route"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit train rank promote publish or select a winner",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels or verdict labels to actor input",
+    "do not downgrade source-diversity thresholds to force a pass",
+    "do not treat public reference source-singleton or guard rows as model-quality or paper denominators",
+    "do not claim prediction quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded design-only milestone can convert the accepted M2903 negative fresh/source-diverse panel audit into a source-acquisition repair plan without validation ranking model-quality paper or self-ID claims.",
+  "id": "m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design",
+  "lineage": {
+    "blocked_by": [
+      "M2902/M2903 found zero fresh_source_diverse_candidate rows",
+      "existing source-singleton rows are seed gaps only and cannot be paper proof",
+      "Route B cannot proceed to model-quality validation before fresh/source-diverse repair"
+    ],
+    "derived_from": [
+      "m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit",
+      "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight",
+      "m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.json",
+      "experiments/manifests/m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/panel_row_taxonomy_rows.csv",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/source_diversity_rows.csv",
+      "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/seed_gap_rows.csv",
+      "docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md"
+    ],
+    "parent_objective": [
+      "design a bounded repair/source-acquisition route for zero admitted fresh/source-diverse candidates"
+    ],
+    "supersedes": [
+      "direct model-quality design from the 17 public reference rows",
+      "treating source-singleton rows as validation or paper denominators"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "designs a repair path from audited seed-gap rows rather than optimizing public proof rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2904 cannot choose between repair materialization Route A pivot Route C pivot or stop",
+      "M2904 would claim model quality self-ID finite-window-vs-GRU driver performance or current-sim verdict",
+      "M2904 would let source-singleton or guard rows enter paper proof",
+      "M2904 would expose evaluator-only future targets to actor input",
+      "another repair-only loop is proposed without materializing new panel evidence"
+    ],
+    "paper_verdict_delta": "no verdict; defines whether Route B can acquire the prerequisite panel evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2905-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2904 must design a source-acquisition repair route for zero admitted fresh candidates",
+    "M2904 must preserve M2901 source-diversity thresholds without weakening them",
+    "M2904 must keep public reference source-singleton and guard rows out of validation paper proof and ordinary denominators",
+    "M2904 must preserve actor 72/action 3 and evaluator-only future target boundaries",
+    "M2904 must select exactly one bounded next action: repair materialization, route pivot, synthesis, or stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+  "risk": "medium",
+  "scoreboard_checkpoint": "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded repair/source-acquisition design outcome",
+      "zero admitted fresh/source-diverse candidates remain the current Route B blocker",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2904 is a repair design only and cannot substitute source acquisition for history-necessity evidence.",
+    "history_necessity_tests": [
+      "None in M2904; later tests require accepted source-diverse panel data and fair L0/L1/L2/L3 comparisons."
+    ],
+    "negative_result_policy": "Preserve zero fresh candidates as the blocker and design repair or stop without weakening self-ID gates.",
+    "temporal_evidence_window": "M2884-M2903 Route B capability-prediction panel inventory dataset contract fitting design materialization and audit chain."
+  },
+  "source_milestone": "m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit",
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md exists",
+    "design preserves M2901 fresh/source-diverse thresholds",
+    "design separates seed-gap rows from validation paper proof and ordinary denominators",
+    "design registers exactly one bounded next route or stop decision",
+    "no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2903 accepts M2902 as complete and claim-safe while preserving zero fresh candidates",
+      "M2902 writes 34 source-singleton seed-gap rows and 21 guard exclusions"
+    ],
+    "allowed_updates": [
+      "docs/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+      "docs/reviews/m2904-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-design.md",
+      "M2904 status queue scoreboard research log and review",
+      "one bounded follow-up repair materialization synthesis pivot or stop manifest"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion",
+      "no additional optimizer step and no promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no source-singleton or guard rows as proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "repair/source acquisition criteria are explicit and do not weaken M2901 thresholds",
+      "source-singleton seed rows are separated from proof rows",
+      "one bounded materialization, synthesis, pivot, or stop route is selected",
+      "no validation ranking promotion model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Route B source-acquisition repair design after a negative fresh panel audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_fresh_panel_expansion",
+    "claim_scope": "preflight_accounting_only_no_validation_no_model_quality_no_driver_performance_claim",
+    "evidence_axis": "fresh_source_diverse_panel_repair_source_acquisition_design",
+    "evidence_increment": "turns the negative M2903 audit into a bounded repair/source-acquisition design before any validation",
+    "fallback_plan": [
+      "pivot to Route A closed-loop evidence if Route B source acquisition is unavailable",
+      "pivot to Route C only if dependency source availability changes",
+      "write a stop synthesis if no claim-safe repair materialization path exists"
+    ],
+    "stop_condition": [
+      "stop if the design cannot preserve source-diversity thresholds",
+      "stop if the design would treat source-singleton or guard rows as proof",
+      "stop if actor-visible evaluator targets or oracle labels would be required",
+      "stop if another repair loop is proposed without a concrete new panel evidence path"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2903 accepts M2902 but preserves zero admitted fresh/source-diverse candidates"
+  }
+}
