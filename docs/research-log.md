@@ -52350,3 +52350,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis_20260606T161526Z/command.log`
 - success artifact: `docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md`
 - notes: Completed: synthesis decision continue admits M2912 Route A dependency-facing evidence surface design after integrating M2910 Route B source-family insufficiency M2879 Route A weak diagnostics 3 success 0 collision 8 off_track and M2883 Route C source_unavailable; rejects same-family Route B direct Route C execution and direct Route A fixed-surface execution with no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## 20260606T162122Z m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded Route A dependency-facing evidence surface design can identify a materially different actor-safe engineering-controller evidence surface after M2911 before any execution.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design_20260606T162122Z`
+- command log: `runs/research/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design_20260606T162122Z/command.log`
+- success artifact: `docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md`
+- notes: Completed: design admits M2913 materialization preflight for a Route A dependency-facing evidence surface defining candidate families C1-C5 exclusion families denominator policy failure taxonomy actor contract and claim boundaries while preserving M2910 Route B source-family insufficiency M2879 weak diagnostics and M2883 Route C source_unavailable with no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2917,
+    "completed": 2918,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis_20260606T161526Z/command.log",
+    "command_log": "runs/research/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design_20260606T162122Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis_20260606T161526Z",
+    "run_dir": "runs/research/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design_20260606T162122Z",
     "status": "completed",
-    "task_id": "m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis"
+    "task_id": "m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded Route A dependency-facing evidence surface design can identify a materially different actor-safe engineering-controller evidence surface after M2911 before any execution.",
-    "id": "m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design",
-    "kind": "gate",
-    "notes": "Pending: design candidate row families exclusion families denominator policy claim boundaries and failure taxonomy for a Route A dependency-facing evidence surface while preserving M2910 Route B source-family insufficiency M2879 weak diagnostics and M2883 Route C source_unavailable with no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims.",
-    "priority": 29070,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight --m2912-design docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md --m2911-synthesis docs/m2911-engineering-controller-route-a-post-route-b-source-insufficient-dependency-facing-synthesis.md --m2910-synthesis docs/m2910-paper-route-l0-l1-l2-l3-capability-prediction-post-source-acquisition-continuation-or-pivot-synthesis.md --m2879-synthesis docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md --m2883-design docs/m2883-engineering-controller-route-c-hf3-chrono-next-dependency-gate-or-stop-design.md --output-dir runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight --follow-up-manifest experiments/manifests/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.json",
+    "hypothesis": "A bounded materialization preflight can convert the M2912 Route A dependency-facing evidence surface design into machine-auditable route context candidate exclusion denominator failure taxonomy actor contract claim boundary and gate rows before any execution.",
+    "id": "m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize M2912 design into route context candidate exclusion denominator failure taxonomy actor contract claim boundary and gate rows and register M2914 audit while preserving Route B source-family insufficiency Route C source_unavailable actor 72/action 3 and no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims.",
+    "priority": 29080,
     "status": "pending",
-    "success_artifact": "docs/m2912-engineering-controller-route-a-dependency-facing-evidence-surface-design.md"
+    "success_artifact": "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T161526Z"
+  "updated_at_utc": "20260606T162122Z"
 }
