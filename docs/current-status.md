@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
+m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight
+m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit
+m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design
 ```
 
 Current route:
@@ -42,10 +42,11 @@ pivoted to Route B L0/L1/L2/L3 capability prediction, accepted the
 modeling-contract materialization audit, completed implementation preflight,
 accepted the implementation result audit, completed implementation branch
 synthesis, completed fitting design, accepted the fitting-design result audit,
-completed bounded fitting implementation preflight, and now sits at fitting
-implementation result audit before any validation, ranking, model-quality
-verdict, paper, finite-window-vs-GRU, current-sim, high-fidelity, full-driver,
-or self-ID route.
+completed bounded fitting implementation preflight, accepted the fitting
+implementation result audit, and now sits at synthesis/model-quality design
+before any validation, ranking, model-quality verdict, paper,
+finite-window-vs-GRU, current-sim, high-fidelity, full-driver, or self-ID
+route.
 
 M2879 closes M2876-M2878 with decision
 `pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
@@ -310,13 +311,29 @@ high-fidelity, full-driver, finite-window-vs-GRU, and self-ID claims. The
 fresh/source-diverse panel trigger remains required before any model-quality or
 paper claim.
 
-The next task is M2899. It must audit M2898's summary, fitting recipe,
-task_source split, target normalization, availability masks, optimizer-step
-rows, profile diagnostics, baseline diagnostics, overfit guards, rollback
-rows, claim rows, and run-local preflight weights. It must accept or reject
-M2898 as implementation-preflight evidence only and select exactly one bounded
-next route before any validation, ranking, model-quality, paper, or self-ID
-claim.
+M2899 completed the M2898 fitting implementation result audit with decision
+`accept_m2898_fitting_implementation_preflight_claim_safe_route_to_m2900_synthesis_or_model_quality_design`.
+It accepts M2898 as complete and claim-safe implementation-preflight evidence
+only: status_pass true, gate_matrix_pass true, 12 recipe rows, 17 split rows,
+19 normalization rows, 323 availability rows, 4608 optimizer rows, 72 profile
+diagnostic rows, 53 baseline rows, 6 overfit rows, 7 rollback rows, 16 claim
+rows, 13 gate rows, and 36 run-local fitted preflight weights. The accepted
+surface preserves target_scalar_dim 19, 13 active target scalars, 221
+available target entries, 17 source task rows, smoke_fit/smoke_eval split
+14/3, actor 72/action 3, no hidden/oracle actor input, no future-target actor
+input, evaluator-only targets, source-singleton and guard exclusions, paper
+holdout false, preflight-only split, and the fresh/source-diverse panel trigger.
+M2899 rejects validation, ranking, promotion, model-quality verdict, paper,
+finite-window-vs-GRU, current-sim, high-fidelity, full-driver, and self-ID
+claims.
+
+The next task is M2900. It must synthesize the accepted M2890-M2899 Route B
+capability-prediction chain and choose exactly one next route: model-quality
+design, fresh/source-diverse data-panel design, contract or implementation
+repair, Route A pivot, Route C pivot, or stop. It must not validate, rank,
+promote, publish, select a winner, or claim model-quality, paper,
+finite-window-vs-GRU, current-sim, high-fidelity, full-driver,
+driver-performance, or self-ID evidence.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
