@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2907,
+    "completed": 2908,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design_20260606T142950Z/command.log",
+    "command_log": "runs/research/m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight_20260606T144203Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design_20260606T142950Z",
+    "run_dir": "runs/research/m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight_20260606T144203Z",
     "status": "completed",
-    "task_id": "m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design"
+    "task_id": "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --m2901-design docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md --m2884-dir runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight --m2887-dir runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight --m2898-dir runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight --output-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --follow-up-manifest experiments/manifests/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.json",
-    "hypothesis": "A bounded materialization preflight can convert the M2901 fresh/source-diverse panel design into machine-auditable panel taxonomy source-diversity split target seed/gap guard rollback and claim rows without validation ranking model-quality or paper claims.",
-    "id": "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M2901 fresh/source-diverse panel taxonomy source diversity split target coverage seed/gap guard rollback claim rows and M2903 audit manifest from existing repo-local artifacts only preserving actor 72/action 3 evaluator-only targets public/reference/source-singleton/guard exclusions no validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
-    "priority": 28970,
+    "command": "PYTHONPATH=src python -m autodrift.paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_result_audit --m2902-summary runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json --m2902-dir runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight --output-doc docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md",
+    "hypothesis": "A bounded result audit can accept or reject the M2902 fresh/source-diverse panel materialization preflight before repair source acquisition validation ranking model-quality paper or self-ID claims.",
+    "id": "m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2902 materialized panel taxonomy source-diversity split target seed-gap guard rollback and claim rows preserve negative fresh-source-diverse result fresh_candidate 0 target_family_coverage 0 without relaxing criteria keep public-reference source-singleton and guard rows out of validation proof and ordinary denominators no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28980,
     "status": "pending",
-    "success_artifact": "runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T142950Z"
+  "updated_at_utc": "20260606T145022Z"
 }

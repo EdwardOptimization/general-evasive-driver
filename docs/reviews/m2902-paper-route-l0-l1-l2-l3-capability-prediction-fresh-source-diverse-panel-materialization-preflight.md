@@ -1,0 +1,94 @@
+# m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T144453Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: fresh_panel_materialized_insufficient_diversity_route_to_m2903_result_audit
+- Decision reason: M2902 materialization preflight status_pass true gate_matrix_pass true wrote 72 panel taxonomy rows 6 source-diversity rows 5 split rows 6 target rows 34 seed-gap rows 21 guard rows 10 gate rows 6 rollback rows and 8 claim rows. Fresh/source-diverse targets are not satisfied: fresh_candidate_task_count 0 fresh_candidate_profile_task_count 0 target_family_coverage_count 0 source_family_count 0 task_family_count 0. Preserves public_reference 17 source_singleton_seed 34 guard 21 actor 72/action 3 evaluator-only targets paper holdout false preflight-only split and no validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims; route to M2903 audit.
+
+## Hypothesis
+
+A bounded materialization preflight can convert the M2901 fresh/source-diverse panel design into machine-auditable panel taxonomy source-diversity split target seed/gap guard rollback and claim rows without validation ranking model-quality or paper claims.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt
+- parent_dataset: docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md, docs/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design.md, docs/m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit.md, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv, runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv, runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json, runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/summary.json
+- parent_config: experiments/manifests/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.json, experiments/manifests/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design.json, experiments/manifests/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.json
+- parent_objective: materialize the fresh/source-diverse panel taxonomy and accounting rows selected by M2901 before any model-quality route
+- derived_from: m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design, m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design, m2884-m2888 capability-prediction panel inventory and dataset materialization chain
+- blocked_by: M2901 admits materialization only as a preflight, fresh/source-diverse panel criteria may not be satisfied by existing artifacts, source-singleton and guard rows must remain excluded from proof and ordinary denominators
+- supersedes: treating the 17 public usable rows as the model-quality denominator, treating source-singleton rows as paper proof, starting model-quality design before panel materialization
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json exists
+- panel taxonomy source diversity split target seed/gap guard rollback and claim rows exist
+- summary records whether source-diversity targets are satisfied without changing the thresholds
+- materialization preserves actor 72/action 3 and evaluator-only future target boundaries
+- materialization registers one bounded follow-up result-audit manifest
+- no validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claim is made
+
+## Failure Criteria
+
+- M2902 resets steps rolls out replays validates fits trains ranks promotes or executes policy action
+- M2902 changes actor input or action contract
+- M2902 exposes future targets hidden dynamics or oracle labels to actor input
+- M2902 weakens source-diversity criteria to pass
+- M2902 claims driver performance model quality finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence
+- M2902 fails to register a result-audit route
+
+## Evidence Gates
+
+- M2902 must write summary panel taxonomy source-diversity split target coverage seed/gap guard rollback and claim rows
+- M2902 must report whether fresh/source-diverse design targets are satisfied without weakening criteria
+- M2902 must preserve actor 72/action 3 no hidden/oracle actor input no future-target actor input and evaluator-only target boundaries
+- M2902 must keep public reference rows source-singleton rows and guard rows out of validation paper proof and ordinary denominators
+- M2902 must register one bounded result-audit manifest
+- M2902 must not reset step rollout replay validate fit train rank promote publish select a winner or claim model quality driver performance finite-window-vs-GRU paper current-sim high-fidelity full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not reset step rollout replay validate fit additional weights train run PPO rank promote publish a package or select a winner
+- do not change actor input or action contract
+- do not expose hidden dynamics oracle labels future targets success progress route labels or verdict labels to actor input
+- do not downgrade source-diversity thresholds to force a pass
+- do not treat public usable rows source-singleton rows or guard rows as model-quality or paper denominators
+- do not claim prediction quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2902_paper_route_l0_l1_l2_l3_capability_prediction_fresh_source_diverse_panel_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: fresh_panel_materialized_insufficient_diversity_route_to_m2903_result_audit
+- reason: M2902 materialization preflight status_pass true gate_matrix_pass true wrote 72 panel taxonomy rows 6 source-diversity rows 5 split rows 6 target rows 34 seed-gap rows 21 guard rows 10 gate rows 6 rollback rows and 8 claim rows. Fresh/source-diverse targets are not satisfied: fresh_candidate_task_count 0 fresh_candidate_profile_task_count 0 target_family_coverage_count 0 source_family_count 0 task_family_count 0. Preserves public_reference 17 source_singleton_seed 34 guard 21 actor 72/action 3 evaluator-only targets paper holdout false preflight-only split and no validation ranking model-quality verdict paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims; route to M2903 audit.
+
+## Next Blocker
+
+m2903-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-result-audit
