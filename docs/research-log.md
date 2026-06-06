@@ -52638,3 +52638,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit_20260606T193400Z/command.log`
 - success artifact: `docs/m2935-engineering-controller-route-a-offtrack-dominant-repair-execution-outcome-shift-localization-result-audit.md`
 - notes: Completed: audit accepts M2934 complete claim-safe outcome-shift localization status_pass true gate_matrix_pass true 56 transition rows 38 offtrack target rows 18 context rows 27 coverage audit rows actor guards and claim rows; preserves transition evidence 4 offtrack-to-success 24 persistent offtrack 10 offtrack-to-collision/speed and 9 success-context regressions to offtrack/collision; rejects repair-success validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims; routes to M2936 tradeoff-aware outcome-shift-informed repair redesign instead of another fixed-candidate execution.
+
+## 20260606T193835Z m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2934/M2935 outcome-shift localization into one actor-safe tradeoff-aware repair redesign that addresses persistent offtrack, collision/speed substitution, and success-context regression before any further execution, training, validation, ranking, promotion, performance, paper, high-fidelity, or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign_20260606T193835Z`
+- command log: `runs/research/m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign_20260606T193835Z/command.log`
+- success artifact: `docs/m2936-engineering-controller-route-a-offtrack-dominant-outcome-shift-informed-repair-redesign.md`
+- notes: Completed: design decision admit_m2937_tradeoff_aware_repair_redesign_materialization_preflight accepts M2934/M2935 localization as input; selects no-execution tradeoff-aware materialization rather than fixed-candidate execution; preserves all 56 transition rows 38 offtrack targets 18 context rows; requires 24 persistent offtrack 10 offtrack-to-collision/speed substitutions 9 success-context regressions and 4 offtrack-to-success positive references as constraints; actor 72/action 3 no hidden oracle or future-target actor input no validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
