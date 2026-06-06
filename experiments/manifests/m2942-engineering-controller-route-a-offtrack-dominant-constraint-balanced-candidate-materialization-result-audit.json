@@ -1,0 +1,183 @@
+{
+  "baseline_artifacts": [
+    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json",
+    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/candidate_route_rows.csv",
+    "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv",
+    "docs/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2942 preserves M2941 candidate materialization evidence and chooses one bounded next route or stop state without overclaiming.",
+  "failure_criteria": [
+    "M2942 hides M2941 failures or missing artifacts",
+    "M2942 treats M2941 constraints as repair success validation readiness or performance verdict",
+    "M2942 selects candidate execution without preserving actor and claim boundaries"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate rank promote publish select a winner or execute dependency work",
+    "do not fit train or run PPO",
+    "do not change actor input or action contract",
+    "do not convert materialized candidate rows into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2941 constraint-balanced candidate materialization before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2941 materialization requires a result audit before interpretation",
+      "candidate rows must remain design accounting and cannot become repair-success or validation evidence"
+    ],
+    "derived_from": [
+      "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight",
+      "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design",
+      "m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis",
+      "m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit",
+      "m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.json",
+      "experiments/manifests/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.json",
+      "experiments/manifests/m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/candidate_route_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/objective_balance_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/constraint_carryforward_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/blocked_shortcut_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/gate_matrix.csv",
+      "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/run_state.json",
+      "docs/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight.md",
+      "docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md",
+      "docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md",
+      "docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md",
+      "runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "audit M2941 constraint-balanced candidate materialization before interpretation"
+    ],
+    "supersedes": [
+      "direct candidate implementation or execution from M2940 without materialization audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized constraint-balanced candidate rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2942 cannot accept M2941 as complete and claim-safe",
+      "M2942 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M2942 would continue another fixed-candidate execution without a materially changed evidence question"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may admit a bounded candidate implementation design or stop/pivot Route A repair",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2942 must audit M2941 summary gate matrix actor and claim boundaries",
+    "M2942 must preserve candidate route objective carryforward shortcut actor and claim row counts",
+    "M2942 must not claim repair success validation ranking performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2942 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2941 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2942 audits Route A candidate materialization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2942; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve negative or insufficient constraints and route to pivot or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2937-to-M2941 Route A tradeoff-aware candidate design chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md exists",
+    "M2942 audits M2941 artifacts row counts gates actor and claim boundaries",
+    "M2942 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2941 summary and gate matrix",
+      "M2941 candidate route objective carryforward shortcut actor and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+      "docs/reviews/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md",
+      "M2942 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2942 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M2942 audit accepts or rejects M2941 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M2941 constraint-balanced candidate materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no repair execution validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_constraint_balanced_candidate_materialization_result_audit",
+    "evidence_increment": "audits M2941 constraint-balanced candidate materialization artifacts",
+    "fallback_plan": [
+      "route to artifact repair if materialization failed",
+      "route to branch stop or pivot if no bounded candidate implementation route remains",
+      "route to a bounded next design only after audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M2941 artifacts are missing or gate matrix fails",
+      "stop if candidate route objective or carryforward rows are incomplete",
+      "stop if actor or claim boundaries were violated",
+      "stop if the audit cannot choose a bounded next design pivot stop or synthesis route without overclaiming"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2941 completes constraint-balanced candidate materialization"
+  }
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2946,
+    "completed": 2947,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design_20260606T200517Z/command.log",
+    "command_log": "runs/research/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight_20260606T201521Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design_20260606T200517Z",
+    "run_dir": "runs/research/m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight_20260606T201521Z",
     "status": "completed",
-    "task_id": "m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design"
+    "task_id": "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight --m2937-dir runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight --m2938-audit docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md --m2939-synthesis docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md --m2940-design docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md --output-dir runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight --follow-up-manifest experiments/manifests/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.json",
-    "hypothesis": "A no-execution materialization preflight can convert the M2940 constraint-balanced actor-head delta candidate design into machine-checkable candidate route, objective balance, constraint carryforward, shortcut, actor, claim, and gate rows before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize the M2940 constraint-balanced actor-head delta candidate route into objective balance constraint carryforward shortcut actor claim gate run_state doc and audit manifest artifacts without execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29360,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2941 constraint-balanced candidate materialization before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2941 candidate route objective balance constraint carryforward shortcut actor claim gate and summary artifacts; accept reject and select one next route or stop state without execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29370,
     "status": "pending",
-    "success_artifact": "runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T200621Z"
+  "updated_at_utc": "20260606T201803Z"
 }

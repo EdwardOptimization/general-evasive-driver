@@ -1,0 +1,93 @@
+# m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T201846Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: constraint_balanced_candidate_materialization_complete_route_to_m2942_result_audit
+- Decision reason: M2941 materializes complete claim-safe constraint-balanced candidate artifacts: 1 route row, 5 objective-balance rows, 56 carryforward constraints, 7 blocked shortcuts, 17 actor guards, 28 claim-boundary rows; preserves 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 candidate-surface counts; actor 72/action 3 no hidden/oracle/future-target actor input and no execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## Hypothesis
+
+A no-execution materialization preflight can convert the M2940 constraint-balanced actor-head delta candidate design into machine-checkable candidate route, objective balance, constraint carryforward, shortcut, actor, claim, and gate rows before any execution training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.md, docs/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.md, docs/m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit.md, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/summary.json, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/transition_constraint_rows.csv, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/offtrack_persistence_constraint_rows.csv, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/collision_speed_substitution_constraint_rows.csv, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/context_retention_constraint_rows.csv, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/positive_transition_reference_rows.csv, runs/m2937_engineering_controller_route_a_offtrack_dominant_tradeoff_aware_repair_redesign_materialization_preflight/candidate_surface_rows.csv
+- parent_config: experiments/manifests/m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design.json, experiments/manifests/m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis.json, experiments/manifests/m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight.json
+- parent_objective: materialize the constraint-balanced candidate route selected by M2940
+- derived_from: m2940-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-candidate-design, m2939-engineering-controller-route-a-offtrack-dominant-post-materialization-continuation-or-stop-synthesis, m2938-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-result-audit, m2937-engineering-controller-route-a-offtrack-dominant-tradeoff-aware-repair-redesign-materialization-preflight
+- blocked_by: M2940 selects materialization before any execution, candidate route objective balance and constraint carryforward must be machine-checkable, actor and claim boundaries must remain explicit before any candidate implementation or execution route
+- supersedes: direct candidate execution without materialized objective/constraint rows, target-only offtrack candidate materialization
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json exists
+- M2941 writes candidate route objective balance constraint carryforward blocked shortcut actor claim gate run_state doc and follow-up audit manifest artifacts
+- M2941 accounts for all 56 transition constraints and expected specialized constraint counts
+- M2941 preserves actor 72/action 3 and no hidden/oracle/future-target actor input
+- M2941 makes no training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim
+
+## Failure Criteria
+
+- M2941 executes reset rollout replay validation training ranking promotion dependency work outside its no-execution materialization scope
+- M2941 changes actor inputs or action contract or exposes hidden/oracle/future-target labels
+- M2941 ranks source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows selects a winner promotes a checkpoint or claims driver performance
+- M2941 hides panel rows context regressions offtrack regressions substitution failures or treats materialization as validation readiness
+
+## Evidence Gates
+
+- M2941 must consume M2940 design M2939 synthesis M2938 audit and M2937 materialized constraints
+- M2941 must materialize candidate route objective balance constraint carryforward blocked shortcut actor claim gate run_state doc and follow-up audit manifest artifacts
+- M2941 must account for all 56 transition constraints 24 persistent offtrack 10 collision/speed substitution 9 context-retention 4 positive-reference and 5 candidate-surface rows
+- M2941 must keep all evaluator constraints actor-invisible and preserve actor 72/action 3
+- M2941 must not execute reset step rollout replay validation training PPO source build dependency work adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2941 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute reset step rollout replay validation training PPO or private holdout
+- do not execute dependency source build adapter probe or external simulation work
+- do not change actor inputs or action contract
+- do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels constraint labels or verdict labels to actor input
+- do not hide persistent offtrack collision/speed substitution context-retention or positive-reference rows
+- do not rank source milestones task families checkpoints environments windows severity bands time bands candidate rows or candidate designs
+- do not select a winner promote a checkpoint or compute a success-rate verdict
+- do not convert objective rows or constraint counts into repair-success performance validation paper high-fidelity or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2941-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2941_engineering_controller_route_a_offtrack_dominant_constraint_balanced_candidate_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: constraint_balanced_candidate_materialization_complete_route_to_m2942_result_audit
+- reason: M2941 materializes complete claim-safe constraint-balanced candidate artifacts: 1 route row, 5 objective-balance rows, 56 carryforward constraints, 7 blocked shortcuts, 17 actor guards, 28 claim-boundary rows; preserves 24 persistent offtrack, 10 collision/speed substitution, 9 context-retention, 4 positive-reference and 5 candidate-surface counts; actor 72/action 3 no hidden/oracle/future-target actor input and no execution training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
+
+## Next Blocker
+
+m2942-engineering-controller-route-a-offtrack-dominant-constraint-balanced-candidate-materialization-result-audit
