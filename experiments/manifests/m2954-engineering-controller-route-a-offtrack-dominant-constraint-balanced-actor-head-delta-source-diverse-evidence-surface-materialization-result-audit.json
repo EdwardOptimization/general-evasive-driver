@@ -1,0 +1,182 @@
+{
+  "baseline_artifacts": [
+    "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/summary.json",
+    "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/panel_spec_rows.csv",
+    "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/contract_traceability_rows.csv",
+    "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/gate_matrix.csv",
+    "docs/m2953-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "source_diverse_evidence_surface_result_audit_only"
+    }
+  ],
+  "decision_rule": "Pass only if M2954 writes a bounded result-audit artifact for M2953 and preserves all actor execution and claim boundaries without execution.",
+  "failure_criteria": [
+    "M2954 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2954 changes actor input or action contract",
+    "M2954 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2954 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not treat M2953 panel materialization as candidate execution repair success or performance evidence",
+    "do not use evaluator labels hidden dynamics oracle labels future targets progress metrics or verdict labels as actor input"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2953 source-diverse evidence-surface materialization before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2953 materialization must be audited before candidate-execution admission",
+      "M2953 panel rows are not repair-success or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m2953-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-preflight",
+      "m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2953-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-preflight.json",
+      "experiments/manifests/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/summary.json",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/evidence_source_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/source_diversity_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/panel_spec_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/contract_traceability_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/side_effect_guard_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2953_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_source_diverse_evidence_surface_materialization_preflight/gate_matrix.csv",
+      "docs/m2953-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-preflight.md",
+      "docs/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit M2953 source-diverse evidence-surface materialization before candidate execution admission"
+    ],
+    "supersedes": [
+      "direct actor-head delta candidate execution from unaudited M2953 panel rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits a newly materialized source-diverse evidence surface",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2954 cannot accept reject repair pivot or stop M2953 artifacts",
+      "M2954 would claim implementation readiness repair success driver performance paper high-fidelity or self-ID evidence",
+      "M2954 would bypass candidate-execution admission boundaries"
+    ],
+    "paper_verdict_delta": "no paper verdict; may admit one bounded candidate-execution route or force repair/stop",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2954 must audit M2953 summary and source-diverse panel/traceability row counts",
+    "M2954 must preserve actor 72/action 3 no hidden/oracle/future-target/evaluator-label actor input",
+    "M2954 must not execute reset rollout validation training ranking promotion dependency work adapter probe or external simulation",
+    "M2954 must not claim implementation readiness repair success driver performance validation paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2953 materialization audit",
+      "actor and claim boundary preserved",
+      "no implementation readiness repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2954 audits a materialized evidence surface only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2954; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If panel rows are incomplete route to repair or stop rather than weakening interpretation standards.",
+    "temporal_evidence_window": "M2951-M2953 post-scaffold integration and evidence-surface materialization."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md exists",
+    "audit summarizes M2953 source-diverse panel/spec and traceability rows",
+    "audit preserves actor and claim boundaries",
+    "audit selects exactly one next route or stop state",
+    "no execution training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2953 writes source, source-diversity, panel/spec, traceability, actor guard, side-effect guard, claim-boundary, and gate rows",
+      "M2953 registers M2954 result audit before candidate execution admission"
+    ],
+    "allowed_updates": [
+      "docs/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md",
+      "docs/reviews/m2954-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-source-diverse-evidence-surface-materialization-result-audit.md",
+      "M2954 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if audit selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no environment execution validation ranking promotion repair-success or performance verdict",
+      "no training replay PPO or checkpoint promotion",
+      "no hidden oracle future-target evaluator-label progress or verdict actor input",
+      "no panel materialization as closed-loop evidence"
+    ],
+    "next_stage_criteria": [
+      "M2954 audit artifact exists",
+      "M2954 accepts rejects repairs pivots or stops M2953 materialization",
+      "actor and claim boundaries remain preserved",
+      "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit the source-diverse evidence surface materialization"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no candidate execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_source_diverse_evidence_surface_materialization_result_audit",
+    "evidence_increment": "audits M2953 source-diverse panel and traceability materialization before any candidate execution",
+    "fallback_plan": [
+      "route to artifact repair if materialization is incomplete",
+      "route to stop or pivot if panel rows require privileged actor inputs",
+      "admit at most one bounded candidate-execution admission route only after audit acceptance"
+    ],
+    "stop_condition": [
+      "stop if M2953 panel/spec or traceability rows are incomplete",
+      "stop if actor or claim boundaries are violated",
+      "stop if M2954 would execute a candidate or dependency work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2953 materialization completed"
+  }
+}
