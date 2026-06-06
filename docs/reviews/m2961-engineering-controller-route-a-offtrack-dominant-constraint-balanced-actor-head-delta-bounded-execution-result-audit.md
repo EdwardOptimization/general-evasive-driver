@@ -1,0 +1,87 @@
+# m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T225315Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2960_actor_head_delta_bounded_execution_claim_safe_route_to_m2962_result_synthesis
+- Decision reason: M2961 accepts M2960 complete claim-safe actor-head delta bounded execution preflight status_pass true gate_matrix_pass true 56 candidates 56 resolved 56 contract execution rows 56 bounded execution rows 0 failures diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 all selected metrics finite true zero-residual identity wrapper read-only checkpoint loads residual_delta_abs_max 0.0 11 blocked stale fixed-source rows excluded actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input no validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims routes to M2962 result synthesis.
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M2960 actor-head delta bounded execution preflight before any validation ranking promotion performance paper high-fidelity or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/summary.json, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/execution_candidate_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/execution_resolution_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_head_delta_contract_execution_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_failure_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/source_milestone_aggregate.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/task_family_aggregate.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/guardrail_context_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_contract_guard_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/claim_boundary_rows.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/gate_matrix.csv, runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/run_state.json, docs/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight.md, docs/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.md
+- parent_config: experiments/manifests/m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight.json, experiments/manifests/m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design.json
+- parent_objective: audit M2960 bounded diagnostic execution artifacts before any interpretation
+- derived_from: m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight, m2959-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-design, m2958-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-admission-branch-synthesis, m2957-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-result-audit, m2956-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-execution-admission-materialization-preflight
+- blocked_by: M2960 diagnostics require a result audit before any verdict or continuation decision, 11 blocked stale fixed-source rows must remain protected guardrails, zero-residual contract execution must not be interpreted as repair success
+- supersedes: direct interpretation of M2960 diagnostic rows without result audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md exists
+- M2961 audits M2960 artifacts row counts gates actor-head delta contract actor and claim boundaries
+- M2961 selects exactly one next route or stop state
+- no validation ranking promotion performance paper high-fidelity or self-ID claim is made
+
+## Failure Criteria
+
+- M2961 hides M2960 failures or missing artifacts
+- M2961 treats M2960 diagnostics as repair success validation readiness or performance verdict
+- M2961 changes actor input or action contract
+- M2961 leaves next route ambiguous
+
+## Evidence Gates
+
+- M2961 must audit M2960 summary gate matrix actor-head delta contract execution actor and claim boundaries
+- M2961 must preserve blocked stale fixed-source guardrail exclusions
+- M2961 must not claim validation performance repair success paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+- M2961 must select exactly one next route or stop state
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun reset rollout replay validate rank promote publish select a winner or execute dependency work
+- do not fit train or run PPO
+- do not mutate save rank or promote checkpoints
+- do not change actor input or action contract
+- do not convert M2960 zero-residual contract diagnostics into repair success performance paper high-fidelity or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit
+- type: gate
+- checkpoint: docs/m2961-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2960_actor_head_delta_bounded_execution_claim_safe_route_to_m2962_result_synthesis
+- reason: M2961 accepts M2960 complete claim-safe actor-head delta bounded execution preflight status_pass true gate_matrix_pass true 56 candidates 56 resolved 56 contract execution rows 56 bounded execution rows 0 failures diagnostic outcomes success 13 collision 7 offtrack 35 speed_too_low 1 all selected metrics finite true zero-residual identity wrapper read-only checkpoint loads residual_delta_abs_max 0.0 11 blocked stale fixed-source rows excluded actor 72/action 3 no hidden oracle future-target evaluator-label progress or verdict actor input no validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims routes to M2962 result synthesis.
+
+## Next Blocker
+
+m2962-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-result-synthesis
