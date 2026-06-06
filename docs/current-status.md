@@ -3427,3 +3427,46 @@ guard, write per-step trace and episode localization artifacts, register M2858
 result audit, and keep actor 72/action 3 no hidden/oracle actor input. It must
 not claim validation, ranking, performance, repair success, paper,
 current-sim, high-fidelity, full-driver, or self-ID evidence.
+
+## M2857 Engineering Controller Route A Response-Predictive Recurrent-Belief Per-Step Telemetry Panel Materialization Preflight
+
+- status: completed
+- decision: `route_to_m2858_per_step_telemetry_panel_materialization_result_audit`
+- manifest: `experiments/manifests/m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight.json`
+- summary: `runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json`
+- doc artifact: `docs/m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight.md`
+- follow-up manifest: `experiments/manifests/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.json`
+- run dir: `runs/research/m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight_20260606T043954Z`
+- accepted telemetry accounting: 24 surface rows, 48 episode summary rows, 4586 per-step trace rows, 24 telemetry localization rows
+- surfaces: 16 M2850 explanatory diagnostic rows and 8 fresh/disjoint telemetry rows
+- gate result: `gate_matrix_pass=true`, failed gates none
+- localization buckets: 15 `response_prediction_timing_unresolved`, 1 `low_speed_unrecovered`, 8 `fresh_surface_mismatch`
+- response prediction instrumentation: `response_prediction_available_count=0`; unavailable traces were preserved as an instrumentation gap rather than invented
+- actor boundary: actor observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible diagnostic labels
+- claim boundary: no training PPO validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit`
+
+## M2858 Engineering Controller Route A Response-Predictive Recurrent-Belief Per-Step Telemetry Panel Materialization Result Audit
+
+- status: completed
+- decision: `accept_m2857_claim_safe_telemetry_route_to_m2859_response_prediction_trace_instrumentation_repair`
+- manifest: `experiments/manifests/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.json`
+- audit artifact: `docs/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit.md`
+- parent summary: `runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json`
+- follow-up manifest: `experiments/manifests/m2859-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-preflight.json`
+- run dir: `runs/research/m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit_20260606T044404Z`
+- accepted result: M2857 complete claim-safe per-step telemetry materialization
+- unresolved evidence: 15 M2850 explanatory rows remain `response_prediction_timing_unresolved`, so direct recipe/training interpretation is not admitted
+- localized evidence: 1 row is `low_speed_unrecovered`
+- fresh surface accounting: 8 fresh/disjoint rows are accounted as `fresh_surface_mismatch` and remain diagnostic only
+- actor and claim boundary: actor 72/action 3 no hidden/oracle actor input, no validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2859-engineering-controller-route-a-response-predictive-recurrent-belief-response-prediction-trace-instrumentation-repair-preflight`
+
+## Immediate Next Step
+
+M2859 should implement bounded response-prediction trace instrumentation or
+explicit gap materialization for the M2857 unresolved telemetry. It must keep
+future response labels actor-invisible, preserve actor 72/action 3 and the
+M2850/M2854/M2838 diagnostic boundaries, register M2860 result audit, and avoid
+training, validation, ranking, promotion, success-rate verdicts, performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID claims.

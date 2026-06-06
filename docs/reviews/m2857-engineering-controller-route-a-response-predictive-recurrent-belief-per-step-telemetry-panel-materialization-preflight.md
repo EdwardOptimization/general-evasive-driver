@@ -1,0 +1,113 @@
+# m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T044352Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: route_to_m2858_per_step_telemetry_panel_materialization_result_audit
+- Decision reason: M2857 materialization status_pass true wrote 24 telemetry surface rows 48 episode summary rows 4586 per-step trace rows 24 localization rows gate_matrix_pass true buckets 15 response_prediction_timing_unresolved 1 low_speed_unrecovered 8 fresh_surface_mismatch actor 72/action 3 no hidden oracle labels M2850 zero-success diagnostics M2854 step-trace requirement M2838 outside ordinary denominators rejects training validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2858 audit
+
+## Hypothesis
+
+A bounded per-step telemetry materialization can localize clearance-progress tradeoff and low-speed onset over M2850 explanatory and fresh/disjoint diagnostic surfaces without changing actor inputs or overclaiming performance.
+
+## Lineage
+
+- parent_checkpoint: runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt, runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt
+- parent_dataset: docs/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.md, docs/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.md, runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/summary.json, runs/m2854_engineering_controller_route_a_response_predictive_recurrent_belief_existing_artifact_failure_localization_materialization/row_failure_localization_rows.csv, runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv, runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv, runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json
+- parent_config: experiments/manifests/m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design.json, experiments/manifests/m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit.json, experiments/manifests/m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight.json
+- parent_objective: materialize per-step telemetry to localize clearance-progress tradeoff low-speed onset action-response lag and response-prediction timing before any training-recipe change
+- derived_from: m2856-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-design, m2855-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-result-audit, m2854-engineering-controller-route-a-response-predictive-recurrent-belief-existing-artifact-failure-localization-materialization-preflight
+- blocked_by: M2856 requires per-step telemetry before revised training recipe or PPO continuation, M2854 marks 16/16 localization rows as requiring step trace, M2850 explanatory rows are public diagnostic rows and cannot be the only evidence surface, actor 72/action 3 and no hidden/oracle actor input must be preserved
+- supersedes: direct PPO continuation from M2854 recipe signals, direct reward redesign without telemetry materialization, another aggregate paired delta panel without per-step traces, optimization only on fixed public M2850 rows
+- invalidates: None
+
+## Success Criteria
+
+- runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json exists
+- per_step_trace_rows.csv episode_trace_summary_rows.csv telemetry_surface_rows.csv telemetry_localization_rows.csv public_row_overfit_guard_rows.csv actor_contract_guard_rows.csv claim_boundary_rows.csv and gate_matrix.csv exist
+- M2857 preserves M2850 zero-success diagnostics positive clearance deltas M2854 step-trace requirement M2838 weak diagnostic accounting actor contract and claim boundary
+- M2857 registers one bounded M2858 result-audit manifest and makes no training validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## Failure Criteria
+
+- M2857 runs training PPO replay validation ranking promotion or success-rate verdict computation
+- M2857 hides M2850 zero-success diagnostics or rebrands positive clearance deltas as performance ranking or repair-success evidence
+- M2857 hides M2854 step-trace requirement or M2838 weak diagnostic accounting
+- M2857 changes actor input/action contract or actor label visibility
+- M2857 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2857 must implement and run only the bounded per-step telemetry materialization admitted by M2856
+- M2857 must write per_step_trace_rows episode_trace_summary_rows telemetry_surface_rows telemetry_localization_rows public_row_overfit_guard_rows actor_contract_guard_rows claim_boundary_rows gate_matrix summary and run_state artifacts
+- M2857 must preserve a M2850 explanatory surface as diagnostic-only public rows and add a fresh or disjoint telemetry surface or explicit overlap guard
+- M2857 must preserve actor observation shape 72 action shape 3 no hidden/oracle actor input and actor-invisible labels
+- M2857 must preserve M2850 zero-success diagnostics positive clearance deltas M2854 step-trace requirement and M2838 weak diagnostic accounting outside ordinary denominators
+- M2857 must register one bounded M2858 result-audit manifest
+- M2857 must not train run PPO validate rank select a winner promote compute success-rate verdicts or claim repair success driver performance paper finite-window-vs-GRU current-sim high-fidelity validation full ideal driver completion or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not train
+- do not run PPO
+- do not run replay
+- do not execute measured validation
+- do not promote a checkpoint
+- do not use private holdout
+- do not change actor inputs
+- do not inject hidden or oracle actor features
+- do not expose source stress-axis scenario-role outcome route success progress or verdict labels to actor input
+- do not hide M2850 zero-success diagnostics
+- do not hide M2854 requires-step-trace result
+- do not hide M2838 weak diagnostic accounting
+- do not treat M2838 M2850 or M2854 rows as ordinary success denominators
+- do not optimize only fixed public M2850 rows
+- do not rank baseline and candidate checkpoints
+- do not select a winner
+- do not compute success-rate or controller-family verdict metrics
+- do not claim repair success
+- do not claim validation readiness
+- do not claim validation result
+- do not claim high-fidelity validation readiness
+- do not claim high-fidelity validation result
+- do not claim paper-level evidence
+- do not claim finite-window vs GRU conclusion
+- do not claim current-sim verdict
+- do not claim level3 self-identification
+- do not claim driver performance from M2857 telemetry
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2857-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m2857_engineering_controller_route_a_response_predictive_recurrent_belief_per_step_telemetry_panel_materialization/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_m2858_per_step_telemetry_panel_materialization_result_audit
+- reason: M2857 materialization status_pass true wrote 24 telemetry surface rows 48 episode summary rows 4586 per-step trace rows 24 localization rows gate_matrix_pass true buckets 15 response_prediction_timing_unresolved 1 low_speed_unrecovered 8 fresh_surface_mismatch actor 72/action 3 no hidden oracle labels M2850 zero-success diagnostics M2854 step-trace requirement M2838 outside ordinary denominators rejects training validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2858 audit
+
+## Next Blocker
+
+m2858-engineering-controller-route-a-response-predictive-recurrent-belief-per-step-telemetry-panel-materialization-result-audit
