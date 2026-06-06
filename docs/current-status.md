@@ -3243,3 +3243,32 @@ rows, proof/generalization/promotion gates, actor and claim rows, a summary, and
 an M2851 result-audit manifest. It must stay diagnostic and non-ranking: no
 validation, winner selection, promotion, success-rate verdict, performance,
 paper, current-sim, high-fidelity, full-driver, or self-ID claim.
+
+## M2850 Engineering Controller Route A Response-Predictive Recurrent-Belief Candidate Closed-Loop Delta Panel Preflight
+
+- status: completed
+- result class: `engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel_pass`
+- manifest: `experiments/manifests/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.json`
+- result artifact: `docs/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.md`
+- summary: `runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json`
+- baseline checkpoint: `runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt`
+- candidate checkpoint: `runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt`
+- follow-up manifest: `experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json`
+- paired panel: 16 fixed M1690 `L3_online_gru` pairs, 32 execution rows, 16 paired delta rows, horizon 96
+- execution status: 32/32 completed, gate matrix 27/27 pass, proof/generalization/promotion separation preserved
+- diagnostic outcomes: 0 success, 0 collision, termination counts `{"": 30, "speed_too_low": 2}` across baseline/candidate subject rows
+- paired deltas: finite delta rows 16/16; deltas are diagnostic rows only and not ranking or winner evidence
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting remains visible and outside ordinary denominators
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role outcome route or verdict labels
+- claim boundary: paired closed-loop diagnostic delta panel only; no validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit`
+
+## Immediate Next Step
+
+M2851 should audit the M2850 summary, paired execution rows, paired delta rows,
+proof/generalization/promotion gates, actor guard rows, claim rows, gate matrix,
+and M2838 diagnostic accounting before any interpretation. It must accept or
+reject the paired delta artifacts and either register a bounded next route or
+stop/freeze the branch; it must not run new training, validation, ranking,
+promotion, success-rate verdict computation, or claim driver-performance, paper,
+current-sim, high-fidelity, full-driver, or self-ID evidence.

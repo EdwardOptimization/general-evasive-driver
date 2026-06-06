@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2855,
+    "completed": 2856,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit_20260606T025049Z/command.log",
+    "command_log": "runs/research/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight_20260606T031940Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit_20260606T025049Z",
+    "run_dir": "runs/research/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight_20260606T031940Z",
     "status": "completed",
-    "task_id": "m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit"
+    "task_id": "m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2849-audit docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md --m2848-summary runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json --baseline-checkpoint runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt --candidate-checkpoint runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt --follow-up-manifest experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json --output-dir runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel --device cpu --eval-seed-base 285000 --row-count 16 --horizon-steps 96",
-    "hypothesis": "A bounded paired closed-loop delta panel can show how the M2848 response-predictive recurrent-belief candidate differs from the M2846 baseline while preserving actor and claim boundaries.",
-    "id": "m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run bounded paired closed-loop diagnostic delta panel for M2846 baseline and M2848 candidate write paired execution delta proof generalization promotion actor claim gate rows summary and M2851 audit manifest preserve actor 72/action 3 no hidden oracle labels M2838 diagnostic boundary reject validation ranking promotion performance paper current-sim high-fidelity full-driver self-ID claims",
-    "priority": 28450,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject M2850 paired closed-loop delta artifacts before any interpretation.",
+    "id": "m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2850 paired execution and delta rows proof generalization promotion actor claim gate summary and M2838 diagnostic boundary no training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "priority": 28460,
     "status": "pending",
-    "success_artifact": "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json"
+    "success_artifact": "docs/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.md"
   },
-  "updated_at_utc": "20260606T025049Z"
+  "updated_at_utc": "20260606T032141Z"
 }
