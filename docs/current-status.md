@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit
+m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
 ```
 
 Latest attempted milestone:
 
 ```text
-m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit
+m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
+m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design
 ```
 
 Current route:
@@ -37,23 +37,34 @@ Current route:
 ```text
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
-current branch is Route A post package-refresh fresh closed-loop evidence
-result synthesis after M2878 accepted the M2877 diagnostic artifacts.
+current branch has pivoted from Route A post-package-refresh fresh diagnostic
+synthesis to Route C/HF3 Chrono dependency-acquisition manifest design.
 
-M2878 accepts M2877 as complete and claim-safe bounded Route A diagnostic
-execution. M2877 resolved all 11 fixed M1690 `L3_online_gru` task-source ids
-selected by M2876, executed 11 diagnostic rollouts, and wrote 0 failure rows.
-Diagnostic outcomes were 3 success, 0 collision, and 8 off_track, with
-termination counts `{'': 3, 'off_track': 8}`. The run preserved 61
-prior-surface exclusions from M2737, M2807, M2816, M2828, M2838, and M2868,
-plus 43 package/protected/HF3 guard rows. Actor 72/action 3, no hidden/oracle
-actor input, no actor-visible package, blocker, diagnostic, route,
-success/progress, or verdict labels, no prior-surface/package/protected/HF3
-execution, and no ordinary success denominator remain preserved. M2878 rejects
-validation, ranking, promotion, performance, paper, current-sim, high-fidelity,
-full-driver, and self-ID interpretations. The next task is M2879: synthesize
-whether the M2876-M2878 branch should continue, pivot, route elsewhere, or stop
-before any further execution or repair route.
+M2879 closes M2876-M2878 with decision
+`pivot_to_route_c_hf3_chrono_dependency_acquisition_manifest_design`. It
+accepts M2877/M2878 as complete and claim-safe bounded Route A diagnostic
+evidence, not validation or performance evidence. M2877 resolved and executed
+all 11 fixed M1690 `L3_online_gru` task-source ids selected by M2876, wrote
+0 failure rows, and produced diagnostic success/collision/off_track counts of
+3/0/8 with termination counts `{'': 3, 'off_track': 8}`. The run preserved
+61 prior-surface exclusions from M2737, M2807, M2816, M2828, M2838, and M2868,
+43 package/protected/HF3 guard rows, actor 72/action 3, no hidden/oracle actor
+input, no actor-visible package, blocker, diagnostic, route, success/progress,
+or verdict labels, no prior-surface/package/protected/HF3 execution, and no
+ordinary success denominator. M2879 rejects another direct fixed-surface Route
+A execution step and rejects validation, ranking, promotion, performance,
+paper, current-sim, high-fidelity, full-driver, and self-ID interpretations.
+
+The next task is M2880. It must write a design-only Route C/HF3 Chrono
+dependency-acquisition manifest using Project Chrono / Chrono::Vehicle 10.0.0,
+source URL `https://github.com/projectchrono/chrono.git`, tag `10.0.0`,
+expected commit prefix `9faf13d`, and external paths under
+`/home/quyaonan/workspace/hf_backends/chrono/10.0.0/` for `source`, `build`,
+`install`, and `logs`. The required gate ladder is source availability,
+configure, build, install, link/import, reset, manual step, then policy smoke.
+M2880 must not fetch, clone, install packages, configure, build, install,
+link/import, start a backend, reset, step, roll out, validate, rank, promote,
+or claim high-fidelity validation.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.

@@ -112,7 +112,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2878 accepted M2877 complete claim-safe diagnostic artifacts and another direct execution step risks repeating the same surface logic",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "pivot",
     "synthesis_artifact": "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -222,5 +222,5 @@
     "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md"
   ],
   "scoreboard_checkpoint": "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
-  "next_blocker": "m2880-engineering-controller-route-a-post-package-refresh-next-route-admission-design"
+  "next_blocker": "m2880-engineering-controller-route-c-hf3-chrono-dependency-acquisition-manifest-design"
 }

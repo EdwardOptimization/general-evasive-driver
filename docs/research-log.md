@@ -51954,3 +51954,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit_20260606T091402Z/command.log`
 - success artifact: `docs/m2878-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-audit.md`
 - notes: Completed: audit accepts M2877 complete claim-safe diagnostic artifacts status_pass true gate_matrix_pass true 11 fixed M1690 L3_online_gru rows resolved 11 execution rows 0 failure rows diagnostic success/collision/offtrack 3/0/8 prior exclusions 61 package guards 43 actor 72/action 3 no hidden oracle labels no prior-surface package protected HF3 execution no ordinary denominator rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2879 synthesis
+
+## 20260606T101034Z m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded synthesis can decide whether the M2876-M2878 post-package-refresh fresh closed-loop diagnostic branch should continue pivot route elsewhere or stop after M2878 accepted complete claim-safe M2877 artifacts.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis_20260606T101034Z`
+- command log: `runs/research/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis_20260606T101034Z/command.log`
+- success artifact: `docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md`
+- notes: Completed: synthesis decision pivot closes M2876-M2878 post-package-refresh fresh diagnostic branch as complete but weak Route A evidence preserving M2877 11/11 resolved 11 execution rows 0 failure rows diagnostic success/collision/offtrack 3/0/8 61 prior exclusions package protected HF3 guardrails actor 72/action 3 no hidden oracle labels rejects validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2880 Chrono dependency-acquisition manifest design
