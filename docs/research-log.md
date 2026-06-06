@@ -52986,3 +52986,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit_20260606T232146Z/command.log`
 - success artifact: `docs/m2964-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-zero-residual-failure-localization-objective-admission-result-audit.md`
 - notes: Completed: audit accepts M2963 post-zero-residual failure-localization and residual-objective admission materialization as complete and claim-safe with 56 localized rows 4 objective-admission rows 3 non-success objective families admitted only for later design 11 blocked stale fixed-source guardrails actor 72/action 3 and gate_matrix_pass true; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2965 nonzero residual objective design.
+
+## 20260606T232700Z m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert audited M2963 residual-objective admission rows into one nonzero residual objective design before any training execution validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design_20260606T232700Z`
+- command log: `runs/research/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design_20260606T232700Z/command.log`
+- success artifact: `docs/m2965-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-design.md`
+- notes: Completed: design admits M2966 no-execution nonzero residual objective materialization preflight from M2964-accepted M2963 objective-admission rows; binds offtrack recovery collision clearance speed-floor guard and success identity guard while preserving all 56 localized rows 13 success identity guard rows 11 blocked stale guardrails actor 72/action 3 and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
