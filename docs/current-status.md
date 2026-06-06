@@ -3078,3 +3078,26 @@ M2844 should audit whether the M2843 protocol is concrete and claim-safe before
 any implementation or training. It must accept or reject the response-predictive
 recurrent-belief core route and either admit a bounded implementation preflight
 design or send the branch to limited-baseline freeze or stop.
+
+## M2844 Engineering Controller Route A Driver-Like Recurrent-Belief Architecture Training Redesign Protocol Result Audit
+
+- status: completed
+- audit decision: `accept_m2843_response_predictive_recurrent_belief_core_training_protocol_route_to_m2845_implementation_preflight_design`
+- manifest: `experiments/manifests/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.json`
+- audit artifact: `docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md`
+- parent protocol: `docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md`
+- follow-up manifest: `experiments/manifests/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.json`
+- accepted route: M2845 implementation-preflight design for response-predictive recurrent-belief core training
+- accepted protocol features: existing `human_view_online_gru` actor 72/action 3, response target observation indices 0-8, horizon 4, recurrent/fusion or response-prediction parameter mutation evidence, proof/generalization/promotion separation
+- rejected route: direct implementation/training, actor_mean.bias-only continuation, same-surface M2838 execution, Route C retry, direct Route B self-ID claim
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- claim boundary: audit-only route acceptance; no implementation training validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design`
+
+## Immediate Next Step
+
+M2845 should design exact implementation-preflight boundaries before code or
+training. It must name code/config modules, response-target extraction, artifact
+schemas, trainable parameter trace, proof/generalization/promotion rows, and a
+bounded implementation-preflight follow-up route.

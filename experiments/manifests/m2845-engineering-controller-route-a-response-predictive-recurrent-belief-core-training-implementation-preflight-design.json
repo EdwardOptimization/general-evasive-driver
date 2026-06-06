@@ -1,0 +1,228 @@
+{
+  "id": "m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md",
+      "docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md",
+      "docs/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.md",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "docs/m2771-engineering-controller-route-a-action-response-mechanism-localized-bounded-repair-result-synthesis.md",
+      "docs/m2786-engineering-controller-route-a-source-only-belief-stress-short-training-branch-synthesis.md",
+      "docs/observation-contract.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.json",
+      "experiments/manifests/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.json",
+      "experiments/manifests/m2842-engineering-controller-route-a-post-hf3-stop-negative-evidence-architecture-redesign-or-freeze-result-audit.json"
+    ],
+    "parent_objective": [
+      "design exact implementation-preflight boundaries for the accepted response-predictive recurrent-belief core training protocol before code changes or training"
+    ],
+    "derived_from": [
+      "m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit",
+      "m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design"
+    ],
+    "blocked_by": [
+      "M2844 accepts only implementation-preflight design before code changes or training",
+      "M2843 requires unchanged actor 72/action 3 and no hidden/oracle actor input",
+      "M2843 requires response-predictive recurrent/fusion parameter evidence rather than actor_mean.bias-only repair",
+      "M2838 weak diagnostic rows must remain visible as 1 success 2 collision and 13 off_track",
+      "proof generalization and promotion row schemas must be designed before implementation"
+    ],
+    "supersedes": [
+      "direct code changes without implementation-preflight design",
+      "direct PPO training without implementation-preflight design",
+      "direct actor_mean.bias-only continuation",
+      "same-surface M2838-like execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+  "public_gates": [
+    "M2845 must design exact implementation-preflight boundaries before code changes or training",
+    "M2845 must preserve actor 72/action 3 no hidden/oracle actor input and no actor-visible evaluator labels",
+    "M2845 must specify code/config modules candidate artifact schemas response-prediction target extraction trainable parameter trace proof gates generalization gates promotion guards and follow-up route",
+    "M2845 must require recurrent/fusion or response-prediction parameter mutation evidence and reject actor_mean.bias-only continuation",
+    "M2845 must preserve M2838 1 success 2 collision 13 off_track as diagnostic evidence only",
+    "M2845 must not execute reset step rollout replay training PPO validation ranking winner selection promotion source build external simulation performance paper current-sim high-fidelity full-driver or self-ID claims",
+    "M2845 must register one bounded implementation-preflight manifest if the design is accepted"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not create or promote a checkpoint",
+    "do not edit training implementation code in M2845",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not execute external simulation",
+    "do not install external dependencies",
+    "do not fetch external source",
+    "do not mutate dependency or source trees",
+    "do not change actor inputs",
+    "do not change deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "do not hide M2838 weak diagnostic outcomes",
+    "do not hide prior-surface protected or HF3 guardrail rows",
+    "do not treat guardrail rows as ordinary success denominators",
+    "do not rank controller families source families task families profiles stress axes or scenario roles",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2845 design"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_driver_like_recurrent_belief_architecture_training_redesign",
+    "evidence_axis": "response_predictive_recurrent_belief_core_implementation_preflight_design",
+    "evidence_increment": "turns the accepted protocol into exact implementation-preflight boundaries without executing code changes or training",
+    "claim_scope": "Design only; no reset rollout replay validation training PPO implementation edit ranking winner selection promotion success-rate verdict dependency acquisition source build driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if implementation boundaries cannot preserve actor 72/action 3",
+      "stop if response prediction requires hidden/oracle targets",
+      "stop if trainable parameter trace cannot reject actor_mean.bias-only continuation",
+      "stop if proof generalization and promotion row schemas cannot be separated",
+      "stop if M2838 weak outcomes would become success denominators or training labels"
+    ],
+    "fallback_plan": [
+      "route to implementation preflight if code/config and artifact boundaries are concrete",
+      "route to limited-baseline freeze if implementation boundaries are not evidence-changing",
+      "route to explicit branch stop if no claim-safe implementation design exists",
+      "defer to Route B only through a separate fair controller-family matrix design",
+      "defer to Route C only through supplied source approved dependency route package route or alternate backend contract"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2844 accepts M2843 protocol and requires exact implementation-preflight boundaries before code or training",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "response-predictive recurrent-belief core training implementation-preflight design",
+    "admission_evidence": [
+      "M2844 accepts M2843 protocol for implementation-preflight design",
+      "M2843 defines response-predictive recurrent-belief core training protocol under actor 72/action 3",
+      "M2838 weak diagnostic evidence remains 1 success 2 collision 13 off_track",
+      "M2771 and M2782/M2786 block actor-head-only continuation as the redesign",
+      "docs/post-m2470-route-plan.md keeps engineering Route A separate from paper Route B and high-fidelity Route C claims"
+    ],
+    "blocked_shortcuts": [
+      "no implementation edit training PPO reset step rollout replay validation in design",
+      "no source build adapter probe dependency acquisition external simulation in design",
+      "no ranking winner selection promotion success-rate verdict",
+      "no repair success driver-performance validation-readiness paper current-sim high-fidelity full ideal driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+      "M2845 status queue scoreboard and review",
+      "one bounded implementation-preflight manifest selected by design if continuing"
+    ],
+    "next_stage_criteria": [
+      "implementation-preflight design artifact exists",
+      "design names code/config modules and artifact schemas",
+      "design preserves actor input and action contract",
+      "design separates proof generalization and promotion gates",
+      "one bounded implementation-preflight route is registered if continuing"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2845 designs Route A implementation boundaries and does not test history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "M2845 may design future hidden intervention row schemas but must not execute or claim their result."
+    ],
+    "temporal_evidence_window": "M2838-M2844 weak diagnostics and recurrent-belief protocol artifacts.",
+    "negative_result_policy": "Preserve weak diagnostics and implementation boundaries; if design cannot remain claim-safe route to freeze or stop.",
+    "allowed_claims": [
+      "implementation-preflight design admitted or rejected",
+      "bounded follow-up route registration",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "prepares implementation-preflight boundaries needed to produce code/config artifacts and later training evidence",
+    "paper_verdict_delta": "no paper verdict; design remains Route A engineering protocol preparation only",
+    "must_synthesize_if": [
+      "M2845 cannot define exact implementation-preflight boundaries",
+      "M2845 would require hidden/oracle actor inputs or targets",
+      "M2845 would admit actor_mean.bias-only continuation as the redesign",
+      "M2845 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M2845 would rank controllers source families profiles stress axes scenario roles select a winner promote a checkpoint or compute success-rate verdict"
+    ]
+  },
+  "hypothesis": "A concrete implementation-preflight design can turn the accepted response-predictive recurrent-belief protocol into bounded code/config artifact boundaries without changing actor inputs or overclaiming weak diagnostics.",
+  "success_criteria": [
+    "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md exists",
+    "design specifies code/config modules response-prediction target extraction artifact schemas trainable parameter trace proof gates generalization gates promotion guards and follow-up route",
+    "design preserves actor 72/action 3 no hidden/oracle actor input and no actor-visible evaluator labels",
+    "design rejects actor_mean.bias-only continuation same-surface M2838 execution direct Route C HF3 retry and direct Route B self-ID claim",
+    "design preserves M2838 1 success 2 collision 13 off_track as diagnostic evidence only",
+    "design registers one bounded implementation-preflight manifest and makes no implementation execution validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2845 edits training implementation code or executes reset step rollout replay validation training PPO source build adapter probe dependency acquisition or external simulation",
+    "M2845 changes actor input or action contract",
+    "M2845 exposes source stress-axis scenario-role route decision success progress or verdict labels to actor input",
+    "M2845 weakens prior-surface protected or HF3 blocker gates or treats blocker rows as success denominators",
+    "M2845 ranks controller families source families task families profiles stress axes or scenario roles selects a winner promotes a checkpoint or computes success rate",
+    "M2845 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2845 designs exact implementation-preflight boundaries while preserving actor boundaries weak diagnostics and claim boundaries without implementation execution ranking validation performance paper current-sim high-fidelity full ideal driver or self-ID claims.",
+  "commands": [
+    {
+      "name": "implementation_preflight_design",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2844-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-result-audit.md",
+    "docs/m2843-engineering-controller-route-a-driver-like-recurrent-belief-architecture-training-redesign-protocol-design.md",
+    "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2845-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight-design.md",
+  "next_blocker": "m2846-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-implementation-preflight"
+}
