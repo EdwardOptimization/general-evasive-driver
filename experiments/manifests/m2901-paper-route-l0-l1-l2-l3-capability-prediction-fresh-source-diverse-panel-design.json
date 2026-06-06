@@ -1,0 +1,215 @@
+{
+  "id": "m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded design-only milestone can convert the M2900 synthesis into a fresh/source-diverse capability-prediction panel expansion spec before any materialization validation ranking model-quality or paper claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design.md",
+      "docs/m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit.md",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/summary.json",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/fitting_recipe_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/task_source_split_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/target_normalization_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/availability_mask_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/profile_metric_diagnostic_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/overfit_guard_rows.csv",
+      "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/rollback_rows.csv",
+      "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+      "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+      "runs/m2887_paper_route_l0_l1_l2_l3_capability_prediction_dataset_materialization_preflight/summary.json",
+      "docs/self-id-go-no-go-paper-route-plan.md",
+      "docs/paper-route-finite-window-vs-gru-plan.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design.json",
+      "experiments/manifests/m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit.json",
+      "experiments/manifests/m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight.json",
+      "experiments/manifests/m2884-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-preflight.json"
+    ],
+    "parent_objective": [
+      "design the fresh/source-diverse panel expansion selected by M2900 before any model-quality or paper denominator is admitted"
+    ],
+    "derived_from": [
+      "m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design",
+      "m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit",
+      "m2898-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-preflight",
+      "m2884-m2888 capability-prediction panel inventory and dataset materialization chain"
+    ],
+    "blocked_by": [
+      "M2898/M2899 fitting implementation evidence remains preflight-only",
+      "17 usable rows remain public and too small for model-quality claims",
+      "34 source-singleton rows remain seeds or gaps only",
+      "fresh/source-diverse panel trigger must be satisfied before model-quality or paper claims"
+    ],
+    "supersedes": [
+      "direct model-quality design from M2898 smoke diagnostics",
+      "using the 17 public rows as a validation denominator",
+      "treating source-singleton rows as paper proof"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md",
+  "public_gates": [
+    "M2901 must write a fresh/source-diverse panel design artifact without materializing rows or running validation",
+    "M2901 must define source-family diversity criteria max single-source share limits target-family coverage and split semantics",
+    "M2901 must preserve actor 72/action 3 no hidden/oracle actor input no future-target actor input and evaluator-only target boundaries",
+    "M2901 must keep source-singleton rows as seeds or gaps only and guard rows outside ordinary denominators",
+    "M2901 must register one bounded materialization preflight manifest if it admits implementation",
+    "M2901 must not claim model quality driver performance finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate fit additional weights train run PPO rank promote publish a package or select a winner",
+    "do not run materialization code or write new panel rows in M2901",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets success progress route labels or verdict labels to actor input",
+    "do not treat public usable rows source-singleton rows or guard rows as model-quality or paper denominators",
+    "do not claim prediction quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "paper_route_l0_l1_l2_l3_capability_prediction_fresh_panel_expansion",
+    "evidence_axis": "fresh_source_diverse_panel_design",
+    "evidence_increment": "defines the first fresh/source-diverse panel expansion route after accepted fitting implementation preflight and synthesis",
+    "claim_scope": "Fresh-panel design only; no materialization validation ranking model quality finite-window-vs-GRU verdict driver performance paper current-sim high-fidelity full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if M2901 cannot define source-family diversity and max single-source share criteria",
+      "stop if the design would reuse 17 public rows as a quality denominator",
+      "stop if source-singleton or guard rows would become paper proof",
+      "stop if target coverage or split semantics remain ambiguous",
+      "stop if evaluator-only future targets would enter actor input"
+    ],
+    "fallback_plan": [
+      "route to materialization preflight if the fresh-panel design is complete and claim-safe",
+      "route to panel-source repair if existing artifacts cannot seed the expansion contract",
+      "route to model-quality design only after materialization creates an admitted fresh/source-diverse surface",
+      "route to Route A or Route C if no actor-safe Route B panel expansion exists",
+      "stop the branch if the design cannot produce new dataset/panel evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2900 admits fresh/source-diverse panel design as the only claim-safe next action after fitting implementation audit",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Route B fresh/source-diverse capability-prediction panel design",
+    "admission_evidence": [
+      "M2900 synthesis admits fresh/source-diverse panel design",
+      "M2899 accepts M2898 complete claim-safe fitting implementation preflight",
+      "M2884/M2885 identify 17 usable rows 34 source-singleton rows and 21 guard rows",
+      "M2898/M2899 preserve fresh/source-diverse panel trigger before model-quality or paper claims"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion",
+      "no additional optimizer step and no promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no source-singleton or guard rows as proof",
+      "no driver-performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md",
+      "one bounded materialization-preflight manifest only if the design selects a single next route",
+      "M2901 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "fresh/source-diverse panel design artifact exists",
+      "source diversity target coverage split holdout rollback and audit semantics are defined",
+      "one next materialization repair pivot or stop decision is selected",
+      "target actor split holdout and exclusion boundaries remain preserved",
+      "no materialization validation ranking or verdict claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2901 designs panel expansion only and must preserve finite-window current-tiled and GRU controls without claiming history necessity.",
+    "history_necessity_tests": [
+      "None in M2901; later evidence requires a materialized source-diverse panel and fair L0/L1/L2/L3 comparisons."
+    ],
+    "temporal_evidence_window": "M2884-M2900 Route B capability-prediction panel inventory dataset contract fitting preflight audits and synthesis.",
+    "negative_result_policy": "If a fresh/source-diverse panel cannot be designed without leaking hidden/oracle information preserve that blocker and route to repair pivot or stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "bounded fresh/source-diverse panel design",
+      "bounded follow-up route admission",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves the branch away from public-row fitting interpretation and toward a fresh/source-diverse panel materialization route",
+    "paper_verdict_delta": "no verdict; may admit a new dataset/panel materialization preflight needed before later paper or model-quality claims",
+    "must_synthesize_if": [
+      "M2901 cannot choose between materialization preflight repair Route A pivot Route C pivot or stop",
+      "M2901 would claim model quality self-ID finite-window-vs-GRU driver performance or current-sim verdict",
+      "M2901 would let source-singleton or guard rows enter paper proof",
+      "M2901 would expose evaluator-only future targets to actor input",
+      "M2901 proposes direct validation or ranking without a fresh/source-diverse materialized surface"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md exists",
+    "design defines source diversity target coverage split holdout overfit rollback and audit semantics",
+    "design preserves actor 72/action 3 and evaluator-only future target boundaries",
+    "design selects exactly one next route or stop decision",
+    "design registers at most one bounded follow-up manifest without materialization validation ranking promotion performance paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims"
+  ],
+  "failure_criteria": [
+    "M2901 resets steps rolls out replays validates fits trains ranks promotes materializes rows or executes policy action",
+    "M2901 changes actor input or action contract",
+    "M2901 exposes future targets hidden dynamics or oracle labels to actor input",
+    "M2901 claims driver performance model quality finite-window-vs-GRU verdict paper current-sim high-fidelity full-driver or self-ID evidence",
+    "M2901 leaves the next route ambiguous or selects multiple incompatible actions"
+  ],
+  "decision_rule": "Pass only if M2901 writes a bounded fresh/source-diverse panel design artifact while preserving actor target split holdout and claim boundaries without materialization validation ranking or verdict claims.",
+  "commands": [
+    {
+      "name": "fresh_panel_design",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md",
+      "type": "md"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2900-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-audit-synthesis-or-model-quality-design.md",
+    "docs/m2899-paper-route-l0-l1-l2-l3-capability-prediction-fitting-implementation-result-audit.md",
+    "runs/m2898_paper_route_l0_l1_l2_l3_capability_prediction_fitting_implementation_preflight/summary.json",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/candidate_panel_rows.csv",
+    "runs/m2884_paper_route_l0_l1_l2_l3_capability_prediction_panel_inventory_preflight/source_inventory_rows.csv",
+    "docs/m2885-paper-route-l0-l1-l2-l3-capability-prediction-panel-inventory-result-audit.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "scoreboard_checkpoint": "docs/m2901-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-design.md",
+  "next_blocker": "m2902-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-materialization-preflight"
+}
