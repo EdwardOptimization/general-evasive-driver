@@ -1,0 +1,228 @@
+{
+  "id": "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded single-candidate repair execution preflight can produce claim-safe diagnostic closed-loop rows for the fixed M2655 repair candidate over the full M2925 offtrack-dominant panel while preserving actor coverage shortcut guardrail and claim boundaries.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md",
+      "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/repair_hypothesis_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/gate_matrix.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/non_offtrack_context_rows.csv",
+      "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_task_specs.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.json",
+      "experiments/manifests/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.json",
+      "experiments/manifests/m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute a fixed actor-compatible repair candidate over the accepted offtrack-dominant panel for diagnostic evidence only"
+    ],
+    "derived_from": [
+      "m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design",
+      "m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit",
+      "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight",
+      "m2925-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2931 must preserve the M2928 coverage constraints and shortcut exclusions",
+      "M2931 may execute only the fixed M2655 actor-compatible repair candidate",
+      "M2931 cannot rank against public pilot or treat results as validation",
+      "M2931 must register a result audit before interpretation"
+    ],
+    "supersedes": [
+      "static repair-admission planning without bounded diagnostic execution"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.md",
+  "public_gates": [
+    "M2931 must consume M2930 design M2929 audit M2928 repair-admission artifacts and M2925 panel rows",
+    "M2931 must resolve and account for all 56 M2925 panel rows including 38 offtrack and 18 non-offtrack context rows",
+    "M2931 must execute at most one diagnostic rollout per resolved row with the fixed M2655 repair candidate checkpoint",
+    "M2931 must preserve all 27 M2928 coverage constraints and all 7 shortcut exclusion families",
+    "M2931 must preserve M2877 Route B Route C guardrail exclusions",
+    "M2931 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2931 must not run replay validation training PPO source build dependency work adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2931 must not claim repair success driver performance validation readiness paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2931 must write summary execution candidate resolution execution failure target-context coverage guard actor claim gate run_state doc and follow-up audit manifest artifacts"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute rows outside the M2925 panel",
+    "do not execute M2877 Route B or Route C guardrail context rows",
+    "do not train fit replay or run PPO",
+    "do not compare multiple checkpoints rank checkpoints rank source/task/environment/window/severity/time bands select a winner or promote a checkpoint",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not convert diagnostic execution rows into repair-success performance validation paper high-fidelity or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_single_candidate_repair_execution",
+    "evidence_increment": "produces new closed-loop diagnostic rows for a fixed repair candidate over the accepted offtrack-dominant panel",
+    "claim_scope": "Bounded single-candidate repair diagnostic execution only; no validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2928 or M2929 artifacts are missing or claim-unsafe",
+      "stop if the fixed M2655 repair candidate or config is missing",
+      "stop if M2931 cannot resolve the full 56-row M2925 panel or account failures explicitly",
+      "stop if actor contract shortcut exclusion or guardrail boundaries cannot be preserved",
+      "stop if execution would require hidden/oracle/future-target actor input",
+      "stop if results would be interpreted before M2932 audit"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if source accounting is incomplete",
+      "route to blocked candidate-source audit if fixed M2655 checkpoint or config is unavailable",
+      "route to M2932 result audit if diagnostic execution artifacts are complete",
+      "route to branch synthesis if execution cannot proceed without overclaiming"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2930 admits one bounded single-candidate repair execution preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Produce bounded claim-safe diagnostic execution rows for the fixed M2655 repair candidate over the accepted offtrack-dominant panel",
+    "admission_evidence": [
+      "M2930 design admits M2931 single-candidate repair execution preflight",
+      "M2929 accepts M2928 repair-admission materialization as complete and claim-safe",
+      "M2928 preserves 38 offtrack rows 18 non-offtrack context rows 27 coverage constraints 7 shortcut exclusions and actor 72/action 3",
+      "M2655 repair candidate checkpoint exists as an actor-compatible fixed candidate"
+    ],
+    "blocked_shortcuts": [
+      "no training replay PPO or checkpoint promotion",
+      "no validation ranking promotion repair-success or performance verdict",
+      "no hidden/oracle/future-target actor input",
+      "no coverage constraints as rankings",
+      "no M2877 Route B Route C guardrail execution",
+      "no paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_repair_execution_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_repair_execution_preflight.py",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_candidate_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_resolution_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_execution_failure_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/repair_target_context_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/coverage_constraint_audit_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/source_milestone_aggregate.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/task_family_aggregate.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/gate_matrix.csv",
+      "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/run_state.json",
+      "docs/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.md",
+      "M2931 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "M2931 artifacts account for all 56 M2925 panel rows",
+      "M2931 preserves actor guardrail denominator shortcut and claim boundaries",
+      "M2931 registers M2932 result audit before interpretation",
+      "no validation ranking promotion repair-success performance paper high-fidelity or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2931 is a Route A diagnostic repair execution preflight and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2931; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2925-M2930 Route A offtrack localization and repair-admission chain.",
+    "negative_result_policy": "Preserve diagnostic execution outcomes and route to audit before interpretation rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded single-candidate diagnostic execution completeness",
+      "actor and claim boundary preserved",
+      "no repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "creates a new claim-bounded closed-loop diagnostic panel for the fixed M2655 repair candidate over the offtrack-dominant surface",
+    "paper_verdict_delta": "no paper verdict; may inform a later Route A repair synthesis only after result audit",
+    "must_synthesize_if": [
+      "M2931 cannot account for all 56 panel rows",
+      "M2931 would claim validation readiness repair success driver performance paper high-fidelity or self-ID evidence",
+      "M2931 would rank checkpoints source families task families environments windows severity bands or time bands"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json exists",
+    "M2931 writes repair execution candidate resolution execution failure context coverage guard actor claim gate run_state doc and follow-up audit manifest artifacts",
+    "M2931 accounts for all 38 offtrack and 18 non-offtrack context rows",
+    "M2931 preserves all 27 coverage constraints all 7 shortcut exclusions M2877 Route B Route C guardrails and actor 72/action 3",
+    "M2931 makes no training ranking validation repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2931 executes reset rollout replay validation training ranking promotion dependency work outside its bounded diagnostic scope",
+    "M2931 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2931 ranks source milestones task families checkpoints controller families environment templates windows severity bands or candidate rows selects a winner promotes a checkpoint or claims driver performance",
+    "M2931 hides panel rows or treats diagnostic execution as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2931 produces bounded repair diagnostic execution artifacts while preserving actor guardrail shortcut coverage and claim boundaries without overclaiming.",
+  "commands": [
+    {
+      "name": "single_candidate_repair_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_execution_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2928-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2929-audit docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md --m2930-design docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md --output-dir runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight --follow-up-manifest experiments/manifests/m2932-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md",
+    "docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/coverage_constraint_rows.csv",
+    "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/shortcut_exclusion_rows.csv",
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/offtrack_slice_rows.csv",
+    "runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight/non_offtrack_context_rows.csv",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2931_engineering_controller_route_a_offtrack_dominant_single_candidate_repair_execution_preflight/summary.json",
+  "next_blocker": "m2931-engineering-controller-route-a-offtrack-dominant-single-candidate-repair-execution-preflight",
+  "status": "pending"
+}

@@ -52566,3 +52566,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit_20260606T183044Z/command.log`
 - success artifact: `docs/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.md`
 - notes: Completed: audit accepts M2928 complete claim-safe repair-admission materialization status_pass true gate_matrix_pass true 4 repair hypothesis rows 27 coverage constraint rows 7 shortcut exclusion rows 20 actor rows 27 claim rows and 16 gate rows; preserved 38 offtrack rows 18 context rows M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input no repair execution validation training ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M2930 repair execution design.
+
+## 20260606T183921Z m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2928/M2929 repair-admission surface into one actor-safe offtrack repair execution preflight plan without running reset rollout validation training ranking promotion performance paper high-fidelity or self-ID work.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design_20260606T183921Z`
+- command log: `runs/research/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design_20260606T183921Z/command.log`
+- success artifact: `docs/m2930-engineering-controller-route-a-offtrack-dominant-repair-execution-design.md`
+- notes: Completed: design admits M2931 single-candidate repair execution preflight over the full 56-row M2925 panel using fixed M2655 repair candidate checkpoint; preserves 38 offtrack rows 18 context rows 27 coverage constraints 7 shortcut exclusion families M2877 Route B Route C guardrails actor 72/action 3 no hidden oracle future-target actor input; M2930 performs no execution validation training ranking promotion repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.
