@@ -1,0 +1,264 @@
+{
+  "id": "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution failure-localization materialization preflight can convert accepted M2919/M2920/M2921 dependency-facing diagnostics into machine-checkable outcome source task checkpoint and next-route rows before any repair execution training validation ranking promotion or performance claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+      "docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/execution_candidate_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/execution_resolution_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_failure_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/source_milestone_aggregate.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/task_family_aggregate.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/guardrail_context_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/actor_contract_guard_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.json",
+      "experiments/manifests/m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize failure-localization rows after M2921 chooses no-execution evidence reanalysis over another broad dependency-facing execution"
+    ],
+    "derived_from": [
+      "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis",
+      "m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit",
+      "m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2919 diagnostic outcomes remain weak with 11 success 3 collision 38 off_track and 4 speed_too_low",
+      "M2921 rejects another immediate M2919-like broad execution without failure localization",
+      "M2877 Route B and Route C guardrails must remain outside execution and ordinary denominators"
+    ],
+    "supersedes": [
+      "direct repair execution from M2919 rows without failure localization",
+      "direct performance interpretation of M2919 rows",
+      "another broad dependency-facing execution before row-level localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.md",
+  "public_gates": [
+    "M2922 must consume M2919 execution candidate resolution execution failure aggregate guard actor claim and gate artifacts plus M2920 audit and M2921 synthesis",
+    "M2922 must write failure-localization rows before any repair execution training validation ranking promotion or new rollout",
+    "M2922 must preserve the full 56-row M2919 denominator and must not cherry-pick only the 11 success rows or only one public failure slice",
+    "M2922 must preserve M2877 Route B and Route C guardrails as non-executed context outside ordinary denominators",
+    "M2922 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible labels",
+    "M2922 must write outcome_family_rows source_milestone_outcome_rows task_family_outcome_rows checkpoint_outcome_rows next_route_candidate_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2922 must not execute reset step rollout replay validation training PPO source build adapter probe external simulation dependency work ranking winner selection promotion or success-rate verdict computation",
+    "M2922 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not execute source build adapter probe external simulation dependency acquisition or dependency smoke",
+    "do not promote a checkpoint",
+    "do not change actor inputs or the deployed action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels or verdict labels to actor input",
+    "do not drop weak or negative M2919 rows",
+    "do not hide M2877 Route B Route C guardrail or context rows",
+    "do not rank controller families source families profiles task families source milestones or checkpoints",
+    "do not select a winner or compute success-rate verdict metrics",
+    "do not claim repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_failure_localization_materialization",
+    "evidence_increment": "materializes a failure-localization panel from complete M2919 diagnostic execution rows after M2921 synthesis",
+    "claim_scope": "Failure-localization materialization only; no reset rollout replay validation training PPO dependency work ranking winner selection promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full ideal driver claim",
+    "stop_condition": [
+      "stop if M2919 artifacts are missing or gate_matrix_pass is false",
+      "stop if localization would drop failed rows or guardrails",
+      "stop if localization would rank controllers source families profiles task families or checkpoints",
+      "stop if actor or claim boundaries cannot be preserved",
+      "stop if M2922 would execute policy or dependency work"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2919 artifacts are incomplete",
+      "route to M2923 result audit if localization artifacts are complete",
+      "route to branch stop if no localization slice can identify an evidence-changing next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2921 selects failure-localization materialization after M2919 complete but weak diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Materialize M2919 dependency-facing failure localization rows without execution",
+    "admission_evidence": [
+      "M2921 synthesis chooses no-execution failure localization",
+      "M2920 accepts M2919 as complete and claim-safe",
+      "M2919 writes 56 execution rows 0 failure rows and weak diagnostic outcomes 11 success 3 collision 38 off_track 4 speed_too_low",
+      "M2919 preserves actor 72/action 3 and M2877 Route B Route C guardrails"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion model-quality verdict or driver-performance claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no M2877 Route B Route C guardrail execution",
+      "no Route B paper or Route C high-fidelity claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight.py",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/outcome_family_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/source_milestone_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/task_family_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/checkpoint_outcome_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/next_route_candidate_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv",
+      "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/run_state.json",
+      "docs/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.md",
+      "M2922 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "failure-localization artifacts account for all 56 M2919 execution rows",
+      "guardrail context actor and claim boundaries remain preserved",
+      "one follow-up result audit is registered before interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2922 is Route A diagnostic failure localization and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2922; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2919-M2921 Route A dependency-facing diagnostics and synthesis only.",
+    "negative_result_policy": "Preserve negative or insufficient diagnostics and route to result audit or synthesis rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "Route A dependency-facing failure-localization artifact completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns complete M2919 closed-loop diagnostics into auditable failure-localization and next-route rows rather than repeating the same execution surface",
+    "paper_verdict_delta": "no paper verdict; may identify Route A engineering failure slices but cannot support paper self-ID claims without separate proof and generalization gates",
+    "must_synthesize_if": [
+      "M2922 cannot identify any evidence-changing next-route candidates",
+      "M2922 would claim driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU or self-ID",
+      "M2922 would rank controllers source families profiles task families or checkpoints",
+      "M2922 would propose another same-surface execution without a changed evidence question"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json exists",
+    "outcome_family_rows source_milestone_outcome_rows task_family_outcome_rows checkpoint_outcome_rows next_route_candidate_rows guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2919 execution rows are accounted in localization rows",
+    "M2877 Route B Route C guardrails remain explicit and non-executed",
+    "actor 72/action 3 no hidden/oracle/future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2922 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2922 executes reset rollout replay validation training ranking promotion or dependency work",
+    "M2922 changes actor inputs or action contract or exposes hidden/oracle/future-target labels",
+    "M2922 ranks controller families source families profiles task families source milestones or checkpoints selects a winner promotes a checkpoint or claims driver performance",
+    "M2922 hides failed rows or treats diagnostic localization as validation readiness"
+  ],
+  "decision_rule": "Pass only if M2922 accounts for the full M2919 diagnostic surface, preserves guardrail and actor boundaries, writes complete localization artifacts, and registers a result audit without execution ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claims.",
+  "commands": [
+    {
+      "name": "failure_localization_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --m2919-dir runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight --m2920-audit docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md --m2921-synthesis docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md --output-dir runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --follow-up-manifest experiments/manifests/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/outcome_family_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/source_milestone_outcome_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/task_family_outcome_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/checkpoint_outcome_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/next_route_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/guardrail_context_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
+    "docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/source_milestone_aggregate.csv",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/task_family_aggregate.csv",
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json",
+  "next_blocker": "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+  "status": "pending"
+}

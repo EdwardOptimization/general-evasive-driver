@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2926,
+    "completed": 2927,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit_20260606T172650Z/command.log",
+    "command_log": "runs/research/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis_20260606T173125Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit_20260606T172650Z",
+    "run_dir": "runs/research/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis_20260606T173125Z",
     "status": "completed",
-    "task_id": "m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit"
+    "task_id": "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result synthesis can preserve M2911-M2920 dependency-facing Route A evidence prevent direct overinterpretation of M2919 diagnostics and select one evidence-changing continuation pivot or stop route.",
-    "id": "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2911-M2920 dependency-facing branch after M2920 accepts M2919 complete claim-safe diagnostics but rejects direct interpretation; must preserve 56 executed rows 0 failures 11 success 3 collision 38 offtrack 4 speed_too_low as diagnostic-only evidence M2877 Route B Route C guardrails actor 72/action 3 no hidden/oracle/future-target actor input and no validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29160,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --m2919-dir runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight --m2920-audit docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md --m2921-synthesis docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md --output-dir runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight --follow-up-manifest experiments/manifests/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.json",
+    "hypothesis": "A no-execution failure-localization materialization preflight can convert accepted M2919/M2920/M2921 dependency-facing diagnostics into machine-checkable outcome source task checkpoint and next-route rows before any repair execution training validation ranking promotion or performance claim.",
+    "id": "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize no-execution failure localization over all 56 M2919 execution rows preserving 11 success 3 collision 38 offtrack 4 speed_too_low as diagnostic-only rows M2877 Route B Route C guardrails actor 72/action 3 no hidden/oracle/future-target actor input and no repair execution training validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 29170,
     "status": "pending",
-    "success_artifact": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md"
+    "success_artifact": "runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T172650Z"
+  "updated_at_utc": "20260606T173125Z"
 }

@@ -127,7 +127,7 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M2920 accepts M2919 complete claim-safe bounded dependency-facing execution but rejects direct interpretation",
-    "synthesis_decision": "not_applicable",
+    "synthesis_decision": "continue",
     "synthesis_artifact": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
     "synthesis_questions": [
       "evidence_summary",
@@ -243,6 +243,6 @@
     "docs/post-m2470-route-plan.md"
   ],
   "scoreboard_checkpoint": "docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md",
-  "next_blocker": "m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis",
-  "status": "pending"
+  "next_blocker": "m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight",
+  "status": "completed"
 }

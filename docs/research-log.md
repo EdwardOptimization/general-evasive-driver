@@ -52458,3 +52458,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit_20260606T172650Z/command.log`
 - success artifact: `docs/m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit.md`
 - notes: Completed: audit accepts M2919 complete claim-safe bounded execution preflight status_pass true gate_matrix_pass true 56 resolved 56 executed 0 failures diagnostic outcomes success 11 collision 3 offtrack 38 speed_too_low 4 all selected metrics finite true M2877 guard rows excluded Route B source-family insufficiency and Route C source_unavailable context-only actor 72/action 3 no hidden/oracle/future-target actor input no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M2921 result synthesis.
+
+## 20260606T173125Z m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can preserve M2911-M2920 dependency-facing Route A evidence prevent direct overinterpretation of M2919 diagnostics and select one evidence-changing continuation pivot or stop route.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis_20260606T173125Z`
+- command log: `runs/research/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis_20260606T173125Z/command.log`
+- success artifact: `docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md`
+- notes: Completed: synthesis decision continue selects M2922 no-execution failure-localization materialization after M2920 accepted M2919 complete claim-safe but mostly weak diagnostics 56 executed rows 0 failures 11 success 3 collision 38 offtrack 4 speed_too_low; preserves M2877 Route B Route C guardrails actor 72/action 3 no hidden/oracle/future-target actor input and rejects direct validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.
