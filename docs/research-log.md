@@ -52530,3 +52530,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z/command.log`
 - success artifact: `docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md`
 - notes: Completed: audit accepts M2925 complete claim-safe offtrack slice materialization status_pass true gate_matrix_pass true 56 rows read 38 offtrack rows 18 context rows source task checkpoint environment window overshoot and time bands accounted actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; selects M2927 offtrack-localization branch synthesis because local-search guard requires synthesis before another process/design milestone.
+
+## 20260606T181142Z m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate M2922-M2926 offtrack-dominant localization evidence and decide whether Route A should proceed to repair admission materialization pivot stop or synthesize a new evidence branch before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z`
+- command log: `runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z/command.log`
+- success artifact: `docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md`
+- notes: Completed: branch synthesis decision continue integrates M2919-M2926 offtrack-localization evidence 56 diagnostic rows 38 offtrack rows 18 context rows accepted M2925/M2926 materialization and audit local-search guard satisfied rejects performance validation ranking promotion paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims; admits M2928 repair-admission materialization preflight with no repair execution.

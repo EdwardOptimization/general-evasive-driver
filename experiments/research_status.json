@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2932,
+    "completed": 2933,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z/command.log",
+    "command_log": "runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit_20260606T180531Z",
+    "run_dir": "runs/research/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis_20260606T181142Z",
     "status": "completed",
-    "task_id": "m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit"
+    "task_id": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded branch synthesis can integrate M2922-M2926 offtrack-dominant localization evidence and decide whether Route A should proceed to repair admission materialization pivot stop or synthesize a new evidence branch before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
-    "id": "m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2919-M2926 Route A offtrack-localization evidence and process overhead after local-search guard fired then choose continue pivot stop or promote_to_next_branch without repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29220,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --m2925-dir runs/m2925_engineering_controller_route_a_offtrack_dominant_failure_slice_materialization_preflight --m2926-audit docs/m2926-engineering-controller-route-a-offtrack-dominant-failure-slice-materialization-result-audit.md --m2927-synthesis docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md --output-dir runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2929-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-result-audit.json",
+    "hypothesis": "A no-execution repair-admission materialization preflight can convert the M2927 branch synthesis into machine-checkable repair hypothesis coverage shortcut exclusion actor claim and gate rows before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.",
+    "id": "m2928-engineering-controller-route-a-offtrack-dominant-repair-admission-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize repair-admission rows from M2927 synthesis and M2925/M2926 slice artifacts preserving 38 offtrack rows 18 context rows guardrails actor 72/action 3 no hidden/oracle/future-target actor input and no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 29230,
     "status": "pending",
-    "success_artifact": "docs/m2927-engineering-controller-route-a-offtrack-dominant-localization-branch-synthesis.md"
+    "success_artifact": "runs/m2928_engineering_controller_route_a_offtrack_dominant_repair_admission_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260606T180815Z"
+  "updated_at_utc": "20260606T181207Z"
 }
