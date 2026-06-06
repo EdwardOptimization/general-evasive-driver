@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2956,
+    "completed": 2957,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design_20260606T211250Z/command.log",
+    "command_log": "runs/research/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight_20260606T212105Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design_20260606T211250Z",
+    "run_dir": "runs/research/m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight_20260606T212105Z",
     "status": "completed",
-    "task_id": "m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design"
+    "task_id": "m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight --m2948-doc docs/m2948-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold.md --m2949-audit docs/m2949-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-implementation-scaffold-result-audit.md --m2950-design docs/m2950-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-design.md --output-dir runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.json",
-    "hypothesis": "A no-execution materialization preflight can convert the accepted M2950 post-scaffold integration design into machine-checkable integration surface, actor binding, residual initialization, residual bound, input guard, side-effect guard, claim boundary, and gate rows before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2951-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize post-scaffold integration contracts and register result audit without candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29460,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2951 post-scaffold integration contract materialization before any candidate execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2951 post-scaffold integration materialization summary rows doc and gate matrix as infrastructure only; no candidate execution checkpoint mutation training validation ranking promotion repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29470,
     "status": "pending",
-    "success_artifact": "runs/m2951_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_post_scaffold_integration_contract_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2952-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-post-scaffold-integration-contract-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T211250Z"
+  "updated_at_utc": "20260606T212227Z"
 }
