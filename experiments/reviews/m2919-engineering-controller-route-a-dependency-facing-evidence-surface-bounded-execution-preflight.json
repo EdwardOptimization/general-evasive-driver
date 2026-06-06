@@ -1,0 +1,143 @@
+{
+  "decision_reason": "M2919 bounded execution preflight status_pass true gate_matrix_pass true resolved 56 executed 56 failures 0 source split M2737 18 M2746 14 M2807 12 M2816 12 diagnostic outcomes success 11 collision 3 offtrack 38 speed_too_low 4 all selected metrics finite true M2877 guard rows excluded Route B source-family insufficiency and Route C source_unavailable context-only actor 72/action 3 no hidden oracle future-target actor input no replay validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims registered M2920 audit.",
+  "failure_criteria": [
+    "M2919 executes M2877 guard Route B context or Route C context rows",
+    "M2919 changes actor inputs or action contract or exposes hidden/oracle/future-target actor labels",
+    "M2919 ranks controller families source families profiles task families selects a winner promotes a checkpoint or claims driver performance",
+    "M2919 hides failed rows or treats diagnostic execution as validation readiness"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not install external simulator dependencies",
+    "do not fetch external source",
+    "do not import external high-fidelity simulation packages",
+    "do not run external high-fidelity simulation",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start an external backend",
+    "do not execute dependency acquisition or dependency smoke",
+    "do not execute M2877 fixed weak diagnostic guard rows",
+    "do not execute Route B or Route C context rows",
+    "do not execute replay",
+    "do not execute measured validation",
+    "do not train",
+    "do not run PPO",
+    "do not promote a checkpoint",
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden oracle or future-target actor features",
+    "do not expose route source diagnostic success progress or verdict labels to actor input",
+    "do not treat M2877 Route B Route C protected package or guardrail rows as ordinary success denominators",
+    "do not rank controller families source families profiles or task families",
+    "do not select a winner",
+    "do not compute success rate or controller-family verdict metrics",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim high-fidelity validation readiness",
+    "do not claim high-fidelity validation result",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim full ideal driver completion",
+    "do not claim level3 self-identification",
+    "do not claim driver performance from M2919 diagnostic execution"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T172156Z",
+  "hypothesis": "A bounded Route A dependency-facing execution preflight can produce new closed-loop diagnostic rows over all 56 M2916-admitted rows while preserving actor and claim boundaries and excluding the 11 M2877 guard rows.",
+  "lineage": {
+    "blocked_by": [
+      "M2918 admits only one bounded diagnostic execution preflight after row resolution",
+      "11 M2877 fixed weak diagnostic rows remain non-executed guardrails",
+      "Route B source-family insufficiency and Route C source_unavailable remain context only",
+      "M2919 must register a separate result audit before interpretation"
+    ],
+    "derived_from": [
+      "m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design",
+      "m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit",
+      "m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.json",
+      "experiments/manifests/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.json",
+      "experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2918-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-design.md",
+      "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_rejection_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "execute one bounded diagnostic preflight over the 56 accepted M2916 admitted rows without ranking or overclaiming"
+    ],
+    "supersedes": [
+      "another static admission audit with no new closed-loop data",
+      "direct execution from M2916 rows without M2918 design",
+      "execution of M2877 fixed weak diagnostic guard rows",
+      "validation readiness from M2916 admission rows"
+    ]
+  },
+  "milestone": "m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight",
+  "next_blocker": "m2920-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "dependency_facing_bounded_execution_preflight_complete_route_to_m2920_result_audit",
+  "public_gates": [
+    "M2919 must consume M2918 design M2917 audit and M2916 admission candidate rejection guardrail actor claim and gate artifacts",
+    "M2919 must materialize execution_candidate_rows and execution_resolution_rows before any reset or step",
+    "M2919 must account for exactly 56 M2916 admitted rows as execution candidates",
+    "M2919 must not execute the 11 M2877 fixed weak diagnostic guard rows",
+    "M2919 must write bounded_execution_rows bounded_execution_failure_rows source_milestone_aggregate task_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2919 must preserve actor 72/action 3 no hidden/oracle/future-target actor input and actor-invisible route source diagnostic success progress and verdict labels",
+    "M2919 must keep source-family task-family and profile context diagnostic and non-ranking",
+    "M2919 must not execute replay validation training PPO source build adapter probe external simulation dependency work ranking promotion success-rate verdict computation or driver-performance claims",
+    "M2919 must register one result-audit follow-up manifest before any interpretation"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "dependency_facing_bounded_execution_preflight_complete_route_to_m2920_result_audit",
+    "milestone": "m2919-engineering-controller-route-a-dependency-facing-evidence-surface-bounded-execution-preflight",
+    "reason": "M2919 bounded execution preflight status_pass true gate_matrix_pass true resolved 56 executed 56 failures 0 source split M2737 18 M2746 14 M2807 12 M2816 12 diagnostic outcomes success 11 collision 3 offtrack 38 speed_too_low 4 all selected metrics finite true M2877 guard rows excluded Route B source-family insufficiency and Route C source_unavailable context-only actor 72/action 3 no hidden oracle future-target actor input no replay validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims registered M2920 audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/summary.json exists",
+    "execution_candidate_rows execution_resolution_rows bounded_execution_rows bounded_execution_failure_rows source_milestone_aggregate task_family_aggregate guardrail_context_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "all 56 M2916 admitted rows are resolved or explicitly accounted by failure rows",
+    "the 11 M2877 fixed weak diagnostic guard rows are not executed and remain outside success denominators",
+    "Route B source-family insufficiency and Route C source_unavailable remain context-only and non-executed",
+    "actor 72/action 3 no hidden oracle future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered",
+    "M2919 makes no training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "type": "infrastructure"
+}
