@@ -1,0 +1,237 @@
+{
+  "id": "m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight",
+  "type": "infrastructure",
+  "gate_tier": "proof",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md",
+      "docs/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.md",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoint_manifest.json",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/parameter_group_trace.csv",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/response_target_schema_rows.csv",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/gate_matrix.csv",
+      "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json",
+      "runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.json",
+      "experiments/manifests/m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight.json"
+    ],
+    "parent_objective": [
+      "run a bounded paired closed-loop diagnostic delta panel for M2846 baseline and M2848 candidate after M2849 audit accepts artifact safety"
+    ],
+    "derived_from": [
+      "m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit",
+      "m2848-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-preflight"
+    ],
+    "blocked_by": [
+      "M2848 is continuation-preflight evidence and cannot be interpreted without closed-loop diagnostic deltas",
+      "paired candidate-vs-baseline rows must remain diagnostic and non-ranking",
+      "M2838 weak diagnostic accounting must remain visible and outside ordinary performance denominators",
+      "M2638 high-fidelity source dependency remains unresolved and cannot be bypassed"
+    ],
+    "supersedes": [
+      "direct promotion of the M2848 candidate checkpoint",
+      "direct interpretation of M2848 response-prediction loss as driver performance",
+      "single-checkpoint success-rate verdict from M2848 artifacts"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.md",
+  "public_gates": [
+    "M2850 must run a paired closed-loop diagnostic panel over the M2846 baseline and M2848 candidate checkpoints after M2849 audit",
+    "M2850 must preserve actor P0 observation shape 72 action shape 3 no hidden/oracle actor input and no actor-visible role dynamics stress outcome success progress route or verdict labels",
+    "M2850 must write paired execution rows paired delta rows proof retention gates generalization delta gates promotion guards actor guards claim rows gate matrix summary doc run-state and M2851 audit manifest",
+    "M2850 must keep M2838 weak diagnostic accounting visible and outside ordinary denominators",
+    "M2850 must reject validation ranking winner promotion success-rate verdict driver-performance paper current-sim high-fidelity full ideal driver and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not use private holdout",
+    "do not change actor inputs",
+    "do not change the deployed action contract",
+    "do not inject hidden or oracle actor features",
+    "do not expose role labels dynamics labels intervention labels stress labels admission labels outcome labels success labels progress labels route labels or verdict labels to actor input",
+    "do not train or run PPO",
+    "do not use M2838 weak diagnostic rows as ordinary successes",
+    "do not shrink to a single seed",
+    "do not tune one public proof row and compare as a discovery",
+    "do not rank baseline and candidate checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate or controller-family verdict metrics",
+    "do not execute measured validation",
+    "do not import external simulator dependencies",
+    "do not run external simulation",
+    "do not claim repair success",
+    "do not claim validation readiness",
+    "do not claim validation result",
+    "do not claim driver performance",
+    "do not claim paper-level evidence",
+    "do not claim finite-window vs GRU conclusion",
+    "do not claim current-sim verdict",
+    "do not claim high-fidelity validation",
+    "do not claim full ideal driver completion",
+    "do not claim level3 self-identification"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_driver_like_recurrent_belief_architecture_training_redesign",
+    "evidence_axis": "response_predictive_recurrent_belief_candidate_closed_loop_delta_panel",
+    "evidence_increment": "moves from bounded continuation-preflight artifacts to paired closed-loop baseline-vs-candidate diagnostic delta rows",
+    "claim_scope": "Bounded closed-loop diagnostic delta panel only; no validation ranking winner promotion success-rate verdict repair-success driver-performance paper finite-window-vs-GRU current-sim high-fidelity validation self-ID or full-driver claim",
+    "stop_condition": [
+      "stop if actor-visible label exclusion cannot be enforced",
+      "stop if paired baseline/candidate row lineage cannot be written",
+      "stop if M2838 weak diagnostic rows enter ordinary denominators",
+      "stop if proof/generalization/promotion separation cannot be preserved",
+      "stop if candidate-vs-baseline deltas are used as a ranking or winner verdict"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2848 or M2849 artifacts are incomplete",
+      "route to M2851 audit if paired closed-loop artifacts are complete",
+      "route to branch synthesis if paired deltas are negative or claim boundaries fail",
+      "route to fresh evidence design only after M2851 audit accepts claim safety"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2849 accepts M2848 as complete and claim-safe but requires closed-loop deltas before interpretation",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "bounded paired closed-loop diagnostic delta panel for M2846 baseline and M2848 response-predictive recurrent-belief candidate checkpoints",
+    "admission_evidence": [
+      "M2849 accepts M2848 artifacts complete and claim-safe",
+      "M2848 writes candidate checkpoint lineage hashes proof gates generalization gates and promotion guards",
+      "M2848 is continuation-preflight evidence and needs closed-loop paired deltas before interpretation"
+    ],
+    "blocked_shortcuts": [
+      "no training or PPO in M2850",
+      "no validation ranking promotion success-rate verdict performance paper HF full-driver or self-ID claim",
+      "no actor-visible labels or hidden/oracle actor input",
+      "no M2838 weak diagnostic rows in ordinary denominators"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel.py",
+      "tests/test_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel.py",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/proof_retention_gate_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/generalization_delta_gate_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/promotion_guard_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/actor_contract_guard_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/claim_boundary_rows.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/gate_matrix.csv",
+      "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/run_state.json",
+      "docs/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.md",
+      "experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json",
+      "M2850 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "paired baseline/candidate execution rows are complete",
+      "paired delta rows preserve baseline and candidate lineage",
+      "proof retention and generalization delta gates are written separately",
+      "promotion guards block promotion",
+      "one M2851 result-audit follow-up is registered"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2850 may compare closed-loop candidate deltas but it is not a controller-family history-vs-current comparison and cannot establish self-ID.",
+    "history_necessity_tests": [
+      "M2850 may preserve recurrent response-prediction contexts as evaluator metadata but cannot claim level3 self-identification."
+    ],
+    "temporal_evidence_window": "M2843-M2850 response-predictive recurrent-belief training branch.",
+    "negative_result_policy": "If M2850 deltas are negative or gates fail preserve failure rows and route to audit or synthesis rather than weakening gates.",
+    "allowed_claims": [
+      "paired closed-loop delta artifacts are complete or incomplete",
+      "candidate-vs-baseline diagnostic deltas are written for audit",
+      "no driver-performance verdict paper result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "adds paired closed-loop baseline-vs-candidate diagnostic rows instead of more continuation-preflight reanalysis",
+    "paper_verdict_delta": "no paper verdict; may create engineering-controller closed-loop diagnostic evidence for later audit",
+    "must_synthesize_if": [
+      "M2850 cannot produce complete paired baseline/candidate closed-loop artifacts",
+      "M2850 exposes stress scenario outcome or verdict labels to actor input",
+      "M2850 regresses M2838 weak diagnostic accounting",
+      "M2850 results are used as validation performance self-ID or paper evidence",
+      "another process-only milestone is proposed after M2850 without M2851 audit or new evidence"
+    ]
+  },
+  "hypothesis": "A bounded paired closed-loop delta panel can show how the M2848 response-predictive recurrent-belief candidate differs from the M2846 baseline while preserving actor and claim boundaries.",
+  "success_criteria": [
+    "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json exists",
+    "docs/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.md exists",
+    "M2850 consumes M2849 M2848 M2846 and M1690 artifacts only",
+    "M2850 writes paired execution rows paired delta rows proof retention gates generalization delta gates promotion guards actor guards claim rows gate matrix run-state and M2851 audit manifest",
+    "M2850 preserves P0 observation 72 action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2850 keeps M2838 weak diagnostic accounting outside ordinary denominators",
+    "M2850 writes no validation ranking promotion performance paper current-sim high-fidelity full ideal driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M2850 changes actor input or action contract",
+    "M2850 exposes role dynamics stress outcome route progress success or verdict labels to actor input",
+    "M2850 uses M2838 weak diagnostic rows as ordinary successes",
+    "M2850 shrinks to a single seed",
+    "M2850 ranks baseline/candidate checkpoints selects a winner promotes a checkpoint or computes success-rate verdicts",
+    "M2850 claims repair success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "decision_rule": "Pass only if M2850 writes complete paired closed-loop diagnostic delta artifacts and routes to result audit before interpretation.",
+  "commands": [
+    {
+      "name": "response_predictive_candidate_closed_loop_delta_panel",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --m2849-audit docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md --m2848-summary runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json --baseline-checkpoint runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt --candidate-checkpoint runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt --follow-up-manifest experiments/manifests/m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit.json --output-dir runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel --device cpu --eval-seed-base 285000 --row-count 16 --horizon-steps 96"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/paired_delta_rows.csv",
+      "type": "csv"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/checkpoints/m2846_response_predictive_recurrent_belief_candidate.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/gate_matrix.csv",
+    "runs/m2846_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_implementation_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m2850_engineering_controller_route_a_response_predictive_recurrent_belief_candidate_closed_loop_delta_panel/summary.json",
+  "next_blocker": "m2851-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-result-audit"
+}

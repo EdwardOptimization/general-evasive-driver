@@ -3216,3 +3216,30 @@ must accept or reject the continuation-preflight evidence and either register a
 bounded next route or stop/freeze the branch; it must not run new training,
 validation, ranking, promotion, or claim driver-performance, paper, current-sim,
 high-fidelity, full-driver, or self-ID evidence.
+
+## M2849 Engineering Controller Route A Response-Predictive Recurrent-Belief Core Training Bounded Continuation Result Audit
+
+- status: completed
+- audit decision: `accept_m2848_response_predictive_recurrent_belief_bounded_continuation_route_to_m2850_closed_loop_delta_panel`
+- manifest: `experiments/manifests/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.json`
+- audit artifact: `docs/m2849-engineering-controller-route-a-response-predictive-recurrent-belief-core-training-bounded-continuation-result-audit.md`
+- parent summary: `runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/summary.json`
+- follow-up manifest: `experiments/manifests/m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight.json`
+- accepted result: M2848 bounded continuation preflight status_pass true with required artifacts present and gate_matrix_pass true
+- continuation evidence: strict source load from M2846, 32-step CPU PPO continuation, finite response prediction loss 0.32993096113204956
+- actor boundary: P0 observation 72 action 3 no hidden/oracle actor input no actor-visible source stress-axis scenario-role blocker route success progress or verdict labels
+- response target boundary: indices 0-8 included; previous command indices 9-11 excluded from prediction targets
+- parameter evidence: response_encoder online_gru_cell response_context_fusion response_prediction_head changed; not actor-head-only
+- preserved evidence: M2838 1 success, 2 collision, 13 off_track diagnostic accounting only
+- claim boundary: audit-only acceptance; no new training validation ranking promotion success-rate verdict performance paper current-sim high-fidelity full-driver or self-ID claim
+- next: `m2850-engineering-controller-route-a-response-predictive-recurrent-belief-candidate-closed-loop-delta-panel-preflight`
+
+## Immediate Next Step
+
+M2850 should implement and execute a bounded paired closed-loop diagnostic delta
+panel comparing the M2846 baseline checkpoint with the M2848 response-predictive
+recurrent-belief candidate. It should write paired execution rows, paired delta
+rows, proof/generalization/promotion gates, actor and claim rows, a summary, and
+an M2851 result-audit manifest. It must stay diagnostic and non-ranking: no
+validation, winner selection, promotion, success-rate verdict, performance,
+paper, current-sim, high-fidelity, full-driver, or self-ID claim.
