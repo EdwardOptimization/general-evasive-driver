@@ -52290,3 +52290,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit_20260606T152457Z/command.log`
 - success artifact: `docs/m2906-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-repair-source-acquisition-materialization-result-audit.md`
 - notes: Completed: audit accepts M2905 complete claim-safe repair/source-acquisition materialization while preserving negative result decision accept_m2905_repair_source_acquisition_materialization_claim_safe_existing_support_insufficient_route_to_m2907_source_execution_or_pivot_synthesis audited 34 seed-gap repair rows 24 candidate-support rows 17 source-family rows 7 dual rows 34 acquisition-required rows 0 repaired-candidate projection rows 72 exclusion rows 6 split rows 6 target rows 10 gate rows 6 rollback rows and 8 claim rows claim_made 0 target_actor_visible 0 split_denominator_admitted 0 projection targets unsatisfied actor 72/action 3 evaluator-only targets paper holdout false preflight-only split no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims; routes to M2907 source-execution-or-pivot synthesis rather than another static repair loop.
+
+## 20260606T153214Z m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded synthesis gate can choose source-acquisition execution, Route A pivot, Route C pivot, or stop after the accepted M2906 audit preserves the M2905 zero-projection repair/source-acquisition result.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis_20260606T153214Z`
+- command log: `runs/research/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis_20260606T153214Z/command.log`
+- success artifact: `docs/m2907-paper-route-l0-l1-l2-l3-capability-prediction-fresh-source-diverse-panel-source-execution-or-pivot-synthesis.md`
+- notes: Completed: synthesis decision continue selects one bounded source-acquisition execution preflight after M2905/M2906 accepted the claim-safe negative repair result 34 acquisition-required rows 0 repaired-candidate projections candidate_artifact_count>=2 gaps 24 source_family_tag_count>=2 gaps 17 dual gaps 7 T4 15 T5 19. Rejects another static repair-only loop direct Route A pivot direct Route C pivot and stop for now because the fixed acquisition surface can still produce evidence; preserves actor 72/action 3 evaluator-only targets source-singleton guard public-reference and acquisition-required rows outside validation proof and denominators; no validation ranking model-quality paper finite-window-vs-GRU current-sim high-fidelity full-driver or self-ID claims; routes to M2908 source-acquisition execution preflight.
