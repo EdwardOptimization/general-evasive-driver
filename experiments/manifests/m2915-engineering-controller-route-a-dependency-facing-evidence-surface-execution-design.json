@@ -1,0 +1,193 @@
+{
+  "id": "m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "hypothesis": "A bounded execution-design milestone can convert the accepted M2913/M2914 Route A dependency-facing evidence surface into a later actor-safe execution plan without running reset rollout validation training ranking promotion dependency work or performance paper high-fidelity or self-ID claims.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.md",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/summary.json",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/route_context_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/candidate_family_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/exclusion_family_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/denominator_policy_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/failure_taxonomy_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/actor_contract_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/gate_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.json",
+      "experiments/manifests/m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "design a later bounded Route A execution plan after accepting the M2913 materialized evidence surface"
+    ],
+    "derived_from": [
+      "m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit",
+      "m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M2913 materialized one ordinary engineering candidate family but no execution has been designed or admitted",
+      "M2914 accepts materialization only as an input to execution design",
+      "Route B source-family insufficiency and Route C source_unavailable remain context only"
+    ],
+    "supersedes": [
+      "direct execution from materialized rows without an execution design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+  "public_gates": [
+    "M2915 must write a bounded execution-design artifact before any execution",
+    "M2915 must use M2913 row families denominator policy failure taxonomy actor contract and claim boundaries",
+    "M2915 must preserve Route B source-family insufficiency and Route C source_unavailable as context only",
+    "M2915 must not execute reset rollout replay validation training ranking promotion dependency acquisition configure build import reset step or policy smoke",
+    "M2915 must preserve actor 72/action 3 and no hidden/oracle/future-target actor input",
+    "M2915 must not claim validation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate rank promote publish or select a winner",
+    "do not fit train or run PPO",
+    "do not fetch clone configure build install import link probe or start an external backend",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels success labels progress labels diagnostics or verdict labels to actor input",
+    "do not convert M2913 materialization rows into performance paper high-fidelity or self-ID claims",
+    "do not claim model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_evidence_surface_execution_design",
+    "evidence_increment": "designs a later bounded execution plan over the accepted M2913 materialized surface",
+    "claim_scope": "Execution design only; no reset rollout validation ranking promotion model-quality driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M2915 cannot define a bounded execution row set from M2913",
+      "stop if execution would require hidden/oracle/future-target actor input",
+      "stop if Route B or Route C context would enter proof or readiness denominators",
+      "stop if M2915 would execute policy or dependency work",
+      "stop if claim boundaries cannot be preserved"
+    ],
+    "fallback_plan": [
+      "route to stop or redesign if no actor-safe execution row set exists",
+      "route to a bounded execution preflight only after design accepts exactly one row set",
+      "return to Route C only if source availability changes outside this milestone"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2914 accepts M2913 materialization as claim-safe",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Design a bounded Route A execution plan over the accepted dependency-facing evidence surface",
+    "admission_evidence": [
+      "M2914 accepts M2913 materialization as complete and claim-safe",
+      "M2913 writes 5 route context 5 candidate family 6 exclusion 6 denominator policy 7 failure taxonomy 6 actor contract 8 claim boundary and 10 gate rows",
+      "M2913 records one ordinary engineering candidate family and zero claims",
+      "Route B source-family insufficiency and Route C source_unavailable remain context only"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion model-quality verdict or driver-performance claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden or oracle actor inputs",
+      "no Route B source-family-insufficient rows as paper proof",
+      "no Route C source_unavailable rows as high-fidelity readiness"
+    ],
+    "allowed_updates": [
+      "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+      "docs/reviews/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+      "M2915 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if M2915 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M2915 execution design artifact exists",
+      "M2915 defines exactly one bounded next route or stop state",
+      "actor Route B Route C denominator and claim boundaries remain preserved",
+      "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2915 is an execution-design milestone and cannot substitute Route A materialization for history necessity.",
+    "history_necessity_tests": [
+      "None in M2915; self-ID evidence remains blocked until fair source-diverse L0/L1/L2/L3 tests are admitted."
+    ],
+    "temporal_evidence_window": "M2910-M2914 Route A dependency-facing materialization chain.",
+    "negative_result_policy": "Preserve insufficiency and blocker context rather than weakening self-ID standards.",
+    "allowed_claims": [
+      "bounded execution-design decision",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "designs an execution route over a new materialized Route A dependency-facing evidence surface",
+    "paper_verdict_delta": "no paper verdict; Route A execution design remains separate from Route B self-ID evidence",
+    "must_synthesize_if": [
+      "M2915 cannot choose a single next route or stop state",
+      "M2915 would claim validation readiness driver performance paper high-fidelity or self-ID evidence",
+      "M2915 would bypass Route B source-diversity or Route C source-unavailable blockers"
+    ]
+  },
+  "success_criteria": [
+    "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md exists",
+    "design summarizes M2913/M2914 materialization and accepted boundaries",
+    "design selects exactly one next route or stop state",
+    "design preserves actor Route B Route C denominator and claim boundaries",
+    "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2915 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2915 changes actor input or action contract",
+    "M2915 hides Route B source-family insufficiency or Route C source_unavailable",
+    "M2915 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2915 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M2915 writes a bounded execution-design artifact and chooses one next route or stop state while preserving actor denominator and claim boundaries without execution.",
+  "commands": [
+    {
+      "name": "execution_design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.md",
+    "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/summary.json",
+    "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/candidate_family_rows.csv",
+    "runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/gate_rows.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.md",
+  "next_blocker": "m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design",
+  "status": "pending"
+}

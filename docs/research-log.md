@@ -52374,3 +52374,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2913-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-preflight_20260606T162805Z/command.log`
 - success artifact: `runs/m2913_engineering_controller_route_a_dependency_facing_evidence_surface_materialization_preflight/summary.json`
 - notes: Completed: materialization preflight status_pass true gate_matrix_pass true wrote 5 route context 5 candidate family 6 exclusion family 6 denominator policy 7 failure taxonomy 6 actor contract 8 claim boundary and 10 gate rows parent missing 0 ordinary engineering candidate family 1 route_b_context_only 1 route_c_context_only 1 claim_made 0 actor 72/action 3 no hidden/oracle or future target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims; registered M2914 result audit.
+
+## 20260606T163411Z m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2913 Route A dependency-facing evidence surface materialization before any execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit_20260606T163411Z`
+- command log: `runs/research/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit_20260606T163411Z/command.log`
+- success artifact: `docs/m2914-engineering-controller-route-a-dependency-facing-evidence-surface-materialization-result-audit.md`
+- notes: Completed: audit accepts M2913 complete claim-safe materialization status_pass true gate_matrix_pass true 5 route context 5 candidate family 6 exclusion family 6 denominator policy 7 failure taxonomy 6 actor contract 8 claim boundary and 10 gate rows parent missing 0 ordinary engineering candidate family 1 route_b_context_only 1 route_c_context_only 1 claim_made 0 actor 72/action 3 no hidden/oracle/future-target actor input no reset rollout validation training ranking promotion dependency execution performance paper high-fidelity or self-ID claims; routes to M2915 execution design.
