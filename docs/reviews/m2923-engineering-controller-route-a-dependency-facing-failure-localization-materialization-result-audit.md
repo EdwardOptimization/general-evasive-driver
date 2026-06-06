@@ -1,0 +1,86 @@
+# m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T174758Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2922_failure_localization_claim_safe_route_to_m2924_offtrack_dominant_failure_slice_design
+- Decision reason: M2923 accepts M2922 complete claim-safe materialization status_pass true gate_matrix_pass true 56 localized rows 0 failure rows outcomes 11 success 3 collision 38 offtrack 4 speed_too_low source split M2737 18 M2746 14 M2807 12 M2816 12 4 audit candidates actor 72/action 3 no hidden oracle future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims selects M2924 offtrack-dominant failure-slice design.
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M2922 dependency-facing failure-localization materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/outcome_family_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/source_milestone_outcome_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/task_family_outcome_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/checkpoint_outcome_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/next_route_candidate_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/guardrail_context_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/actor_contract_guard_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/claim_boundary_rows.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/gate_matrix.csv, runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/run_state.json, docs/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.md, docs/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.md
+- parent_config: experiments/manifests/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight.json, experiments/manifests/m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis.json
+- parent_objective: audit M2922 failure-localization materialization artifacts before any route interpretation
+- derived_from: m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight, m2921-engineering-controller-route-a-dependency-facing-bounded-execution-result-synthesis
+- blocked_by: M2922 localization requires a result audit before any repair execution or route commitment, M2877 Route B and Route C guardrails must remain protected context
+- supersedes: direct interpretation of M2922 next-route candidate rows without result audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md exists
+- M2923 audits M2922 artifacts row counts gates actor and claim boundaries
+- M2923 selects exactly one next route or stop state
+- no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made
+
+## Failure Criteria
+
+- M2923 hides M2922 failures or missing artifacts
+- M2923 treats M2922 localization as validation readiness or performance verdict
+- M2923 changes actor input or action contract
+- M2923 leaves next route ambiguous
+
+## Evidence Gates
+
+- M2923 must audit M2922 summary gate matrix actor and claim boundaries
+- M2923 must preserve M2877 Route B Route C guardrail exclusions
+- M2923 must not claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+- M2923 must select exactly one next route or stop state
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun reset rollout replay validate rank promote publish select a winner or execute dependency work
+- do not fit train or run PPO
+- do not change actor input or action contract
+- do not convert M2922 localization rows into performance paper high-fidelity or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2922_failure_localization_claim_safe_route_to_m2924_offtrack_dominant_failure_slice_design
+- reason: M2923 accepts M2922 complete claim-safe materialization status_pass true gate_matrix_pass true 56 localized rows 0 failure rows outcomes 11 success 3 collision 38 offtrack 4 speed_too_low source split M2737 18 M2746 14 M2807 12 M2816 12 4 audit candidates actor 72/action 3 no hidden oracle future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims selects M2924 offtrack-dominant failure-slice design.
+
+## Next Blocker
+
+m2924-engineering-controller-route-a-offtrack-dominant-failure-slice-design

@@ -52482,3 +52482,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2922-engineering-controller-route-a-dependency-facing-failure-localization-materialization-preflight_20260606T174205Z/command.log`
 - success artifact: `runs/m2922_engineering_controller_route_a_dependency_facing_failure_localization_materialization_preflight/summary.json`
 - notes: Completed: failure-localization materialization status_pass true gate_matrix_pass true localized 56 M2919 execution rows 0 failure rows outcome counts success 11 collision 3 offtrack 38 speed_too_low 4 source split M2737 18 M2746 14 M2807 12 M2816 12 wrote 4 outcome 4 source 2 task 2 checkpoint 4 next-route 46 guardrail 13 actor 29 claim and 19 gate rows actor 72/action 3 no hidden/oracle/future-target actor input no repair execution training validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims routes to M2923 audit.
+
+## 20260606T174725Z m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2922 dependency-facing failure-localization materialization before any repair execution validation ranking promotion performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit_20260606T174725Z`
+- command log: `runs/research/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit_20260606T174725Z/command.log`
+- success artifact: `docs/m2923-engineering-controller-route-a-dependency-facing-failure-localization-materialization-result-audit.md`
+- notes: Completed: audit accepts M2922 complete claim-safe failure-localization materialization status_pass true gate_matrix_pass true 56 localized rows 0 failure rows outcomes 11 success 3 collision 38 offtrack 4 speed_too_low source split M2737 18 M2746 14 M2807 12 M2816 12 4 next-route audit candidates actor 72/action 3 no hidden/oracle/future-target actor input no repair execution validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; selects M2924 offtrack-dominant failure-slice design.
