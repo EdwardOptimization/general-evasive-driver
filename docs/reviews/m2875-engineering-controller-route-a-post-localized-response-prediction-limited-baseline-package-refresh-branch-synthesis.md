@@ -1,0 +1,110 @@
+# m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260606T083230Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: pivot_to_route_a_post_package_refresh_fresh_closed_loop_evidence_surface_design
+- Decision reason: M2875 synthesis closes package refresh branch as complete claim-safe process evidence freezes M2873/M2874 boundary preserves M2824 0/0 recoverability and 1/5 collision/offtrack M2667 25/79 protected M2838 1/2/13 M2868 0/0 success 1/1 collision M2638/M2836 HF3 blocker actor 72/action 3 no hidden oracle labels rejects package publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2876 fresh closed-loop evidence surface design
+
+## Hypothesis
+
+A bounded branch synthesis can decide whether the post-M2870 Route A limited baseline package refresh branch should freeze stop pivot to fresh Route A evidence Route B comparison or Route C dependency handling after M2873/M2874 accepted a complete claim-safe local package refresh.
+
+## Lineage
+
+- parent_checkpoint: runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt, runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt, runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt
+- parent_dataset: docs/post-m2470-route-plan.md, docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md, runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json, docs/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md, docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md, docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md, docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md, docs/m2869-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-candidate-closed-loop-delta-panel-result-audit.md, runs/m2868_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_candidate_closed_loop_delta_panel/summary.json, docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md, runs/m2838_engineering_controller_post_route_c_hf3_stop_source_diverse_closed_loop_evidence_preflight/summary.json, docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md, docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md, runs/m2824_engineering_controller_route_a_post_recoverability_negative_limited_package/summary.json, docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md, runs/m2667_engineering_controller_route_a_engineering_baseline_readiness_index_after_protected_taxonomy/summary.json
+- parent_config: experiments/manifests/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.json, experiments/manifests/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.json, experiments/manifests/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.json, experiments/manifests/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.json
+- parent_objective: synthesize the post-M2870 local Route A limited baseline package refresh branch after M2874 accepts M2873 as complete and claim-safe
+- derived_from: m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit, m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight, m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design, m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis
+- blocked_by: M2873/M2874 package refresh is complete and claim-safe but remains local package-boundary evidence only, M2824 recoverability remains negative at 0/0 availability/success with 1 collision and 5 offtrack terminations, M2667 protected mitigation keeps 25 blocking and 79 regressed rows visible, M2838 source-diverse diagnostics remain weak at 1 success 2 collisions and 13 off_track rows, M2868 localized response-prediction did not improve terminal outcomes with baseline/candidate success 0/0 and collision 1/1, M2638/M2836 keep selected-platform HF3 stopped until source or an approved dependency route is supplied, post-M2470 route plan requires avoiding static package/process loops that cannot change Route A evidence Route B self-ID evidence or Route C high-fidelity readiness
+- supersedes: continuing from M2874 into another package schema inventory provenance or audit-only process milestone, using M2873 package rows as validation readiness driver-performance paper current-sim high-fidelity full-driver or self-ID evidence
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis.md exists
+- synthesis answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk route_a_progress_delta and next_branch_decision
+- synthesis chooses exactly one next route freeze stop pivot defer or explicit stop decision
+- synthesis preserves M2824 M2667 M2838 M2868 M2836 actor and claim boundaries
+- synthesis registers at most one bounded follow-up route without package publication validation ranking performance paper current-sim high-fidelity full-driver or self-ID claims
+
+## Failure Criteria
+
+- M2875 runs reset rollout replay validation training PPO repair source build adapter probe external simulation package publication ranking promotion or success-rate verdict computation
+- M2875 hides M2824 M2667 M2838 M2868 or M2836 negative and blocker evidence
+- M2875 changes actor input/action contract or actor label visibility
+- M2875 continues package process work without material evidence expansion
+- M2875 claims repair success recoverability success localized-response-prediction success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-response sufficiency current-sim verdict full ideal driver completion or self-ID result
+
+## Evidence Gates
+
+- M2875 must synthesize M2871-M2874 package refresh evidence and blockers against docs/post-m2470-route-plan.md
+- M2875 must explicitly separate package-boundary completeness from Route A closed-loop evidence Route B self-ID evidence and Route C high-fidelity readiness
+- M2875 must assess public-gate overfit risk if the branch continues with another package process artifact
+- M2875 must choose exactly one next decision: freeze the limited package boundary pivot to materially fresh Route A evidence route to Route B comparison route to Route C dependency handling or stop
+- M2875 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible package blocker diagnostic route success progress and verdict labels
+- M2875 must not publish a package or execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation
+- M2875 must not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not publish a package
+- do not execute reset
+- do not step environments
+- do not execute policy action
+- do not execute policy rollout
+- do not execute replay
+- do not execute validation
+- do not train
+- do not run PPO
+- do not repair policy weights
+- do not execute source build
+- do not execute adapter probe
+- do not start external simulation
+- do not fetch or install external dependencies
+- do not rank controllers checkpoints families scenario roles or stress axes
+- do not select a winner
+- do not promote a checkpoint
+- do not compute success-rate verdict metrics
+- do not hide M2824 M2667 M2838 M2868 or M2836 negative and blocker evidence
+- do not weaken M2638/M2836 HF3 blocker
+- do not change actor inputs or action contract
+- do not expose package blocker diagnostic route success progress or verdict labels to actor input
+- do not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper current-sim high-fidelity full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis
+- type: gate
+- checkpoint: docs/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: pivot_to_route_a_post_package_refresh_fresh_closed_loop_evidence_surface_design
+- reason: M2875 synthesis closes package refresh branch as complete claim-safe process evidence freezes M2873/M2874 boundary preserves M2824 0/0 recoverability and 1/5 collision/offtrack M2667 25/79 protected M2838 1/2/13 M2868 0/0 success 1/1 collision M2638/M2836 HF3 blocker actor 72/action 3 no hidden oracle labels rejects package publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2876 fresh closed-loop evidence surface design
+
+## Next Blocker
+
+m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design
