@@ -51894,3 +51894,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight_20260606T080622Z/command.log`
 - success artifact: `runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json`
 - notes: Completed: materialized local package refresh status_pass true gate_matrix_pass true schema 20 inventory 18 provenance 18 latest negative evidence 5 blockers 8 actor rows 13 claim rows 35 gates 25 includes M2824 recoverability 0/0 and collision/offtrack 1/5 M2667 protected 25/79 M2838 success/collision/offtrack 1/2/13 M2868 baseline/candidate success 0/0 collision 1/1 actor 72/action 3 no hidden oracle labels no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claims routes to M2874 audit
+
+## 20260606T081944Z m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject M2873 package refresh materialization artifacts before any interpretation.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit_20260606T081944Z`
+- command log: `runs/research/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit_20260606T081944Z/command.log`
+- success artifact: `docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md`
+- notes: Completed: audit accepts M2873 complete claim-safe local package refresh materialization status_pass true gate_matrix_pass true schema 20 inventory 18 provenance 18 latest negative evidence 5 blockers 8 actor rows 13 claim rows 35 gates 25 preserves M2824 0/0 recoverability and 1/5 collision/offtrack M2667 25/79 protected M2838 1/2/13 M2868 0/0 success 1/1 collision actor 72/action 3 no hidden oracle labels rejects publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2875 branch synthesis

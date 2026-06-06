@@ -1,0 +1,119 @@
+{
+  "decision_reason": "M2874 audit accepts M2873 complete claim-safe local package refresh materialization status_pass true gate_matrix_pass true schema 20 inventory 18 provenance 18 latest negative evidence 5 blockers 8 actor rows 13 claim rows 35 gates 25 preserves M2824 0/0 recoverability and 1/5 collision/offtrack M2667 25/79 protected M2838 1/2/13 M2868 0/0 success 1/1 collision actor 72/action 3 no hidden oracle labels rejects publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2875 branch synthesis",
+  "failure_criteria": [
+    "M2874 runs reset rollout replay validation training PPO repair source build adapter probe external simulation ranking publication promotion or success-rate verdict computation",
+    "M2874 hides M2873 negative evidence or blockers",
+    "M2874 claims repair success recoverability success localized-response-prediction success driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not publish a package",
+    "do not execute reset",
+    "do not step environments",
+    "do not execute policy action",
+    "do not execute policy rollout",
+    "do not execute replay",
+    "do not execute validation",
+    "do not train",
+    "do not run PPO",
+    "do not repair policy weights",
+    "do not execute source build",
+    "do not execute adapter probe",
+    "do not start external simulation",
+    "do not fetch or install external dependencies",
+    "do not rank controllers or checkpoints",
+    "do not select a winner",
+    "do not promote a checkpoint",
+    "do not compute success-rate verdict metrics",
+    "do not hide M2873 negative evidence or blocker rows",
+    "do not weaken M2638/M2836 HF3 blocker",
+    "do not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper current-sim high-fidelity full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260606T081939Z",
+  "hypothesis": "A bounded audit can accept or reject M2873 package refresh materialization artifacts before any interpretation.",
+  "lineage": {
+    "blocked_by": [
+      "M2874 must accept or reject M2873 artifact completeness and claim safety before any package interpretation",
+      "M2873 package refresh is local artifact materialization only and cannot publish or validate a package",
+      "M2873 must preserve M2824 M2667 M2838 M2868 and M2836 limitation rows"
+    ],
+    "derived_from": [
+      "m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight",
+      "m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt",
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.json",
+      "experiments/manifests/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2873_engineering_controller_route_a_post_localized_response_prediction_limited_baseline_package_refresh/summary.json",
+      "docs/m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight.md",
+      "docs/m2872-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-design.md",
+      "docs/m2871-engineering-controller-route-a-post-localized-response-prediction-evidence-index-refresh-and-admission-synthesis.md",
+      "docs/m2870-engineering-controller-route-a-response-predictive-recurrent-belief-localized-response-prediction-branch-synthesis.md",
+      "docs/m2840-engineering-controller-post-route-c-hf3-stop-fresh-source-diverse-closed-loop-evidence-result-synthesis.md",
+      "docs/m2836-engineering-controller-route-c-selected-platform-source-dependency-refresh-or-stop-result-audit.md",
+      "docs/m2826-engineering-controller-route-a-post-recoverability-negative-limited-package-branch-synthesis.md",
+      "docs/m2669-engineering-controller-route-a-readiness-after-protected-taxonomy-branch-synthesis.md",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "audit the post-M2870 Route A limited package refresh materialization before interpretation"
+    ],
+    "supersedes": [
+      "interpreting M2873 rows before audit",
+      "using M2873 package rows as validation readiness or driver-performance evidence"
+    ]
+  },
+  "milestone": "m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit",
+  "next_blocker": "m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m2873_claim_safe_package_refresh_route_to_m2875_branch_synthesis",
+  "public_gates": [
+    "M2874 must audit M2873 summary schema inventory provenance latest negative evidence blocker actor/action claim-boundary and gate rows",
+    "M2874 must accept or reject M2873 artifact completeness and claim safety before any interpretation",
+    "M2874 must preserve M2824 prior package M2667 protected readiness M2838 fresh source-diverse negative diagnostics M2868 no-terminal-improvement and M2836 HF3 blocker limitations",
+    "M2874 must preserve actor 72/action 3 no hidden/oracle actor input and actor-invisible labels",
+    "M2874 must register one bounded follow-up synthesis repair stop or route manifest",
+    "M2874 must not publish a package or execute reset step rollout replay validation training PPO repair source build adapter probe external simulation ranking winner selection promotion or success-rate verdict computation",
+    "M2874 must not claim repair success recoverability success localized-response-prediction success driver performance validation readiness/result paper finite-window-vs-GRU current-response current-sim high-fidelity full ideal driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m2873_claim_safe_package_refresh_route_to_m2875_branch_synthesis",
+    "milestone": "m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit",
+    "reason": "M2874 audit accepts M2873 complete claim-safe local package refresh materialization status_pass true gate_matrix_pass true schema 20 inventory 18 provenance 18 latest negative evidence 5 blockers 8 actor rows 13 claim rows 35 gates 25 preserves M2824 0/0 recoverability and 1/5 collision/offtrack M2667 25/79 protected M2838 1/2/13 M2868 0/0 success 1/1 collision actor 72/action 3 no hidden oracle labels rejects publication validation ranking promotion performance paper current-sim high-fidelity full-driver and self-ID claims routes to M2875 branch synthesis",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit.md exists",
+    "audit accepts or rejects M2873 artifact completeness and claim safety",
+    "audit preserves M2824 M2667 M2838 M2868 M2836 actor and claim boundaries",
+    "audit registers one bounded follow-up or explicit stop",
+    "audit makes no publication validation ranking promotion performance paper current-sim high-fidelity full-driver or self-ID claim"
+  ],
+  "type": "gate"
+}

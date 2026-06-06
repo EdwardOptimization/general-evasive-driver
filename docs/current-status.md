@@ -16,20 +16,20 @@ and `docs/research-log.md` remain the detailed experiment log.
 Latest completed milestone:
 
 ```text
-m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
+m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit
 ```
 
 Latest attempted milestone:
 
 ```text
-m2873-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-preflight
+m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit
 result: completed
 ```
 
 Current next task:
 
 ```text
-m2874-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-materialization-result-audit
+m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis
 ```
 
 Current route:
@@ -38,21 +38,26 @@ Current route:
 docs/post-m2470-route-plan.md split the work into Route A engineering controller
 mainline, Route B paper evidence, and Route C high-fidelity interface. The
 current branch is Route A post localized response-prediction limited package
-refresh result audit after M2873 materialized the local package-boundary rows.
+refresh branch synthesis after M2874 accepted M2873 as a complete and
+claim-safe local package-boundary materialization.
 
-M2873 completed a local package refresh materialization from existing artifacts
-only. It wrote 20 schema rows, 18 artifact inventory rows, 18 provenance rows,
-5 latest negative evidence rows, 8 known blocker rows, 13 actor/action rows,
-35 claim-boundary rows, and 25 passing gate rows. The latest negative evidence
-keeps M2824 recoverability 0/0 and collision/offtrack 1/5, M2667 protected
-blocking/regressed rows 25/79, M2838 diagnostic success/collision/offtrack
-1/2/13, and M2868 baseline/candidate success 0/0 and collision 1/1. Actor
-72/action 3, no hidden/oracle actor input, and actor-invisible package,
-blocker, diagnostic, route, success/progress, and verdict labels remain
-preserved. M2873 rejects publication, validation, ranking, promotion,
-performance, paper, current-sim, high-fidelity, full-driver, and self-ID
-claims. The next task is M2874: audit M2873 artifact completeness and claim
-safety before interpretation.
+M2874 completed the M2873 result audit with decision
+`accept_m2873_claim_safe_package_refresh_route_to_m2875_branch_synthesis`.
+It accepts M2873 status_pass true and gate_matrix_pass true with 20 schema
+rows, 18 artifact inventory rows, 18 provenance rows, 5 latest negative
+evidence rows, 8 known blocker rows, 13 actor/action rows, 35 claim-boundary
+rows, and 25 package gate rows. The audit preserves M2824 recoverability 0/0
+and collision/offtrack 1/5, M2667 protected blocking/regressed rows 25/79,
+M2838 diagnostic success/collision/offtrack 1/2/13, M2868 baseline/candidate
+success 0/0 and collision 1/1, and the M2638/M2836 selected-platform HF3
+source dependency blocker. Actor 72/action 3, no hidden/oracle actor input,
+and actor-invisible package, blocker, diagnostic, route, success/progress, and
+verdict labels remain preserved. M2874 rejects publication, validation,
+ranking, promotion, performance, paper, current-sim, high-fidelity,
+full-driver, and self-ID claims. The next task is M2875: synthesize M2871-M2874
+and decide whether to freeze the limited package boundary, stop the package
+branch, pivot to materially fresh Route A evidence, defer to Route B
+comparison, or defer to Route C dependency handling.
 
 M2835 completed the selected-platform source dependency refresh-or-stop design
 with decision `reject_refresh_keep_route_c_hf3_stopped_until_source_supplied`.
