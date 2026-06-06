@@ -1,0 +1,182 @@
+{
+  "baseline_artifacts": [
+    "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json",
+    "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv",
+    "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/guardrail_context_rows.csv",
+    "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+    "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+    "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2917 writes a bounded result-audit artifact for M2916 and preserves all actor denominator and claim boundaries without execution.",
+  "failure_criteria": [
+    "M2917 executes reset rollout replay validation training ranking promotion dependency work",
+    "M2917 changes actor input or action contract",
+    "M2917 hides Route B source-family insufficiency or Route C source_unavailable",
+    "M2917 claims model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2917 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate rank promote publish select a winner or execute dependency work",
+    "do not fit train or run PPO",
+    "do not fetch clone configure build install import link probe or start an external backend",
+    "do not change actor input or action contract",
+    "do not convert M2916 admission rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2916 Route A dependency-facing execution-admission materialization before any behavior execution validation ranking promotion dependency execution performance paper high-fidelity or self-ID claim.",
+  "id": "m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2916 must be audited before admitted rows can influence any execution design or execution route",
+      "Route B source-family insufficiency and Route C source_unavailable must remain context only"
+    ],
+    "derived_from": [
+      "m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight",
+      "m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt",
+      "runs/m2848_engineering_controller_route_a_response_predictive_recurrent_belief_core_training_bounded_continuation_preflight/checkpoints/m2848_response_predictive_recurrent_belief_continuation_candidate.pt",
+      "runs/m2866_engineering_controller_route_a_response_predictive_recurrent_belief_localized_response_prediction_training_implementation_preflight/checkpoints/m2866_localized_response_prediction_training_candidate.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json",
+      "experiments/manifests/m2915-engineering-controller-route-a-dependency-facing-evidence-surface-execution-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/summary.json",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_input_source_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_source_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_rejection_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/guardrail_context_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/gate_matrix.csv",
+      "docs/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M2916 execution-admission materialization before any behavior execution route"
+    ],
+    "supersedes": [
+      "direct behavior execution from M2916 admission rows without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits a new materialized Route A execution-admission surface",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2917 cannot accept reject repair pivot or stop M2916",
+      "M2917 would claim validation readiness driver performance paper high-fidelity or self-ID evidence",
+      "M2917 would bypass Route B or Route C blockers"
+    ],
+    "paper_verdict_delta": "no paper verdict",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2917 must audit M2916 summary row counts gates actor boundary Route B and Route C context",
+    "M2917 must preserve no-execution no-validation no-ranking no-performance and no-paper claim boundaries",
+    "M2917 must select exactly one next route or stop state before any execution"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded admission materialization audit decision",
+      "row completeness and claim-boundary audit",
+      "no model-quality driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2917 audits engineering admission materialization and cannot substitute Route A rows for history necessity.",
+    "history_necessity_tests": [
+      "None in M2917; self-ID evidence remains blocked until fair source-diverse L0/L1/L2/L3 tests are admitted."
+    ],
+    "negative_result_policy": "Preserve blockers rather than weakening self-ID standards.",
+    "temporal_evidence_window": "M2910-M2916 Route A dependency-facing admission chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md exists",
+    "audit summarizes M2916 materialization row counts and gates",
+    "audit preserves actor Route B Route C denominator and claim boundaries",
+    "audit selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2916 writes no-execution execution-admission source candidate rejection guardrail actor claim and gate rows"
+    ],
+    "allowed_updates": [
+      "docs/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+      "docs/reviews/m2917-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-result-audit.md",
+      "M2917 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if audit selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion dependency execution or performance claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden oracle or future-target actor inputs"
+    ],
+    "next_stage_criteria": [
+      "M2917 audit artifact exists",
+      "M2917 accepts rejects repairs pivots or stops M2916 materialization",
+      "actor Route B Route C denominator and claim boundaries remain preserved",
+      "no validation ranking promotion performance paper high-fidelity or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit Route A dependency-facing execution-admission materialization"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only no reset rollout validation ranking promotion dependency execution performance paper high-fidelity or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_execution_admission_materialization_result_audit",
+    "evidence_increment": "audits M2916 execution-admission materialization rows before any behavior execution route",
+    "fallback_plan": [
+      "route to repair or source-inventory redesign if materialization is incomplete",
+      "route to stop if no actor-safe candidate rows remain",
+      "route to bounded execution design only after audit acceptance"
+    ],
+    "stop_condition": [
+      "stop if M2916 artifacts are incomplete",
+      "stop if actor or denominator boundaries fail",
+      "stop if Route B or Route C context enters proof or readiness denominators",
+      "stop if M2917 would execute policy or dependency work"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2916 completes execution-admission materialization preflight"
+  }
+}
