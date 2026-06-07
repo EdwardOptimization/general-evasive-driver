@@ -54527,3 +54527,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z/command.log`
 - success artifact: `docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md`
 - notes: Completed: audit accepts M3090 full-fresh deployable runtime measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false parity_rows 64 outcome_matches 64/64 parity_clearance_delta_max 0.0 parity_return_delta_max 0.0; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; selects exactly one follow-up to M3092 behavior-negative repair synthesis because 5 collision 5 offtrack and 11 speed_too_low blockers remain.
+
+## 20260607T191644Z m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded behavior-negative repair synthesis can classify the M3090 full-fresh deployable runtime failures and select one direct-action active-safety repair route before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis_20260607T191644Z`
+- command log: `runs/research/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis_20260607T191644Z/command.log`
+- success artifact: `docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md`
+- notes: Completed: behavior-negative repair synthesis accepts M3090/M3091 artifacts as complete and claim-safe but rejects validation promotion or performance interpretation; classifies 21/64 non-success rows as 11 speed_too_low 5 collision 5 offtrack across all 4 axes, with speed_too_low the largest blocker and collision/offtrack retained as hard-safety blockers; selects exactly one follow-up to M3093 v2 speed-floor-aware balanced direct-action repair materialization, preserving obs72/action3 direct [steer throttle brake] runtime_base_policy_required false and forbidding hidden oracle TTC target source route outcome progress or verdict actor inputs; no measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.

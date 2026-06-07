@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3097,
+    "completed": 3098,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z/command.log",
+    "command_log": "runs/research/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis_20260607T191644Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z",
+    "run_dir": "runs/research/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis_20260607T191644Z",
     "status": "completed",
-    "task_id": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit"
+    "task_id": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded behavior-negative repair synthesis can classify the M3090 full-fresh deployable runtime failures and select one direct-action active-safety repair route before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "id": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M3090 full-fresh deployable runtime behavior blockers by collision offtrack speed-too-low axis binding role clearance stability and action-pressure evidence, then select one direct-action repair or stop route without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "priority": 30870,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight --m3092-synthesis docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --output-dir runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight --doc-path docs/m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight.md --follow-up-manifest experiments/manifests/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit.json",
+    "hypothesis": "A bounded v2 speed-floor-aware balanced direct-action repair materialization can produce actor-visible obs72-to-action3 rule and config artifacts that target M3090 speed-too-low, collision, and offtrack blockers while preserving claim boundaries before any measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "id": "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize v2 speed-floor-aware balanced direct-action repair rule/config and guards selected by M3092, register M3094 audit, and preserve obs72/action3 direct [steer throttle brake] with no hidden inputs, runtime base policy, measurement, validation, ranking, promotion, repair-success, robustness-result, or self-ID claim.",
+    "priority": 30880,
     "status": "pending",
-    "success_artifact": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md"
+    "success_artifact": "runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T191223Z"
+  "updated_at_utc": "20260607T191851Z"
 }

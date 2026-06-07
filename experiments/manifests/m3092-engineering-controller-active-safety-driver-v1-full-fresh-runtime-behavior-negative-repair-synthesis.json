@@ -82,7 +82,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M3091 accepts M3090 artifacts but identifies unresolved collision offtrack and speed-too-low blockers",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "process",
@@ -165,6 +174,15 @@
     "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json"
   ],
   "scoreboard_checkpoint": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
-  "next_blocker": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis",
-  "status": "pending"
+  "next_blocker": "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight",
+  "status": "completed",
+  "completed_at_utc": "20260607T191644Z",
+  "status_pass": true,
+  "gate_matrix_pass": true,
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v1_behavior_negative_repair_synthesis_pivot_to_v2_speed_floor_aware_materialization",
+  "decision": "route_to_m3093_speed_floor_aware_balanced_direct_action_repair_materialization",
+  "completed_summary": "Completed: behavior-negative repair synthesis accepts M3090/M3091 artifacts as complete and claim-safe but rejects validation promotion or performance interpretation; classifies 21/64 non-success rows as 11 speed_too_low 5 collision 5 offtrack across all 4 axes, with speed_too_low the largest blocker and collision/offtrack retained as hard-safety blockers; selects exactly one follow-up to M3093 v2 speed-floor-aware balanced direct-action repair materialization, preserving obs72/action3 direct [steer throttle brake] runtime_base_policy_required false and forbidding hidden oracle TTC target source route outcome progress or verdict actor inputs; no measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "selected_next_action": "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight",
+  "selected_next_action_type": "repair_materialization_preflight"
 }
