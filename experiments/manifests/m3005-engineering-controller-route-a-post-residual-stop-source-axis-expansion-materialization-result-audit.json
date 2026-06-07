@@ -1,0 +1,182 @@
+{
+  "baseline_artifacts": [
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/summary.json",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_inventory_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/exhausted_m1690_l3_surface_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/prior_surface_identity_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_axis_candidate_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/rejected_same_surface_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3005 audits M3004 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3005 hides M3004 failures or missing artifacts",
+    "M3005 treats M3004 source-axis candidates as execution readiness performance verdict or repair success",
+    "M3005 changes actor input or action contract",
+    "M3005 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate train rank promote select a winner or execute dependency work",
+    "do not implement source generation or execution inside the audit",
+    "do not change actor input or action contract",
+    "do not convert M3004 source inventory rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3004 source-axis expansion materialization before any execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3004 materialization requires audit before any source-generation implementation or execution",
+      "M1690 L3 row selection remains exhausted and cannot be treated as a fresh denominator",
+      "same-surface residual-head and eval-seed-only routes remain rejected"
+    ],
+    "derived_from": [
+      "m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight",
+      "m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight.json",
+      "experiments/manifests/m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design.json"
+    ],
+    "parent_dataset": [
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/summary.json",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_inventory_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/exhausted_m1690_l3_surface_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/prior_surface_identity_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_axis_candidate_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/rejected_same_surface_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/supporting_guard_axis_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/gate_matrix.csv",
+      "docs/m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M3004 source-axis expansion materialization before selecting implementation, stop, or synthesis"
+    ],
+    "supersedes": [
+      "direct execution from M3004 source-axis inventory without result audit",
+      "direct performance interpretation of M3004 candidate-axis rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized source-axis inventory and same-surface rejection panel",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3005 cannot accept M3004 as complete and claim-safe",
+      "M3005 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M3005 cannot select an implementation, synthesis, or stop route"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may authorize a later source-generation route only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3005 must audit M3004 summary source inventory exhausted-surface same-surface rejection actor and claim boundaries",
+    "M3005 must preserve the 72/72 exhausted M1690 L3 task_source-id accounting",
+    "M3005 must not convert candidate-axis rows into execution validation performance paper high-fidelity or self-ID evidence",
+    "M3005 must select exactly one next route or explicit stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3004 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3005 audits Route A source-axis materialization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3005; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve exhausted-source and same-surface rejection findings and route to synthesis or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M3004 Route A post-residual-stop source-axis materialization only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md exists",
+    "M3005 audits M3004 artifacts row counts gates actor and claim boundaries",
+    "M3005 selects exactly one next route or stop state",
+    "no execution training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3004 summary and gate matrix",
+      "M3004 source inventory exhausted-surface same-surface rejection candidate-axis actor and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+      "docs/reviews/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+      "M3005 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3005 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no execution validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO residual selection or checkpoint promotion",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M3005 audit accepts or rejects M3004 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3004 post-residual-stop source-axis expansion materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Result audit only; no execution validation training ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "source_axis_expansion_materialization_result_audit",
+    "evidence_increment": "audits M3004 source-axis expansion inventory and same-surface rejection artifacts",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch synthesis if materialization is complete but no source-axis route is viable",
+      "route to bounded source-generation implementation design only after audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M3004 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if M3004 leaves no admissible source-axis candidate or explicit stop route",
+      "stop if candidate-axis rows would be used as execution instructions before a separate manifest"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3004 completes source-axis expansion materialization"
+  }
+}

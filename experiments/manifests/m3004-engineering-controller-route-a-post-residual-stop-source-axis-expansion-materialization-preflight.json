@@ -23,6 +23,7 @@
       "name": "materialize_source_axis_expansion_inventory"
     }
   ],
+  "completion_summary": "Completed: materialized M3003 source-axis expansion design into no-execution source inventory, exhausted-surface, prior-identity, source-axis candidate, same-surface rejection, supporting guard, actor, claim, gate, run-state, summary, doc, and M3005 audit manifest artifacts with status_pass true gate_matrix_pass true; confirms 72 M1690 L3 task_source ids, prior audited surface coverage 72, unused M1690 L3 task_source ids 0, 543 prior identity rows, 6 source-axis candidate rows, 4 admissible-after-audit source-axis candidates, 8 rejected same-surface rows, actor 72/action 3; no reset step rollout replay validation training PPO source build dependency probe external simulation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
   "decision_rule": "Pass only if M3004 writes complete no-execution source-axis expansion materialization artifacts, confirms exhausted M1690 L3 accounting, rejects same-surface reuse, preserves actor and claim boundaries, and registers M3005 result audit without execution or evidence overclaiming.",
   "failure_criteria": [
     "M3004 fails to preserve the exhausted M1690 L3 source-space accounting from M3003",
@@ -43,6 +44,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.json",
   "forbidden_shortcuts": [
     "do not run reset step rollout replay validation training PPO private holdout source build adapter probe or external simulation",
     "do not mutate save replace rank select or promote checkpoints",
@@ -59,6 +61,7 @@
       "M1690 L3 task_source-id row space is exhausted for fresh row selection",
       "M3000 is behavior-neutral and same task_source identity as M2919 at audited granularity",
       "same-surface residual-head or eval-seed-only reuse would be local-search drift",
+      "M3004 materialization requires M3005 result audit before source-generation implementation or execution",
       "Route C HF3 selected-platform execution remains blocked until source or an approved dependency route is supplied"
     ],
     "derived_from": [
@@ -94,7 +97,7 @@
   },
   "local_search_guard": {
     "actual_progress_type": "new_dataset_or_panel",
-    "evidence_expansion": "materializes a new source-axis inventory/candidate/rejection panel after the fixed M1690 L3 row space is exhausted",
+    "evidence_expansion": "materialized a new source-axis inventory/candidate/rejection panel after the fixed M1690 L3 row space was proven exhausted",
     "local_search_risk": "medium",
     "must_synthesize_if": [
       "M3004 cannot materialize an admissible source-axis candidate or explicit stop route",
@@ -107,7 +110,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight",
+  "next_blocker": "m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -189,7 +192,7 @@
     "negative_result_policy": "If no admissible source-axis expansion exists, materialize an explicit stop route rather than weakening self-ID or paper proof gates.",
     "temporal_evidence_window": "M3003 exhausted-source design plus M2919/M3000 Route A current-sim diagnostic identity audit."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/summary.json exists",
     "M3004 confirms M1690 L3_online_gru has 72 task_source_id values and zero unused task_source ids after prior audited surfaces",
