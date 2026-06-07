@@ -53744,3 +53744,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight_20260607T085455Z/command.log`
 - success artifact: `runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/summary.json`
 - notes: Completed: captured raw deployable actor-view traces with status_pass true gate_matrix_pass true required_artifacts_present true 32 capture plan rows 32 raw trace index rows 32 raw trace files 29 future target raw traces 3 success identity raw traces actor 72/action 3 tensors finite checkpoint read-only direct profile policy mode true 0 target-source feasibility claims 0 numeric targets 0 local-action search and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3028 result audit.
+
+## 20260607T091033Z m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3027 raw deployable trace-capture artifacts before any target-source feasibility target tensor materialization local-action search fitting validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit_20260607T091033Z`
+- command log: `runs/research/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit_20260607T091033Z/command.log`
+- success artifact: `docs/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.md`
+- notes: Completed: audit accepts M3027 as complete and claim-safe raw deployable trace capture with status_pass true gate_matrix_pass true required_artifacts_present true 32 capture plan rows 32 raw trace index rows 32 raw trace files 29 future target raw traces 3 success identity raw traces actor 72/action 3 tensors finite step range 31-177 checkpoint read-only direct profile policy mode true 0 target-source feasibility claims 0 numeric targets 0 local-action search and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M3029 target-source feasibility materialization preflight.

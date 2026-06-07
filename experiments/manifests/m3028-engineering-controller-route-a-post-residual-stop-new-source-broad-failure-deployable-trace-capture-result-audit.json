@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit",
+  "next_blocker": "m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -121,7 +121,7 @@
     "negative_result_policy": "Preserve trace capture failures and route to repair or synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3027 Route A raw trace-capture preflight only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.md exists",
     "M3028 audits M3027 artifacts row counts gates actor and claim boundaries",
@@ -161,7 +161,7 @@
     "fallback_plan": [
       "route to artifact repair if raw trace files are incomplete",
       "route to branch synthesis if raw trace capture violates actor boundaries",
-      "route to bounded target-source feasibility audit only after M3028 accepts claim safety and capture completeness"
+      "route to bounded target-source feasibility materialization preflight only after M3028 accepts claim safety and capture completeness"
     ],
     "stop_condition": [
       "stop if M3027 artifacts are missing or gate matrix fails",

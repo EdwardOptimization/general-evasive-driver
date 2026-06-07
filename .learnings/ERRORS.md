@@ -26,6 +26,37 @@ Use Python standard-library JSON extraction for repo-local checks unless `jq` av
 
 ---
 
+## [ERR-20260607-009] autodrift_trace_artifact_schema_assumption
+
+**Logged**: 2026-06-07T17:10:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift trace audits should inspect live CSV and NPZ schemas before assuming legacy artifact names or tensor keys.
+
+### Error
+```text
+FileNotFoundError: capture_plan.csv
+KeyError: observations is not a file in the archive
+```
+
+### Context
+- Command attempted: ad hoc M3027 audit script.
+- Actual files use `*_rows.csv` names.
+- Actual trace tensor keys are `observation_trace`, `action_trace`, `next_observation_trace`, `reward_trace`, `done_trace`, and `timeout_trace`.
+- `gate_matrix.csv` uses `status_pass`, not `pass`.
+
+### Suggested Fix
+For AutoDrift research audits, read one live CSV row and one live NPZ key list before writing count or tensor checks.
+
+### Metadata
+- Reproducible: yes
+- Related Files: runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight
+
+---
+
 ## [ERR-20260607-004] branch_cadence_requires_synthesis_manifest
 
 **Logged**: 2026-06-07T14:34:31+08:00
