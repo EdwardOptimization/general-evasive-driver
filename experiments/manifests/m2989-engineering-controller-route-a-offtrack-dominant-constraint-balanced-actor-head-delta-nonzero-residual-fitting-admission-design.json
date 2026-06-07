@@ -38,6 +38,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight.json",
   "forbidden_shortcuts": [
     "do not fit train select validate rank promote or execute a nonzero residual head",
     "do not mutate save replace rank or promote checkpoints",
@@ -104,9 +105,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
+  "next_blocker": "m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2989 must distinguish fitting-contract artifact availability from target-quality validation legal residual fitting readiness and performance evidence",
     "M2989 must preserve 43 candidate target tensors 13 success identity zero guards and 11 stale guardrail exclusions",
@@ -118,6 +119,10 @@
     {
       "path": "docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
@@ -135,12 +140,13 @@
     "negative_result_policy": "If legal residual fitting semantics are missing preserve the blocker and route to repair synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2987-M2988 Route A actor-head delta fitting-contract chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md exists",
     "M2989 distinguishes fitting-contract availability from legal residual fitting readiness",
     "M2989 preserves actor 72/action 3 candidate guard stale exclusion and claim boundaries",
     "M2989 selects exactly one next route or stop state",
+    "M2989 registers M2990 bounded fitting preflight as the only follow-up route",
     "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
   ],
   "training_stage": {
@@ -153,6 +159,7 @@
     "allowed_updates": [
       "docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
       "docs/reviews/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+      "experiments/manifests/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight.json",
       "M2989 status queue scoreboard research log and review",
       "one follow-up manifest only if M2989 selects exactly one next route"
     ],
@@ -164,7 +171,7 @@
       "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
     ],
     "next_stage_criteria": [
-      "M2989 chooses one claim-safe fitting-admission route repair route synthesis pivot or stop state",
+      "M2989 chooses M2990 bounded fitting preflight as one claim-safe fitting-admission route",
       "actor guard and claim boundaries remain unchanged"
     ],
     "stage": "process",

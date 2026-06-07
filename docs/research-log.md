@@ -53274,3 +53274,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit_20260607T022511Z/command.log`
 - success artifact: `docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md`
 - notes: Completed: audit accepts M2987 fitting-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true 8 dataset contract rows 3 split denominator rows 43 mask weight binding rows 13 success identity zero-guard bindings 11 stale exclusion bindings 14 actor input exclusions 12 checkpoint side-effect guards 18 claim rows 20 gate rows actor 72/action 3 target_quality_validated false target labels and provenance actor-invisible no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2989 fitting-admission design.
+
+## 20260607T023340Z m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only residual fitting admission milestone can inspect the accepted M2987 fitting-contract artifacts and choose exactly one legal next route before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T023340Z`
+- command log: `runs/research/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T023340Z/command.log`
+- success artifact: `docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md`
+- notes: Completed: design admits M2990 bounded residual fitting preflight after M2988 accepted M2987 fitting contracts as complete and claim-safe while preserving 43 candidate target tensors 13 success identity zero guards 11 stale exclusions actor 72/action 3 target_quality_validated false target labels and provenance actor-invisible and rejecting target-quality validation fitting readiness validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
