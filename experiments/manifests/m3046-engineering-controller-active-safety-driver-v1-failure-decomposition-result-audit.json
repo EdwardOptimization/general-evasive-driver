@@ -1,0 +1,174 @@
+{
+  "baseline_artifacts": [
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/summary.json",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/failure_mode_rows.csv",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_failure_decomposition_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3046 audits M3045 decomposition artifacts and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3046 hides M3045 failures or missing artifacts",
+    "M3046 treats M3045 decomposition as validation or performance verdict",
+    "M3046 changes actor input or action contract",
+    "M3046 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun rollout fit train validate rank promote tune or mutate checkpoints",
+    "do not convert M3045 decomposition rows into performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3045 Active Safety Driver v1 failure-decomposition materialization artifacts before any fitting training validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "id": "m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3045 decomposition artifacts require audit before refit rerun repair or stop decision",
+      "M3043/M3044 evidence is measurement and audit evidence only"
+    ],
+    "derived_from": [
+      "m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight",
+      "m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/summary.json",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/failure_mode_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/gate_matrix.csv",
+      "docs/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit failure decomposition before any repair route"
+    ],
+    "supersedes": [
+      "direct repair route without auditing M3045 decomposition"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the failure and actuation decomposition panel before repair routing",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3046 cannot accept M3045 as complete and claim-safe",
+      "M3046 cannot select a repair audit stop or continuation route",
+      "M3046 would require another process-only milestone before repair input can be acted on"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3046 prepares an active-safety repair route decision",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit",
+  "priority": 30410,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3046 must audit M3045 summary failure actuation repair claim and gate artifacts",
+    "M3046 must confirm all 32 M3043 rows remain accounted for",
+    "M3046 must preserve actor 72/action 3 and claim boundaries",
+    "M3046 must reject validation ranking promotion high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims unless separately routed",
+    "M3046 must select exactly one repair audit stop or continuation route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3045 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3046 audits engineering failure decomposition artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3046; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Preserve negative active-safety evidence and route to repair or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3045 failure decomposition artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md exists",
+    "M3046 audits M3045 summary failure actuation repair claim and gate artifacts",
+    "M3046 rejects validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3046 selects exactly one repair audit stop or continuation route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3045 summary and gate matrix",
+      "M3045 failure mode actuation saturation repair requirement and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+      "docs/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+      "experiments/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.json",
+      "M3046 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3046 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no fitting training validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress or verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3046 accepts or rejects M3045 as complete and claim-safe",
+      "next repair audit stop or continuation route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3045 failure-decomposition materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "claim_scope": "Result audit only; no fitting training validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_failure_decomposition_result_audit",
+    "evidence_increment": "audits repair-facing failure decomposition artifacts before selecting the next active-safety repair route",
+    "fallback_plan": [
+      "route to artifact repair if artifacts are incomplete",
+      "route to repair design if decomposition is complete and claim-safe",
+      "route to branch stop if decomposition shows no viable repair input"
+    ],
+    "stop_condition": [
+      "stop if M3045 artifacts are missing or gate matrix fails",
+      "stop if row preservation or actor contracts were violated",
+      "stop if M3045 rows are treated as validation or performance verdicts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3045 materializes failure decomposition artifacts"
+  }
+}
