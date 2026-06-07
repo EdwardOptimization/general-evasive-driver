@@ -21,6 +21,7 @@
       "name": "materialize_new_task_source_generation_contract"
     }
   ],
+  "completion_summary": "Completed: materialized M3005-accepted M3004 source-axis candidates into no-execution source-generation contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true; wrote 4 source contract rows 4 axis budget rows 16 new task-source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap T4/T5 8/8 8 same-surface rejection rows actor 72/action 3; no reset step rollout replay source build execution validation training PPO ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3007 result audit.",
   "decision_rule": "Pass only if M3006 writes complete no-execution source-generation contract artifacts with new task_source identities outside the exhausted M1690 L3 set, preserves actor and claim boundaries, and registers M3007 audit before any execution or overclaiming.",
   "failure_criteria": [
     "M3006 reuses m1680-spec-0000 through m1680-spec-0071 as fresh new source identities",
@@ -40,6 +41,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.json",
   "forbidden_shortcuts": [
     "do not run reset step rollout replay validation training PPO private holdout source build adapter probe or external simulation",
     "do not mutate save replace rank select or promote checkpoints",
@@ -102,7 +104,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight",
+  "next_blocker": "m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -174,7 +176,7 @@
     "negative_result_policy": "If no new source identity can be materialized, write an explicit stop artifact rather than weakening self-ID or paper proof gates.",
     "temporal_evidence_window": "M3004-M3005 source-axis expansion materialization and audit only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json exists",
     "M3006 reads M3004 source_axis_candidate_rows and M3005 audit as governing inputs",
