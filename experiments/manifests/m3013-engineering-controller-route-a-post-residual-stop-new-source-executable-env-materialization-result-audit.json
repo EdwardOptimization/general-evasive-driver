@@ -1,0 +1,219 @@
+{
+  "baseline_artifacts": [
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_spec_rows.csv",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/env_contract_guard_rows.csv",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3013 audits M3012 artifacts, answers the synthesis questions, and selects exactly one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3013 hides M3012 failures or missing artifacts",
+    "M3013 treats M3012 env configs as execution readiness performance verdict or repair success",
+    "M3013 changes actor input or action contract",
+    "M3013 omits synthesis questions after branch cadence fires",
+    "M3013 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute workloads build sources validate train rank promote or select a winner",
+    "do not change actor input or action contract",
+    "do not convert M3012 env config rows into performance paper high-fidelity or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result-audit synthesis can accept or reject the M3012 new-source executable env materialization and decide the post-source-axis-expansion branch route before any execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3012 env configs require audit before execution design",
+      "env config materialization rows are not execution readiness or performance evidence"
+    ],
+    "derived_from": [
+      "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight",
+      "m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design",
+      "m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit",
+      "m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.json",
+      "experiments/manifests/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.json",
+      "experiments/manifests/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_spec_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/profile_binding_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/unmappable_source_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/env_contract_guard_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/gate_matrix.csv",
+      "docs/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M3012 executable env materialization before any execution design or stop"
+    ],
+    "supersedes": [
+      "direct execution from workload contracts without env materialization audit",
+      "direct performance interpretation of env configs"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "synthesizes the env-config and executable-workload materialization branch before any further narrow route",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3013 cannot accept M3012 as complete and claim-safe",
+      "M3013 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M3013 cannot justify continue pivot stop or promote decision"
+    ],
+    "paper_verdict_delta": "no paper verdict; synthesis may authorize one bounded execution-design route only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3013 must audit M3012 summary env workload guard and claim artifacts",
+    "M3013 must preserve 16 source identities 2 profile bindings and 32 workload rows",
+    "M3013 must answer synthesis questions after branch cadence fires",
+    "M3013 must not convert env configs into execution validation performance paper high-fidelity or self-ID evidence",
+    "M3013 must select exactly one next route or explicit stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3012 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3013 audits env materialization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3013; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve env materialization failures and route to synthesis or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M3012 env materialization only."
+  },
+  "status": "completed",
+  "success_criteria": [
+    "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md exists",
+    "M3013 audits M3012 artifacts row counts gates actor and claim boundaries",
+    "M3013 answers branch synthesis questions with a continue pivot stop or promote decision",
+    "M3013 selects exactly one next route or stop state",
+    "no execution training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3012 summary and gate matrix",
+      "M3012 source env workload actor and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+      "docs/reviews/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+      "M3013 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3013 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no execution validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M3013 audit accepts or rejects M3012 as complete and claim-safe",
+      "M3013 answers synthesis questions",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3012 no-execution executable env materialization artifacts and synthesize the source-axis-expansion branch"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Result-audit synthesis only; no execution validation training ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_executable_env_materialization_result_audit_and_branch_synthesis",
+    "evidence_increment": "audits M3012 env materialization, synthesizes the post-residual-stop source-axis-expansion branch, and decides whether one bounded execution-design route is justified",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch stop if env materialization is complete but no execution route is justified",
+      "continue exactly once to bounded execution-design admission if audit accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M3012 artifacts are missing or gate matrix fails",
+      "stop if env rows drop source specs or workload rows",
+      "stop if actor or claim boundaries were violated",
+      "stop if env configs would be used as execution results",
+      "stop if synthesis cannot justify a bounded execution-design route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "continue",
+    "synthesis_trigger": "M3012 completes env materialization and branch cadence reaches synthesis requirement",
+    "synthesis_artifact": "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "follow_up_manifest": "experiments/manifests/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.json",
+  "completion_summary": "Completed: result-audit synthesis accepts M3012 executable-env materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 executable source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 0 unmappable source rows 0 env contract violations 0 forbidden key violations 2 read-only profile bindings 32 executable workload rows actor 72/action 3; answers synthesis questions, rejects execution readiness validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver self-ID ranking and promotion claims, and continues exactly once to M3014 bounded execution-admission design.",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+    "decision": "continue_to_m3014_bounded_execution_admission_design",
+    "synthesis_decision": "continue",
+    "m3012_status_pass": true,
+    "m3012_gate_matrix_pass": true,
+    "m3012_required_artifacts_present": true,
+    "executable_source_spec_row_count": 16,
+    "executable_source_unique_task_source_count": 16,
+    "old_m1690_l3_overlap_count": 0,
+    "unmappable_source_row_count": 0,
+    "env_contract_violation_count": 0,
+    "forbidden_key_violation_count": 0,
+    "profile_binding_row_count": 2,
+    "executable_workload_row_count": 32,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "execution_performed": false,
+    "claim_boundary_violation": false,
+    "next_manifest": "experiments/manifests/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.json"
+  }
+}

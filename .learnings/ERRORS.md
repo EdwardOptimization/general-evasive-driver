@@ -26,6 +26,35 @@ Use Python standard-library JSON extraction for repo-local checks unless `jq` av
 
 ---
 
+## [ERR-20260607-004] branch_cadence_requires_synthesis_manifest
+
+**Logged**: 2026-06-07T14:34:31+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift research validation rejects another ordinary process milestone once branch cadence requires synthesis.
+
+### Error
+```text
+error: m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit: workflow_synthesis.branch 'engineering_controller_route_a_post_residual_stop_source_axis_expansion' has 11 non-synthesis milestones since the last synthesis; cadence is 10, so add a gate_tier='process' synthesis milestone with workflow_synthesis.synthesis_decision before continuing
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3013 was initially registered as a plain result audit after M3012 env materialization.
+- The branch had already crossed the synthesis cadence, so the next process milestone must be a synthesis decision milestone.
+
+### Suggested Fix
+When `research-validate` reports branch cadence exhaustion, convert the next process audit into an explicit synthesis milestone with `workflow_synthesis.synthesis_decision`, `synthesis_artifact`, and `synthesis_questions`, or insert a separate synthesis before further narrow design/audit work.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json, src/autodrift/research_validate.py
+
+---
+
 ## [ERR-20260607-003] csv_writer_crlf_line_endings
 
 **Logged**: 2026-06-07T14:21:50+08:00

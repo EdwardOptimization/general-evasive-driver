@@ -91,7 +91,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight",
+  "next_blocker": "m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -171,7 +171,7 @@
     "negative_result_policy": "If env materialization fails, record unmappable rows and route to audit/repair rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3006-M3011 source/workload/env materialization route only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json exists",
     "M3012 reads M3006 source specs and M3009 workload contracts as governing inputs",
@@ -227,5 +227,34 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3011 admits bounded no-execution env materialization preflight"
+  },
+  "completion_summary": "Completed: materialized no-execution executable-env artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 executable source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 0 unmappable source rows 0 env contract violations 0 forbidden key violations 2 read-only profile bindings 32 executable workload rows actor 72/action 3; no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3013 result audit.",
+  "follow_up_manifest": "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+  "result": {
+    "status": "completed",
+    "artifact": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+    "doc": "docs/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md",
+    "decision": "new_source_executable_env_materialized_route_to_m3013_result_audit",
+    "status_pass": true,
+    "gate_matrix_pass": true,
+    "required_artifacts_present": true,
+    "executable_source_spec_row_count": 16,
+    "executable_source_unique_task_source_count": 16,
+    "old_m1690_l3_overlap_count": 0,
+    "unmappable_source_row_count": 0,
+    "env_contract_violation_count": 0,
+    "forbidden_key_violation_count": 0,
+    "profile_binding_row_count": 2,
+    "executable_workload_row_count": 32,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "source_build_run": false,
+    "environment_reset_run": false,
+    "environment_step_run": false,
+    "policy_rollout_run": false,
+    "validation_run": false,
+    "training_run": false,
+    "claim_boundary_violation": false,
+    "next_manifest": "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json"
   }
 }
