@@ -53430,3 +53430,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit_20260607T045955Z/command.log`
 - success artifact: `docs/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.md`
 - notes: Completed: audit accepts M3000 as complete and claim-safe diagnostic data with status_pass true gate_matrix_pass true 43 candidate execution rows 13 success-retention execution rows 0 failure rows 11 stale exclusions not executed parent comparison report-only; rejects validation-result repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims because all parent/candidate outcome buckets match; routes to M3002 result synthesis.
+
+## 20260607T051120Z m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can integrate M2998-M3001 validation-contract and diagnostic-execution evidence, classify the behavior-neutral M3000 result, and choose stop, pivot, or exactly one evidence-producing continuation before any ranking promotion validation-result repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis_20260607T051120Z`
+- command log: `runs/research/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis_20260607T051120Z/command.log`
+- success artifact: `docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md`
+- notes: Completed: synthesis pivots from the M2998-M3001 actor-head-delta nonzero residual-head branch to M3003 fresh source-diverse evidence-surface design; accepts M3000 as complete claim-safe behavior-neutral diagnostic data only with 43 candidate rows 13 success-retention rows 0 failure rows 11 stale exclusions not executed parent comparison report-only and all 56 parent/candidate outcome buckets unchanged; rejects residual-head validation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
