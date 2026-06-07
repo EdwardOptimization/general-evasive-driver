@@ -225,6 +225,7 @@
   ],
   "scoreboard_checkpoint": "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/summary.json",
   "follow_up_manifest": "experiments/manifests/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.json",
-  "next_blocker": "m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight",
-  "status": "pending"
+  "next_blocker": "m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit",
+  "completion_summary": "Completed: captured 24/24 raw actor-view traces for the M3057 blocker denominator with status_pass true gate_matrix_pass true raw_trace_index_rows 24 raw_trace_persisted 24 raw_trace_missing 0 total_steps 2692 trace_step_counts_match_m3050 true actor-contract and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; no target tensor materialization fitting local-action-search training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3060 result audit.",
+  "status": "completed"
 }

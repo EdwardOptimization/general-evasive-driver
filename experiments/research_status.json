@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3064,
+    "completed": 3065,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit_20260607T135553Z/command.log",
+    "command_log": "runs/research/m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight_20260607T141153Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit_20260607T135553Z",
+    "run_dir": "runs/research/m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight_20260607T141153Z",
     "status": "completed",
-    "task_id": "m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit"
+    "task_id": "m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight --m3058-audit docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md --m3057-dir runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight --m3055-dir runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight --m3053-dir runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight --m3050-dir runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight --follow-up-manifest experiments/manifests/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.json --device cpu",
-    "hypothesis": "A bounded offtrack-dominant behavior raw actor-view trace capture preflight can capture observation action response traces for the M3058-accepted M3057 blocker denominator before any numeric target tensor rerun fitting validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: capture or fail-closed report raw actor-view observation action response traces for the M3058-accepted M3057 blocker denominator while preserving actor 72/action 3 direct [steer throttle brake] and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs before any numeric target tensor rerun fitting validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "priority": 30540,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3059 raw actor-view trace capture artifacts before any numeric target tensor rerun fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3059 raw trace capture artifacts before any numeric target tensor rerun fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "priority": 30550,
     "status": "pending",
-    "success_artifact": "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/summary.json"
+    "success_artifact": "docs/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.md"
   },
-  "updated_at_utc": "20260607T135553Z"
+  "updated_at_utc": "20260607T141400Z"
 }
