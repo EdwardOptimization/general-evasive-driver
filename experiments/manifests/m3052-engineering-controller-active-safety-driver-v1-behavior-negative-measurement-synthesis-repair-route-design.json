@@ -84,7 +84,16 @@
     ],
     "synthesis_cadence": 10,
     "synthesis_trigger": "M3051 audits behavior-negative M3050 measurement",
-    "synthesis_decision": "not_applicable"
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
   },
   "training_stage": {
     "stage": "process",
@@ -176,6 +185,8 @@
     "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv"
   ],
   "scoreboard_checkpoint": "docs/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design.md",
-  "next_blocker": "m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design",
-  "status": "pending"
+  "next_blocker": "m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight",
+  "follow_up_manifest": "experiments/manifests/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.json",
+  "completion_summary": "Completed: synthesis compares M3043 and M3050 same-denominator evidence accepts action clipping cleanup with M3050 action_clip_fraction_mean 0.0 but rejects repair success because outcomes remain 4 success 4 collision 24 offtrack 1 speed_too_low and candidate binding remains 0/16 success; actor 72/action 3 and claim boundaries preserved; routes exactly one follow-up to M3053 offtrack-dominant behavior target materialization preflight; no fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "status": "completed"
 }

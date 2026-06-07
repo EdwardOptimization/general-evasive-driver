@@ -54032,3 +54032,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit_20260607T130317Z/command.log`
 - success artifact: `docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md`
 - notes: Completed: audit accepts M3050 as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3; rejects action clipping cleanup as repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3052 behavior-negative measurement synthesis repair route design.
+
+## 20260607T131227Z m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded behavior-negative measurement synthesis can compare M3043 and M3050 same-denominator evidence and freeze exactly one next Active Safety Driver v1 behavior-repair route before any fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design_20260607T131227Z`
+- command log: `runs/research/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design_20260607T131227Z/command.log`
+- success artifact: `docs/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design.md`
+- notes: Completed: synthesis compares M3043 and M3050 same-denominator evidence accepts action clipping cleanup with M3050 action_clip_fraction_mean 0.0 but rejects repair success because outcomes remain 4 success 4 collision 24 offtrack 1 speed_too_low and candidate binding remains 0/16 success; actor 72/action 3 and claim boundaries preserved; routes exactly one follow-up to M3053 offtrack-dominant behavior target materialization preflight; no fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.
