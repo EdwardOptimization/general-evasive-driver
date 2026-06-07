@@ -17,6 +17,7 @@
       "name": "active_safety_driver_v1_direct_action_failure_decomposition_result_audit_doc"
     }
   ],
+  "completion_summary": "Completed: audit accepts M3069 direct-action failure decomposition as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low 31 failure_mode rows 13 actuation_pressure rows 13 recovery_stability rows 7 repair_requirement rows raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3071 multi-failure direct-action repair-contract materialization.",
   "decision_rule": "Pass only if M3070 audits M3069 decomposition artifacts and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
   "failure_criteria": [
     "M3070 hides M3069 failures or missing artifacts",
@@ -34,6 +35,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.json",
   "forbidden_shortcuts": [
     "do not rerun rollout fit train validate rank promote tune or mutate checkpoints",
     "do not convert M3069 decomposition rows into performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims",
@@ -91,7 +93,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit",
+  "next_blocker": "m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight",
   "priority": 30650,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -106,6 +108,10 @@
     {
       "path": "docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md",
@@ -123,7 +129,7 @@
     "negative_result_policy": "Preserve negative active-safety evidence and route to repair or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3069 failure decomposition artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md exists",
     "M3070 audits M3069 summary failure actuation recovery repair claim and gate artifacts",
@@ -140,6 +146,7 @@
       "docs/reviews/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md",
       "experiments/reviews/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.json",
       "M3070 status queue scoreboard research log and review",
+      "experiments/manifests/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.json",
       "one follow-up manifest only if M3070 selects exactly one next route"
     ],
     "blocked_shortcuts": [

@@ -54248,3 +54248,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight_20260607T160851Z/command.log`
 - success artifact: `runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/summary.json`
 - notes: Completed: materialized row-preserving direct-action failure decomposition from M3067/M3068 with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low 31 failure_mode rows 13 actuation_pressure rows 13 recovery_stability rows 7 repair_requirement rows raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false; no reset step rollout replay fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3070 result audit.
+
+## 20260607T161812Z m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3069 direct-action failure-decomposition artifacts before any fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit_20260607T161812Z`
+- command log: `runs/research/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit_20260607T161812Z/command.log`
+- success artifact: `docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md`
+- notes: Completed: audit accepts M3069 direct-action failure decomposition as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low 31 failure_mode rows 13 actuation_pressure rows 13 recovery_stability rows 7 repair_requirement rows raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3071 multi-failure direct-action repair-contract materialization.

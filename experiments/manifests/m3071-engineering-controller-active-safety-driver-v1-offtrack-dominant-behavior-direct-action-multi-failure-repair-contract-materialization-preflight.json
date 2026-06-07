@@ -1,0 +1,233 @@
+{
+  "id": "m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight",
+  "priority": 30660,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-new-execution direct-action multi-failure repair-contract materialization preflight can convert the M3070-accepted M3069 decomposition into one fit-ready obs72-to-action3 repair contract with offtrack collision speed-floor actuation-pressure success-preservation stability clearance actor-contract and claim-boundary gates before any fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/summary.json",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_failure_mode_rows.csv",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_actuation_pressure_rows.csv",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_recovery_stability_rows.csv",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_repair_requirement_rows.csv",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/gate_matrix.csv",
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.json",
+      "experiments/manifests/m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize one multi-failure direct-action repair contract before fitting"
+    ],
+    "derived_from": [
+      "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit",
+      "m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3070 accepts M3069 decomposition as repair input but rejects direct repair-success or driver-performance claims",
+      "24/32 M3067 rows remain non-successful: 16 offtrack, 4 collision, 5 speed-too-low",
+      "direct-action raw/final action pressure and stability-clearance tradeoffs require explicit repair-contract gates before another fit"
+    ],
+    "supersedes": [
+      "direct refit rerun validation ranking or promotion without a multi-failure repair contract"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.md",
+  "public_gates": [
+    "M3071 must consume the M3070 audit and M3069 decomposition without running rollouts fitting training validation ranking or promotion",
+    "M3071 must materialize one fit-ready direct-action repair contract for obs72-to-action3 [steer throttle brake] with runtime_base_policy_required false",
+    "M3071 must include p0 offtrack containment/recovery and p0 T5 collision guard gates",
+    "M3071 must include p1 speed-floor recovery p1 actuation-pressure p1 success-preservation and p1 stability/clearance gates",
+    "M3071 must preserve all 32 M3067 rows and keep candidate parent T4 T5 collision offtrack speed-low success and clipping rows visible",
+    "M3071 must not claim validation ranking promotion repair success driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3071 must register exactly one M3072 result-audit manifest"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun rollout train fit validate rank promote tune profiles or mutate checkpoints",
+    "do not drop T5 collision speed-floor action-pressure success-preservation stability or clearance tradeoff rows while focusing on offtrack",
+    "do not expose target labels provenance source route outcome progress verdict TTC or hidden oracle values to actor input",
+    "do not reinterpret repair-contract rows as target quality fitted policy quality validation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "evidence_axis": "active_safety_driver_v1_direct_action_multi_failure_repair_contract",
+    "evidence_increment": "turns M3069 repair requirements into one fit-ready multi-failure direct-action repair contract before fitting",
+    "claim_scope": "Repair contract materialization only; no fitting rollout validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claim",
+    "stop_condition": [
+      "stop if a single direct-action repair contract cannot preserve all M3069 requirement families",
+      "stop if contract materialization requires rollout fitting validation ranking profile tuning or checkpoint mutation",
+      "stop if actor contract or direct-action/base-policy-free boundary is changed",
+      "stop if contract rows are used to claim repair success or driver performance"
+    ],
+    "fallback_plan": [
+      "route to M3072 audit if contract artifacts are produced",
+      "route to harness repair if required M3069 artifacts are missing or malformed",
+      "route to branch synthesis if no legal direct-action repair contract can preserve the competing requirement families"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3070 accepts M3069 decomposition and selects multi-failure repair contract materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize one fit-ready direct-action multi-failure repair contract from M3069 decomposition rows",
+    "admission_evidence": [
+      "M3070 accepts M3069 decomposition as complete and claim-safe repair input",
+      "M3069 summary gate matrix repair requirement and claim-boundary rows exist and pass",
+      "M3069 preserves actor 72/action 3 direct-action/base-policy-free boundary"
+    ],
+    "blocked_shortcuts": [
+      "no rollout fitting PPO training validation ranking promotion checkpoint mutation or profile tuning",
+      "no hidden oracle target TTC source route outcome progress or verdict actor input",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight.py",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_repair_contract_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_loss_family_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_row_admission_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_guard_family_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/gate_matrix.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/run_state.json",
+      "docs/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.md",
+      "experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json",
+      "docs/reviews/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.md",
+      "experiments/reviews/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.json",
+      "M3071 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "one repair contract exists or fail-closed blocker rows explain why it cannot be materialized",
+      "all M3069 requirement families remain first-class gates",
+      "M3072 result-audit manifest is registered before any fitting or rollout route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3071 materializes an engineering repair contract and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3071; self-ID and GRU remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3070 audit plus M3069 decomposition rows only.",
+    "negative_result_policy": "Preserve direct-action repair evidence and route to engineering repair or synthesis rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "direct-action repair-contract artifact completeness",
+      "row-preserving repair gate materialization",
+      "no validation driver-performance verdict paper-level finite-window-vs-GRU high-fidelity full-driver repair-success or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts M3069 decomposition into one fit-ready multi-failure repair contract instead of another audit-only route",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3071 advances active-safety repair implementation readiness",
+    "must_synthesize_if": [
+      "M3071 cannot preserve all M3069 requirement families",
+      "M3071 would require new rollout fitting validation ranking or promotion",
+      "M3071 would claim driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json exists",
+    "direct_action_repair_contract_rows direct_action_loss_family_rows direct_action_row_admission_rows direct_action_guard_family_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "M3071 preserves all 32 M3067 measurement rows and all M3069 repair requirement families",
+    "M3071 preserves actor observation 72 final action 3 direct-action/base-policy-free boundary and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3071 registers exactly one M3072 result-audit manifest"
+  ],
+  "failure_criteria": [
+    "M3071 drops collision speed-floor action-pressure success-preservation stability or clearance rows while focusing on offtrack",
+    "M3071 runs new rollout fitting training validation ranking promotion checkpoint mutation or profile tuning",
+    "M3071 changes actor input or output contract or requires a runtime base policy",
+    "M3071 claims validation driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3071 writes or fail-closed records one row-preserving multi-failure direct-action repair contract while preserving direct-action actor, side-effect, and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_direct_action_multi_failure_repair_contract_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight --m3070-audit docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md --m3069-dir runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight --m3067-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --output-dir runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_repair_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_loss_family_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_row_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_guard_family_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md",
+    "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/summary.json",
+    "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_repair_requirement_rows.csv",
+    "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_actuation_pressure_rows.csv",
+    "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/direct_action_recovery_stability_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json",
+  "next_blocker": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
+  "follow_up_manifest": "experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json",
+  "status": "pending"
+}
