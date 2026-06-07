@@ -54164,3 +54164,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit_20260607T144338Z/command.log`
 - success artifact: `docs/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit.md`
 - notes: Completed: audit accepts M3061 raw-trace-backed target tensor rerun as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 behavior target tensor rows 24 target tensor files 0 missing 6 weight rows 16 actor-contract guards 6 target-visibility guards 16 side-effect guards 17 claim-boundary rows 37 gate rows masked recovery steps 768 target_rule actor_visible_road_center_terminal_recovery_window raw_action_trace_used_as_target false actor 72/action 3 direct [steer throttle brake]; rejects target tensor quality fitting readiness fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3063 branch synthesis before fitting admission.
+
+## 20260607T145550Z m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate the M3053-M3062 active-safety target-source fitting-contract target-tensor raw-trace and audit evidence after the local-search guard fires and decide whether to continue to fitting admission, pivot, stop, or require repair before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z`
+- command log: `runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z/command.log`
+- success artifact: `docs/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.md`
+- notes: Completed: synthesis integrates M3053-M3062 target-source fitting-contract fail-closed target tensor raw-trace target-tensor rerun and audit evidence; decision continue_to_m3064_fitting_admission_design; supports artifact completeness and claim-safety only with actor 72/action 3 direct [steer throttle brake], 24/24 raw-trace-backed target tensor files, 6 weight rows, 37 gate rows, target_rule actor_visible_road_center_terminal_recovery_window, raw_action_trace_used_as_target false; rejects target quality fitting readiness fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3064 fitting-admission design before any fitting.

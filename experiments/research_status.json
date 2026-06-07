@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3068,
+    "completed": 3069,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit_20260607T144338Z/command.log",
+    "command_log": "runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit_20260607T144338Z",
+    "run_dir": "runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z",
     "status": "completed",
-    "task_id": "m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit"
+    "task_id": "m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded branch synthesis can integrate the M3053-M3062 active-safety target-source fitting-contract target-tensor raw-trace and audit evidence after the local-search guard fires and decide whether to continue to fitting admission, pivot, stop, or require repair before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis",
+    "hypothesis": "A bounded design-only fitting-admission milestone can inspect the M3062-accepted M3061 raw-trace-backed target tensor artifacts and choose exactly one legal next fitting preflight contract repair synthesis or stop route before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M3053-M3062 active-safety offtrack behavior target-source fitting-contract raw-trace target-tensor and audit evidence after local-search cadence; must choose continue pivot stop or repair before any fitting admission and preserve actor 72/action 3 direct [steer throttle brake] with no validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 30580,
+    "notes": "Pending: design fitting admission after M3063 synthesis; must define loader split mask weight guard checkpoint side-effect target-quality and claim boundaries and choose exactly one bounded fitting preflight contract repair synthesis or stop route; no fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 30590,
     "status": "pending",
-    "success_artifact": "docs/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.md"
+    "success_artifact": "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md"
   },
-  "updated_at_utc": "20260607T144746Z"
+  "updated_at_utc": "20260607T145650Z"
 }
