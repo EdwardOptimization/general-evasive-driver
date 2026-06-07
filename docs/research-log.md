@@ -53912,3 +53912,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight_20260607T113930Z/command.log`
 - success artifact: `runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json`
 - notes: Completed: bounded offline residual fitting produced candidate with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples initial weighted MSE 0.00119174495548 final weighted MSE 0.000471564756735 residual_abs_max 0.079999998 success guards 3 actor 72/action 3; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3042 result audit.
+
+## 20260607T114714Z m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3041 fitted Active Safety Driver v1 residual/reflex candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit_20260607T114714Z`
+- command log: `runs/research/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit_20260607T114714Z/command.log`
+- success artifact: `docs/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md`
+- notes: Completed: audit accepts M3041 bounded residual fitting as complete and claim-safe with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples candidate artifact 72x3 residual_limit 0.08 success identity side-effect actor-exclusion and claim-boundary guards pass actor 72/action 3; rejects offline loss as validation driver-performance ranking promotion current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3043 closed-loop measurement preflight.

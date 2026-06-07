@@ -89,7 +89,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit",
+  "next_blocker": "m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight",
   "priority": 30370,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -104,6 +104,10 @@
     {
       "path": "docs/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md",
@@ -121,12 +125,13 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety closed-loop measurement if safety contract gates pass.",
     "temporal_evidence_window": "M3041 bounded residual fitting artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md exists",
     "M3042 audits M3041 summary loss dataset guard side-effect claim gate and candidate artifact rows",
     "M3042 rejects validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
-    "M3042 selects exactly one next closed-loop measurement repair synthesis or stop route"
+    "M3042 selects exactly one next closed-loop measurement repair synthesis or stop route",
+    "experiments/manifests/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
@@ -136,6 +141,7 @@
     ],
     "allowed_updates": [
       "docs/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md",
+      "experiments/manifests/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight.json",
       "docs/reviews/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.md",
       "experiments/reviews/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.json",
       "M3042 status queue scoreboard research log and review",
@@ -172,5 +178,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3041 completes bounded residual fitting"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight.json",
+  "completion_summary": "Completed: audit accepts M3041 bounded residual fitting as complete and claim-safe with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples candidate artifact 72x3 residual_limit 0.08 success identity side-effect actor-exclusion and claim-boundary guards pass actor 72/action 3; rejects offline loss as validation driver-performance ranking promotion current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3043 closed-loop measurement preflight."
 }
