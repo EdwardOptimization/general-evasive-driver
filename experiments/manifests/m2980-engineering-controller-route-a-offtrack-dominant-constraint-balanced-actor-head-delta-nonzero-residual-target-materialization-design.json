@@ -40,6 +40,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.json",
   "forbidden_shortcuts": [
     "do not materialize target files fit train validate rank promote select or execute a nonzero residual head",
     "do not change actor input or action contract",
@@ -107,9 +108,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design",
+  "next_blocker": "m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2980 must remain design-only and must not write target tensors or fit residuals",
     "M2980 must define target source provenance tensor shape masks weights and guard contracts before admitting materialization",
@@ -121,6 +122,10 @@
     {
       "path": "docs/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md",
@@ -138,11 +143,12 @@
     "negative_result_policy": "If legal target materialization cannot be designed preserve the blocker and route to synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2966-M2979 Route A actor-head delta objective admission trace capture fitting-admission chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md exists",
     "M2980 defines exactly one target materialization route pivot synthesis or stop state",
     "M2980 preserves actor 72/action 3 candidate guard and claim boundaries",
+    "M2980 registers the M2981 target-source feasibility preflight manifest",
     "M2980 does not produce target files or run fitting training validation ranking promotion or performance claims"
   ],
   "training_stage": {
@@ -155,6 +161,7 @@
     "allowed_updates": [
       "docs/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md",
       "docs/reviews/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md",
+      "experiments/manifests/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.json",
       "M2980 status queue scoreboard research log and review",
       "one follow-up manifest only if M2980 selects exactly one next route"
     ],
@@ -166,8 +173,7 @@
       "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
     ],
     "next_stage_criteria": [
-      "M2980 accepts or rejects legal target materialization design readiness",
-      "next route or stop state is explicit",
+      "M2980 admits M2981 target-source feasibility preflight as the explicit next route",
       "actor guard and claim boundaries remain unchanged"
     ],
     "stage": "process",
@@ -178,9 +184,9 @@
     "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
     "claim_scope": "Residual target materialization design only; no target file materialization fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
     "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_target_materialization_design",
-    "evidence_increment": "defines the target-materialization route needed after direct fitting is rejected",
+    "evidence_increment": "defines and admits a target-source feasibility preflight after direct fitting is rejected",
     "fallback_plan": [
-      "route to target materialization preflight if target semantics and guards can be defined",
+      "route to target-source feasibility preflight if target semantics and guards can be defined",
       "route to branch synthesis pivot or stop if target semantics require hidden labels actor inputs or invalid guard usage",
       "route to artifact repair only if a specific missing source artifact blocks target design"
     ],

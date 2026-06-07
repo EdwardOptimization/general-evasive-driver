@@ -53166,3 +53166,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T011749Z/command.log`
 - success artifact: `docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md`
 - notes: Completed: design rejects direct nonzero residual fitting after M2977 because raw traces objective rows and admission rows do not yet define numeric residual deltas teacher actions target masks target weights or fitting denominators; preserves 43 future training candidates 13 success identity guards 11 stale guardrails actor 72/action 3 and no actor-visible target labels; routes to M2980 target-materialization design before any fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+
+## 20260607T012407Z m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only target materialization milestone can define exactly one actor-safe route for nonzero residual target semantics after M2979 rejects direct fitting from raw traces.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design_20260607T012407Z`
+- command log: `runs/research/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design_20260607T012407Z/command.log`
+- success artifact: `docs/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.md`
+- notes: Completed: design admits M2981 target-source feasibility preflight using M2977 raw actor-view traces M2970 objective admission rows and trainer-side local-action target selection with target labels and provenance actor-invisible; preserves 43 future training candidates 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
