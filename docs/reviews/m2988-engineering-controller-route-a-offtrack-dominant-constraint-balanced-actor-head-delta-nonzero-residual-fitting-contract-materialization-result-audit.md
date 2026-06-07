@@ -1,0 +1,87 @@
+# m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T022557Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m2987_fitting_contract_materialization_claim_safe_route_to_m2989_fitting_admission_design
+- Decision reason: M2988 accepts M2987 fitting-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true, 8 dataset contract rows, 3 split denominator rows, 43 mask weight binding rows, 13 success identity zero-guard bindings, 11 stale exclusion bindings, 14 actor input exclusions, 12 checkpoint side-effect guards, 18 claim rows, 20 gate rows, actor 72/action 3, target_quality_validated false, target labels and provenance actor-invisible, no residual fitting, training, validation, ranking, promotion, repair-success, performance, paper, current-sim, high-fidelity, full-driver, finite-window-vs-GRU, or self-ID claims; routes to M2989 fitting-admission design.
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M2987 fitting-contract materialization preflight before any residual fitting training validation ranking promotion or performance claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json, runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/gate_matrix.csv, docs/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.md
+- parent_config: experiments/manifests/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.json
+- parent_objective: audit fitting-contract materialization before any residual fitting can be admitted
+- derived_from: m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight
+- blocked_by: M2987 materializes contracts but does not itself establish fitting readiness or target quality
+- supersedes: direct residual fitting immediately after M2987 without result audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md exists
+- M2988 audits M2987 fitting-contract artifacts
+- M2988 selects exactly one next route or stop state
+- M2988 registers the M2989 residual fitting admission design manifest
+- no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made
+
+## Failure Criteria
+
+- M2988 hides missing fitting-contract artifacts
+- M2988 treats fitting-contract materialization as target-quality validation fitting readiness or performance evidence
+- M2988 changes actor input or action contract
+- M2988 leaves next route ambiguous
+
+## Evidence Gates
+
+- M2988 must audit M2987 contract artifacts and gate matrix
+- M2988 must preserve target_quality_validated false unless a later target-quality audit is explicitly admitted
+- M2988 must preserve actor 72/action 3 no target labels or provenance actor inputs
+- M2988 must not fit train validate rank promote select a winner mutate checkpoints or claim performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not fit train validate rank promote select or execute a nonzero residual head
+- do not mutate save replace or promote checkpoints
+- do not change actor input or action contract
+- do not convert contract materialization into target-quality validation fitting readiness performance paper high-fidelity finite-window-vs-GRU or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit
+- type: gate
+- checkpoint: docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m2987_fitting_contract_materialization_claim_safe_route_to_m2989_fitting_admission_design
+- reason: M2988 accepts M2987 fitting-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true, 8 dataset contract rows, 3 split denominator rows, 43 mask weight binding rows, 13 success identity zero-guard bindings, 11 stale exclusion bindings, 14 actor input exclusions, 12 checkpoint side-effect guards, 18 claim rows, 20 gate rows, actor 72/action 3, target_quality_validated false, target labels and provenance actor-invisible, no residual fitting, training, validation, ranking, promotion, repair-success, performance, paper, current-sim, high-fidelity, full-driver, finite-window-vs-GRU, or self-ID claims; routes to M2989 fitting-admission design.
+
+## Next Blocker
+
+m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design

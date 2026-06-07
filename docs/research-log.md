@@ -53262,3 +53262,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight_20260607T021706Z/command.log`
 - success artifact: `runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json`
 - notes: Completed: materialized fitting-contract artifacts with status_pass true gate_matrix_pass true 8 dataset contract rows 3 split denominator rows 43 mask weight binding rows 13 success identity zero-guard bindings 11 stale exclusion bindings 14 actor input exclusions 12 checkpoint side-effect guards 18 claim rows 20 gate rows actor 72/action 3 target_quality_validated false no target labels or provenance actor-visible and no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2988 result audit.
+
+## 20260607T022511Z m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2987 fitting-contract materialization preflight before any residual fitting training validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit_20260607T022511Z`
+- command log: `runs/research/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit_20260607T022511Z/command.log`
+- success artifact: `docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M2987 fitting-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true 8 dataset contract rows 3 split denominator rows 43 mask weight binding rows 13 success identity zero-guard bindings 11 stale exclusion bindings 14 actor input exclusions 12 checkpoint side-effect guards 18 claim rows 20 gate rows actor 72/action 3 target_quality_validated false target labels and provenance actor-invisible no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2989 fitting-admission design.
