@@ -32,7 +32,7 @@
     "proof_washout",
     "seed_fragility"
   ],
-  "follow_up_manifest": "",
+  "follow_up_manifest": "experiments/manifests/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.json",
   "forbidden_shortcuts": [
     "do not run fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
     "do not treat raw replay actions as corrected recovery targets",
@@ -95,7 +95,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit",
+  "next_blocker": "m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis",
   "priority": 30570,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -104,7 +104,7 @@
     "M3062 must reject raw replay action copying as corrected recovery target",
     "M3062 must preserve actor observation 72 action 3 direct [steer throttle brake] and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
     "M3062 must reject fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims",
-    "M3062 must choose exactly one fitting admission artifact repair synthesis or stop route"
+    "M3062 must choose exactly one branch synthesis artifact repair or stop route before fitting admission"
   ],
   "required_artifacts": [
     {
@@ -153,7 +153,7 @@
     ],
     "next_stage_criteria": [
       "M3061 target tensor artifacts are accepted or rejected",
-      "one next fitting admission repair synthesis or stop route is selected"
+      "one next branch synthesis repair or stop route is selected before fitting admission"
     ],
     "stage": "process",
     "stage_objective": "Audit offtrack-dominant behavior target tensor rerun artifacts"

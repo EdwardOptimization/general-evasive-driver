@@ -54152,3 +54152,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight_20260607T143432Z/command.log`
 - success artifact: `runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/summary.json`
 - notes: Completed: materialized 24/24 raw-trace-backed trainer-side target tensor files with status_pass true gate_matrix_pass true required_artifacts_present true target_tensor_file_index_rows 24 weight rows 6 actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; explicit actor-visible road-center terminal recovery-window rule, raw_action_trace_used_as_target false; no fitting local-action-search reset step rollout training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3062 result audit.
+
+## 20260607T144338Z m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3061 raw-trace-backed target tensor rerun artifacts before any fitting admission rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit_20260607T144338Z`
+- command log: `runs/research/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit_20260607T144338Z/command.log`
+- success artifact: `docs/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit.md`
+- notes: Completed: audit accepts M3061 raw-trace-backed target tensor rerun as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 behavior target tensor rows 24 target tensor files 0 missing 6 weight rows 16 actor-contract guards 6 target-visibility guards 16 side-effect guards 17 claim-boundary rows 37 gate rows masked recovery steps 768 target_rule actor_visible_road_center_terminal_recovery_window raw_action_trace_used_as_target false actor 72/action 3 direct [steer throttle brake]; rejects target tensor quality fitting readiness fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3063 branch synthesis before fitting admission.

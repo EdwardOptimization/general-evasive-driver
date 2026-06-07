@@ -1,0 +1,190 @@
+{
+  "baseline_artifacts": [
+    "docs/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.md",
+    "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/summary.json",
+    "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/behavior_target_tensor_rows.csv",
+    "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/target_tensor_file_index_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_offtrack_dominant_behavior_fitting_admission_design_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3064 chooses exactly one claim-safe fitting preflight contract repair synthesis pivot or stop state without fitting training validation ranking promotion or performance claims.",
+  "failure_criteria": [
+    "M3064 treats M3061 target tensor artifacts as fitting readiness without defining fitting boundaries",
+    "M3064 fits trains validates ranks promotes or mutates a driver",
+    "M3064 changes actor input or action contract",
+    "M3064 makes repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims",
+    "M3064 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "follow_up_manifest": "",
+  "forbidden_shortcuts": [
+    "do not fit train validate rank select promote or mutate a driver",
+    "do not change actor input or action contract",
+    "do not use target labels target provenance source route outcome progress verdict or paper labels as actor inputs",
+    "do not treat raw replay actions as corrected recovery targets",
+    "do not convert target tensor artifacts into target quality fitted policy quality repair-success validation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded design-only fitting-admission milestone can inspect the M3062-accepted M3061 raw-trace-backed target tensor artifacts and choose exactly one legal next fitting preflight contract repair synthesis or stop route before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design",
+  "lineage": {
+    "blocked_by": [
+      "M3062 accepts target tensor artifacts but rejects target quality and fitting readiness claims",
+      "dataset loader split mask weight guard checkpoint side-effect and target-quality boundaries must be explicit before fitting",
+      "target tensor artifacts cannot be converted into repair-success validation or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis",
+      "m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit",
+      "m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.json",
+      "experiments/manifests/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit.json",
+      "experiments/manifests/m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.md",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/summary.json",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/behavior_target_tensor_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/target_tensor_file_index_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/target_tensor_weight_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/actor_contract_guard_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/target_visibility_guard_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/side_effect_guard_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/claim_boundary_rows.csv",
+      "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/gate_matrix.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv"
+    ],
+    "parent_objective": [
+      "decide whether accepted target tensor artifacts can support a legal bounded offline fitting preflight for a deployable obs72-to-action3 active-safety reflex layer"
+    ],
+    "supersedes": [
+      "direct fitting immediately after M3062 without fitting admission design",
+      "treating M3061 target tensor artifacts as fitted policy quality or driver-performance evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "designs the admission boundary required to use newly materialized target tensors without overclaiming fitting readiness",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3064 cannot identify a legal bounded fitting route from accepted artifacts",
+      "M3064 would require target labels target provenance source route outcome progress verdict or paper labels as actor inputs",
+      "M3064 would make validation driver-performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+    ],
+    "paper_verdict_delta": "no paper verdict; design may admit a later bounded fitting preflight only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design",
+  "priority": 30590,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3064 must distinguish target tensor artifact completeness from fitting readiness and target quality",
+    "M3064 must preserve actor observation 72 action 3 direct [steer throttle brake] and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3064 must define whether a bounded offline fitting preflight is legally admissible or whether artifact repair synthesis or stop is required",
+    "M3064 must choose exactly one next route or stop state",
+    "M3064 must not fit train validate rank promote mutate checkpoints claim repair-success driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md",
+  "scoreboard_checkpoint": "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "fitting admission design only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3064 designs engineering fitting admission and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3064; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety fitting admission gates.",
+    "temporal_evidence_window": "M3062 target tensor audit artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md exists",
+    "M3064 distinguishes target tensor artifact completeness from fitting readiness and target quality",
+    "M3064 preserves actor 72/action 3 target visibility side-effect and claim boundaries",
+    "M3064 selects exactly one next bounded fitting preflight contract repair synthesis or stop route",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3062 accepts M3061 target tensor artifacts as complete and claim-safe but not fitting-ready by themselves",
+      "M3061 materialized 24 raw-trace-backed target tensor files with explicit actor-visible road-center terminal recovery-window targets",
+      "M3055 defines direct obs72 to action3 output [steer throttle brake] with base_policy_required false"
+    ],
+    "allowed_updates": [
+      "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md",
+      "docs/reviews/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md",
+      "experiments/reviews/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.json",
+      "M3064 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3064 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no fitting training validation ranking promotion or checkpoint mutation",
+      "no hidden oracle target TTC source route outcome progress or verdict actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3064 selects exactly one bounded fitting preflight contract repair synthesis or stop route",
+      "actor target-visibility side-effect and claim boundaries remain unchanged"
+    ],
+    "stage": "process",
+    "stage_objective": "Design fitting admission after target tensor rerun audit"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "claim_scope": "Fitting admission design only; no fitting rollout validation ranking promotion performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_offtrack_behavior_fitting_admission_design",
+    "evidence_increment": "uses the M3062-accepted target tensor artifact set to design the legal boundary for a later bounded fitting preflight without fitting",
+    "fallback_plan": [
+      "route to bounded offline fitting preflight only if the fitting boundary is complete and claim-safe",
+      "route to artifact repair if target tensors masks weights provenance or guard rows are incomplete",
+      "route to branch synthesis or stop if fitting admission would weaken actor or claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if a legal loader split mask weight guard checkpoint side-effect and target-quality boundary cannot be defined",
+      "stop if fitting would require target labels target provenance source route outcome progress verdict or paper labels as actor inputs",
+      "stop if future fitting would be interpreted as repair-success validation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3062 accepts target tensor artifacts but preserves fitting readiness blocker"
+  }
+}
