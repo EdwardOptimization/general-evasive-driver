@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 1
   },
-  "next_blocker": "m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit",
+  "next_blocker": "m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight",
   "priority": 30530,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -108,6 +108,7 @@
   ],
   "review_artifact": "docs/reviews/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
   "scoreboard_checkpoint": "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+  "follow_up_manifest": "experiments/manifests/m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight.json",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "M3057 artifact audit completeness",
@@ -121,7 +122,8 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety target tensor audit gates.",
     "temporal_evidence_window": "M3057 target tensor materialization artifacts only."
   },
-  "status": "pending",
+  "completion_summary": "Completed: audit accepts M3057 target tensor materialization attempt as complete claim-safe fail-closed evidence with status_pass false gate_matrix_pass false required_artifacts_present true 24 behavior target tensor blocker rows raw_actor_view_trace_required 24 available 0 missing 24 numeric_target_tensor_materialized 0 actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects numeric target tensor quality fitting readiness fitting execution fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3059 raw trace capture preflight.",
+  "status": "completed",
   "success_criteria": [
     "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md exists",
     "M3058 audits M3057 target tensor blocker weight actor target-visibility side-effect claim and gate artifacts",

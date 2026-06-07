@@ -54104,3 +54104,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight_20260607T135040Z/command.log`
 - success artifact: `runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json`
 - notes: Completed: fail-closed target tensor materialization attempt wrote 24 behavior target tensor blocker rows with status_pass false gate_matrix_pass false required_artifacts_present true raw_actor_view_trace_required 24 available 0 missing 24 numeric_target_tensor_materialized 0 6 target tensor weight spec rows actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects numeric target tensor quality fitting execution fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; registered M3058 result audit.
+
+## 20260607T135553Z m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3057 offtrack-dominant behavior target tensor materialization artifacts before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit_20260607T135553Z`
+- command log: `runs/research/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit_20260607T135553Z/command.log`
+- success artifact: `docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md`
+- notes: Completed: audit accepts M3057 target tensor materialization attempt as complete claim-safe fail-closed evidence with status_pass false gate_matrix_pass false required_artifacts_present true 24 behavior target tensor blocker rows raw_actor_view_trace_required 24 available 0 missing 24 numeric_target_tensor_materialized 0 actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects numeric target tensor quality fitting readiness fitting execution fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3059 raw trace capture preflight.
