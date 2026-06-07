@@ -53226,3 +53226,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit_20260607T015329Z/command.log`
 - success artifact: `docs/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.md`
 - notes: Completed: audit accepts M2983 target tensor materialization as complete and claim-safe with status_pass true gate_matrix_pass true 43 candidate target tensor rows 56 tensor files 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 bounded finite tensors target_action_delta_abs_max 0.08 target labels and provenance actor-invisible target_quality_validated false no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2985 fitting-admission design.
+
+## 20260607T020052Z m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only residual fitting admission milestone can inspect the accepted M2983 target tensor artifacts and choose exactly one legal next route before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T020052Z`
+- command log: `runs/research/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T020052Z/command.log`
+- success artifact: `docs/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md`
+- notes: Completed: design routes to M2986 fitting-contract branch synthesis before contract materialization while rejecting direct residual fitting target-quality validation training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims and preserving 43 candidate target tensor rows 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 target labels and provenance actor-invisible target_quality_validated false.
+
+## 20260607T020827Z m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate the M2976-M2985 Route A actor-head delta target trace source tensor and admission evidence and decide whether a fitting-contract materialization route is justified before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis_20260607T020827Z`
+- command log: `runs/research/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis_20260607T020827Z/command.log`
+- success artifact: `docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md`
+- notes: Completed: synthesis decision continue_to_m2987_fitting_contract_materialization_preflight integrates M2976-M2985 target trace source tensor and fitting-admission evidence after local-search cadence preserves target_quality_validated false 43 candidate target tensor rows 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 and no actor-visible target labels provenance fitting training validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.

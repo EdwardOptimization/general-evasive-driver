@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2990,
+    "completed": 2992,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit_20260607T015329Z/command.log",
+    "command_log": "runs/research/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis_20260607T020827Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit_20260607T015329Z",
+    "run_dir": "runs/research/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis_20260607T020827Z",
     "status": "completed",
-    "task_id": "m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit"
+    "task_id": "m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only residual fitting admission milestone can inspect the accepted M2983 target tensor artifacts and choose exactly one legal next route before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
-    "kind": "gate",
-    "notes": "Pending: design residual fitting admission after M2984 target tensor audit while distinguishing target tensor artifact availability from fitting readiness and preserving actor 72/action 3 success identity stale guardrail and claim boundaries before any fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "priority": 29800,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight --m2983-dir runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight --m2984-audit docs/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.md --m2985-design docs/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md --m2986-synthesis docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md --output-dir runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight --follow-up-manifest experiments/manifests/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.json",
+    "hypothesis": "A no-fitting materialization preflight can convert accepted M2983 target tensor artifacts and the M2986 synthesis into machine-checkable fitting-contract rows before any residual fitting training validation ranking promotion or performance claim.",
+    "id": "m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize fitting-contract rows from M2983 target tensors and M2986 synthesis while preserving 43 candidate target tensor rows 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 target_quality_validated false no target labels or provenance actor-visible and no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29820,
     "status": "pending",
-    "success_artifact": "docs/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md"
+    "success_artifact": "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T015422Z"
+  "updated_at_utc": "20260607T020919Z"
 }

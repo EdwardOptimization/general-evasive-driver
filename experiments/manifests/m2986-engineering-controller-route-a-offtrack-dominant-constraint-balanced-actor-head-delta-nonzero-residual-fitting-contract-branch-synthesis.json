@@ -1,0 +1,226 @@
+{
+  "baseline_artifacts": [
+    "docs/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+    "docs/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.md",
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json",
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/target_tensor_rows.csv",
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv",
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/stale_guardrail_exclusion_rows.csv",
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/gate_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "fitting_contract_branch_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2986 synthesizes M2976-M2985 and selects one bounded continue pivot stop or promote_to_next_branch route while preserving actor target guard stale-exclusion side-effect and claim boundaries without fitting training validation ranking promotion or overclaiming.",
+  "failure_criteria": [
+    "M2986 executes residual fitting training validation ranking promotion checkpoint mutation or private holdout",
+    "M2986 changes actor input or action contract",
+    "M2986 exposes target labels target provenance objective admission source route verdict or paper labels to actor input",
+    "M2986 hides target_quality_validated false or treats target tensor artifacts as fitting readiness",
+    "M2986 turns success identity guards or stale fixed-source guardrails into positive residual targets or fitting denominators",
+    "M2986 claims repair success driver performance validation readiness/result paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M2986 fails to select one bounded next route or stop state"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "follow_up_manifest": "experiments/manifests/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.json",
+  "forbidden_shortcuts": [
+    "do not fit train validate rank promote select or execute a nonzero residual head",
+    "do not mutate save replace or promote checkpoints",
+    "do not change actor inputs or deployed action contract",
+    "do not expose target labels target provenance objective admission source route verdict or paper labels to actor input",
+    "do not hide target_quality_validated false or interpret target tensors as target-quality validation",
+    "do not convert success identity guards into positive residual targets",
+    "do not include stale fixed-source guardrails in fitting validation or paper denominators",
+    "do not convert fitting-contract synthesis into repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded branch synthesis can integrate the M2976-M2985 Route A actor-head delta target trace source tensor and admission evidence and decide whether a fitting-contract materialization route is justified before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "local-search guard requires synthesis before another non-synthesis milestone on the current branch",
+      "M2985 rejects direct residual fitting and routes to fitting-contract branch synthesis",
+      "M2984 accepts M2983 target tensor artifacts but preserves target_quality_validated false and rejects fitting readiness",
+      "docs/post-m2470-route-plan.md warns against letting static current-sim infrastructure become the main loop"
+    ],
+    "derived_from": [
+      "m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
+      "m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit",
+      "m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight",
+      "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.json",
+      "experiments/manifests/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.json",
+      "experiments/manifests/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2985-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+      "docs/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.md",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/target_tensor_rows.csv",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/stale_guardrail_exclusion_rows.csv",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "synthesize the target-tensor and fitting-admission branch before opening a fitting-contract materialization preflight"
+    ],
+    "supersedes": [
+      "direct fitting-contract materialization after M2985 without branch synthesis",
+      "direct fitting from target tensors without synthesis of current-sim infrastructure drift risk"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "synthesizes accepted target trace source tensor and fitting-admission evidence before deciding whether fitting-contract materialization is justified",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "already_synthesis_milestone",
+      "M2986 cannot choose continue pivot stop or promote_to_next_branch",
+      "M2986 would claim validation readiness driver performance repair success paper current-sim high-fidelity finite-window-vs-GRU or self-ID evidence",
+      "M2986 hides target_quality_validated false or treats target tensors as fitting readiness",
+      "another static current-sim artifact is proposed without a concrete fitting contract or branch pivot"
+    ],
+    "paper_verdict_delta": "no paper verdict; synthesis should prevent target tensors and contracts from being misread as residual fitting paper or performance evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2986 must synthesize M2976-M2985 target trace source tensor and fitting-admission evidence",
+    "M2986 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2986 must preserve target_quality_validated false and reject fitting readiness from tensors alone",
+    "M2986 must preserve 43 candidate target tensor rows 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 and no actor-visible target labels or provenance",
+    "M2986 must decide continue pivot stop or promote_to_next_branch and register one bounded follow-up manifest only if continuing or pivoting",
+    "M2986 must not run residual fitting training validation ranking winner selection checkpoint mutation promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+  "scoreboard_checkpoint": "docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded branch synthesis outcome",
+      "M2984 accepts M2983 as complete and claim-safe while rejecting target quality and fitting readiness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2986 synthesizes Route A target and fitting-contract readiness and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2986; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve target_quality_validated false and fitting-readiness blockers rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2976-M2985 Route A actor-head delta trace capture target materialization and fitting-admission chain."
+  },
+  "status": "completed",
+  "success_criteria": [
+    "docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md exists",
+    "M2986 answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2986 records M2984 acceptance of M2983 as complete and claim-safe",
+    "M2986 records target_quality_validated false and residual fitting readiness false as blockers",
+    "M2986 preserves 43 candidate target tensor rows 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 and no actor-visible target labels or provenance",
+    "M2986 selects one bounded follow-up route or stop state",
+    "M2986 registers the M2987 fitting-contract materialization preflight manifest",
+    "no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2985 rejects direct residual fitting and routes to branch synthesis before contract materialization",
+      "M2984 accepts M2983 target tensor materialization as complete and claim-safe",
+      "M2983 materialized 43 candidate target tensor rows 56 tensor files and 13 success identity zero-target guard tensors",
+      "M2983 preserved 11 stale guardrail exclusions actor 72/action 3 and target_quality_validated false",
+      "docs/post-m2470-route-plan.md requires avoiding static current-sim loops that do not change evidence or claim boundaries"
+    ],
+    "allowed_updates": [
+      "docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+      "docs/reviews/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+      "experiments/manifests/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.json",
+      "M2986 status queue scoreboard research log and review",
+      "one bounded follow-up manifest only if M2986 selects continue or pivot"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels target provenance objective admission source route verdict or paper actor inputs",
+      "no success identity guards or stale fixed-source guardrails as positive residual targets or fitting denominators",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2986 answers all synthesis questions",
+      "M2986 chooses continue pivot stop or promote_to_next_branch",
+      "next route or stop state is explicit",
+      "target-quality blocker actor guardrails stale exclusions and claim boundaries remain visible",
+      "no training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Synthesize fitting-contract readiness before materialization"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Branch synthesis only; no residual fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_fitting_contract_branch_synthesis",
+    "evidence_increment": "synthesizes M2976-M2985 target trace source tensor and fitting-admission evidence after local-search cadence fires",
+    "fallback_plan": [
+      "route to bounded fitting-contract materialization if synthesis shows the accepted target tensors justify one contract preflight",
+      "route to artifact repair if target tensor mask weight success guard or stale exclusion joins are incomplete",
+      "pivot to a different evidence branch if another current-sim contract would extend static infrastructure without changing evidence",
+      "stop the branch if no evidence-changing actor-safe next route remains"
+    ],
+    "stop_condition": [
+      "stop if target tensors do not justify one bounded fitting-contract materialization preflight",
+      "stop if target labels target provenance objective admission source route verdict or paper labels would become actor-visible",
+      "stop if success identity guards or stale fixed-source guardrails would become positive residual targets or fitting denominators",
+      "stop if the next route would add another static current-sim artifact without a concrete fitting contract or pivot",
+      "stop if fitting-contract synthesis would be interpreted as repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_artifact": "docs/m2986-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-branch-synthesis.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "continue",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "local-search cadence fired after M2985 target tensor fitting-admission design"
+  }
+}
