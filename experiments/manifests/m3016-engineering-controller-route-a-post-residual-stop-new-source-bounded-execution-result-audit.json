@@ -99,7 +99,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+  "next_blocker": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -129,7 +129,7 @@
     "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3015 Route A new-source diagnostic execution only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md exists",
     "M3016 audits M3015 artifacts row counts gates actor and claim boundaries",
@@ -178,5 +178,38 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3015 completes bounded diagnostic execution preflight"
+  },
+  "follow_up_manifest": "experiments/manifests/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.json",
+  "completion_summary": "Completed: audit accepts M3015 as complete and claim-safe diagnostic data with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; diagnostic-only outcomes include 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; routes to M3017 result synthesis.",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+    "decision": "accept_m3015_claim_safe_diagnostic_data_route_to_m3017_result_synthesis",
+    "m3015_status_pass": true,
+    "m3015_gate_matrix_pass": true,
+    "m3015_required_artifacts_present": true,
+    "source_spec_count": 16,
+    "unique_task_source_count": 16,
+    "scheduled_workload_row_count": 32,
+    "episode_row_count": 32,
+    "failure_row_count": 0,
+    "recorded_row_count": 32,
+    "diagnostic_success_count": 3,
+    "diagnostic_collision_count": 5,
+    "diagnostic_offtrack_count": 23,
+    "diagnostic_speed_too_low_count": 2,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "training_run": false,
+    "ranking_run": false,
+    "winner_selected": false,
+    "validation_result_claim_made": false,
+    "driver_performance_claim_made": false,
+    "paper_claim_made": false,
+    "high_fidelity_validation_claim_made": false,
+    "finite_window_vs_gru_claim_made": false,
+    "full_ideal_driver_completion_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.json"
   }
 }

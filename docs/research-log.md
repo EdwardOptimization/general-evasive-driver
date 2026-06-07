@@ -53600,3 +53600,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight_20260607T070445Z/command.log`
 - success artifact: `runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json`
 - notes: Completed: bounded diagnostic execution preflight wrote claim-safe artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 episode rows 0 failure rows 2 profile bindings actor 72/action 3; preserves no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor inputs and no training replay PPO ranking winner selection checkpoint mutation promotion profile tuning validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3016 result audit.
+
+## 20260607T071220Z m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3015 new-source bounded execution preflight before any validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit_20260607T071220Z`
+- command log: `runs/research/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit_20260607T071220Z/command.log`
+- success artifact: `docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md`
+- notes: Completed: audit accepts M3015 as complete and claim-safe diagnostic data with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; diagnostic-only outcomes include 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; routes to M3017 result synthesis.
