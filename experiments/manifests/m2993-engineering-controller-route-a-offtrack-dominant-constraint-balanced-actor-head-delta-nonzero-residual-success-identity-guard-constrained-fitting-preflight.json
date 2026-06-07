@@ -112,9 +112,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight",
+  "next_blocker": "m2994-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2993 must consume accepted M2987 fitting-contract rows M2983 target tensors M2991 result audit and M2992 branch synthesis",
     "M2993 must preserve 43 candidate target tensor rows as the candidate fitting denominator and use 13 success identity rows only as zero-residual guard penalty or constraint rows",
@@ -177,7 +177,7 @@
     "negative_result_policy": "If constrained fitting fails preserve the success-identity guard blocker and route to result audit repair synthesis architecture pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2983-M2992 Route A actor-head delta target tensor fitting-contract bounded fitting audit and guard-repair synthesis chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/summary.json exists",
     "M2993 writes fitting dataset guard-constrained loss trace success guard gate and documentation artifacts",
