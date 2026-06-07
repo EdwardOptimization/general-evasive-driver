@@ -1,0 +1,198 @@
+{
+  "baseline_artifacts": [
+    "docs/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.md",
+    "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json",
+    "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/candidate_validation_execution_rows.csv",
+    "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/success_behavior_retention_execution_rows.csv",
+    "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/parent_comparison_report_rows.csv",
+    "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/gate_matrix.csv",
+    "docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md",
+    "docs/post-m2470-route-plan.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3002 produces a bounded synthesis decision that acknowledges M3000 completeness and behavior-neutral diagnostic outcomes, then chooses stop, pivot, or one evidence-producing continuation without overclaiming current-sim diagnostics.",
+  "failure_criteria": [
+    "M3002 treats M3000 diagnostic rows as repair-success validation-result performance paper or self-ID evidence",
+    "M3002 ignores that every parent/candidate outcome bucket matched",
+    "M3002 continues another narrow actor-head-delta residual repair loop without new evidence expansion",
+    "M3002 changes actor input stale-exclusion parent-comparison checkpoint side-effect or claim boundaries",
+    "M3002 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "training_instability",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rank select a winner promote or mutate checkpoints",
+    "do not include stale fixed-source rows in validation paper or self-ID denominators",
+    "do not change actor input or action contract",
+    "do not continue a narrow residual-head repair loop unless the synthesis proves a new evidence surface",
+    "do not convert behavior-neutral current-sim diagnostics into validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result synthesis can integrate M2998-M3001 validation-contract and diagnostic-execution evidence, classify the behavior-neutral M3000 result, and choose stop, pivot, or exactly one evidence-producing continuation before any ranking promotion validation-result repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "M3001 accepts M3000 as claim-safe diagnostic data only",
+      "M3000 parent/candidate outcome buckets are identical over the fixed denominator",
+      "post-M2470 route split prevents current-sim diagnostics from becoming paper or self-ID evidence"
+    ],
+    "derived_from": [
+      "m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit",
+      "m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight",
+      "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.json",
+      "experiments/manifests/m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight.json",
+      "experiments/manifests/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "docs/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.md",
+      "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize the M2998-M3001 validation-contract and behavior-neutral diagnostic execution branch"
+    ],
+    "supersedes": [
+      "another narrow actor-head-delta residual-head repair loop without synthesis",
+      "direct ranking or promotion from M3000 diagnostic rows",
+      "treating behavior-neutral current-sim diagnostics as validation result or repair success"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "integrates new M3000 closed-loop diagnostic data and decides whether to stop or pivot from the residual-head route",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3002 cannot produce a concrete continue pivot or stop decision",
+      "M3002 would claim performance validation paper current-sim high-fidelity finite-window-vs-GRU or self-ID evidence",
+      "M3002 would continue another narrow residual-head repair route without a new evidence surface"
+    ],
+    "paper_verdict_delta": "no paper verdict; likely pushes away from narrow current-sim residual repair toward broader fair-comparison or high-fidelity/interface evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M3002 must synthesize M2998-M3001 evidence and explicitly account for behavior-neutral parent/candidate outcomes",
+    "M3002 must preserve actor 72/action 3 and no hidden oracle target provenance objective source route verdict or paper actor inputs",
+    "M3002 must keep stale rows out of validation paper and self-ID denominators",
+    "M3002 must not rank select a winner promote mutate checkpoints or make a success-rate verdict",
+    "M3002 must choose stop pivot continue or promote_to_next_branch without overclaiming current-sim diagnostics"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+  "scoreboard_checkpoint": "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3002 branch/result synthesis decision only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3002 synthesizes Route A current-sim diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3002; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve the behavior-neutral result and pivot or stop rather than weakening self-ID proof gates.",
+    "temporal_evidence_window": "M2998-M3001 Route A actor-head delta validation-contract and diagnostic execution chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md exists",
+    "M3002 synthesizes M2998-M3001 evidence including the behavior-neutral parent/candidate outcome pairs",
+    "M3002 answers evidence summary supported claims falsified claims failure taxonomy public-gate overfit risk and next branch decision",
+    "M3002 chooses stop pivot continue or promote_to_next_branch with an explicit route and no ambiguous next state",
+    "no ranking promotion validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3001 accepted M3000 as complete and claim-safe diagnostic data only",
+      "M3000 wrote 43 candidate execution rows 13 success-retention rows and 0 failure rows",
+      "M3000 parent/candidate outcome buckets matched for all 56 rows",
+      "post-M2470 route split requires current-sim diagnostics to remain bounded engineering evidence"
+    ],
+    "allowed_updates": [
+      "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+      "docs/reviews/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+      "experiments/reviews/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.json",
+      "M3002 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3002 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no ranking winner selection promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels target provenance objective admission source route verdict paper labels hidden parameters or oracle actor inputs",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3002 integrates the behavior-neutral diagnostic result and public-gate overfit risk",
+      "M3002 chooses continue pivot stop or promote_to_next_branch",
+      "actor stale-exclusion parent-comparison checkpoint side-effect and claim boundaries remain unchanged"
+    ],
+    "stage": "process",
+    "stage_objective": "Synthesize the behavior-neutral M3000 diagnostic result before any further Route A residual-head work"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Branch/result synthesis only; no ranking promotion validation-result repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_result_synthesis",
+    "evidence_increment": "synthesizes the M2998-M3001 residual-head validation-contract and closed-loop diagnostic evidence after behavior-neutral M3000 data",
+    "fallback_plan": [
+      "pivot to a broader evidence axis such as L0/L1/L2/L3 finite-window-vs-GRU capability prediction or source-diverse response-history evidence",
+      "pivot to high-fidelity interface preparation if current-sim diagnostics are no longer the bottleneck",
+      "admit exactly one evidence-producing continuation only if it expands evidence beyond the fixed M2996/M3000 denominator",
+      "stop the actor-head-delta residual-head branch if no new evidence surface is justified"
+    ],
+    "stop_condition": [
+      "stop if M3000 behavior-neutral outcomes show the actor-head-delta residual-head route is not changing closed-loop behavior",
+      "stop if another residual-head repair would only tune fixed public current-sim rows",
+      "stop if the next route would claim validation-result performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_artifact": "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3001 accepts M3000 as complete and claim-safe but behavior-neutral diagnostic data"
+  }
+}
