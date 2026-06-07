@@ -20,10 +20,13 @@
       "name": "design_only"
     }
   ],
-  "decision_rule": "Pass only if M3003 produces a bounded design for a fresh source-diverse evidence surface that excludes the behavior-neutral residual-head denominator and preserves actor, stale-exclusion, blocker, and claim boundaries.",
+  "completion_summary": "Completed: design audit confirms the M1690 L3 task_source-id row space is exhausted for fresh Route A denominator selection because prior audited surfaces cover 72/72 L3 task_source ids and M3000 has the same task_source identity set as M2919; rejects reuse of M2996/M3000, M2919, eval-seed-only, and actor-head-delta residual-head same-surface routes; admits M3004 no-execution source-axis expansion materialization preflight with actor 72/action 3 and no validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+  "decision_rule": "Pass only if M3003 records the exhausted M1690 L3 source-space audit, rejects same-surface residual-head or eval-seed-only reuse, and admits exactly one no-execution source-axis expansion materialization or explicit stop route without execution, ranking, promotion, validation-result, repair-success, performance, paper, high-fidelity, or self-ID claims.",
   "failure_criteria": [
-    "M3003 reuses the M2996/M3000 fixed residual-head denominator as the optimization target",
-    "M3003 admits another actor-head-delta residual-head repair loop without new evidence expansion",
+    "M3003 claims unused M1690 L3 rows remain after the live audit shows 72/72 coverage",
+    "M3003 reuses the M2996/M3000 fixed residual-head denominator or M2919 task_source identity set as the next optimization target",
+    "M3003 treats an eval-seed-only rerun as a fresh source-diverse evidence surface",
+    "M3003 admits another actor-head-delta residual-head repair loop without source-axis expansion",
     "M3003 changes actor input/action contract or makes hidden oracle labels actor-visible",
     "M3003 weakens stale fixed-source exclusions, Route C source blocker, or prior protected-surface guardrails",
     "M3003 claims validation repair-success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
@@ -39,22 +42,27 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight.json",
   "forbidden_shortcuts": [
     "do not run reset step rollout replay validation training PPO private holdout source build adapter probe or external simulation",
     "do not mutate save replace rank select or promote checkpoints",
     "do not change actor input or action contract",
     "do not expose hidden dynamics oracle labels source task role route outcome success progress target provenance or verdict labels to actor input",
-    "do not reuse the M2996/M3000 behavior-neutral residual-head denominator as the next optimization target",
+    "do not claim an unused M1690 L3 denominator after the audit records 72/72 coverage",
+    "do not treat eval-seed-only replay over fixed M1690 L3 rows as source-axis expansion",
+    "do not reuse the M2996/M3000 behavior-neutral residual-head denominator or M2919 same-identity rows as the next optimization target",
     "do not convert current-sim diagnostic rows into validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
   ],
   "gate_tier": "process",
-  "hypothesis": "A design-only post-residual-stop evidence-surface milestone can select a fresh source-diverse Route A diagnostic denominator that excludes the M2996/M3000 fixed residual-head surface and prior protected repair surfaces before any execution, ranking, promotion, validation-result, repair-success, performance, paper, high-fidelity, or self-ID claim.",
+  "hypothesis": "A design-only post-residual-stop evidence-surface milestone can audit whether a fresh Route A source-diverse denominator remains available after M3000, reject exhausted or same-surface reuse, and select a no-execution source-axis expansion materialization route before any execution, ranking, promotion, validation-result, repair-success, performance, paper, high-fidelity, or self-ID claim.",
   "id": "m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design",
   "lineage": {
     "blocked_by": [
       "M3002 pivots away from another actor-head-delta residual-head loop after M3000 behavior-neutral outcomes",
       "M3000 parent/candidate outcome buckets matched for all 56 rows",
       "M2996/M3000 fixed denominator is no longer a safe optimization target",
+      "M1690 L3 task_source-id row space is exhausted for fresh row selection because prior audited surfaces cover 72/72 ids",
+      "M3000 and M2919 share the same task_source identity set at the audited granularity",
       "Route C HF3 selected-platform execution remains blocked until source or an approved dependency route is supplied",
       "post-M2470 route split requires fresh evidence surfaces rather than current-sim local repair drift"
     ],
@@ -77,40 +85,49 @@
     "parent_dataset": [
       "docs/m3002-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-synthesis.md",
       "docs/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.md",
+      "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+      "runs/m2916_engineering_controller_route_a_dependency_facing_evidence_surface_execution_admission_materialization_preflight/execution_admission_candidate_rows.csv",
+      "runs/m2919_engineering_controller_route_a_dependency_facing_evidence_surface_bounded_execution_preflight/bounded_execution_rows.csv",
       "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json",
       "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/parent_comparison_report_rows.csv",
-      "docs/m2875-engineering-controller-route-a-post-localized-response-prediction-limited-baseline-package-refresh-branch-synthesis.md"
+      "docs/m2876-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-surface-design.md",
+      "docs/m2879-engineering-controller-route-a-post-package-refresh-fresh-closed-loop-evidence-result-synthesis.md",
+      "docs/post-m2470-route-plan.md"
     ],
     "parent_objective": [
-      "design a fresh non-same-surface Route A diagnostic denominator after M3002 stops the behavior-neutral residual-head branch"
+      "audit whether a fresh non-same-surface Route A diagnostic denominator remains after the M3002 residual-head stop and select source-axis expansion or stop"
     ],
     "supersedes": [
       "another M2996/M3000 residual-head denominator execution",
-      "another actor-head-delta residual fitting wrapper contract or audit loop without new evidence surface",
+      "another M2919 same-task-source dependency-facing execution row reuse as a fresh denominator",
+      "eval-seed-only replay over exhausted M1690 L3 rows as source-diverse evidence expansion",
+      "another actor-head-delta residual fitting wrapper contract or audit loop without new source-axis evidence",
       "direct interpretation of behavior-neutral diagnostics as validation or repair success"
     ]
   },
   "local_search_guard": {
     "actual_progress_type": "design_only",
-    "evidence_expansion": "changes route from fixed residual-head denominator repair to a fresh source-diverse diagnostic surface design before a later evidence-producing execution",
+    "evidence_expansion": "records that the fixed M1690 L3 row space is exhausted and changes the route from row selection or residual-head same-surface repair to source-axis expansion materialization",
     "local_search_risk": "medium",
     "must_synthesize_if": [
-      "M3003 cannot define a fresh non-same-surface denominator",
-      "M3003 would optimize only fixed public M2996/M3000 rows",
-      "M3003 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
-      "M3003 proposes another residual-head repair route without material evidence expansion"
+      "M3004 cannot materialize at least one admissible source-axis candidate or an explicit stop route",
+      "M3004 would optimize only fixed public M2996/M3000 or M2919 rows",
+      "M3004 would treat eval-seed-only replay as source-axis expansion",
+      "M3004 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID evidence",
+      "M3004 proposes another residual-head repair route without material evidence expansion"
     ],
-    "paper_verdict_delta": "no paper verdict; design prevents behavior-neutral current-sim residual diagnostics from becoming paper or self-ID evidence while preparing a fresh engineering evidence surface",
+    "paper_verdict_delta": "no paper verdict; design prevents exhausted current-sim M1690 L3 row reuse from becoming paper or self-ID evidence while preparing source-axis materialization",
     "process_overhead": "medium",
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design",
+  "next_blocker": "m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
-    "M3003 must design a fresh non-same-surface source-diverse diagnostic denominator before any execution",
-    "M3003 must exclude M2996/M3000 residual-head rows from the new evidence surface",
+    "M3003 must audit whether any unused M1690 L3 task_source-id denominator remains before selecting a follow-up route",
+    "M3003 must record the exhausted-surface finding if prior audited surfaces cover 72/72 M1690 L3 task_source ids",
+    "M3003 must reject M2996/M3000 residual-head rows, M2919 same-identity rows, and eval-seed-only reruns as fresh evidence surfaces",
     "M3003 must preserve actor observation 72 action 3 and no hidden oracle target provenance source route outcome success progress or verdict actor inputs",
     "M3003 must preserve stale fixed-source exclusions and prior protected repair surfaces as guardrails outside validation paper and self-ID denominators",
     "M3003 must preserve Route C HF3 source dependency blocker and not run external dependency build probe reset rollout or validation work",
@@ -126,8 +143,8 @@
   "scoreboard_checkpoint": "docs/m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design.md",
   "self_id_evidence_discipline": {
     "allowed_claims": [
-      "post-residual-stop fresh source-diverse evidence-surface design",
-      "bounded follow-up manifest registration or explicit stop decision",
+      "post-residual-stop exhausted M1690 L3 source-space audit",
+      "bounded M3004 no-execution source-axis expansion materialization preflight admission",
       "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
     ],
     "claim_level": "not_applicable",
@@ -135,22 +152,24 @@
     "history_necessity_tests": [
       "None in M3003; wrong-history reset-hidden zero-history finite-window or GRU comparison proof remains separately pre-registered."
     ],
-    "negative_result_policy": "Use the behavior-neutral M3000 result to stop residual-head local repair and require fresh evidence surfaces rather than weakening self-ID proof gates.",
+    "negative_result_policy": "Use the behavior-neutral M3000 result and exhausted M1690 L3 row-space audit to stop residual-head local repair and require source-axis expansion rather than weakening self-ID proof gates.",
     "temporal_evidence_window": "M2998-M3002 residual-head validation-contract diagnostic execution audit and synthesis artifacts plus Route A fresh-surface references."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design.md exists",
-    "M3003 defines a fixed fresh source-diverse Route A diagnostic denominator that excludes M2996/M3000 residual-head rows and prior protected repair surfaces",
-    "M3003 defines prior-surface exclusion actor-contract stale-exclusion Route C blocker and claim-boundary guards",
-    "M3003 selects one bounded follow-up route or explicit stop without execution validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
+    "M3003 audits the M1690 L3_online_gru denominator and records that prior audited surfaces cover 72/72 task_source_id values with zero unused M1690 L3 task_source ids",
+    "M3003 records that M3000 and M2919 share the same task_source identity set at the audited granularity",
+    "M3003 rejects M2996/M3000, M2919, stale fixed-source, eval-seed-only, and actor-head-delta residual-head same-surface reuse as the next evidence denominator",
+    "M3003 admits M3004 no-execution source-axis expansion materialization preflight or an explicit stop without execution validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
   ],
   "training_stage": {
     "admission_evidence": [
       "M3002 pivots away from the residual-head branch",
       "M3000 wrote complete diagnostic rows but no parent/candidate outcome bucket changed",
       "M3001 accepted M3000 as claim-safe diagnostic data only",
-      "M2875 requires fresh Route A evidence surfaces rather than package or local repair drift",
+      "M1690 L3_online_gru row audit shows 72/72 task_source_id values are already covered by prior audited surfaces",
+      "M3000 and M2919 share the same task_source identity set at the audited granularity",
       "docs/post-m2470-route-plan.md separates current-sim diagnostics from paper high-fidelity and self-ID claims"
     ],
     "allowed_updates": [
@@ -158,7 +177,7 @@
       "docs/reviews/m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design.md",
       "experiments/reviews/m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design.json",
       "M3003 status queue scoreboard research log and review",
-      "one bounded follow-up manifest only if M3003 admits a materialization or execution route"
+      "experiments/manifests/m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight.json"
     ],
     "blocked_shortcuts": [
       "no reset step rollout replay validation training PPO in design",
@@ -168,28 +187,30 @@
     ],
     "next_stage_criteria": [
       "design artifact exists",
-      "fresh denominator and prior-surface exclusions are explicit",
+      "exhausted M1690 L3 task_source-id audit is explicit",
+      "same-surface residual-head M2919 and eval-seed-only reuse are rejected",
       "actor 72/action 3 no hidden/oracle actor input and stale/Route C blockers remain preserved",
-      "one bounded follow-up route or stop decision is registered"
+      "M3004 no-execution source-axis expansion materialization route is registered"
     ],
     "stage": "process",
     "stage_objective": "design a post-residual-stop fresh source-diverse Route A evidence surface"
   },
   "type": "gate",
   "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_post_residual_stop_source_diverse_evidence_surface",
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
     "claim_scope": "Design only; no execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "fresh_source_diverse_evidence_surface_design_after_behavior_neutral_residual_head",
-    "evidence_increment": "changes the evidence axis from fixed residual-head denominator repair to a fresh source-diverse diagnostic surface design before any later evidence-producing execution",
+    "evidence_axis": "source_axis_expansion_after_exhausted_m1690_l3_and_behavior_neutral_residual_head",
+    "evidence_increment": "audits the old fixed M1690 L3 row-selection route as exhausted and changes the next evidence step to no-execution source-axis expansion materialization",
     "fallback_plan": [
-      "route to explicit stop if the fresh surface cannot be defined without overfitting prior public rows",
-      "route to materialization preflight only if the design fixes denominator exclusion and guard rows without execution or ranking claims",
+      "route to explicit stop if M3004 cannot identify an admissible source-axis expansion without overfitting prior public rows",
+      "route to materialization preflight only if the design fixes denominator exhaustion same-surface rejection and guard rows without execution or ranking claims",
       "defer Route C/HF3 execution until source or an approved dependency route is supplied",
       "defer Route B finite-window-vs-GRU claims to separately pre-registered comparison proof gates"
     ],
     "stop_condition": [
-      "stop if no non-same-surface source-diverse denominator can be selected",
-      "stop if the design would optimize only the M2996/M3000 residual-head rows",
+      "stop if no source-axis expansion beyond exhausted M1690 L3 task_source ids can be materialized",
+      "stop if the next route would optimize only the M2996/M3000 residual-head rows or M2919 same-identity rows",
+      "stop if the next route treats eval-seed-only replay as a fresh source-diverse surface",
       "stop if the design would weaken actor input stale-exclusion Route C blocker prior-surface or claim boundaries",
       "stop if the next route would claim validation-result performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
     ],
