@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3049,
+    "completed": 3050,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight_20260607T115924Z/command.log",
+    "command_log": "runs/research/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit_20260607T121126Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight_20260607T115924Z",
+    "run_dir": "runs/research/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit_20260607T121126Z",
     "status": "completed",
-    "task_id": "m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight"
+    "task_id": "m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3043 Active Safety Driver v1 closed-loop measurement artifacts before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
-    "id": "m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3043 closed-loop measurement summary episode metric residual-adapter actor-contract side-effect claim and gate artifacts; select exactly one repair synthesis next-measurement or stop route without validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 30390,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight --m3044-audit docs/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md --m3043-dir runs/m3043_engineering_controller_active_safety_driver_v1_closed_loop_measurement_preflight --output-dir runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight --follow-up-manifest experiments/manifests/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.json",
+    "hypothesis": "A no-new-execution failure-decomposition materialization preflight can convert accepted M3044 and M3043 measurement evidence into row-preserving offtrack collision speed-floor actuation-saturation repair requirements before any fitting training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize row-preserving failure mode actuation saturation repair requirement claim boundary gate doc and M3046 audit artifacts from M3043 without new execution fitting training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 30400,
     "status": "pending",
-    "success_artifact": "docs/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md"
+    "success_artifact": "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T120048Z"
+  "updated_at_utc": "20260607T121126Z"
 }

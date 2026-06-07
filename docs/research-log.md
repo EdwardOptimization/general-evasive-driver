@@ -53936,3 +53936,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3043-engineering-controller-active-safety-driver-v1-closed-loop-measurement-preflight_20260607T115924Z/command.log`
 - success artifact: `runs/m3043_engineering_controller_active_safety_driver_v1_closed_loop_measurement_preflight/summary.json`
 - notes: Completed: ran bounded same-denominator current-sim measurement with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.08 actor 72/action 3 residual adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3044 result audit.
+
+## 20260607T121126Z m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3043 Active Safety Driver v1 closed-loop measurement artifacts before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit_20260607T121126Z`
+- command log: `runs/research/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit_20260607T121126Z/command.log`
+- success artifact: `docs/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md`
+- notes: Completed: audit accepts M3043 closed-loop measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.08 actor 72/action 3 residual adapter actor-contract side-effect and claim guards pass; rejects validation ranking promotion driver-performance current-sim verdict repair-success high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; synthesis continues exactly once to M3045 failure-decomposition materialization.

@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit",
+  "next_blocker": "m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight",
   "priority": 30390,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -105,6 +105,10 @@
     {
       "path": "docs/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md",
@@ -122,7 +126,7 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair or synthesis rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3043 closed-loop measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md exists",
     "M3044 audits M3043 row counts gates actor residual side-effect and claim boundaries",
@@ -140,6 +144,7 @@
       "docs/reviews/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.md",
       "experiments/reviews/m3044-engineering-controller-active-safety-driver-v1-closed-loop-measurement-result-audit.json",
       "M3044 status queue scoreboard research log and review",
+      "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json",
       "one follow-up manifest only if M3044 selects exactly one next route"
     ],
     "blocked_shortcuts": [
@@ -183,5 +188,7 @@
       "next_branch_decision"
     ],
     "synthesis_trigger": "validator-enforced workflow cadence after M3043 completes the first active-safety closed-loop measurement preflight"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json",
+  "completion_summary": "Completed: audit accepts M3043 closed-loop measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.08 actor 72/action 3 residual adapter actor-contract side-effect and claim guards pass; rejects validation ranking promotion driver-performance current-sim verdict repair-success high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; synthesis continues exactly once to M3045 failure-decomposition materialization."
 }
