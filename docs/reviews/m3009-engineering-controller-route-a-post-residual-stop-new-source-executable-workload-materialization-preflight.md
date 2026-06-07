@@ -1,0 +1,89 @@
+# m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T061235Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: new_source_workload_contract_materialized_route_to_m3010_result_audit
+- Decision reason: Completed: materialized no-execution new-source workload contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3010 result audit.
+
+## Hypothesis
+
+A no-execution executable workload materialization preflight can convert the M3008 design and M3006 new source specs into machine-checkable source-resolution profile-binding workload-contract rejection actor-guard claim-boundary gate run-state summary doc and M3010 audit artifacts without executing or overclaiming.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design.md, docs/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.md, runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json, runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/new_task_source_spec_rows.csv, runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/source_contract_rows.csv
+- parent_config: experiments/manifests/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design.json, experiments/manifests/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.json
+- parent_objective: materialize no-execution workload contract rows for the M3006 new source panel
+- derived_from: m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design, m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit, m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight
+- blocked_by: new source specs are not yet executable workload contract rows, M3010 audit is required before any execution design
+- supersedes: direct execution from M3008 design, direct validation or performance interpretation of M3006/M3008
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json exists
+- M3009 reads M3006 source specs and M3008 design as governing inputs
+- M3009 writes source-resolution profile-binding workload-contract rejection actor claim gate run-state summary doc and M3010 audit manifest artifacts
+- M3009 preserves 16 new source identities and writes 32 workload contract rows
+- M3009 performs no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation performance paper high-fidelity or self-ID work
+
+## Failure Criteria
+
+- M3009 drops source specs or reuses old M1690 L3 ids as new source identities
+- M3009 changes actor input/action contract or exposes hidden/oracle labels
+- M3009 executes environment policy action validation training or source build work
+- M3009 ranks promotes mutates checkpoints or claims validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+
+## Evidence Gates
+
+- M3009 must preserve all 16 M3006 source identities with zero old M1690 L3 overlap
+- M3009 must write 2 read-only profile binding rows and 32 workload contract rows
+- M3009 must preserve actor observation 72 action 3 and no hidden/oracle actor inputs
+- M3009 must not run source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation or performance verdict computation
+- M3009 must register M3010 result audit before interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not build sources instantiate envs reset step rollout replay validate train or run PPO
+- do not mutate save replace rank select or promote checkpoints
+- do not expose hidden dynamics oracle target provenance source route outcome success progress verdict TTC or paper labels to actor input
+- do not drop source specs or count old M1690 L3 ids as new source identities
+- do not claim workload execution readiness validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: new_source_workload_contract_materialized_route_to_m3010_result_audit
+- reason: Completed: materialized no-execution new-source workload contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3010 result audit.
+
+## Next Blocker
+
+m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit

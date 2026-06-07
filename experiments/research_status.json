@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3014,
+    "completed": 3015,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design_20260607T060307Z/command.log",
+    "command_log": "runs/research/m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight_20260607T061115Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design_20260607T060307Z",
+    "run_dir": "runs/research/m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight_20260607T061115Z",
     "status": "completed",
-    "task_id": "m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design"
+    "task_id": "m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight --m3007-audit docs/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.md --m3008-design docs/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design.md --m3006-dir runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight --m1674-config runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/config.json --m1674-checkpoint runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt --m2655-config runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/repair_config_snapshot.json --m2655-checkpoint runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt --output-dir runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight --follow-up-manifest experiments/manifests/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.json",
-    "hypothesis": "A no-execution executable workload materialization preflight can convert the M3008 design and M3006 new source specs into machine-checkable source-resolution profile-binding workload-contract rejection actor-guard claim-boundary gate run-state summary doc and M3010 audit artifacts without executing or overclaiming.",
-    "id": "m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: implement and run no-execution new-source executable-workload materialization over the M3006 source panel after M3008 design.",
-    "priority": 30040,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3009 new-source executable workload materialization before any execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3009 no-execution workload materialization artifacts and select execution design, repair, synthesis, or stop without execution or overclaiming.",
+    "priority": 30050,
     "status": "pending",
-    "success_artifact": "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json"
+    "success_artifact": "docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260607T060356Z"
+  "updated_at_utc": "20260607T061215Z"
 }

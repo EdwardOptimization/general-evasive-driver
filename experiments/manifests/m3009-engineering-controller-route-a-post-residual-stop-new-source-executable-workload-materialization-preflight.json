@@ -15,6 +15,7 @@
       "name": "materialize_new_source_executable_workload"
     }
   ],
+  "completion_summary": "Completed: materialized no-execution new-source workload contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3010 result audit.",
   "decision_rule": "Pass only if M3009 writes complete no-execution workload materialization artifacts and M3010 audit manifest while preserving actor and claim boundaries.",
   "failure_criteria": [
     "M3009 drops source specs or reuses old M1690 L3 ids as new source identities",
@@ -32,6 +33,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.json",
   "forbidden_shortcuts": [
     "do not build sources instantiate envs reset step rollout replay validate train or run PPO",
     "do not mutate save replace rank select or promote checkpoints",
@@ -90,7 +92,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight",
+  "next_blocker": "m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -146,6 +148,26 @@
       "type": "json"
     }
   ],
+  "result": {
+    "actor_action_dim": 3,
+    "actor_observation_dim": 72,
+    "artifact": "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json",
+    "decision": "new_source_workload_contract_materialized_route_to_m3010_result_audit",
+    "environment_execution_run": false,
+    "next_manifest": "experiments/manifests/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.json",
+    "old_m1690_l3_overlap_count": 0,
+    "performance_claim_made": false,
+    "profile_binding_row_count": 2,
+    "ranking_run": false,
+    "self_id_claim_made": false,
+    "source_build_run": false,
+    "source_spec_resolution_row_count": 16,
+    "source_spec_unique_task_source_count": 16,
+    "status": "completed",
+    "training_run": false,
+    "validation_run": false,
+    "workload_contract_row_count": 32
+  },
   "review_artifact": "docs/reviews/m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight.md",
   "scoreboard_checkpoint": "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json",
   "self_id_evidence_discipline": {
@@ -162,7 +184,7 @@
     "negative_result_policy": "If workload materialization fails, record missing rows and route to audit/repair rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3006-M3008 source and workload-contract materialization route only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json exists",
     "M3009 reads M3006 source specs and M3008 design as governing inputs",
