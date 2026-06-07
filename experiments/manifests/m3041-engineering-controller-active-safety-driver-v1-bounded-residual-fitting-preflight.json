@@ -1,0 +1,248 @@
+{
+  "id": "m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight",
+  "priority": 30360,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded offline residual fitting preflight can consume accepted M3040/M3039 guarded training-admission artifacts and M3032 trainer-side target tensors to fit one deployable 72-to-3 active-safety residual/reflex layer candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md",
+      "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json",
+      "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/active_safety_training_objective_rows.csv",
+      "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/scenario_panel_rows.csv",
+      "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/training_guardrail_rows.csv",
+      "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/baseline_pressure_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.json",
+      "experiments/manifests/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "fit one bounded offline active-safety residual/reflex candidate that maps actor-visible 72-vector input to 3 action residual outputs"
+    ],
+    "derived_from": [
+      "m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit",
+      "m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3040 accepts M3039 guarded training admission and routes to bounded residual fitting",
+      "M3032 target tensors are trainer-side and actor-invisible but not yet fit into a deployable candidate artifact",
+      "closed-loop validation must wait until a fitted artifact is audited"
+    ],
+    "supersedes": [
+      "materialization-only active-safety route before producing a fitted candidate artifact",
+      "direct validation or ranking before fitting audit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.md",
+  "public_gates": [
+    "M3041 must consume M3040 audit, M3039 guarded admission rows, and M3032 target tensors/success guards",
+    "M3041 must build a fitting dataset only from actor-visible observation traces and actor-invisible trainer-side target deltas",
+    "M3041 must fit exactly one bounded 72-to-3 residual/reflex candidate artifact and record loss before/after",
+    "M3041 must preserve success identity zero-target guards and not use them as positive training targets",
+    "M3041 must not run environment reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "M3041 must not mutate parent checkpoints or claim driver performance repair success validation current-sim paper high-fidelity full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not expose target_action target_action_delta target_valid_mask target_loss_weight target provenance objective labels route labels source labels outcome labels progress labels or verdict labels to actor input",
+    "do not run environment reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not mutate or promote parent checkpoints configs profiles actor inputs or actor outputs",
+    "do not use success identity zero-target rows as positive training targets",
+    "do not claim fitting quality as closed-loop repair success driver performance validation current-sim high-fidelity paper full-driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "evidence_axis": "active_safety_driver_v1_bounded_residual_fitting",
+    "evidence_increment": "creates the first fitted deployable active-safety residual/reflex candidate artifact from audited trainer-side targets without closed-loop validation",
+    "claim_scope": "Bounded offline fitting only; no rollout validation ranking promotion driver-performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if actor observation trace shape 72 or target delta shape 3 is violated",
+      "stop if target labels or provenance would be actor-visible",
+      "stop if success identity zero-target guards regress beyond the residual bound",
+      "stop if fitting would require mutating parent checkpoints or changing actor contract"
+    ],
+    "fallback_plan": [
+      "route to M3042 result audit if bounded fitting succeeds",
+      "route to artifact repair if target tensors or raw traces are incomplete",
+      "route to stop if privileged actor input would be required",
+      "route to synthesis if fitting cannot produce a bounded candidate artifact"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3040 accepts M3039 and routes to bounded residual fitting",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "action_grounding_posttrain",
+    "stage_objective": "Fit one bounded deployable Active Safety Driver v1 residual/reflex candidate artifact",
+    "admission_evidence": [
+      "M3040 accepts M3039 guarded training admission",
+      "M3039 materializes objective scenario pressure guardrail actor and claim rows",
+      "M3032 provides 29 positive residual target tensors and 3 success identity zero-target guards with actor-invisible labels"
+    ],
+    "blocked_shortcuts": [
+      "no rollout replay validation ranking promotion performance verdict or checkpoint mutation",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight.py",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/fitting_dataset_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/fitting_loss_trace_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/success_guard_loss_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/actor_input_exclusion_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/checkpoint_side_effect_guard_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/claim_boundary_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/gate_matrix.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/run_state.json",
+      "docs/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.md",
+      "experiments/manifests/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.json",
+      "docs/reviews/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.md",
+      "experiments/reviews/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.json",
+      "M3041 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "bounded residual/reflex candidate artifact exists",
+      "fitting loss trace shows bounded offline fit improved or safely failed closed",
+      "success identity guard rows pass",
+      "M3042 result audit manifest is registered before any closed-loop measurement"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3041 fits an engineering residual candidate and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3041; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "temporal_evidence_window": "M3032 target tensors and M3039 guarded admission only.",
+    "negative_result_policy": "If bounded fitting fails, preserve failure evidence and route to audit or repair rather than returning to self-ID as the mainline objective.",
+    "allowed_claims": [
+      "bounded offline residual fitting artifact completeness",
+      "loss-trace and guardrail accounting only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from admission materialization to a fitted deployable candidate artifact for later closed-loop measurement",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3041 advances engineering driver implementation",
+    "must_synthesize_if": [
+      "M3041 cannot build a finite actor-visible fitting dataset",
+      "M3041 cannot fit a bounded candidate artifact without privileged actor inputs",
+      "M3041 would claim validation driver performance paper high-fidelity finite-window-vs-GRU current-sim or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json exists",
+    "fitting_dataset_rows fitting_loss_trace_rows success_guard_loss_rows actor_input_exclusion_rows checkpoint_side_effect_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "candidate_residual_reflex_layer.npz exists only if fitting contracts pass and remains separate from parent checkpoints",
+    "M3041 consumes only actor-visible observation traces and actor-invisible trainer-side target tensors",
+    "M3041 registers exactly one M3042 result-audit manifest",
+    "M3041 makes no rollout validation ranking promotion driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M3041 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3041 mutates or promotes parent checkpoints configs profiles actor inputs or actor outputs",
+    "M3041 runs reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "M3041 uses success identity guards as positive targets or hides guard failures",
+    "M3041 claims repair success validation result driver performance current-sim high-fidelity paper full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3041 fits or safely fails closed one bounded 72-to-3 residual/reflex candidate from actor-visible traces and actor-invisible target tensors while preserving success guards, checkpoint side-effect guards, actor-input exclusions, and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_bounded_residual_fitting_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight --m3040-audit docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md --m3039-dir runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight --follow-up-manifest experiments/manifests/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/fitting_dataset_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/fitting_loss_trace_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/success_guard_loss_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/actor_input_exclusion_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/checkpoint_side_effect_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "type": "npz"
+    },
+    {
+      "path": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md",
+    "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json",
+    "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/active_safety_training_objective_rows.csv",
+    "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/scenario_panel_rows.csv",
+    "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/training_guardrail_rows.csv",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json",
+  "next_blocker": "m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit",
+  "status": "completed",
+  "completion_summary": "Completed: bounded offline residual fitting produced candidate with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples initial weighted MSE 0.00119174495548 final weighted MSE 0.000471564756735 residual_abs_max 0.079999998 success guards 3 actor 72/action 3; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3042 result audit."
+}

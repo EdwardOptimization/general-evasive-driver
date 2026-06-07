@@ -1,0 +1,92 @@
+# m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T114250Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_v1_bounded_residual_fit_route_to_m3042_result_audit
+- Decision reason: Completed: bounded offline residual fitting produced candidate with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples initial weighted MSE 0.00119174495548 final weighted MSE 0.000471564756735 residual_abs_max 0.079999998 success guards 3 actor 72/action 3; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3042 result audit.
+
+## Hypothesis
+
+A bounded offline residual fitting preflight can consume accepted M3040/M3039 guarded training-admission artifacts and M3032 trainer-side target tensors to fit one deployable 72-to-3 active-safety residual/reflex layer candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md, runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json, runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/active_safety_training_objective_rows.csv, runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/scenario_panel_rows.csv, runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/training_guardrail_rows.csv, runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/baseline_pressure_rows.csv, runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv, runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv
+- parent_config: experiments/manifests/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.json, experiments/manifests/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight.json
+- parent_objective: fit one bounded offline active-safety residual/reflex candidate that maps actor-visible 72-vector input to 3 action residual outputs
+- derived_from: m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit, m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight
+- blocked_by: M3040 accepts M3039 guarded training admission and routes to bounded residual fitting, M3032 target tensors are trainer-side and actor-invisible but not yet fit into a deployable candidate artifact, closed-loop validation must wait until a fitted artifact is audited
+- supersedes: materialization-only active-safety route before producing a fitted candidate artifact, direct validation or ranking before fitting audit
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json exists
+- fitting_dataset_rows fitting_loss_trace_rows success_guard_loss_rows actor_input_exclusion_rows checkpoint_side_effect_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist
+- candidate_residual_reflex_layer.npz exists only if fitting contracts pass and remains separate from parent checkpoints
+- M3041 consumes only actor-visible observation traces and actor-invisible trainer-side target tensors
+- M3041 registers exactly one M3042 result-audit manifest
+- M3041 makes no rollout validation ranking promotion driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim
+
+## Failure Criteria
+
+- M3041 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input
+- M3041 mutates or promotes parent checkpoints configs profiles actor inputs or actor outputs
+- M3041 runs reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison
+- M3041 uses success identity guards as positive targets or hides guard failures
+- M3041 claims repair success validation result driver performance current-sim high-fidelity paper full-driver finite-window-vs-GRU or self-ID evidence
+
+## Evidence Gates
+
+- M3041 must consume M3040 audit, M3039 guarded admission rows, and M3032 target tensors/success guards
+- M3041 must build a fitting dataset only from actor-visible observation traces and actor-invisible trainer-side target deltas
+- M3041 must fit exactly one bounded 72-to-3 residual/reflex candidate artifact and record loss before/after
+- M3041 must preserve success identity zero-target guards and not use them as positive training targets
+- M3041 must not run environment reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison
+- M3041 must not mutate parent checkpoints or claim driver performance repair success validation current-sim paper high-fidelity full-driver or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not expose target_action target_action_delta target_valid_mask target_loss_weight target provenance objective labels route labels source labels outcome labels progress labels or verdict labels to actor input
+- do not run environment reset step rollout replay validation ranking promotion high-fidelity or finite-window-vs-GRU comparison
+- do not mutate or promote parent checkpoints configs profiles actor inputs or actor outputs
+- do not use success identity zero-target rows as positive training targets
+- do not claim fitting quality as closed-loop repair success driver performance validation current-sim high-fidelity paper full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight
+- type: infrastructure
+- checkpoint: runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_v1_bounded_residual_fit_route_to_m3042_result_audit
+- reason: Completed: bounded offline residual fitting produced candidate with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples initial weighted MSE 0.00119174495548 final weighted MSE 0.000471564756735 residual_abs_max 0.079999998 success guards 3 actor 72/action 3; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3042 result audit.
+
+## Next Blocker
+
+m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit

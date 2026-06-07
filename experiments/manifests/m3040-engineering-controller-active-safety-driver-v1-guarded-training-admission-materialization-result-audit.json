@@ -95,7 +95,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit",
+  "next_blocker": "m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight",
   "priority": 30350,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -110,6 +110,10 @@
     {
       "path": "docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md",
@@ -127,12 +131,13 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety fitting admission if safety contract gates pass.",
     "temporal_evidence_window": "M3039 guarded training admission artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md exists",
     "M3040 audits M3039 summary gate matrix objective scenario guardrail pressure actor and claim artifacts",
     "M3040 rejects fitting PPO training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU and self-ID claims",
-    "M3040 selects exactly one next bounded fitting, PPO, repair, synthesis, or stop route"
+    "M3040 selects exactly one next bounded fitting, PPO, repair, synthesis, or stop route",
+    "experiments/manifests/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
@@ -178,5 +183,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3039 completes guarded training admission materialization"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight.json",
+  "completion_summary": "Completed: audit accepts M3039 guarded training-admission materialization as complete and claim-safe with status_pass true gate_matrix_pass true 10 objective rows 17 scenario rows 8 guardrails 36 pressure rows 29 target tensor rows trainer-side-only actor 72/action 3; rejects fitting/PPO/training validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3041 bounded residual fitting preflight."
 }

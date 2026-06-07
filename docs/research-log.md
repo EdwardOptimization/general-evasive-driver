@@ -53888,3 +53888,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight_20260607T112152Z/command.log`
 - success artifact: `runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json`
 - notes: Completed: materialized Active Safety Driver v1 guarded training-admission artifacts with status_pass true gate_matrix_pass true 10 objective rows 17 scenario panel rows 8 training guardrails 36 baseline pressure rows 5 actor guards 11 claim rows 29 target tensor rows trainer-side-only actor 72/action 3; 0 reset step rollout replay fitting PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3040 result audit.
+
+## 20260607T113002Z m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3039 Active Safety Driver v1 guarded training-admission materialization artifacts before any fitting PPO training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit_20260607T113002Z`
+- command log: `runs/research/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit_20260607T113002Z/command.log`
+- success artifact: `docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md`
+- notes: Completed: audit accepts M3039 guarded training-admission materialization as complete and claim-safe with status_pass true gate_matrix_pass true 10 objective rows 17 scenario rows 8 guardrails 36 pressure rows 29 target tensor rows trainer-side-only actor 72/action 3; rejects fitting/PPO/training validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3041 bounded residual fitting preflight.
+
+## 20260607T113933Z m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A bounded offline residual fitting preflight can consume accepted M3040/M3039 guarded training-admission artifacts and M3032 trainer-side target tensors to fit one deployable 72-to-3 active-safety residual/reflex layer candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight --m3040-audit docs/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.md --m3039-dir runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight --follow-up-manifest experiments/manifests/m3042-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight_20260607T113930Z`
+- command log: `runs/research/m3041-engineering-controller-active-safety-driver-v1-bounded-residual-fitting-preflight_20260607T113930Z/command.log`
+- success artifact: `runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/summary.json`
+- notes: Completed: bounded offline residual fitting produced candidate with status_pass true gate_matrix_pass true 29 target tensor rows 2981 fitting samples initial weighted MSE 0.00119174495548 final weighted MSE 0.000471564756735 residual_abs_max 0.079999998 success guards 3 actor 72/action 3; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3042 result audit.
