@@ -1,0 +1,90 @@
+# m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T104643Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_v1_baseline_contract_materialized_route_to_m3036_result_audit
+- Decision reason: Completed: materialized Active Safety Driver v1 baseline contract with status_pass true gate_matrix_pass true 2 baseline candidates 17 benchmark role rows 31 metric contract rows 11 exclusion rows 9 actor guards 25 claim rows actor 72/action 3 M3015 32 diagnostic rows and M3032 29 plus 3 target tensor guard context only; no execution training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict or self-ID claims.
+
+## Hypothesis
+
+A no-execution materialization preflight can convert the M3034 Active Safety Driver v1 baseline-freeze design into machine-readable baseline candidate benchmark role metric exclusion actor-contract claim-boundary gate summary and follow-up-audit artifacts before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md, runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv, runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/profile_aggregate_rows.csv, runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv, runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/objective_family_rows.csv, runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv
+- parent_config: experiments/manifests/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json, experiments/manifests/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json, experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json
+- parent_objective: materialize Active Safety Driver v1 baseline and benchmark contract before measurement or training
+- derived_from: m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design, m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit, m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight, m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight, m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight, m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight
+- blocked_by: M3034 freezes the baseline design but does not yet provide machine-readable contract tables, Active Safety Driver v1 needs a materialized denominator before training architecture comparison ranking or promotion, M3015 diagnostic rows and M3032 target tensors need explicit exclusions and claim boundaries before reuse
+- supersedes: manual-only baseline freeze table, direct training or ranking before machine-readable baseline contract
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json exists
+- M3035 materializes baseline candidate benchmark role metric exclusion actor claim and gate rows
+- M3035 preserves actor 72/action 3 and forbidden shortcut boundaries
+- M3035 registers exactly one M3036 result-audit manifest before any training validation ranking promotion high-fidelity or self-ID claim
+
+## Failure Criteria
+
+- M3035 cannot materialize the M3034 baseline contract into machine-readable tables
+- M3035 treats M3015 diagnostic rows or M3032 target tensor rows as validation or performance verdicts
+- M3035 omits actor 72/action 3 guard rows or actor-visible shortcut exclusions
+- M3035 runs environment steps training validation ranking promotion high-fidelity rollout or checkpoint mutation
+- M3035 leaves the follow-up result audit manifest missing or ambiguous
+
+## Evidence Gates
+
+- M3035 must materialize baseline candidate rows for the M2655 candidate and M1674 parent checkpoint without ranking them
+- M3035 must materialize benchmark role rows from the M3034 active-safety role contract
+- M3035 must materialize metric contract rows covering safety clearance stability recovery actuation robustness runtime and mitigation families
+- M3035 must materialize exclusion and claim-boundary rows that separate diagnostic target-tensor paper self-ID and high-fidelity rows from engineering baseline rows
+- M3035 must preserve actor 72/action 3 and no hidden oracle target TTC source route outcome progress or verdict actor inputs
+- M3035 must register exactly one M3036 result-audit follow-up manifest
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not add hidden dynamics mu slip tire force oracle feasibility TTC reference trajectory or precomputed verdict labels to actor input
+- do not claim driver performance from baseline contract materialization
+- do not run environment reset step rollout replay training validation ranking promotion high-fidelity or finite-window-vs-GRU comparison
+- do not convert M3032 target tensor artifacts into validation or performance evidence
+- do not mutate checkpoints configs profiles or actor contract
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_v1_baseline_contract_materialized_route_to_m3036_result_audit
+- reason: Completed: materialized Active Safety Driver v1 baseline contract with status_pass true gate_matrix_pass true 2 baseline candidates 17 benchmark role rows 31 metric contract rows 11 exclusion rows 9 actor guards 25 claim rows actor 72/action 3 M3015 32 diagnostic rows and M3032 29 plus 3 target tensor guard context only; no execution training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict or self-ID claims.
+
+## Next Blocker
+
+m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight

@@ -171,7 +171,7 @@
     "negative_result_policy": "Self-ID diagnostics may be preserved as optional side evidence but must not block the active-safety baseline contract.",
     "temporal_evidence_window": "M3034 baseline-freeze design and audited M3015/M3018/M3022/M3032 artifacts."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json exists",
     "M3035 materializes baseline candidate benchmark role metric exclusion actor claim and gate rows",

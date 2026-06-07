@@ -53828,3 +53828,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design_20260607T103405Z/command.log`
 - success artifact: `docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md`
 - notes: Completed: froze Active Safety Driver v1 objective actor 72/action 3 benchmark roles metric families candidate baselines exclusion rules guardrails stop rules and selected exactly one M3035 baseline-contract materialization route without training validation ranking promotion high-fidelity finite-window-vs-GRU paper or self-ID claims.
+
+## 20260607T104503Z m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-execution materialization preflight can convert the M3034 Active Safety Driver v1 baseline-freeze design into machine-readable baseline candidate benchmark role metric exclusion actor-contract claim-boundary gate summary and follow-up-audit artifacts before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --m3034-design docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3018-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3022-dir runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight_20260607T104501Z`
+- command log: `runs/research/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight_20260607T104501Z/command.log`
+- success artifact: `runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json`
+- notes: Completed: materialized Active Safety Driver v1 baseline contract with status_pass true gate_matrix_pass true 2 baseline candidates 17 benchmark role rows 31 metric contract rows 11 exclusion rows 9 actor guards 25 claim rows actor 72/action 3 and no execution training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims; registered M3036 result audit.
