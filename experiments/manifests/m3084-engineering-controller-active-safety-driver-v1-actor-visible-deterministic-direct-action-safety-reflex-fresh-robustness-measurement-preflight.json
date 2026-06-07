@@ -10,6 +10,8 @@
       "name": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_measurement_preflight"
     }
   ],
+  "completed_summary": "Completed: ran M3084 fresh robustness current-sim measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 raw_action_abs_max 1.0 action_clip_fraction_mean 0.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false 0 M3080 seed overlap 4 robustness axes; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3085 result audit.",
+  "decision": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_route_to_m3085_result_audit",
   "decision_rule": "Pass only if M3084 executes the M3082 fresh panel using the M3078 direct actor, writes required measurement artifacts, preserves actor and claim boundaries, registers M3085 audit, and makes no validation/performance/promotion/paper/self-ID claim.",
   "failure_criteria": [
     "M3084 changes denominator after M3083 without a separate pre-registered manifest",
@@ -35,6 +37,7 @@
     "do not add hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
     "do not claim validation ranking promotion driver performance current-sim verdict high-fidelity readiness paper finite-window-vs-GRU full-driver repair success or self-ID"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "infrastructure",
   "hypothesis": "A bounded fresh robustness measurement preflight can execute the M3078 deterministic direct-action safety-reflex actor as the full obs72-to-action3 actor on the M3082 fresh panel and write collision, offtrack, speed-floor, clearance, stability, recovery, action-pressure, actor-contract, and claim-boundary measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
   "id": "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight",
@@ -136,6 +139,8 @@
       "type": "json"
     }
   ],
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight_pass",
   "review_artifact": "docs/reviews/m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight.md",
   "scoreboard_checkpoint": "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/summary.json",
   "selected_next_action": "m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit",
@@ -153,7 +158,8 @@
     "negative_result_policy": "Negative M3084 behavior routes to result audit, repair, synthesis, or stop; it does not revive self-ID as the mainline objective.",
     "temporal_evidence_window": "Fresh robustness engineering measurement for M3078 deterministic candidate only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
     "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv records the M3082 fresh panel denominator",
