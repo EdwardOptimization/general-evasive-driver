@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3069,
+    "completed": 3070,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z/command.log",
+    "command_log": "runs/research/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design_20260607T150452Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis_20260607T145550Z",
+    "run_dir": "runs/research/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design_20260607T150452Z",
     "status": "completed",
-    "task_id": "m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis"
+    "task_id": "m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only fitting-admission milestone can inspect the M3062-accepted M3061 raw-trace-backed target tensor artifacts and choose exactly one legal next fitting preflight contract repair synthesis or stop route before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design",
-    "kind": "gate",
-    "notes": "Pending: design fitting admission after M3063 synthesis; must define loader split mask weight guard checkpoint side-effect target-quality and claim boundaries and choose exactly one bounded fitting preflight contract repair synthesis or stop route; no fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 30590,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight --m3064-design docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md --m3063-synthesis docs/m3063-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-to-fitting-branch-synthesis.md --m3062-audit docs/m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit.md --m3061-dir runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight --m3055-dir runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight --output-dir runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight --follow-up-manifest experiments/manifests/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.json",
+    "hypothesis": "A bounded offline direct-action fitting preflight can consume the M3064-admitted M3061 raw-trace-backed target tensor artifacts and M3055 direct-action fitting contract to fit or fail closed one deployable obs72-to-action3 active-safety reflex candidate artifact before any rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: bounded offline direct-action fitting preflight admitted by M3064; fit or fail closed one obs72-to-action3 [steer throttle brake] candidate artifact from M3061 target tensors and M3055 contract; preserve actor-input target-quality checkpoint side-effect and claim boundaries; no rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 30600,
     "status": "pending",
-    "success_artifact": "docs/m3064-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-admission-design.md"
+    "success_artifact": "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T145650Z"
+  "updated_at_utc": "20260607T150557Z"
 }
