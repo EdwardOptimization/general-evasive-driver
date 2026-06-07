@@ -54515,3 +54515,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight_20260607T190318Z/command.log`
 - success artifact: `runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json`
 - notes: Completed: ran M3090 full-fresh deployable runtime measurement through ActiveSafetyReflexDriver.act with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 raw_action_abs_max 1.0 action_clip_fraction_mean 0.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false parity_rows 64 outcome_matches 64/64 parity_clearance_delta_max 0.0 parity_return_delta_max 0.0; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3091 result audit.
+
+## 20260607T191109Z m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3090 full-fresh deployable runtime measurement artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z`
+- command log: `runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z/command.log`
+- success artifact: `docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md`
+- notes: Completed: audit accepts M3090 full-fresh deployable runtime measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false parity_rows 64 outcome_matches 64/64 parity_clearance_delta_max 0.0 parity_return_delta_max 0.0; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; selects exactly one follow-up to M3092 behavior-negative repair synthesis because 5 collision 5 offtrack and 11 speed_too_low blockers remain.

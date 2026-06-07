@@ -1,0 +1,170 @@
+{
+  "id": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis",
+  "priority": 30870,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded behavior-negative repair synthesis can classify the M3090 full-fresh deployable runtime failures and select one direct-action active-safety repair route before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json",
+      "src/autodrift/active_safety_reflex_driver.py"
+    ],
+    "parent_dataset": [
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_metric_summary_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_contract_guard_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_parity_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json",
+      "experiments/manifests/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.json"
+    ],
+    "parent_objective": [
+      "classify full-fresh deployable runtime safety blockers before selecting a repair route"
+    ],
+    "derived_from": [
+      "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
+      "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
+      "m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit",
+      "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight"
+    ],
+    "blocked_by": [
+      "M3090 preserves deployable runtime parity but still has 5 collision rows, 5 offtrack rows, and 11 speed-too-low rows",
+      "validation or promotion is not justified while hard safety blockers remain"
+    ],
+    "supersedes": [
+      "runtime-packaging-only continuation after M3090"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+  "public_gates": [
+    "M3092 must classify all M3090 non-success rows by termination reason, robustness axis, binding role, and available safety/stability/action-pressure metrics",
+    "M3092 must preserve the obs72/action3 direct [steer throttle brake] actor contract and forbid hidden oracle TTC target source route outcome progress or verdict actor inputs",
+    "M3092 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3092 must select exactly one repair route, stop route, or explicit fallback route before implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun expand tune rank promote validate or mutate checkpoints inside M3092",
+    "do not convert M3090 failure counts into a driver-performance verdict or robustness-result claim",
+    "do not add hidden oracle TTC target source route outcome progress or verdict actor input",
+    "do not re-center self-ID, GRU, paper evidence, or high-fidelity validation as the main route before current-sim safety blockers are repaired"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "evidence_axis": "behavior_negative_repair_synthesis",
+    "evidence_increment": "synthesizes M3090 full-fresh deployable runtime failures into one bounded direct-action repair route",
+    "claim_scope": "Behavior-negative repair synthesis only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "stop_condition": [
+      "stop if M3090 artifacts are incomplete or claim boundaries cannot be preserved",
+      "stop if the only proposed repair requires hidden actor inputs runtime base policy checkpoint model dependency or post-hoc row selection",
+      "route to a concrete repair preflight only after the failure classification selects one bounded mechanism"
+    ],
+    "fallback_plan": [
+      "route to runtime package repair if M3090 artifacts are found incomplete",
+      "route to direct-action rule repair if failures cluster around obstacle clearance, lane boundary recovery, speed-floor recovery, or action pressure",
+      "route to stop if no actor-visible direct-action repair can be specified without shortcuts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3091 accepts M3090 artifacts but identifies unresolved collision offtrack and speed-too-low blockers",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Classify M3090 behavior-negative rows and select one direct-action repair route",
+    "admission_evidence": [
+      "M3091 result audit",
+      "M3090 summary, runtime measurement rows, metric summaries, parity rows, contract guards, claim guards, and gate matrix"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+      "docs/reviews/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+      "experiments/reviews/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.json",
+      "one follow-up manifest only if M3092 selects exactly one next route",
+      "M3092 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3092 identifies the behavior blocker clusters and claim boundaries",
+      "M3092 selects one direct-action repair experiment or a stop route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3092 analyzes engineering runtime failures and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3092; finite-window and GRU comparison remains a later same-case engineering ablation only if safety blockers warrant it."
+    ],
+    "temporal_evidence_window": "M3090 full-fresh deployable runtime measurement artifacts only.",
+    "negative_result_policy": "Preserve negative runtime evidence and route to engineering repair or stop rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3090 behavior-blocker classification and repair-route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns full-fresh runtime behavior blockers into one bounded repair route instead of repeating packaging checks",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3092 targets direct-action safety repair route selection",
+    "must_synthesize_if": [
+      "M3092 cannot select one repair route from M3090 failure evidence",
+      "M3092 would require hidden inputs runtime base policy checkpoint mutation validation ranking promotion or self-ID claims",
+      "M3092 finds the behavior blockers are not repairable within the direct-action obs72/action3 contract"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md exists",
+    "M3092 classifies M3090 collision offtrack and speed-too-low rows without dropping failures",
+    "M3092 rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3092 selects exactly one repair route, fallback route, or stop route"
+  ],
+  "failure_criteria": [
+    "M3092 hides M3090 failures or treats exact parity as behavior improvement",
+    "M3092 selects validation or promotion while collision offtrack and speed-too-low blockers remain",
+    "M3092 changes actor input or action contract",
+    "M3092 leaves next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3092 turns M3090 behavior-negative evidence into one bounded direct-action repair or stop route while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_full_fresh_runtime_behavior_negative_repair_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md",
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md",
+  "next_blocker": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis",
+  "status": "pending"
+}

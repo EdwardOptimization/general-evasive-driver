@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3096,
+    "completed": 3097,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight_20260607T190318Z/command.log",
+    "command_log": "runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight_20260607T190318Z",
+    "run_dir": "runs/research/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit_20260607T191109Z",
     "status": "completed",
-    "task_id": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight"
+    "task_id": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3090 full-fresh deployable runtime measurement artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "id": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
+    "hypothesis": "A bounded behavior-negative repair synthesis can classify the M3090 full-fresh deployable runtime failures and select one direct-action active-safety repair route before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "id": "m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis",
     "kind": "gate",
-    "notes": "Pending: audit M3090 full-fresh deployable runtime measurement artifacts, preserve direct-action contract and claim boundaries, and select behavior-repair synthesis validation-planning or stop route without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "priority": 30860,
+    "notes": "Pending: synthesize M3090 full-fresh deployable runtime behavior blockers by collision offtrack speed-too-low axis binding role clearance stability and action-pressure evidence, then select one direct-action repair or stop route without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "priority": 30870,
     "status": "pending",
-    "success_artifact": "docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md"
+    "success_artifact": "docs/m3092-engineering-controller-active-safety-driver-v1-full-fresh-runtime-behavior-negative-repair-synthesis.md"
   },
-  "updated_at_utc": "20260607T190801Z"
+  "updated_at_utc": "20260607T191223Z"
 }
