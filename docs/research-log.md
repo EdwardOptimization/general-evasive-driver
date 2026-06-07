@@ -53118,3 +53118,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis_20260607T004351Z/command.log`
 - success artifact: `docs/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.md`
 - notes: Completed: synthesis decision continue_to_m2976_deployable_trace_capture_design after M2969-M2974 trace-readiness branch; preserves M2973/M2974 status_pass true gate_matrix_pass true 43 training trace panel rows 24 trace guard rows 67 trace availability rows 56 metadata-present rows 0 raw-trace-persisted rows trace_panel_ready_for_residual_fitting false 13 success identity guards and 11 stale guardrails; rejects direct residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
+
+## 20260607T004849Z m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can define exactly one actor-safe deployable trace-capture route, pivot, or stop state after M2975 synthesizes that residual fitting remains blocked by missing raw traces.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design_20260607T004849Z`
+- command log: `runs/research/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design_20260607T004849Z/command.log`
+- success artifact: `docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md`
+- notes: Completed: design admits M2977 bounded deployable trace-capture preflight to rerun the accepted M2973/M2974 candidate and success-identity guard surface under read-only zero-residual actor-head delta wrapper and persist raw actor-view observation action response traces; preserves 43 training candidates 13 success identity guards 11 stale non-executed guardrails actor 72/action 3 and rejects metadata-only fitting readiness residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
