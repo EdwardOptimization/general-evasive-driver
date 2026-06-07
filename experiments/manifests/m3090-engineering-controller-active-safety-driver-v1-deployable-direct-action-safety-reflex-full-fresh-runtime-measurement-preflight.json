@@ -10,6 +10,9 @@
       "name": "active_safety_driver_v1_deployable_full_fresh_runtime_measurement_preflight"
     }
   ],
+  "completed_at_utc": "20260607T190320Z",
+  "completed_summary": "Completed: ran M3090 full-fresh deployable runtime measurement through ActiveSafetyReflexDriver.act with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 raw_action_abs_max 1.0 action_clip_fraction_mean 0.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false parity_rows 64 outcome_matches 64/64 parity_clearance_delta_max 0.0 parity_return_delta_max 0.0; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3091 result audit.",
+  "decision": "active_safety_driver_v1_full_fresh_runtime_measurement_route_to_m3091_result_audit",
   "decision_rule": "Pass only if M3090 executes the deployable runtime API over the complete M3084 fresh denominator, writes measurement parity and guard artifacts, preserves actor/claim boundaries, and registers M3091 audit without overclaiming.",
   "failure_criteria": [
     "M3090 changes observation shape action shape action component order or direct-action semantics",
@@ -34,6 +37,7 @@
     "do not use a runtime base policy checkpoint model residual adapter or recurrent hidden state",
     "do not treat full-fresh runtime measurement or parity as driver-performance current-sim robustness-result repair-success validation high-fidelity paper full-driver or self-ID evidence"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "infrastructure",
   "hypothesis": "A bounded full-fresh deployable runtime measurement preflight can execute ActiveSafetyReflexDriver.act as the full obs72-to-action3 action source on the complete M3084 fresh robustness denominator and write runtime measurement, parity, contract, and claim-boundary artifacts before any validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
   "id": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
@@ -85,7 +89,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
+  "next_blocker": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
   "priority": 30850,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -139,6 +143,8 @@
       "type": "json"
     }
   ],
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight_pass",
   "review_artifact": "docs/reviews/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md",
   "scoreboard_checkpoint": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json",
   "selected_next_action": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
@@ -156,7 +162,8 @@
     "negative_result_policy": "Negative runtime measurement routes to behavior repair synthesis or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "Deployable full-fresh runtime measurement for the deterministic safety-reflex candidate only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
     "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv records 64 pre-registered M3084 rows using ActiveSafetyReflexDriver.act",

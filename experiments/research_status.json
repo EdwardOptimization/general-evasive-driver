@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3095,
+    "completed": 3096,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit_20260607T185308Z/command.log",
+    "command_log": "runs/research/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight_20260607T190318Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit_20260607T185308Z",
+    "run_dir": "runs/research/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight_20260607T190318Z",
     "status": "completed",
-    "task_id": "m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit"
+    "task_id": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3089-audit docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md --m3088-dir runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight --m3086-dir runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --doc-path docs/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md --follow-up-manifest experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json --device cpu",
-    "hypothesis": "A bounded full-fresh deployable runtime measurement preflight can execute ActiveSafetyReflexDriver.act as the full obs72-to-action3 action source on the complete M3084 fresh robustness denominator and write runtime measurement, parity, contract, and claim-boundary artifacts before any validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "id": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run complete 64-row M3084 fresh denominator through deployable ActiveSafetyReflexDriver.act and write runtime measurement parity guard claim doc and M3091 audit artifacts without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "priority": 30850,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3090 full-fresh deployable runtime measurement artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "id": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3090 full-fresh deployable runtime measurement artifacts, preserve direct-action contract and claim boundaries, and select behavior-repair synthesis validation-planning or stop route without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "priority": 30860,
     "status": "pending",
-    "success_artifact": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json"
+    "success_artifact": "docs/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.md"
   },
-  "updated_at_utc": "20260607T185358Z"
+  "updated_at_utc": "20260607T190801Z"
 }
