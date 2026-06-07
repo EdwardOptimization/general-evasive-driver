@@ -1,0 +1,216 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+    "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/summary.json",
+    "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3089-audit docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md --m3088-dir runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight --m3086-dir runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --doc-path docs/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md --follow-up-manifest experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json --device cpu",
+      "name": "active_safety_driver_v1_deployable_full_fresh_runtime_measurement_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M3090 executes the deployable runtime API over the complete M3084 fresh denominator, writes measurement parity and guard artifacts, preserves actor/claim boundaries, and registers M3091 audit without overclaiming.",
+  "failure_criteria": [
+    "M3090 changes observation shape action shape action component order or direct-action semantics",
+    "M3090 requires runtime base policy residual adapter checkpoint model hidden state or hidden actor input",
+    "M3090 emits non-finite or out-of-bound actions during rollout",
+    "M3090 expands tunes or reselects rows after seeing M3088 or M3090 results",
+    "M3090 makes validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claims"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune expand reselect rank promote validate or mutate checkpoints after seeing M3088",
+    "do not use hidden oracle TTC target provenance source route outcome progress or verdict labels as actor input",
+    "do not use a runtime base policy checkpoint model residual adapter or recurrent hidden state",
+    "do not treat full-fresh runtime measurement or parity as driver-performance current-sim robustness-result repair-success validation high-fidelity paper full-driver or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded full-fresh deployable runtime measurement preflight can execute ActiveSafetyReflexDriver.act as the full obs72-to-action3 action source on the complete M3084 fresh robustness denominator and write runtime measurement, parity, contract, and claim-boundary artifacts before any validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "id": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3088 only covers an 8-row smoke panel",
+      "deployable API must be checked over the complete M3084 fresh denominator before broader interpretation"
+    ],
+    "derived_from": [
+      "m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit",
+      "m3088-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-preflight",
+      "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight",
+      "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/deployable_driver_contract.json",
+      "src/autodrift/active_safety_reflex_driver.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.json",
+      "experiments/manifests/m3088-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/summary.json",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/runtime_smoke_episode_rows.csv",
+      "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv"
+    ],
+    "parent_objective": [
+      "execute the deployable runtime API over the full M3084 fresh denominator after smoke passes"
+    ],
+    "supersedes": [
+      "smoke-only deployable runtime execution evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "evidence_expansion": "expands from 8-row runtime smoke to complete 64-row fresh denominator through the deployable runtime API",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3090 cannot preserve deployable obs72/action3 direct-action boundary",
+      "M3090 runtime full-fresh measurement fails because of API/package integration rather than behavior outcome",
+      "M3090 would require hidden actor inputs runtime base policy or post-hoc row tuning"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3090 targets engineering runtime integration and parity evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight",
+  "priority": 30850,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3090 must execute the complete 64-row M3084 fresh robustness denominator through ActiveSafetyReflexDriver.act",
+    "M3090 must preserve obs72/action3 direct [steer throttle brake], runtime_base_policy_required false, checkpoint_model_required false, and no recurrent hidden state",
+    "M3090 must write same-row parity artifacts against M3084 helper-path rows without treating parity as validation or performance",
+    "M3090 must report collision offtrack speed-floor clearance stability recovery and action-pressure fields",
+    "M3090 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3090 must register M3091 result audit before any broader validation or promotion route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_metric_summary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_parity_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md",
+  "scoreboard_checkpoint": "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json",
+  "selected_next_action": "m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit",
+  "selected_next_action_type": "result_audit",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "full-fresh runtime measurement artifact completeness and claim-boundary preservation",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3090 measures an engineering runtime API and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3090; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Negative runtime measurement routes to behavior repair synthesis or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "Deployable full-fresh runtime measurement for the deterministic safety-reflex candidate only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv records 64 pre-registered M3084 rows using ActiveSafetyReflexDriver.act",
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_parity_rows.csv records same-row parity against M3084 helper-path rows",
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_contract_guard_rows.csv verifies obs72/action3 direct [steer throttle brake] runtime_base_policy_required false",
+    "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/claim_boundary_rows.csv rejects validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json is created and pending"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3089 result audit accepts M3088 smoke as complete and claim-safe",
+      "M3088 summary and gate matrix",
+      "M3086 deployable runtime contract",
+      "M3084 fresh measurement rows and M3012 executable workload rows"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight.py",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight",
+      "docs/m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight.md",
+      "experiments/manifests/m3091-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-result-audit.json",
+      "M3090 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no fitting training validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3090 writes complete full-fresh runtime measurement and parity artifacts",
+      "M3090 registers M3091 result audit before any broader runtime measurement or validation route",
+      "M3090 preserves actor 72/action 3 direct [steer throttle brake] and all claim boundaries"
+    ],
+    "stage": "evaluation_only",
+    "stage_objective": "Run full-fresh current-sim measurement through the packaged deployable active-safety reflex runtime API"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Full-fresh runtime measurement artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "deployable_full_fresh_runtime_measurement",
+    "evidence_increment": "executes the packaged ActiveSafetyReflexDriver runtime API over the complete M3084 fresh denominator and records same-row runtime parity artifacts",
+    "fallback_plan": [
+      "route to runtime package repair if API integration fails",
+      "route to behavior repair synthesis if full-fresh measurement is behavior-negative but contract-safe",
+      "route to broader validation planning only after M3091 audit accepts artifacts and claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if the deployable API cannot execute the complete denominator",
+      "stop if actions are non-finite unbounded wrong shape or wrong component order",
+      "route to result audit before any broader validation interpretation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3089 accepts runtime smoke and selects full-fresh runtime measurement continuation"
+  }
+}
