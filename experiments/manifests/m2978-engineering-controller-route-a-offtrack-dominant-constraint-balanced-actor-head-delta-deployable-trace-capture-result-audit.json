@@ -32,6 +32,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.json",
   "forbidden_shortcuts": [
     "do not fit train select or execute a nonzero residual head",
     "do not rerun validate rank promote publish select a winner or execute dependency work",
@@ -76,19 +77,19 @@
   },
   "local_search_guard": {
     "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits newly captured raw actor-view trace files",
+    "evidence_expansion": "audits newly captured raw actor-view trace files and admits only a design-only residual fitting admission route",
     "local_search_risk": "medium",
     "must_synthesize_if": [
       "M2978 cannot accept M2977 as complete and claim-safe",
       "M2978 finds raw trace availability insufficient for residual fitting design",
       "M2978 would claim validation readiness driver performance paper current-sim high-fidelity or self-ID"
     ],
-    "paper_verdict_delta": "no paper verdict; audit may inform Route A residual-fitting design readiness only",
+    "paper_verdict_delta": "no paper verdict; audit informs a later residual-fitting admission design only",
     "process_overhead": "medium",
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit",
+  "next_blocker": "m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -101,6 +102,10 @@
     {
       "path": "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
@@ -118,11 +123,12 @@
     "negative_result_policy": "Preserve trace capture failures and route to repair or synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2977 Route A actor-head delta trace-capture preflight only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md exists",
     "M2978 audits M2977 artifacts row counts gates actor and claim boundaries",
     "M2978 selects exactly one next route or stop state",
+    "M2978 registers the M2979 residual fitting admission design manifest",
     "no training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
   ],
   "training_stage": {
@@ -133,6 +139,7 @@
     "allowed_updates": [
       "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
       "docs/reviews/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
+      "experiments/manifests/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.json",
       "M2978 status queue scoreboard research log and review",
       "one follow-up manifest only if M2978 selects exactly one next route"
     ],
@@ -142,8 +149,8 @@
       "no hidden/oracle/future-target actor input"
     ],
     "next_stage_criteria": [
-      "M2978 accepts or rejects M2977 as complete and claim-safe",
-      "next route or stop state is explicit"
+      "M2978 accepts M2977 as complete and claim-safe",
+      "M2979 design-only residual fitting admission is the explicit next route"
     ],
     "stage": "process",
     "stage_objective": "Audit M2977 raw deployable trace-capture artifacts"
@@ -157,7 +164,7 @@
     "fallback_plan": [
       "route to artifact repair if raw trace files are incomplete",
       "route to branch synthesis if raw trace capture violates actor boundaries",
-      "route to bounded residual fitting design only after audit accepts claim safety and capture completeness"
+      "route to bounded residual fitting admission design only after audit accepts claim safety and capture completeness"
     ],
     "stop_condition": [
       "stop if M2977 artifacts are missing or gate matrix fails",

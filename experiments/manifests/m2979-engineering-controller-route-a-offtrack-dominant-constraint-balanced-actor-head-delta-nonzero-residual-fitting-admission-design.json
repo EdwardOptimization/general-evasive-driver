@@ -1,0 +1,195 @@
+{
+  "baseline_artifacts": [
+    "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
+    "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/summary.json",
+    "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_index_rows.csv",
+    "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_guard_rows.csv",
+    "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_availability_rows.csv",
+    "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/row_assignment_rows.csv",
+    "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+    "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_guard_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "residual_fitting_admission_design_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2979 chooses exactly one claim-safe residual fitting admission route, target-materialization route, pivot, or stop state without fitting training validation ranking promotion or performance claims.",
+  "failure_criteria": [
+    "M2979 treats M2977 raw trace capture as residual fitting readiness without defining legal targets and fitting boundaries",
+    "M2979 fits trains selects validates ranks promotes or executes a nonzero residual head",
+    "M2979 changes actor input or action contract",
+    "M2979 turns success identity guards or stale fixed-source guardrails into positive residual targets",
+    "M2979 makes repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims",
+    "M2979 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not fit train select validate rank promote or execute a nonzero residual head",
+    "do not change actor input or action contract",
+    "do not convert success identity guards into positive residual targets",
+    "do not execute stale fixed-source guardrails",
+    "do not use hidden oracle future target objective admission trace-readiness verdict source route or paper labels as actor inputs",
+    "do not convert raw trace availability into repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded design-only residual fitting admission milestone can inspect the accepted M2966 objective surface M2970 training-admission surface and M2977 raw actor-view traces and choose exactly one legal next route before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
+  "lineage": {
+    "blocked_by": [
+      "M2978 accepts raw trace capture but does not define legal residual fitting targets",
+      "M2977 raw actor-view traces exist for 43 future training candidates and 13 success identity guards",
+      "success identity guards and stale guardrails must remain separated before any fitting design"
+    ],
+    "derived_from": [
+      "m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit",
+      "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight",
+      "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight",
+      "m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.json",
+      "experiments/manifests/m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight.json",
+      "experiments/manifests/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight.json",
+      "experiments/manifests/m2966-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md",
+      "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/summary.json",
+      "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_index_rows.csv",
+      "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_guard_rows.csv",
+      "runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight/row_assignment_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_guard_rows.csv"
+    ],
+    "parent_objective": [
+      "decide whether accepted raw actor-view traces can support a legal nonzero residual fitting route after target and guard boundaries are designed"
+    ],
+    "supersedes": [
+      "direct residual fitting immediately after M2977 raw trace capture",
+      "treating raw actor-view trace capture as residual quality or repair-success evidence"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "designs the admission boundary required to use newly captured raw actor-view traces without overclaiming fitting readiness",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2979 cannot identify legal residual target semantics from accepted artifacts",
+      "M2979 would require hidden oracle future-target objective admission trace-readiness verdict source or route labels as actor inputs",
+      "M2979 would treat success identity guards or stale fixed-source guardrails as positive residual targets",
+      "M2979 would make validation driver-performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+    ],
+    "paper_verdict_delta": "no paper verdict; design may admit a later target-materialization or fitting preflight only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2979 must distinguish raw trace availability from legal residual fitting targets",
+    "M2979 must preserve 43 future training candidates 13 success identity guards and 11 stale guardrails",
+    "M2979 must preserve actor observation 72 action 3 and no hidden oracle future-target objective admission trace-readiness verdict source or route actor inputs",
+    "M2979 must choose exactly one next route or stop state",
+    "M2979 must not fit train validate rank promote select a winner mutate checkpoints or claim repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+  "scoreboard_checkpoint": "docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2979 residual fitting admission design only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2979 designs Route A residual fitting admission and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2979; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If legal residual target semantics are missing preserve the blocker and route to target materialization design synthesis pivot or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2966-M2978 Route A actor-head delta objective admission trace capture audit chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md exists",
+    "M2979 distinguishes raw trace availability from legal residual fitting target availability",
+    "M2979 preserves actor 72/action 3 candidate guard and claim boundaries",
+    "M2979 selects exactly one next route or stop state",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2978 accepts M2977 raw trace capture as complete and claim-safe but not fitting-ready by itself",
+      "M2977 captured 56 raw actor-view traces for 43 future training candidates and 13 success identity guards",
+      "M2970 materialized 43 training candidates 13 success identity guards and 11 stale guardrails from the accepted objective surface",
+      "M2966 materialized 4 objective families 4 components and 56 row assignments without training or fitting"
+    ],
+    "allowed_updates": [
+      "docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+      "docs/reviews/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md",
+      "M2979 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2979 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no hidden oracle future-target objective admission trace-readiness verdict source route or paper actor inputs",
+      "no success identity guards or stale fixed-source guardrails as positive residual targets",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2979 accepts or rejects legal target and fitting contract readiness",
+      "next route or stop state is explicit",
+      "actor guard and claim boundaries remain unchanged"
+    ],
+    "stage": "process",
+    "stage_objective": "Design residual fitting admission after raw actor-view trace capture"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Residual fitting admission design only; no fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_fitting_admission_design",
+    "evidence_increment": "uses newly captured raw actor-view trace artifacts to design the next legal admission boundary without performing fitting",
+    "fallback_plan": [
+      "route to target materialization design if legal fitting targets are missing",
+      "route to bounded fitting preflight only if target and guard semantics are fully defined",
+      "route to branch synthesis pivot or stop if fitting would violate actor or claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if legal residual targets cannot be defined from actor-safe artifacts",
+      "stop if fitting would require hidden oracle future-target objective admission trace-readiness verdict source or route labels as actor inputs",
+      "stop if success identity guards or stale fixed-source guardrails would become positive residual targets",
+      "stop if the result would be interpreted as repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2978 accepts deployable trace capture but preserves residual fitting target and admission blocker"
+  }
+}
