@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3088,
+    "completed": 3089,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight_20260607T175552Z/command.log",
+    "command_log": "runs/research/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit_20260607T180103Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight_20260607T175552Z",
+    "run_dir": "runs/research/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit_20260607T180103Z",
     "status": "completed",
-    "task_id": "m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight"
+    "task_id": "m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3082 fresh robustness panel materialization artifacts before any execution, validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
-    "id": "m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3082 fresh robustness panel materialization artifacts, verify panel freshness, axis coverage, actor-contract guards, and claim boundaries, then choose one measurement admission repair or stop route; no execution validation ranking promotion performance high-fidelity paper full-driver repair-success or self-ID claim.",
-    "priority": 30780,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3083-audit docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md --m3082-dir runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight --m3078-dir runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --doc-path docs/m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight.md --follow-up-manifest experiments/manifests/m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit.json --device cpu",
+    "hypothesis": "A bounded fresh robustness measurement preflight can execute the M3078 deterministic direct-action safety-reflex actor as the full obs72-to-action3 actor on the M3082 fresh panel and write collision, offtrack, speed-floor, clearance, stability, recovery, action-pressure, actor-contract, and claim-boundary measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
+    "id": "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: execute M3078 deterministic direct-action safety-reflex actor on the M3082 fresh robustness panel and write measurement, metric, actor-contract, claim-boundary, gate, doc, and M3085 audit manifest artifacts; no validation ranking promotion performance current-sim high-fidelity paper full-driver repair-success or self-ID claim.",
+    "priority": 30790,
     "status": "pending",
-    "success_artifact": "docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md"
+    "success_artifact": "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T175652Z"
+  "updated_at_utc": "20260607T180103Z"
 }
