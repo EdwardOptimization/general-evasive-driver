@@ -106,7 +106,7 @@
   },
   "next_blocker": "m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2983 must write summary target tensor row target manifest guard actor claim and gate artifacts",
     "M2983 must preserve 43 future training candidates 13 success identity guards and 11 stale guardrails",
@@ -130,6 +130,10 @@
     {
       "path": "docs/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
@@ -147,7 +151,7 @@
     "negative_result_policy": "If target tensor materialization fails preserve the blocker and route to audit repair synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2977-M2982 Route A actor-head delta trace and target-source feasibility chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json exists",
     "target tensor rows are materialized and account for candidates guards and stale exclusions",
