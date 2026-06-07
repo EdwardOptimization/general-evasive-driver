@@ -53154,3 +53154,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit_20260607T011153Z/command.log`
 - success artifact: `docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md`
 - notes: Completed: audit accepts M2977 deployable trace capture as complete and claim-safe with status_pass true gate_matrix_pass true 67 capture plan rows 56 raw trace index rows 43 future training candidate raw traces 13 success identity raw traces 11 stale guardrails protected 0 stale guardrail executions actor 72/action 3 tensors finite raw_trace_persisted_count 56 and residual_delta_abs_max 0.0; rejects residual fitting execution training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2979 design-only residual fitting admission.
+
+## 20260607T011749Z m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only residual fitting admission milestone can inspect the accepted M2966 objective surface M2970 training-admission surface and M2977 raw actor-view traces and choose exactly one legal next route before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T011749Z`
+- command log: `runs/research/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T011749Z/command.log`
+- success artifact: `docs/m2979-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md`
+- notes: Completed: design rejects direct nonzero residual fitting after M2977 because raw traces objective rows and admission rows do not yet define numeric residual deltas teacher actions target masks target weights or fitting denominators; preserves 43 future training candidates 13 success identity guards 11 stale guardrails actor 72/action 3 and no actor-visible target labels; routes to M2980 target-materialization design before any fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
