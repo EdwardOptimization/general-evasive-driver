@@ -54393,3 +54393,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3080-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-preflight_20260607T174004Z/command.log`
 - success artifact: `runs/m3080_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_closed_loop_measurement_preflight/summary.json`
 - notes: Pending: run same-denominator closed-loop measurement for M3078 deterministic direct-action safety-reflex actor; no validation ranking promotion performance current-sim high-fidelity paper full-driver repair-success or self-ID claim.
+
+## 20260607T174836Z m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3080 same-denominator deterministic safety-reflex closed-loop measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit_20260607T174836Z`
+- command log: `runs/research/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit_20260607T174836Z/command.log`
+- success artifact: `docs/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit.md`
+- notes: Completed: audit accepts M3080 deterministic direct-action safety-reflex measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 19 success 3 collision 3 offtrack 7 speed_too_low success_rate 0.59375 clearance_margin_mean 11.22031853760992 raw_action_abs_max 1.0 action_clip_fraction_mean 0.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; same-denominator comparison improves success collision offtrack clearance and action pressure versus M3067/M3075 but speed-too-low worsens to 7/32, so M3081 rejects validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3082 fresh robustness panel materialization.

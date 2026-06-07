@@ -8,6 +8,7 @@
       "name": "active_safety_driver_v1_deterministic_safety_reflex_measurement_result_audit_doc"
     }
   ],
+  "decision": "accept_m3080_measurement_route_to_m3082_fresh_robustness_panel_materialization_preflight",
   "decision_rule": "Pass only if M3081 audits M3080 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
   "failure_criteria": [
     "M3081 hides M3080 failures or missing artifacts",
@@ -30,6 +31,7 @@
     "do not convert M3080 rows into performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims",
     "do not change actor input or action contract"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "process",
   "hypothesis": "A bounded result audit can accept or reject the M3080 same-denominator deterministic safety-reflex closed-loop measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
   "id": "m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit",
@@ -63,24 +65,25 @@
       "audit deterministic safety-reflex same-denominator measurement before interpretation"
     ],
     "supersedes": [
-      "direct interpretation of M3080 measurement rows without audit"
+      "direct interpretation of M3080 measurement rows without audit",
+      "continued fixed-denominator optimization before fresh robustness expansion"
     ]
   },
   "local_search_guard": {
     "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits the first deterministic safety-reflex same-denominator behavior measurement",
+    "evidence_expansion": "accepts M3080 and expands the route from fixed-denominator measurement to fresh robustness panel materialization",
     "local_search_risk": "medium",
     "must_synthesize_if": [
-      "M3081 cannot accept M3080 as complete and claim-safe",
-      "M3081 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence",
-      "M3081 cannot select a repair continuation synthesis or stop route"
+      "M3082 cannot add fresh seeds or fresh scenario distribution rows",
+      "M3082 would convert fixed-denominator measurement into validation or driver-performance claim",
+      "M3082 cannot preserve actor-visible obs72/action3 direct-action contract"
     ],
     "paper_verdict_delta": "paper and self-ID remain diagnostic; M3081 audits engineering measurement evidence",
     "process_overhead": "medium",
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit",
+  "next_blocker": "m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight",
   "priority": 30760,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -97,8 +100,11 @@
       "type": "markdown"
     }
   ],
+  "result_class": "active_safety_driver_v1_deterministic_safety_reflex_measurement_result_audit_accept_fresh_robustness_route",
   "review_artifact": "docs/reviews/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit.md",
   "scoreboard_checkpoint": "docs/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit.md",
+  "selected_next_action": "m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight",
+  "selected_next_action_type": "infrastructure",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "M3080 artifact completeness and claim-safety audit",
@@ -112,7 +118,8 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair, synthesis, or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3080 deterministic safety-reflex measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "docs/m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit.md exists",
     "M3081 audits M3080 row counts gates actor contract and claim boundaries",
@@ -137,8 +144,9 @@
       "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
     ],
     "next_stage_criteria": [
-      "M3081 accepts or rejects M3080 as complete and claim-safe",
-      "next route or stop state is explicit"
+      "M3082 materializes a fresh-seed and fresh-scenario robustness panel before any further measurement claim",
+      "M3082 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+      "M3082 keeps speed-too-low fragility, collision, offtrack, clearance, stability, recovery, and action-pressure gates visible"
     ],
     "stage": "process",
     "stage_objective": "Audit M3080 deterministic direct-action safety-reflex closed-loop measurement artifacts"
@@ -148,16 +156,16 @@
     "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
     "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success or self-ID claim",
     "evidence_axis": "actor_visible_deterministic_direct_action_safety_reflex_closed_loop_measurement_result_audit",
-    "evidence_increment": "audits same-denominator closed-loop measurement rows for the deterministic safety-reflex candidate",
+    "evidence_increment": "accepts complete same-denominator deterministic safety-reflex measurement artifacts and routes to fresh robustness panel materialization",
     "fallback_plan": [
-      "route to measurement harness repair if artifacts are incomplete",
-      "route to deterministic policy repair if actor behavior is negative but mechanism is clear",
-      "route to branch synthesis or stop if deterministic safety-reflex behavior is clearly negative"
+      "route to measurement artifact repair if M3080 artifacts are later found incomplete",
+      "route to deterministic policy repair if fresh robustness materialization cannot preserve actor contract",
+      "route to stop or branch synthesis if fresh robustness admission cannot avoid fixed-panel overfit"
     ],
     "stop_condition": [
       "stop if M3080 artifacts are missing or gate matrix fails",
       "stop if actor or direct-action contracts were violated",
-      "synthesize if M3080 is negative on primary safety counts relative to M3067/M3075"
+      "synthesize if M3082 cannot define a fresh denominator without validation or performance overclaim"
     ],
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
