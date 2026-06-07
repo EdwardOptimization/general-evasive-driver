@@ -107,7 +107,7 @@
   },
   "next_blocker": "m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2981 must write summary target source plan target candidate success identity stale guardrail actor claim and gate artifacts",
     "M2981 must preserve 43 future training candidates 13 success identity guards and 11 stale guardrails",
@@ -131,6 +131,10 @@
     {
       "path": "docs/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.md",
@@ -148,7 +152,7 @@
     "negative_result_policy": "If target-source feasibility fails preserve the blocker and route to audit repair synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2977-M2980 Route A actor-head delta trace and target design chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/summary.json exists",
     "target source plan rows are materialized and account for candidates guards and stale exclusions",
