@@ -230,5 +230,6 @@
   "scoreboard_checkpoint": "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/summary.json",
   "next_blocker": "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit",
   "follow_up_manifest": "experiments/manifests/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.json",
-  "status": "pending"
+  "status": "completed",
+  "completion_summary": "Completed: materialized row-preserving direct-action failure decomposition from M3067/M3068 with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low 31 failure_mode rows 13 actuation_pressure rows 13 recovery_stability rows 7 repair_requirement rows raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false; no reset step rollout replay fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3070 result audit."
 }

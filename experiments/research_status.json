@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3074,
+    "completed": 3075,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit_20260607T155525Z/command.log",
+    "command_log": "runs/research/m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight_20260607T160851Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit_20260607T155525Z",
+    "run_dir": "runs/research/m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight_20260607T160851Z",
     "status": "completed",
-    "task_id": "m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit"
+    "task_id": "m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight --m3068-audit docs/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit.md --m3067-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --output-dir runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight --follow-up-manifest experiments/manifests/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.json",
-    "hypothesis": "A no-new-execution direct-action failure-decomposition materialization preflight can convert the M3068-accepted M3067 closed-loop measurement rows into row-preserving offtrack collision speed-floor clearance stability recovery actuation-pressure and repair-requirement artifacts before any fitting training rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize row-preserving direct-action failure decomposition from M3068/M3067 without new rollout fitting training validation ranking promotion or checkpoint mutation; account for offtrack collision speed-floor clearance stability recovery and actuation pressure; preserve actor 72/action 3 direct-action/base-policy-free boundary and claim limits; register M3070 result audit.",
-    "priority": 30640,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3069 direct-action failure-decomposition artifacts before any fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+    "id": "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3069 direct-action failure-decomposition artifacts before any fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claim; select exactly one repair audit stop or continuation route.",
+    "priority": 30650,
     "status": "pending",
-    "success_artifact": "runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight/summary.json"
+    "success_artifact": "docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md"
   },
-  "updated_at_utc": "20260607T155631Z"
+  "updated_at_utc": "20260607T161001Z"
 }
