@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3056,
+    "completed": 3057,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight_20260607T125740Z/command.log",
+    "command_log": "runs/research/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit_20260607T130317Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight_20260607T125740Z",
+    "run_dir": "runs/research/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit_20260607T130317Z",
     "status": "completed",
-    "task_id": "m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight"
+    "task_id": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result-audit synthesis can accept or reject the M3050 Active Safety Driver v1 closed-loop measurement artifacts and decide the next active-safety engineering branch route before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
-    "id": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit",
+    "hypothesis": "A bounded behavior-negative measurement synthesis can compare M3043 and M3050 same-denominator evidence and freeze exactly one next Active Safety Driver v1 behavior-repair route before any fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+    "id": "m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design",
     "kind": "gate",
-    "notes": "Pending: audit M3050 summary measurement metric residual-adapter actor-contract side-effect claim and gate artifacts before any validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "priority": 30460,
+    "notes": "Pending: compare M3043 and M3050 same-denominator outcomes separate action clipping cleanup from unchanged offtrack collision success behavior and freeze one next behavior-repair route before any fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "priority": 30470,
     "status": "pending",
-    "success_artifact": "docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md"
+    "success_artifact": "docs/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design.md"
   },
-  "updated_at_utc": "20260607T125903Z"
+  "updated_at_utc": "20260607T130633Z"
 }

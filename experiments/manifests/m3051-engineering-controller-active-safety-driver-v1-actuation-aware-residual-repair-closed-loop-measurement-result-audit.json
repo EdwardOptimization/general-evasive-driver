@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit",
+  "next_blocker": "m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design",
   "priority": 30460,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -122,7 +122,7 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair or synthesis rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3050 closed-loop measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md exists",
     "M3051 audits M3050 row counts gates actor residual side-effect and claim boundaries",
@@ -155,6 +155,8 @@
     "stage_objective": "Audit and synthesize M3050 closed-loop measurement preflight artifacts"
   },
   "type": "gate",
+  "follow_up_manifest": "experiments/manifests/m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design.json",
+  "completion_summary": "Completed: audit accepts M3050 as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3; rejects action clipping cleanup as repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3052 behavior-negative measurement synthesis repair route design.",
   "workflow_synthesis": {
     "branch": "active_safety_driver_v1_engineering_mainline",
     "claim_scope": "Result-audit synthesis only; no validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",

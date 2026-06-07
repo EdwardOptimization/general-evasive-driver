@@ -54020,3 +54020,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight_20260607T125740Z/command.log`
 - success artifact: `runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/summary.json`
 - notes: Completed: ran bounded same-denominator current-sim measurement with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3 action-headroom residual adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3051 result audit.
+
+## 20260607T130317Z m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result-audit synthesis can accept or reject the M3050 Active Safety Driver v1 closed-loop measurement artifacts and decide the next active-safety engineering branch route before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit_20260607T130317Z`
+- command log: `runs/research/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit_20260607T130317Z/command.log`
+- success artifact: `docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md`
+- notes: Completed: audit accepts M3050 as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3; rejects action clipping cleanup as repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3052 behavior-negative measurement synthesis repair route design.

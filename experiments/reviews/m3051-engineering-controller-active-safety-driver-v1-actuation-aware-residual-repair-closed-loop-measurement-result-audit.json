@@ -1,0 +1,96 @@
+{
+  "decision_reason": "Completed: audit accepts M3050 as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3; rejects action clipping cleanup as repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3052 behavior-negative measurement synthesis repair route design.",
+  "failure_criteria": [
+    "M3051 hides M3050 failures or missing artifacts",
+    "M3051 treats M3050 measurements as validation or performance verdict",
+    "M3051 changes actor input or action contract",
+    "M3051 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun rollout validate rank promote tune or mutate checkpoints",
+    "do not convert M3050 rows into performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T130638Z",
+  "hypothesis": "A bounded result-audit synthesis can accept or reject the M3050 Active Safety Driver v1 closed-loop measurement artifacts and decide the next active-safety engineering branch route before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3050 measurement rows require audit before any performance or continuation decision",
+      "current-sim measurement rows are not validation or promotion evidence before M3051"
+    ],
+    "derived_from": [
+      "m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight",
+      "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/summary.json",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/measurement_failure_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/metric_summary_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/residual_adapter_guard_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/actor_contract_guard_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/checkpoint_side_effect_guard_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/gate_matrix.csv",
+      "docs/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight.md"
+    ],
+    "parent_objective": [
+      "audit M3050 closed-loop measurement artifacts before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3050 measurement rows without audit"
+    ]
+  },
+  "milestone": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit",
+  "next_blocker": "m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_m3052_behavior_negative_measurement_synthesis_repair_route_design",
+  "public_gates": [
+    "M3051 must audit M3050 summary measurement metric guard claim and gate artifacts",
+    "M3051 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M3051 must preserve actor 72/action 3 and claim boundaries",
+    "M3051 must reject validation ranking promotion high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims unless separately routed",
+    "M3051 must select exactly one next route or stop state"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_m3052_behavior_negative_measurement_synthesis_repair_route_design",
+    "milestone": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit",
+    "reason": "Completed: audit accepts M3050 as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3; rejects action clipping cleanup as repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3052 behavior-negative measurement synthesis repair route design.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.md exists",
+    "M3051 audits M3050 row counts gates actor residual side-effect and claim boundaries",
+    "M3051 answers all synthesis_questions",
+    "M3051 selects exactly one next route or stop state",
+    "no validation ranking promotion driver-performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "type": "gate"
+}
