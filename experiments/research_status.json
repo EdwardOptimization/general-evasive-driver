@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3043,
+    "completed": 3044,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight_20260607T110222Z/command.log",
+    "command_log": "runs/research/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit_20260607T111318Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight_20260607T110222Z",
+    "run_dir": "runs/research/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit_20260607T111318Z",
     "status": "completed",
-    "task_id": "m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight"
+    "task_id": "m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3037 Active Safety Driver v1 baseline measurement table artifacts before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
-    "id": "m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3037 baseline measurement table summary rows aggregates metric coverage actor guards claim guards and gate matrix; accept reject or route exactly one next admission repair or stop path without training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims.",
-    "priority": 30330,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --m3038-audit docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md --m3037-dir runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight --m3035-dir runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --follow-up-manifest experiments/manifests/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.json",
+    "hypothesis": "A no-execution guarded training-admission materialization preflight can convert the accepted M3038 Active Safety Driver v1 baseline-table audit into machine-readable active-safety objective, scenario-panel, guardrail, actor-contract, claim-boundary, gate, summary, doc, and M3040 audit manifest artifacts before any fitting PPO training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
+    "id": "m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize Active Safety Driver v1 guarded training-admission objective scenario guardrail baseline-pressure actor claim gate summary doc and M3040 audit manifest artifacts from accepted M3038/M3037/M3035 inputs without fitting PPO training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims.",
+    "priority": 30340,
     "status": "pending",
-    "success_artifact": "docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md"
+    "success_artifact": "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T110656Z"
+  "updated_at_utc": "20260607T111400Z"
 }

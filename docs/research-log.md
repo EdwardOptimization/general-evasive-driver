@@ -53864,3 +53864,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight_20260607T110222Z/command.log`
 - success artifact: `runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/summary.json`
 - notes: Completed: materialized Active Safety Driver v1 baseline measurement tables with status_pass true gate_matrix_pass true 32 baseline rows 2 candidate profile aggregates 34 benchmark-role aggregates 31 metric coverage rows 25/25 required metrics materialized 6 actor guards 25 claim rows actor 72/action 3; 0 environment reset step rollout replay training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3038 result audit.
+
+## 20260607T111318Z m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3037 Active Safety Driver v1 baseline measurement table artifacts before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit_20260607T111318Z`
+- command log: `runs/research/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit_20260607T111318Z/command.log`
+- success artifact: `docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md`
+- notes: Completed: audit accepts M3037 baseline measurement tables as complete and claim-safe with status_pass true gate_matrix_pass true 32 baseline rows 2 profile aggregates 34 benchmark-role aggregates 31 metric coverage rows 25/25 required metrics materialized actor 72/action 3 and clean claim boundaries; rejects driver-performance validation current-sim high-fidelity ranking promotion paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3039 guarded training-admission materialization.

@@ -96,7 +96,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit",
+  "next_blocker": "m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight",
   "priority": 30330,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -111,6 +111,10 @@
     {
       "path": "docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md",
@@ -128,12 +132,13 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety training admission if safety contract gates pass.",
     "temporal_evidence_window": "M3037 baseline measurement table artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md exists",
     "M3038 audits M3037 summary gate matrix baseline rows profile aggregates role aggregates metric coverage actor and claim artifacts",
     "M3038 preserves actor 72/action 3 and rejects training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU and self-ID claims",
-    "M3038 selects exactly one next training admission measurement repair or stop route"
+    "M3038 selects exactly one next training admission measurement repair or stop route",
+    "experiments/manifests/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
@@ -179,5 +184,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3037 completes baseline measurement table materialization"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight.json",
+  "completion_summary": "Completed: audit accepts M3037 baseline measurement tables as complete and claim-safe with status_pass true gate_matrix_pass true 32 baseline rows 2 profile aggregates 34 benchmark-role aggregates 31 metric coverage rows 25/25 required metrics materialized actor 72/action 3 and clean claim boundaries; rejects driver-performance validation current-sim high-fidelity ranking promotion paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3039 guarded training-admission materialization."
 }
