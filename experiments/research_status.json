@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2975,
+    "completed": 2976,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design_20260606T235201Z/command.log",
+    "command_log": "runs/research/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight_20260607T000403Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design_20260606T235201Z",
+    "run_dir": "runs/research/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight_20260607T000403Z",
     "status": "completed",
-    "task_id": "m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design"
+    "task_id": "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --m2966-dir runs/m2966_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_objective_materialization_preflight --m2967-audit docs/m2967-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-materialization-result-audit.md --m2968-synthesis docs/m2968-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-objective-branch-synthesis.md --m2969-design docs/m2969-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-design.md --output-dir runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --follow-up-manifest experiments/manifests/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.json",
-    "hypothesis": "A no-execution training-admission materialization preflight can convert the accepted M2969 guarded residual training-admission design into machine-checkable training candidate guard objective-balance actor claim and gate artifacts before any training execution validation ranking promotion or performance claim.",
-    "id": "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M2969 training-admission design into candidate guard objective-balance actor claim and gate artifacts while preserving all M2966 rows actor 72/action 3 guardrails and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29650,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2970 guarded residual training-admission materialization before any residual training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2970 guarded residual training-admission materialization for completeness claim safety actor 72/action 3 guardrails and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims before selecting one next route or stop state.",
+    "priority": 29660,
     "status": "pending",
-    "success_artifact": "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json"
+    "success_artifact": "docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260606T235201Z"
+  "updated_at_utc": "20260607T000522Z"
 }
