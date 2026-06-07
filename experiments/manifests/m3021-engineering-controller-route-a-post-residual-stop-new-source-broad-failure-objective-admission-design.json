@@ -24,7 +24,8 @@
       "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
       "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
       "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
-      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv"
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+      "docs/post-m2470-route-plan.md"
     ],
     "parent_config": [
       "experiments/manifests/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.json",
@@ -166,6 +167,6 @@
     "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv"
   ],
   "scoreboard_checkpoint": "docs/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design.md",
-  "next_blocker": "m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design",
-  "status": "pending"
+  "next_blocker": "m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight",
+  "status": "completed"
 }

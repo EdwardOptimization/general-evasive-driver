@@ -53660,3 +53660,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis_20260607T074633Z/command.log`
 - success artifact: `docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md`
 - notes: Completed: synthesis accepts M3018/M3019 as complete claim-safe localization evidence and continues to M3021 broad-failure objective-admission design; preserves 16 source ids 32 localized rows 32 profile/source aggregate rows actor 72/action 3; classifies a broad negative surface with candidate 0/16 success parent 3/16 success 13/16 task_source ids non-success under both profiles and offtrack-dominant plus collision and speed-floor guard context; rejects direct repair-target selection target materialization fitting training execution ranking promotion validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims.
+
+## 20260607T075557Z m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only objective-admission milestone can inspect the M3020 synthesis and choose exactly one legal no-training route for the broad offtrack-dominant new-source failure surface before any target materialization fitting execution ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design_20260607T075557Z`
+- command log: `runs/research/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design_20260607T075557Z/command.log`
+- success artifact: `docs/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design.md`
+- notes: Completed: design admits M3022 no-execution objective-contract materialization preflight from M3020-accepted M3018/M3019 localization evidence while preserving 32 localization rows 16 task_source ids 2 read-only profile bindings actor 72/action 3 and offtrack collision speed-floor success-context guard families; rejects target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
