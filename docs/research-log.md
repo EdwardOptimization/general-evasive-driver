@@ -53394,3 +53394,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis_20260607T041833Z/command.log`
 - success artifact: `docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md`
 - notes: Completed: synthesis continues exactly once to M2999 bounded validation-preflight design because M2993-M2997 define claim-safe residual-head and validation-contract surfaces but no validation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence.
+
+## 20260607T043100Z m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only validation-preflight milestone can convert the M2998 synthesis decision into one legal closed-loop diagnostic validation execution preflight, pivot, or stop route while preserving actor, stale-exclusion, parent-comparison, side-effect, and claim boundaries.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design_20260607T043100Z`
+- command log: `runs/research/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design_20260607T043100Z/command.log`
+- success artifact: `docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md`
+- notes: Completed: design admits M3000 bounded diagnostic validation preflight over the fixed M2996 43-row candidate denominator and 13-row success-retention denominator with 11 stale exclusions preserved outside validation paper and self-ID denominators; parent comparison remains report-only with no ranking winner promotion validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim.

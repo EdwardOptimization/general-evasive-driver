@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3004,
+    "completed": 3005,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis_20260607T041833Z/command.log",
+    "command_log": "runs/research/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design_20260607T043100Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis_20260607T041833Z",
+    "run_dir": "runs/research/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design_20260607T043100Z",
     "status": "completed",
-    "task_id": "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis"
+    "task_id": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only validation-preflight milestone can convert the M2998 synthesis decision into one legal closed-loop diagnostic validation execution preflight, pivot, or stop route while preserving actor, stale-exclusion, parent-comparison, side-effect, and claim boundaries.",
-    "id": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design",
-    "kind": "gate",
-    "notes": "Pending: design one bounded validation-preflight route from M2998 with read-only parent and residual-head wrapper actor 72/action 3 candidate denominator 43 success-retention denominator 13 stale exclusions parent comparison report-only no validation ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 29940,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight --m2996-dir runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight --m2999-design docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md --output-dir runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight --follow-up-manifest experiments/manifests/m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit.json --device cpu",
+    "hypothesis": "A bounded diagnostic validation preflight can produce new closed-loop current-sim diagnostic rows for the M2996 validation-contract denominator using the M2993 read-only residual-head wrapper while preserving actor stale-exclusion parent-comparison side-effect and claim boundaries.",
+    "id": "m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run bounded diagnostic validation preflight over fixed M2996 denominators using read-only M2993 residual-head wrapper; produce closed-loop diagnostic rows or explicit failure rows and register M3001 audit without ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 29950,
     "status": "pending",
-    "success_artifact": "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md"
+    "success_artifact": "runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T042134Z"
+  "updated_at_utc": "20260607T043210Z"
 }

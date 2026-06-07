@@ -1,7 +1,7 @@
 {
   "id": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design",
   "type": "gate",
-  "status": "pending",
+  "status": "completed",
   "hypothesis": "A bounded design-only validation-preflight milestone can convert the M2998 synthesis decision into one legal closed-loop diagnostic validation execution preflight, pivot, or stop route while preserving actor, stale-exclusion, parent-comparison, side-effect, and claim boundaries.",
   "success_criteria": [
     "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md exists",
@@ -31,6 +31,10 @@
     {
       "path": "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight.json",
+      "type": "json"
     }
   ],
   "baseline_checkpoints": [
@@ -53,7 +57,7 @@
   ],
   "decision_rule": "Pass only if M2999 produces a bounded design decision that admits one diagnostic validation execution preflight or rejects the route in favor of concrete contract repair, Route C/interface pivot, or stop while preserving actor input, stale-exclusion, parent-comparison, checkpoint side-effect, and claim boundaries.",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "contract_violation",
     "lineage_invalid",
@@ -65,6 +69,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight.json",
   "lineage": {
     "parent_checkpoint": [
       "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
@@ -200,5 +205,5 @@
       "M2999 would continue to another ordinary process-only route without a concrete contract violation"
     ]
   },
-  "next_blocker": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design"
+  "next_blocker": "m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight"
 }
