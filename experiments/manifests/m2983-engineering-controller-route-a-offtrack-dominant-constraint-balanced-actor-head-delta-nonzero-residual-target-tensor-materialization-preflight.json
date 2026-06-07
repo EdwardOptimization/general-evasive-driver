@@ -1,0 +1,212 @@
+{
+  "baseline_artifacts": [
+    "docs/m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit.md",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/summary.json",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/target_source_plan_rows.csv",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/target_candidate_rows.csv",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/success_identity_zero_target_guard_rows.csv",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/stale_guardrail_exclusion_rows.csv",
+    "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/gate_matrix.csv",
+    "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_index_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight --m2981-dir runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight --m2982-audit docs/m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit.md --m2977-dir runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight --output-dir runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight --follow-up-manifest experiments/manifests/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.json",
+      "name": "target_tensor_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M2983 materializes bounded trainer-side target tensors masks weights provenance and guard artifacts from M2981 feasibility rows while preserving actor and claim boundaries and without fitting training validation ranking promotion or performance claims.",
+  "failure_criteria": [
+    "M2983 cannot materialize per-step target action deltas masks or weights for admitted future training candidates",
+    "M2983 exposes target labels target provenance objective admission source route verdict or paper labels as actor inputs",
+    "M2983 turns success identity guards or stale fixed-source guardrails into positive residual targets",
+    "M2983 runs residual fitting training validation ranking promotion or winner selection",
+    "M2983 claims repair success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "follow_up_manifest": "experiments/manifests/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.json",
+  "forbidden_shortcuts": [
+    "do not fit train validate rank promote select or execute a nonzero residual head",
+    "do not change actor input or action contract",
+    "do not make target labels target provenance objective admission source route verdict or paper labels actor-visible",
+    "do not convert success identity guards into positive residual targets",
+    "do not execute stale fixed-source guardrails or add them to training validation or paper denominators",
+    "do not convert target tensor materialization into repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded target tensor materialization preflight can convert accepted M2981 target-source feasibility rows into trainer-side numeric target tensors masks weights and provenance artifacts before any residual fitting training validation ranking promotion or performance claim.",
+  "id": "m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M2982 accepts target-source feasibility but rejects numeric target tensor materialization and fitting readiness",
+      "M2981 feasibility rows identify legal target sources but do not contain target action deltas masks or weights"
+    ],
+    "derived_from": [
+      "m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit",
+      "m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight",
+      "m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design",
+      "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight",
+      "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit.json",
+      "experiments/manifests/m2981-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-preflight.json",
+      "experiments/manifests/m2980-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-materialization-design.json",
+      "experiments/manifests/m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2982-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-source-feasibility-result-audit.md",
+      "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/summary.json",
+      "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/target_source_plan_rows.csv",
+      "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/target_candidate_rows.csv",
+      "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/success_identity_zero_target_guard_rows.csv",
+      "runs/m2981_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_source_feasibility_preflight/stale_guardrail_exclusion_rows.csv",
+      "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_index_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize numeric target tensors after target-source feasibility audit without fitting"
+    ],
+    "supersedes": [
+      "direct residual fitting after target-source feasibility without numeric target tensors",
+      "using feasibility rows as target tensors"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "evidence_expansion": "materializes a numeric target tensor panel from accepted target-source feasibility rows",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2983 cannot keep target labels and target provenance outside actor inputs",
+      "M2983 cannot keep success identity and stale guardrails separated",
+      "M2983 produces no numeric target tensor artifacts",
+      "M2983 would claim validation driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; may enable later fitting-admission audit only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2983 must write summary target tensor row target manifest guard actor claim and gate artifacts",
+    "M2983 must preserve 43 future training candidates 13 success identity guards and 11 stale guardrails",
+    "M2983 must preserve actor observation 72 action 3 and no target label or provenance actor inputs",
+    "M2983 must not fit train validate rank promote select a winner mutate checkpoints or claim performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M2983 must register a result audit before target tensor artifacts can inform fitting admission"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/target_tensor_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2983 target tensor artifact completeness after audit only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2983 materializes Route A trainer-side target tensors and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2983; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If target tensor materialization fails preserve the blocker and route to audit repair synthesis pivot or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2977-M2982 Route A actor-head delta trace and target-source feasibility chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json exists",
+    "target tensor rows are materialized and account for candidates guards and stale exclusions",
+    "actor 72/action 3 candidate guard and claim boundaries are preserved",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made",
+    "follow-up result audit manifest exists"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2982 accepts M2981 target-source feasibility as complete and claim-safe",
+      "M2981 materialized 43 future training candidates 13 success identity guards and 11 stale guardrail exclusions",
+      "M2981 did not materialize numeric target tensors or run local-action search",
+      "M2977 raw actor-view traces are available for 43 future training candidates and 13 success identity guards"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight.py",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/target_tensor_rows.csv",
+      "runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/gate_matrix.csv",
+      "docs/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
+      "docs/reviews/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight.md",
+      "M2983 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels target provenance objective admission source route verdict or paper actor inputs",
+      "no success identity guards or stale fixed-source guardrails as positive residual targets",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2983 writes target tensor artifacts or fails closed",
+      "M2983 preserves actor observation 72 action 3 and no actor-visible target labels",
+      "M2983 registers a result audit before residual fitting admission"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize target tensor panel before residual fitting admission"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Target tensor materialization preflight only; no residual fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight",
+    "evidence_increment": "attempts to produce numeric target tensor artifacts after target-source feasibility audit",
+    "fallback_plan": [
+      "route to result audit if target tensor artifacts are complete and claim-safe",
+      "route to artifact repair if tensor materialization or source contracts are incomplete",
+      "route to branch synthesis pivot or stop if target tensor materialization would violate actor or guard boundaries"
+    ],
+    "stop_condition": [
+      "stop if M2981 feasibility rows cannot produce numeric target tensors",
+      "stop if target labels or provenance would be actor-visible",
+      "stop if success identity guards or stale fixed-source guardrails would become positive targets",
+      "stop if target tensor materialization would be interpreted as repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2982 accepts target-source feasibility result audit"
+  }
+}
