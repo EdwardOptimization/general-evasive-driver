@@ -1,0 +1,98 @@
+{
+  "decision_reason": "Completed: froze Active Safety Driver v1 as deployable actuator-level [steer throttle brake] reflex driver with actor 72/action 3 candidate baselines M2655 candidate and M1674 parent benchmark roles metrics exclusions guardrails stop rules and exactly one M3035 baseline-contract materialization follow-up; no training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims.",
+  "failure_criteria": [
+    "M3034 treats design-only baseline freeze as driver performance",
+    "M3034 leaves benchmark roles metrics or candidate baselines ambiguous",
+    "M3034 adds hidden oracle diagnostic actor inputs",
+    "M3034 runs training validation ranking promotion high-fidelity rollout or self-ID verdicts"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden dynamics mu slip tire force oracle feasibility TTC reference trajectory or precomputed verdict labels to actor input",
+    "do not claim driver performance from design-only baseline freeze",
+    "do not allow legacy self-ID proof gates to veto all engineering progress unless they expose direct safety regression",
+    "do not run high-fidelity validation before backend source/package and P0 mapping are auditable",
+    "do not train fit rank or promote checkpoints in M3034"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T103501Z",
+  "hypothesis": "A bounded Active Safety Driver v1 baseline-freeze design can define the official engineering baseline, benchmark roles, metric families, candidate checkpoint list, exclusion rules, and stop conditions before any training architecture comparison horizon/K-candidate ablation high-fidelity validation ranking promotion paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "The engineering mainline lacks a frozen baseline and active-safety benchmark table",
+      "Self-ID and paper evidence have been demoted to diagnostics and should not define the mainline objective",
+      "Direct post-M3032 fitting would continue a narrow target-tensor branch before engineering metrics are frozen"
+    ],
+    "derived_from": [
+      "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
+      "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
+      "docs/active-safety-driver-v1-route-plan.md"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
+      "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "docs/active-safety-driver-v1-route-plan.md",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json",
+      "experiments/scoreboard.csv",
+      "experiments/research_queue.csv"
+    ],
+    "parent_objective": [
+      "freeze Active Safety Driver v1 engineering baseline before more fitting or proof work"
+    ],
+    "supersedes": [
+      "direct target tensor fitting after M3033",
+      "self-ID proof gate as the active-safety engineering mainline blocker"
+    ]
+  },
+  "milestone": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
+  "next_blocker": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "active_safety_driver_v1_baseline_freeze_route_to_m3035_contract_materialization",
+  "public_gates": [
+    "M3034 must define Active Safety Driver v1 objective and forbidden actor shortcuts",
+    "M3034 must define candidate baseline checkpoint families and active-safety benchmark roles",
+    "M3034 must define engineering metrics: collision off-track clearance yaw/spin recovery smoothness robustness and mitigation severity",
+    "M3034 must define exclusion rules for stale static diagnostic-only or claim-boundary rows",
+    "M3034 must not run training validation ranking promotion high-fidelity rollout paper finite-window-vs-GRU or self-ID verdicts",
+    "M3034 must select exactly one next implementation or measurement route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+    "clearance_margin_mean": "",
+    "decision": "active_safety_driver_v1_baseline_freeze_route_to_m3035_contract_materialization",
+    "milestone": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
+    "reason": "Completed: froze Active Safety Driver v1 as deployable actuator-level [steer throttle brake] reflex driver with actor 72/action 3 candidate baselines M2655 candidate and M1674 parent benchmark roles metrics exclusions guardrails stop rules and exactly one M3035 baseline-contract materialization follow-up; no training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md exists",
+    "M3034 defines Active Safety Driver v1 objective metrics benchmark roles candidate baselines and stop rules",
+    "M3034 preserves actor 72/action 3 and forbidden shortcut boundaries",
+    "M3034 selects exactly one next route before any training validation ranking promotion high-fidelity or self-ID claim",
+    "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json exists and is the only selected follow-up route"
+  ],
+  "type": "gate"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3039,
+    "completed": 3040,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit_20260607T100856Z/command.log",
+    "command_log": "runs/research/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design_20260607T103405Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit_20260607T100856Z",
+    "run_dir": "runs/research/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design_20260607T103405Z",
     "status": "completed",
-    "task_id": "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit"
+    "task_id": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded Active Safety Driver v1 baseline-freeze design can define the official engineering baseline, benchmark roles, metric families, candidate checkpoint list, exclusion rules, and stop conditions before any training architecture comparison horizon/K-candidate ablation high-fidelity validation ranking promotion paper or self-ID claim.",
-    "id": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
-    "kind": "gate",
-    "notes": "Pending: freeze Active Safety Driver v1 objective metrics benchmark roles candidate baselines exclusions guardrails and one next route without training validation ranking promotion high-fidelity finite-window-vs-GRU paper or self-ID claims.",
-    "priority": 30290,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --m3034-design docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3018-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3022-dir runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.json",
+    "hypothesis": "A no-execution materialization preflight can convert the M3034 Active Safety Driver v1 baseline-freeze design into machine-readable baseline candidate benchmark role metric exclusion actor-contract claim-boundary gate summary and follow-up-audit artifacts before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
+    "id": "m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run M3035 materializer for baseline candidate benchmark role metric exclusion actor claim gate summary doc and M3036 result-audit manifest artifacts without execution training validation ranking promotion high-fidelity finite-window-vs-GRU paper or self-ID claims.",
+    "priority": 30300,
     "status": "pending",
-    "success_artifact": "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md"
+    "success_artifact": "runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T100856Z"
+  "updated_at_utc": "20260607T103454Z"
 }

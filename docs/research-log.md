@@ -53816,3 +53816,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit_20260607T100856Z/command.log`
 - success artifact: `docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md`
 - notes: Completed: audit accepts M3032 as complete and claim-safe target tensor materialization with 29 candidate target tensor rows 3 success identity zero-target guard rows 32 target tensor files target_action_delta_abs_max 0.08 actor 72/action 3 and 0 search fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; records the Active Safety Driver v1 route pivot from self-ID/paper-first evidence to usable actuator-level active-safety engineering; rejects direct post-M3032 fitting and routes to M3034 baseline-freeze design.
+
+## 20260607T103405Z m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded Active Safety Driver v1 baseline-freeze design can define the official engineering baseline, benchmark roles, metric families, candidate checkpoint list, exclusion rules, and stop conditions before any training architecture comparison horizon/K-candidate ablation high-fidelity validation ranking promotion paper or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design_20260607T103405Z`
+- command log: `runs/research/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design_20260607T103405Z/command.log`
+- success artifact: `docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md`
+- notes: Completed: froze Active Safety Driver v1 objective actor 72/action 3 benchmark roles metric families candidate baselines exclusion rules guardrails stop rules and selected exactly one M3035 baseline-contract materialization route without training validation ranking promotion high-fidelity finite-window-vs-GRU paper or self-ID claims.

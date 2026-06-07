@@ -14,6 +14,7 @@
       "name": "active_safety_driver_v1_baseline_freeze_design_doc"
     }
   ],
+  "follow_up_manifest": "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json",
   "decision_rule": "Pass only if M3034 writes a design artifact that freezes the active-safety driver objective, metrics, benchmark roles, candidate baselines, exclusions, guardrails, and one next route without overclaiming.",
   "failure_criteria": [
     "M3034 treats design-only baseline freeze as driver performance",
@@ -105,6 +106,10 @@
     {
       "path": "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
@@ -122,12 +127,13 @@
     "negative_result_policy": "Negative or conditional self-ID evidence must be preserved as diagnostics but must not block same-case engineering safety measurements.",
     "temporal_evidence_window": "M3033 active-safety-driver pivot and M3032 target tensor audit context."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md exists",
     "M3034 defines Active Safety Driver v1 objective metrics benchmark roles candidate baselines and stop rules",
     "M3034 preserves actor 72/action 3 and forbidden shortcut boundaries",
-    "M3034 selects exactly one next route before any training validation ranking promotion high-fidelity or self-ID claim"
+    "M3034 selects exactly one next route before any training validation ranking promotion high-fidelity or self-ID claim",
+    "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
@@ -140,7 +146,7 @@
       "docs/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
       "experiments/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json",
       "M3034 status queue scoreboard research log and review",
-      "one follow-up manifest only if M3034 selects exactly one next route"
+      "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json as the one selected follow-up manifest"
     ],
     "blocked_shortcuts": [
       "no residual fitting training validation ranking promotion or checkpoint mutation",
