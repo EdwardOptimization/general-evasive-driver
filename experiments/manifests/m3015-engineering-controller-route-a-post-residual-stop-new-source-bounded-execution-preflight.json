@@ -1,0 +1,223 @@
+{
+  "id": "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded no-training no-ranking execution preflight can run or faithfully record all 32 M3012 new-source workload rows under the human-view actor contract and write diagnostic closed-loop artifacts plus an M3016 audit manifest without ranking promoting or overclaiming.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
+      "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_spec_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.json",
+      "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "experiments/manifests/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "collect bounded diagnostic closed-loop rows or recorded failures over the fixed M3012 denominator"
+    ],
+    "derived_from": [
+      "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
+      "m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit",
+      "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3015 must preserve the complete 32-row denominator",
+      "M3016 audit is required before interpreting diagnostic execution rows"
+    ],
+    "supersedes": [
+      "direct unlogged execution from M3012 env configs",
+      "dropping failed rows before audit",
+      "direct performance interpretation before M3016"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.md",
+  "public_gates": [
+    "M3015 must preserve all 16 M3006 source identities and 32 M3012 workload rows",
+    "M3015 must record every scheduled workload row as episode or failure output",
+    "M3015 must preserve actor observation 72 action 3 and no hidden/oracle actor inputs",
+    "M3015 must not train run PPO rank select a winner promote mutate checkpoints or tune profiles",
+    "M3015 must register M3016 result audit before interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not drop failed workload rows",
+    "do not train run PPO rank promote mutate checkpoints or tune profiles",
+    "do not expose hidden dynamics oracle target provenance source route outcome success progress verdict or TTC actor inputs",
+    "do not claim validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "do not select a winner from candidate versus parent rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "evidence_axis": "new_source_bounded_diagnostic_execution_preflight",
+    "evidence_increment": "collects bounded diagnostic closed-loop rows or recorded failures over the full M3012 new-source workload denominator",
+    "claim_scope": "Bounded diagnostic execution artifacts only; no validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M3015 cannot preserve the 32-row denominator",
+      "stop if actor contract or hidden-input guards fail",
+      "stop if execution requires checkpoint mutation profile tuning or row dropping"
+    ],
+    "fallback_plan": [
+      "route to M3016 audit if execution/failure artifacts are complete",
+      "route to artifact repair if outputs are missing or denominator accounting fails",
+      "route to synthesis if current-sim execution cannot run safely without hidden inputs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3014 admits bounded execution preflight after M3013 synthesis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run bounded diagnostic execution or record failures over fixed M3012 denominator without training ranking or promotion",
+    "admission_evidence": [
+      "M3014 design doc exists",
+      "M3013 accepts M3012 as complete and claim-safe",
+      "M3012 provides complete executable source/workload artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no validation-result repair-success performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation ranking promotion or profile tuning",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "allowed_updates": [
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/*.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/*.json",
+      "docs/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.md",
+      "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "docs/reviews/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.md",
+      "experiments/reviews/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json",
+      "M3015 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "all 32 workload rows have episode or failure records",
+      "M3016 result audit manifest is registered",
+      "no training ranking promotion or overclaiming occurred"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3015 may collect diagnostic closed-loop rows but does not run history-necessity or self-ID tests.",
+    "history_necessity_tests": [
+      "None in M3015; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "One bounded diagnostic episode per M3012 workload row if execution succeeds.",
+    "negative_result_policy": "If rows fail or behavior is poor, preserve failures and route to M3016 audit rather than dropping rows or weakening self-ID gates.",
+    "allowed_claims": [
+      "M3015 diagnostic execution/failure artifacts only",
+      "M3015 denominator and actor-contract accounting only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from materialization-only evidence to bounded diagnostic closed-loop rows on new source identities",
+    "paper_verdict_delta": "no paper verdict; may provide audited diagnostic behavior data for later synthesis only",
+    "must_synthesize_if": [
+      "M3015 cannot execute or record all 32 workload rows",
+      "M3015 would require hidden actor inputs row dropping profile tuning or checkpoint mutation",
+      "M3015 would claim validation performance or self-ID evidence before M3016 audit"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json exists",
+    "M3015 reads M3012 executable source specs and workload rows as governing inputs",
+    "M3015 writes episode or failure records for every one of the 32 workload rows",
+    "M3015 preserves actor 72/action 3 and writes guard/gate/claim artifacts",
+    "M3015 registers M3016 result audit manifest",
+    "M3015 performs no training PPO ranking promotion checkpoint mutation profile tuning validation-result performance paper high-fidelity or self-ID work"
+  ],
+  "failure_criteria": [
+    "M3015 drops source specs workload rows or failed rows",
+    "M3015 changes actor input/action contract or exposes hidden/oracle labels",
+    "M3015 trains runs PPO ranks promotes mutates checkpoints or tunes profiles",
+    "M3015 claims validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3015 writes complete bounded diagnostic execution/failure artifacts and M3016 audit manifest while preserving denominator actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "bounded_execution_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3013-audit docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md --m3014-design docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --follow-up-manifest experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_workload_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/failure_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
+    "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json",
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+  "next_blocker": "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight",
+  "status": "pending"
+}

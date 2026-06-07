@@ -167,6 +167,23 @@
     "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv"
   ],
   "scoreboard_checkpoint": "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
-  "next_blocker": "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
-  "status": "pending"
+  "next_blocker": "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight",
+  "status": "completed",
+  "follow_up_manifest": "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json",
+  "completion_summary": "Completed: design admits M3015 bounded no-training no-ranking diagnostic execution preflight over the fixed M3012 denominator with 16 executable source specs 32 workload rows 2 read-only profile bindings actor 72/action 3; requires every workload row to produce either episode or failure output, preserves no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor inputs, and blocks training PPO ranking winner selection promotion checkpoint mutation profile tuning validation-result repair-success performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims.",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
+    "decision": "admit_m3015_bounded_execution_preflight",
+    "target_source_spec_count": 16,
+    "target_workload_row_count": 32,
+    "target_profile_binding_count": 2,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "execution_performed": false,
+    "training_performed": false,
+    "ranking_performed": false,
+    "claim_boundary_violation": false,
+    "next_manifest": "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+  }
 }

@@ -53576,3 +53576,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit_20260607T063716Z/command.log`
 - success artifact: `docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md`
 - notes: Completed: result-audit synthesis accepts M3012 executable-env materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 executable source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 0 unmappable source rows 0 env contract violations 0 forbidden key violations 2 read-only profile bindings 32 executable workload rows actor 72/action 3; answers synthesis questions, rejects execution readiness validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver self-ID ranking and promotion claims, and continues exactly once to M3014 bounded execution-admission design.
+
+## 20260607T064401Z m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the M3013-accepted M3012 executable-env materialization into exactly one no-training no-ranking execution-admission preflight route over the 32-row new-source workload denominator without executing or overclaiming.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design_20260607T064401Z`
+- command log: `runs/research/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design_20260607T064401Z/command.log`
+- success artifact: `docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md`
+- notes: Completed: design admits M3015 bounded no-training no-ranking diagnostic execution preflight over the fixed M3012 denominator with 16 executable source specs 32 workload rows 2 read-only profile bindings actor 72/action 3; requires every workload row to produce either episode or failure output, preserves no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor inputs, and blocks training PPO ranking winner selection promotion checkpoint mutation profile tuning validation-result repair-success performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims.

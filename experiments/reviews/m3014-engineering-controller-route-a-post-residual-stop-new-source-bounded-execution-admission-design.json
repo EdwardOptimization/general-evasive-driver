@@ -1,0 +1,94 @@
+{
+  "decision_reason": "Completed: design admits M3015 bounded no-training no-ranking diagnostic execution preflight over the fixed M3012 denominator with 16 executable source specs 32 workload rows 2 read-only profile bindings actor 72/action 3; requires every workload row to produce either episode or failure output, preserves no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor inputs, and blocks training PPO ranking winner selection promotion checkpoint mutation profile tuning validation-result repair-success performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims.",
+  "failure_criteria": [
+    "M3014 doc is missing or leaves next route ambiguous",
+    "M3014 allows direct execution without separate preflight/audit",
+    "M3014 drops source identities or workload rows",
+    "M3014 changes actor input or action contract"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate train run PPO rank promote or select a winner",
+    "do not mutate checkpoints or tune profiles",
+    "do not expose hidden dynamics oracle target provenance source route outcome success progress verdict or TTC actor inputs",
+    "do not drop source specs or workload rows to make execution design pass",
+    "do not claim execution readiness validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T064448Z",
+  "hypothesis": "A bounded design-only milestone can convert the M3013-accepted M3012 executable-env materialization into exactly one no-training no-ranking execution-admission preflight route over the 32-row new-source workload denominator without executing or overclaiming.",
+  "lineage": {
+    "blocked_by": [
+      "M3013 allows only one bounded execution-admission design route",
+      "execution preflight must be separately materialized before any rollout interpretation"
+    ],
+    "derived_from": [
+      "m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit",
+      "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "experiments/manifests/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_spec_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "design a bounded execution-admission preflight after M3013 synthesis accepts M3012"
+    ],
+    "supersedes": [
+      "direct execution from M3012 env configs without design/audit",
+      "direct performance interpretation of materialized env configs"
+    ]
+  },
+  "milestone": "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
+  "next_blocker": "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "admit_m3015_bounded_execution_preflight",
+  "public_gates": [
+    "M3014 must design but not execute the M3012 workload rows",
+    "M3014 must preserve all 16 M3006 source identities and 32 M3012 workload rows",
+    "M3014 must preserve actor observation 72 action 3 and no hidden/oracle actor inputs",
+    "M3014 must route to a separate no-training no-ranking execution preflight or explicit stop",
+    "M3014 must not claim validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
+    "clearance_margin_mean": "",
+    "decision": "admit_m3015_bounded_execution_preflight",
+    "milestone": "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
+    "reason": "Completed: design admits M3015 bounded no-training no-ranking diagnostic execution preflight over the fixed M3012 denominator with 16 executable source specs 32 workload rows 2 read-only profile bindings actor 72/action 3; requires every workload row to produce either episode or failure output, preserves no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor inputs, and blocks training PPO ranking winner selection promotion checkpoint mutation profile tuning validation-result repair-success performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md exists",
+    "design preserves 16 source identities and 32 executable workload rows",
+    "design specifies next execution preflight or stop route",
+    "execution validation training ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims remain blocked"
+  ],
+  "type": "gate"
+}
