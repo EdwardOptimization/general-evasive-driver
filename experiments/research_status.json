@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3027,
+    "completed": 3028,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design_20260607T075557Z/command.log",
+    "command_log": "runs/research/m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight_20260607T080544Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design_20260607T075557Z",
+    "run_dir": "runs/research/m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight_20260607T080544Z",
     "status": "completed",
-    "task_id": "m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design"
+    "task_id": "m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight --m3018-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3019-audit docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md --m3020-synthesis docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md --m3021-design docs/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design.md --output-dir runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.json",
-    "hypothesis": "A no-execution broad-failure objective-contract materialization preflight can convert the M3021-admitted M3018/M3019/M3020 localization evidence into machine-checkable objective-family guard actor claim and gate artifacts before any target materialization fitting execution ranking validation performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "id": "m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize M3021-admitted no-execution broad-failure objective contract rows while preserving offtrack collision speed-floor success-context actor and claim boundaries.",
-    "priority": 30170,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3022 broad-failure objective-contract materialization artifacts before any target materialization fitting execution ranking validation performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+    "id": "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3022 objective-contract materialization artifacts before any interpretation or continuation.",
+    "priority": 30180,
     "status": "pending",
-    "success_artifact": "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json"
+    "success_artifact": "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260607T075557Z"
+  "updated_at_utc": "20260607T080547Z"
 }
