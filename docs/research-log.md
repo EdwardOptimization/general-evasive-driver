@@ -54551,3 +54551,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight_20260607T192437Z/command.log`
 - success artifact: `runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight/summary.json`
 - notes: Completed: materialized M3093 v2 speed-floor-aware balanced direct-action repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3093_speed_floor_aware_balanced_direct_action_repair_v2 rule_rows 5 actor_input_exclusion_rows 10 claim_boundary_rows 20 gate_rows 25 low_speed_probe_throttle 0.3700000047683716 urgent_obstacle_probe_brake 0.4399999976158142 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim; registered M3094 result audit.
+
+## 20260607T192922Z m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3093 v2 speed-floor-aware direct-action repair materialization artifacts before any measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z`
+- command log: `runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z/command.log`
+- success artifact: `docs/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit.md`
+- notes: Completed: audit accepts M3093 v2 speed-floor-aware direct-action repair materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3093_speed_floor_aware_balanced_direct_action_repair_v2 rule_rows 5 actor_input_exclusion_rows 10 claim_boundary_rows 20 low_speed_probe_throttle 0.3700000047683716 urgent_obstacle_probe_brake 0.4399999976158142 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; rejects measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; selects exactly one follow-up to M3095 full-fresh v2 repair measurement.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3099,
+    "completed": 3100,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight_20260607T192437Z/command.log",
+    "command_log": "runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight_20260607T192437Z",
+    "run_dir": "runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z",
     "status": "completed",
-    "task_id": "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight"
+    "task_id": "m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3093 v2 speed-floor-aware direct-action repair materialization artifacts before any measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "id": "m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3093 v2 speed-floor-aware direct-action repair materialization artifacts and select measurement artifact-repair synthesis or stop route without measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "priority": 30890,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --m3094-audit docs/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit.md --m3093-dir runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --doc-path docs/m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit.json --device cpu",
+    "hypothesis": "A bounded full-fresh measurement preflight can execute the M3093 v2 speed-floor-aware direct-action repair as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison, safety, contract, and claim-boundary artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "id": "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run the M3093 v2 speed-floor-aware direct-action repair on the complete M3084 fresh denominator and write measurement comparison guard claim doc and M3096 audit artifacts without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "priority": 30900,
     "status": "pending",
-    "success_artifact": "docs/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit.md"
+    "success_artifact": "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T192544Z"
+  "updated_at_utc": "20260607T193006Z"
 }
