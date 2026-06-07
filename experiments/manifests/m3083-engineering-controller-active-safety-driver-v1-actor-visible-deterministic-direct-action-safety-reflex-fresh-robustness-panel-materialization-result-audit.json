@@ -1,0 +1,164 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight.md",
+    "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_panel_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3083 audits M3082 materialization artifacts and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3083 hides missing M3082 artifacts or failed gates",
+    "M3083 treats M3082 panel materialization as validation or performance evidence",
+    "M3083 changes actor input action contract or runtime base-policy-free boundary",
+    "M3083 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run rollout validate rank promote tune or mutate checkpoints",
+    "do not treat M3082 panel materialization as driver performance or robustness validation",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3082 fresh robustness panel materialization artifacts before any execution, validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
+  "id": "m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3082 panel rows require audit before any fresh-panel execution",
+      "fresh robustness materialization is not validation or performance evidence before M3083"
+    ],
+    "derived_from": [
+      "m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight",
+      "m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit",
+      "m3080-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight.md",
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/fresh_robustness_panel_rows.csv",
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/robustness_admission_guard_rows.csv",
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit fresh robustness panel materialization before execution admission"
+    ],
+    "supersedes": [
+      "direct execution of M3082 panel rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the fresh robustness panel before execution admission",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3083 cannot accept M3082 as complete and claim-safe",
+      "M3083 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence",
+      "M3083 cannot select a measurement admission, repair, or stop route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3083 audits engineering robustness-panel admission",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit",
+  "priority": 30780,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3083 must audit M3082 summary panel rows guard rows claim rows and gate matrix",
+    "M3083 must verify the panel is fresh relative to the M3067/M3075/M3080 fixed denominator",
+    "M3083 must preserve actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3083 must reject validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims",
+    "M3083 must select exactly one measurement admission or repair/stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3082 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3083 audits engineering panel materialization artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3083; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve incomplete panel evidence and route to repair or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3082 fresh robustness panel materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md exists",
+    "M3083 audits M3082 panel freshness axis coverage actor contract and claim boundaries",
+    "M3083 rejects validation ranking promotion performance high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims",
+    "M3083 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3082 summary panel rows guard rows claim rows and gate matrix"
+    ],
+    "allowed_updates": [
+      "docs/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md",
+      "docs/reviews/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.md",
+      "experiments/reviews/m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit.json",
+      "M3083 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3083 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no execution validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3083 accepts or rejects M3082 as complete and claim-safe",
+      "next measurement admission, repair, synthesis, or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3082 fresh robustness panel materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Result audit only; no execution validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success or self-ID claim",
+    "evidence_axis": "fresh_robustness_panel_materialization_result_audit",
+    "evidence_increment": "audits fresh-panel materialization artifacts before execution admission",
+    "fallback_plan": [
+      "route to panel repair if row freshness or axis coverage is incomplete",
+      "route to measurement admission if artifacts are complete and claim-safe",
+      "route to branch synthesis or stop if no claim-safe fresh denominator exists"
+    ],
+    "stop_condition": [
+      "stop if M3082 artifacts are missing or gate matrix fails",
+      "stop if the panel reuses the fixed M3067/M3075/M3080 denominator",
+      "stop if actor or direct-action contracts were violated"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3082 materializes the fresh robustness panel package"
+  }
+}

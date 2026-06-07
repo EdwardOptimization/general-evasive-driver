@@ -9,6 +9,7 @@
       "name": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_panel_materialization_preflight"
     }
   ],
+  "decision": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_panel_materialization_route_to_m3083_result_audit",
   "decision_rule": "Pass only if M3082 materializes a fresh robustness panel package with actor and claim boundaries preserved, registers M3083 audit, and makes no execution or performance claim.",
   "failure_criteria": [
     "M3082 reuses the M3067/M3075/M3080 fixed denominator as fresh robustness evidence",
@@ -32,6 +33,7 @@
     "do not use hidden oracle TTC target provenance source route outcome progress or verdict labels as actor input",
     "do not convert M3080 or M3082 artifacts into driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "infrastructure",
   "hypothesis": "A bounded materialization preflight can convert the M3081-accepted fixed-denominator deterministic safety-reflex measurement into one fresh-seed and fresh-scenario robustness panel, with admission gates for collision, offtrack, clearance, speed-floor, stability, recovery, and action pressure, before any execution, validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
   "id": "m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight",
@@ -129,6 +131,7 @@
       "type": "json"
     }
   ],
+  "result_class": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_panel_materialization_preflight_pass",
   "review_artifact": "docs/reviews/m3082-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-preflight.md",
   "scoreboard_checkpoint": "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/summary.json",
   "selected_next_action": "m3083-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-panel-materialization-result-audit",
@@ -146,7 +149,8 @@
     "negative_result_policy": "If M3082 cannot create a claim-safe fresh panel, route to panel repair or branch synthesis rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3080 deterministic safety-reflex fixed-denominator measurement plus M3082 fresh panel specification only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
     "runs/m3082_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_panel_materialization_preflight/fresh_robustness_panel_rows.csv materializes fresh seed and fresh scenario-distribution rows",
