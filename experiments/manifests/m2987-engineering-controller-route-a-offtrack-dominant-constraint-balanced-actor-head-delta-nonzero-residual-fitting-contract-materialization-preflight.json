@@ -106,9 +106,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight",
+  "next_blocker": "m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2987 must write summary dataset contract split denominator mask weight success guard stale exclusion actor input side-effect claim and gate artifacts",
     "M2987 must preserve 43 candidate target tensor rows 13 success identity zero-target guards and 11 stale guardrail exclusions",
@@ -154,7 +154,7 @@
     "negative_result_policy": "If fitting-contract materialization fails preserve the blocker and route to audit repair synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2983-M2986 Route A actor-head delta target tensor and fitting-contract synthesis chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json exists",
     "dataset split denominator mask weight success guard stale exclusion actor side-effect claim and gate rows are materialized",

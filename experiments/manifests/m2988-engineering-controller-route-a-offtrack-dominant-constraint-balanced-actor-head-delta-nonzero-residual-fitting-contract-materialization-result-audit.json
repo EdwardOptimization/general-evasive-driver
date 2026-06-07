@@ -1,0 +1,170 @@
+{
+  "baseline_artifacts": [
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/dataset_contract_rows.csv",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/split_denominator_rows.csv",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/mask_weight_binding_rows.csv",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/success_identity_zero_guard_binding_rows.csv",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/stale_guardrail_exclusion_binding_rows.csv",
+    "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/gate_matrix.csv",
+    "docs/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2988 audits M2987 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M2988 hides missing fitting-contract artifacts",
+    "M2988 treats fitting-contract materialization as target-quality validation fitting readiness or performance evidence",
+    "M2988 changes actor input or action contract",
+    "M2988 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not fit train validate rank promote select or execute a nonzero residual head",
+    "do not mutate save replace or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not convert contract materialization into target-quality validation fitting readiness performance paper high-fidelity finite-window-vs-GRU or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M2987 fitting-contract materialization preflight before any residual fitting training validation ranking promotion or performance claim.",
+  "id": "m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M2987 materializes contracts but does not itself establish fitting readiness or target quality"
+    ],
+    "derived_from": [
+      "m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/summary.json",
+      "runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight/gate_matrix.csv",
+      "docs/m2987-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit fitting-contract materialization before any residual fitting can be admitted"
+    ],
+    "supersedes": [
+      "direct residual fitting immediately after M2987 without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized fitting-contract artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2988 cannot select exactly one next route",
+      "M2988 would claim performance validation paper current-sim high-fidelity finite-window-vs-GRU or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; may enable later fitting-admission design only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pending",
+  "public_gates": [
+    "M2988 must audit M2987 contract artifacts and gate matrix",
+    "M2988 must preserve target_quality_validated false unless a later target-quality audit is explicitly admitted",
+    "M2988 must preserve actor 72/action 3 no target labels or provenance actor inputs",
+    "M2988 must not fit train validate rank promote select a winner mutate checkpoints or claim performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M2987 artifact completeness after audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2988 audits fitting contracts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2988; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve contract blockers rather than weakening self-ID proof gates.",
+    "temporal_evidence_window": "M2983-M2987 Route A actor-head delta target tensor and fitting-contract chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md exists",
+    "M2988 audits M2987 fitting-contract artifacts",
+    "M2988 selects exactly one next route or stop state",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2987 is expected to materialize dataset split mask weight success guard stale exclusion actor side-effect claim and gate rows",
+      "M2987 must preserve target_quality_validated false and no fitting/training/validation claims"
+    ],
+    "allowed_updates": [
+      "docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md",
+      "docs/reviews/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md",
+      "M2988 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2988 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels target provenance objective admission source route verdict or paper actor inputs",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2988 accepts or rejects M2987 artifacts",
+      "M2988 chooses one next route or stop state",
+      "actor guard and claim boundaries remain unchanged"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit fitting-contract materialization before residual fitting admission"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Result audit only; no residual fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_fitting_contract_materialization_result_audit",
+    "evidence_increment": "audits M2987 fitting-contract materialization before any fitting-admission decision",
+    "fallback_plan": [
+      "route to artifact repair if contract rows are incomplete",
+      "route to fitting-admission design only if the audit accepts M2987 as complete and claim-safe",
+      "route to synthesis pivot or stop if contract materialization cannot preserve boundaries"
+    ],
+    "stop_condition": [
+      "stop if M2987 contract artifacts are incomplete or claim-unsafe",
+      "stop if actor target guard stale exclusion or side-effect boundaries are weakened",
+      "stop if the result would be interpreted as fitting readiness performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2987 materializes fitting-contract artifacts"
+  }
+}
