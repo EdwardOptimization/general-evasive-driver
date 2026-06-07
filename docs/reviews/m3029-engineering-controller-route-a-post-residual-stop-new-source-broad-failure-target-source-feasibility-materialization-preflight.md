@@ -1,0 +1,97 @@
+# m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T092358Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: new_source_broad_failure_target_source_feasibility_materialized_route_to_m3030_result_audit
+- Decision reason: Completed: materialized target-source feasibility artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 32 target-source plan rows 29 candidate rows 3 success identity guard rows 32 availability rows 29 target-source feasibility established rows 32 raw trace joins 32 trace files actor 72/action 3 step range 31-177 0 numeric targets 0 local-action search and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3030 result audit.
+
+## Hypothesis
+
+A bounded target-source feasibility materialization preflight can join the M3028-accepted M3027 raw actor-view trace rows with the M3025 readiness denominator to materialize actor-safe target-source feasibility rows before any numeric target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.md, docs/m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight.md, runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/summary.json, runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/raw_trace_index_rows.csv, runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/raw_trace_availability_rows.csv, runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/raw_trace_guard_rows.csv, runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/actor_contract_guard_rows.csv, runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/summary.json, runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_readiness_rows.csv, runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_blocker_rows.csv, runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/success_identity_guard_rows.csv
+- parent_config: experiments/manifests/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.json, experiments/manifests/m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight.json, experiments/manifests/m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight.json
+- parent_objective: materialize target-source feasibility rows only after M3028 accepts M3027 raw trace capture as complete and claim-safe
+- derived_from: m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit, m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight, m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit, m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight
+- blocked_by: M3028 accepts raw trace capture only and rejects direct target tensor materialization local-action search fitting validation ranking promotion performance paper and self-ID claims, M3027 provides raw traces but no target-source feasibility rows, M3025 preserves readiness rows and success identity guards but previously failed closed because raw traces were missing
+- supersedes: direct numeric target tensor materialization immediately after raw trace capture, direct local-action search or residual fitting without target-source feasibility materialization, treating raw trace availability as validation readiness or driver-performance evidence
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json exists
+- target-source plan rows account for all 32 M3025 readiness rows
+- target-source candidate rows preserve 29 future target candidates and do not include the 3 success identity guards as positive targets
+- success identity guard rows preserve all 3 success_context rows as non-positive guards
+- target-source availability rows join every M3027 raw trace row to the corresponding M3025 readiness row
+- actor 72/action 3 candidate parent objective guard and claim boundaries are preserved
+- numeric target tensor materialized count is 0 and local action search run count is 0
+- no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made
+- follow-up result audit manifest exists
+
+## Failure Criteria
+
+- M3029 drops any M3025 readiness row or M3027 raw trace row
+- M3029 treats success identity rows as positive targets
+- M3029 materializes numeric target tensors runs local-action search fits trains validates ranks promotes mutates checkpoints or tunes profiles
+- M3029 changes actor input or action contract or exposes hidden oracle future-target source route outcome objective readiness progress feasibility verdict or TTC labels
+- M3029 treats feasibility rows as target tensor validation repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+- M3029 fails to register a result audit before interpretation
+
+## Evidence Gates
+
+- M3029 must write summary target-source plan candidate success-identity availability actor claim gate doc and M3030 audit manifest artifacts
+- M3029 must join M3027 raw trace rows to M3025 readiness rows without dropping any of the 32 denominator rows
+- M3029 must preserve 29 future target candidate rows and 3 success identity guard rows
+- M3029 must keep target source row role outcome objective feasibility provenance and verdict labels actor-invisible
+- M3029 must preserve actor observation 72 action 3 and no hidden oracle future-target source route outcome objective readiness progress verdict or TTC actor input
+- M3029 must not run local-action search materialize numeric target tensors fit train validate rank select winners promote mutate checkpoints tune profiles or claim repair success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run local-action search numeric target tensor materialization residual fitting training PPO validation ranking winner selection checkpoint mutation checkpoint promotion profile tuning or private holdout
+- do not convert raw traces into teacher actions target deltas masks weights or losses
+- do not expose hidden dynamics oracle labels future targets source labels route labels outcome labels objective labels readiness labels progress labels feasibility labels verdict labels or TTC to actor input
+- do not drop collision speed-floor success-context candidate parent or weak negative rows
+- do not turn success identity rows into positive target candidates
+- do not claim validation repair-success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: new_source_broad_failure_target_source_feasibility_materialized_route_to_m3030_result_audit
+- reason: Completed: materialized target-source feasibility artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 32 target-source plan rows 29 candidate rows 3 success identity guard rows 32 availability rows 29 target-source feasibility established rows 32 raw trace joins 32 trace files actor 72/action 3 step range 31-177 0 numeric targets 0 local-action search and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3030 result audit.
+
+## Next Blocker
+
+m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit

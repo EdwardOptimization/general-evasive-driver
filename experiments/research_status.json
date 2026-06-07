@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3034,
+    "completed": 3035,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit_20260607T091033Z/command.log",
+    "command_log": "runs/research/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight_20260607T092223Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit_20260607T091033Z",
+    "run_dir": "runs/research/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight_20260607T092223Z",
     "status": "completed",
-    "task_id": "m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit"
+    "task_id": "m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight --m3027-dir runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight --m3028-audit docs/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.md --m3025-dir runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight --output-dir runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight --follow-up-manifest experiments/manifests/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.json",
-    "hypothesis": "A bounded target-source feasibility materialization preflight can join M3027 raw actor-view trace rows with M3025 readiness rows to materialize actor-safe target-source feasibility rows before any numeric target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "id": "m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize target-source feasibility rows by joining M3027 raw actor-view traces with M3025 readiness rows without target tensors local-action search fitting training validation ranking performance paper or self-ID claims.",
-    "priority": 30240,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3029 target-source feasibility materialization artifacts before any numeric target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+    "id": "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3029 target-source feasibility artifacts before target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID interpretation.",
+    "priority": 30250,
     "status": "pending",
-    "success_artifact": "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json"
+    "success_artifact": "docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md"
   },
-  "updated_at_utc": "20260607T091033Z"
+  "updated_at_utc": "20260607T092351Z"
 }
