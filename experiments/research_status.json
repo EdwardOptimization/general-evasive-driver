@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3061,
+    "completed": 3062,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight_20260607T133549Z/command.log",
+    "command_log": "runs/research/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit_20260607T134156Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight_20260607T133549Z",
+    "run_dir": "runs/research/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit_20260607T134156Z",
     "status": "completed",
-    "task_id": "m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight"
+    "task_id": "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3055 offtrack-dominant behavior fitting-contract materialization artifacts before any target tensor fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
-    "id": "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3055 contract loss row-admission actor target-visibility side-effect claim and gate artifacts before any target tensor fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "priority": 30510,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight --m3056-audit docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md --m3055-dir runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight --m3053-dir runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight --output-dir runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight --follow-up-manifest experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
+    "hypothesis": "A bounded offtrack-dominant behavior target tensor materialization preflight can convert the M3056-accepted M3055 fitting contract and M3053 behavior target-source rows into trainer-side numeric target tensors masks weights and guard artifacts before fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize trainer-side numeric behavior target tensors masks weights actor-contract target-visibility side-effect claim and gate artifacts from M3056-accepted M3055/M3053 rows while preserving actor 72/action 3 direct [steer throttle brake] and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "priority": 30520,
     "status": "pending",
-    "success_artifact": "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md"
+    "success_artifact": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T133550Z"
+  "updated_at_utc": "20260607T134156Z"
 }

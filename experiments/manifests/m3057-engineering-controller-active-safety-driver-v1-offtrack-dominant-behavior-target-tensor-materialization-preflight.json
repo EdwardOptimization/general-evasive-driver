@@ -1,0 +1,239 @@
+{
+  "id": "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
+  "priority": 30520,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded offtrack-dominant behavior target tensor materialization preflight can convert the M3056-accepted M3055 fitting contract and M3053 behavior target-source rows into trainer-side numeric target tensors masks weights provenance and guard artifacts before fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/row_admission_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/target_visibility_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/side_effect_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/gate_matrix.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.json",
+      "experiments/manifests/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.json",
+      "experiments/manifests/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize trainer-side numeric behavior target tensors before fitting a direct action active-safety reflex"
+    ],
+    "derived_from": [
+      "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit",
+      "m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight",
+      "m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3056 accepts the fitting contract but rejects target tensor quality and fitting execution claims",
+      "M3055 row admission permits only trainer-side target tensor materialization before fitting",
+      "M3053 behavior target-source rows are not numeric target tensors"
+    ],
+    "supersedes": [
+      "direct fitting from M3055 contract rows without numeric target tensors",
+      "direct rollout validation ranking or promotion from fitting-contract rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.md",
+  "public_gates": [
+    "M3057 must write summary target tensor row weight mask actor-contract target-visibility claim-boundary side-effect gate doc and M3058 audit manifest artifacts",
+    "M3057 must preserve actor observation 72 action 3 and direct [steer throttle brake] output contract",
+    "M3057 must keep target labels target provenance source route outcome progress and verdict outside actor inputs",
+    "M3057 must keep offtrack target tensors candidate blockers collision success-preservation and speed-floor guards separated",
+    "M3057 must not fit train validate rank promote mutate checkpoints run rollout high-fidelity finite-window-vs-GRU paper full-driver or self-ID evaluation",
+    "M3057 must register exactly one result-audit manifest before any fitting route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run fitting rollout replay PPO training validation ranking winner selection checkpoint mutation checkpoint promotion high-fidelity finite-window-vs-GRU paper full-driver or self-ID testing",
+    "do not expose target labels target provenance TTC source route outcome progress verdict or oracle labels to actor input",
+    "do not convert target tensor materialization into target tensor quality fitted policy quality repair-success validation result current-sim verdict or driver-performance evidence",
+    "do not collapse collision success-preservation speed-floor or candidate-binding blockers into offtrack target rows"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "evidence_axis": "active_safety_driver_v1_offtrack_behavior_target_tensor_materialization",
+    "evidence_increment": "converts accepted behavior fitting contract and target-source rows into a concrete trainer-side numeric target tensor panel for later fitting admission",
+    "claim_scope": "Target tensor materialization preflight only; no fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if numeric target tensors masks weights or provenance cannot be materialized",
+      "stop if target labels or provenance would become actor-visible",
+      "stop if materialized target tensors are treated as fitted policy quality repair success or performance evidence"
+    ],
+    "fallback_plan": [
+      "route to result audit if one complete target tensor artifact set exists",
+      "route to artifact repair if tensor rows masks weights or guards are incomplete",
+      "route to synthesis or stop if target tensor materialization is not admissible"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3056 accepts M3055 fitting-contract materialization and selects target tensor materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Materialize trainer-side target tensors for the direct action offtrack-dominant active-safety reflex without fitting or rollout",
+    "admission_evidence": [
+      "M3056 accepts M3055 as complete and claim-safe fitting-contract materialization",
+      "M3055 defines direct obs72 to action3 output [steer throttle brake] with base_policy_required false",
+      "M3053 materializes 24 offtrack behavior target-source rows 16 candidate blockers 4 collision guards 4 success-preservation guards and 1 speed-floor guard"
+    ],
+    "blocked_shortcuts": [
+      "no fitting rollout replay PPO training validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no parent checkpoint config profile actor contract or residual artifact mutation"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight.py",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/behavior_target_tensor_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_tensor_weight_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_visibility_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/side_effect_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/gate_matrix.csv",
+      "docs/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.md",
+      "experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
+      "docs/reviews/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.md",
+      "experiments/reviews/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.json",
+      "M3057 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "one complete target tensor artifact set exists or fails closed",
+      "actor-contract target-visibility side-effect and claim-boundary guards pass",
+      "result-audit manifest is registered before any fitting or rollout"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3057 materializes engineering target tensors and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3057; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "temporal_evidence_window": "M3053-M3056 behavior target-source fitting-contract and audit artifacts only.",
+    "negative_result_policy": "Use behavior-negative active-safety evidence to define target tensors rather than reviving self-ID as the mainline objective.",
+    "allowed_claims": [
+      "behavior target tensor materialization completeness after audit only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result current-sim verdict full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "moves from fitting-contract materialization to a numeric trainer-side target tensor panel for the behavior-level repair route",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3057 prepares deployable active-safety behavior fitting inputs",
+    "must_synthesize_if": [
+      "M3057 cannot materialize numeric target tensor rows",
+      "M3057 would require another materialization-only loop before fitting admission",
+      "M3057 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json exists",
+    "behavior target tensor weight actor-contract target-visibility side-effect claim-boundary and gate artifacts exist",
+    "M3057 preserves actor observation shape 72 final action shape 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3057 registers exactly one result-audit manifest",
+    "M3057 makes no fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M3057 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3057 mutates or promotes parent checkpoints configs profiles actor inputs actor outputs or prior residual artifacts",
+    "M3057 runs fitting rollout validation ranking promotion PPO training or high-fidelity comparison",
+    "M3057 claims target tensor rows as fitted policy quality repair success validation result or driver performance"
+  ],
+  "decision_rule": "Pass only if M3057 writes or fail-closed records one bounded offtrack-dominant behavior target tensor artifact set while preserving actor-contract target-visibility side-effect and claim-boundary guards.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight --m3056-audit docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md --m3055-dir runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight --m3053-dir runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight --output-dir runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight --follow-up-manifest experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/behavior_target_tensor_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_tensor_weight_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_visibility_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/row_admission_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
+  "follow_up_manifest": "experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
+  "next_blocker": "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
+  "status": "pending"
+}

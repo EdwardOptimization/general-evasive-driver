@@ -94,7 +94,6 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 1
   },
-  "next_blocker": "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit",
   "priority": 30510,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -125,7 +124,6 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety fitting-contract audit gates.",
     "temporal_evidence_window": "M3055 behavior fitting-contract materialization artifacts only."
   },
-  "status": "pending",
   "success_criteria": [
     "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md exists",
     "M3056 audits M3055 contract loss row-admission actor target-visibility side-effect claim and gate artifacts",
@@ -175,5 +173,9 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3055 completes behavior fitting-contract materialization"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.json",
+  "next_blocker": "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
+  "completion_summary": "Completed: audit accepts M3055 offtrack-dominant behavior fitting-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true direct_action obs72 to action3 output [steer throttle brake] base_policy_required false 1 fitting contract row 6 loss family rows 5 row admission rows 9 actor-contract guard rows 5 target-visibility guard rows 16 side-effect guard rows 13 claim-boundary rows; rejects target tensor quality fitting execution fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3057 target tensor materialization preflight.",
+  "status": "completed"
 }
