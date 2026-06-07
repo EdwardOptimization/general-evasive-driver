@@ -53298,3 +53298,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight_20260607T024434Z/command.log`
 - success artifact: `runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/summary.json`
 - notes: Completed: bounded offline fitting preflight wrote claim-safe artifacts with status_pass true gate_matrix_pass true 43 fitting dataset rows 4204 samples final weighted MSE 0.000613389726277548 from zero baseline 0.0010713406183980136 13 success guard rows max predicted residual 0.08 11 stale exclusions candidate artifact present actor 72/action 3 target_quality_validated false no validation ranking promotion checkpoint mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2991 result audit.
+
+## 20260607T025553Z m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2990 offline fitting artifacts before any validation ranking promotion repair-success performance or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit_20260607T025553Z`
+- command log: `runs/research/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit_20260607T025553Z/command.log`
+- success artifact: `docs/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.md`
+- notes: Completed: audit accepts M2990 bounded fitting artifacts as complete and claim-safe with status_pass true gate_matrix_pass true 43 fitting dataset rows 4204 samples weighted MSE 0.00107134 to 0.00061339 candidate artifact present stale exclusions preserved but rejects direct validation target-quality repair-success performance promotion and self-ID claims because 13 success identity zero guard traces show predicted residual abs max 0.08; routes to M2992 success identity guard repair branch synthesis.
