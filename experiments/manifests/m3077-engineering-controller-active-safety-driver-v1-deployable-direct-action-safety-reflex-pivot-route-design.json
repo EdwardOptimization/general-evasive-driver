@@ -14,6 +14,7 @@
       "name": "active_safety_driver_v1_deployable_direct_action_safety_reflex_pivot_route_design_doc"
     }
   ],
+  "decision": "select_m3078_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight",
   "decision_rule": "Pass only if M3077 freezes exactly one deployable direct-action safety-reflex route or stop state with actor-contract and measurement gates explicit and no performance overclaim.",
   "failure_criteria": [
     "M3077 leaves multiple routes open",
@@ -37,6 +38,7 @@
     "do not claim repair success driver performance validation current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence",
     "do not rank promote mutate checkpoints or tune the denominator after seeing M3075 rows"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "process",
   "hypothesis": "A bounded pivot route-design milestone can freeze exactly one deployable direct-action safety-reflex implementation route after M3076 rejects the offline repair loop, while preserving obs72/action3 [steer throttle brake] and prioritizing collision offtrack clearance stability recovery and robustness metrics.",
   "id": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
@@ -70,7 +72,8 @@
     ],
     "supersedes": [
       "same offline multi-failure target-fitting continuation without pivot",
-      "repair-success interpretation of M3073/M3075"
+      "repair-success interpretation of M3073/M3075",
+      "offline target-fitting repair continuation as the default next route"
     ]
   },
   "local_search_guard": {
@@ -87,7 +90,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
+  "next_blocker": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
   "priority": 30720,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -104,8 +107,11 @@
       "type": "markdown"
     }
   ],
+  "result_class": "active_safety_driver_v1_deployable_direct_action_safety_reflex_pivot_route_design_completed",
   "review_artifact": "docs/reviews/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
   "scoreboard_checkpoint": "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+  "selected_next_action": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
+  "selected_next_action_type": "infrastructure",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "route-design completeness and claim-boundary preservation",
@@ -119,7 +125,8 @@
     "negative_result_policy": "Negative M3075 evidence drives the engineering route pivot rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3067/M3075 same-denominator engineering measurements only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md exists",
     "M3077 selects exactly one deployable direct-action safety-reflex implementation route or stop state",
@@ -146,8 +153,8 @@
       "no self-ID/GRU/paper route as the main objective"
     ],
     "next_stage_criteria": [
-      "exactly one implementation route or stop state is selected",
-      "route-specific actor contract and measurement admission gates are explicit"
+      "M3078 materializes the actor-visible deterministic direct-action safety-reflex feature contract and rule table",
+      "M3078 preserves obs72/action3 direct [steer throttle brake] and registers M3079 result audit"
     ],
     "stage": "process",
     "stage_objective": "Freeze one deployable direct-action safety-reflex route after M3076 pivot"

@@ -54345,3 +54345,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit_20260607T171158Z/command.log`
 - success artifact: `docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md`
 - notes: Completed: audit accepts M3075 repaired direct-action closed-loop measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 6 success 4 collision 19 offtrack 4 speed_too_low success_rate 0.1875 clearance_margin_mean 8.74188928150522 raw_action_abs_max 2.823486328125 action_clip_fraction_mean 0.03910273341603136 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; same-denominator comparison to M3067 is negative on success and offtrack, so M3076 rejects repair-success driver-performance validation ranking promotion current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; synthesis decision pivot routes exactly one follow-up to M3077 deployable direct-action safety-reflex route design.
+
+## 20260607T171953Z m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded pivot route-design milestone can freeze exactly one deployable direct-action safety-reflex implementation route after M3076 rejects the offline repair loop, while preserving obs72/action3 [steer throttle brake] and prioritizing collision offtrack clearance stability recovery and robustness metrics.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design_20260607T171953Z`
+- command log: `runs/research/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design_20260607T171953Z/command.log`
+- success artifact: `docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md`
+- notes: Completed: M3077 freezes exactly one route, selecting M3078 actor-visible deterministic direct-action safety-reflex materialization preflight; preserves obs72/action3 direct [steer throttle brake], rejects continuing the offline target-fitting repair loop as the default, demotes self-ID/GRU/paper to auxiliary diagnostics, and requires same-denominator collision offtrack clearance stability recovery action-pressure and robustness measurement admission before any validation ranking promotion driver-performance high-fidelity paper full-driver repair-success or self-ID claim.

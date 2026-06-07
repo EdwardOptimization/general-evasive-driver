@@ -1,0 +1,209 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+    "docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md",
+    "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json",
+    "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight --m3077-design docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md --m3076-audit docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md --m3067-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --m3075-dir runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight --output-dir runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight --doc-path docs/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md --follow-up-manifest experiments/manifests/m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit.json",
+      "name": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M3078 writes all required materialization artifacts, preserves obs72/action3 direct [steer throttle brake], uses no runtime base policy or hidden/oracle/TTC/target/provenance actor inputs, registers M3079 audit, and makes no rollout/performance/validation/promotion/paper/self-ID claim.",
+  "failure_criteria": [
+    "M3078 requires actor inputs outside obs72",
+    "M3078 produces a residual/base-policy route instead of a full direct-action actor",
+    "M3078 uses hidden oracle TTC target provenance source route outcome progress or verdict labels as actor input",
+    "M3078 runs rollout fitting training validation ranking promotion or high-fidelity simulation",
+    "M3078 makes driver-performance repair-success paper finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "objective_overfit",
+    "proof_washout"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "do not use a runtime base policy or residual-only adapter as the selected route",
+    "do not tune denominator rows after seeing M3067/M3075 behavior counts",
+    "do not claim validation ranking promotion driver performance current-sim verdict repair success high-fidelity readiness paper finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded materialization preflight can convert the M3077 route decision into one actor-visible deterministic obs72-to-action3 safety-reflex candidate contract, rule table, guard set, and measurement-admission package before any rollout, validation, ranking, promotion, driver-performance, paper, high-fidelity, repair-success, or self-ID claim.",
+  "id": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3077 selected a deterministic direct-action safety-reflex materialization route but no materialized candidate contract exists yet",
+      "same-denominator measurement must not run before actor contract and claim-boundary artifacts exist"
+    ],
+    "derived_from": [
+      "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.json",
+      "experiments/manifests/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/metric_summary_rows.csv",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/metric_summary_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize one deployable actor-visible deterministic direct-action safety-reflex candidate contract after M3077 route selection"
+    ],
+    "supersedes": [
+      "offline multi-failure target-fitting repair continuation as the default next route",
+      "residual/base-policy assisted route as the active-safety mainline"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "materializes a new deterministic deployable safety-reflex route rather than continuing offline target fitting",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3078 cannot preserve obs72/action3 direct-action contract",
+      "M3078 would need hidden/oracle actor inputs",
+      "M3078 would become another fitting loop instead of deterministic safety-reflex materialization"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3078 targets deployable active-safety infrastructure",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
+  "priority": 30730,
+  "private_holdout_policy": "not_used",
+  "private_notes": "",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3078 must preserve obs72/action3 direct [steer throttle brake] actor contract",
+    "M3078 must use actor-visible ego actuator road and obstacle features only",
+    "M3078 must keep runtime_base_policy_required false",
+    "M3078 must define one deterministic direct-action safety-reflex skeleton and not a fitted target tensor",
+    "M3078 must write measurement-admission gates for collision offtrack clearance stability recovery action pressure and robustness before any measured claim",
+    "M3078 must not run rollout fitting validation ranking promotion high-fidelity comparison or paper/self-ID evaluation"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/actor_visible_feature_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/safety_reflex_rule_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/direct_action_policy_config.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/actor_input_exclusion_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/measurement_admission_gate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "materialization completeness and claim-boundary preservation",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3078 materializes an engineering safety-reflex candidate and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3078; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Negative or incomplete M3078 artifacts stop or simplify the engineering route; they do not revive self-ID as the mainline objective.",
+    "temporal_evidence_window": "M3067/M3075 same-denominator engineering measurements and M3077 route design only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "summary.json reports status_pass true and gate_matrix_pass true",
+    "actor-visible feature contract covers obs72 slices without hidden/oracle/TTC/target/provenance labels",
+    "safety-reflex rule rows define one deterministic direct-action [steer throttle brake] policy skeleton",
+    "direct-action policy config preserves observation shape 72 action shape 3 final action clipping and runtime_base_policy_required false",
+    "measurement admission gates require same-denominator safety metrics before any performance claim",
+    "M3079 result-audit manifest is created and pending"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3077 pivot route design",
+      "M3076 negative offline-repair measurement audit",
+      "M3067 and M3075 same-denominator measurement summaries"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight.py",
+      "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight",
+      "docs/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md",
+      "experiments/manifests/m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit.json",
+      "M3078 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no rollout fitting validation ranking promotion or driver-performance claim",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no self-ID/GRU/paper route as the main objective"
+    ],
+    "next_stage_criteria": [
+      "M3078 artifacts are accepted by M3079 result audit",
+      "M3079 routes exactly one same-denominator closed-loop measurement preflight or stop decision"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize one deployable actor-visible deterministic direct-action safety-reflex candidate contract"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Materialization only; no rollout fitting validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success or self-ID claim",
+    "evidence_axis": "actor_visible_deterministic_direct_action_safety_reflex_materialization",
+    "evidence_increment": "materializes the first deployable deterministic direct-action safety-reflex candidate contract after M3077 route selection",
+    "fallback_plan": [
+      "simplify the deterministic rule table to fewer actor-visible features",
+      "route to a result audit if artifacts are complete but measurement admission remains uncertain",
+      "stop branch if actor-visible direct-action constraints cannot be satisfied"
+    ],
+    "stop_condition": [
+      "stop if the materialized route needs actor inputs outside obs72",
+      "stop if the route cannot directly output [steer throttle brake] without a runtime base policy",
+      "stop if measurement admission gates cannot preserve same-denominator safety metrics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3077 selected this route after M3076 rejected the offline repair loop"
+  }
+}

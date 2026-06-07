@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3082,
+    "completed": 3083,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit_20260607T171158Z/command.log",
+    "command_log": "runs/research/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design_20260607T171953Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit_20260607T171158Z",
+    "run_dir": "runs/research/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design_20260607T171953Z",
     "status": "completed",
-    "task_id": "m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit"
+    "task_id": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded pivot route-design milestone can freeze exactly one deployable direct-action safety-reflex implementation route after M3076 rejects the offline repair loop, while preserving obs72/action3 [steer throttle brake] and prioritizing collision offtrack clearance stability recovery and robustness metrics.",
-    "id": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
-    "kind": "gate",
-    "notes": "Pending: freeze exactly one deployable direct-action safety-reflex route after M3076 pivot; no rollout fitting validation ranking promotion driver-performance high-fidelity paper full-driver repair-success or self-ID claim.",
-    "priority": 30720,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight --m3077-design docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md --m3076-audit docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md --m3067-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --m3075-dir runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight --output-dir runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight --doc-path docs/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md --follow-up-manifest experiments/manifests/m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit.json",
+    "hypothesis": "A bounded materialization preflight can convert the M3077 route decision into one actor-visible deterministic obs72-to-action3 safety-reflex candidate contract, rule table, guard set, and measurement-admission package before any rollout, validation, ranking, promotion, driver-performance, paper, high-fidelity, repair-success, or self-ID claim.",
+    "id": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize actor-visible deterministic direct-action safety-reflex feature contract, rule rows, guards, measurement admission gates, doc, and M3079 audit manifest; no rollout fitting validation ranking promotion performance paper high-fidelity repair-success or self-ID claim.",
+    "priority": 30730,
     "status": "pending",
-    "success_artifact": "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md"
+    "success_artifact": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T171158Z"
+  "updated_at_utc": "20260607T171953Z"
 }
