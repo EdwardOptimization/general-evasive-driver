@@ -18,6 +18,7 @@
       "name": "active_safety_driver_v1_direct_action_multi_failure_repair_closed_loop_measurement_preflight"
     }
   ],
+  "completion_summary": "Completed: ran bounded same-denominator current-sim measurement for the M3073 repaired direct-action candidate with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 6 success 4 collision 19 offtrack 4 speed_too_low success_rate 0.1875 clearance_margin_mean 8.74188928150522 raw_action_abs_max 2.823486328125 action_clip_fraction_mean 0.03910273341603136 final_action_abs_max 1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false repaired direct-action adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3076 result audit.",
   "decision_rule": "Pass only if M3075 writes or fail-closed records bounded same-denominator current-sim measurement artifacts for the M3073 repaired direct-action candidate while preserving actor-contract direct-action-adapter side-effect and claim-boundary guards.",
   "failure_criteria": [
     "M3075 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
@@ -176,7 +177,7 @@
     "negative_result_policy": "If M3075 measurement is negative, preserve same-case safety metric evidence and route to M3076 audit rather than returning to self-ID as the mainline objective.",
     "temporal_evidence_window": "M3073 repaired direct-action artifact plus M3039/M3037/M3012 measurement context only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/summary.json exists",
     "measurement_episode_rows metric_summary_rows direct_action_adapter_guard_rows actor_contract_guard_rows checkpoint_side_effect_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
