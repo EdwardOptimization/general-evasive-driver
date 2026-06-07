@@ -11,6 +11,7 @@
       "name": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight"
     }
   ],
+  "decision": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_route_to_m3079_result_audit",
   "decision_rule": "Pass only if M3078 writes all required materialization artifacts, preserves obs72/action3 direct [steer throttle brake], uses no runtime base policy or hidden/oracle/TTC/target/provenance actor inputs, registers M3079 audit, and makes no rollout/performance/validation/promotion/paper/self-ID claim.",
   "failure_criteria": [
     "M3078 requires actor inputs outside obs72",
@@ -32,6 +33,7 @@
     "do not tune denominator rows after seeing M3067/M3075 behavior counts",
     "do not claim validation ranking promotion driver performance current-sim verdict repair success high-fidelity readiness paper finite-window-vs-GRU full-driver or self-ID evidence"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "infrastructure",
   "hypothesis": "A bounded materialization preflight can convert the M3077 route decision into one actor-visible deterministic obs72-to-action3 safety-reflex candidate contract, rule table, guard set, and measurement-admission package before any rollout, validation, ranking, promotion, driver-performance, paper, high-fidelity, repair-success, or self-ID claim.",
   "id": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
@@ -81,7 +83,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight",
+  "next_blocker": "m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit",
   "priority": 30730,
   "private_holdout_policy": "not_used",
   "private_notes": "",
@@ -136,8 +138,11 @@
       "type": "json"
     }
   ],
+  "result_class": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight_pass",
   "review_artifact": "docs/reviews/m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight.md",
   "scoreboard_checkpoint": "runs/m3078_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight/summary.json",
+  "selected_next_action": "m3079-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-result-audit",
+  "selected_next_action_type": "result_audit",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "materialization completeness and claim-boundary preservation",
@@ -151,7 +156,8 @@
     "negative_result_policy": "Negative or incomplete M3078 artifacts stop or simplify the engineering route; they do not revive self-ID as the mainline objective.",
     "temporal_evidence_window": "M3067/M3075 same-denominator engineering measurements and M3077 route design only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "summary.json reports status_pass true and gate_matrix_pass true",
     "actor-visible feature contract covers obs72 slices without hidden/oracle/TTC/target/provenance labels",
@@ -180,7 +186,7 @@
       "no self-ID/GRU/paper route as the main objective"
     ],
     "next_stage_criteria": [
-      "M3078 artifacts are accepted by M3079 result audit",
+      "M3079 accepts or rejects M3078 as complete and claim-safe",
       "M3079 routes exactly one same-denominator closed-loop measurement preflight or stop decision"
     ],
     "stage": "infrastructure",
