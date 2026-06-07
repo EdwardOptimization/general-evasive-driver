@@ -53840,3 +53840,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight_20260607T104501Z/command.log`
 - success artifact: `runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/summary.json`
 - notes: Completed: materialized Active Safety Driver v1 baseline contract with status_pass true gate_matrix_pass true 2 baseline candidates 17 benchmark role rows 31 metric contract rows 11 exclusion rows 9 actor guards 25 claim rows actor 72/action 3 and no execution training validation ranking promotion high-fidelity finite-window-vs-GRU paper driver-performance or self-ID claims; registered M3036 result audit.
+
+## 20260607T105242Z m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3035 Active Safety Driver v1 baseline-contract materialization artifacts before any baseline execution training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit_20260607T105242Z`
+- command log: `runs/research/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit_20260607T105242Z/command.log`
+- success artifact: `docs/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M3035 baseline contract with status_pass true gate_matrix_pass true 2 baseline candidates 17 benchmark role rows 31 metric contract rows 11 exclusions 9 actor guards 25 claim rows actor 72/action 3; rejects driver-performance validation ranking promotion high-fidelity finite-window-vs-GRU paper and self-ID claims; routes to M3037 baseline measurement table materialization.
+
+## 20260607T110224Z m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A no-new-execution measurement-table materialization preflight can convert the accepted M3035 Active Safety Driver v1 baseline contract and M3015 closed-loop rows into official baseline measurement tables covering safety clearance stability recovery actuation robustness and role splits before any training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight --m3035-dir runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --output-dir runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight --follow-up-manifest experiments/manifests/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.json`
+- returncode: `0`
+- run dir: `runs/research/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight_20260607T110222Z`
+- command log: `runs/research/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight_20260607T110222Z/command.log`
+- success artifact: `runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/summary.json`
+- notes: Completed: materialized Active Safety Driver v1 baseline measurement tables with status_pass true gate_matrix_pass true 32 baseline rows 2 candidate profile aggregates 34 benchmark-role aggregates 31 metric coverage rows 25/25 required metrics materialized 6 actor guards 25 claim rows actor 72/action 3; 0 environment reset step rollout replay training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3038 result audit.

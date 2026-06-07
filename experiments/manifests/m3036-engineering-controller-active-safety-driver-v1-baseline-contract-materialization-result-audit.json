@@ -20,6 +20,7 @@
       "name": "active_safety_driver_v1_baseline_contract_result_audit_doc"
     }
   ],
+  "follow_up_manifest": "experiments/manifests/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight.json",
   "decision_rule": "Pass only if M3036 audits M3035 row counts gates actor contract exclusions claim boundaries and selects exactly one next baseline measurement or repair route without overclaiming.",
   "failure_criteria": [
     "M3036 treats M3035 materialization as driver performance",
@@ -114,6 +115,10 @@
     {
       "path": "docs/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.md",
@@ -131,12 +136,13 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety baseline measurement if safety contract gates pass.",
     "temporal_evidence_window": "M3035 materialized baseline contract artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3036-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-result-audit.md exists",
     "M3036 audits M3035 summary gate matrix baseline candidate benchmark role metric exclusion actor and claim artifacts",
     "M3036 preserves actor 72/action 3 and rejects training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU and self-ID claims",
-    "M3036 selects exactly one next baseline measurement admission repair or stop route"
+    "M3036 selects exactly one next baseline measurement admission repair or stop route",
+    "experiments/manifests/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
