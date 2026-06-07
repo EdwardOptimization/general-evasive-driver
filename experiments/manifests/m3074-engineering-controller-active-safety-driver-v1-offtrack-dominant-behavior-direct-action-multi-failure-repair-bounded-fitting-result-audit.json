@@ -5,7 +5,8 @@
     "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/repair_loss_trace_rows.csv",
     "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/candidate_direct_action_repair_reflex_layer.npz",
     "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/gate_matrix.csv",
-    "docs/m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight.md"
+    "docs/m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight.md",
+    "experiments/manifests/m3075-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-preflight.json"
   ],
   "baseline_checkpoints": [
     "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/candidate_direct_action_repair_reflex_layer.npz",
@@ -17,6 +18,8 @@
       "name": "active_safety_driver_v1_direct_action_multi_failure_repair_fitting_result_audit_doc"
     }
   ],
+  "completion_summary": "Completed: audit accepts M3073 repaired direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 repair fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fit samples 768 masked steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID evidence; synthesis decision continue routes exactly one follow-up to M3075 same-denominator repaired direct-action closed-loop measurement preflight.",
+  "decision": "accept_m3073_repair_fit_claim_safe_route_to_m3075_closed_loop_measurement_preflight",
   "decision_rule": "Pass only if M3074 audits M3073 fitting rows loss guard claim and candidate artifacts, answers the branch synthesis questions, and selects exactly one closed-loop measurement repair synthesis or stop route without overclaiming.",
   "failure_criteria": [
     "M3074 treats offline fitting loss as target quality fitted policy quality or closed-loop driver performance",
@@ -34,6 +37,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3075-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-preflight.json",
   "forbidden_shortcuts": [
     "do not run rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
     "do not convert M3073 offline fitting loss into target-quality fitted-policy driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
@@ -87,7 +91,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit",
+  "next_blocker": "m3075-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-preflight",
   "priority": 30690,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -120,7 +124,7 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety closed-loop measurement if safety contract gates pass.",
     "temporal_evidence_window": "M3073 bounded repair fitting artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.md exists",
     "M3074 audits M3073 summary dataset loss candidate guard claim and gate artifacts",
@@ -139,7 +143,8 @@
       "docs/reviews/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.md",
       "experiments/reviews/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.json",
       "M3074 status queue scoreboard research log and review",
-      "one follow-up manifest only if M3074 selects exactly one next route"
+      "one follow-up manifest only if M3074 selects exactly one next route",
+      "experiments/manifests/m3075-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-preflight.json"
     ],
     "blocked_shortcuts": [
       "no rollout validation ranking promotion or checkpoint mutation",
@@ -147,8 +152,8 @@
       "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper repair-success or self-ID claim"
     ],
     "next_stage_criteria": [
-      "M3073 repaired candidate is accepted or rejected",
-      "one next closed-loop measurement repair synthesis or stop route is selected"
+      "M3073 repaired direct-action candidate is accepted as a claim-safe fitting artifact",
+      "M3075 same-denominator closed-loop measurement preflight is registered as the only next route"
     ],
     "stage": "process",
     "stage_objective": "Audit repaired Active Safety Driver v1 direct-action reflex candidate"
@@ -169,10 +174,9 @@
       "stop if actor-input target-quality fitted-policy or side-effect guards fail",
       "stop if offline fitting is treated as target quality fitted-policy quality repair success or driver performance"
     ],
+    "synthesis_artifact": "docs/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.md",
     "synthesis_cadence": 10,
     "synthesis_decision": "continue",
-    "synthesis_trigger": "M3073 completes bounded direct-action multi-failure repair fitting and local-search guard requires branch synthesis before more process milestones",
-    "synthesis_artifact": "docs/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.md",
     "synthesis_questions": [
       "evidence_summary",
       "supported_claims",
@@ -180,6 +184,7 @@
       "failure_taxonomy_summary",
       "public_gate_overfit_risk",
       "next_branch_decision"
-    ]
+    ],
+    "synthesis_trigger": "M3073 completes bounded direct-action multi-failure repair fitting and local-search guard requires branch synthesis before more process milestones"
   }
 }

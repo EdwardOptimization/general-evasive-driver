@@ -54309,3 +54309,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight_20260607T164727Z/command.log`
 - success artifact: `runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/summary.json`
 - notes: Completed: bounded offline direct-action multi-failure repair fitting produced claim-safe repaired candidate with status_pass true gate_matrix_pass true 24 repair fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fit samples 768 masked steps final weighted MSE 0.00021525553328820269 parent weighted MSE 0.0002183983045141296 all-accounting weighted MSE 0.002601863211948731 final_action_abs_max 1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; no reset step rollout replay PPO validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3074 result audit.
+
+## 20260607T165904Z m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3073 repaired direct-action fitting artifacts before any rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit_20260607T165904Z`
+- command log: `runs/research/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit_20260607T165904Z/command.log`
+- success artifact: `docs/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.md`
+- notes: Completed: audit accepts M3073 repaired direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 repair fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fit samples 768 masked steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID evidence; synthesis decision continue routes exactly one follow-up to M3075 same-denominator repaired direct-action closed-loop measurement preflight.
