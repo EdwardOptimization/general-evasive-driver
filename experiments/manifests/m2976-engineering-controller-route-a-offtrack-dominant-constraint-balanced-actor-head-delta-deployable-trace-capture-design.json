@@ -1,0 +1,199 @@
+{
+  "baseline_artifacts": [
+    "docs/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.md",
+    "docs/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.md",
+    "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json",
+    "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_availability_rows.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "deployable_trace_capture_design_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M2976 defines one bounded deployable trace-capture materialization repair pivot or stop route while preserving actor guardrails candidate/guard coverage raw-trace blockers and route-plan boundaries without execution training validation ranking promotion or overclaiming.",
+  "failure_criteria": [
+    "M2976 executes reset step rollout replay validation training PPO residual fitting or private holdout",
+    "M2976 changes actor input or action contract",
+    "M2976 exposes hidden dynamics oracle labels future targets objective admission trace-readiness or verdict labels to actor input",
+    "M2976 hides raw trace absence or treats metadata-only rows as fitting readiness",
+    "M2976 drops success identity stale collision or speed-floor guards from the trace contract",
+    "M2976 ranks source task profile checkpoint controller or candidate families selects a winner or promotes a checkpoint",
+    "M2976 claims repair success implementation readiness driver performance validation readiness/result high-fidelity validation paper finite-window-vs-GRU current-sim verdict full ideal driver completion or self-ID result"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO residual fitting or private holdout",
+    "do not load mutate save rank select or promote checkpoints",
+    "do not change actor inputs or action contract",
+    "do not expose hidden dynamics oracle labels future targets objective admission trace-readiness or verdict labels to actor input",
+    "do not treat metadata-only trace rows as raw deployable traces",
+    "do not weaken success identity stale guardrail collision or speed-floor protections",
+    "do not claim repair success driver performance validation readiness/result paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded design-only milestone can define exactly one actor-safe deployable trace-capture route, pivot, or stop state after M2975 synthesizes that residual fitting remains blocked by missing raw traces.",
+  "id": "m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design",
+  "lineage": {
+    "blocked_by": [
+      "M2975 selects deployable trace-capture design as the only bounded continuation",
+      "M2974 rejects residual fitting readiness because M2973 raw_trace_persisted_count is 0 and trace_panel_ready_for_residual_fitting is false",
+      "direct fitting or training would violate the trace-readiness gate and actor/claim boundaries"
+    ],
+    "derived_from": [
+      "m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis",
+      "m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit",
+      "m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.json",
+      "experiments/manifests/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.json",
+      "experiments/manifests/m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.md",
+      "docs/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.md",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_panel_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_guard_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_availability_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_objective": [
+      "design a bounded raw deployable trace-capture route after M2975 chooses continue and rejects direct residual fitting from metadata-only trace rows"
+    ],
+    "supersedes": [
+      "direct residual fitting design from metadata-only trace rows",
+      "another trace-readiness synthesis before defining a trace-capture contract"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "defines the deployable raw trace-capture contract required before residual fitting can be admitted",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M2976 cannot select a trace-capture materialization repair pivot or stop route",
+      "M2976 would claim residual fitting readiness validation readiness driver performance repair success paper current-sim high-fidelity finite-window-vs-GRU or self-ID evidence",
+      "M2976 would continue with metadata-only trace rows instead of raw deployable trace capture",
+      "M2976 would change actor input or action contract"
+    ],
+    "paper_verdict_delta": "no paper verdict; design may enable a later raw trace materialization preflight only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M2976 must be design-only and must not execute reset step rollout replay validation training PPO or residual fitting",
+    "M2976 must define or reject exactly one deployable raw trace-capture route for the M2973/M2974 candidate and guard surface",
+    "M2976 must specify raw trace row contract observation/action tensor schema candidate/guard coverage and artifact names for any later materialization preflight",
+    "M2976 must preserve actor observation 72 action 3 and no hidden oracle future-target objective admission trace-readiness or verdict actor inputs",
+    "M2976 must preserve 43 training candidates 13 success identity guards 11 stale guardrails and the route-plan boundary",
+    "M2976 must not claim residual fitting readiness validation repair success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md",
+  "scoreboard_checkpoint": "docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "bounded deployable trace-capture design outcome",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2976 designs Route A trace capture and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M2976; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve missing raw deployable trace availability and route to materialization pivot or stop rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M2973-M2975 Route A actor-head delta trace-readiness and synthesis chain."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md exists",
+    "M2976 defines exactly one deployable trace-capture materialization repair pivot or stop route",
+    "M2976 specifies raw trace row contract observation/action tensor schema candidate/guard coverage and artifact names if continuing",
+    "M2976 preserves actor 72/action 3 and no hidden or oracle actor inputs",
+    "M2976 preserves 43 training candidates 13 success identity guards and 11 stale guardrails",
+    "no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M2975 selects continue_to_m2976_deployable_trace_capture_design",
+      "M2974 accepts M2973 as complete and claim-safe while rejecting residual fitting readiness",
+      "M2973 records raw_trace_persisted_count 0 and trace_panel_ready_for_residual_fitting false",
+      "M2973 records 43 training trace panel rows 24 trace guard rows 67 trace availability rows and 56 metadata-present rows"
+    ],
+    "allowed_updates": [
+      "docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md",
+      "docs/reviews/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md",
+      "M2976 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2976 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout replay validation ranking promotion or success-rate verdict",
+      "no residual fitting training PPO or promoted fitted weights",
+      "no hidden oracle future-target objective admission trace-readiness or verdict actor inputs",
+      "no metadata-only trace rows as fitting readiness or paper evidence",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M2976 selects one trace-capture materialization preflight artifact repair pivot or stop route",
+      "raw trace contract observation/action schema and candidate/guard coverage are explicit if continuing",
+      "actor guardrail and raw-trace blocker remain visible",
+      "no residual fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+    ],
+    "stage": "process",
+    "stage_objective": "Design deployable raw trace-capture route before residual fitting can be admitted"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "claim_scope": "Design only; no reset rollout replay residual fitting training PPO validation ranking promotion repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU self-ID or full ideal driver claim",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_deployable_trace_capture_design",
+    "evidence_increment": "designs the raw deployable trace-capture route selected by M2975 synthesis before any residual fitting can be admitted",
+    "fallback_plan": [
+      "route to artifact repair if M2973 artifacts lack fields needed to design trace capture",
+      "pivot to another Route A evidence surface if raw trace capture cannot be actor-safe",
+      "route to Route C high-fidelity interface preparation if current-sim trace capture remains static infrastructure",
+      "stop the branch if no evidence-changing actor-safe continuation exists"
+    ],
+    "stop_condition": [
+      "stop if a raw deployable trace row contract cannot preserve actor 72/action 3",
+      "stop if trace capture would require hidden or oracle actor-visible inputs",
+      "stop if candidate or guard coverage would drop success identity stale collision or speed-floor guards",
+      "stop if the next action would still produce metadata-only rows rather than raw deployable traces",
+      "stop if the design would claim residual fitting readiness performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M2975 synthesis selects deployable trace-capture design after rejecting direct residual fitting from metadata-only rows"
+  }
+}

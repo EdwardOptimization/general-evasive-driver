@@ -53106,3 +53106,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit_20260607T003928Z/command.log`
 - success artifact: `docs/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.md`
 - notes: Completed: audit accepts M2973 trace-panel preflight as complete and claim-safe with status_pass true gate_matrix_pass true 43 training trace panel rows 24 trace guard rows 67 trace availability rows 56 metadata-present rows 0 raw-trace-persisted rows and trace_panel_ready_for_residual_fitting false; rejects residual fitting readiness training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2975 branch synthesis.
+
+## 20260607T004351Z m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate the M2969-M2974 nonzero residual training-admission and trace-readiness evidence, preserve the missing raw-trace blocker, and choose trace capture, pivot, or stop before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis_20260607T004351Z`
+- command log: `runs/research/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis_20260607T004351Z/command.log`
+- success artifact: `docs/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.md`
+- notes: Completed: synthesis decision continue_to_m2976_deployable_trace_capture_design after M2969-M2974 trace-readiness branch; preserves M2973/M2974 status_pass true gate_matrix_pass true 43 training trace panel rows 24 trace guard rows 67 trace availability rows 56 metadata-present rows 0 raw-trace-persisted rows trace_panel_ready_for_residual_fitting false 13 success identity guards and 11 stale guardrails; rejects direct residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
