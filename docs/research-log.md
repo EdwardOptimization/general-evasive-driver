@@ -53214,3 +53214,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2983-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-preflight_20260607T014757Z/command.log`
 - success artifact: `runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight/summary.json`
 - notes: Completed: materialized target tensor artifacts with status_pass true gate_matrix_pass true 43 candidate target tensor rows 56 tensor files 13 success identity zero-target guards 11 stale guardrail exclusions offtrack 35 collision 7 speed-floor 1 actor 72/action 3 target_action_delta_abs_max 0.08 target labels and provenance actor-invisible target_quality_validated false no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2984 result audit.
+
+## 20260607T015329Z m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2983 target tensor materialization preflight before any residual fitting training validation ranking promotion or performance claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit_20260607T015329Z`
+- command log: `runs/research/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit_20260607T015329Z/command.log`
+- success artifact: `docs/m2984-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-target-tensor-materialization-result-audit.md`
+- notes: Completed: audit accepts M2983 target tensor materialization as complete and claim-safe with status_pass true gate_matrix_pass true 43 candidate target tensor rows 56 tensor files 13 success identity zero-target guards 11 stale guardrail exclusions actor 72/action 3 bounded finite tensors target_action_delta_abs_max 0.08 target labels and provenance actor-invisible target_quality_validated false no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2985 fitting-admission design.
