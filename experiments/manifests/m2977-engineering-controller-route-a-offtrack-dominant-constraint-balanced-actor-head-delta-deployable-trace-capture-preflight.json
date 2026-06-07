@@ -36,6 +36,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.json",
   "forbidden_shortcuts": [
     "do not fit train select or execute a nonzero residual head",
     "do not mutate save rank select or promote checkpoints",
@@ -104,7 +105,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight",
+  "next_blocker": "m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -168,7 +169,7 @@
     "negative_result_policy": "If raw trace capture fails preserve the blocker and route to audit repair synthesis or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2973-M2976 Route A actor-head delta trace-readiness design chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/summary.json exists",
     "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/raw_trace_index_rows.csv exists",

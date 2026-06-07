@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2982,
+    "completed": 2983,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design_20260607T004849Z/command.log",
+    "command_log": "runs/research/m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight_20260607T010029Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design_20260607T004849Z",
+    "run_dir": "runs/research/m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight_20260607T010029Z",
     "status": "completed",
-    "task_id": "m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design"
+    "task_id": "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight --m2973-dir runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight --m2975-synthesis docs/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.md --m2976-design docs/m2976-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-design.md --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --output-dir runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight --follow-up-manifest experiments/manifests/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.json",
-    "hypothesis": "A bounded deployable trace-capture preflight can rerun the accepted M2973/M2974 candidate and success-identity guard surface under the read-only zero-residual actor-head delta wrapper and persist raw actor-view observation/action/response traces before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2977-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: implement bounded raw deployable actor-view trace capture for 43 future training candidates and 13 success identity guards while preserving 11 stale guardrails as non-executed protected rows and no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "priority": 29720,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2977 deployable trace-capture preflight before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2977 raw deployable trace-capture artifacts for completeness claim safety actor 72/action 3 guardrails raw trace files and residual-fitting design readiness before any residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+    "priority": 29730,
     "status": "pending",
-    "success_artifact": "runs/m2977_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_deployable_trace_capture_preflight/summary.json"
+    "success_artifact": "docs/m2978-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-deployable-trace-capture-result-audit.md"
   },
-  "updated_at_utc": "20260607T004849Z"
+  "updated_at_utc": "20260607T010229Z"
 }
