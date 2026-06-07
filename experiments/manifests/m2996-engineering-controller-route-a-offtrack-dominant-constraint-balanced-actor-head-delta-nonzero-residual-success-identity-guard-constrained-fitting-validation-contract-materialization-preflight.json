@@ -100,9 +100,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight",
+  "next_blocker": "m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2996 must consume M2995 design M2994 audit and M2993 guard-constrained fitting artifacts",
     "M2996 must materialize read-only residual-head wrapper parent comparison success-retention stale-exclusion actor side-effect claim and gate rows",
@@ -175,7 +175,7 @@
     "negative_result_policy": "If validation contracts are unsafe preserve the blocker rather than weakening self-ID proof gates.",
     "temporal_evidence_window": "M2983-M2995 Route A actor-head delta target tensor fitting-contract constrained fitting audit and validation-admission chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/summary.json exists",
     "docs/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight.md exists",
