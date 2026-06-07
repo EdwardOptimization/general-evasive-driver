@@ -1,0 +1,181 @@
+{
+  "baseline_artifacts": [
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3019 audits M3018 artifacts and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3019 hides M3018 missing artifacts or gate failures",
+    "M3019 treats M3018 localization as validation readiness or performance verdict",
+    "M3019 changes actor input or action contract",
+    "M3019 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate train rank promote select a winner mutate checkpoints or tune profiles",
+    "do not choose a repair target before auditing denominator and claim safety",
+    "do not change actor input or action contract",
+    "do not convert M3018 localization rows into performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3018 failure-localization materialization before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3018 localization artifacts require M3019 result audit before route interpretation",
+      "M3015 diagnostics are strongly negative and cannot be used for validation or performance claims"
+    ],
+    "derived_from": [
+      "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+      "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+      "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json",
+      "experiments/manifests/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/gate_matrix.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/run_state.json",
+      "docs/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+      "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit M3018 denominator-preserving failure-localization artifacts before any repair or continuation decision"
+    ],
+    "supersedes": [
+      "direct repair target selection from M3018 localization rows without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly materialized M3018 failure-localization artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3019 cannot accept M3018 as complete and claim-safe",
+      "M3019 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID",
+      "M3019 cannot choose exactly one bounded next route or stop state"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may inform Route A engineering continuation only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3019 must audit M3018 summary gate matrix row counts and claim boundaries",
+    "M3019 must preserve the 32-row M3015 denominator and 16 task_source ids",
+    "M3019 must not claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3019 must select exactly one next route or stop/synthesis state after audit"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3018 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3019 audits Route A engineering localization and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3019; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve negative diagnostics and audit localization before any engineering continuation.",
+    "temporal_evidence_window": "M3015 Route A new-source diagnostic execution only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md exists",
+    "M3019 audits M3018 artifacts row counts gates actor and claim boundaries",
+    "M3019 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3018 summary and gate matrix",
+      "M3018 failure localization profile/source aggregate claim and run-state artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+      "docs/reviews/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+      "M3019 status queue scoreboard and review",
+      "one follow-up manifest only if M3019 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation profile tuning or promotion",
+      "no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor input"
+    ],
+    "next_stage_criteria": [
+      "M3019 audit accepts or rejects M3018 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3018 failure-localization materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Result audit only; no validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_failure_localization_materialization_result_audit",
+    "evidence_increment": "audits denominator-preserving M3018 failure-localization artifacts",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch synthesis if localization is complete but next route remains ambiguous",
+      "route to a bounded design only after M3019 accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M3018 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if M3018 dropped any M3015 diagnostic row",
+      "stop if localization is insufficient to justify a bounded next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3018 completes failure-localization materialization"
+  }
+}
