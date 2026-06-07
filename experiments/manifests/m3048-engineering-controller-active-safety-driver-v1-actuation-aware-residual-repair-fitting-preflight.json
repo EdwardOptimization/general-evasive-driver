@@ -1,0 +1,221 @@
+{
+  "id": "m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight",
+  "priority": 30430,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded offline fitting preflight can consume the M3047 actuation-aware repair design and fit exactly one action-headroom-constrained 72-to-3 residual/reflex candidate before any rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+      "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv",
+      "runs/m3043_engineering_controller_active_safety_driver_v1_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.json",
+      "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "fit one action-headroom-constrained residual/reflex repair candidate under actor 72/action 3"
+    ],
+    "derived_from": [
+      "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design",
+      "m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit",
+      "m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3047 freezes actuation-aware repair design but no repaired candidate exists",
+      "M3043/M3045 show candidate action saturation and offtrack pressure that M3048 must address offline before another measurement route"
+    ],
+    "supersedes": [
+      "direct closed-loop rerun with the M3041 residual candidate"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md",
+  "public_gates": [
+    "M3048 must preserve actor observation shape 72 and final action shape 3",
+    "M3048 must fit exactly one action-headroom-constrained residual/reflex candidate",
+    "M3048 must materialize offtrack action-saturation collision success-preservation speed-floor and claim-boundary guard rows",
+    "M3048 must not run reset step rollout replay PPO training validation ranking promotion or checkpoint mutation",
+    "M3048 must not expose hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3048 must register exactly one M3049 result-audit manifest"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert offline fitting loss into driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles or actor contract",
+    "do not fit residuals without action-headroom and action-saturation guards"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "evidence_axis": "active_safety_driver_v1_actuation_aware_residual_repair_fitting",
+    "evidence_increment": "fits one action-headroom-constrained residual candidate after M3045/M3047 failure decomposition and design",
+    "claim_scope": "Offline repair fitting artifact only; no rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if actor 72/action 3 cannot be preserved",
+      "stop if action-headroom constraint cannot be enforced",
+      "stop if success-preservation or collision guard rows fail",
+      "stop if fitting loss is treated as repair success"
+    ],
+    "fallback_plan": [
+      "route to fitting artifact repair if guards fail",
+      "route to M3049 result audit if one bounded candidate is produced",
+      "route to branch stop if no action-aware fit can preserve claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3047 freezes actuation-aware repair route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Fit one bounded action-headroom-aware residual/reflex candidate without rollout or validation",
+    "admission_evidence": [
+      "M3047 freezes actuation-aware repair design",
+      "M3045 materializes p0 offtrack p0 action-saturation p1 collision p1 success-preservation p2 speed-floor and claim-boundary requirements",
+      "M3041 and M3032 provide prior residual candidate and trainer-side target tensor context"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay PPO training validation ranking promotion driver-performance verdict current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no parent checkpoint config profile actor contract or residual artifact mutation"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight.py",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/repair_config_snapshot.json",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_dataset_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_loss_trace_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/action_saturation_guard_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/success_preservation_guard_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/claim_boundary_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/gate_matrix.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "docs/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md",
+      "experiments/manifests/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.json",
+      "docs/reviews/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md",
+      "experiments/reviews/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.json",
+      "M3048 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "one bounded action-aware candidate artifact exists or fails closed",
+      "action-saturation and success-preservation guards pass",
+      "M3049 result audit manifest is registered before any rollout or validation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3048 fits an engineering residual candidate and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3048; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "temporal_evidence_window": "M3047 repair design plus M3045/M3043 measurement-derived repair requirements only.",
+    "negative_result_policy": "If action-aware fitting fails preserve failure evidence and route to M3049 audit rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "bounded offline repair fitting artifact completeness",
+      "no validation driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "repair_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from design to one concrete action-aware repair candidate artifact",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3048 advances deployable active-safety candidate construction",
+    "must_synthesize_if": [
+      "M3048 cannot produce one bounded candidate",
+      "M3048 action-saturation or success-preservation guards fail",
+      "M3048 would require another repair-only loop before closed-loop measurement"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json exists",
+    "candidate_residual_reflex_layer action_saturation_guard success_preservation_guard claim_boundary gate and doc artifacts exist",
+    "M3048 preserves actor observation shape 72 final action shape 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3048 registers exactly one M3049 result-audit manifest",
+    "M3048 makes no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M3048 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3048 mutates or promotes parent checkpoints configs profiles actor inputs actor outputs or prior residual artifacts",
+    "M3048 runs rollout validation ranking promotion PPO training or high-fidelity comparison",
+    "M3048 claims offline fitting loss as repair success or driver performance"
+  ],
+  "decision_rule": "Pass only if M3048 writes or fail-closed records one bounded action-aware repair candidate and preserves actor-contract action-saturation success-preservation side-effect and claim-boundary guards.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight --m3047-design docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md --m3046-audit docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md --m3045-dir runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight --m3043-dir runs/m3043_engineering_controller_active_safety_driver_v1_closed_loop_measurement_preflight --m3041-dir runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight --m3032-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --output-dir runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight --follow-up-manifest experiments/manifests/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "type": "binary"
+    },
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/action_saturation_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/success_preservation_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv",
+    "runs/m3043_engineering_controller_active_safety_driver_v1_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+    "runs/m3041_engineering_controller_active_safety_driver_v1_bounded_residual_fitting_preflight/candidate_residual_reflex_layer.npz",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
+  "next_blocker": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
+  "status": "pending"
+}

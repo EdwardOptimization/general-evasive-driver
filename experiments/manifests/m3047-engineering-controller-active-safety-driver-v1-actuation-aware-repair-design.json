@@ -156,12 +156,6 @@
       "command": "true"
     }
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
-      "type": "markdown"
-    }
-  ],
   "baseline_checkpoints": [
     "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
     "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
@@ -173,6 +167,18 @@
     "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv"
   ],
   "scoreboard_checkpoint": "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
-  "next_blocker": "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design",
-  "status": "pending"
+  "next_blocker": "m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight",
+  "status": "completed",
+  "required_artifacts": [
+    {
+      "path": "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.json",
+      "type": "json"
+    }
+  ],
+  "follow_up_manifest": "experiments/manifests/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.json",
+  "completion_summary": "Completed: froze actuation-aware repair design with p0 offtrack recovery p0 candidate action-saturation p1 T5 collision p1 success-preservation p2 speed-floor and p0 claim-boundary gates; selected exactly one M3048 actuation-aware residual repair fitting preflight; no fitting training rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims."
 }

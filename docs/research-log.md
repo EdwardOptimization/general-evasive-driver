@@ -53972,3 +53972,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit_20260607T122309Z/command.log`
 - success artifact: `docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md`
 - notes: Completed: audit accepts M3045 failure-decomposition materialization as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 measurement rows 17 failure_mode rows 9 actuation_saturation rows 6 repair_requirement rows candidate action_clip_fraction_mean 0.41243192505631066 parent action_clip_fraction_mean 0.0 actor 72/action 3 no reset step rollout replay fitting training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; routes exactly once to M3047 actuation-aware repair design.
+
+## 20260607T122738Z m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the M3046-accepted M3045 failure decomposition into exactly one actuation-aware repair route before any fitting training rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design_20260607T122738Z`
+- command log: `runs/research/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design_20260607T122738Z/command.log`
+- success artifact: `docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md`
+- notes: Completed: froze actuation-aware repair design with p0 offtrack recovery p0 candidate action-saturation p1 T5 collision p1 success-preservation p2 speed-floor and p0 claim-boundary gates; selected exactly one M3048 actuation-aware residual repair fitting preflight; no fitting training rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.
