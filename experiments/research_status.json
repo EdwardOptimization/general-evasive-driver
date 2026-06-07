@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3076,
+    "completed": 3077,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit_20260607T161812Z/command.log",
+    "command_log": "runs/research/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight_20260607T162703Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit_20260607T161812Z",
+    "run_dir": "runs/research/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight_20260607T162703Z",
     "status": "completed",
-    "task_id": "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit"
+    "task_id": "m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight --m3070-audit docs/m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit.md --m3069-dir runs/m3069_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_failure_decomposition_materialization_preflight --m3067-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --output-dir runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json",
-    "hypothesis": "A no-new-execution direct-action multi-failure repair-contract materialization preflight can convert the M3070-accepted M3069 decomposition into one fit-ready obs72-to-action3 repair contract with offtrack collision speed-floor actuation-pressure success-preservation stability clearance actor-contract and claim-boundary gates before any fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: materialize one row-preserving multi-failure direct-action repair contract from M3070/M3069 before any fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claim; preserve obs72/action3 direct-action/base-policy-free boundary and register M3072 audit.",
-    "priority": 30660,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3071 direct-action multi-failure repair-contract artifacts before any fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim.",
+    "id": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3071 direct-action multi-failure repair-contract artifacts before any fitting training rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claim; select exactly one guarded fitting audit stop or continuation route.",
+    "priority": 30670,
     "status": "pending",
-    "success_artifact": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json"
+    "success_artifact": "docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md"
   },
-  "updated_at_utc": "20260607T161812Z"
+  "updated_at_utc": "20260607T163006Z"
 }

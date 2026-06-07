@@ -229,5 +229,6 @@
   "scoreboard_checkpoint": "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json",
   "next_blocker": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
   "follow_up_manifest": "experiments/manifests/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.json",
-  "status": "pending"
+  "status": "completed",
+  "completion_summary": "Completed: materialized row-preserving multi-failure direct-action repair contract from M3070/M3069 with status_pass true gate_matrix_pass true 32/32 episode rows 8 success 4 collision 16 offtrack 5 speed_too_low 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false; no reset step rollout replay fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3072 result audit."
 }
