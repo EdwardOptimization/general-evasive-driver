@@ -1,0 +1,101 @@
+# m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T045238Z
+- Type: infrastructure
+- Gate tier: process
+- Promotion decision: bounded_diagnostic_validation_preflight_route_to_m3001_result_audit
+- Decision reason: Completed: bounded diagnostic validation preflight wrote claim-safe artifacts with status_pass true gate_matrix_pass true 43 candidate validation execution rows 13 success-retention execution rows 0 failure rows 11 stale exclusions not executed residual abs max 0.0016821095487102866 actor 72/action 3 parent comparison report-only no ranking winner selection promotion checkpoint mutation validation-result repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3001 result audit.
+
+## Hypothesis
+
+A bounded diagnostic validation preflight can produce new closed-loop current-sim diagnostic rows for the M2996 validation-contract denominator using the M2993 read-only residual-head wrapper while preserving actor, stale-exclusion, parent-comparison, side-effect, and claim boundaries.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md, docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md, runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/summary.json, runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/validation_contract_rows.csv, runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/success_behavior_retention_guard_rows.csv, runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/stale_exclusion_guard_rows.csv, runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/candidate_residual_head_artifact.npz
+- parent_config: experiments/manifests/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.json, experiments/manifests/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.json, experiments/manifests/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight.json
+- parent_objective: produce one bounded diagnostic validation preflight from the M2999 design without ranking, promotion, or overclaiming
+- derived_from: m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design, m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis, m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight, m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight
+- blocked_by: M2999 admits only one bounded diagnostic validation preflight before result audit, M2996 stale fixed-source exclusions must remain outside validation paper and self-ID denominators, parent comparison must stay report-only with no ranking winner selection promotion or success-rate verdict, M3000 must register M3001 result audit before interpretation
+- supersedes: another ordinary process-only validation design, direct ranking or promotion from validation-contract materialization, treating current-sim diagnostic rows as paper or self-ID evidence
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json exists
+- candidate_validation_execution_rows candidate_validation_failure_rows parent_comparison_report_rows success_behavior_retention_execution_rows stale_exclusion_guard_rows actor_input_guard_rows checkpoint_side_effect_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist
+- all 43 M2996 validation-contract rows are executed or explicitly accounted by failure rows
+- all 13 M2996 success-retention rows are checked or explicitly accounted by failure rows
+- the 11 stale fixed-source rows are not executed and remain outside validation paper and self-ID denominators
+- parent comparison remains report-only with no ranking winner selection promotion or success-rate verdict
+- parent checkpoint and candidate residual-head artifact are loaded read-only and not mutated saved ranked selected or promoted
+- actor 72/action 3 no hidden oracle target provenance objective admission source route verdict paper or privileged actor inputs are preserved
+- one follow-up result-audit manifest is registered
+- M3000 makes no repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim
+
+## Failure Criteria
+
+- M3000 executes stale fixed-source rows
+- M3000 changes actor inputs or action contract or exposes target labels target provenance objective admission source route verdict paper labels hidden parameters or oracle features to the actor
+- M3000 mutates saves ranks selects or promotes parent checkpoints or residual-head artifacts
+- M3000 turns parent comparison into ranking winner selection promotion or success-rate verdict
+- M3000 hides failed rows or treats diagnostic execution as validation result repair success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+
+## Evidence Gates
+
+- M3000 must consume the fixed M2996 validation-contract and success-retention denominators
+- M3000 must not execute the 11 stale fixed-source rows
+- M3000 must preserve actor observation 72 action 3 and no privileged actor inputs
+- M3000 must keep target labels target provenance objective admission source route verdict and paper labels actor-invisible
+- M3000 must keep parent comparison report-only with no ranking winner selection promotion or checkpoint mutation
+- M3000 must write complete diagnostic execution failure guard claim gate run_state summary and doc artifacts
+- M3000 must register M3001 result audit before any interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not execute stale fixed-source rows
+- do not use private holdout
+- do not train or run PPO
+- do not mutate save replace rank select or promote parent checkpoints or residual-head artifacts
+- do not change actor input or action contract
+- do not expose target labels target provenance objective admission source route verdict paper labels hidden parameters or oracle features to actor input
+- do not turn parent comparison into ranking winner selection promotion or success-rate verdict
+- do not claim validation result repair success driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- training_instability
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3000-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-preflight
+- type: infrastructure
+- checkpoint: runs/m3000_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_diagnostic_validation_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: bounded_diagnostic_validation_preflight_route_to_m3001_result_audit
+- reason: Completed: bounded diagnostic validation preflight wrote claim-safe artifacts with status_pass true gate_matrix_pass true 43 candidate validation execution rows 13 success-retention execution rows 0 failure rows 11 stale exclusions not executed residual abs max 0.0016821095487102866 actor 72/action 3 parent comparison report-only no ranking winner selection promotion checkpoint mutation validation-result repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3001 result audit.
+
+## Next Blocker
+
+m3001-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-diagnostic-validation-result-audit
