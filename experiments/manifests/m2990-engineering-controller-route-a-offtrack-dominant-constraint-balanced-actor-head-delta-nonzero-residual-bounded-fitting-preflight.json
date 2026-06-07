@@ -108,9 +108,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight",
+  "next_blocker": "m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2990 must consume accepted M2987 fitting-contract rows and M2983 target tensors",
     "M2990 must use only 43 candidate target tensors for fitting denominator and success identity rows only as zero-residual guards",
@@ -135,6 +135,14 @@
     {
       "path": "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/success_guard_loss_rows.csv",
       "type": "csv"
+    },
+    {
+      "path": "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/stale_exclusion_audit_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/candidate_residual_head_artifact.npz",
+      "type": "npz"
     },
     {
       "path": "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/gate_matrix.csv",
@@ -164,7 +172,7 @@
     "negative_result_policy": "If bounded fitting fails preserve the blocker and route to result audit repair synthesis pivot or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2983-M2989 Route A actor-head delta target tensor fitting-contract and admission chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/summary.json exists",
     "M2990 writes fitting dataset loss trace success guard gate and documentation artifacts",

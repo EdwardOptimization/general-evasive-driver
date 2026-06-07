@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2995,
+    "completed": 2996,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T023340Z/command.log",
+    "command_log": "runs/research/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight_20260607T024434Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design_20260607T023340Z",
+    "run_dir": "runs/research/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight_20260607T024434Z",
     "status": "completed",
-    "task_id": "m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design"
+    "task_id": "m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight --m2987-dir runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight --m2988-audit docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md --m2989-design docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md --m2983-dir runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight --output-dir runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight --follow-up-manifest experiments/manifests/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.json",
-    "hypothesis": "A bounded offline residual fitting preflight can consume the accepted M2987 fitting contracts and M2983 target tensors to produce trainer-side fitting artifacts for audit without validation ranking promotion checkpoint mutation or performance claims.",
-    "id": "m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight",
-    "kind": "objective_sanity",
-    "notes": "Pending: bounded offline fitting preflight after M2989 admission must consume M2987 fitting contracts and M2983 target tensors while preserving actor 72/action 3 target_quality_validated false success identity zero guards stale exclusions checkpoint side-effect guards and no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29850,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M2990 offline fitting artifacts before any validation ranking promotion repair-success performance or self-ID claim.",
+    "id": "m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M2990 bounded fitting artifacts including dataset loss trace success guard stale exclusion candidate artifact and gate rows while preserving target_quality_validated false actor 72/action 3 no validation ranking promotion checkpoint mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29860,
     "status": "pending",
-    "success_artifact": "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/summary.json"
+    "success_artifact": "docs/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.md"
   },
-  "updated_at_utc": "20260607T023423Z"
+  "updated_at_utc": "20260607T024639Z"
 }
