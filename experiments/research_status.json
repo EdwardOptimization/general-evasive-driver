@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3035,
+    "completed": 3037,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight_20260607T092223Z/command.log",
+    "command_log": "runs/research/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis_20260607T094048Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight_20260607T092223Z",
+    "run_dir": "runs/research/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis_20260607T094048Z",
     "status": "completed",
-    "task_id": "m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight"
+    "task_id": "m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3029 target-source feasibility materialization artifacts before any numeric target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "id": "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3029 target-source feasibility artifacts before target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID interpretation.",
-    "priority": 30250,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --m3029-dir runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight --m3030-audit docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md --m3031-synthesis docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md --m3027-dir runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight --output-dir runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight --follow-up-manifest experiments/manifests/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
+    "hypothesis": "A bounded target tensor materialization preflight can convert M3030-accepted and M3031-synthesized M3029 target-source feasibility rows into trainer-side numeric target tensors masks weights and provenance artifacts before any residual fitting training validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+    "id": "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize trainer-side target tensor artifacts from M3030-accepted and M3031-synthesized M3029 feasibility rows without fitting training validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 30270,
     "status": "pending",
-    "success_artifact": "docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md"
+    "success_artifact": "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T092351Z"
+  "updated_at_utc": "20260607T094048Z"
 }

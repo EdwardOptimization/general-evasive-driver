@@ -1,0 +1,210 @@
+{
+  "baseline_artifacts": [
+    "docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md",
+    "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+    "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+    "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+    "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json",
+    "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/target_source_plan_rows.csv",
+    "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/target_source_candidate_rows.csv",
+    "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/success_identity_guard_rows.csv",
+    "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/gate_matrix.csv",
+    "docs/post-m2470-route-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "target_source_to_target_tensor_branch_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3031 synthesizes the M3005-M3030 source-axis branch and selects one next route or stop state while preserving actor checkpoint guardrail and claim boundaries without execution or overclaiming.",
+  "failure_criteria": [
+    "M3031 executes reset rollout replay validation training ranking promotion checkpoint mutation or dependency work",
+    "M3031 changes actor inputs or action contract or exposes hidden oracle future-target labels",
+    "M3031 ranks controller families source families profiles task families checkpoints or candidate rows selects a winner promotes a checkpoint or claims driver performance",
+    "M3031 treats materialized target-source feasibility rows as validation readiness repair success or paper evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "follow_up_manifest": "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json",
+  "forbidden_shortcuts": [
+    "do not execute reset step rollout replay validation training PPO or private holdout",
+    "do not load modify save rank or promote checkpoints",
+    "do not change actor inputs or deployed action contract",
+    "do not expose hidden dynamics oracle labels future targets source labels route labels outcome labels objective labels readiness labels feasibility labels progress labels or verdict labels to actor input",
+    "do not rank source milestones task families profiles checkpoints or candidate rows",
+    "do not select a winner promote a checkpoint or compute a success-rate verdict",
+    "do not claim target tensor quality fitting readiness repair success validation readiness validation result high-fidelity validation paper finite-window-vs-GRU current-sim full ideal driver or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded branch synthesis can integrate the M3005-M3030 source-axis expansion new-source broad-failure target-source evidence and decide whether Route A should proceed to target tensor materialization pivot stop or open a new evidence branch before any fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "id": "m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "workflow cadence requires synthesis after 11 non-synthesis milestones in the engineering_controller_route_a_post_residual_stop_source_axis_expansion branch",
+      "M3030 accepts target-source feasibility but rejects target tensor materialization and fitting readiness",
+      "direct M3031 target tensor materialization would extend the branch without the required synthesis"
+    ],
+    "derived_from": [
+      "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit",
+      "m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight",
+      "m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight",
+      "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis",
+      "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+      "m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit"
+    ],
+    "invalidates": [
+      "direct target tensor materialization immediately after M3030 without branch synthesis"
+    ],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.json",
+      "experiments/manifests/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight.json",
+      "experiments/manifests/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md",
+      "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+      "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+      "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json",
+      "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/target_source_plan_rows.csv",
+      "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/target_source_candidate_rows.csv",
+      "runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/success_identity_guard_rows.csv"
+    ],
+    "parent_objective": [
+      "synthesize the source-axis expansion branch after validator-enforced non-synthesis cadence fires"
+    ],
+    "supersedes": [
+      "direct target tensor materialization preflight after M3030 without synthesis"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "synthesizes accepted new-source broad-failure target-source feasibility evidence before deciding whether target tensor materialization is justified",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3031 cannot identify a materially different next route",
+      "M3031 would claim target quality fitting readiness validation driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID",
+      "M3031 would rank controllers source families profiles task families checkpoints or candidate rows"
+    ],
+    "paper_verdict_delta": "no paper verdict; may justify a later Route A target tensor materialization preflight only after synthesis",
+    "process_overhead": "high",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3031 must summarize M3005-M3030 source-axis expansion new-source execution localization objective target-source and trace evidence",
+    "M3031 must decide continue pivot stop or promote_to_next_branch",
+    "M3031 must state supported claims falsified claims and rejected overclaims",
+    "M3031 must address public-gate overfit risk and whether target tensor materialization changes the evidence state",
+    "M3031 must preserve actor 72/action 3 no hidden oracle future-target source route outcome objective readiness feasibility progress verdict or TTC actor input",
+    "M3031 must not execute reset step rollout replay validation training PPO dependency work checkpoint mutation ranking winner selection promotion or success-rate verdict computation",
+    "M3031 must not claim target quality fitting readiness repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+  "scoreboard_checkpoint": "docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "source-axis expansion target-source-to-target-tensor branch synthesis completeness",
+      "actor and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3031 synthesizes Route A target-source feasibility evidence and cannot infer history necessity or current-frame substitution.",
+    "history_necessity_tests": [
+      "None in M3031; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve broad-failure and target-source evidence without weakening self-ID proof gates.",
+    "temporal_evidence_window": "M3005-M3030 Route A source-axis expansion and new-source broad-failure target-source feasibility chain."
+  },
+  "status": "completed",
+  "success_criteria": [
+    "docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md exists",
+    "M3031 answers all synthesis_questions",
+    "M3031 selects continue pivot stop or promote_to_next_branch",
+    "M3031 preserves 29 target-source candidates and 3 success identity guard rows as admission evidence only",
+    "M3031 preserves actor 72/action 3 and no privileged actor input",
+    "M3031 makes no target tensor fitting training ranking validation performance paper current-sim high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3030 accepts M3029 as complete and claim-safe target-source feasibility materialization",
+      "M3029 materializes 29 target-source candidates and 3 success identity guards",
+      "workflow cadence requires synthesis before another non-synthesis continuation"
+    ],
+    "allowed_updates": [
+      "docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+      "docs/reviews/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+      "M3031 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3031 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no reset rollout validation ranking promotion performance verdict repair-success target-quality or fitting-readiness claim",
+      "no training replay PPO or promoted fitted weights",
+      "no hidden oracle future-target source route outcome objective readiness feasibility progress or verdict actor inputs",
+      "no M3029 materialized rows as validation readiness repair success or paper evidence"
+    ],
+    "next_stage_criteria": [
+      "M3031 selects continue pivot stop or promote_to_next_branch",
+      "next route or stop state is explicit",
+      "actor checkpoint guardrail and claim boundaries remain explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Synthesize source-axis expansion target-source evidence and choose a claim-safe next branch action"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Branch synthesis only; no target tensor materialization fitting training validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_broad_failure_target_source_to_target_tensor_branch_synthesis",
+    "evidence_increment": "synthesizes M3005-M3030 source-axis expansion evidence before deciding whether a target tensor materialization preflight is justified",
+    "fallback_plan": [
+      "route to target tensor materialization preflight only if synthesis shows a changed evidence question and a clean row-level target-source surface",
+      "route to artifact repair if M3029/M3030 evidence is incomplete or inconsistent",
+      "pivot to a new evidence branch if target tensor materialization would remain process-only",
+      "stop the branch if no evidence-changing next route is available"
+    ],
+    "stop_condition": [
+      "stop if accepted target-source evidence does not justify a materially different next route",
+      "stop if the next route would be another same-surface process milestone",
+      "stop if actor checkpoint or claim boundaries cannot be preserved",
+      "stop if the synthesis would claim target quality fitting readiness performance validation paper or self-ID"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "validator-enforced workflow cadence after 11 non-synthesis source-axis expansion milestones"
+  }
+}

@@ -53768,3 +53768,27 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3029-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-materialization-preflight_20260607T092223Z/command.log`
 - success artifact: `runs/m3029_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_feasibility_materialization_preflight/summary.json`
 - notes: Completed: materialized target-source feasibility artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 32 target-source plan rows 29 candidate rows 3 success identity guard rows 32 availability rows 29 target-source feasibility established rows 32 raw trace joins 32 trace files actor 72/action 3 step range 31-177 0 numeric targets 0 local-action search and no fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M3030 result audit.
+
+## 20260607T093350Z m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3029 target-source feasibility materialization artifacts before any numeric target tensor local-action search fitting training validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit_20260607T093350Z`
+- command log: `runs/research/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit_20260607T093350Z/command.log`
+- success artifact: `docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md`
+- notes: Completed: audit accepts M3029 as complete and claim-safe target-source feasibility materialization with status_pass true gate_matrix_pass true required_artifacts_present true 32 plan rows 29 candidate rows 3 success identity guard rows 32 availability rows 29 target-source feasibility rows 32 raw trace joins 32 trace files actor 72/action 3 step range 31-177 0 numeric targets 0 local-action search; rejects target tensor fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M3031 branch synthesis because workflow cadence blocks another direct non-synthesis milestone.
+
+## 20260607T094048Z m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate M3005-M3030 source-axis expansion new-source target-source evidence and decide whether to continue to target tensor materialization pivot stop or open a new evidence branch before any fitting training validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis_20260607T094048Z`
+- command log: `runs/research/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis_20260607T094048Z/command.log`
+- success artifact: `docs/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.md`
+- notes: Completed: synthesis integrates M3005-M3030 source-axis expansion evidence and continues to M3032 target tensor materialization preflight because M3029/M3030 changed the evidence surface from readiness blockers to 29 trace-backed target-source candidates plus 3 success guards; process overhead high public-gate overfit risk medium; rejects target tensor quality fitting readiness training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.

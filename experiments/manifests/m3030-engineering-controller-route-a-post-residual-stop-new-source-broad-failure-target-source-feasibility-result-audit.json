@@ -94,7 +94,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit",
+  "next_blocker": "m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -125,7 +125,7 @@
     "negative_result_policy": "Preserve feasibility failures and route to repair or synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3029 Route A target-source feasibility materialization preflight only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit.md exists",
     "M3030 audits M3029 artifacts row counts gates actor and claim boundaries",
