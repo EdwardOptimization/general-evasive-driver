@@ -1,0 +1,175 @@
+{
+  "baseline_artifacts": [
+    "docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md",
+    "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/summary.json",
+    "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/candidate_direct_action_repair_reflex_layer.npz",
+    "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/candidate_direct_action_reflex_layer.npz"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_deployable_direct_action_safety_reflex_pivot_route_design_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3077 freezes exactly one deployable direct-action safety-reflex route or stop state with actor-contract and measurement gates explicit and no performance overclaim.",
+  "failure_criteria": [
+    "M3077 leaves multiple routes open",
+    "M3077 selects a route that cannot directly output [steer throttle brake] from obs72",
+    "M3077 routes back to the same offline fitting loop without a deployable safety-reflex boundary",
+    "M3077 makes rollout validation performance promotion paper self-ID or repair-success claims"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not continue the same offline target-fitting repair loop without a route-design decision",
+    "do not expose hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "do not claim repair success driver performance validation current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence",
+    "do not rank promote mutate checkpoints or tune the denominator after seeing M3075 rows"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded pivot route-design milestone can freeze exactly one deployable direct-action safety-reflex implementation route after M3076 rejects the offline repair loop, while preserving obs72/action3 [steer throttle brake] and prioritizing collision offtrack clearance stability recovery and robustness metrics.",
+  "id": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
+  "lineage": {
+    "blocked_by": [
+      "M3075 negative same-denominator measurement rejects continuing the same offline fitting repair loop",
+      "deployable active-safety objective still requires direct [steer throttle brake] output under actor-visible observations only"
+    ],
+    "derived_from": [
+      "m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/candidate_direct_action_repair_reflex_layer.npz",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/candidate_direct_action_reflex_layer.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.json",
+      "experiments/manifests/m3075-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/summary.json",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3075_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_closed_loop_measurement_preflight/metric_summary_rows.csv",
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json",
+      "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/metric_summary_rows.csv"
+    ],
+    "parent_objective": [
+      "design one deployable direct-action safety-reflex route after negative repaired-candidate measurement"
+    ],
+    "supersedes": [
+      "same offline multi-failure target-fitting continuation without pivot",
+      "repair-success interpretation of M3073/M3075"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "starts a new deployable safety-reflex branch from negative closed-loop evidence instead of continuing the same fitting loop",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3077 cannot select exactly one route",
+      "M3077 would continue fitting without a deployable safety-reflex route boundary",
+      "M3077 would promote self-ID/GRU/paper evidence back to the main objective"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3077 targets deployable active-safety route selection",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
+  "priority": 30720,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3077 must preserve obs72/action3 direct [steer throttle brake] actor contract",
+    "M3077 must select exactly one deployable direct-action safety-reflex implementation route",
+    "M3077 must prioritize collision offtrack clearance stability recovery and robustness metrics over self-ID/GRU/paper evidence",
+    "M3077 must define the next implementation and same-denominator measurement admission gates before any performance claim",
+    "M3077 must not run rollout fitting validation ranking promotion or high-fidelity comparison"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+  "scoreboard_checkpoint": "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "route-design completeness and claim-boundary preservation",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3077 designs an engineering safety reflex route and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3077; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Negative M3075 evidence drives the engineering route pivot rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3067/M3075 same-denominator engineering measurements only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md exists",
+    "M3077 selects exactly one deployable direct-action safety-reflex implementation route or stop state",
+    "M3077 preserves obs72/action3 [steer throttle brake] and forbids hidden/oracle/TTC/target/provenance actor inputs",
+    "M3077 defines next implementation and same-denominator measurement admission gates",
+    "M3077 rejects validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3076 pivot audit",
+      "M3075 repaired-candidate closed-loop measurement rows",
+      "M3067 parent direct-action closed-loop measurement rows"
+    ],
+    "allowed_updates": [
+      "docs/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+      "docs/reviews/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.md",
+      "experiments/reviews/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.json",
+      "one M3078 implementation or stop manifest if exactly one route is selected",
+      "M3077 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no rollout fitting validation ranking promotion or driver-performance claim",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no self-ID/GRU/paper route as the main objective"
+    ],
+    "next_stage_criteria": [
+      "exactly one implementation route or stop state is selected",
+      "route-specific actor contract and measurement admission gates are explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Freeze one deployable direct-action safety-reflex route after M3076 pivot"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Route design only; no rollout fitting validation ranking promotion performance high-fidelity paper full-driver repair-success or self-ID claim",
+    "evidence_axis": "deployable_direct_action_safety_reflex_route_design",
+    "evidence_increment": "starts a new deployable safety-reflex branch after M3076 pivots away from offline repair fitting",
+    "fallback_plan": [
+      "select a simpler deterministic safety reflex if learned residual/direct fitting is not admissible",
+      "select a bounded implementation preflight if a route preserves actor contract and measurement admission gates",
+      "stop if no route can satisfy deployable direct-action and actor-visible constraints"
+    ],
+    "stop_condition": [
+      "stop if the selected route cannot directly output [steer throttle brake] from obs72",
+      "stop if the route needs hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+      "stop if the route lacks a same-denominator closed-loop measurement admission plan"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3076 pivots away from the offline repair branch after negative same-denominator measurement"
+  }
+}

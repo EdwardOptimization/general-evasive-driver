@@ -15,7 +15,9 @@
       "name": "active_safety_driver_v1_direct_action_closed_loop_measurement_result_audit_doc"
     }
   ],
-  "decision_rule": "Pass only if M3076 audits M3075 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "completion_summary": "Completed: audit accepts M3075 repaired direct-action closed-loop measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 6 success 4 collision 19 offtrack 4 speed_too_low success_rate 0.1875 clearance_margin_mean 8.74188928150522 raw_action_abs_max 2.823486328125 action_clip_fraction_mean 0.03910273341603136 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; same-denominator comparison to M3067 is negative on success and offtrack, so M3076 rejects repair-success driver-performance validation ranking promotion current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; synthesis decision pivot routes exactly one follow-up to M3077 deployable direct-action safety-reflex route design.",
+  "decision": "pivot_to_m3077_deployable_direct_action_safety_reflex_route_design",
+  "decision_rule": "Pass only if M3076 audits M3075 artifacts, rejects overclaims from the negative measurement, and pivots to exactly one new deployable direct-action safety-reflex route without changing actor contracts.",
   "failure_criteria": [
     "M3076 hides M3075 failures or missing artifacts",
     "M3076 treats M3075 measurements as validation or performance verdict",
@@ -32,6 +34,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.json",
   "forbidden_shortcuts": [
     "do not rerun rollout validate rank promote tune or mutate checkpoints",
     "do not convert M3075 rows into performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims",
@@ -39,7 +42,7 @@
     "do not reinterpret the M3073 repaired candidate as residual or base-policy-assisted"
   ],
   "gate_tier": "process",
-  "hypothesis": "A bounded result-audit synthesis can accept or reject the M3075 repaired direct-action Active Safety Driver v1 closed-loop measurement artifacts and decide the next active-safety engineering branch route before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "hypothesis": "A bounded result-audit synthesis can accept M3075 as complete measurement evidence, reject the current offline repair loop as a repair-success route, and pivot to a deployable direct-action safety-reflex route before any validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim.",
   "id": "m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit",
   "lineage": {
     "blocked_by": [
@@ -91,7 +94,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit",
+  "next_blocker": "m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design",
   "priority": 30710,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -123,13 +126,13 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair or synthesis rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3075 closed-loop measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md exists",
     "M3076 audits M3075 row counts gates actor direct-action side-effect and claim boundaries",
-    "M3076 answers all synthesis_questions",
-    "M3076 selects exactly one next route or stop state",
-    "no validation ranking promotion driver-performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+    "M3076 compares M3075 to the same-denominator M3067 parent measurement",
+    "M3076 rejects repair-success validation ranking promotion performance high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims",
+    "M3076 pivots to exactly one next route: M3077 deployable direct-action safety-reflex route design"
   ],
   "training_stage": {
     "admission_evidence": [
@@ -141,7 +144,8 @@
       "docs/reviews/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md",
       "experiments/reviews/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.json",
       "M3076 status queue scoreboard research log and review",
-      "one follow-up manifest only if M3076 selects exactly one next route"
+      "one follow-up manifest only if M3076 selects exactly one next route",
+      "experiments/manifests/m3077-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-pivot-route-design.json"
     ],
     "blocked_shortcuts": [
       "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
@@ -149,8 +153,9 @@
       "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
     ],
     "next_stage_criteria": [
-      "M3076 audit accepts or rejects M3075 as complete and claim-safe",
-      "next route or stop state is explicit"
+      "M3075 measurement is accepted as complete and claim-safe",
+      "current offline repair branch is closed with pivot decision",
+      "M3077 deployable direct-action safety-reflex route design is registered as the only next route"
     ],
     "stage": "process",
     "stage_objective": "Audit and synthesize M3075 direct-action closed-loop measurement preflight artifacts"
@@ -160,21 +165,20 @@
     "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
     "claim_scope": "Result-audit synthesis only; no validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",
     "evidence_axis": "active_safety_driver_v1_offtrack_behavior_direct_action_closed_loop_measurement_result_audit",
-    "evidence_increment": "audits and synthesizes same-denominator closed-loop measurement rows for the M3073 repaired direct-action candidate",
+    "evidence_increment": "audits M3075 same-denominator negative measurement rows and closes the current offline multi-failure repair branch",
     "fallback_plan": [
-      "route to measurement harness repair if artifacts are incomplete",
-      "route to candidate repair if direct-action adapter violates guards",
-      "route to next measured continuation only after claim-safe audit",
-      "route to synthesis if evidence is negative or ambiguous"
+      "pivot to M3077 deployable direct-action safety-reflex route design after negative same-denominator evidence",
+      "route to measurement-harness repair only if M3075 artifacts are incomplete, which they are not",
+      "stop same offline fitting continuation unless M3077 explicitly re-admits a bounded implementation path"
     ],
     "stop_condition": [
-      "stop if M3075 artifacts are missing or gate matrix fails",
-      "stop if actor or direct-action adapter contracts were violated",
-      "stop if M3075 rows are treated as validation or performance verdicts"
+      "stop the current offline repair loop because M3075 success/offtrack behavior regresses relative to M3067",
+      "stop if M3075 rows are treated as repair success validation or performance verdict",
+      "stop if the next route would continue fitting without a deployable safety-reflex route design"
     ],
     "synthesis_artifact": "docs/m3076-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-closed-loop-measurement-result-audit.md",
     "synthesis_cadence": 10,
-    "synthesis_decision": "continue",
+    "synthesis_decision": "pivot",
     "synthesis_questions": [
       "evidence_summary",
       "supported_claims",
