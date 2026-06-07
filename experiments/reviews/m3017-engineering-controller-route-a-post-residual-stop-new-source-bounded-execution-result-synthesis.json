@@ -1,0 +1,93 @@
+{
+  "decision_reason": "Completed: synthesis accepts M3015/M3016 as complete claim-safe diagnostic data only with 16 source specs 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; classifies the new-source diagnostics as strongly negative with 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; continues exactly once to M3018 no-execution failure-localization materialization preflight.",
+  "failure_criteria": [
+    "M3017 hides negative M3015 diagnostic outcomes",
+    "M3017 treats M3015 diagnostics as validation or performance evidence",
+    "M3017 changes actor input or action contract",
+    "M3017 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate rank promote select a winner mutate checkpoints or tune profiles",
+    "do not claim M3015 success collision offtrack or speed counts as performance validation paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "do not weaken actor 72/action 3 or hidden/oracle/TTC input guards",
+    "do not continue with another narrow local milestone without a synthesis decision"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T071814Z",
+  "hypothesis": "A bounded result synthesis can integrate the M3015/M3016 new-source diagnostic execution evidence and choose stop pivot repair or exactly one evidence-producing continuation before any validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3015 diagnostic outcomes are strongly negative and cannot be interpreted as validation or performance evidence",
+      "M3017 must choose exactly one stop pivot repair or continuation route before more local milestones"
+    ],
+    "derived_from": [
+      "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/failure_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/profile_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/source_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/gate_matrix.csv",
+      "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md"
+    ],
+    "parent_objective": [
+      "synthesize M3015/M3016 claim-safe new-source diagnostic evidence before selecting the next branch route"
+    ],
+    "supersedes": [
+      "direct continuation from M3015 diagnostics without synthesis"
+    ]
+  },
+  "milestone": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+  "next_blocker": "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_m3018_new_source_failure_localization_materialization_preflight",
+  "public_gates": [
+    "M3017 must summarize M3015/M3016 completeness actor and claim safety",
+    "M3017 must classify the diagnostic outcome distribution without claiming performance validation paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3017 must choose exactly one next route or stop state",
+    "M3017 must not rerun execute train rank promote mutate checkpoints or tune profiles"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_m3018_new_source_failure_localization_materialization_preflight",
+    "milestone": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+    "reason": "Completed: synthesis accepts M3015/M3016 as complete claim-safe diagnostic data only with 16 source specs 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; classifies the new-source diagnostics as strongly negative with 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; continues exactly once to M3018 no-execution failure-localization materialization preflight.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md exists",
+    "M3017 answers all synthesis questions",
+    "M3017 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "type": "gate"
+}

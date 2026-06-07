@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3022,
+    "completed": 3023,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit_20260607T071220Z/command.log",
+    "command_log": "runs/research/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis_20260607T071725Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit_20260607T071220Z",
+    "run_dir": "runs/research/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis_20260607T071725Z",
     "status": "completed",
-    "task_id": "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit"
+    "task_id": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result synthesis can integrate the M3015/M3016 new-source diagnostic execution evidence and choose stop pivot repair or exactly one evidence-producing continuation before any validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M3015/M3016 new-source diagnostic evidence and choose exactly one next route or stop state before any protected claim.",
-    "priority": 30120,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3016-audit docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md --m3017-synthesis docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md --output-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --follow-up-manifest experiments/manifests/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.json",
+    "hypothesis": "A no-execution failure-localization materialization preflight can convert the M3017 synthesis and M3015 diagnostic episode rows into denominator-preserving profile source task-family termination claim and gate artifacts before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: implement and run no-execution failure-localization materialization over the fixed M3015 32-row diagnostic denominator before any repair or protected claim.",
+    "priority": 30130,
     "status": "pending",
-    "success_artifact": "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md"
+    "success_artifact": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T071307Z"
+  "updated_at_utc": "20260607T071807Z"
 }

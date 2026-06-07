@@ -175,6 +175,34 @@
     "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md"
   ],
   "scoreboard_checkpoint": "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
-  "next_blocker": "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
-  "status": "pending"
+  "next_blocker": "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+  "status": "completed",
+  "follow_up_manifest": "experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json",
+  "completion_summary": "Completed: synthesis accepts M3015/M3016 as complete claim-safe diagnostic data only with 16 source specs 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; classifies the new-source diagnostics as strongly negative with 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; continues exactly once to M3018 no-execution failure-localization materialization preflight.",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+    "decision": "continue_to_m3018_new_source_failure_localization_materialization_preflight",
+    "source_spec_count": 16,
+    "scheduled_workload_row_count": 32,
+    "episode_row_count": 32,
+    "failure_row_count": 0,
+    "diagnostic_success_count": 3,
+    "diagnostic_collision_count": 5,
+    "diagnostic_offtrack_count": 23,
+    "diagnostic_speed_too_low_count": 2,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "training_run": false,
+    "ranking_run": false,
+    "winner_selected": false,
+    "validation_result_claim_made": false,
+    "driver_performance_claim_made": false,
+    "paper_claim_made": false,
+    "high_fidelity_validation_claim_made": false,
+    "finite_window_vs_gru_claim_made": false,
+    "full_ideal_driver_completion_claim_made": false,
+    "level3_self_id_claim_made": false,
+    "next_manifest": "experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json"
+  }
 }

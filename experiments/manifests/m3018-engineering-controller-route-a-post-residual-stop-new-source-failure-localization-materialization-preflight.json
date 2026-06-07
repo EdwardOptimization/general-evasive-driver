@@ -1,0 +1,208 @@
+{
+  "id": "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution failure-localization materialization preflight can convert the M3017 synthesis and M3015 diagnostic episode rows into denominator-preserving profile source task-family termination claim and gate artifacts before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_workload_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/failure_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/profile_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/source_aggregate_rows.csv",
+      "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+      "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize denominator-preserving failure-localization artifacts from M3015 diagnostics before selecting any repair route"
+    ],
+    "derived_from": [
+      "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+      "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M3015 diagnostics are strongly negative and require failure localization before any repair or continuation decision"
+    ],
+    "supersedes": [
+      "direct repair or ranking from M3015 diagnostic counts without localization"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+  "public_gates": [
+    "M3018 must preserve all 32 M3015 diagnostic episode rows and 16 M3006 task_source ids",
+    "M3018 must not rerun episodes train rank promote mutate checkpoints or tune profiles",
+    "M3018 must classify failure modes without claiming validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3018 must register M3019 result audit before interpretation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset step rollout replay validate train PPO rank promote select a winner mutate checkpoints or tune profiles",
+    "do not drop successful collision offtrack speed-too-low or blank-termination rows",
+    "do not convert diagnostic counts into performance validation paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims",
+    "do not choose a repair target before M3019 audit accepts the localization artifacts"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "evidence_axis": "new_source_failure_localization_materialization",
+    "evidence_increment": "materializes profile/source/task-family/termination failure-localization rows from the M3015 32-row diagnostic denominator",
+    "claim_scope": "Failure-localization artifacts only; no validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if the 32-row denominator cannot be preserved",
+      "stop if localization requires rerunning or mutating profiles/checkpoints",
+      "stop if localization cannot distinguish shared versus profile/source-specific failure modes"
+    ],
+    "fallback_plan": [
+      "route to M3019 audit if artifacts are complete",
+      "route to artifact repair if denominator accounting fails",
+      "route to branch synthesis if localization remains ambiguous after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3017 selects failure localization before any repair route",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize failure-localization artifacts from existing M3015 diagnostic rows without execution or training",
+    "admission_evidence": [
+      "M3017 synthesis selects M3018",
+      "M3016 accepts M3015 as complete and claim-safe",
+      "M3015 provides 32 episode rows and zero failure rows"
+    ],
+    "blocked_shortcuts": [
+      "no validation-result repair-success performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation profile tuning ranking or promotion",
+      "no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor input"
+    ],
+    "allowed_updates": [
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/*.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/*.json",
+      "docs/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+      "experiments/manifests/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.json",
+      "docs/reviews/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+      "experiments/reviews/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json",
+      "M3018 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3018 writes denominator-preserving localization artifacts",
+      "M3019 result audit manifest is registered",
+      "no protected claim is made"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3018 classifies engineering diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3018; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M3015 Route A new-source diagnostic execution only.",
+    "negative_result_policy": "Preserve negative diagnostics and localize failure families rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "M3018 localization artifact completeness only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns M3015 raw diagnostics into explicit failure-localization evidence without new execution",
+    "paper_verdict_delta": "no paper verdict; may identify whether a bounded engineering repair/localization route is justified",
+    "must_synthesize_if": [
+      "M3018 cannot preserve denominator accounting",
+      "M3018 would claim validation performance or self-ID evidence",
+      "M3018 cannot identify a bounded next route after M3019 audit"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json exists",
+    "M3018 reads M3015 episode/failure/workload artifacts as governing inputs",
+    "M3018 preserves all 32 diagnostic rows and all 16 task_source ids",
+    "M3018 writes failure-localization aggregate guard claim gate summary doc and M3019 audit manifest artifacts",
+    "M3018 performs no execution training ranking promotion or protected claim"
+  ],
+  "failure_criteria": [
+    "M3018 drops rows or changes the denominator",
+    "M3018 reruns episodes or mutates checkpoints/profiles",
+    "M3018 claims validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3018 selects a repair target before M3019 audit"
+  ],
+  "decision_rule": "Pass only if M3018 materializes denominator-preserving failure-localization artifacts and M3019 audit manifest while preserving actor and claim boundaries without overclaiming.",
+  "commands": [
+    {
+      "name": "failure_localization_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3016-audit docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md --m3017-synthesis docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md --output-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --follow-up-manifest experiments/manifests/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+    "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md"
+  ],
+  "scoreboard_checkpoint": "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+  "next_blocker": "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+  "status": "pending"
+}

@@ -53612,3 +53612,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit_20260607T071220Z/command.log`
 - success artifact: `docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md`
 - notes: Completed: audit accepts M3015 as complete and claim-safe diagnostic data with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; diagnostic-only outcomes include 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation-result repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; routes to M3017 result synthesis.
+
+## 20260607T071725Z m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can integrate the M3015/M3016 new-source diagnostic execution evidence and choose stop pivot repair or exactly one evidence-producing continuation before any validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis_20260607T071725Z`
+- command log: `runs/research/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis_20260607T071725Z/command.log`
+- success artifact: `docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md`
+- notes: Completed: synthesis accepts M3015/M3016 as complete claim-safe diagnostic data only with 16 source specs 32 workload rows 32 episode rows 0 failure rows actor 72/action 3; classifies the new-source diagnostics as strongly negative with 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations and 2 speed_too_low terminations; rejects validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; continues exactly once to M3018 no-execution failure-localization materialization preflight.

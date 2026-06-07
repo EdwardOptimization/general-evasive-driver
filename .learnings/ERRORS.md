@@ -343,3 +343,32 @@ After scripted markdown ledger updates, run `git diff --check` and remove EOF-on
 - Related Files: docs/research-log.md
 
 ---
+
+## [ERR-20260607-006] autodrift_training_stage_stage_enum
+
+**Logged**: 2026-06-07T15:19:02+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift manifest validation rejects non-enum `training_stage.stage` values.
+
+### Error
+```text
+error: m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight: training_stage.stage must be one of ['action_grounding_posttrain', 'behavior_pretrain', 'capability_pretrain', 'evaluation_only', 'guarded_rl', 'infrastructure', 'process']
+```
+
+### Context
+- Command attempted: `make research-validate`
+- Invalid value used: `analysis_only`
+- Correct value for no-execution materialization infrastructure milestones: `infrastructure`
+
+### Suggested Fix
+When creating AutoDrift manifests, use only the validator enum for `training_stage.stage`; put descriptive analysis scope in `stage_objective` and `local_search_guard.actual_progress_type`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json
+
+---
