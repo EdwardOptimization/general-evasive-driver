@@ -93,7 +93,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
+  "next_blocker": "m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight",
   "priority": 30440,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -124,7 +124,7 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety closed-loop measurement if safety contract gates pass.",
     "temporal_evidence_window": "M3048 action-aware residual fitting artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md exists",
     "M3049 audits M3048 summary loss dataset action guard side-effect claim gate and candidate artifact rows",
@@ -174,5 +174,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3048 completes action-aware repair fitting"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight.json",
+  "completion_summary": "Completed: audit accepts M3048 action-aware residual fitting as complete and claim-safe with status_pass true gate_matrix_pass true 32 fitting dataset rows 3216 samples candidate artifact 72x3 residual_limit 0.08 headroom_constraint true final action bound violations 0 action-saturation guards 3/3 success-preservation guards 3/3 checkpoint side-effect guards 11/11 claim-boundary guards 12/12 actor 72/action 3; rejects offline loss as validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3050 same-denominator closed-loop measurement preflight."
 }

@@ -53996,3 +53996,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight_20260607T123931Z/command.log`
 - success artifact: `runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json`
 - notes: Completed: fitted one action-headroom-constrained Active Safety Driver v1 residual/reflex candidate with status_pass true gate_matrix_pass true 32 fitting dataset rows 3216 samples initial weighted MSE 0.0011555318603820917 final weighted MSE 0.0004514343111628829 final residual_abs_max 0.07999999821186066 final headroom_clip_fraction 0.1252072968490879 final action bound violations 0 action-saturation guards 3/3 success-preservation guards 3/3 actor 72/action 3 no reset step rollout replay PPO training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3049 result audit.
+
+## 20260607T124842Z m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3048 action-aware residual repair fitting artifact before any rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit_20260607T124842Z`
+- command log: `runs/research/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit_20260607T124842Z/command.log`
+- success artifact: `docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md`
+- notes: Completed: audit accepts M3048 action-aware residual fitting as complete and claim-safe with status_pass true gate_matrix_pass true 32 fitting dataset rows 3216 samples candidate artifact 72x3 residual_limit 0.08 headroom_constraint true final action bound violations 0 action-saturation guards 3/3 success-preservation guards 3/3 checkpoint side-effect guards 11/11 claim-boundary guards 12/12 actor 72/action 3; rejects offline loss as validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3050 same-denominator closed-loop measurement preflight.

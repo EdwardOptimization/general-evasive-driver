@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3054,
+    "completed": 3055,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight_20260607T123931Z/command.log",
+    "command_log": "runs/research/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit_20260607T124842Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight_20260607T123931Z",
+    "run_dir": "runs/research/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit_20260607T124842Z",
     "status": "completed",
-    "task_id": "m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight"
+    "task_id": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3048 action-aware residual repair fitting artifact before any rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
-    "id": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3048 summary loss dataset action-saturation success-preservation side-effect claim gate and candidate artifact rows before any closed-loop measurement validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
-    "priority": 30440,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight --m3049-audit docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md --m3048-dir runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight --m3039-dir runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --m3037-dir runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight --follow-up-manifest experiments/manifests/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.json --device cpu",
+    "hypothesis": "A bounded same-denominator closed-loop measurement preflight can execute the M3048 action-headroom-constrained Active Safety Driver v1 residual/reflex candidate under the actor 72/action 3 contract and write safety clearance stability recovery action and robustness measurement artifacts before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+    "id": "m3050-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run bounded same-denominator current-sim measurement for the M3048 action-headroom-constrained residual/reflex candidate with actor 72/action 3 residual-adapter side-effect and claim guards before validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+    "priority": 30450,
     "status": "pending",
-    "success_artifact": "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md"
+    "success_artifact": "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T124248Z"
+  "updated_at_utc": "20260607T124842Z"
 }
