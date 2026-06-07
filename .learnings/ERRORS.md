@@ -259,3 +259,87 @@ Run AutoDrift research state commands serially when they read or write queue/sta
 - Related Files: Makefile, experiments/research_status.json, src/autodrift/research_validate.py, src/autodrift/research_cycle.py
 
 ---
+
+## [ERR-20260607-003] autodrift_research_status_wrong_path
+
+**Logged**: 2026-06-07T14:49:26+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift live research status is under `experiments/research_status.json`, not the repository root.
+
+### Error
+```text
+sed: can't read research_status.json: No such file or directory
+```
+
+### Context
+- Command attempted: `sed -n '1,260p' experiments/manifests/m3015-...json && sed -n '1,220p' research_status.json`
+- The harness skill correctly points at `experiments/research_status.json`; the root-level path came from stale turn context.
+
+### Suggested Fix
+For AutoDrift research-loop checks, read `experiments/research_status.json` and `experiments/research_queue.csv` directly.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/research_status.json, experiments/research_queue.csv
+
+---
+
+## [ERR-20260607-004] autodrift_research_log_wrong_path
+
+**Logged**: 2026-06-07T14:51:20+08:00
+**Priority**: low
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift does not have `experiments/research_log.md`; current milestone tracking uses queue, status, scoreboard, reviews, docs, and manifests.
+
+### Error
+```text
+rg: experiments/research_log.md: No such file or directory (os error 2)
+```
+
+### Context
+- Command attempted to search `experiments/research_log.md` along with queue and scoreboard.
+- The stale path came from compacted context, not the live repository tree.
+
+### Suggested Fix
+Search live files first with `rg --files experiments docs`, then update only existing ledger files.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/research_queue.csv, experiments/research_status.json, experiments/scoreboard.csv
+
+---
+
+## [ERR-20260607-005] git_diff_check_trailing_blank_line
+
+**Logged**: 2026-06-07T15:07:19+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: docs
+
+### Summary
+`git diff --check` rejects a new blank line at EOF in `docs/research-log.md`.
+
+### Error
+```text
+docs/research-log.md:53603: new blank line at EOF.
+```
+
+### Context
+- Command attempted: `git diff --check`
+- The M3015 research-log note replacement left a trailing blank line at the end of the markdown file.
+
+### Suggested Fix
+After scripted markdown ledger updates, run `git diff --check` and remove EOF-only blank lines before validation.
+
+### Metadata
+- Reproducible: yes
+- Related Files: docs/research-log.md
+
+---

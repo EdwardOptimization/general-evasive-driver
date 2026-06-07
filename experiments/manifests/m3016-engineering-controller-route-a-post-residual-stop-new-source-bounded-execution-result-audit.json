@@ -1,0 +1,182 @@
+{
+  "baseline_artifacts": [
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/failure_rows.csv",
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3016 audits M3015 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3016 hides M3015 failures or missing artifacts",
+    "M3016 treats M3015 diagnostics as validation readiness or performance verdict",
+    "M3016 changes actor input or action contract",
+    "M3016 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate rank promote publish select a winner mutate checkpoints or tune profiles",
+    "do not fit train or run PPO",
+    "do not change actor input or action contract",
+    "do not convert M3015 diagnostic rows into performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3015 new-source bounded execution preflight before any validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3015 diagnostics require M3016 result audit before any verdict or continuation decision",
+      "M3015 must preserve the full 32-row denominator and actor 72/action 3 contract"
+    ],
+    "derived_from": [
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight",
+      "m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design",
+      "m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit",
+      "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json",
+      "experiments/manifests/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.json",
+      "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "experiments/manifests/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/summary.json",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_workload_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/failure_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/profile_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/source_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/claim_boundary_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_guard_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/gate_matrix.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/run_state.json",
+      "docs/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.md",
+      "docs/m3014-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-admission-design.md",
+      "docs/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.md"
+    ],
+    "parent_objective": [
+      "audit M3015 bounded diagnostic execution/failure artifacts before interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3015 diagnostic rows without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly generated Route A new-source bounded execution/failure artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3016 cannot accept M3015 as complete and claim-safe",
+      "M3016 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID",
+      "M3016 would continue static design without new data or synthesis"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may inform Route A engineering continuation only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3016 must audit M3015 summary gate matrix execution guards actor and claim boundaries",
+    "M3016 must preserve all 32 M3012 workload rows as episode or failure rows",
+    "M3016 must not claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3016 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3015 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3016 audits Route A new-source engineering diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3016; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve negative or insufficient diagnostics and route to synthesis rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M3015 Route A new-source diagnostic execution only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md exists",
+    "M3016 audits M3015 artifacts row counts gates actor and claim boundaries",
+    "M3016 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3015 summary and gate matrix",
+      "M3015 execution workload episode failure aggregate guard and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+      "docs/reviews/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md",
+      "M3016 status queue scoreboard and review",
+      "one follow-up manifest only if M3016 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation profile tuning or promotion",
+      "no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor input"
+    ],
+    "next_stage_criteria": [
+      "M3016 audit accepts or rejects M3015 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3015 bounded diagnostic execution preflight artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Result audit only; no validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_bounded_diagnostic_execution_result_audit",
+    "evidence_increment": "audits bounded diagnostic execution/failure artifacts from M3015",
+    "fallback_plan": [
+      "route to artifact repair if accounting failed",
+      "route to branch synthesis if diagnostics are complete but negative or insufficient",
+      "route to a next evidence-producing route only after M3016 accepts claim safety"
+    ],
+    "stop_condition": [
+      "stop if M3015 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if M3015 dropped any M3012 workload row"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3015 completes bounded diagnostic execution preflight"
+  }
+}
