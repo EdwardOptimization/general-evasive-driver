@@ -1,0 +1,181 @@
+{
+  "baseline_artifacts": [
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/summary.json",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/behavior_repair_route_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv",
+    "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/gate_matrix.csv",
+    "docs/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3054 audits M3053 behavior target-source and guard evidence and selects exactly one fitting-contract materialization repair synthesis or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3054 treats materialized behavior target-source rows as target tensor quality or driver performance",
+    "M3054 omits actor-contract or claim-boundary audits",
+    "M3054 runs fitting validation ranking promotion high-fidelity or architecture comparison",
+    "M3054 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3053 materialized rows into target tensor quality repair-success driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles or actor contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3053 offtrack-dominant behavior target-source materialization artifacts before any fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "id": "m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3053 materialized rows require audit before any fitting or rollout",
+      "behavior target-source rows are not target tensor quality repair-success or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight",
+      "m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/summary.json",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/behavior_repair_route_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/gate_matrix.csv",
+      "docs/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit offtrack-dominant behavior target-source materialization before fitting or rollout"
+    ],
+    "supersedes": [
+      "direct fitting or rollout from M3053 materialized rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits behavior target-source materialization before a fitting-contract or stop decision",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3054 cannot select a fitting-contract materialization repair synthesis or stop route",
+      "M3054 would require another materialization-only loop without fitting admission",
+      "M3054 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3054 prepares a claim-safe engineering continuation decision",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1
+  },
+  "next_blocker": "m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit",
+  "priority": 30490,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3054 must audit M3053 summary target-source blocker guard actor claim and gate artifacts",
+    "M3054 must reject target tensor quality fitting readiness repair-success validation ranking promotion high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims",
+    "M3054 must preserve actor observation 72 action 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3054 must choose exactly one next fitting-contract materialization repair synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3053 artifact audit completeness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3054 audits engineering materialization artifacts and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3054; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety behavior repair audit gates.",
+    "temporal_evidence_window": "M3053 behavior target-source materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md exists",
+    "M3054 audits M3053 summary target-source blocker guard actor claim and gate artifacts",
+    "M3054 rejects fitting rollout validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3054 selects exactly one next fitting-contract materialization repair synthesis or stop route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3053 summary and gate matrix",
+      "M3053 behavior route offtrack target-source candidate blocker collision success-preservation speed-floor actor and claim rows"
+    ],
+    "allowed_updates": [
+      "docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md",
+      "docs/reviews/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md",
+      "experiments/reviews/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.json",
+      "M3054 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3054 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no fitting rollout validation ranking promotion or checkpoint mutation",
+      "no hidden oracle target TTC source route outcome progress or verdict actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3053 materialized rows are accepted or rejected",
+      "one next fitting-contract materialization repair synthesis or stop route is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit offtrack-dominant behavior target-source and guard materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "claim_scope": "Result audit only; no fitting rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_offtrack_behavior_target_materialization_result_audit",
+    "evidence_increment": "audits the M3053 behavior target-source and guard panel before any fitting contract or rollout route",
+    "fallback_plan": [
+      "route to fitting-contract materialization only if M3053 is accepted",
+      "route to artifact repair if rows or guards fail",
+      "route to synthesis or stop if behavior target materialization is not admissible"
+    ],
+    "stop_condition": [
+      "stop if M3053 artifact set is incomplete",
+      "stop if actor or claim-boundary guards fail",
+      "stop if materialized rows are treated as target tensor quality or performance evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3053 completes offtrack behavior target-source materialization"
+  }
+}
