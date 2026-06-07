@@ -53648,3 +53648,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit_20260607T073943Z/command.log`
 - success artifact: `docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md`
 - notes: Completed: audit accepts M3018 failure-localization materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 localized rows 32 profile/source aggregate rows 0 failure rows actor 72/action 3; localization is broad and negative with candidate 0/16 success parent 3/16 success 13/16 task_source ids non-success under both profiles and offtrack-dominant plus collision and speed-floor failures; rejects repair-target selection validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; routes to M3020 result synthesis.
+
+## 20260607T074633Z m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result synthesis can integrate the M3018/M3019 new-source failure-localization evidence and choose exactly one stop pivot repair-design or continuation route before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis_20260607T074633Z`
+- command log: `runs/research/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis_20260607T074633Z/command.log`
+- success artifact: `docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md`
+- notes: Completed: synthesis accepts M3018/M3019 as complete claim-safe localization evidence and continues to M3021 broad-failure objective-admission design; preserves 16 source ids 32 localized rows 32 profile/source aggregate rows actor 72/action 3; classifies a broad negative surface with candidate 0/16 success parent 3/16 success 13/16 task_source ids non-success under both profiles and offtrack-dominant plus collision and speed-floor guard context; rejects direct repair-target selection target materialization fitting training execution ranking promotion validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver and self-ID claims.

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3025,
+    "completed": 3026,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit_20260607T073943Z/command.log",
+    "command_log": "runs/research/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis_20260607T074633Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit_20260607T073943Z",
+    "run_dir": "runs/research/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis_20260607T074633Z",
     "status": "completed",
-    "task_id": "m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit"
+    "task_id": "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result synthesis can integrate the M3018/M3019 new-source failure-localization evidence and choose exactly one stop pivot repair-design or continuation route before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
-    "id": "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis",
+    "hypothesis": "A bounded design-only objective-admission milestone can inspect the M3020 synthesis and choose exactly one legal no-training route for the broad offtrack-dominant new-source failure surface before any target materialization fitting execution ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+    "id": "m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design",
     "kind": "gate",
-    "notes": "Pending: synthesize M3018/M3019 failure localization and choose exactly one bounded next route or stop state.",
-    "priority": 30150,
+    "notes": "Pending: design one legal no-training objective-admission route for the broad new-source failure surface.",
+    "priority": 30160,
     "status": "pending",
-    "success_artifact": "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md"
+    "success_artifact": "docs/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design.md"
   },
-  "updated_at_utc": "20260607T074043Z"
+  "updated_at_utc": "20260607T074724Z"
 }
