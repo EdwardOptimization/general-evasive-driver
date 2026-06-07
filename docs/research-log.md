@@ -54224,3 +54224,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3067-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-preflight_20260607T154632Z/command.log`
 - success artifact: `runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json`
 - notes: Completed: ran bounded same-denominator current-sim measurement for the M3065 direct-action candidate as full obs72-to-action3 actor with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 final_action_abs_max 1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false direct-action adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3068 result audit.
+
+## 20260607T155525Z m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result-audit synthesis can accept or reject the M3067 direct-action Active Safety Driver v1 closed-loop measurement artifacts and decide the next active-safety engineering branch route before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit_20260607T155525Z`
+- command log: `runs/research/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit_20260607T155525Z/command.log`
+- success artifact: `docs/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit.md`
+- notes: Completed: audit accepts M3067 direct-action closed-loop measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low success_rate 0.25 clearance_margin_mean 8.495534898357793 raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false direct-action adapter actor-contract side-effect and claim-boundary guards pass; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3069 row-preserving direct-action failure decomposition.

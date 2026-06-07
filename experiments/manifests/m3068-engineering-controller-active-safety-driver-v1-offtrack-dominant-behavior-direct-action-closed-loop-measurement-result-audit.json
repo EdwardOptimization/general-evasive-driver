@@ -91,7 +91,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit",
+  "next_blocker": "m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight",
   "priority": 30630,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -123,7 +123,7 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair or synthesis rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3067 closed-loop measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit.md exists",
     "M3068 audits M3067 row counts gates actor direct-action side-effect and claim boundaries",
@@ -184,5 +184,7 @@
       "next_branch_decision"
     ],
     "synthesis_trigger": "M3067 completes direct-action closed-loop measurement preflight"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight.json",
+  "completion_summary": "Completed: audit accepts M3067 direct-action closed-loop measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low success_rate 0.25 clearance_margin_mean 8.495534898357793 raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false direct-action adapter actor-contract side-effect and claim-boundary guards pass; rejects validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3069 row-preserving direct-action failure decomposition."
 }
