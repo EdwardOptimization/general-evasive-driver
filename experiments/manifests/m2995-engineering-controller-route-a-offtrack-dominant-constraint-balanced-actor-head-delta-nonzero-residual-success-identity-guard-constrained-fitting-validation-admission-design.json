@@ -42,6 +42,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight.json",
   "forbidden_shortcuts": [
     "do not run environment validation ranking winner selection private holdout or performance measurement",
     "do not mutate save replace rank or promote parent checkpoints or candidate artifacts",
@@ -100,9 +101,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design",
+  "next_blocker": "m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2995 must distinguish offline fitting artifact acceptance from target-quality or closed-loop validation readiness",
     "M2995 must preserve actor observation 72 action 3 and no target labels or provenance actor inputs",
@@ -114,6 +115,10 @@
     {
       "path": "docs/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design.md",
@@ -131,7 +136,7 @@
     "negative_result_policy": "If validation admission is unsafe preserve the blocker rather than weakening self-ID proof gates.",
     "temporal_evidence_window": "M2983-M2994 Route A actor-head delta target tensor fitting-contract constrained fitting and audit chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design.md exists",
     "M2995 distinguishes accepted guard-constrained fitting artifacts from legal closed-loop validation readiness",

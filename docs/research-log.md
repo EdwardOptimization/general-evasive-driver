@@ -53346,3 +53346,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2994-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-result-audit_20260607T033651Z/command.log`
 - success artifact: `docs/m2994-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-result-audit.md`
 - notes: Completed: audit accepts M2993 guard-constrained fitting artifacts as complete and claim-safe with status_pass true gate_matrix_pass true 43 fitting dataset rows 4204 samples candidate MSE 0.00107134 to 0.00106519 success guard residual abs max 0.000341585 from M2990 0.08 13 success guard rows 11 stale exclusions actor 72/action 3 target_quality_validated false no validation ranking promotion checkpoint mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; routes to M2995 validation-admission design.
+
+## 20260607T034325Z m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only validation admission milestone can inspect the accepted M2993 guard-constrained fitting artifact and choose exactly one legal validation-preflight artifact-repair synthesis pivot or stop route before any environment validation ranking promotion repair-success performance or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design_20260607T034325Z`
+- command log: `runs/research/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design_20260607T034325Z/command.log`
+- success artifact: `docs/m2995-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-admission-design.md`
+- notes: Completed: design admits M2996 validation-contract materialization preflight from M2994-accepted M2993 guard-constrained residual-head artifact while preserving actor 72/action 3 target_quality_validated false success-retention stale-exclusion parent-comparison checkpoint side-effect and claim boundaries; no environment validation ranking promotion checkpoint mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
