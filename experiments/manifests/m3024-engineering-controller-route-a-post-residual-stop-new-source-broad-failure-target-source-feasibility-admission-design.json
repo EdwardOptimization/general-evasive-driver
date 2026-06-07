@@ -1,0 +1,191 @@
+{
+  "id": "m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded design-only target-source feasibility admission milestone can inspect the M3023-accepted M3022 objective contract and choose exactly one legal no-execution target-source feasibility preflight route or stop state before any numeric target materialization fitting execution ranking validation performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
+      "docs/m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight.md",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/objective_family_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/row_assignment_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/profile_source_guard_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/gate_matrix.csv",
+      "docs/post-m2470-route-plan.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.json",
+      "experiments/manifests/m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight.json",
+      "experiments/manifests/m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design.json"
+    ],
+    "parent_objective": [
+      "admit or reject one no-execution target-source feasibility route after M3023 accepts M3022 objective-contract materialization"
+    ],
+    "derived_from": [
+      "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
+      "m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight",
+      "m3021-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-admission-design",
+      "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis"
+    ],
+    "blocked_by": [
+      "M3023 accepts M3022 only as objective-contract materialization and rejects direct numeric target tensor materialization",
+      "M3022 objective-contract rows identify future target-source requirements but do not contain raw actor-view trace or local-action-search outputs",
+      "success identity collision speed-floor and actor-contract guards must be preserved before any target-source materialization"
+    ],
+    "supersedes": [
+      "direct numeric target materialization from M3022 objective-contract rows",
+      "direct fitting execution ranking validation or promotion from objective-contract metadata"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+  "public_gates": [
+    "M3024 must consume the accepted M3023 audit and M3022 objective-contract artifacts",
+    "M3024 must choose exactly one no-execution target-source feasibility preflight route or stop state",
+    "M3024 must preserve all 32 M3022 row assignments and offtrack collision speed-floor success-context guard families",
+    "M3024 must not materialize numeric targets run local-action search fit train execute validate rank select winners promote mutate checkpoints tune profiles or claim repair success",
+    "M3024 must preserve actor 72/action 3 and no hidden oracle future-target source route outcome objective progress verdict or TTC actor input"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO local-action search or private holdout",
+    "do not materialize numeric targets target tensors residual deltas masks weights or fitted artifacts",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets source labels route labels outcome labels objective labels progress labels verdict labels or TTC to actor input",
+    "do not drop collision speed-floor success-context candidate parent or weak negative rows",
+    "do not turn success_context rows into positive training targets",
+    "do not claim validation repair-success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "evidence_axis": "new_source_broad_failure_target_source_feasibility_admission_design",
+    "evidence_increment": "designs one legal no-execution target-source feasibility route after M3023 accepts M3022 objective-contract materialization",
+    "claim_scope": "Design-only target-source feasibility admission decision; no target-source materialization numeric target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M3024 cannot choose exactly one bounded target-source feasibility preflight or stop state",
+      "stop if the route would require numeric target materialization local-action search fitting execution profile tuning checkpoint mutation or actor input changes",
+      "stop if collision speed-floor or success-context guards would be dropped",
+      "stop if another process-only milestone would not change the next admission decision"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M3022/M3023 evidence is insufficient or inconsistent",
+      "route to branch synthesis if target-source feasibility cannot be defined without overclaiming",
+      "route to a no-execution target-source feasibility preflight only if M3024 defines complete claim boundaries and guard context"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3023 accepts M3022 objective-contract materialization but rejects direct numeric target materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Design one legal no-execution target-source feasibility admission route from M3023-accepted M3022 objective-contract artifacts",
+    "admission_evidence": [
+      "M3023 accepts M3022 objective-contract materialization as complete and claim-safe",
+      "M3022 writes 4 objective families 32 row assignments 32 profile/source guard rows and actor 72/action 3",
+      "M3023 rejects direct numeric target tensor materialization because target-source feasibility and raw trace availability are not established"
+    ],
+    "blocked_shortcuts": [
+      "no target-source materialization numeric target tensor materialization fitting execution validation ranking promotion repair-success or performance verdict",
+      "no hidden oracle future-target source route outcome objective progress verdict or TTC actor input",
+      "no offtrack-only route that drops collision speed-floor or success-context guard context"
+    ],
+    "allowed_updates": [
+      "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+      "docs/reviews/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+      "M3024 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3024 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M3024 design artifact exists",
+      "M3024 selects exactly one bounded no-execution target-source feasibility preflight route or stop state",
+      "M3024 preserves objective-contract actor guard and claim boundaries",
+      "M3024 makes no target materialization fitting execution validation ranking performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3024 is Route A target-source feasibility admission design only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3024; no wrong-history reset-hidden zero-history finite-window GRU comparison or self-ID verdict is run."
+    ],
+    "temporal_evidence_window": "M3015 diagnostic execution plus M3018/M3019/M3020 localization M3021 design and M3022/M3023 objective-contract materialization/audit only.",
+    "negative_result_policy": "Preserve broad negative localization and guard families rather than weakening self-ID or paper gates.",
+    "allowed_claims": [
+      "target-source feasibility admission design decision",
+      "actor and claim boundaries preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "uses M3023 audit to design one target-source feasibility admission route without new execution",
+    "paper_verdict_delta": "no paper verdict; design may admit one safe target-source feasibility preflight only",
+    "must_synthesize_if": [
+      "M3024 cannot select exactly one bounded next route or stop state",
+      "M3024 would require numeric target materialization local-action search fitting execution profile tuning checkpoint mutation or actor input changes",
+      "M3024 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md exists",
+    "M3024 selects exactly one no-execution target-source feasibility preflight route or stop state",
+    "M3024 preserves all M3022 objective families and actor/claim boundaries",
+    "M3024 makes no target materialization fitting execution validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim"
+  ],
+  "failure_criteria": [
+    "M3024 chooses a route that drops collision speed-floor or success-context guard context",
+    "M3024 materializes numeric targets fits trains executes ranks validates promotes mutates checkpoints or tunes profiles",
+    "M3024 changes actor input or action contract or exposes hidden oracle future-target source route outcome objective progress verdict or TTC labels",
+    "M3024 treats M3022 objective-contract artifacts as target tensor validation repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M3024 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3024 writes a bounded design artifact and chooses one target-source feasibility preflight route or stop state while preserving M3022 objective-contract actor guard and claim boundaries without execution or target materialization.",
+  "commands": [
+    {
+      "name": "target_source_feasibility_admission_design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/objective_family_rows.csv",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/row_assignment_rows.csv",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/gate_matrix.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+  "next_blocker": "m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design",
+  "status": "pending"
+}

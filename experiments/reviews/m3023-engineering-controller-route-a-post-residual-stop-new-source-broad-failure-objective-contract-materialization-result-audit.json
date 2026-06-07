@@ -1,21 +1,5 @@
 {
-  "baseline_artifacts": [
-    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json",
-    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/objective_family_rows.csv",
-    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/row_assignment_rows.csv",
-    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/gate_matrix.csv"
-  ],
-  "baseline_checkpoints": [
-    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
-    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
-  ],
-  "commands": [
-    {
-      "command": "true",
-      "name": "result_audit_doc"
-    }
-  ],
-  "decision_rule": "Pass only if M3023 audits M3022 artifacts and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "decision_reason": "Completed: audit accepts M3022 as complete and claim-safe objective-contract materialization with status_pass true gate_matrix_pass true required_artifacts_present true 4 objective families 32 row assignments 32 profile/source guard rows 8 actor guard rows actor 72/action 3 success_context future target rows 0; rejects direct target-source feasibility numeric target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M3024 target-source feasibility admission design.",
   "failure_criteria": [
     "M3023 hides M3022 missing artifacts or gate failures",
     "M3023 treats M3022 objective-contract rows as validation readiness or performance verdict",
@@ -39,8 +23,8 @@
     "do not convert M3022 objective-contract rows into performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
   ],
   "gate_tier": "process",
+  "generated_at_utc": "20260607T081257Z",
   "hypothesis": "A bounded result audit can accept or reject the M3022 broad-failure objective-contract materialization artifacts before any target materialization fitting execution ranking validation performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-  "id": "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
   "lineage": {
     "blocked_by": [
       "M3022 materialization requires result audit before interpretation or continuation",
@@ -89,99 +73,35 @@
       "direct target materialization fitting execution ranking validation or promotion from M3022 rows without audit"
     ]
   },
-  "local_search_guard": {
-    "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits newly materialized M3022 objective-contract artifacts",
-    "local_search_risk": "medium",
-    "must_synthesize_if": [
-      "M3023 cannot accept M3022 as complete and claim-safe",
-      "M3023 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID",
-      "M3023 cannot choose exactly one bounded next route or stop state"
-    ],
-    "paper_verdict_delta": "no paper verdict; audit may inform bounded Route A engineering continuation only",
-    "process_overhead": "medium",
-    "same_failure_repeat_count": 2,
-    "same_public_gate_repair_count": 0
-  },
+  "milestone": "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
   "next_blocker": "m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "not_applicable",
+  "promotion_decision": "accept_m3022_claim_safe_objective_contract_route_to_m3024_target_source_feasibility_admission_design",
   "public_gates": [
     "M3023 must audit M3022 summary gate matrix row counts actor guards claim boundaries and follow-up registration",
     "M3023 must preserve all 32 M3018 localization rows and all objective guard families",
     "M3023 must not claim validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
     "M3023 must select exactly one next route or stop/synthesis state after audit"
   ],
-  "required_artifacts": [
-    {
-      "path": "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
-      "type": "markdown"
-    }
-  ],
-  "review_artifact": "docs/reviews/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
-  "scoreboard_checkpoint": "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
-  "self_id_evidence_discipline": {
-    "allowed_claims": [
-      "M3022 artifact completeness and claim-safety audit",
-      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
-    ],
-    "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M3023 audits Route A objective-contract infrastructure and cannot infer history necessity or self-ID.",
-    "history_necessity_tests": [
-      "None in M3023; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
-    ],
-    "negative_result_policy": "Preserve negative diagnostics and audit objective-contract materialization before any engineering continuation.",
-    "temporal_evidence_window": "M3015/M3018 new-source diagnostic localization plus M3021/M3022 objective-contract design/materialization only."
+  "scoreboard": {
+    "checkpoint": "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m3022_claim_safe_objective_contract_route_to_m3024_target_source_feasibility_admission_design",
+    "milestone": "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
+    "reason": "Completed: audit accepts M3022 as complete and claim-safe objective-contract materialization with status_pass true gate_matrix_pass true required_artifacts_present true 4 objective families 32 row assignments 32 profile/source guard rows 8 actor guard rows actor 72/action 3 success_context future target rows 0; rejects direct target-source feasibility numeric target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M3024 target-source feasibility admission design.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
   },
-  "status": "completed",
   "success_criteria": [
     "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md exists",
     "M3023 audits M3022 artifacts row counts gates actor and claim boundaries",
     "M3023 selects exactly one next route or stop state",
     "no target materialization fitting execution validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
   ],
-  "training_stage": {
-    "admission_evidence": [
-      "M3022 summary and gate matrix",
-      "M3022 objective family component row assignment profile/source guard actor guard claim and run-state artifacts"
-    ],
-    "allowed_updates": [
-      "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
-      "docs/reviews/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
-      "M3023 status queue scoreboard and review",
-      "one follow-up manifest only if M3023 selects exactly one next route"
-    ],
-    "blocked_shortcuts": [
-      "no target materialization fitting execution validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
-      "no training replay PPO checkpoint mutation profile tuning or promotion",
-      "no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor input"
-    ],
-    "next_stage_criteria": [
-      "M3023 audit accepts or rejects M3022 as complete and claim-safe",
-      "next route or stop state is explicit"
-    ],
-    "stage": "process",
-    "stage_objective": "Audit M3022 broad-failure objective-contract materialization artifacts"
-  },
-  "type": "gate",
-  "workflow_synthesis": {
-    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
-    "claim_scope": "Result audit only; no target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "new_source_broad_failure_objective_contract_materialization_result_audit",
-    "evidence_increment": "audits M3022 objective-contract materialization artifacts",
-    "fallback_plan": [
-      "route to artifact repair if accounting failed",
-      "route to branch synthesis if objective-contract rows are complete but next route remains ambiguous",
-      "route to a bounded design only after M3023 accepts claim safety"
-    ],
-    "stop_condition": [
-      "stop if M3022 artifacts are missing or gate matrix fails",
-      "stop if actor or claim boundaries were violated",
-      "stop if M3022 dropped any M3018 localization row or guard family",
-      "stop if the objective contract is insufficient to justify a bounded next route"
-    ],
-    "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M3022 completes objective-contract materialization"
-  }
+  "type": "gate"
 }
