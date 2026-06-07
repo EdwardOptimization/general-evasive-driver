@@ -26,6 +26,36 @@ Use Python standard-library JSON extraction for repo-local checks unless `jq` av
 
 ---
 
+## [ERR-20260607-003] csv_writer_crlf_line_endings
+
+**Logged**: 2026-06-07T14:21:50+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+Python `csv.DictWriter` rewrote AutoDrift CSV ledgers with CRLF line endings, causing `git diff --check` to report trailing whitespace across the full file.
+
+### Error
+```text
+experiments/research_queue.csv:1: trailing whitespace.
+experiments/scoreboard.csv:2931: trailing whitespace.
+```
+
+### Context
+- Command attempted: `git diff --check`
+- Files updated with `csv.DictWriter(..., newline='')` but without `lineterminator='\\n'`.
+- The fix was to normalize `\\r\\n` to `\\n` before rerunning `git diff --check`.
+
+### Suggested Fix
+When writing AutoDrift CSV ledgers from Python, pass `lineterminator='\\n'` to `csv.DictWriter` or normalize line endings immediately after writing.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/research_queue.csv, experiments/scoreboard.csv
+
+---
+
 ## [ERR-20260606-001] csv_scoreboard_truncation_recurrence
 
 **Logged**: 2026-06-06T00:45:21+08:00

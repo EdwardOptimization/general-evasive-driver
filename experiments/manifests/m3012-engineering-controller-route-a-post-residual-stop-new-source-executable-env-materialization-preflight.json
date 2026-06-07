@@ -1,0 +1,231 @@
+{
+  "baseline_artifacts": [
+    "docs/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.md",
+    "docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md",
+    "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json",
+    "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/executable_workload_contract_rows.csv",
+    "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/new_task_source_spec_rows.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --m3010-audit docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md --m3011-design docs/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.md --m3006-dir runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight --m3009-dir runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight --output-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --follow-up-manifest experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "name": "materialize_new_source_executable_env"
+    }
+  ],
+  "decision_rule": "Pass only if M3012 writes complete no-execution executable env materialization artifacts and M3013 audit manifest while preserving actor and claim boundaries.",
+  "failure_criteria": [
+    "M3012 drops source specs or workload rows",
+    "M3012 changes actor input/action contract or exposes hidden/oracle labels",
+    "M3012 executes environment policy action validation training or source build work",
+    "M3012 ranks promotes mutates checkpoints or claims validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset step rollout replay validate train run PPO rank promote or select a winner",
+    "do not mutate checkpoints or tune profiles",
+    "do not expose hidden dynamics oracle target provenance source route outcome success progress verdict TTC or paper labels to actor input",
+    "do not drop source specs or workload rows to make mapping pass",
+    "do not claim execution readiness validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A no-execution executable env materialization preflight can convert the M3011 design plus M3006 source specs and M3009 workload contracts into machine-checkable executable source spec env config workload guard gate summary doc and M3013 audit artifacts without executing or overclaiming.",
+  "id": "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3009 workload contracts are not env configs",
+      "M3013 audit is required before any execution design"
+    ],
+    "derived_from": [
+      "m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design",
+      "m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit",
+      "m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.json",
+      "experiments/manifests/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "docs/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.md",
+      "docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md",
+      "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json",
+      "runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/executable_workload_contract_rows.csv",
+      "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/new_task_source_spec_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize no-execution executable env configs and workload rows for the M3006/M3009 new-source panel"
+    ],
+    "supersedes": [
+      "direct execution from workload contracts without env materialization audit",
+      "direct performance interpretation of env configs"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "materializes executable env config surface needed before fresh-source closed-loop data can be collected",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3012 cannot materialize all 16 env configs",
+      "M3012 would require hidden actor inputs or row dropping",
+      "M3012 would claim performance or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; prepares auditable execution substrate only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3012 must preserve all 16 M3006 source identities and 32 M3009 workload rows",
+    "M3012 must materialize 16 human-view env configs with zero unmappable rows and zero env contract violations",
+    "M3012 must preserve actor observation 72 action 3 and no hidden/oracle actor inputs",
+    "M3012 must not run source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation or performance verdict computation",
+    "M3012 must register M3013 result audit before interpretation"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_spec_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/profile_binding_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/unmappable_source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/env_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3012 executable env materialization artifacts only",
+      "M3012 env/workload identity accounting only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3012 materializes env configs and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3012; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "If env materialization fails, record unmappable rows and route to audit/repair rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M3006-M3011 source/workload/env materialization route only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json exists",
+    "M3012 reads M3006 source specs and M3009 workload contracts as governing inputs",
+    "M3012 writes executable source specs env workload guard gate summary doc and M3013 audit manifest artifacts",
+    "M3012 preserves 16 source identities and 32 workload rows with zero unmappable rows",
+    "M3012 performs no reset step rollout replay validation training PPO ranking promotion checkpoint mutation performance paper high-fidelity or self-ID work"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3011 design doc exists",
+      "M3010 accepts M3009 workload contracts",
+      "M3006 source specs and M3009 workload rows are complete and claim-safe"
+    ],
+    "allowed_updates": [
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/summary.json",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/*.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/*.json",
+      "docs/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md",
+      "experiments/manifests/m3013-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-result-audit.json",
+      "docs/reviews/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.md",
+      "experiments/reviews/m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight.json",
+      "M3012 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no execution validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation",
+      "no hidden/oracle/future-target actor input"
+    ],
+    "next_stage_criteria": [
+      "M3012 summary and required artifacts exist",
+      "M3013 result audit manifest is registered",
+      "no execution or overclaiming occurred"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-execution executable env configs for new source workload panel"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "No-execution env materialization only; no execution validation training ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_executable_env_materialization",
+    "evidence_increment": "materializes executable env config rows and executable workload rows over the new-source workload panel before any execution",
+    "fallback_plan": [
+      "register M3013 result audit if materialization is complete",
+      "route to artifact repair if rows are missing or unmappable",
+      "route to synthesis if no execution design can be safely admitted"
+    ],
+    "stop_condition": [
+      "stop if any source spec is unmappable",
+      "stop if env contract or forbidden-key guards fail",
+      "stop if actor or claim boundary would be weakened"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3011 admits bounded no-execution env materialization preflight"
+  }
+}

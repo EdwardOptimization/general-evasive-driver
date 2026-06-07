@@ -93,7 +93,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit",
+  "next_blocker": "m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -123,7 +123,7 @@
     "negative_result_policy": "Preserve workload materialization failures and route to synthesis or stop rather than weakening self-ID gates.",
     "temporal_evidence_window": "M3009 workload materialization only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md exists",
     "M3010 audits M3009 artifacts row counts gates actor and claim boundaries",
@@ -173,5 +173,23 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3009 completes workload materialization"
+  },
+  "completion_summary": "Completed: audit accepts M3009 workload-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; rejects source build env readiness execution validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver self-ID ranking and promotion claims; routes to M3011 executable-env materialization design.",
+  "follow_up_manifest": "experiments/manifests/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.json",
+  "result": {
+    "status": "completed",
+    "artifact": "docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md",
+    "decision": "accept_m3009_workload_contract_route_to_m3011_executable_env_materialization_design",
+    "source_spec_resolution_row_count": 16,
+    "source_spec_unique_task_source_count": 16,
+    "old_m1690_l3_overlap_count": 0,
+    "profile_binding_row_count": 2,
+    "workload_contract_row_count": 32,
+    "rejected_workload_shortcut_row_count": 8,
+    "actor_observation_shape": 72,
+    "action_shape": 3,
+    "execution_performed": false,
+    "claim_boundary_violation": false,
+    "next_manifest": "experiments/manifests/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.json"
   }
 }

@@ -53527,3 +53527,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3009-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-preflight_20260607T061115Z/command.log`
 - success artifact: `runs/m3009_engineering_controller_route_a_post_residual_stop_new_source_executable_workload_materialization_preflight/summary.json`
 - notes: Completed: materialized no-execution new-source workload contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; no source build reset step rollout replay validation training PPO ranking promotion checkpoint mutation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3010 result audit.
+
+## 20260607T061809Z m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3009 new-source executable workload materialization before any execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit_20260607T061809Z`
+- command log: `runs/research/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit_20260607T061809Z/command.log`
+- success artifact: `docs/m3010-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-result-audit.md`
+- notes: Completed: audit accepts M3009 workload-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 source-resolution rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap 2 read-only profile bindings 32 workload contract rows 8 rejected workload shortcut rows actor 72/action 3; rejects source build env readiness execution validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver self-ID ranking and promotion claims; routes to M3011 executable-env materialization design.
+
+
+## 20260607T061809Z m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the M3010-accepted M3009 workload contract materialization into exactly one no-execution executable env materialization preflight route before any source build execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design_20260607T061809Z`
+- command log: `runs/research/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design_20260607T061809Z/command.log`
+- success artifact: `docs/m3011-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-design.md`
+- notes: Completed: design admits M3012 no-execution executable-env materialization preflight over 16 M3006 source specs 32 M3009 workload rows and 2 read-only profile bindings; requires deterministic human-view env config materialization, zero unmappable source rows, zero env contract violations, actor 72/action 3, no hidden/oracle/future-target/source/route/outcome/progress/verdict actor inputs; no reset step rollout replay validation training PPO ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M3012 implementation preflight.
