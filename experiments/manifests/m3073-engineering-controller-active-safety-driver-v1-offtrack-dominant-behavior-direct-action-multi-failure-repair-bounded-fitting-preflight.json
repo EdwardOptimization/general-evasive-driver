@@ -261,5 +261,6 @@
   "scoreboard_checkpoint": "runs/m3073_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_bounded_fitting_preflight/summary.json",
   "next_blocker": "m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit",
   "follow_up_manifest": "experiments/manifests/m3074-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-result-audit.json",
-  "status": "pending"
+  "status": "completed",
+  "completion_summary": "Completed: bounded offline direct-action multi-failure repair fitting produced claim-safe repaired candidate with status_pass true gate_matrix_pass true 24 repair fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fit samples 768 masked steps final weighted MSE 0.00021525553328820269 parent weighted MSE 0.0002183983045141296 all-accounting weighted MSE 0.002601863211948731 final_action_abs_max 1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; no reset step rollout replay PPO validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3074 result audit."
 }
