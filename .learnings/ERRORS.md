@@ -171,3 +171,32 @@ When adding a new AutoDrift manifest, copy the complete process-v2 skeleton firs
 - Related Files: experiments/manifests/m2916-engineering-controller-route-a-dependency-facing-evidence-surface-execution-admission-materialization-preflight.json
 
 ---
+
+## [ERR-20260607-002] research_state_command_parallel_race
+
+**Logged**: 2026-06-07T12:19:55+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+AutoDrift research state commands that read or update `experiments/research_status.json` should not be run in parallel.
+
+### Error
+```text
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+```
+
+### Context
+- Commands attempted in parallel: `make research-validate`, `make research-plan`, and `make research-review TASK=...`
+- `research-plan` rewrote `experiments/research_status.json` while `research-validate` was reading it, causing a transient empty-file JSON parse.
+- The Makefile `research-review` target also ignored `TASK=...` and used the default M90 manifest.
+
+### Suggested Fix
+Run AutoDrift research state commands serially when they read or write queue/status/log files. For review generation, pass the manifest path explicitly instead of assuming `TASK=...` is honored.
+
+### Metadata
+- Reproducible: yes
+- Related Files: Makefile, experiments/research_status.json, src/autodrift/research_validate.py, src/autodrift/research_cycle.py
+
+---

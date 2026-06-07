@@ -1,7 +1,7 @@
 {
   "id": "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis",
   "type": "gate",
-  "status": "pending",
+  "status": "completed",
   "hypothesis": "A bounded branch synthesis can integrate M2993-M2997 guard-constrained fitting validation-contract evidence after the local-search guard fires and decide whether to continue to bounded validation design, pivot, stop, or require new evidence before any validation execution, ranking, promotion, repair-success, performance, paper, high-fidelity, or self-ID claim.",
   "success_criteria": [
     "docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md exists",
@@ -28,6 +28,10 @@
     {
       "path": "docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.json",
+      "type": "json"
     }
   ],
   "baseline_checkpoints": [
@@ -51,7 +55,7 @@
   ],
   "decision_rule": "Pass only if M2998 produces a bounded synthesis decision that either continues to one claim-safe validation design route, pivots, stops, or requires new evidence while preserving actor, guard, stale-exclusion, target-quality, checkpoint, side-effect, and claim boundaries.",
   "gate_tier": "process",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "failure_types": [
     "contract_violation",
     "lineage_invalid",
@@ -63,6 +67,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.json",
   "lineage": {
     "parent_checkpoint": [
       "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
@@ -206,5 +211,5 @@
       "M2998 would continue to another ordinary process-only route without a new evidence surface"
     ]
   },
-  "next_blocker": "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis"
+  "next_blocker": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design"
 }

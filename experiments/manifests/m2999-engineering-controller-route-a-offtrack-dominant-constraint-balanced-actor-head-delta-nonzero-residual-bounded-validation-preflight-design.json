@@ -1,0 +1,204 @@
+{
+  "id": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design",
+  "type": "gate",
+  "status": "pending",
+  "hypothesis": "A bounded design-only validation-preflight milestone can convert the M2998 synthesis decision into one legal closed-loop diagnostic validation execution preflight, pivot, or stop route while preserving actor, stale-exclusion, parent-comparison, side-effect, and claim boundaries.",
+  "success_criteria": [
+    "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md exists",
+    "M2999 specifies read-only parent checkpoint and residual-head wrapper loading boundaries",
+    "M2999 binds actor observation/action to 72/3 without adding privileged or oracle actor inputs",
+    "M2999 binds the candidate validation denominator to the 43 M2996 validation-contract rows and the success-retention denominator to the 13 M2996 success-retention rows",
+    "M2999 preserves stale fixed-source exclusions from validation paper and self-ID denominators",
+    "M2999 keeps parent comparison report-only with no ranking winner selection promotion or checkpoint mutation",
+    "M2999 chooses exactly one next route: bounded diagnostic validation execution preflight, concrete contract repair, Route C/interface pivot, or stop",
+    "no validation execution ranking promotion performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M2999 runs validation or treats design as validation evidence",
+    "M2999 leaves parent or residual-head wrapper loading side effects ambiguous",
+    "M2999 changes the actor input/action contract or exposes target labels provenance objective admission source route verdict paper labels or privileged state to the actor",
+    "M2999 allows stale fixed-source rows into validation paper or self-ID denominators",
+    "M2999 turns parent comparison into ranking winner selection promotion or checkpoint mutation",
+    "M2999 continues to another ordinary process-only route without a concrete data-producing diagnostic preflight, contract-violation repair, Route C/interface pivot, or stop decision"
+  ],
+  "commands": [
+    {
+      "name": "bounded_validation_preflight_design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md",
+    "docs/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.md",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/summary.json",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/validation_contract_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/residual_head_wrapper_contract_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/parent_comparison_plan_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/success_behavior_retention_guard_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/stale_exclusion_guard_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/actor_input_exclusion_rows.csv",
+    "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/checkpoint_side_effect_guard_rows.csv",
+    "runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/summary.json",
+    "runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/candidate_residual_head_artifact.npz"
+  ],
+  "decision_rule": "Pass only if M2999 produces a bounded design decision that admits one diagnostic validation execution preflight or rejects the route in favor of concrete contract repair, Route C/interface pivot, or stop while preserving actor input, stale-exclusion, parent-comparison, checkpoint side-effect, and claim boundaries.",
+  "gate_tier": "process",
+  "promotion_decision": "pending",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "training_instability",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.md",
+      "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/summary.json",
+      "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/validation_contract_rows.csv",
+      "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/success_behavior_retention_guard_rows.csv",
+      "runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/stale_exclusion_guard_rows.csv",
+      "runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/candidate_residual_head_artifact.npz"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.json",
+      "experiments/manifests/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.json",
+      "experiments/manifests/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "convert the M2998 validation-contract branch synthesis into one bounded validation-preflight route decision"
+    ],
+    "derived_from": [
+      "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis",
+      "m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit",
+      "m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight",
+      "m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight"
+    ],
+    "blocked_by": [
+      "M2998 permits exactly one bounded validation-preflight design before the branch must produce data, repair a concrete contract violation, pivot, or stop",
+      "M2996 materializes validation contracts but no validation execution has been admitted",
+      "Current-sim remains a bounded engineering diagnostic layer under the post-M2470 route split"
+    ],
+    "supersedes": [
+      "unbounded continuation to validation design materialization audit loops",
+      "direct validation from M2996 materialization without a bounded preflight design",
+      "treating residual fitting or validation contracts as repair-success or performance evidence"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
+  "scoreboard_checkpoint": "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
+  "public_gates": [
+    "M2999 must be design-only and must not run environment validation ranking promotion or performance measurement",
+    "M2999 must preserve actor observation 72 action 3 and no privileged actor inputs",
+    "M2999 must preserve target labels target provenance objective admission source route verdict and paper labels as actor-invisible",
+    "M2999 must bind candidate validation denominator to the 43 M2996 validation rows and success-retention denominator to the 13 M2996 rows",
+    "M2999 must keep stale fixed-source rows excluded from validation paper and self-ID denominators",
+    "M2999 must keep parent comparison report-only with no ranking winner selection promotion or checkpoint mutation",
+    "M2999 must choose one next route that produces diagnostic validation data, repairs a concrete contract violation, pivots to Route C/interface work, or stops"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run validation reset step rollout ranking winner selection private holdout or performance measurement in M2999",
+    "do not mutate save replace select or promote parent checkpoints or residual-head artifacts",
+    "do not change actor input or action contract",
+    "do not expose target labels target provenance objective admission source route verdict paper labels or privileged state to actor input",
+    "do not include stale fixed-source rows in validation paper or self-ID denominators",
+    "do not convert design approval into validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims",
+    "do not continue to another ordinary process-only route unless M2999 identifies a concrete contract violation that blocks data-producing validation"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_bounded_validation_preflight_design",
+    "evidence_increment": "converts the M2998 synthesis decision into one bounded validation-preflight route decision without executing validation",
+    "claim_scope": "Design-only validation-preflight decision; no validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if a data-producing diagnostic validation preflight cannot be specified without weakening actor or claim boundaries",
+      "stop if stale fixed-source exclusions or success-retention denominators cannot be preserved",
+      "stop if parent comparison would become ranking winner selection promotion or checkpoint mutation",
+      "stop if the next route would claim performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+    ],
+    "fallback_plan": [
+      "admit one bounded diagnostic validation execution preflight if the contract is complete and claim-safe",
+      "route to concrete contract repair only if M2999 identifies a specific missing or inconsistent contract",
+      "pivot to Route C or interface preparation if current-sim process overhead dominates",
+      "stop the branch if another process-only step would not produce data or repair a concrete violation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2998 continues exactly once to bounded validation-preflight design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Design one bounded validation-preflight route from M2998 without executing validation",
+    "admission_evidence": [
+      "M2998 selects continue_to_m2999_bounded_validation_preflight_design",
+      "M2996 materialized validation wrapper comparison success-retention stale-exclusion actor side-effect and claim rows",
+      "M2997 accepted M2996 as complete and claim-safe materialization only"
+    ],
+    "blocked_shortcuts": [
+      "no validation execution ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels target provenance objective admission source route verdict paper labels or privileged state actor inputs",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "allowed_updates": [
+      "docs/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
+      "docs/reviews/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.md",
+      "experiments/reviews/m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design.json",
+      "M2999 status queue scoreboard research log and review",
+      "one follow-up manifest only if M2999 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M2999 chooses diagnostic validation execution preflight, concrete contract repair, Route C/interface pivot, or stop",
+      "actor stale-exclusion success-retention parent-comparison checkpoint side-effect and claim boundaries remain unchanged",
+      "another process-only continuation is rejected unless it repairs a concrete M2999 contract violation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2999 designs a Route A current-sim diagnostic validation preflight and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2999; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2993-M2998 Route A actor-head delta residual-head validation-contract chain.",
+    "negative_result_policy": "If the validation preflight cannot be bounded and claim-safe, pivot or stop rather than weakening self-ID proof gates.",
+    "allowed_claims": [
+      "M2999 bounded validation-preflight route decision only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns the synthesis decision into a bounded data-producing validation-preflight admission decision",
+    "paper_verdict_delta": "no paper verdict; may admit one current-sim diagnostic validation execution preflight or force pivot or stop",
+    "must_synthesize_if": [
+      "M2999 cannot select a data-producing diagnostic preflight, concrete contract repair, Route C/interface pivot, or stop",
+      "M2999 would claim validation performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+      "M2999 would continue to another ordinary process-only route without a concrete contract violation"
+    ]
+  },
+  "next_blocker": "m2999-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-validation-preflight-design"
+}
