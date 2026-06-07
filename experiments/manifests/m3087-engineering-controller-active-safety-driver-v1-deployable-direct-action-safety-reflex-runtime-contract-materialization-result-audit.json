@@ -1,0 +1,177 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/deployable_driver_contract.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_deployable_direct_action_runtime_contract_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3087 audits M3086 artifacts, preserves actor direct-action and claim boundaries, answers the required synthesis questions, and selects exactly one runtime-smoke, repair, synthesis, or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3087 hides M3086 failures or missing artifacts",
+    "M3087 treats M3086 packaging as validation or performance verdict",
+    "M3087 changes actor input or action contract",
+    "M3087 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run rollout validation ranking promotion high-fidelity simulation fitting PPO or training",
+    "do not treat M3086 packaging or probes as driver-performance validation robustness-result repair-success or self-ID evidence",
+    "do not change actor input action contract or runtime base-policy-free boundary"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result-audit synthesis can accept or reject the M3086 deployable runtime-contract artifacts and decide whether the active-safety direct-action reflex branch should continue to runtime-smoke verification, repair, synthesis, or stop before any validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "id": "m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3086 runtime contract artifacts require audit before runtime smoke or stronger interpretation",
+      "action probes and packaging artifacts are not validation or promotion evidence before M3087"
+    ],
+    "derived_from": [
+      "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight",
+      "m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit",
+      "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight",
+      "m3078-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight.md",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/deployable_driver_contract.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/summary.json",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/driver_interface_rows.csv",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/driver_action_probe_rows.csv",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/actor_input_exclusion_rows.csv",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit deployable runtime contract materialization before any runtime smoke or validation route"
+    ],
+    "supersedes": [
+      "direct use of M3078 policy config without a deployable runtime contract"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "synthesizes the first deployable runtime package evidence and decides the next verification route",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3087 cannot accept M3086 as complete and claim-safe",
+      "M3087 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result or self-ID evidence",
+      "M3087 cannot select exactly one runtime-smoke repair synthesis or stop route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3087 audits engineering runtime package evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit",
+  "priority": 30820,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3087 must audit M3086 summary contract interface probe exclusion claim and gate artifacts",
+    "M3087 must verify obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3087 must answer the required branch synthesis questions before continuing past cadence",
+    "M3087 must reject validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3087 must select exactly one runtime-smoke repair synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3086 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3087 audits engineering runtime-contract artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3087; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Preserve negative runtime-contract evidence and route to engineering repair, synthesis, or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3086 deployable runtime-contract materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md exists",
+    "M3087 audits M3086 artifact row counts gates actor contract and claim boundaries",
+    "M3087 answers evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M3087 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3087 selects exactly one runtime-smoke repair synthesis or stop route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3086 summary and gate matrix",
+      "M3086 driver contract interface probe actor-input exclusion and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+      "docs/reviews/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+      "experiments/reviews/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.json",
+      "M3087 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3087 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3087 accepts or rejects M3086 as complete and claim-safe",
+      "next runtime-smoke, repair, synthesis, or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3086 deployable runtime contract materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Result-audit synthesis only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "deployable_runtime_contract_materialization_result_audit",
+    "evidence_increment": "audits the deployable runtime contract package and performs the required branch synthesis before runtime-smoke verification",
+    "fallback_plan": [
+      "route to packaging repair if artifacts are incomplete",
+      "route to runtime smoke if M3086 is complete and claim-safe",
+      "route to branch synthesis or stop if deployment boundary is not preservable"
+    ],
+    "stop_condition": [
+      "stop if M3086 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize if M3087 cannot select a runtime-smoke repair or stop route"
+    ],
+    "synthesis_artifact": "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "continue",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3086 completes deployable runtime contract materialization preflight and branch cadence requires synthesis before continuing"
+  }
+}

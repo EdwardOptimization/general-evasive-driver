@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3090,
+    "completed": 3092,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight_20260607T181455Z/command.log",
+    "command_log": "runs/research/m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight_20260607T182931Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight_20260607T181455Z",
+    "run_dir": "runs/research/m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight_20260607T182931Z",
     "status": "completed",
-    "task_id": "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight"
+    "task_id": "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight"
   },
   "next_task": {
     "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3084 fresh robustness measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
-    "id": "m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit",
+    "hypothesis": "A bounded result-audit synthesis can accept or reject the M3086 deployable runtime-contract artifacts and decide whether the active-safety direct-action reflex branch should continue to runtime-smoke verification, repair, synthesis, or stop before any validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "id": "m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit",
     "kind": "gate",
-    "notes": "Pending: audit M3084 fresh robustness measurement artifacts and select one repair, synthesis, continuation, or stop route; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success or self-ID claim.",
-    "priority": 30800,
+    "notes": "Pending: audit and synthesize M3086 deployable runtime contract artifacts, then select exactly one runtime-smoke, repair, synthesis, or stop route; no validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+    "priority": 30820,
     "status": "pending",
-    "success_artifact": "docs/m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit.md"
+    "success_artifact": "docs/m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit.md"
   },
-  "updated_at_utc": "20260607T181635Z"
+  "updated_at_utc": "20260607T183130Z"
 }

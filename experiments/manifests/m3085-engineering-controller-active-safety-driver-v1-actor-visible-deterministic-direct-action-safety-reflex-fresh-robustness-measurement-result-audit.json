@@ -8,6 +8,8 @@
       "name": "active_safety_driver_v1_deterministic_safety_reflex_fresh_robustness_measurement_result_audit_doc"
     }
   ],
+  "completed_summary": "Completed: audit accepts M3084 fresh robustness measurement as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 failures 43 success 5 collision 5 offtrack 11 speed_too_low success_rate 0.671875 clearance_margin_mean 11.341408769853288 action_clip_fraction_mean 0.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false 0 M3080 seed overlap 4 robustness axes; rejects validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; routes exactly one follow-up to M3086 deployable runtime-contract materialization.",
+  "decision": "accept_m3084_measurement_route_to_m3086_deployable_runtime_contract_materialization_preflight",
   "decision_rule": "Pass only if M3085 audits M3084 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
   "failure_criteria": [
     "M3085 hides M3084 failures or missing artifacts",
@@ -30,6 +32,7 @@
     "do not convert M3084 rows into driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims",
     "do not change actor input or action contract"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "process",
   "hypothesis": "A bounded result audit can accept or reject the M3084 fresh robustness measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, or self-ID claim.",
   "id": "m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit",
@@ -82,7 +85,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit",
+  "next_blocker": "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight",
   "priority": 30800,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -99,8 +102,12 @@
       "type": "markdown"
     }
   ],
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v1_fresh_robustness_measurement_result_audit_accept",
   "review_artifact": "docs/reviews/m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit.md",
   "scoreboard_checkpoint": "docs/m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit.md",
+  "selected_next_action": "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight",
+  "selected_next_action_type": "deployable_runtime_contract_materialization_preflight",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "M3084 artifact completeness and claim-safety audit",
@@ -114,7 +121,8 @@
     "negative_result_policy": "Preserve negative measurement evidence and route to engineering repair, synthesis, or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3084 deterministic safety-reflex fresh robustness measurement artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "docs/m3085-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-result-audit.md exists",
     "M3085 audits M3084 row counts gates actor contract and claim boundaries",
