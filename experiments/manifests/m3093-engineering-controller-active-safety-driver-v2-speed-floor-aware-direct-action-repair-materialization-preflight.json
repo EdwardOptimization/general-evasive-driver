@@ -196,6 +196,15 @@
     "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json"
   ],
   "scoreboard_checkpoint": "runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight/summary.json",
-  "next_blocker": "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight",
-  "status": "pending"
+  "next_blocker": "m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit",
+  "status": "completed",
+  "completed_at_utc": "20260607T192438Z",
+  "status_pass": true,
+  "gate_matrix_pass": true,
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v2_speed_floor_aware_repair_materialization_preflight_pass",
+  "decision": "route_to_m3094_speed_floor_aware_repair_materialization_result_audit",
+  "completed_summary": "Completed: materialized M3093 v2 speed-floor-aware balanced direct-action repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3093_speed_floor_aware_balanced_direct_action_repair_v2 rule_rows 5 actor_input_exclusion_rows 10 claim_boundary_rows 20 gate_rows 25 low_speed_probe_throttle 0.3700000047683716 urgent_obstacle_probe_brake 0.4399999976158142 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim; registered M3094 result audit.",
+  "selected_next_action": "m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit",
+  "selected_next_action_type": "result_audit"
 }
