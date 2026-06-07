@@ -53370,3 +53370,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2996-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-preflight_20260607T035556Z/command.log`
 - success artifact: `runs/m2996_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_validation_contract_materialization_preflight/summary.json`
 - notes: Completed: materialized validation-contract artifacts with status_pass true gate_matrix_pass true 43 validation contract rows 3 residual-head wrapper rows 3 parent comparison rows 13 success-retention rows 11 stale exclusions 14 actor input exclusions 12 checkpoint side-effect guards residual artifact 72x3/action 3 target_quality_validated false no validation ranking winner selection promotion checkpoint mutation private holdout performance repair-success paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2997 result audit.
+
+## 20260607T040419Z m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2996 validation-contract materialization artifacts before any closed-loop validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit_20260607T040419Z`
+- command log: `runs/research/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit_20260607T040419Z/command.log`
+- success artifact: `docs/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M2996 validation-contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true 43 validation contract rows 3 residual-head wrapper rows 3 parent comparison rows 13 success-retention rows 11 stale exclusions 14 actor input exclusions 12 checkpoint side-effect guards residual artifact 72x3/action 3 target_quality_validated false no validation ranking winner selection promotion checkpoint mutation private holdout performance repair-success paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; local-search guard requires M2998 validation-contract branch synthesis before another ordinary process-only validation design.

@@ -39,6 +39,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.json",
   "forbidden_shortcuts": [
     "do not run environment validation ranking winner selection private holdout or performance measurement",
     "do not mutate save replace or promote checkpoints",
@@ -88,9 +89,9 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit",
+  "next_blocker": "m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis",
   "private_holdout_policy": "not_used",
-  "promotion_decision": "pending",
+  "promotion_decision": "not_applicable",
   "public_gates": [
     "M2997 must audit M2996 validation-contract rows and gate matrix",
     "M2997 must preserve target_quality_validated false unless a later target-quality audit is explicitly admitted",
@@ -101,6 +102,10 @@
     {
       "path": "docs/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2998-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-validation-contract-branch-synthesis.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.md",
@@ -118,7 +123,7 @@
     "negative_result_policy": "Preserve validation blockers rather than weakening self-ID proof gates.",
     "temporal_evidence_window": "M2983-M2996 Route A actor-head delta target tensor fitting-contract validation-contract chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2997-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-validation-contract-materialization-result-audit.md exists",
     "M2997 audits M2996 wrapper comparison success-retention stale-exclusion actor side-effect claim and gate artifacts",
