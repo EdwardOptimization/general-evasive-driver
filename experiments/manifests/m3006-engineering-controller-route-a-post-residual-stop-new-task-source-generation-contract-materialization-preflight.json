@@ -1,0 +1,238 @@
+{
+  "baseline_artifacts": [
+    "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/summary.json",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_axis_candidate_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/rejected_same_surface_rows.csv",
+    "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/gate_matrix.csv",
+    "runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json",
+    "runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv",
+    "docs/post-m2470-route-plan.md",
+    "docs/self-id-go-no-go-paper-route-plan.md",
+    "docs/paper-route-finite-window-vs-gru-plan.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight --m3005-audit docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md --m3004-dir runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight --m1680-specs runs/m1680_controller_family_bounded_task_source_generation_preflight/task_source_specs.json --m1690-workload runs/m1690_controller_family_executable_workload_materialization_preflight/executable_workload_matrix.csv --output-dir runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight --follow-up-manifest experiments/manifests/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.json",
+      "name": "materialize_new_task_source_generation_contract"
+    }
+  ],
+  "decision_rule": "Pass only if M3006 writes complete no-execution source-generation contract artifacts with new task_source identities outside the exhausted M1690 L3 set, preserves actor and claim boundaries, and registers M3007 audit before any execution or overclaiming.",
+  "failure_criteria": [
+    "M3006 reuses m1680-spec-0000 through m1680-spec-0071 as fresh new source identities",
+    "M3006 treats eval-seed-only replay label-only changes or residual-head wrapper changes as source generation",
+    "M3006 changes actor input/action contract or makes hidden oracle source route outcome success progress target or verdict labels actor-visible",
+    "M3006 executes environment policy action replay validation training PPO source build adapter probe external simulation or benchmark work",
+    "M3006 ranks selects a winner promotes mutates checkpoints or claims validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "training_instability",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run reset step rollout replay validation training PPO private holdout source build adapter probe or external simulation",
+    "do not mutate save replace rank select or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels source task role route outcome success progress target provenance or verdict labels to actor input",
+    "do not count M1690 M2919 M3000 or eval-seed-only same-surface rows as new source identities",
+    "do not convert source contract rows into validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A no-execution new task-source generation contract materialization preflight can convert the M3005-accepted M3004 source-axis candidates into machine-checkable source-contract, axis-budget, new-source-spec, same-surface-rejection, actor-contract, claim-boundary, gate, and follow-up-audit artifacts with task_source identities outside the exhausted m1680-spec-0000..0071 set before any execution, ranking, validation, performance, paper, high-fidelity, or self-ID claim.",
+  "id": "m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M1690 L3 task_source-id row space is exhausted for fresh row selection",
+      "M3000 and M2919 share the same task_source identity set at audited granularity",
+      "new source identities are required before any later Route A execution design",
+      "Route C HF3 selected-platform execution remains blocked until source or approved dependency route is supplied"
+    ],
+    "derived_from": [
+      "m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit",
+      "m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight",
+      "m3003-engineering-controller-route-a-post-residual-stop-fresh-source-diverse-evidence-surface-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.json",
+      "experiments/manifests/m3004-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3005-engineering-controller-route-a-post-residual-stop-source-axis-expansion-materialization-result-audit.md",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/summary.json",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/source_axis_candidate_rows.csv",
+      "runs/m3004_engineering_controller_route_a_post_residual_stop_source_axis_expansion_materialization_preflight/rejected_same_surface_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize a new task-source generation contract after M3005 accepts M3004 source-axis expansion accounting"
+    ],
+    "supersedes": [
+      "reuse_m1690_l3_task_source_rows",
+      "reuse_m2919_dependency_facing_rows",
+      "reuse_m2996_m3000_residual_head_denominator",
+      "eval_seed_only_rerun"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "evidence_expansion": "materializes a new task-source generation contract panel beyond the exhausted fixed M1690 L3 identity space",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3006 cannot materialize new source identities outside exhausted M1690 L3 ids",
+      "M3006 writes only same-surface rejection rows without a clear next decision",
+      "M3006 would claim validation performance paper high-fidelity finite-window-vs-GRU or self-ID evidence"
+    ],
+    "paper_verdict_delta": "no paper verdict; prepares a new engineering source panel before any later execution",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3006 must materialize new source identities outside m1680-spec-0000 through m1680-spec-0071 or explicitly stop",
+    "M3006 must cover scenario variant OOD dynamics sensor noise and actuator delay axes as evaluator-side source contract rows",
+    "M3006 must preserve actor observation 72 action 3 and no hidden oracle target provenance source route outcome success progress or verdict actor inputs",
+    "M3006 must not run reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion checkpoint mutation or success-rate verdict computation",
+    "M3006 must register M3007 result audit before interpretation"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/source_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/source_axis_budget_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/new_task_source_spec_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/rejected_same_surface_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3006 source-generation contract materialization artifacts only",
+      "M3006 new task-source identity accounting only",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3006 materializes source contracts and cannot infer history necessity or current-frame sufficiency.",
+    "history_necessity_tests": [
+      "None in M3006; wrong-history reset-hidden zero-history finite-window or GRU comparison proof remains separately pre-registered."
+    ],
+    "negative_result_policy": "If no new source identity can be materialized, write an explicit stop artifact rather than weakening self-ID or paper proof gates.",
+    "temporal_evidence_window": "M3004-M3005 source-axis expansion materialization and audit only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json exists",
+    "M3006 reads M3004 source_axis_candidate_rows and M3005 audit as governing inputs",
+    "M3006 materializes new task_source identities outside m1680-spec-0000 through m1680-spec-0071 or materializes an explicit stop route",
+    "M3006 writes source_contract_rows source_axis_budget_rows new_task_source_spec_rows rejected_same_surface_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and M3007 audit manifest artifacts",
+    "M3006 covers scenario distribution variant OOD dynamics sensor noise and actuator delay axes as source-generation contract rows without actor-visible hidden/oracle labels",
+    "M3006 performs no reset step rollout replay validation training PPO source build adapter probe external simulation ranking promotion checkpoint mutation performance paper high-fidelity or self-ID work"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3005 accepts M3004 as complete and claim-safe",
+      "M3004 reports 4 admissible-after-audit source-axis candidate rows",
+      "M3004 confirms zero unused M1690 L3 task_source ids and rejects same-surface reuse"
+    ],
+    "allowed_updates": [
+      "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json",
+      "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/*.csv",
+      "runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/run_state.json",
+      "docs/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight.md",
+      "experiments/manifests/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.json",
+      "docs/reviews/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight.md",
+      "experiments/reviews/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight.json",
+      "M3006 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no reset step rollout replay validation training PPO source build adapter probe external simulation",
+      "no ranking winner selection promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no hidden parameters target labels target provenance source route verdict paper labels or oracle actor inputs",
+      "no driver-performance current-sim high-fidelity full ideal driver finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "summary and required CSV/JSON/doc artifacts exist",
+      "new task_source identity rows are outside exhausted M1690 L3 ids",
+      "actor 72/action 3 no hidden/oracle actor input remains preserved",
+      "M3007 result-audit manifest is registered"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "materialize no-execution new task-source generation contract after M3005"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "No-execution materialization only; no execution validation ranking promotion repair-success driver-performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_task_source_generation_contract_materialization_after_exhausted_m1690_l3",
+    "evidence_increment": "materializes new task-source generation contract rows and budgets before any later executable workload or diagnostic execution",
+    "fallback_plan": [
+      "register M3007 result audit if materialization is complete and claim-safe",
+      "materialize explicit stop rows if no admissible new source identity exists",
+      "defer executable workload materialization until M3007 accepts source-contract safety"
+    ],
+    "stop_condition": [
+      "stop if no new task_source identities outside m1680-spec-0000 through m1680-spec-0071 can be materialized",
+      "stop if materialization would treat eval-seed-only replay or residual-head wrapper changes as source generation",
+      "stop if actor input stale-exclusion Route C blocker prior-surface or claim boundaries would be weakened"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3005 accepts M3004 source-axis expansion materialization and admits new source-identity route"
+  }
+}
