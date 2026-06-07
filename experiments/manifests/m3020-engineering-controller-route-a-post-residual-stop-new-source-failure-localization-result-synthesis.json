@@ -1,0 +1,188 @@
+{
+  "id": "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis",
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded result synthesis can integrate the M3018/M3019 new-source failure-localization evidence and choose exactly one stop pivot repair-design or continuation route before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/gate_matrix.csv",
+      "docs/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.md",
+      "docs/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.md",
+      "docs/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.json",
+      "experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json",
+      "experiments/manifests/m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis.json",
+      "experiments/manifests/m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit.json",
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize audit-accepted failure-localization evidence before selecting any repair or continuation route"
+    ],
+    "derived_from": [
+      "m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit",
+      "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+      "m3017-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-synthesis",
+      "m3016-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-result-audit",
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M3018/M3019 show broad negative diagnostic localization and no direct repair target is yet audited",
+      "M3020 must choose one bounded next route or stop state before local search continues"
+    ],
+    "supersedes": [
+      "direct repair training ranking or promotion from M3018 localization rows without synthesis"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+  "public_gates": [
+    "M3020 must synthesize M3018/M3019 completeness actor and claim safety",
+    "M3020 must classify whether localization supports stop pivot repair-design or another bounded continuation",
+    "M3020 must choose exactly one next route or stop state",
+    "M3020 must not rerun execute train rank promote mutate checkpoints tune profiles or claim validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun reset rollout replay validate train rank promote select a winner mutate checkpoints or tune profiles",
+    "do not select a repair target without an explicit synthesis decision and follow-up manifest",
+    "do not treat M3018 localization as validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "do not weaken actor 72/action 3 or hidden/oracle/TTC input guards"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "evidence_axis": "new_source_failure_localization_result_synthesis",
+    "evidence_increment": "synthesizes M3018/M3019 denominator-preserving failure-localization evidence and chooses one next route",
+    "claim_scope": "Synthesis decision only; no validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop or pivot if localization is too broad to justify a bounded engineering repair",
+      "stop if the next route would require hidden actor inputs row dropping checkpoint mutation profile tuning or protected claims",
+      "stop if M3020 cannot choose exactly one route"
+    ],
+    "fallback_plan": [
+      "choose stop if localization yields no actionable bounded route",
+      "choose branch pivot if current Route A source-axis work is exhausted",
+      "choose a bounded repair-design or objective-admission route only if M3020 identifies a specific audited mechanism"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3019 accepts M3018 localization as complete and claim-safe but rejects direct repair target selection",
+    "synthesis_decision": "continue",
+    "synthesis_artifact": "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize M3018/M3019 new-source failure-localization evidence and choose the next route",
+    "admission_evidence": [
+      "M3019 result audit doc exists",
+      "M3018 summary gate matrix failure_localization_rows and profile_source_aggregate_rows exist"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training replay PPO checkpoint mutation profile tuning or promotion",
+      "no hidden/oracle/future-target/source/route/outcome/progress/verdict/TTC actor input"
+    ],
+    "allowed_updates": [
+      "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+      "docs/reviews/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+      "M3020 status queue scoreboard and review",
+      "one follow-up manifest only if M3020 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M3020 synthesis selects exactly one next route or stop state",
+      "No protected claim is made from M3018/M3019 localization evidence"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3020 may discuss Route A engineering localization but cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3020; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M3015 Route A new-source diagnostic execution plus M3018/M3019 localization only.",
+    "negative_result_policy": "Negative localization must be preserved and synthesized rather than converted into weaker self-ID gates.",
+    "allowed_claims": [
+      "M3018/M3019 artifact completeness and claim-safety synthesis",
+      "one next-route or stop decision",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "synthesizes newly localized Route A new-source diagnostic failures before selecting the next route",
+    "paper_verdict_delta": "no paper verdict; synthesis may decide whether Route A should continue pivot or stop",
+    "must_synthesize_if": [
+      "M3020 cannot choose exactly one next route",
+      "M3020 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID",
+      "M3020 would continue local search without an evidence-producing route or stop decision"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md exists",
+    "M3020 answers all synthesis questions",
+    "M3020 selects exactly one next route or stop state",
+    "no validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "failure_criteria": [
+    "M3020 hides broad negative M3018/M3019 localization outcomes",
+    "M3020 treats M3018 localization as validation or performance evidence",
+    "M3020 changes actor input or action contract",
+    "M3020 leaves next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3020 synthesizes M3018/M3019 evidence and selects one next route or stop state while preserving actor and claim boundaries without overclaiming.",
+  "commands": [
+    {
+      "name": "result_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.md",
+  "next_blocker": "m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis",
+  "status": "pending"
+}

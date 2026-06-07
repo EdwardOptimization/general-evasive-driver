@@ -53636,3 +53636,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight_20260607T073137Z/command.log`
 - success artifact: `runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/summary.json`
 - notes: Completed: materialized no-execution failure-localization artifacts with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 failure localization rows 32 profile/source aggregate rows 0 failure rows 2 profile bindings actor 72/action 3; diagnostic families include 3 success rows 5 collision rows 23 off_track terminations 4 obstacle_collision terminations 2 speed_too_low terminations and 3 blank termination rows; no reset step rollout replay validation training PPO ranking winner selection checkpoint mutation promotion profile tuning repair-target selection repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3019 result audit.
+
+## 20260607T073943Z m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3018 failure-localization materialization before any repair training ranking validation performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit_20260607T073943Z`
+- command log: `runs/research/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit_20260607T073943Z/command.log`
+- success artifact: `docs/m3019-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-result-audit.md`
+- notes: Completed: audit accepts M3018 failure-localization materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 16 source specs 16 unique m3006-src ids 32 workload rows 32 localized rows 32 profile/source aggregate rows 0 failure rows actor 72/action 3; localization is broad and negative with candidate 0/16 success parent 3/16 success 13/16 task_source ids non-success under both profiles and offtrack-dominant plus collision and speed-floor failures; rejects repair-target selection validation repair-success performance paper current-sim high-fidelity finite-window-vs-GRU full-driver ranking promotion and self-ID claims; routes to M3020 result synthesis.

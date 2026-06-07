@@ -372,3 +372,62 @@ When creating AutoDrift manifests, use only the validator enum for `training_sta
 - Related Files: experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json
 
 ---
+
+## [ERR-20260607-007] autodrift_local_search_guard_synthesis_decision
+
+**Logged**: 2026-06-07T15:41:29+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift manifest validation requires a real `workflow_synthesis.synthesis_decision` when local-search repeat counts reach the guard threshold.
+
+### Error
+```text
+error: m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis: local_search_guard requires a workflow synthesis decision when local_search_risk is high or repeat/repair counts reach 3
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3020 had `local_search_guard.same_failure_repeat_count: 3` but `workflow_synthesis.synthesis_decision: not_applicable`.
+- The milestone is itself a synthesis continuation, so the manifest must pre-register a concrete synthesis decision.
+
+### Suggested Fix
+When same-failure repeat count reaches 3 or local-search risk is high, set `workflow_synthesis.synthesis_decision` to `continue`, `pivot`, `stop`, or `promote_to_next_branch` instead of `not_applicable`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.json
+
+---
+
+## [ERR-20260607-008] autodrift_workflow_synthesis_artifact_layout
+
+**Logged**: 2026-06-07T15:42:10+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift synthesis manifests require `synthesis_artifact` and `synthesis_questions` inside `workflow_synthesis` when the synthesis decision is concrete.
+
+### Error
+```text
+error: m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis: workflow_synthesis.synthesis_artifact must be non-empty text for synthesis milestones
+error: m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis: workflow_synthesis.synthesis_questions must be a non-empty list of non-empty text
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3020 had top-level `synthesis_artifact` and `synthesis_questions` but `workflow_synthesis.synthesis_decision: continue`.
+- The validator reads synthesis metadata from the nested `workflow_synthesis` object for concrete synthesis milestones.
+
+### Suggested Fix
+For concrete synthesis milestones, put `synthesis_artifact` and a list-form `synthesis_questions` inside `workflow_synthesis`; avoid relying on top-level synthesis fields.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.json
+
+---
