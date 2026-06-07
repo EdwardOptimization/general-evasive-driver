@@ -1,0 +1,174 @@
+{
+  "baseline_artifacts": [
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "target_tensor_materialization_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3033 audits M3032 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3033 hides missing target tensor artifacts",
+    "M3033 treats target tensor materialization as fitting readiness or performance evidence",
+    "M3033 changes actor input or action contract",
+    "M3033 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not fit train validate rank promote or execute a residual head",
+    "do not convert target tensor materialization into performance claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3032 target tensor materialization artifacts before any residual fitting training validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+  "id": "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3032 target tensor artifacts require result audit before fitting admission",
+      "target tensor materialization is not target quality validation or repair success"
+    ],
+    "derived_from": [
+      "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
+      "m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis",
+      "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json",
+      "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json",
+      "experiments/manifests/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/gate_matrix.csv",
+      "docs/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit target tensor materialization before residual fitting admission"
+    ],
+    "supersedes": [
+      "direct residual fitting immediately after target tensor materialization without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits target tensor artifacts",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3033 cannot accept M3032 as complete and claim-safe",
+      "M3033 would claim fitting readiness driver performance paper current-sim high-fidelity or self-ID"
+    ],
+    "paper_verdict_delta": "no paper verdict; audit may inform later fitting-admission design only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3033 must audit M3032 target tensor rows success guards actor and claim boundaries",
+    "M3033 must preserve 29 target tensor rows and 3 zero-target success guards",
+    "M3033 must preserve actor 72/action 3 and no target labels actor-visible",
+    "M3033 must not claim fitting readiness target quality performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+    "M3033 must select exactly one next route or stop state before residual fitting admission"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3032 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3033 audits Route A target tensors and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3033; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "negative_result_policy": "Preserve target tensor failures and route to repair or synthesis rather than weakening self-ID gates.",
+    "temporal_evidence_window": "M3032 target tensor materialization preflight only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md exists",
+    "M3033 audits M3032 target tensor artifacts",
+    "M3033 selects exactly one next route or stop state",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3032 summary and gate matrix",
+      "M3032 target tensor artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "docs/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "experiments/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
+      "M3033 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3033 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or success-rate verdict",
+      "no checkpoint mutation save selection or promotion",
+      "no target labels or provenance actor-visible"
+    ],
+    "next_stage_criteria": [
+      "M3033 accepts or rejects M3032 as complete and claim-safe",
+      "next route or stop state is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3032 target tensor artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "claim_scope": "Result audit only; no fitting training validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "new_source_broad_failure_target_tensor_materialization_result_audit",
+    "evidence_increment": "audits newly materialized target tensor artifacts",
+    "fallback_plan": [
+      "route to artifact repair if target tensor artifacts are incomplete",
+      "route to fitting-admission design only after audit accepts claim safety",
+      "route to branch synthesis pivot or stop if target tensor materialization violates guardrails"
+    ],
+    "stop_condition": [
+      "stop if M3032 artifacts are missing or gate matrix fails",
+      "stop if actor or claim boundaries were violated",
+      "stop if target tensors would be used for fitting before audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3032 completes target tensor materialization preflight"
+  }
+}
