@@ -10,6 +10,7 @@
       "name": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_closed_loop_measurement_preflight"
     }
   ],
+  "decision": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_measurement_route_to_m3081_result_audit",
   "decision_rule": "Pass only if M3080 executes the M3078 deterministic safety-reflex as full obs72-to-action3 actor on the pre-registered same-denominator panel, writes required measurement artifacts, preserves actor and claim boundaries, registers M3081 audit, and makes no validation/performance/promotion/paper/self-ID claim.",
   "failure_criteria": [
     "M3080 changes denominator after M3079 without a separate pre-registered manifest",
@@ -34,6 +35,7 @@
     "do not add hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
     "do not claim validation ranking promotion driver performance current-sim verdict high-fidelity readiness paper finite-window-vs-GRU full-driver repair success or self-ID"
   ],
+  "gate_matrix_pass": true,
   "gate_tier": "infrastructure",
   "hypothesis": "A bounded same-denominator closed-loop measurement preflight can execute the M3078 actor-visible deterministic direct-action safety-reflex policy as the full obs72-to-action3 actor and write collision offtrack clearance stability recovery action-pressure and robustness measurement artifacts before any validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, repair-success, full-driver, or self-ID claim.",
   "id": "m3080-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-preflight",
@@ -84,7 +86,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3080-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-preflight",
+  "next_blocker": "m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit",
   "priority": 30750,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -129,8 +131,11 @@
       "type": "json"
     }
   ],
+  "result_class": "active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_closed_loop_measurement_preflight_pass",
   "review_artifact": "docs/reviews/m3080-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-preflight.md",
   "scoreboard_checkpoint": "runs/m3080_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_closed_loop_measurement_preflight/summary.json",
+  "selected_next_action": "m3081-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-closed-loop-measurement-result-audit",
+  "selected_next_action_type": "result_audit",
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "measurement artifact completeness and claim-boundary preservation",
@@ -144,7 +149,8 @@
     "negative_result_policy": "Negative M3080 behavior routes to result audit, repair, synthesis, or stop; it does not revive self-ID as the mainline objective.",
     "temporal_evidence_window": "Same-denominator engineering measurement for M3078 deterministic candidate only."
   },
-  "status": "pending",
+  "status": "completed",
+  "status_pass": true,
   "success_criteria": [
     "summary.json reports status_pass true and gate_matrix_pass true",
     "measurement_episode_rows.csv records the same scheduled 32-row denominator",
@@ -173,7 +179,8 @@
       "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
     ],
     "next_stage_criteria": [
-      "M3080 artifacts are accepted or rejected by M3081 result audit",
+      "M3081 accepts or rejects M3080 as complete and claim-safe",
+      "M3081 compares M3080 to M3067/M3075 same-denominator safety counts without validation or performance overclaim",
       "M3081 routes exactly one continuation, repair, synthesis, or stop decision"
     ],
     "stage": "evaluation_only",
