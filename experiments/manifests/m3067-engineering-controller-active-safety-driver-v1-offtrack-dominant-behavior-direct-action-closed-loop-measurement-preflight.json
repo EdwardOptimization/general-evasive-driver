@@ -246,5 +246,6 @@
   "scoreboard_checkpoint": "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json",
   "next_blocker": "m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit",
   "follow_up_manifest": "experiments/manifests/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit.json",
-  "status": "pending"
+  "status": "completed",
+  "completion_summary": "Completed: ran bounded same-denominator current-sim measurement for the M3065 direct-action candidate as full obs72-to-action3 actor with status_pass true gate_matrix_pass true required_artifacts_present true 32/32 episode rows 0 failures 8 success 4 collision 16 offtrack 5 speed_too_low raw_action_abs_max 2.2606801986694336 action_clip_fraction_mean 0.03451952273501378 final_action_abs_max 1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false direct-action adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3068 result audit."
 }
