@@ -238,5 +238,7 @@
   ],
   "scoreboard_checkpoint": "runs/m3050_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_closed_loop_measurement_preflight/summary.json",
   "next_blocker": "m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit",
-  "status": "pending"
+  "follow_up_manifest": "experiments/manifests/m3051-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-closed-loop-measurement-result-audit.json",
+  "completion_summary": "Completed: ran bounded same-denominator current-sim measurement with status_pass true gate_matrix_pass true 32/32 episode rows 0 failures 4 success 4 collision 24 offtrack 1 speed_too_low residual_abs_max 0.07999999821186066 headroom_clip_fraction_mean 0.19604308837476644 action_clip_fraction_mean 0.0 actor 72/action 3 action-headroom residual adapter actor-contract side-effect and claim guards pass; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3051 result audit.",
+  "status": "completed"
 }
