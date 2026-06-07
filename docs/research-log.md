@@ -54272,3 +54272,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight_20260607T162703Z/command.log`
 - success artifact: `runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json`
 - notes: Completed: materialized row-preserving multi-failure direct-action repair contract from M3070/M3069 with status_pass true gate_matrix_pass true 32/32 episode rows 8 success 4 collision 16 offtrack 5 speed_too_low 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] base_policy_required false runtime_base_policy_required false; no reset step rollout replay fitting training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims; registered M3072 result audit.
+
+## 20260607T163542Z m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3071 direct-action multi-failure repair-contract artifacts before any fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit_20260607T163541Z`
+- command log: `runs/research/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit_20260607T163541Z/command.log`
+- success artifact: `docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md`
+- notes: Completed: audit accepts M3071 direct-action multi-failure repair contract as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3073 bounded direct-action multi-failure repair fitting preflight.

@@ -1,0 +1,94 @@
+{
+  "decision_reason": "Completed: audit accepts M3071 direct-action multi-failure repair contract as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3073 bounded direct-action multi-failure repair fitting preflight.",
+  "failure_criteria": [
+    "M3072 hides M3071 failures or missing artifacts",
+    "M3072 treats M3071 contract as target quality validation or performance verdict",
+    "M3072 changes actor input action contract or runtime base-policy-free boundary",
+    "M3072 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun rollout fit train validate rank promote tune or mutate checkpoints",
+    "do not convert M3071 contract rows into target quality fitted policy quality performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success or self-ID claims",
+    "do not change actor input action contract or runtime base-policy-free boundary"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T163631Z",
+  "hypothesis": "A bounded result audit can accept or reject the M3071 direct-action multi-failure repair-contract artifacts before any fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver repair-success or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3071 repair-contract artifacts require audit before fitting or stop decision",
+      "M3070/M3069 evidence is repair-contract materialization evidence only"
+    ],
+    "derived_from": [
+      "m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight",
+      "m3070-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-result-audit",
+      "m3069-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-failure-decomposition-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/summary.json",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_repair_contract_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_loss_family_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_row_admission_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/direct_action_guard_family_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3071_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_multi_failure_repair_contract_materialization_preflight/gate_matrix.csv",
+      "docs/m3071-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit multi-failure direct-action repair contract before fitting"
+    ],
+    "supersedes": [
+      "direct fitting route without auditing M3071 repair contract"
+    ]
+  },
+  "milestone": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
+  "next_blocker": "m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m3071_repair_contract_claim_safe_route_to_m3073_bounded_repair_fitting_preflight",
+  "public_gates": [
+    "M3072 must audit M3071 summary contract loss row-admission guard claim and gate artifacts",
+    "M3072 must confirm all 32 M3067 rows and all M3069 requirement families remain accounted for",
+    "M3072 must preserve actor 72/action 3 direct-action/base-policy-free contract and claim boundaries",
+    "M3072 must reject target quality fitted policy quality validation ranking promotion high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims unless separately routed",
+    "M3072 must select exactly one fitting audit stop or continuation route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m3071_repair_contract_claim_safe_route_to_m3073_bounded_repair_fitting_preflight",
+    "milestone": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
+    "reason": "Completed: audit accepts M3071 direct-action multi-failure repair contract as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3073 bounded direct-action multi-failure repair fitting preflight.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md exists",
+    "M3072 audits M3071 summary contract loss row-admission guard claim and gate artifacts",
+    "M3072 rejects target quality fitted policy quality validation ranking promotion performance high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims",
+    "M3072 selects exactly one fitting audit stop or continuation route"
+  ],
+  "type": "gate"
+}

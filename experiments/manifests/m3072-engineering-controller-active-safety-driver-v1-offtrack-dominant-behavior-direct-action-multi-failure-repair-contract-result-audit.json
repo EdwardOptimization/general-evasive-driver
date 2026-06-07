@@ -91,7 +91,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit",
+  "next_blocker": "m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight",
   "priority": 30670,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -106,6 +106,10 @@
     {
       "path": "docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md",
@@ -123,7 +127,7 @@
     "negative_result_policy": "Preserve direct-action repair-contract evidence and route to repair or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3071 repair-contract artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3072-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-contract-result-audit.md exists",
     "M3072 audits M3071 summary contract loss row-admission guard claim and gate artifacts",
@@ -173,5 +177,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3071 materializes direct-action multi-failure repair contract artifacts"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3073-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-multi-failure-repair-bounded-fitting-preflight.json",
+  "completion_summary": "Completed: audit accepts M3071 direct-action multi-failure repair contract as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 episode rows 1 repair contract row 6 loss family rows 32 row-admission rows 9 guard-family rows 23 claim-boundary rows 7 requirement families actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false; rejects target quality fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver repair-success and self-ID claims; routes exactly one follow-up to M3073 bounded direct-action multi-failure repair fitting preflight."
 }
