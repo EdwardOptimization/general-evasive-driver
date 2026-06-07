@@ -88,7 +88,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit",
+  "next_blocker": "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design",
   "priority": 30410,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -103,6 +103,10 @@
     {
       "path": "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
@@ -120,7 +124,7 @@
     "negative_result_policy": "Preserve negative active-safety evidence and route to repair or stop rather than returning self-ID to the mainline objective.",
     "temporal_evidence_window": "M3045 failure decomposition artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md exists",
     "M3046 audits M3045 summary failure actuation repair claim and gate artifacts",
@@ -137,6 +141,7 @@
       "docs/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
       "experiments/reviews/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.json",
       "M3046 status queue scoreboard research log and review",
+      "experiments/manifests/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.json",
       "one follow-up manifest only if M3046 selects exactly one next route"
     ],
     "blocked_shortcuts": [
@@ -170,5 +175,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3045 materializes failure decomposition artifacts"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.json",
+  "completion_summary": "Completed: audit accepts M3045 failure-decomposition materialization as complete and claim-safe with status_pass true gate_matrix_pass true 32/32 measurement rows 17 failure_mode rows 9 actuation_saturation rows 6 repair_requirement rows candidate action_clip_fraction_mean 0.41243192505631066 parent action_clip_fraction_mean 0.0 actor 72/action 3 no reset step rollout replay fitting training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; routes exactly once to M3047 actuation-aware repair design."
 }

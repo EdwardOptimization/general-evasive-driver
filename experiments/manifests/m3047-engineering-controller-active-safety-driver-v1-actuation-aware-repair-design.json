@@ -1,0 +1,178 @@
+{
+  "id": "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design",
+  "priority": 30420,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded design-only milestone can convert the M3046-accepted M3045 failure decomposition into exactly one actuation-aware repair route before any fitting training rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/summary.json",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/failure_mode_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.json",
+      "experiments/manifests/m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "freeze actuation-aware repair design before refit or rerun"
+    ],
+    "derived_from": [
+      "m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit",
+      "m3045-engineering-controller-active-safety-driver-v1-failure-decomposition-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3046 accepts M3045 decomposition as repair input but rejects direct repair-success or driver-performance claims",
+      "candidate action saturation and offtrack pressure require an explicit repair design before another fitting route"
+    ],
+    "supersedes": [
+      "direct refit rerun validation ranking or promotion without actuation-aware repair design"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+  "public_gates": [
+    "M3047 must freeze one actuation-aware repair route before any implementation fitting training rollout validation ranking or promotion",
+    "M3047 must include p0 offtrack recovery and p0 candidate action-saturation gates",
+    "M3047 must keep T5 collision rows and speed-floor rows as separate guard families",
+    "M3047 must preserve parent success rows and success identity guards",
+    "M3047 must preserve actor 72/action 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3047 must select exactly one follow-up materialization implementation audit stop or continuation route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run reset step rollout replay fitting PPO training validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3045 decomposition rows into driver-performance current-sim validation high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims",
+    "do not mutate checkpoints profiles configs actor inputs actor outputs or the M3041 residual artifact",
+    "do not optimize residual loss without a separate action-saturation gate"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "evidence_axis": "active_safety_driver_v1_actuation_aware_repair_design",
+    "evidence_increment": "converts M3045 failure decomposition into a concrete actuation-aware repair route design without execution",
+    "claim_scope": "Design only; no fitting training rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if design cannot preserve actor 72/action 3",
+      "stop if candidate action saturation is not a first-class gate",
+      "stop if offtrack collision speed-floor or success-preservation requirements are dropped",
+      "stop if design would claim repair success before measured evidence"
+    ],
+    "fallback_plan": [
+      "route to design repair if requirement families cannot be represented",
+      "route to branch stop if no actuation-aware repair route can preserve claim boundaries",
+      "route to materialization implementation only after M3047 freezes one route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3046 accepts M3045 decomposition and selects actuation-aware repair design",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Freeze a claim-safe actuation-aware repair design from M3045 failure requirements",
+    "admission_evidence": [
+      "M3046 accepts M3045 failure decomposition as complete and claim-safe",
+      "M3045 identifies p0 offtrack recovery p0 candidate action saturation p1 collision guard p1 success preservation p2 speed floor and p0 claim boundary requirements",
+      "M3045 actor and claim guards pass"
+    ],
+    "blocked_shortcuts": [
+      "no fitting training rollout validation ranking promotion driver-performance verdict current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+      "no hidden oracle TTC target provenance source route outcome progress or verdict actor input",
+      "no checkpoint profile config actor contract or residual artifact mutation"
+    ],
+    "allowed_updates": [
+      "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+      "docs/reviews/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+      "experiments/reviews/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.json",
+      "M3047 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3047 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M3047 freezes one actuation-aware repair route or stop state",
+      "next route or stop state is explicit"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3047 designs an engineering repair route and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3047; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "temporal_evidence_window": "M3045 failure decomposition requirements only.",
+    "negative_result_policy": "Preserve active-safety repair evidence and keep self-ID diagnostics auxiliary to the engineering objective.",
+    "allowed_claims": [
+      "actuation-aware repair route design completeness",
+      "no validation driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "converts measurement-derived repair requirements into a concrete actuation-aware repair route design",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3047 prepares a deployable active-safety repair implementation route",
+    "must_synthesize_if": [
+      "M3047 cannot freeze one route",
+      "M3047 would require another design-only milestone before implementation",
+      "M3047 drops action-saturation or success-preservation guards"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md exists",
+    "M3047 defines one actuation-aware repair route with offtrack candidate-saturation collision speed-floor and success-preservation gates",
+    "M3047 rejects validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3047 selects exactly one next materialization implementation audit stop or continuation route"
+  ],
+  "failure_criteria": [
+    "M3047 treats M3045 decomposition as repair success",
+    "M3047 omits action-saturation or success-preservation gates",
+    "M3047 runs fitting training rollout validation ranking promotion or checkpoint mutation",
+    "M3047 leaves next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3047 freezes one actuation-aware repair route and preserves all actor and claim boundaries before implementation.",
+  "commands": [
+    {
+      "name": "active_safety_driver_v1_actuation_aware_repair_design_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3046-engineering-controller-active-safety-driver-v1-failure-decomposition-result-audit.md",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/summary.json",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/repair_requirement_rows.csv",
+    "runs/m3045_engineering_controller_active_safety_driver_v1_failure_decomposition_materialization_preflight/actuation_saturation_rows.csv"
+  ],
+  "scoreboard_checkpoint": "docs/m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design.md",
+  "next_blocker": "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design",
+  "status": "pending"
+}
