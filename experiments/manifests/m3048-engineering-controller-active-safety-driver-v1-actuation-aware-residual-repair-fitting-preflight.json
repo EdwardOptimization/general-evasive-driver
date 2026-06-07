@@ -217,5 +217,7 @@
   ],
   "scoreboard_checkpoint": "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
   "next_blocker": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
-  "status": "pending"
+  "follow_up_manifest": "experiments/manifests/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.json",
+  "completion_summary": "Completed: fitted one action-headroom-constrained Active Safety Driver v1 residual/reflex candidate with status_pass true gate_matrix_pass true 32 fitting dataset rows 3216 samples initial weighted MSE 0.0011555318603820917 final weighted MSE 0.0004514343111628829 final residual_abs_max 0.07999999821186066 final headroom_clip_fraction 0.1252072968490879 final action bound violations 0 action-saturation guards 3/3 success-preservation guards 3/3 actor 72/action 3 no reset step rollout replay PPO training validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3049 result audit.",
+  "status": "completed"
 }

@@ -1,0 +1,178 @@
+{
+  "baseline_artifacts": [
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_dataset_rows.csv",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_loss_trace_rows.csv",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/action_saturation_guard_rows.csv",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/success_preservation_guard_rows.csv",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/candidate_residual_reflex_layer.npz",
+    "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/gate_matrix.csv",
+    "docs/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_actuation_aware_residual_repair_fitting_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3049 audits M3048 fitting dataset loss guard side-effect claim and candidate artifact evidence and selects exactly one closed-loop measurement, repair, synthesis, or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3049 treats offline fitting loss as closed-loop driver performance",
+    "M3049 omits action-saturation or success-preservation guard audits",
+    "M3049 runs validation ranking promotion high-fidelity or architecture comparison",
+    "M3049 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3048 offline fitting loss into driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles or actor contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3048 action-aware residual repair fitting artifact before any rollout validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "id": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3048 fitted artifact requires audit before any closed-loop measurement",
+      "offline fitting loss is not validation or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight",
+      "m3047-engineering-controller-active-safety-driver-v1-actuation-aware-repair-design"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/summary.json",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/repair_config_snapshot.json",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_dataset_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/fitting_loss_trace_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/action_saturation_guard_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/success_preservation_guard_rows.csv",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/candidate_residual_reflex_layer.npz",
+      "runs/m3048_engineering_controller_active_safety_driver_v1_actuation_aware_residual_repair_fitting_preflight/gate_matrix.csv",
+      "docs/m3048-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-preflight.md"
+    ],
+    "parent_objective": [
+      "audit action-aware residual repair fitting artifact before closed-loop measurement"
+    ],
+    "supersedes": [
+      "direct closed-loop measurement without M3048 artifact audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits fitted action-aware candidate before a new closed-loop measurement route",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3049 cannot select a closed-loop measurement repair synthesis or stop route",
+      "M3049 would require another materialization-only step before closed-loop evidence",
+      "M3049 would re-promote self-ID proof as the mainline objective"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3049 prepares closed-loop engineering measurement",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit",
+  "priority": 30440,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3049 must audit M3048 summary loss dataset action-saturation success-preservation side-effect claim gate and candidate artifact rows",
+    "M3049 must audit candidate artifact shape 72-to-3 residual bound and headroom-constrained composition",
+    "M3049 must reject driver-performance validation high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3049 must choose exactly one next route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3048 artifact audit completeness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3049 audits engineering fitting artifacts and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3049; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot block active-safety closed-loop measurement if safety contract gates pass.",
+    "temporal_evidence_window": "M3048 action-aware residual fitting artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md exists",
+    "M3049 audits M3048 summary loss dataset action guard side-effect claim gate and candidate artifact rows",
+    "M3049 rejects validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3049 selects exactly one next closed-loop measurement repair synthesis or stop route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3048 summary and gate matrix",
+      "M3048 fitting dataset loss action-saturation success-preservation and candidate artifact"
+    ],
+    "allowed_updates": [
+      "docs/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md",
+      "docs/reviews/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.md",
+      "experiments/reviews/m3049-engineering-controller-active-safety-driver-v1-actuation-aware-residual-repair-fitting-result-audit.json",
+      "M3049 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3049 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no rollout validation ranking promotion or checkpoint mutation",
+      "no hidden oracle target TTC source route outcome progress or verdict actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3048 fitted candidate is accepted or rejected",
+      "one next closed-loop measurement repair synthesis or stop route is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit fitted action-aware Active Safety Driver v1 residual/reflex candidate"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "claim_scope": "Result audit only; no rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_actuation_aware_residual_repair_fitting_result_audit",
+    "evidence_increment": "audits the action-aware fitted residual/reflex candidate before any closed-loop measurement",
+    "fallback_plan": [
+      "route to closed-loop measurement if M3048 is accepted",
+      "route to fitting repair if artifact or guards fail",
+      "route to synthesis if closed-loop measurement is still not admissible"
+    ],
+    "stop_condition": [
+      "stop if M3048 artifact is incomplete or unbounded",
+      "stop if action-saturation or success-preservation guards fail",
+      "stop if offline fitting is treated as driver performance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3048 completes action-aware repair fitting"
+  }
+}
