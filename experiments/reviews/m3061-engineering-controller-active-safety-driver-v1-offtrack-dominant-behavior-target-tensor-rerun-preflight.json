@@ -1,0 +1,111 @@
+{
+  "decision_reason": "Completed: materialized 24/24 raw-trace-backed trainer-side target tensor files with status_pass true gate_matrix_pass true required_artifacts_present true target_tensor_file_index_rows 24 weight rows 6 actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; explicit actor-visible road-center terminal recovery-window rule, raw_action_trace_used_as_target false; no fitting local-action-search reset step rollout training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3062 result audit.",
+  "failure_criteria": [
+    "M3061 treats raw trace replay actions as corrected recovery targets without an explicit bounded tensor rule",
+    "M3061 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3061 mutates or promotes parent checkpoints configs profiles actor inputs actor outputs or prior residual artifacts",
+    "M3061 runs fitting validation ranking promotion PPO training or high-fidelity comparison",
+    "M3061 claims target tensor rows as fitted policy quality repair success validation result or driver performance"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat raw action traces as corrected recovery targets without an explicit bounded tensor rule and audit",
+    "do not accept episode summaries as target tensors",
+    "do not run fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not expose target labels target provenance TTC source route outcome progress verdict or oracle labels to actor input",
+    "do not convert target tensor rows into fitted policy quality repair-success validation result current-sim verdict or driver-performance evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260607T143640Z",
+  "hypothesis": "A bounded raw-trace-backed target tensor rerun can consume the M3060-accepted M3059 actor-view traces and materialize or fail-closed record numeric trainer-side target tensors for the offtrack-dominant behavior fitting route before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "target tensor rerun requires raw trace-backed rows and M3060 audit acceptance",
+      "fitting admission requires complete numeric target tensors or explicit audited blockers"
+    ],
+    "derived_from": [
+      "m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit",
+      "m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight",
+      "m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.json",
+      "experiments/manifests/m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight.json",
+      "experiments/manifests/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.md",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/summary.json",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/raw_trace_index_rows.csv",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/raw_trace_availability_rows.csv",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/raw_trace_guard_rows.csv",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/actor_contract_guard_rows.csv",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/claim_boundary_rows.csv",
+      "runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/gate_matrix.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/behavior_target_tensor_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/row_admission_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv",
+      "runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize raw-trace-backed target tensors for deployable obs72-to-action3 active-safety reflex fitting"
+    ],
+    "supersedes": [
+      "M3057 fail-closed target tensor materialization without raw actor-view traces",
+      "direct fitting from raw trace rows without target tensor audit"
+    ]
+  },
+  "milestone": "m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight",
+  "next_blocker": "m3062-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "active_safety_driver_v1_offtrack_behavior_target_tensor_rerun_route_to_m3062_result_audit",
+  "public_gates": [
+    "M3061 must consume M3060-accepted M3059 raw actor-view traces rather than episode summaries",
+    "M3061 must preserve actor observation 72 action 3 and direct [steer throttle brake] target tensor contract",
+    "M3061 must keep target labels target provenance source route outcome progress and verdict outside actor inputs",
+    "M3061 must write target tensor rows target tensor files or explicit fail-closed blocker rows plus weight actor target-visibility side-effect claim gate doc and M3062 audit manifest artifacts",
+    "M3061 must not run fitting training rollout validation ranking promotion high-fidelity finite-window-vs-GRU paper full-driver or self-ID testing",
+    "M3061 must register exactly one result-audit manifest before any fitting admission"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "active_safety_driver_v1_offtrack_behavior_target_tensor_rerun_route_to_m3062_result_audit",
+    "milestone": "m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight",
+    "reason": "Completed: materialized 24/24 raw-trace-backed trainer-side target tensor files with status_pass true gate_matrix_pass true required_artifacts_present true target_tensor_file_index_rows 24 weight rows 6 actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; explicit actor-visible road-center terminal recovery-window rule, raw_action_trace_used_as_target false; no fitting local-action-search reset step rollout training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3062 result audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m3061_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_rerun_preflight/summary.json exists",
+    "target tensor row file index weight guard claim and gate artifacts exist",
+    "M3061 preserves actor observation shape 72 final action shape 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3061 registers exactly one result-audit manifest",
+    "M3061 makes no fitted policy quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim"
+  ],
+  "type": "infrastructure"
+}
