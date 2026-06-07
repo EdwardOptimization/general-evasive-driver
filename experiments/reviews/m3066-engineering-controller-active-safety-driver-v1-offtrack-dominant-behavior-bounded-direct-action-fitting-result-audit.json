@@ -1,0 +1,92 @@
+{
+  "decision_reason": "Completed: audit accepts M3065 direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fitting samples 768 masked recovery steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3067 same-denominator direct-action closed-loop measurement preflight.",
+  "failure_criteria": [
+    "M3066 treats offline fitting loss as target quality or closed-loop driver performance",
+    "M3066 omits actor-input side-effect target-quality or claim-boundary audits",
+    "M3066 runs validation ranking promotion high-fidelity or architecture comparison",
+    "M3066 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3065 offline fitting loss into target-quality driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles fitted artifacts or actor contract"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T152956Z",
+  "hypothesis": "A bounded result audit can accept or reject the M3065 fitted direct-action Active Safety Driver v1 reflex candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3065 fitting output requires audit before any closed-loop measurement",
+      "offline fitting loss is not target-quality validation or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/summary.json",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/fitting_dataset_rows.csv",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/split_rows.csv",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/mask_weight_rows.csv",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/fitting_loss_trace_rows.csv",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/target_quality_boundary_rows.csv",
+      "runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/candidate_direct_action_reflex_layer.npz",
+      "docs/m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight.md"
+    ],
+    "parent_objective": [
+      "audit fitted direct-action reflex candidate before closed-loop measurement"
+    ],
+    "supersedes": [
+      "direct rollout ranking or promotion before fitted candidate audit"
+    ]
+  },
+  "milestone": "m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit",
+  "next_blocker": "m3067-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m3065_direct_action_fit_route_to_m3067_closed_loop_measurement_preflight",
+  "public_gates": [
+    "M3066 must audit M3065 summary and gate_matrix pass status",
+    "M3066 must audit candidate artifact shape 72-to-3 and direct-action bounds",
+    "M3066 must audit target-quality actor-input side-effect and claim boundaries",
+    "M3066 must reject driver-performance validation high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3066 must choose exactly one next route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m3065_direct_action_fit_route_to_m3067_closed_loop_measurement_preflight",
+    "milestone": "m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit",
+    "reason": "Completed: audit accepts M3065 direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fitting samples 768 masked recovery steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3067 same-denominator direct-action closed-loop measurement preflight.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md exists",
+    "M3066 audits M3065 summary loss dataset split mask weight target-quality side-effect claim gate and candidate artifact rows",
+    "M3066 rejects target-quality validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3066 selects exactly one next closed-loop measurement repair synthesis or stop route"
+  ],
+  "type": "gate"
+}

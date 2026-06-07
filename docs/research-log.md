@@ -54200,3 +54200,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight_20260607T151825Z/command.log`
 - success artifact: `runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight/summary.json`
 - notes: Completed: bounded direct-action fitting preflight produced claim-safe candidate with status_pass true gate_matrix_pass true required_artifacts_present true 24 fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fitting samples 768 masked recovery steps initial weighted MSE 0.6617927582032398 final weighted MSE 0.00020769915329666637 all-accounting weighted MSE 0.0023938326408113344 predicted_action_abs_max 1.0 actor 72/action 3 direct [steer throttle brake] base_policy_required false; target labels/provenance hidden oracle TTC actor inputs false; 0 reset step rollout replay PPO training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3066 result audit.
+
+## 20260607T152904Z m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3065 fitted direct-action Active Safety Driver v1 reflex candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit_20260607T152904Z`
+- command log: `runs/research/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit_20260607T152904Z/command.log`
+- success artifact: `docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md`
+- notes: Completed: audit accepts M3065 direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fitting samples 768 masked recovery steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3067 same-denominator direct-action closed-loop measurement preflight.

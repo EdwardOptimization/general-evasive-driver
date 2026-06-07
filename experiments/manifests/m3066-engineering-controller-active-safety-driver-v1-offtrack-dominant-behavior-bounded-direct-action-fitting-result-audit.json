@@ -92,7 +92,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit",
+  "next_blocker": "m3067-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-preflight",
   "priority": 30610,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -124,7 +124,7 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety closed-loop measurement if safety contract gates pass.",
     "temporal_evidence_window": "M3065 bounded direct-action fitting artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md exists",
     "M3066 audits M3065 summary loss dataset split mask weight target-quality side-effect claim gate and candidate artifact rows",
@@ -175,5 +175,7 @@
     "synthesis_cadence": 10,
     "synthesis_decision": "not_applicable",
     "synthesis_trigger": "M3065 completes bounded direct-action fitting"
-  }
+  },
+  "follow_up_manifest": "experiments/manifests/m3067-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-preflight.json",
+  "completion_summary": "Completed: audit accepts M3065 direct-action fitting as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 fitting dataset rows 18 fit rows 6 internal-accounting rows 2128 fitting samples 768 masked recovery steps candidate artifact 72x3 direct_action_clipped [steer throttle brake] base_policy_required false actor-input target-quality side-effect and claim-boundary guards pass; rejects offline loss as target quality validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3067 same-denominator direct-action closed-loop measurement preflight."
 }

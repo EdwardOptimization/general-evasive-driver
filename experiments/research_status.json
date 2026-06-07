@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3071,
+    "completed": 3072,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight_20260607T151825Z/command.log",
+    "command_log": "runs/research/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit_20260607T152904Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight_20260607T151825Z",
+    "run_dir": "runs/research/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit_20260607T152904Z",
     "status": "completed",
-    "task_id": "m3065-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-preflight"
+    "task_id": "m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded result audit can accept or reject the M3065 fitted direct-action Active Safety Driver v1 reflex candidate before any rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
-    "id": "m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit",
-    "kind": "gate",
-    "notes": "Pending: audit M3065 direct-action fitting artifacts and candidate before closed-loop measurement; reject offline-loss target-quality/performance overclaims; select exactly one closed-loop measurement repair synthesis or stop route; no rollout validation ranking promotion high-fidelity finite-window-vs-GRU full-driver or self-ID claims.",
-    "priority": 30610,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --m3066-audit docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md --m3065-dir runs/m3065_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_bounded_direct_action_fitting_preflight --m3039-dir runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight --m3037-dir runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight --follow-up-manifest experiments/manifests/m3068-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-result-audit.json --device cpu",
+    "hypothesis": "A bounded same-denominator closed-loop measurement preflight can execute the M3065 direct-action Active Safety Driver v1 candidate as the full obs72-to-action3 actor and write collision offtrack clearance stability recovery action and robustness measurement artifacts before any validation ranking promotion driver-performance verdict high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+    "id": "m3067-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-direct-action-closed-loop-measurement-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: run bounded same-denominator current-sim measurement for the M3065 direct-action candidate as the full obs72-to-action3 actor; preserve base_policy_required false actor contract and no hidden target/provenance/TTC/oracle inputs; write collision offtrack clearance stability recovery action and robustness measurement artifacts; no validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims.",
+    "priority": 30620,
     "status": "pending",
-    "success_artifact": "docs/m3066-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-bounded-direct-action-fitting-result-audit.md"
+    "success_artifact": "runs/m3067_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_direct_action_closed_loop_measurement_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T152014Z"
+  "updated_at_utc": "20260607T153005Z"
 }
