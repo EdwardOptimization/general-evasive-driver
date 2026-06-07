@@ -53094,3 +53094,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight_20260607T002804Z/command.log`
 - success artifact: `runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json`
 - notes: Completed: materialized M2972 trace-panel preflight into trace source panel guard availability actor claim and gate artifacts with status_pass true gate_matrix_pass true 43 training trace panel rows 24 trace guard rows 67 trace availability rows 56 metadata-present rows 0 raw-trace-persisted rows trace_panel_ready_for_residual_fitting false; no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims; registered M2974 result audit.
+
+## 20260607T003928Z m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M2973 training trace-panel preflight before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit_20260607T003928Z`
+- command log: `runs/research/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit_20260607T003928Z/command.log`
+- success artifact: `docs/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.md`
+- notes: Completed: audit accepts M2973 trace-panel preflight as complete and claim-safe with status_pass true gate_matrix_pass true 43 training trace panel rows 24 trace guard rows 67 trace availability rows 56 metadata-present rows 0 raw-trace-persisted rows and trace_panel_ready_for_residual_fitting false; rejects residual fitting readiness training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2975 branch synthesis.

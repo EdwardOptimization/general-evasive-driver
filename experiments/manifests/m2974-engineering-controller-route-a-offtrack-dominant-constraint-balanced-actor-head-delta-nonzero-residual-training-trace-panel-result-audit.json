@@ -33,6 +33,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis.json",
   "forbidden_shortcuts": [
     "do not rerun validate train rank promote publish select a winner or execute dependency work",
     "do not fit train select or execute a nonzero residual head",
@@ -96,7 +97,7 @@
     "same_failure_repeat_count": 1,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit",
+  "next_blocker": "m2975-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-branch-synthesis",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -126,7 +127,7 @@
     "negative_result_policy": "Preserve missing trace availability and route to synthesis rather than weakening self-ID gates.",
     "temporal_evidence_window": "M2973 Route A actor-head delta trace-panel preflight only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.md exists",
     "M2974 audits M2973 artifacts row counts gates actor and claim boundaries",
