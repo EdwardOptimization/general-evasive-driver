@@ -1,0 +1,167 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_runtime_smoke_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3089 audits M3088 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3089 hides M3088 failures or missing artifacts",
+    "M3089 treats M3088 runtime-smoke as validation or performance verdict",
+    "M3089 changes actor input or action contract",
+    "M3089 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun expand tune rank promote validate or mutate checkpoints",
+    "do not convert M3088 smoke rows into driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3088 deployable runtime-smoke measurement artifacts before any broader runtime measurement, validation, ranking, promotion, driver-performance, current-sim verdict, high-fidelity, paper, full-driver, repair-success, robustness-result, or self-ID claim.",
+  "id": "m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3088 runtime-smoke rows require audit before broader runtime measurement",
+      "runtime-smoke rows are not validation or promotion evidence before M3089"
+    ],
+    "derived_from": [
+      "m3088-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-preflight",
+      "m3087-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-result-audit",
+      "m3086-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-contract-materialization-preflight",
+      "m3084-engineering-controller-active-safety-driver-v1-actor-visible-deterministic-direct-action-safety-reflex-fresh-robustness-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3088-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-preflight.md",
+      "runs/m3086_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_contract_materialization_preflight/deployable_driver_contract.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3088-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/summary.json",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/runtime_smoke_episode_rows.csv",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/runtime_smoke_failure_rows.csv",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/runtime_smoke_metric_summary_rows.csv",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/runtime_smoke_contract_guard_rows.csv",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3088_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_runtime_smoke_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit deployable runtime-smoke measurement before broader runtime verification"
+    ],
+    "supersedes": [
+      "direct interpretation of runtime-smoke rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits first environment-loop smoke evidence through the deployable runtime API",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3089 cannot accept M3088 as complete and claim-safe",
+      "M3089 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result or self-ID evidence",
+      "M3089 cannot select a broader runtime measurement repair synthesis or stop route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3089 audits engineering runtime smoke evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit",
+  "priority": 30840,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3089 must audit M3088 summary smoke metric guard claim and gate artifacts",
+    "M3089 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3089 must reject validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3089 must select exactly one broader runtime measurement repair synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3088 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3089 audits engineering runtime-smoke artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3089; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Preserve negative runtime-smoke evidence and route to engineering repair, synthesis, or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3088 deployable runtime-smoke measurement artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md exists",
+    "M3089 audits M3088 row counts gates actor contract and claim boundaries",
+    "M3089 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3089 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3088 summary and gate matrix",
+      "M3088 smoke episode metric contract and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+      "docs/reviews/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.md",
+      "experiments/reviews/m3089-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-runtime-smoke-measurement-result-audit.json",
+      "M3089 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3089 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3089 accepts or rejects M3088 as complete and claim-safe",
+      "next broader runtime measurement, repair, synthesis, or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3088 deployable runtime-smoke measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_deployable_direct_action_reflex",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "deployable_runtime_smoke_measurement_result_audit",
+    "evidence_increment": "audits runtime-smoke closed-loop rows from the packaged deployable safety-reflex driver",
+    "fallback_plan": [
+      "route to runtime package repair if artifacts are incomplete",
+      "route to broader runtime measurement if M3088 is complete and claim-safe",
+      "route to branch synthesis or stop if runtime smoke fails deployment boundary"
+    ],
+    "stop_condition": [
+      "stop if M3088 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize if M3089 cannot select a broader runtime measurement repair or stop route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3088 completes deployable runtime-smoke measurement preflight"
+  }
+}
