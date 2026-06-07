@@ -92,7 +92,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit",
+  "next_blocker": "m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -123,7 +123,7 @@
     "negative_result_policy": "Preserve trace blockers rather than weakening self-ID or paper gates.",
     "temporal_evidence_window": "M3025 target-source readiness materialization only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit.md exists",
     "M3026 audits M3025 readiness and blocker artifacts",
