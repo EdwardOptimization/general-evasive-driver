@@ -96,7 +96,7 @@
     "same_failure_repeat_count": 2,
     "same_public_gate_repair_count": 1
   },
-  "next_blocker": "m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit",
+  "next_blocker": "m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight",
   "priority": 30490,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -127,7 +127,7 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety behavior repair audit gates.",
     "temporal_evidence_window": "M3053 behavior target-source materialization artifacts only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md exists",
     "M3054 audits M3053 summary target-source blocker guard actor claim and gate artifacts",
@@ -159,6 +159,8 @@
     "stage_objective": "Audit offtrack-dominant behavior target-source and guard materialization artifacts"
   },
   "type": "gate",
+  "follow_up_manifest": "experiments/manifests/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.json",
+  "completion_summary": "Completed: audit accepts M3053 offtrack-dominant behavior target-source materialization as complete and claim-safe with status_pass true gate_matrix_pass true 1 behavior route row 24 offtrack behavior target-source rows 16 candidate-binding blocker rows 4 collision guard rows 4 success-preservation guard rows 1 speed-floor guard row 8 actor-contract guard rows 12 claim-boundary rows actor 72/action 3; rejects target tensor quality fitting readiness repair success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID evidence; routes exactly one follow-up to M3055 fitting-contract materialization preflight.",
   "workflow_synthesis": {
     "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
     "claim_scope": "Result audit only; no fitting rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
