@@ -1,0 +1,178 @@
+{
+  "baseline_artifacts": [
+    "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+    "docs/active-safety-driver-v1-route-plan.md",
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_baseline_freeze_design_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3034 writes a design artifact that freezes the active-safety driver objective, metrics, benchmark roles, candidate baselines, exclusions, guardrails, and one next route without overclaiming.",
+  "failure_criteria": [
+    "M3034 treats design-only baseline freeze as driver performance",
+    "M3034 leaves benchmark roles metrics or candidate baselines ambiguous",
+    "M3034 adds hidden oracle diagnostic actor inputs",
+    "M3034 runs training validation ranking promotion high-fidelity rollout or self-ID verdicts"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not add hidden dynamics mu slip tire force oracle feasibility TTC reference trajectory or precomputed verdict labels to actor input",
+    "do not claim driver performance from design-only baseline freeze",
+    "do not allow legacy self-ID proof gates to veto all engineering progress unless they expose direct safety regression",
+    "do not run high-fidelity validation before backend source/package and P0 mapping are auditable",
+    "do not train fit rank or promote checkpoints in M3034"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded Active Safety Driver v1 baseline-freeze design can define the official engineering baseline, benchmark roles, metric families, candidate checkpoint list, exclusion rules, and stop conditions before any training architecture comparison horizon/K-candidate ablation high-fidelity validation ranking promotion paper or self-ID claim.",
+  "id": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
+  "lineage": {
+    "blocked_by": [
+      "The engineering mainline lacks a frozen baseline and active-safety benchmark table",
+      "Self-ID and paper evidence have been demoted to diagnostics and should not define the mainline objective",
+      "Direct post-M3032 fitting would continue a narrow target-tensor branch before engineering metrics are frozen"
+    ],
+    "derived_from": [
+      "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
+      "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
+      "docs/active-safety-driver-v1-route-plan.md"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
+      "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "docs/active-safety-driver-v1-route-plan.md",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json",
+      "experiments/scoreboard.csv",
+      "experiments/research_queue.csv"
+    ],
+    "parent_objective": [
+      "freeze Active Safety Driver v1 engineering baseline before more fitting or proof work"
+    ],
+    "supersedes": [
+      "direct target tensor fitting after M3033",
+      "self-ID proof gate as the active-safety engineering mainline blocker"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "changes the mainline objective to Active Safety Driver v1 engineering baseline freeze",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3034 cannot define benchmark roles and engineering metrics",
+      "M3034 would continue process-only artifact work without an evidence-changing next route",
+      "M3034 would re-promote self-ID proof to the mainline objective"
+    ],
+    "paper_verdict_delta": "paper is not the main objective; the design may later support an engineering-first paper section",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3034 must define Active Safety Driver v1 objective and forbidden actor shortcuts",
+    "M3034 must define candidate baseline checkpoint families and active-safety benchmark roles",
+    "M3034 must define engineering metrics: collision off-track clearance yaw/spin recovery smoothness robustness and mitigation severity",
+    "M3034 must define exclusion rules for stale static diagnostic-only or claim-boundary rows",
+    "M3034 must not run training validation ranking promotion high-fidelity rollout paper finite-window-vs-GRU or self-ID verdicts",
+    "M3034 must select exactly one next implementation or measurement route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+  "scoreboard_checkpoint": "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "Active Safety Driver v1 baseline-freeze design completeness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3034 designs an engineering baseline freeze and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3034; finite-window and GRU comparison may be designed only after baseline metrics are frozen."
+    ],
+    "negative_result_policy": "Negative or conditional self-ID evidence must be preserved as diagnostics but must not block same-case engineering safety measurements.",
+    "temporal_evidence_window": "M3033 active-safety-driver pivot and M3032 target tensor audit context."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md exists",
+    "M3034 defines Active Safety Driver v1 objective metrics benchmark roles candidate baselines and stop rules",
+    "M3034 preserves actor 72/action 3 and forbidden shortcut boundaries",
+    "M3034 selects exactly one next route before any training validation ranking promotion high-fidelity or self-ID claim"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3033 pivot audit",
+      "Active Safety Driver v1 route plan",
+      "M3032 target tensor artifacts accepted as offline material but not fitting readiness"
+    ],
+    "allowed_updates": [
+      "docs/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+      "docs/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.md",
+      "experiments/reviews/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json",
+      "M3034 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3034 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no residual fitting training validation ranking promotion or checkpoint mutation",
+      "no hidden oracle diagnostic actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "Active Safety Driver v1 benchmark roles and metrics are explicit",
+      "candidate baseline checkpoint families are listed",
+      "one next measurement or implementation route is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "Design Active Safety Driver v1 baseline freeze and benchmark contract"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_engineering_mainline",
+    "claim_scope": "Design only; no training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_baseline_freeze_design",
+    "evidence_increment": "defines the official engineering baseline and benchmark before training or architecture comparison",
+    "fallback_plan": [
+      "route to benchmark artifact inventory repair if required baseline artifacts are missing",
+      "route to current-sim measurement preflight only after baseline roles and metrics are frozen",
+      "route to high-fidelity dependency preparation only after P0/action mapping requirements are explicit"
+    ],
+    "stop_condition": [
+      "stop if a baseline table cannot be defined without changing actor inputs",
+      "stop if the design would treat self-ID proof as the mainline engineering objective",
+      "stop if benchmark roles cannot separate active-safety engineering metrics from paper-only diagnostics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3033 pivots from target-tensor fitting to Active Safety Driver v1 engineering mainline"
+  }
+}

@@ -3,7 +3,9 @@
     "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/summary.json",
     "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv",
     "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/success_identity_zero_target_guard_rows.csv",
-    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/gate_matrix.csv"
+    "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/gate_matrix.csv",
+    "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+    "docs/active-safety-driver-v1-route-plan.md"
   ],
   "baseline_checkpoints": [
     "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
@@ -15,12 +17,13 @@
       "name": "target_tensor_materialization_result_audit_doc"
     }
   ],
-  "decision_rule": "Pass only if M3033 audits M3032 artifacts and selects one next route or stop state while preserving actor guardrail and claim boundaries without overclaiming.",
+  "decision_rule": "Pass only if M3033 audits M3032 target tensor artifacts, rejects overclaiming and direct fitting, records the Active Safety Driver v1 route pivot, and selects exactly one next route while preserving actor 72/action 3.",
   "failure_criteria": [
-    "M3033 hides missing target tensor artifacts",
-    "M3033 treats target tensor materialization as fitting readiness or performance evidence",
+    "M3033 hides missing or failed M3032 artifacts",
+    "M3033 treats target tensor materialization as fitting readiness target quality repair success or performance evidence",
+    "M3033 continues into residual fitting without baseline freeze and engineering metrics",
     "M3033 changes actor input or action contract",
-    "M3033 leaves next route ambiguous"
+    "M3033 leaves the next route ambiguous"
   ],
   "failure_types": [
     "contract_violation",
@@ -35,28 +38,34 @@
   "forbidden_shortcuts": [
     "do not fit train validate rank promote or execute a residual head",
     "do not convert target tensor materialization into performance claims",
-    "do not change actor input or action contract"
+    "do not keep self-ID or paper proof as the engineering mainline objective",
+    "do not change actor input or action contract",
+    "do not start high-fidelity validation before an auditable backend and baseline mapping exists"
   ],
   "gate_tier": "process",
-  "hypothesis": "A bounded result audit can accept or reject the M3032 target tensor materialization artifacts before any residual fitting training validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+  "hypothesis": "A bounded result audit can accept M3032 as complete and claim-safe target tensor materialization, then pivot the branch to Active Safety Driver v1 baseline freeze design before any residual fitting training validation ranking promotion performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
   "id": "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
   "lineage": {
     "blocked_by": [
-      "M3032 target tensor artifacts require result audit before fitting admission",
-      "target tensor materialization is not target quality validation or repair success"
+      "M3032 target tensor artifacts are complete but do not justify direct fitting or performance claims",
+      "The 2026-06-07 route review pivots the main objective to a usable active-safety driver rather than GRU self-ID proof",
+      "The engineering mainline lacks a frozen Active Safety Driver v1 baseline and benchmark table"
     ],
     "derived_from": [
       "m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight",
       "m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis",
-      "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit"
+      "m3030-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-result-audit",
+      "docs/active-safety-driver-v1-route-plan.md"
     ],
-    "invalidates": [],
+    "invalidates": [
+      "continuing the post-M3032 mainline directly into residual fitting before Active Safety Driver v1 baseline freeze"
+    ],
     "parent_checkpoint": [
       "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
       "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
     ],
     "parent_config": [
-      "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json",
+      "experiments/manifests/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
       "experiments/manifests/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.json",
       "experiments/manifests/m3031-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-to-target-tensor-branch-synthesis.json"
     ],
@@ -67,42 +76,55 @@
       "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/actor_contract_guard_rows.csv",
       "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/claim_boundary_rows.csv",
       "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/gate_matrix.csv",
-      "docs/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.md"
+      "docs/m3032-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-preflight.md",
+      "docs/active-safety-driver-v1-route-plan.md"
     ],
     "parent_objective": [
-      "audit target tensor materialization before residual fitting admission"
+      "audit target tensor materialization and decide whether to continue fitting or pivot",
+      "pivot the mainline to usable actuator-level active-safety driver evidence"
     ],
     "supersedes": [
-      "direct residual fitting immediately after target tensor materialization without result audit"
+      "direct residual fitting immediately after target tensor materialization without result audit",
+      "self-ID or paper proof as the engineering mainline objective"
     ]
   },
   "local_search_guard": {
-    "actual_progress_type": "result_audit",
-    "evidence_expansion": "audits target tensor artifacts",
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "audits target tensor artifacts and pivots the branch from target-tensor fitting to active-safety driver baseline freeze",
     "local_search_risk": "medium",
     "must_synthesize_if": [
       "M3033 cannot accept M3032 as complete and claim-safe",
-      "M3033 would claim fitting readiness driver performance paper current-sim high-fidelity or self-ID"
+      "M3033 would claim fitting readiness driver performance paper current-sim high-fidelity or self-ID",
+      "M3033 would continue target tensor fitting before Active Safety Driver v1 baseline freeze"
     ],
-    "paper_verdict_delta": "no paper verdict; audit may inform later fitting-admission design only",
+    "paper_verdict_delta": "paper is no longer the main objective; self-ID remains diagnostic only",
     "process_overhead": "medium",
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit",
+  "next_blocker": "m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
     "M3033 must audit M3032 target tensor rows success guards actor and claim boundaries",
     "M3033 must preserve 29 target tensor rows and 3 zero-target success guards",
     "M3033 must preserve actor 72/action 3 and no target labels actor-visible",
+    "M3033 must record the route pivot from self-ID/paper-first evidence to Active Safety Driver v1 engineering mainline",
     "M3033 must not claim fitting readiness target quality performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
-    "M3033 must select exactly one next route or stop state before residual fitting admission"
+    "M3033 must select exactly one next route: Active Safety Driver v1 baseline freeze design"
   ],
   "required_artifacts": [
     {
       "path": "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
       "type": "markdown"
+    },
+    {
+      "path": "docs/active-safety-driver-v1-route-plan.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
@@ -110,65 +132,81 @@
   "self_id_evidence_discipline": {
     "allowed_claims": [
       "M3032 artifact completeness and claim-safety audit",
+      "Active Safety Driver v1 route pivot recorded",
       "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
     ],
     "claim_level": "not_applicable",
-    "current_frame_substitution_risk": "M3033 audits Route A target tensors and cannot infer history necessity or self-ID.",
+    "current_frame_substitution_risk": "M3033 pivots away from self-ID as a mainline objective and cannot infer history necessity.",
     "history_necessity_tests": [
       "None in M3033; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
     ],
-    "negative_result_policy": "Preserve target tensor failures and route to repair or synthesis rather than weakening self-ID gates.",
+    "negative_result_policy": "Preserve self-ID diagnostics as optional evidence while allowing engineering active-safety progress to proceed on same-case safety metrics.",
     "temporal_evidence_window": "M3032 target tensor materialization preflight only."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md exists",
-    "M3033 audits M3032 target tensor artifacts",
-    "M3033 selects exactly one next route or stop state",
-    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+    "M3033 accepts M3032 target tensor artifacts as complete and claim-safe",
+    "M3033 rejects direct residual fitting target-quality validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver and self-ID claims",
+    "docs/active-safety-driver-v1-route-plan.md exists and records the Active Safety Driver v1 pivot",
+    "experiments/manifests/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json exists and is the only selected follow-up route"
   ],
   "training_stage": {
     "admission_evidence": [
       "M3032 summary and gate matrix",
-      "M3032 target tensor artifacts"
+      "M3032 target tensor artifacts",
+      "2026-06-07 route review: active-safety driver is the main objective, self-ID is diagnostic"
     ],
     "allowed_updates": [
       "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
+      "docs/active-safety-driver-v1-route-plan.md",
+      "experiments/manifests/m3034-engineering-controller-active-safety-driver-v1-baseline-freeze-design.json",
       "docs/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
       "experiments/reviews/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.json",
       "M3033 status queue scoreboard research log and review",
-      "one follow-up manifest only if M3033 selects exactly one next route"
+      "one follow-up manifest selecting Active Safety Driver v1 baseline freeze design"
     ],
     "blocked_shortcuts": [
       "no residual fitting training validation ranking promotion or success-rate verdict",
       "no checkpoint mutation save selection or promotion",
-      "no target labels or provenance actor-visible"
+      "no target labels or provenance actor-visible",
+      "no self-ID proof gate as the active-safety engineering mainline objective"
     ],
     "next_stage_criteria": [
       "M3033 accepts or rejects M3032 as complete and claim-safe",
-      "next route or stop state is explicit"
+      "M3033 records the active-safety driver pivot",
+      "M3034 baseline freeze route is explicit"
     ],
     "stage": "process",
-    "stage_objective": "Audit M3032 target tensor artifacts"
+    "stage_objective": "Audit M3032 target tensor artifacts and pivot to Active Safety Driver v1 baseline freeze"
   },
   "type": "gate",
   "workflow_synthesis": {
     "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
-    "claim_scope": "Result audit only; no fitting training validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
-    "evidence_axis": "new_source_broad_failure_target_tensor_materialization_result_audit",
-    "evidence_increment": "audits newly materialized target tensor artifacts",
+    "claim_scope": "Pivot synthesis and result audit only; no fitting training validation ranking promotion performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "evidence_axis": "target_tensor_materialization_result_audit_to_active_safety_driver_pivot",
+    "evidence_increment": "accepts M3032 as claim-safe target tensor materialization and pivots the mainline to Active Safety Driver v1 baseline freeze",
     "fallback_plan": [
-      "route to artifact repair if target tensor artifacts are incomplete",
-      "route to fitting-admission design only after audit accepts claim safety",
-      "route to branch synthesis pivot or stop if target tensor materialization violates guardrails"
+      "route to M3034 Active Safety Driver v1 baseline freeze design",
+      "preserve M3032 target tensors as offline material for later audited engineering experiments",
+      "use self-ID finite-window GRU horizon and K-candidate routes only as controlled diagnostics or ablations"
     ],
     "stop_condition": [
-      "stop if M3032 artifacts are missing or gate matrix fails",
-      "stop if actor or claim boundaries were violated",
-      "stop if target tensors would be used for fitting before audit"
+      "stop direct target tensor fitting if M3032 artifacts are complete but not engineering-performance evidence",
+      "stop if the next route would keep self-ID or paper proof as the engineering mainline blocker",
+      "stop if actor checkpoint or claim boundaries cannot be preserved"
     ],
+    "synthesis_artifact": "docs/m3033-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-tensor-materialization-result-audit.md",
     "synthesis_cadence": 10,
-    "synthesis_decision": "not_applicable",
-    "synthesis_trigger": "M3032 completes target tensor materialization preflight"
+    "synthesis_decision": "pivot",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3032 completed target tensor materialization and the 2026-06-07 route review pivots the project to usable active-safety driver delivery"
   }
 }
