@@ -53490,3 +53490,28 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3006-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-preflight_20260607T055217Z/command.log`
 - success artifact: `runs/m3006_engineering_controller_route_a_post_residual_stop_new_task_source_generation_contract_materialization_preflight/summary.json`
 - notes: Completed: materialized M3005-accepted M3004 source-axis candidates into no-execution source-generation contract artifacts with status_pass true gate_matrix_pass true required_artifacts_present true; wrote 4 source contract rows 4 axis budget rows 16 new task-source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap T4/T5 8/8 8 same-surface rejection rows actor 72/action 3; no reset step rollout replay source build execution validation training PPO ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; registered M3007 result audit.
+
+## 20260607T060307Z m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3006 new task-source generation contract materialization before any executable workload materialization execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit_20260607T060307Z`
+- command log: `runs/research/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit_20260607T060307Z/command.log`
+- success artifact: `docs/m3007-engineering-controller-route-a-post-residual-stop-new-task-source-generation-contract-materialization-result-audit.md`
+- notes: Completed: audit accepts M3006 source-generation contract materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 4 source contract rows 4 axis budget rows 16 new task-source spec rows 16 unique m3006-src ids 0 exhausted M1690 L3 overlap T4/T5 8/8 8 same-surface rejection rows actor 72/action 3; rejects executable readiness source build execution validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver self-ID ranking and promotion claims; routes to M3008 new-source executable-workload materialization design.
+
+
+## 20260607T060307Z m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the M3007-accepted M3006 new source-generation contract into exactly one no-execution executable workload materialization preflight route before any source build execution validation ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design_20260607T060307Z`
+- command log: `runs/research/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design_20260607T060307Z/command.log`
+- success artifact: `docs/m3008-engineering-controller-route-a-post-residual-stop-new-source-executable-workload-materialization-design.md`
+- notes: Completed: design admits M3009 no-execution new-source executable-workload materialization preflight over 16 M3006 source specs and 2 read-only engineering profile bindings for 32 workload contract rows; preserves actor 72/action 3 and no hidden/oracle/future-target/source/route/outcome/progress/verdict actor inputs; no source build execution validation training PPO ranking promotion repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims; routes to M3009 materialization preflight.
