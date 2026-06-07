@@ -1,0 +1,89 @@
+# m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T133709Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_v1_offtrack_behavior_fitting_contract_materialized_route_to_m3056_result_audit
+- Decision reason: Completed: materialized one offtrack-dominant behavior fitting contract with status_pass true gate_matrix_pass true direct_action obs72 to action3 output [steer throttle brake] base_policy_required false 1 fitting contract row 6 loss family rows 5 row admission rows actor-contract target-visibility side-effect and claim-boundary guards pass; no target tensor fitting fitted policy quality reset step rollout replay local-action-search PPO training validation ranking promotion checkpoint mutation repair-success driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3056 result audit.
+
+## Hypothesis
+
+A bounded offtrack-dominant behavior fitting-contract materialization preflight can convert the M3054-accepted M3053 behavior target-source panel into one claim-safe fitting contract for a deployable 72-to-3 recovery selector/reflex before any fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt, runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt
+- parent_dataset: docs/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.md, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/summary.json, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/behavior_repair_route_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/offtrack_behavior_target_source_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/candidate_binding_blocker_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/collision_guard_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/success_preservation_guard_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/speed_floor_guard_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/actor_contract_guard_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/claim_boundary_rows.csv, runs/m3053_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit.json, experiments/manifests/m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight.json
+- parent_objective: materialize one fitting contract for the offtrack-dominant behavior recovery selector/reflex route before fitting
+- derived_from: m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit, m3053-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-preflight, m3052-engineering-controller-active-safety-driver-v1-behavior-negative-measurement-synthesis-repair-route-design
+- blocked_by: M3054 accepts target-source materialization but rejects target tensor quality and fitting readiness claims, a fitting contract is required before fitting a behavior-level recovery selector/reflex
+- supersedes: direct fitting from M3053 rows without a fitting contract, direct rollout validation ranking or promotion from M3053 rows
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json exists
+- fitting contract loss family row admission actor-contract target-visibility claim-boundary and gate artifacts exist
+- M3055 preserves actor observation shape 72 final action shape 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs
+- M3055 registers exactly one result-audit manifest
+- M3055 makes no fitting rollout validation ranking promotion driver-performance high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim
+
+## Failure Criteria
+
+- M3055 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input
+- M3055 mutates or promotes parent checkpoints configs profiles actor inputs actor outputs or prior residual artifacts
+- M3055 runs fitting rollout validation ranking promotion PPO training or high-fidelity comparison
+- M3055 claims fitting-contract rows as fitted policy quality repair success or driver performance
+
+## Evidence Gates
+
+- M3055 must preserve actor observation shape 72 and final action shape 3
+- M3055 must materialize output contract loss-family row-admission weight actor-contract target-visibility claim-boundary and gate rows
+- M3055 must keep offtrack target-source candidate blocker collision success-preservation and speed-floor guards separate
+- M3055 must not run target tensor fitting rollout validation ranking promotion PPO training high-fidelity finite-window-vs-GRU paper full-driver or self-ID evaluation
+- M3055 must not expose hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input
+- M3055 must register exactly one result-audit manifest
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not treat fitting-contract rows as fitted policy quality repair success or driver performance
+- do not run fitting rollout validation ranking promotion checkpoint mutation high-fidelity paper finite-window-vs-GRU full-driver or self-ID testing
+- do not hide unchanged M3043 versus M3050 success collision offtrack counts
+- do not add hidden oracle TTC target provenance source route outcome progress or verdict actor inputs
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_v1_offtrack_behavior_fitting_contract_materialized_route_to_m3056_result_audit
+- reason: Completed: materialized one offtrack-dominant behavior fitting contract with status_pass true gate_matrix_pass true direct_action obs72 to action3 output [steer throttle brake] base_policy_required false 1 fitting contract row 6 loss family rows 5 row admission rows actor-contract target-visibility side-effect and claim-boundary guards pass; no target tensor fitting fitted policy quality reset step rollout replay local-action-search PPO training validation ranking promotion checkpoint mutation repair-success driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3056 result audit.
+
+## Next Blocker
+
+m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit

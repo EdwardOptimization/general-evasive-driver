@@ -1,0 +1,179 @@
+{
+  "baseline_artifacts": [
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/row_admission_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/actor_contract_guard_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/target_visibility_guard_rows.csv",
+    "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/gate_matrix.csv",
+    "docs/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.md"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3056 audits M3055 behavior fitting-contract evidence and selects exactly one target tensor materialization fitting repair synthesis or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3056 treats fitting-contract rows as fitted policy quality or driver performance",
+    "M3056 omits actor target-visibility side-effect or claim-boundary audits",
+    "M3056 runs target tensor fitting validation ranking promotion high-fidelity or architecture comparison",
+    "M3056 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run target tensor fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3055 contract rows into target tensor quality fitted policy quality repair-success driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles or actor contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3055 offtrack-dominant behavior fitting-contract materialization artifacts before any target tensor fitting rollout validation ranking promotion driver-performance high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim.",
+  "id": "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3055 fitting-contract rows require audit before target tensor or fitting routes",
+      "fitting contracts are not fitted policy quality repair-success or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight",
+      "m3054-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/summary.json",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/fitting_contract_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/loss_family_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/row_admission_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/target_visibility_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/side_effect_guard_rows.csv",
+      "runs/m3055_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_fitting_contract_materialization_preflight/gate_matrix.csv",
+      "docs/m3055-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit offtrack-dominant behavior fitting-contract materialization before fitting"
+    ],
+    "supersedes": [
+      "direct target tensor fitting or rollout from M3055 contract without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits behavior fitting-contract materialization before a target tensor/fitting or stop decision",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3056 cannot select a target tensor materialization fitting repair synthesis or stop route",
+      "M3056 would require another materialization-only loop without fitting admission",
+      "M3056 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3056 prepares a claim-safe engineering continuation decision",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1
+  },
+  "next_blocker": "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit",
+  "priority": 30510,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3056 must audit M3055 contract loss row-admission actor target-visibility side-effect claim and gate artifacts",
+    "M3056 must reject target tensor quality fitting execution fitted policy quality repair-success validation ranking promotion high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims",
+    "M3056 must preserve actor observation 72 action 3 and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3056 must choose exactly one next target tensor materialization fitting repair synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3055 artifact audit completeness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3056 audits engineering contract artifacts and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3056; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety fitting-contract audit gates.",
+    "temporal_evidence_window": "M3055 behavior fitting-contract materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md exists",
+    "M3056 audits M3055 contract loss row-admission actor target-visibility side-effect claim and gate artifacts",
+    "M3056 rejects target tensor quality fitting execution fitted policy quality repair-success validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3056 selects exactly one next target tensor materialization fitting repair synthesis or stop route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3055 summary and gate matrix",
+      "M3055 fitting contract loss family row admission actor target visibility side-effect and claim rows"
+    ],
+    "allowed_updates": [
+      "docs/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+      "docs/reviews/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.md",
+      "experiments/reviews/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.json",
+      "M3056 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3056 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no target tensor fitting rollout validation ranking promotion or checkpoint mutation",
+      "no hidden oracle target TTC source route outcome progress or verdict actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3055 fitting contract rows are accepted or rejected",
+      "one next target tensor materialization fitting repair synthesis or stop route is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit offtrack-dominant behavior fitting-contract materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "claim_scope": "Result audit only; no target tensor fitting rollout validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_offtrack_behavior_fitting_contract_result_audit",
+    "evidence_increment": "audits the M3055 behavior fitting contract before any target tensor or fitting route",
+    "fallback_plan": [
+      "route to target tensor materialization or fitting admission only if M3055 is accepted",
+      "route to artifact repair if rows or guards fail",
+      "route to synthesis or stop if fitting contract is not admissible"
+    ],
+    "stop_condition": [
+      "stop if M3055 artifact set is incomplete",
+      "stop if actor target-visibility side-effect or claim-boundary guards fail",
+      "stop if contract rows are treated as fitted policy quality or performance evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3055 completes behavior fitting-contract materialization"
+  }
+}
