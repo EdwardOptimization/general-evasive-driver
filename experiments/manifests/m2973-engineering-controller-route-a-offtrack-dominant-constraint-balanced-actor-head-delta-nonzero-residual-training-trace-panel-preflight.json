@@ -1,0 +1,244 @@
+{
+  "id": "m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded training trace-panel preflight can convert the accepted M2972 design into deployable observation action response trace availability artifacts for all M2970 admitted candidate and guard rows before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md",
+      "docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_guard_rows.csv",
+      "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/objective_balance_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_rows.csv",
+      "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_head_delta_contract_execution_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.json",
+      "experiments/manifests/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.json",
+      "experiments/manifests/m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a deployable trace availability panel for later residual fitting without training"
+    ],
+    "derived_from": [
+      "m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design",
+      "m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit",
+      "m2970-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-preflight",
+      "m2960-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M2973 may collect or export trace availability only",
+      "M2973 cannot fit a residual head before trace-panel result audit",
+      "success identity and stale guardrail rows must remain actor-invisible guardrails"
+    ],
+    "supersedes": [
+      "direct residual fitting from M2970 candidate metadata without deployable trace availability",
+      "direct validation or performance interpretation of training-admission rows"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight.md",
+  "public_gates": [
+    "M2973 must consume M2972 design M2971 audit M2970 materialization and M2960 bounded execution artifacts",
+    "M2973 must write trace_source_rows trace_panel_rows trace_guard_rows trace_availability_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state summary doc and one follow-up result-audit manifest",
+    "M2973 must account for 43 future training candidates 13 success identity guards and 11 stale guardrails",
+    "M2973 must preserve actor 72/action 3 and no hidden oracle future-target objective admission verdict or evaluator-label actor input",
+    "M2973 must not fit train select rank or promote a residual head and must not save mutate or promote checkpoints",
+    "M2973 must not claim repair success driver performance validation readiness paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not train run PPO fit select rank or promote a residual head",
+    "do not run validation ranking winner selection promotion or success-rate verdict computation",
+    "do not save mutate or promote checkpoints",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets route labels source labels diagnostic labels success labels progress labels objective labels admission labels or verdict labels to actor input",
+    "do not turn success identity rows into positive training targets",
+    "do not execute or hide the 11 blocked stale fixed-source guardrail rows",
+    "do not claim implementation readiness repair success validation readiness validation result driver performance paper current-sim high-fidelity finite-window-vs-GRU full ideal driver or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_route_b_source_insufficient_dependency_facing",
+    "evidence_axis": "route_a_dependency_facing_offtrack_dominant_actor_head_delta_nonzero_residual_training_trace_panel",
+    "evidence_increment": "creates a deployable trace availability data-panel surface for later residual fitting from accepted M2970/M2971/M2972 candidate and guard rows",
+    "claim_scope": "Trace-panel preflight only; no residual fitting training PPO validation ranking winner selection promotion success-rate verdict repair-success driver-performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID claim",
+    "stop_condition": [
+      "stop if M2972 design artifact is missing",
+      "stop if M2970 candidate and guard rows cannot be accounted",
+      "stop if trace availability cannot be made explicit per row",
+      "stop if actor or claim boundaries cannot be preserved",
+      "stop if a trace panel would require privileged actor input"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M2970 or M2972 inputs are incomplete",
+      "route to result audit if trace-panel preflight is complete",
+      "route to branch synthesis if trace availability is mostly missing or cannot support residual fitting",
+      "route to stop if any privileged actor input would be required"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M2972 admits one bounded trace-panel preflight",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Materialize deployable observation action response trace availability before any residual fitting",
+    "admission_evidence": [
+      "M2972 design admits M2973 trace-panel preflight",
+      "M2971 audit accepts M2970 as complete and claim-safe",
+      "M2970 materializes 43 future training candidates 13 success identity guards and 11 stale guardrails",
+      "M2960 bounded execution artifacts contain row-level diagnostic execution metadata and actor-head delta contract rows"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion performance verdict paper high-fidelity full ideal driver finite-window-vs-GRU or self-ID claim",
+      "no training PPO residual fitting residual selection or checkpoint promotion",
+      "no hidden oracle future-target evaluator-label diagnostic-label success-label progress-label objective-label admission-label or verdict actor input"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight.py",
+      "tests/test_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight.py",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_source_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_panel_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_guard_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_availability_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/actor_contract_guard_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/claim_boundary_rows.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/gate_matrix.csv",
+      "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/run_state.json",
+      "docs/m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight.md",
+      "M2973 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "M2973 trace-panel artifacts exist",
+      "M2973 accounts for all M2970 candidate and guard rows",
+      "M2973 makes trace availability explicit per row",
+      "M2973 preserves actor input action guardrail and claim boundaries",
+      "M2973 registers one result audit before any residual fitting"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M2973 is Route A trace-panel preflight only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M2973; no wrong-history reset-hidden zero-history finite-window or GRU comparison verdict is run."
+    ],
+    "temporal_evidence_window": "M2960 and M2970-M2972 Route A actor-head delta trace availability chain.",
+    "negative_result_policy": "Preserve missing or weak trace availability and route to audit synthesis or stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "nonzero residual training trace-panel availability",
+      "actor trace and claim boundary preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "produces a trace availability data-panel surface needed before residual fitting",
+    "paper_verdict_delta": "no paper verdict; Route A trace panel may enable later engineering residual training only",
+    "must_synthesize_if": [
+      "M2973 cannot produce per-row trace availability artifacts",
+      "M2973 would require privileged actor input or weaken success identity or stale guardrails",
+      "M2973 would claim training repair success validation driver performance paper high-fidelity finite-window-vs-GRU current-sim or self-ID evidence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json exists",
+    "trace_source_rows trace_panel_rows trace_guard_rows trace_availability_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "43 future training candidates 13 success identity guards and 11 stale guardrails are accounted",
+    "trace availability is explicit per row without residual fitting training validation ranking promotion or performance claim",
+    "actor 72/action 3 no hidden/oracle/future-target input and actor-invisible labels are preserved",
+    "one follow-up result audit manifest is registered"
+  ],
+  "failure_criteria": [
+    "M2973 trains fits selects ranks or promotes a residual head",
+    "M2973 runs validation ranking winner selection promotion success-rate verdict computation or checkpoint mutation",
+    "M2973 changes actor input or action contract or exposes hidden oracle future-target evaluator diagnostic success progress objective admission or verdict labels",
+    "M2973 drops weak rows hides guardrails or turns success rows into a positive training target",
+    "M2973 claims implementation readiness repair success model quality driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M2973 materializes complete trace availability artifacts while preserving M2970/M2972 accounting actor guardrail and claim boundaries and registers a result audit without residual fitting training validation ranking or promotion.",
+  "commands": [
+    {
+      "name": "nonzero_residual_training_trace_panel_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight --m2970-dir runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --m2971-audit docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md --m2972-design docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --output-dir runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight --follow-up-manifest experiments/manifests/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_source_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_panel_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/trace_availability_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/actor_contract_guard_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/run_state.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md",
+    "docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md",
+    "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/summary.json",
+    "runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight/training_admission_candidate_rows.csv",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/bounded_execution_rows.csv",
+    "runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight/actor_head_delta_contract_execution_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json",
+  "next_blocker": "m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight",
+  "status": "pending"
+}

@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2977,
+    "completed": 2978,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit_20260607T001216Z/command.log",
+    "command_log": "runs/research/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design_20260607T001940Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit_20260607T001216Z",
+    "run_dir": "runs/research/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design_20260607T001940Z",
     "status": "completed",
-    "task_id": "m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit"
+    "task_id": "m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded design-only milestone can convert the accepted M2970/M2971 guarded residual training-admission materialization into exactly one claim-safe residual training preflight route, artifact repair route, pivot, synthesis, or stop state before any residual training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
-    "id": "m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design",
-    "kind": "gate",
-    "notes": "Pending: design one bounded residual training preflight route from accepted M2970/M2971 training-admission materialization while preserving all candidate and guard row accounting actor 72/action 3 and no training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29670,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight --m2970-dir runs/m2970_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_admission_materialization_preflight --m2971-audit docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md --m2972-design docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md --m2960-dir runs/m2960_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_bounded_execution_preflight --output-dir runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight --follow-up-manifest experiments/manifests/m2974-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-result-audit.json",
+    "hypothesis": "A bounded training trace-panel preflight can convert the accepted M2972 design into deployable observation action response trace availability artifacts for all M2970 admitted candidate and guard rows before any residual fitting training validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.",
+    "id": "m2973-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-trace-panel-preflight",
+    "kind": "infrastructure",
+    "notes": "Pending: materialize deployable observation action response trace availability panel for M2970/M2972 candidate and guard rows before any residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29680,
     "status": "pending",
-    "success_artifact": "docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md"
+    "success_artifact": "runs/m2973_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_training_trace_panel_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T001216Z"
+  "updated_at_utc": "20260607T001940Z"
 }

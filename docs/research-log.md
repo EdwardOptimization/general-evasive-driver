@@ -53070,3 +53070,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit_20260607T001216Z/command.log`
 - success artifact: `docs/m2971-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-admission-materialization-result-audit.md`
 - notes: Completed: audit accepts M2970 guarded residual training-admission materialization as complete and claim-safe with status_pass true gate_matrix_pass true 56 row assignments 43 future training candidates 24 training guard rows 4 objective-balance rows 13 success identity guards 11 stale guardrails 18 actor guards 33 claim rows and 22 gate rows; rejects training execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M2972 training-preflight design.
+
+## 20260607T001940Z m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only milestone can convert the accepted M2970/M2971 guarded residual training-admission materialization into exactly one claim-safe residual training preflight route, artifact repair route, pivot, synthesis, or stop state before any residual training execution validation ranking promotion repair-success performance paper high-fidelity or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design_20260607T001940Z`
+- command log: `runs/research/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design_20260607T001940Z/command.log`
+- success artifact: `docs/m2972-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-training-preflight-design.md`
+- notes: Completed: design admits M2973 bounded nonzero residual training trace-panel preflight instead of direct residual fitting; requires deployable observation action response trace availability for all 43 future training candidates 13 success identity guards and 11 stale guardrails while preserving actor 72/action 3 no privileged actor inputs and no residual fitting training validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
