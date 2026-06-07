@@ -32,7 +32,7 @@
     "proof_washout",
     "seed_fragility"
   ],
-  "follow_up_manifest": "",
+  "follow_up_manifest": "experiments/manifests/m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight.json",
   "forbidden_shortcuts": [
     "do not run target tensor materialization fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
     "do not convert raw trace rows into target tensor quality fitted policy quality repair-success driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
@@ -90,7 +90,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit",
+  "next_blocker": "m3061-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-rerun-preflight",
   "priority": 30550,
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
@@ -121,7 +121,8 @@
     "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety trace audit gates.",
     "temporal_evidence_window": "M3059 raw trace capture artifacts only."
   },
-  "status": "pending",
+  "completion_summary": "Completed: audit accepts M3059 raw trace capture as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 raw trace index rows 24 persisted 0 missing total_steps 2692 trace_step_counts_match_m3050 true actor-contract and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects target tensor quality fitting readiness fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3061 target tensor rerun preflight.",
+  "status": "completed",
   "success_criteria": [
     "docs/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.md exists",
     "M3060 audits M3059 raw trace index availability guard actor claim and gate artifacts",

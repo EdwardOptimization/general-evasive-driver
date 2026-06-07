@@ -54128,3 +54128,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3059-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-preflight_20260607T141153Z/command.log`
 - success artifact: `runs/m3059_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_raw_trace_capture_preflight/summary.json`
 - notes: Completed: captured 24/24 raw actor-view traces for the M3057 blocker denominator with status_pass true gate_matrix_pass true raw_trace_index_rows 24 raw_trace_persisted 24 raw_trace_missing 0 total_steps 2692 trace_step_counts_match_m3050 true actor-contract and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; no target tensor materialization fitting local-action-search training validation ranking promotion checkpoint mutation driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claims; registered M3060 result audit.
+
+## 20260607T142032Z m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded result audit can accept or reject the M3059 raw actor-view trace capture artifacts before any numeric target tensor rerun fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit_20260607T142032Z`
+- command log: `runs/research/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit_20260607T142032Z/command.log`
+- success artifact: `docs/m3060-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-raw-trace-capture-result-audit.md`
+- notes: Completed: audit accepts M3059 raw trace capture as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 24 raw trace index rows 24 persisted 0 missing total_steps 2692 trace_step_counts_match_m3050 true actor-contract and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects target tensor quality fitting readiness fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; routes exactly one follow-up to M3061 target tensor rerun preflight.
