@@ -234,6 +234,7 @@
   ],
   "scoreboard_checkpoint": "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
   "follow_up_manifest": "experiments/manifests/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
-  "next_blocker": "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
-  "status": "pending"
+  "next_blocker": "m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit",
+  "completion_summary": "Completed: fail-closed target tensor materialization attempt wrote 24 behavior target tensor blocker rows with status_pass false gate_matrix_pass false required_artifacts_present true raw_actor_view_trace_required 24 available 0 missing 24 numeric_target_tensor_materialized 0 6 target tensor weight spec rows actor-contract target-visibility side-effect and claim-boundary guards pass actor 72/action 3 direct [steer throttle brake]; rejects numeric target tensor quality fitting execution fitted policy quality repair-success validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims; registered M3058 result audit.",
+  "status": "completed"
 }

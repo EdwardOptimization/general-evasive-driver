@@ -1,0 +1,175 @@
+{
+  "baseline_artifacts": [
+    "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
+    "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/behavior_target_tensor_rows.csv",
+    "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_tensor_weight_rows.csv",
+    "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/gate_matrix.csv"
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3058 audits M3057 behavior target tensor evidence and selects exactly one raw trace capture fitting admission repair synthesis or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3058 treats target tensor blocker rows as fitted policy quality or driver performance",
+    "M3058 omits actor target-visibility side-effect or claim-boundary audits",
+    "M3058 runs fitting validation ranking promotion high-fidelity or architecture comparison",
+    "M3058 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run fitting rollout validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "do not convert M3057 target tensor blocker rows into numeric target quality fitted policy quality repair-success driver-performance current-sim paper high-fidelity full-driver or self-ID claims",
+    "do not mutate parent checkpoints configs profiles or actor contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3057 offtrack-dominant behavior target tensor materialization artifacts before any fitting rollout validation ranking promotion driver-performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim.",
+  "id": "m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3057 target tensor artifacts require audit before fitting admission",
+      "target tensor materialization or fail-closed blockers are not fitted policy quality repair-success or driver-performance evidence"
+    ],
+    "derived_from": [
+      "m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight",
+      "m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.json",
+      "experiments/manifests/m3056-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-fitting-contract-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/summary.json",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/behavior_target_tensor_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_tensor_weight_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/target_visibility_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/side_effect_guard_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3057_engineering_controller_active_safety_driver_v1_offtrack_dominant_behavior_target_tensor_materialization_preflight/gate_matrix.csv",
+      "docs/m3057-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-preflight.md"
+    ],
+    "parent_objective": [
+      "audit target tensor materialization or fail-closed blocker artifacts before fitting admission"
+    ],
+    "supersedes": [
+      "direct fitting immediately after M3057 without result audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits target tensor materialization or fail-closed blocker evidence before fitting or raw-trace repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3058 cannot select raw trace capture fitting repair synthesis or stop route",
+      "M3058 would require another materialization-only loop without changing evidence",
+      "M3058 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3058 prepares a claim-safe engineering continuation decision",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1
+  },
+  "next_blocker": "m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit",
+  "priority": 30530,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3058 must audit M3057 target tensor blocker weight actor target-visibility side-effect claim and gate artifacts",
+    "M3058 must reject fitting execution fitted policy quality repair-success validation ranking promotion performance current-sim high-fidelity paper finite-window-vs-GRU full-driver and self-ID claims",
+    "M3058 must preserve actor observation 72 action 3 direct [steer throttle brake] and no hidden oracle TTC target provenance source route outcome progress or verdict actor inputs",
+    "M3058 must choose exactly one next raw trace capture artifact repair fitting admission synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3057 artifact audit completeness",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3058 audits engineering target tensor artifacts and cannot prove or disprove history necessity.",
+    "history_necessity_tests": [
+      "None in M3058; finite-window and GRU comparison remains a later same-case engineering ablation."
+    ],
+    "negative_result_policy": "Self-ID diagnostics remain auxiliary and cannot replace active-safety target tensor audit gates.",
+    "temporal_evidence_window": "M3057 target tensor materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md exists",
+    "M3058 audits M3057 target tensor blocker weight actor target-visibility side-effect claim and gate artifacts",
+    "M3058 rejects fitting execution fitted policy quality repair-success validation ranking promotion performance high-fidelity paper finite-window-vs-GRU and self-ID claims",
+    "M3058 selects exactly one next raw trace capture fitting admission repair synthesis or stop route"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3057 summary and gate matrix",
+      "M3057 behavior target tensor blocker rows weight specs actor target visibility side-effect and claim rows"
+    ],
+    "allowed_updates": [
+      "docs/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+      "docs/reviews/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.md",
+      "experiments/reviews/m3058-engineering-controller-active-safety-driver-v1-offtrack-dominant-behavior-target-tensor-materialization-result-audit.json",
+      "M3058 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3058 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no fitting rollout validation ranking promotion or checkpoint mutation",
+      "no hidden oracle target TTC source route outcome progress or verdict actor inputs",
+      "no driver-performance current-sim high-fidelity finite-window-vs-GRU paper or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3057 target tensor rows are accepted or rejected",
+      "one next raw trace capture fitting admission repair synthesis or stop route is selected"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit offtrack-dominant behavior target tensor materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v1_offtrack_dominant_behavior_repair",
+    "claim_scope": "Result audit only; no fitting rollout validation ranking promotion performance current-sim high-fidelity paper finite-window-vs-GRU full-driver or self-ID claim",
+    "evidence_axis": "active_safety_driver_v1_offtrack_behavior_target_tensor_result_audit",
+    "evidence_increment": "audits M3057 target tensor materialization or fail-closed blocker artifacts before any fitting route",
+    "fallback_plan": [
+      "route to raw trace capture if M3057 fails closed on missing actor-view traces",
+      "route to fitting admission only if numeric target tensors are complete and audit accepts claim safety",
+      "route to synthesis or stop if target tensor materialization is not admissible"
+    ],
+    "stop_condition": [
+      "stop if M3057 artifact set is incomplete",
+      "stop if actor target-visibility side-effect or claim-boundary guards fail",
+      "stop if blocker rows are treated as target tensor quality or performance evidence"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3057 completes target tensor materialization or fail-closed blocker materialization"
+  }
+}
