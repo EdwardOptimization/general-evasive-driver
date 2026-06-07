@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3032,
+    "completed": 3033,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit_20260607T084012Z/command.log",
+    "command_log": "runs/research/m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight_20260607T085455Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit_20260607T084012Z",
+    "run_dir": "runs/research/m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight_20260607T085455Z",
     "status": "completed",
-    "task_id": "m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit"
+    "task_id": "m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight --m3025-dir runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight --m3026-audit docs/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit.md --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight --follow-up-manifest experiments/manifests/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.json --device cpu",
-    "hypothesis": "A bounded deployable trace-capture preflight can rerun the M3026-accepted M3025 target-source readiness denominator only to persist raw actor-view observation action response traces for 29 future target-eligible rows and 3 success identity guards before any target tensor materialization local-action search fitting validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
-    "id": "m3027-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: capture raw deployable actor-view traces for the 29 future target-eligible rows and 3 success identity guards after M3026 audit without target tensors local-action search fitting training validation performance paper or self-ID claims.",
-    "priority": 30220,
+    "command": "true",
+    "hypothesis": "A bounded result audit can accept or reject the M3027 raw deployable trace-capture artifacts before any target-source feasibility target tensor materialization local-action search fitting validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+    "id": "m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit",
+    "kind": "gate",
+    "notes": "Pending: audit M3027 raw deployable trace capture artifacts before target-source feasibility target tensor local-action search fitting validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID interpretation.",
+    "priority": 30230,
     "status": "pending",
-    "success_artifact": "runs/m3027_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_deployable_trace_capture_preflight/summary.json"
+    "success_artifact": "docs/m3028-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-deployable-trace-capture-result-audit.md"
   },
-  "updated_at_utc": "20260607T084012Z"
+  "updated_at_utc": "20260607T085457Z"
 }
