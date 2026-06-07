@@ -42,6 +42,7 @@
     "proof_washout",
     "seed_fragility"
   ],
+  "follow_up_manifest": "experiments/manifests/m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight.json",
   "forbidden_shortcuts": [
     "do not run fitting training environment validation ranking winner selection private holdout or performance measurement",
     "do not mutate save replace rank or promote parent checkpoints or the M2990 candidate artifact",
@@ -100,7 +101,7 @@
     "same_failure_repeat_count": 0,
     "same_public_gate_repair_count": 0
   },
-  "next_blocker": "m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis",
+  "next_blocker": "m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight",
   "private_holdout_policy": "not_used",
   "promotion_decision": "not_applicable",
   "public_gates": [
@@ -115,6 +116,10 @@
     {
       "path": "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md",
       "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight.json",
+      "type": "json"
     }
   ],
   "review_artifact": "docs/reviews/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md",
@@ -132,11 +137,12 @@
     "negative_result_policy": "Preserve the success-identity guard blocker rather than weakening self-ID proof gates or validation gates.",
     "temporal_evidence_window": "M2983-M2991 Route A actor-head delta target tensor fitting-contract bounded fitting and result-audit chain."
   },
-  "status": "pending",
+  "status": "completed",
   "success_criteria": [
     "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md exists",
     "M2992 answers all synthesis_questions",
     "M2992 selects exactly one success-identity guard repair stop or pivot route",
+    "M2992 registers M2993 success-identity guard-constrained fitting preflight as the only next route",
     "M2992 preserves the actor 72/action 3 target-label stale-exclusion checkpoint and claim boundaries",
     "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
   ],
@@ -149,6 +155,7 @@
     "allowed_updates": [
       "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md",
       "docs/reviews/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md",
+      "experiments/manifests/m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight.json",
       "M2992 status queue scoreboard research log and review",
       "one follow-up manifest only if M2992 selects exactly one next route"
     ],
@@ -161,6 +168,7 @@
     "next_stage_criteria": [
       "M2992 answers all synthesis questions",
       "M2992 selects one repair stop or pivot route for success-identity guard residuals",
+      "M2992 registers the M2993 guard-constrained fitting preflight manifest",
       "M2992 preserves actor observation 72 action 3 and no actor-visible target labels",
       "actor guard and claim boundaries remain unchanged"
     ],

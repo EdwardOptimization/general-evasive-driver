@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 2997,
+    "completed": 2998,
     "failed": 4,
     "pending": 1,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit_20260607T025553Z/command.log",
+    "command_log": "runs/research/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis_20260607T030843Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit_20260607T025553Z",
+    "run_dir": "runs/research/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis_20260607T030843Z",
     "status": "completed",
-    "task_id": "m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit"
+    "task_id": "m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis"
   },
   "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded branch synthesis can integrate M2983-M2991 fitting evidence and choose one legal route for the nonzero success identity guard residual before validation or promotion.",
-    "id": "m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis",
-    "kind": "gate",
-    "notes": "Pending: synthesize M2983-M2991 target tensor fitting contract bounded fitting and result audit evidence then choose one claim-safe repair pivot or stop route for success identity guard residual max 0.08 while preserving target_quality_validated false actor 72/action 3 no fitting training validation ranking promotion checkpoint mutation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
-    "priority": 29870,
+    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight --m2987-dir runs/m2987_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_fitting_contract_materialization_preflight --m2988-audit docs/m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit.md --m2989-design docs/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.md --m2991-audit docs/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.md --m2992-synthesis docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md --m2983-dir runs/m2983_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_target_tensor_materialization_preflight --output-dir runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight --follow-up-manifest experiments/manifests/m2994-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-result-audit.json",
+    "hypothesis": "A success-identity guard-constrained offline residual fitting preflight can produce a second trainer-side fitting artifact that explicitly tests zero-residual success guard preservation before any validation ranking promotion or performance claim.",
+    "id": "m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight",
+    "kind": "objective_sanity",
+    "notes": "Pending: implement and run guard-constrained offline fitting using 43 candidate denominator rows and 13 success identity zero guard rows as explicit zero-residual guard penalty or constraint while preserving 11 stale exclusions actor 72/action 3 target_quality_validated false no validation ranking promotion checkpoint mutation performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.",
+    "priority": 29880,
     "status": "pending",
-    "success_artifact": "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md"
+    "success_artifact": "runs/m2993_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_success_identity_guard_constrained_fitting_preflight/summary.json"
   },
-  "updated_at_utc": "20260607T030133Z"
+  "updated_at_utc": "20260607T030940Z"
 }

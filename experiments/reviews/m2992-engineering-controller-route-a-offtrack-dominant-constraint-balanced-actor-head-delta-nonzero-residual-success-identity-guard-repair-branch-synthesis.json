@@ -1,0 +1,101 @@
+{
+  "decision_reason": "M2992 synthesis integrates M2983-M2991 target tensor fitting-contract bounded fitting and result-audit evidence after cadence guard fires; it preserves M2991 rejection of direct validation because M2990 success identity zero-guard residual max is 0.08 and continues only to M2993 guard-constrained offline fitting preflight with 43 candidate rows, 13 success zero guard rows, 11 stale exclusions, actor 72/action 3, target_quality_validated false, and no validation, ranking, promotion, checkpoint mutation, repair-success, performance, paper, current-sim, high-fidelity, full-driver, finite-window-vs-GRU, or self-ID claims.",
+  "failure_criteria": [
+    "M2992 treats M2990 fitting loss decrease as validation repair success driver performance or paper evidence",
+    "M2992 ignores the nonzero predicted residual on success-identity zero-target guard traces",
+    "M2992 changes actor input or action contract",
+    "M2992 runs fitting training validation ranking promotion environment rollout private holdout or performance measurement",
+    "M2992 mutates replaces saves ranks or promotes checkpoints",
+    "M2992 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "training_instability",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run fitting training environment validation ranking winner selection private holdout or performance measurement",
+    "do not mutate save replace rank or promote parent checkpoints or the M2990 candidate artifact",
+    "do not change actor input or action contract",
+    "do not make target labels target provenance objective admission source route verdict or paper labels actor-visible",
+    "do not convert fitting loss decrease or bounded residuals into target-quality validation repair-success performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claims",
+    "do not hide the success-identity guard residual max of 0.07999999821186066"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T030923Z",
+  "hypothesis": "A bounded branch synthesis can integrate the M2983-M2991 target tensor fitting-contract bounded fitting and result-audit evidence and decide whether the success-identity guard residual blocker admits constrained fitting architecture repair pivot or stop before any validation promotion or performance claim.",
+  "lineage": {
+    "blocked_by": [
+      "M2991 accepts M2990 artifact completeness but rejects direct validation because success-identity zero-target guard traces have nonzero predicted residual up to 0.07999999821186066"
+    ],
+    "derived_from": [
+      "m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit",
+      "m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight",
+      "m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design",
+      "m2988-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-contract-materialization-result-audit"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.json",
+      "experiments/manifests/m2990-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-preflight.json",
+      "experiments/manifests/m2989-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-fitting-admission-design.json"
+    ],
+    "parent_dataset": [
+      "docs/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.md",
+      "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/summary.json",
+      "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/success_guard_loss_rows.csv",
+      "runs/m2990_engineering_controller_route_a_offtrack_dominant_constraint_balanced_actor_head_delta_nonzero_residual_bounded_fitting_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "choose one claim-safe repair route for the success-identity guard residual before any validation or promotion"
+    ],
+    "supersedes": [
+      "direct validation or promotion immediately after M2990 despite nonzero success-identity guard residual"
+    ]
+  },
+  "milestone": "m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis",
+  "next_blocker": "m2993-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-constrained-fitting-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "continue_to_m2993_success_identity_guard_constrained_fitting_preflight",
+  "public_gates": [
+    "M2992 must answer evidence_summary supported_claims falsified_claims failure_taxonomy_summary public_gate_overfit_risk and next_branch_decision",
+    "M2992 must preserve M2991's rejection of direct validation after M2990",
+    "M2992 must explicitly account for 13 success-identity zero-target guard rows and predicted residual abs max 0.07999999821186066",
+    "M2992 must preserve target_quality_validated false unless a later target-quality audit is explicitly admitted",
+    "M2992 must preserve actor 72/action 3 and no target labels provenance objective admission source route verdict or paper actor inputs",
+    "M2992 must not fit train validate rank select promote mutate checkpoints or claim performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "continue_to_m2993_success_identity_guard_constrained_fitting_preflight",
+    "milestone": "m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis",
+    "reason": "M2992 synthesis integrates M2983-M2991 target tensor fitting-contract bounded fitting and result-audit evidence after cadence guard fires; it preserves M2991 rejection of direct validation because M2990 success identity zero-guard residual max is 0.08 and continues only to M2993 guard-constrained offline fitting preflight with 43 candidate rows, 13 success zero guard rows, 11 stale exclusions, actor 72/action 3, target_quality_validated false, and no validation, ranking, promotion, checkpoint mutation, repair-success, performance, paper, current-sim, high-fidelity, full-driver, finite-window-vs-GRU, or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md exists",
+    "M2992 answers all synthesis_questions",
+    "M2992 selects exactly one success-identity guard repair stop or pivot route",
+    "M2992 registers M2993 success-identity guard-constrained fitting preflight as the only next route",
+    "M2992 preserves the actor 72/action 3 target-label stale-exclusion checkpoint and claim boundaries",
+    "no fitting training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made"
+  ],
+  "type": "gate"
+}

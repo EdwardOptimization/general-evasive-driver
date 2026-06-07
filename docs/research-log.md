@@ -53310,3 +53310,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit_20260607T025553Z/command.log`
 - success artifact: `docs/m2991-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-bounded-fitting-result-audit.md`
 - notes: Completed: audit accepts M2990 bounded fitting artifacts as complete and claim-safe with status_pass true gate_matrix_pass true 43 fitting dataset rows 4204 samples weighted MSE 0.00107134 to 0.00061339 candidate artifact present stale exclusions preserved but rejects direct validation target-quality repair-success performance promotion and self-ID claims because 13 success identity zero guard traces show predicted residual abs max 0.08; routes to M2992 success identity guard repair branch synthesis.
+
+## 20260607T030843Z m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded branch synthesis can integrate M2983-M2991 fitting evidence and choose one legal route for the nonzero success identity guard residual before validation or promotion.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis_20260607T030843Z`
+- command log: `runs/research/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis_20260607T030843Z/command.log`
+- success artifact: `docs/m2992-engineering-controller-route-a-offtrack-dominant-constraint-balanced-actor-head-delta-nonzero-residual-success-identity-guard-repair-branch-synthesis.md`
+- notes: Completed: synthesis integrates M2983-M2991 target tensor fitting contract bounded fitting and result audit evidence preserves rejection of direct validation because M2990 success identity zero guard residual max is 0.08 and continues only to M2993 guard-constrained offline fitting preflight with 43 candidate rows 13 success zero guard rows 11 stale exclusions actor 72/action 3 target_quality_validated false and no validation ranking promotion checkpoint mutation repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claims.
