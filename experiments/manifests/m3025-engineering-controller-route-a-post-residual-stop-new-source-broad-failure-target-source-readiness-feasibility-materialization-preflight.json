@@ -1,0 +1,238 @@
+{
+  "id": "m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight",
+  "type": "infrastructure",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A no-execution target-source readiness feasibility materialization preflight can convert the M3024-admitted M3022 broad-failure objective contract into row-preserving readiness blocker guard actor claim and gate artifacts before any numeric target materialization local-action search fitting execution validation ranking performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_dataset": [
+      "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+      "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/objective_family_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/row_assignment_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/profile_source_guard_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/actor_contract_guard_rows.csv",
+      "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+      "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/profile_source_aggregate_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv",
+      "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/execution_guard_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.json",
+      "experiments/manifests/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.json",
+      "experiments/manifests/m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight.json",
+      "experiments/manifests/m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight.json",
+      "experiments/manifests/m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize target-source readiness feasibility and blocker rows after M3024 admits only a no-execution readiness preflight"
+    ],
+    "derived_from": [
+      "m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design",
+      "m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit",
+      "m3022-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-preflight",
+      "m3018-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-materialization-preflight",
+      "m3015-engineering-controller-route-a-post-residual-stop-new-source-bounded-execution-preflight"
+    ],
+    "blocked_by": [
+      "M3023 rejects direct numeric target tensor materialization because target-source feasibility and raw actor-view trace availability are not established",
+      "M3024 admits only no-execution readiness feasibility materialization with fail-closed blocker rows",
+      "M3015/M3018/M3022 contain episode summaries and localization rows but no persisted raw actor-view observation action response traces for this new-source surface"
+    ],
+    "supersedes": [
+      "direct target tensor materialization from M3022 objective-contract rows",
+      "using scalar episode summaries as teacher actions or raw traces",
+      "direct fitting execution ranking validation or promotion from objective-contract metadata"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight.md",
+  "public_gates": [
+    "M3025 must write summary target source readiness blocker success identity actor claim gate doc and M3026 audit manifest artifacts",
+    "M3025 must preserve all 32 M3022 row assignments with 29 future-target eligible rows and 3 success identity guard rows",
+    "M3025 must preserve offtrack collision speed-floor success-context candidate parent and weak-negative guard context",
+    "M3025 must report raw actor-view trace availability for every future target row and must not accept episode summary metrics as raw traces",
+    "M3025 must preserve actor 72/action 3 and no hidden oracle future-target source route outcome objective progress verdict or TTC actor input",
+    "M3025 must not run local-action search materialize numeric targets fit train execute validate rank select winners promote mutate checkpoints tune profiles or claim repair success"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO local-action search or private holdout",
+    "do not materialize numeric targets target tensors residual deltas masks weights fitted artifacts checkpoints or teacher actions",
+    "do not convert episode summary metrics into raw actor-view traces or target actions",
+    "do not change actor input or action contract",
+    "do not expose hidden dynamics oracle labels future targets source labels route labels outcome labels objective labels progress labels verdict labels or TTC to actor input",
+    "do not drop collision speed-floor success-context candidate parent or weak negative rows",
+    "do not turn success_context rows into positive training targets",
+    "do not claim target-source feasibility where raw actor-view trace evidence is missing",
+    "do not claim validation repair-success driver performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "engineering_controller_route_a_post_residual_stop_source_axis_expansion",
+    "evidence_axis": "new_source_broad_failure_target_source_readiness_feasibility_materialization",
+    "evidence_increment": "materializes a row-preserving readiness and blocker panel after M3024 admits target-source feasibility preflight without new execution",
+    "claim_scope": "No-execution target-source readiness feasibility materialization only; no numeric target materialization local-action search fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU or self-ID claim",
+    "stop_condition": [
+      "stop if M3025 cannot account for all 32 M3022 row assignments",
+      "stop if summary-only episode rows would be treated as raw actor-view traces",
+      "stop if success_context rows would become positive targets",
+      "stop if collision speed-floor or parent-profile guard context would be dropped",
+      "stop if another process-only milestone would not change the next admission decision"
+    ],
+    "fallback_plan": [
+      "route to result audit if readiness and blocker artifacts are complete and claim-safe",
+      "route to artifact repair if joins or row accounting are incomplete",
+      "route to trace-capture admission design if raw actor-view traces are the explicit blocker",
+      "route to branch synthesis or stop if target-source readiness cannot be defined without overclaiming"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3024 admits target-source readiness feasibility materialization after rejecting direct numeric target materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize target-source readiness feasibility and blocker artifacts before any target tensor or fitting admission",
+    "admission_evidence": [
+      "M3024 admits exactly one no-execution readiness feasibility materialization preflight",
+      "M3023 accepts M3022 objective-contract materialization as complete and claim-safe",
+      "M3022 writes 32 row assignments with 29 future-target eligible rows 3 success identity guards 4 objective families and actor 72/action 3",
+      "M3015/M3018/M3022 do not establish raw actor-view trace availability for this new-source target-source surface"
+    ],
+    "blocked_shortcuts": [
+      "no target tensor materialization fitting execution validation ranking promotion repair-success or performance verdict",
+      "no local-action search or target action generation",
+      "no hidden oracle future-target source route outcome objective progress verdict or TTC actor input",
+      "no offtrack-only route that drops collision speed-floor parent-profile or success-context guard rows"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight.py",
+      "tests/test_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight.py",
+      "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/summary.json",
+      "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_readiness_rows.csv",
+      "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_blocker_rows.csv",
+      "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/success_identity_guard_rows.csv",
+      "docs/m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight.md",
+      "docs/reviews/m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight.md",
+      "M3025 status queue scoreboard research log and review",
+      "one follow-up result audit manifest"
+    ],
+    "next_stage_criteria": [
+      "M3025 writes target-source readiness feasibility artifacts or fails closed with explicit blocker rows",
+      "M3025 preserves all 32 M3022 row assignments and objective/guard families",
+      "M3025 preserves actor observation 72 action 3 and no actor-visible target labels",
+      "M3025 registers a result audit before target-source interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3025 is Route A target-source readiness materialization only and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3025; no wrong-history reset-hidden zero-history finite-window GRU comparison or self-ID verdict is run."
+    ],
+    "temporal_evidence_window": "M3015 diagnostic execution plus M3018/M3019/M3020 localization M3021 design M3022/M3023 objective-contract materialization/audit and M3024 readiness admission design only.",
+    "negative_result_policy": "If raw actor-view traces are missing preserve the blocker and route to audit trace-capture admission synthesis pivot or stop rather than weakening self-ID gates.",
+    "allowed_claims": [
+      "target-source readiness feasibility artifact completeness after audit only",
+      "actor and claim boundaries preserved",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result current-sim verdict high-fidelity validation result full ideal driver completion or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "materializes a target-source readiness and blocker panel rather than another design-only note",
+    "paper_verdict_delta": "no paper verdict; may identify whether raw actor-view trace capture is the next required engineering evidence step",
+    "must_synthesize_if": [
+      "M3025 cannot account for every M3022 row assignment",
+      "M3025 would require numeric target materialization local-action search fitting execution profile tuning checkpoint mutation or actor input changes",
+      "M3025 would claim validation readiness driver performance paper current-sim high-fidelity finite-window-vs-GRU full-driver or self-ID evidence",
+      "M3025 produces only another process blocker without changing the next admission decision"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/summary.json exists",
+    "target-source readiness rows account for all 32 M3022 row assignments",
+    "target-source blocker rows explicitly report missing raw actor-view traces when target-source feasibility is not established",
+    "success identity guard rows preserve all 3 success_context rows as non-positive targets",
+    "actor 72/action 3 candidate parent objective guard and claim boundaries are preserved",
+    "no local-action search target tensor fitting training execution validation ranking promotion performance paper high-fidelity finite-window-vs-GRU full-driver or self-ID claim is made",
+    "follow-up result audit manifest exists"
+  ],
+  "failure_criteria": [
+    "M3025 drops any M3022 row assignment or objective family",
+    "M3025 treats scalar episode summary metrics as raw actor-view traces or target actions",
+    "M3025 materializes numeric targets fits trains executes ranks validates promotes mutates checkpoints or tunes profiles",
+    "M3025 changes actor input or action contract or exposes hidden oracle future-target source route outcome objective progress verdict or TTC labels",
+    "M3025 treats readiness or blocker artifacts as target tensor validation repair-success performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID evidence",
+    "M3025 fails to register a result audit before interpretation"
+  ],
+  "decision_rule": "Pass only if M3025 writes row-preserving readiness blocker guard actor claim gate and doc artifacts and registers M3026 while preserving M3022 actor guard and claim boundaries without execution local-action search or target materialization.",
+  "commands": [
+    {
+      "name": "target_source_readiness_feasibility_materialization_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight --m3022-dir runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight --m3023-audit docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md --m3024-design docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md --m3018-dir runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight --m3015-dir runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight --output-dir runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight --follow-up-manifest experiments/manifests/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_readiness_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/target_source_blocker_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+    "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+  ],
+  "baseline_artifacts": [
+    "docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md",
+    "docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/summary.json",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/row_assignment_rows.csv",
+    "runs/m3022_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_objective_contract_materialization_preflight/gate_matrix.csv",
+    "runs/m3018_engineering_controller_route_a_post_residual_stop_new_source_failure_localization_materialization_preflight/failure_localization_rows.csv",
+    "runs/m3015_engineering_controller_route_a_post_residual_stop_new_source_bounded_execution_preflight/episode_rows.csv"
+  ],
+  "scoreboard_checkpoint": "runs/m3025_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_source_readiness_feasibility_materialization_preflight/summary.json",
+  "follow_up_manifest": "experiments/manifests/m3026-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-result-audit.json",
+  "next_blocker": "m3025-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-readiness-feasibility-materialization-preflight",
+  "status": "pending"
+}

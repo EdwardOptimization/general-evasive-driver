@@ -53696,3 +53696,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit_20260607T081248Z/command.log`
 - success artifact: `docs/m3023-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-objective-contract-materialization-result-audit.md`
 - notes: Completed: audit accepts M3022 as complete and claim-safe objective-contract materialization with status_pass true gate_matrix_pass true required_artifacts_present true 4 objective families 32 row assignments 32 profile/source guard rows 8 actor guard rows actor 72/action 3 success_context future target rows 0; rejects direct target-source feasibility numeric target materialization fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims; routes to M3024 target-source feasibility admission design.
+
+## 20260607T082137Z m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design
+
+- status: `completed`
+- kind: `gate`
+- hypothesis: A bounded design-only target-source feasibility admission milestone can inspect the M3023-accepted M3022 objective contract and choose exactly one legal no-execution target-source feasibility preflight route or stop state before any numeric target materialization fitting execution ranking validation performance paper high-fidelity full-driver finite-window-vs-GRU or self-ID claim.
+- command: `true`
+- returncode: `0`
+- run dir: `runs/research/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design_20260607T082137Z`
+- command log: `runs/research/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design_20260607T082137Z/command.log`
+- success artifact: `docs/m3024-engineering-controller-route-a-post-residual-stop-new-source-broad-failure-target-source-feasibility-admission-design.md`
+- notes: Completed: design admits M3025 no-execution target-source readiness feasibility materialization preflight over 32 M3022 row assignments with 29 future-target eligible rows and 3 success identity guards; requires raw actor-view trace availability reporting and fail-closed blocker rows while preserving actor 72/action 3 plus offtrack collision speed-floor candidate parent and success-context guard boundaries; rejects direct numeric target materialization local-action search fitting execution validation ranking promotion repair-success performance paper current-sim high-fidelity full-driver finite-window-vs-GRU and self-ID claims.
