@@ -1,0 +1,108 @@
+{
+  "decision_reason": "Completed: materialized Active Safety Driver v1 guarded training-admission artifacts with status_pass true gate_matrix_pass true 10 objective rows 17 scenario panel rows 8 training guardrails 36 baseline pressure rows 5 actor guards 11 claim rows 29 target tensor rows trainer-side-only actor 72/action 3; 0 reset step rollout replay fitting PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3040 result audit.",
+  "failure_criteria": [
+    "M3039 runs reset step rollout replay fitting PPO training validation ranking promotion high-fidelity or finite-window-vs-GRU comparison",
+    "M3039 mutates checkpoints configs profiles actor inputs or actor outputs",
+    "M3039 exposes hidden oracle TTC target provenance source route outcome progress or verdict labels to actor input",
+    "M3039 uses M3032 target tensors as closed-loop performance evidence or actor-visible labels",
+    "M3039 claims repair success validation result driver performance current-sim high-fidelity paper full-driver finite-window-vs-GRU or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run environment reset step rollout replay validation training PPO private holdout high-fidelity or finite-window-vs-GRU comparison",
+    "do not fit train select rank or promote any active-safety driver checkpoint",
+    "do not mutate checkpoints configs profiles actor inputs or actor outputs",
+    "do not expose hidden dynamics mu slip tire force oracle feasibility TTC labels reference trajectory target tensor labels target provenance source labels route labels outcome labels progress labels or verdict labels to actor input",
+    "do not use M3032 target tensors as closed-loop performance evidence or actor-visible labels",
+    "do not claim repair success driver performance validation result current-sim verdict high-fidelity result paper evidence full ideal driver completion finite-window-vs-GRU conclusion or level3 self-identification"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260607T112249Z",
+  "hypothesis": "A no-execution guarded training-admission materialization preflight can convert the accepted M3038 Active Safety Driver v1 baseline-table audit into machine-readable active-safety objective, scenario-panel, guardrail, actor-contract, claim-boundary, gate, summary, doc, and M3040 audit manifest artifacts before any fitting PPO training validation ranking promotion performance paper high-fidelity finite-window-vs-GRU or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3038 accepts M3037 baseline measurement tables and routes to guarded training admission",
+      "Active Safety Driver v1 Phase B needs trainer-side objective and guardrail tables before fitting or PPO",
+      "M3032 target tensors must remain offline trainer-side context and actor-invisible"
+    ],
+    "derived_from": [
+      "m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit",
+      "m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "runs/m2655_engineering_controller_route_a_source_only_gap_targeted_repair_mitigation_preserving_execution/checkpoints/m2655_mitigation_preserving_actor_head_repair.pt",
+      "runs/m1674_controller_family_one_seed_public_pilot/profile_runs/L3_online_gru/seed_167400/checkpoint.pt"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.json",
+      "experiments/manifests/m3037-engineering-controller-active-safety-driver-v1-baseline-measurement-table-materialization-preflight.json",
+      "experiments/manifests/m3035-engineering-controller-active-safety-driver-v1-baseline-contract-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "docs/m3038-engineering-controller-active-safety-driver-v1-baseline-measurement-table-result-audit.md",
+      "runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/summary.json",
+      "runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/baseline_measurement_rows.csv",
+      "runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/candidate_profile_metric_aggregate_rows.csv",
+      "runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/benchmark_role_metric_aggregate_rows.csv",
+      "runs/m3037_engineering_controller_active_safety_driver_v1_baseline_measurement_table_materialization_preflight/metric_coverage_rows.csv",
+      "runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/baseline_candidate_rows.csv",
+      "runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/benchmark_role_rows.csv",
+      "runs/m3035_engineering_controller_active_safety_driver_v1_baseline_contract_materialization_preflight/metric_contract_rows.csv",
+      "runs/m3032_engineering_controller_route_a_post_residual_stop_new_source_broad_failure_target_tensor_materialization_preflight/target_tensor_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize guarded Active Safety Driver v1 Phase B training admission tables from accepted baseline measurement pressure"
+    ],
+    "supersedes": [
+      "direct training from M3037 baseline pressure without objective and guardrail admission tables",
+      "direct checkpoint ranking or promotion from M3037 baseline aggregates",
+      "self-ID or GRU proof as the mainline objective after M3038"
+    ]
+  },
+  "milestone": "m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight",
+  "next_blocker": "m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "active_safety_driver_v1_guarded_training_admission_materialized_route_to_m3040_result_audit",
+  "public_gates": [
+    "M3039 must consume M3038 audit, M3037 baseline measurement tables, M3035 baseline contract rows, and M3032 target tensor context only as offline trainer-side material",
+    "M3039 must materialize active_safety_training_objective_rows, scenario_panel_rows, training_guardrail_rows, baseline_pressure_rows, actor_contract_guard_rows, claim_boundary_rows, gate_matrix, run_state, summary, doc, and exactly one M3040 result-audit manifest",
+    "M3039 must preserve actor 72/action 3 and no hidden/oracle/TTC/target/provenance/source/route/outcome/progress/verdict actor inputs",
+    "M3039 must account for collision, off-track, speed-floor, clearance, stability, recovery, actuation, robustness, and success-identity guard families",
+    "M3039 must not fit, train, run PPO, reset, step, roll out, replay, validate, rank, select a winner, promote, mutate checkpoints, or claim driver performance",
+    "M3039 must keep self-ID, GRU, finite-window, paper, and high-fidelity evidence auxiliary only"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "active_safety_driver_v1_guarded_training_admission_materialized_route_to_m3040_result_audit",
+    "milestone": "m3039-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-preflight",
+    "reason": "Completed: materialized Active Safety Driver v1 guarded training-admission artifacts with status_pass true gate_matrix_pass true 10 objective rows 17 scenario panel rows 8 training guardrails 36 baseline pressure rows 5 actor guards 11 claim rows 29 target tensor rows trainer-side-only actor 72/action 3; 0 reset step rollout replay fitting PPO training validation ranking promotion checkpoint mutation high-fidelity finite-window-vs-GRU paper driver-performance current-sim verdict full-driver or self-ID claims; registered M3040 result audit.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m3039_engineering_controller_active_safety_driver_v1_guarded_training_admission_materialization_preflight/summary.json exists",
+    "active_safety_training_objective_rows scenario_panel_rows training_guardrail_rows baseline_pressure_rows actor_contract_guard_rows claim_boundary_rows gate_matrix run_state and doc artifacts exist",
+    "M3039 accounts for M3037 baseline pressure and M3035 metric/role contracts",
+    "M3039 preserves actor 72/action 3 and no hidden/oracle/TTC/target/provenance/source/route/outcome/progress/verdict actor inputs",
+    "M3039 registers exactly one M3040 result-audit manifest",
+    "M3039 makes no fitting PPO training validation ranking promotion driver-performance current-sim high-fidelity finite-window-vs-GRU paper full-driver or self-ID claim",
+    "experiments/manifests/m3040-engineering-controller-active-safety-driver-v1-guarded-training-admission-materialization-result-audit.json exists and is the only selected follow-up route"
+  ],
+  "type": "infrastructure"
+}
