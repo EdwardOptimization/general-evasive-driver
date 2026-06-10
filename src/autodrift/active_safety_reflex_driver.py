@@ -11,16 +11,21 @@ from typing import Any, Mapping
 import numpy as np
 
 from autodrift.artifacts import to_jsonable
-from autodrift.engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_materialization_preflight import (
-    DEFAULT_POLICY_CONFIG,
-    actor_visible_safety_reflex_action,
+from autodrift.engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight import (
+    POLICY_ID as INCUMBENT_POLICY_ID,
+    V4_POLICY_CONFIG,
+    v4_v2_fallback_no_regression_hard_safety_direct_action,
 )
 from autodrift.high_fidelity_interface import ACTION_DIM, P0_OBSERVATION_DIM
 
 
 ACTION_COMPONENTS = ("steer", "throttle", "brake")
 OUTPUT_SEMANTICS = "direct_action_clipped"
-DRIVER_ID = "active_safety_reflex_driver_v1_m3078_deterministic"
+DRIVER_ID = "active_safety_reflex_driver_m3105_incumbent_v4_no_regression"
+INCUMBENT_MEASUREMENT_ID = (
+    "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-"
+    "hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+)
 
 
 def policy_config_fingerprint(policy_config: Mapping[str, Any]) -> str:
@@ -31,6 +36,8 @@ def policy_config_fingerprint(policy_config: Mapping[str, Any]) -> str:
 @dataclass(frozen=True)
 class ActiveSafetyReflexDriverContract:
     driver_id: str
+    incumbent_policy_id: str
+    incumbent_measurement_id: str
     observation_shape: int
     action_shape: int
     action_components: tuple[str, str, str]
@@ -44,6 +51,8 @@ class ActiveSafetyReflexDriverContract:
     def to_dict(self) -> dict[str, Any]:
         return {
             "driver_id": self.driver_id,
+            "incumbent_policy_id": self.incumbent_policy_id,
+            "incumbent_measurement_id": self.incumbent_measurement_id,
             "observation_shape": self.observation_shape,
             "action_shape": self.action_shape,
             "action_components": list(self.action_components),
@@ -65,9 +74,11 @@ class ActiveSafetyReflexDriver:
     """
 
     def __init__(self, policy_config: Mapping[str, Any] | None = None):
-        self.policy_config = deepcopy(dict(policy_config or DEFAULT_POLICY_CONFIG))
+        self.policy_config = deepcopy(dict(policy_config or V4_POLICY_CONFIG))
         self._contract = ActiveSafetyReflexDriverContract(
             driver_id=DRIVER_ID,
+            incumbent_policy_id=INCUMBENT_POLICY_ID,
+            incumbent_measurement_id=INCUMBENT_MEASUREMENT_ID,
             observation_shape=P0_OBSERVATION_DIM,
             action_shape=ACTION_DIM,
             action_components=ACTION_COMPONENTS,
@@ -89,7 +100,7 @@ class ActiveSafetyReflexDriver:
             raise ValueError(f"expected observation shape {(P0_OBSERVATION_DIM,)}, got {obs.shape}")
         if not np.all(np.isfinite(obs)):
             raise ValueError("observation contains non-finite values")
-        action = actor_visible_safety_reflex_action(obs, config=self.policy_config).astype(np.float32)
+        action = v4_v2_fallback_no_regression_hard_safety_direct_action(obs, config=self.policy_config).astype(np.float32)
         if action.shape != (ACTION_DIM,):
             raise ValueError(f"internal action shape {action.shape} != {(ACTION_DIM,)}")
         if not np.all(np.isfinite(action)):

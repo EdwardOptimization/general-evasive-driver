@@ -93,6 +93,14 @@ def select_next_task(tasks: list[ResearchTask]) -> ResearchTask | None:
     return sorted(pending, key=lambda task: (task.priority, task.id))[0]
 
 
+def select_next_status_task(tasks: list[ResearchTask]) -> ResearchTask | None:
+    for status in ("pending", "planned"):
+        candidates = [task for task in tasks if task.status == status]
+        if candidates:
+            return sorted(candidates, key=lambda task: (task.priority, task.id))[0]
+    return None
+
+
 def queue_counts(tasks: list[ResearchTask]) -> dict[str, int]:
     return {status: sum(1 for task in tasks if task.status == status) for status in sorted(ALLOWED_STATUSES)}
 
@@ -137,7 +145,7 @@ def _load_last_result(path: Path | str) -> ResearchRunResult | None:
 
 def plan_next_task(queue_path: Path | str, status_path: Path | str) -> ResearchTask | None:
     tasks = load_queue(queue_path)
-    next_task = select_next_task(tasks)
+    next_task = select_next_status_task(tasks)
     write_research_status(status_path, tasks, next_task, last_result=_load_last_result(status_path))
     return next_task
 
@@ -212,7 +220,12 @@ def run_next_task(
     task = select_next_task(tasks)
     if task is None:
         result = ResearchRunResult(task_id=None, status="idle", returncode=0)
-        write_research_status(status_path, tasks, None, last_result=_load_last_result(status_path) or result)
+        write_research_status(
+            status_path,
+            tasks,
+            select_next_status_task(tasks),
+            last_result=_load_last_result(status_path) or result,
+        )
         return result
 
     running_task = replace(task, status="running")
@@ -244,7 +257,7 @@ def run_next_task(
     final_status = "completed" if process.returncode == 0 and artifact_ok else "failed"
     tasks = _replace_task(tasks, task.id, status=final_status)
     write_queue(queue_path, tasks)
-    next_task = select_next_task(tasks)
+    next_task = select_next_status_task(tasks)
     result = ResearchRunResult(
         task_id=task.id,
         status=final_status,
