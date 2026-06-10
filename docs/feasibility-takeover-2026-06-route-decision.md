@@ -27,7 +27,10 @@ avoidability bounds that no prior milestone had computed:
 2. Reconstructed generator labels for the 64 panel rows:
    **55 aeb_feasible / 3 drift_required / 6 unavoidable**. The M3105 incumbent
    succeeds on **55/55 aeb_feasible rows**; all 7 residual failures are
-   unavoidable (5) or drift_required (2) rows.
+   unavoidable (4) or drift_required (3) rows (correction 2026-06-11: the five
+   collisions are 4 unavoidable + 1 drift_required row 0025; both offtrack
+   rows are drift_required — see
+   `experiments/feasibility_audit/panel_feasibility_labels.csv`).
 3. Point-mass / friction-circle upper bounds (generous toward the controller)
    show the five collision rows require 22.5-85.4 m/s^2 of braking against
    2.2-4.2 m/s^2 available, and both offtrack rows cross the boundary before

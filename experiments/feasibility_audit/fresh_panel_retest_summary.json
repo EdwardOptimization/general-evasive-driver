@@ -1,0 +1,110 @@
+{
+  "aeb_feasible": {
+    "n": 53,
+    "success": 52,
+    "success_rate": 0.9811320754716981
+  },
+  "claim_boundary": "Feasibility-audit fresh-seed retest measurement only; the M3105 incumbent reflex driver is executed closed-loop on a disjoint fresh-seed panel and per-label outcome counts are recorded. No driver-performance verdict, repair-success, robustness-result, validation, ranking, winner selection, checkpoint mutation/promotion, high-fidelity, paper, or self-ID claim is made.",
+  "feasible_only_panel": {
+    "label_counts": {
+      "aeb_feasible": 57,
+      "aes_feasible": 7
+    },
+    "n": 64,
+    "rows_csv": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/feasible_only_panel_rows.csv",
+    "seed_base": 601500,
+    "seed_stride": 1000,
+    "stratified_outcomes": {
+      "aeb_feasible": {
+        "collision": 0,
+        "n": 57,
+        "offtrack": 2,
+        "other": 0,
+        "speed_too_low": 0,
+        "success": 55
+      },
+      "aes_feasible": {
+        "collision": 0,
+        "n": 7,
+        "offtrack": 2,
+        "other": 0,
+        "speed_too_low": 0,
+        "success": 5
+      }
+    },
+    "success": 60,
+    "success_rate": 0.9375
+  },
+  "generated_at_utc": "20260610T162005Z",
+  "label_counts": {
+    "aeb_feasible": 53,
+    "aes_feasible": 0,
+    "drift_required": 4,
+    "unavoidable": 7
+  },
+  "old_seed_base": 401500,
+  "overall": {
+    "n": 64,
+    "success": 54,
+    "success_rate": 0.84375
+  },
+  "panel_row_count": 64,
+  "retest_seed_base": 501500,
+  "retest_seed_max": 501871,
+  "retest_seed_min": 501500,
+  "rows_csv": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/fresh_panel_retest_rows.csv",
+  "runtime_driver_id": "active_safety_reflex_driver_m3105_incumbent_v4_no_regression",
+  "seed_overlap_with_old_panel": 0,
+  "stratified_old_panel_m3105_outcomes": {
+    "aeb_feasible": {
+      "collision": 0,
+      "n": 55,
+      "offtrack": 0,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 55
+    },
+    "drift_required": {
+      "collision": 1,
+      "n": 3,
+      "offtrack": 2,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 0
+    },
+    "unavoidable": {
+      "collision": 4,
+      "n": 6,
+      "offtrack": 0,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 2
+    }
+  },
+  "stratified_retest_outcomes": {
+    "aeb_feasible": {
+      "collision": 0,
+      "n": 53,
+      "offtrack": 1,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 52
+    },
+    "drift_required": {
+      "collision": 0,
+      "n": 4,
+      "offtrack": 2,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 2
+    },
+    "unavoidable": {
+      "collision": 4,
+      "n": 7,
+      "offtrack": 3,
+      "other": 0,
+      "speed_too_low": 0,
+      "success": 0
+    }
+  }
+}
