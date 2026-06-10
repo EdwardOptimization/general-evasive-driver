@@ -1,0 +1,403 @@
+{
+  "claim_boundary": "v5 candidate same-row validation measurement only; the v5 driver is a candidate and the deployable ActiveSafetyReflexDriver is unchanged. No promotion, checkpoint mutation, driver-performance verdict, robustness-result, high-fidelity, paper, or self-ID claim is made.",
+  "generated_at_utc": "20260610T170705Z",
+  "holdout_scan": {
+    "excluded_seed_count": 192,
+    "max_scan_attempts": 28,
+    "scan_labels": {
+      "aeb_feasible": 62,
+      "aes_feasible": 2
+    },
+    "seed_base": 701500,
+    "seed_stride": 1000
+  },
+  "margin_guard_tolerance": 0.001,
+  "panels": {
+    "feasible_only": {
+      "rows_fixed_by_v5": [
+        "m3082-fresh-panel-0024"
+      ],
+      "rows_regressed_by_v5": [],
+      "v4": {
+        "aeb_feasible_n": 57,
+        "aeb_feasible_success": 55,
+        "collision": 0,
+        "feasible_n": 64,
+        "feasible_success": 60,
+        "n": 64,
+        "offtrack": 4,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 57,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 55
+          },
+          "aes_feasible": {
+            "collision": 0,
+            "n": 7,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 5
+          }
+        },
+        "success": 60
+      },
+      "v5": {
+        "aeb_feasible_n": 57,
+        "aeb_feasible_success": 56,
+        "collision": 0,
+        "feasible_n": 64,
+        "feasible_success": 61,
+        "n": 64,
+        "offtrack": 3,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 57,
+            "offtrack": 1,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 56
+          },
+          "aes_feasible": {
+            "collision": 0,
+            "n": 7,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 5
+          }
+        },
+        "success": 61
+      }
+    },
+    "fresh": {
+      "rows_fixed_by_v5": [
+        "m3082-fresh-panel-0053"
+      ],
+      "rows_regressed_by_v5": [],
+      "v4": {
+        "aeb_feasible_n": 53,
+        "aeb_feasible_success": 52,
+        "collision": 4,
+        "feasible_n": 53,
+        "feasible_success": 52,
+        "n": 64,
+        "offtrack": 6,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 53,
+            "offtrack": 1,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 52
+          },
+          "drift_required": {
+            "collision": 0,
+            "n": 4,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 2
+          },
+          "unavoidable": {
+            "collision": 4,
+            "n": 7,
+            "offtrack": 3,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 0
+          }
+        },
+        "success": 54
+      },
+      "v5": {
+        "aeb_feasible_n": 53,
+        "aeb_feasible_success": 53,
+        "collision": 4,
+        "feasible_n": 53,
+        "feasible_success": 53,
+        "n": 64,
+        "offtrack": 5,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 53,
+            "offtrack": 0,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 53
+          },
+          "drift_required": {
+            "collision": 0,
+            "n": 4,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 2
+          },
+          "unavoidable": {
+            "collision": 4,
+            "n": 7,
+            "offtrack": 3,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 0
+          }
+        },
+        "success": 55
+      }
+    },
+    "holdout": {
+      "rows_fixed_by_v5": [],
+      "rows_regressed_by_v5": [],
+      "v4": {
+        "aeb_feasible_n": 62,
+        "aeb_feasible_success": 59,
+        "collision": 1,
+        "feasible_n": 64,
+        "feasible_success": 60,
+        "n": 64,
+        "offtrack": 3,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 1,
+            "n": 62,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 59
+          },
+          "aes_feasible": {
+            "collision": 0,
+            "n": 2,
+            "offtrack": 1,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 1
+          }
+        },
+        "success": 60
+      },
+      "v5": {
+        "aeb_feasible_n": 62,
+        "aeb_feasible_success": 59,
+        "collision": 0,
+        "feasible_n": 64,
+        "feasible_success": 60,
+        "n": 64,
+        "offtrack": 4,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 62,
+            "offtrack": 3,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 59
+          },
+          "aes_feasible": {
+            "collision": 0,
+            "n": 2,
+            "offtrack": 1,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 1
+          }
+        },
+        "success": 60
+      }
+    },
+    "old": {
+      "infeasible_row_margin_guard": [
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0007",
+          "guard_pass": false,
+          "margin_delta": -0.05896870406479504,
+          "v4_min_clearance_margin": -0.11191988390386065,
+          "v4_outcome": "collision",
+          "v5_min_clearance_margin": -0.1708885879686557,
+          "v5_outcome": "collision"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0010",
+          "guard_pass": true,
+          "margin_delta": 0.01914479329994001,
+          "v4_min_clearance_margin": -0.2089140769708009,
+          "v4_outcome": "collision",
+          "v5_min_clearance_margin": -0.18976928367086088,
+          "v5_outcome": "collision"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0013",
+          "guard_pass": false,
+          "margin_delta": -0.046375209429182274,
+          "v4_min_clearance_margin": 4.001837888231735,
+          "v4_outcome": "offtrack",
+          "v5_min_clearance_margin": 3.955462678802553,
+          "v5_outcome": "offtrack"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0024",
+          "guard_pass": false,
+          "margin_delta": -0.02467877294892329,
+          "v4_min_clearance_margin": 0.19111884842274796,
+          "v4_outcome": "offtrack",
+          "v5_min_clearance_margin": 0.16644007547382467,
+          "v5_outcome": "offtrack"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0025",
+          "guard_pass": true,
+          "margin_delta": 0.16011498898780796,
+          "v4_min_clearance_margin": -0.16420231058817247,
+          "v4_outcome": "collision",
+          "v5_min_clearance_margin": -0.004087321600364513,
+          "v5_outcome": "collision"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0026",
+          "guard_pass": true,
+          "margin_delta": 0.09873488927222618,
+          "v4_min_clearance_margin": -0.2053951495846531,
+          "v4_outcome": "collision",
+          "v5_min_clearance_margin": -0.10666026031242692,
+          "v5_outcome": "collision"
+        },
+        {
+          "fresh_panel_row_id": "m3082-fresh-panel-0029",
+          "guard_pass": true,
+          "margin_delta": 0.038382665932706006,
+          "v4_min_clearance_margin": -0.23122717671026782,
+          "v4_outcome": "collision",
+          "v5_min_clearance_margin": -0.19284451077756182,
+          "v5_outcome": "collision"
+        }
+      ],
+      "margin_guard_pass": false,
+      "no_regression_pass": false,
+      "rows_fixed_by_v5": [],
+      "rows_regressed_by_v5": [],
+      "v4": {
+        "aeb_feasible_n": 55,
+        "aeb_feasible_success": 55,
+        "collision": 5,
+        "feasible_n": 55,
+        "feasible_success": 55,
+        "n": 64,
+        "offtrack": 2,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 55,
+            "offtrack": 0,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 55
+          },
+          "drift_required": {
+            "collision": 1,
+            "n": 3,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 0
+          },
+          "unavoidable": {
+            "collision": 4,
+            "n": 6,
+            "offtrack": 0,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 2
+          }
+        },
+        "success": 57
+      },
+      "v4_reproduction_mismatches_vs_recorded": [],
+      "v5": {
+        "aeb_feasible_n": 55,
+        "aeb_feasible_success": 55,
+        "collision": 5,
+        "feasible_n": 55,
+        "feasible_success": 55,
+        "n": 64,
+        "offtrack": 2,
+        "speed_too_low": 0,
+        "stratified_outcomes": {
+          "aeb_feasible": {
+            "collision": 0,
+            "n": 55,
+            "offtrack": 0,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 55
+          },
+          "drift_required": {
+            "collision": 1,
+            "n": 3,
+            "offtrack": 2,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 0
+          },
+          "unavoidable": {
+            "collision": 4,
+            "n": 6,
+            "offtrack": 0,
+            "other": 0,
+            "speed_too_low": 0,
+            "success": 2
+          }
+        },
+        "success": 57
+      }
+    }
+  },
+  "v4_driver_id": "active_safety_reflex_driver_m3105_incumbent_v4_no_regression",
+  "v5_driver_id": "active_safety_driver_v5_curvature_speed_governor_candidate",
+  "v5_governor_config": {
+    "a_lat_budget_mps2": 4.2,
+    "curvature_points": 6,
+    "distress_activation_boost": 0.25,
+    "distress_steer_saturation_scale": 0.35,
+    "distress_steer_saturation_start": 0.55,
+    "distress_weight_edge": 0.6,
+    "distress_weight_steer_saturation": 0.6,
+    "distress_weight_yaw_deficit": 0.4,
+    "enabled": true,
+    "esc_brake_release_gain": 0.8,
+    "esc_enabled": true,
+    "esc_max_speed_mps": 12.0,
+    "esc_min_speed_mps": 1.5,
+    "esc_sideslip_ratio_scale": 0.25,
+    "esc_sideslip_ratio_start": 0.18,
+    "esc_spin_risk_floor": 0.05,
+    "esc_steer_cut_gain": 0.8,
+    "esc_throttle_cap": 0.05,
+    "esc_yaw_surplus_margin_radps": 0.25,
+    "esc_yaw_surplus_scale_radps": 0.6,
+    "governor_throttle_suppression": 1.0,
+    "grip_priority_brake_cap": 0.1,
+    "grip_priority_brake_release_gain": 1.0,
+    "kappa_min_1pm": 0.016666666666666666,
+    "min_speed_mps": 9.0,
+    "obstacle_yield_full": 0.85,
+    "obstacle_yield_start": 0.5,
+    "overspeed_full_scale_mps": 4.0,
+    "overspeed_trigger": 0.5
+  },
+  "v5_policy_config_sha256": "2961746369567e5dafdcdbd5b41cb150c60a6fbb872dcf8f773ccca7523b2304"
+}
