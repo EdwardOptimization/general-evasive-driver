@@ -1,0 +1,167 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_recovery_clearance_supervisor_residual_trace_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3211 audits M3210 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3211 hides missing M3210 artifacts or failed gates",
+    "M3211 treats M3210 traces as repair success or performance verdict",
+    "M3211 changes actor input action contract or public driver default",
+    "M3211 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune rank promote or mutate checkpoints in M3211",
+    "do not convert M3210 residual-trace measurement into validation repair-success performance current-sim robustness-result high-fidelity paper or self-ID claims",
+    "do not change actor input action contract or public driver default"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3210 recovery-clearance supervisor residual-trace measurement artifacts before full-fresh measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3210 measurement artifacts require audit before interpretation",
+      "M3210 is measurement only and not validation repair success or public default replacement"
+    ],
+    "derived_from": [
+      "m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight",
+      "m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit",
+      "m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight",
+      "m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight",
+      "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight",
+      "m3187-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-materialization-preflight",
+      "m3012-engineering-controller-route-a-post-residual-stop-new-source-executable-env-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/candidate_trace_execution_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/candidate_trace_step_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/same_trace_comparison_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/contract_guard_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3210 recovery-clearance supervisor residual-trace measurement before full-fresh measurement or synthesis"
+    ],
+    "supersedes": [
+      "unreviewed M3210 residual-trace measurement interpretation"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits same-seven residual-trace closed-loop evidence before full-fresh measurement or synthesis",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3211 cannot select full-fresh measurement synthesis artifact-repair or stop",
+      "M3211 would claim repair-success validation driver-performance current-sim verdict robustness-result or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3211 audits engineering recovery-clearance supervisor measurement evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1
+  },
+  "next_blocker": "m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit",
+  "priority": 32110,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3211 must audit M3210 candidate trace rows step rows same-trace comparison rows guards claims and gates",
+    "M3211 must preserve obs72-only actor runtime and direct [steer throttle brake] action contract",
+    "M3211 must reject validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3211 must select full-fresh measurement artifact-repair synthesis or stop as exactly one route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3210 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3211 audits engineering residual-trace measurement and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3211; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering measurement evidence and route full-fresh measurement synthesis or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3210 residual-trace measurement artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md exists",
+    "M3211 audits M3210 row counts gates actor contract and claim boundaries",
+    "M3211 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3210 summary candidate trace rows step rows same-trace comparison rows contract guards claim rows and gate matrix"
+    ],
+    "allowed_updates": [
+      "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+      "docs/reviews/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+      "experiments/reviews/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.json",
+      "M3211 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3211 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3211 accepts or rejects M3210 as complete and claim-safe",
+      "next full-fresh measurement synthesis artifact-repair or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3210 residual-trace measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_recovery_clearance_supervisor",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "recovery_clearance_supervisor_residual_trace_measurement_result_audit",
+    "evidence_increment": "audits same-seven residual-trace closed-loop measurement for the M3208 recovery-clearance supervisor candidate",
+    "fallback_plan": [
+      "route to M3210 artifact repair if rows or guards fail",
+      "route to synthesis if residual-trace measurement is behavior-negative or inconclusive",
+      "route to full-fresh measurement only if M3211 accepts a non-regressive residual-trace result versus M3205 and incumbent"
+    ],
+    "stop_condition": [
+      "stop if M3210 artifacts are missing or gate matrix fails",
+      "stop if any trace execution used hidden runtime labels",
+      "synthesize if residual traces show no closed-loop benefit or a behavior regression"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3210 materializes residual-trace measurement artifacts"
+  }
+}

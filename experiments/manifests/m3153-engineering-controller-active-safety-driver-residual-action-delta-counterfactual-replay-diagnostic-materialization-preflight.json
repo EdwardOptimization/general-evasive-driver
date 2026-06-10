@@ -1,0 +1,179 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis.md",
+    "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/summary.json",
+    "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight --m3152-synthesis docs/m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis.md --m3150-dir runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight --m3147-dir runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight --doc-path docs/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.md --follow-up-manifest experiments/manifests/m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit.json",
+      "name": "active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M3153 materializes a bounded residual counterfactual replay diagnostic on the seven residual rows while preserving obs72/action3 direct-action boundaries and rejecting validation repair-success performance promotion feasibility-proof and self-ID claims.",
+  "failure_criteria": [
+    "M3153 treats counterfactual replay outcomes as deployable repair success",
+    "M3153 uses hidden oracle TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "M3153 tunes variants interactively against residual rows instead of using fixed predeclared variants",
+    "M3153 changes checkpoint state or promotes a policy"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded residual action-delta counterfactual replay diagnostic can replay the seven residual rows with a fixed set of actor-visible direct-action variants derived from M3150 labels and determine whether residual outcomes are action-channel sensitive before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3152 selects bounded counterfactual replay diagnostic before repair",
+      "M3150 shows mixed saturation and headroom evidence that cannot be resolved by no-new-execution reanalysis alone"
+    ],
+    "derived_from": [
+      "m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis",
+      "m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit",
+      "m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/residual_delta_effectiveness_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv"
+    ],
+    "parent_objective": [
+      "test whether residual failures are sensitive to fixed actor-visible action-delta variants"
+    ],
+    "supersedes": [
+      "no-new-execution sensitivity reanalysis as the only diagnostic",
+      "direct repair continuation after M3150"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "evidence_expansion": "adds a bounded diagnostic replay panel for action-channel sensitivity rather than tuning a deployable repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3153 cannot keep variants fixed and predeclared",
+      "M3153 would claim repair success or validation",
+      "M3153 produces mixed or negative counterfactual sensitivity evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3153 targets engineering counterfactual sensitivity evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit",
+  "priority": 31530,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3153 must use fixed predeclared actor-visible direct-action variants",
+    "M3153 must account for exactly seven residual rows and all variant rows",
+    "M3153 must preserve obs72/action3 direct-action contract and runtime_base_policy_required false",
+    "M3153 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/counterfactual_replay_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3153 diagnostic artifact completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3153 is engineering counterfactual replay diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3153; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve diagnostic evidence and route to audit or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3150/M3147 residual diagnostics only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "M3153 summary and diagnostic CSV artifacts exist",
+    "M3153 accounts for seven residual rows and fixed counterfactual variants",
+    "M3153 preserves obs72/action3 direct-action and no-hidden-input claim boundaries",
+    "M3153 registers M3154 result audit"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3152 synthesis",
+      "M3150 sensitivity rows",
+      "M3147 action-delta coverage and step traces"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight.py",
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/*",
+      "docs/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.md",
+      "docs/reviews/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.md",
+      "experiments/manifests/m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit.json",
+      "experiments/reviews/m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight.json",
+      "M3153 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3153 writes diagnostic replay artifacts and registers M3154 audit"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize bounded residual action-delta counterfactual replay diagnostics"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic",
+    "claim_scope": "Diagnostic materialization only; no repair implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_action_delta_counterfactual_replay_sensitivity",
+    "evidence_increment": "adds fixed-variant residual counterfactual replay diagnostics for action-channel sensitivity",
+    "fallback_plan": [
+      "route to M3154 audit if artifacts are complete",
+      "repair M3153 artifacts if row accounting or gates fail",
+      "route to stop if counterfactual replay cannot preserve actor-visible direct-action boundary"
+    ],
+    "stop_condition": [
+      "stop if M3153 cannot keep variants fixed and predeclared",
+      "stop if actor obs72/action3 contract is violated",
+      "stop if M3153 would claim validation or repair success"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3152 selects bounded counterfactual replay diagnostics before repair"
+  }
+}

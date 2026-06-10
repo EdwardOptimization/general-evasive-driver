@@ -1,0 +1,78 @@
+{
+  "decision_reason": "Pass only if M3181 measures the M3179 candidate on the full fresh denominator and registers M3182 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "failure_criteria": [
+    "M3181 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels or TTC oracle values as actor runtime inputs",
+    "M3181 mutates the public driver or promotes the candidate",
+    "M3181 expands from measurement into validation ranking or broad tuning",
+    "M3181 treats measurement rows as repair success or validation evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not validate rank promote train PPO fit or run high-fidelity simulation",
+    "do not use hidden oracle target TTC source route outcome progress verdict row-label or baseline-outcome labels as actor runtime inputs",
+    "do not claim driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T045559Z",
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3179 steer-delta regression guard candidate on the same fresh denominator and compare against M3105 and M3172 before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3180 admits measurement only not validation",
+      "M3179 materializes a guard candidate that must be measured on the full denominator"
+    ],
+    "derived_from": [
+      "m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit",
+      "m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight",
+      "m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight",
+      "m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/summary.json",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/action_probe_rows.csv",
+      "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_objective": [
+      "measure M3179 candidate on the same full fresh denominator before validation"
+    ],
+    "supersedes": [
+      "targeted-row-only interpretation after M3179"
+    ]
+  },
+  "milestone": "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+  "next_blocker": "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3181 must execute the complete 64-row fresh denominator before interpretation",
+    "M3181 must preserve obs72/action3 direct [steer throttle brake] contract",
+    "M3181 must compare same rows against M3105 and M3172 without ranking or promotion",
+    "M3181 must register M3182 result audit"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json exists",
+    "M3181 writes measurement comparison guard claim and gate artifacts",
+    "M3181 preserves actor-visible-only contract and public driver default unchanged",
+    "M3181 registers M3182 result audit manifest"
+  ],
+  "type": "infrastructure"
+}

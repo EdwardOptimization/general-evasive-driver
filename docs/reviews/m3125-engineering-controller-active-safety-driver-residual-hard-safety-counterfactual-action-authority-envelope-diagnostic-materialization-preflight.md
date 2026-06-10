@@ -1,0 +1,84 @@
+# m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T225226Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_route_to_m3126_result_audit
+- Decision reason: Completed: materialized M3125 counterfactual action-authority envelope diagnostics with status_pass true gate_matrix_pass true required_artifacts_present true 7/7 envelope rows 5 collision 2 offtrack 0 speed_too_low envelope statuses exhausted=3 near_exhausted=2 stability_timing=1 stability_near_exhausted=1 near_or_full_exhausted_rows 6 mean_final_brake_margin 0.2776751737509455 mean_final_steer_margin 0.10283599155289788 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false no new execution repair materialization validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3126 result audit.
+
+## Hypothesis
+
+A bounded no-new-execution counterfactual action-authority envelope diagnostic can quantify whether the seven M3123 residual hard-safety rows are limited by available direct-action authority speed-floor/deceleration tradeoff or trajectory feasibility before any repair validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3124-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-result-audit.md, docs/m3123-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-materialization-preflight.md
+- parent_dataset: runs/m3123_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_feasibility_diagnostic_materialization_preflight/summary.json, runs/m3123_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_feasibility_diagnostic_materialization_preflight/residual_action_authority_feasibility_rows.csv, runs/m3123_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_feasibility_diagnostic_materialization_preflight/diagnostic_requirement_rows.csv, runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv, runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv
+- parent_config: experiments/manifests/m3124-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-result-audit.json, experiments/manifests/m3123-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-materialization-preflight.json
+- parent_objective: materialize a counterfactual action-authority envelope diagnostic after M3124 audit
+- derived_from: m3124-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-result-audit, m3123-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-feasibility-diagnostic-materialization-preflight, m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight
+- blocked_by: M3123 shows 7 residual rows are action-authority or feasibility limited, M3124 accepts diagnostic artifacts but forbids repair-success interpretation, M3125 must not run new repair or validation before envelope evidence is materialized
+- supersedes: direct transition from M3123 labels into repair materialization
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- M3125 writes row-preserving counterfactual authority-envelope artifacts for the residual hard-safety blockers
+- M3125 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false
+- M3125 registers M3126 result audit
+
+## Failure Criteria
+
+- M3125 drops row identity or changes denominator
+- M3125 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state
+- M3125 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID evidence
+
+## Evidence Gates
+
+- M3125 must be no-new-execution diagnostic materialization only
+- M3125 must preserve row identity and obs72/action3 actor contract boundaries
+- M3125 must write counterfactual authority-envelope artifacts for the seven residual rows
+- M3125 must register M3126 result audit before any repair or verdict
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun tune expand rank promote validate or mutate checkpoints
+- do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input
+- do not treat counterfactual envelope labels as repair-success driver-performance current-sim robustness-result high-fidelity paper full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_route_to_m3126_result_audit
+- reason: Completed: materialized M3125 counterfactual action-authority envelope diagnostics with status_pass true gate_matrix_pass true required_artifacts_present true 7/7 envelope rows 5 collision 2 offtrack 0 speed_too_low envelope statuses exhausted=3 near_exhausted=2 stability_timing=1 stability_near_exhausted=1 near_or_full_exhausted_rows 6 mean_final_brake_margin 0.2776751737509455 mean_final_steer_margin 0.10283599155289788 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false no new execution repair materialization validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3126 result audit.
+
+## Next Blocker
+
+m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit

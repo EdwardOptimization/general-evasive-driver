@@ -1,0 +1,74 @@
+# m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T010800Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M3147 materializes row-preserving action-delta coverage diagnostics for the seven M3144 residual rows while preserving obs72/action3 contract and rejecting validation repair-success performance verdict promotion feasibility-proof and self-ID claims.
+
+## Hypothesis
+
+A bounded action-delta coverage diagnostic can replay only the seven M3144 residual collision/offtrack rows through the M3142 obs72-to-action3 speed-envelope candidate, record same-observation candidate-vs-M3105 fallback [steer throttle brake] deltas overlay activation and saturation coverage, and register M3148 audit before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis.md, runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/direct_action_policy_config.json
+- parent_dataset: runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json, runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/same_row_comparison_rows.csv, runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/action_probe_rows.csv
+- parent_config: experiments/manifests/m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis.json, experiments/manifests/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.json
+- parent_objective: materialize speed-envelope candidate-vs-fallback action-delta coverage diagnostics on residual rows
+- derived_from: m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis, m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight, m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3144 plateaus exactly against M3105 hard-safety counts, M3146 requires action-delta coverage diagnostics before any new repair branch
+- supersedes: blind gain continuation after M3144 plateau, direct promotion of M3142 despite unchanged hard-safety counts
+- invalidates: None
+
+## Success Criteria
+
+- M3147 summary and diagnostic CSV artifacts exist
+- M3147 accounts for seven residual rows with zero trace failures
+- M3147 preserves obs72/action3 direct [steer throttle brake] contract and runtime_base_policy_required false
+- M3147 registers M3148 audit manifest and rejects overclaims
+
+## Failure Criteria
+
+- M3147 hides missing residual rows or trace failures
+- M3147 treats action-delta diagnostics as validation repair-success or performance evidence
+- M3147 changes actor input or direct action contract
+- M3147 proceeds to a new repair without registering M3148 audit
+
+## Evidence Gates
+
+- M3147 must preserve M3105/M3103 as fallback and compare actions only from actor-visible obs72
+- M3147 must account for exactly the seven M3144 residual rows with five collision and two offtrack blockers
+- M3147 must record action-delta coverage overlay activation and saturation diagnostics without changing actor inputs
+- M3147 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune speed-envelope gains or implement a new repair
+- do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or M3105 blocker labels as actor inputs
+- do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit

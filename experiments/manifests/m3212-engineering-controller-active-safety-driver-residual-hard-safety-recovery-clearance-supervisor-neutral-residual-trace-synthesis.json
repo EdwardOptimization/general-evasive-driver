@@ -1,0 +1,183 @@
+{
+  "id": "m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis",
+  "priority": 32120,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded synthesis can classify M3210/M3211 recovery-clearance supervisor residual-trace measurement as behavior-neutral and select a different evidence axis before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/same_trace_comparison_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/candidate_trace_execution_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/gate_matrix.csv",
+      "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/summary.json",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/summary.json",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.json",
+      "experiments/manifests/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.json",
+      "experiments/manifests/m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize behavior-neutral recovery-clearance supervisor residual-trace measurement into exactly one next route"
+    ],
+    "derived_from": [
+      "m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit",
+      "m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight",
+      "m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit",
+      "m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight",
+      "m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis",
+      "m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight"
+    ],
+    "blocked_by": [
+      "M3210 leaves the seven residual terminal outcomes unchanged versus M3205, M3194, and incumbent evidence",
+      "M3211 accepts M3210 as claim-safe but behavior-neutral",
+      "full-fresh validation is not admitted without residual trace hard-safety improvement"
+    ],
+    "supersedes": [
+      "continuing recovery-clearance supervisor mode-budget tuning after neutral residual-trace measurement"
+    ],
+    "invalidates": [
+      "M3208/M3210 as repair-success or validation candidates on same-seven residual trace evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+  "public_gates": [
+    "M3212 must preserve M3210/M3211 behavior-neutral evidence",
+    "M3212 must preserve M3105/M3103 as incumbent",
+    "M3212 must select exactly one stop pivot artifact-repair or new-evidence-axis route",
+    "M3212 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement new repair logic in M3212",
+    "do not run validation ranking promotion or high-fidelity simulation in M3212",
+    "do not convert M3210 neutral measurement action deltas or clearance shifts into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not mutate the public driver default"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_recovery_clearance_supervisor",
+    "evidence_axis": "recovery_clearance_supervisor_neutral_residual_trace_synthesis",
+    "evidence_increment": "synthesizes M3210/M3211 behavior-neutral residual-trace measurement and selects a different evidence axis",
+    "claim_scope": "Synthesis and route-selection only; no implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop the recovery-clearance supervisor branch if mode-budget action deltas do not change residual outcomes",
+      "stop if a next route requires hidden actor inputs",
+      "stop if neutral M3210 evidence is reworded as repair success"
+    ],
+    "fallback_plan": [
+      "preserve M3105/M3103 as incumbent",
+      "pivot to a new evidence axis that diagnoses why action changes fail to change terminal collision and offtrack outcomes",
+      "route to artifact repair only if M3210/M3211 artifacts are later found incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3211 accepts M3210 as complete and claim-safe but behavior-neutral",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize M3210 neutral residual-trace measurement into a bounded next route",
+    "admission_evidence": [
+      "M3211 audit",
+      "M3210 same-trace comparison rows",
+      "M3208 recovery-clearance supervisor implementation summary",
+      "M3205 neutral residual trace measurement"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+      "docs/reviews/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+      "experiments/reviews/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.json",
+      "M3212 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3212 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M3212 selects stop pivot artifact-repair or new-evidence-axis route as exactly one route",
+      "A follow-up route is explicitly admitted or the branch is explicitly stopped"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3212 is engineering measurement synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3212; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3208 through M3211 artifacts only.",
+    "negative_result_policy": "Preserve neutral engineering evidence and pivot rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3212 neutral measurement synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 4,
+    "same_public_gate_repair_count": 3,
+    "evidence_expansion": "closes behavior-neutral recovery-clearance supervisor route and selects a new evidence axis",
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3212 is engineering route synthesis",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md exists",
+    "M3212 synthesizes M3210/M3211 neutral evidence and preserves M3105/M3103 as incumbent",
+    "M3212 selects exactly one next route and rejects overclaims"
+  ],
+  "failure_criteria": [
+    "M3212 treats M3210 neutral measurement as validation repair success or driver performance",
+    "M3212 admits a next route that requires hidden actor inputs",
+    "M3212 mutates the public driver default or promotes a checkpoint",
+    "M3212 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3212 synthesizes M3210/M3211 neutral residual-trace evidence into exactly one next route while preserving obs72-only direct action boundaries and rejecting validation repair-success performance and self-ID claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_recovery_clearance_supervisor_neutral_residual_trace_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.md",
+    "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+  "next_blocker": "m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis",
+  "status": "pending"
+}

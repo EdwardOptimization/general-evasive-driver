@@ -1,0 +1,161 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3188 audits M3187 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3188 hides missing M3187 artifacts or failed gates",
+    "M3188 treats M3187 trace specs as repair success or performance verdict",
+    "M3188 changes actor input or action contract",
+    "M3188 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run trace execution repair implementation validation ranking promotion or high-fidelity simulation in M3188",
+    "do not convert M3187 trace specs into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not change actor input action contract or public driver default"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3187 trace-spec artifacts before trace execution repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3187 trace specs require audit before execution or implementation admission",
+      "obs72/public-telemetry boundaries must be verified against forbidden-label guards"
+    ],
+    "derived_from": [
+      "m3187-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-materialization-preflight",
+      "m3186-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-pack-result-audit",
+      "m3185-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-pack-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3187-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3187-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/summary.json",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/trace_spec_rows.csv",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/trace_source_binding_rows.csv",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/obs72_public_telemetry_boundary_rows.csv",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/forbidden_label_guard_rows.csv",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3187 trace-spec materialization before trace execution or implementation admission"
+    ],
+    "supersedes": [
+      "direct residual blocker trace execution without trace-spec audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits residual blocker-axis trace specs before trace execution or implementation admission",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3188 cannot select trace-execution artifact-repair synthesis or stop",
+      "M3188 would claim repair-success validation driver-performance current-sim verdict robustness-result or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3188 audits engineering trace-spec evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit",
+  "priority": 31880,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3188 must audit M3187 trace specs source bindings obs72 boundary forbidden-label guards claims and gates",
+    "M3188 must preserve M3105/M3103 as incumbent and public driver default unchanged",
+    "M3188 must reject trace execution repair implementation validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3188 must select exactly one trace-execution-spec, artifact-repair, synthesis, or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3187 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3188 audits engineering trace-spec artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3188; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering trace-spec evidence and route trace execution or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3187 trace-spec artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md exists",
+    "M3188 audits M3187 row counts gates actor contract and claim boundaries",
+    "M3188 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3187 summary trace spec rows source bindings obs72 boundary forbidden-label guards claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md",
+      "docs/reviews/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.md",
+      "experiments/reviews/m3188-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-result-audit.json",
+      "M3188 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3188 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no trace execution repair implementation validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3188 accepts or rejects M3187 as complete and claim-safe",
+      "next trace-execution artifact-repair synthesis or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3187 blocker-axis trace specification artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_blocker_axis_expansion",
+    "claim_scope": "Result audit only; no trace execution implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_blocker_axis_trace_spec_result_audit",
+    "evidence_increment": "audits no-new-execution trace specs for the M3185 residual blocker axes",
+    "fallback_plan": [
+      "route to M3187 artifact repair if row counts or guards fail",
+      "route to stop if no actor-visible trace spec remains after guard checks",
+      "preserve M3105/M3103 incumbent until later accepted measurement improves hard-safety counts"
+    ],
+    "stop_condition": [
+      "stop if M3187 artifacts are missing or gate matrix fails",
+      "stop if any trace spec requires hidden runtime labels as actor inputs",
+      "route to trace execution only after M3188 accepts claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3187 materializes blocker-axis trace specification artifacts"
+  }
+}

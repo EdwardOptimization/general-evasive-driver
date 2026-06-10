@@ -1,0 +1,163 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_m3105_incumbent_deployable_reflex_interface_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3140 audits M3139 artifacts while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3140 hides M3139 failures or missing artifacts",
+    "M3140 treats the deployable API binding as validation repair-success or performance verdict",
+    "M3140 changes actor input or action contract"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not convert M3139 deployable API binding into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3139 M3105-incumbent deployable reflex interface artifacts before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3139 must be audited before the public API is treated as deployment-ready evidence",
+      "M3105 residual 5 collision and 2 offtrack blockers remain unsolved"
+    ],
+    "derived_from": [
+      "m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight",
+      "m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+      "m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight.md",
+      "src/autodrift/active_safety_reflex_driver.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/deployable_contract.json",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/action_probe_rows.csv",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/incumbent_evidence_rows.csv",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/residual_blocker_rows.csv",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit deployable API binding to the current M3105/M3103 incumbent reflex"
+    ],
+    "supersedes": [
+      "using the older M3078 active_safety_reflex_driver binding as the current deployment interface"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "aligns the public deployable API with the measured incumbent and preserves residual blocker evidence",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "M3140 cannot accept M3139 as complete and claim-safe",
+      "M3140 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result feasibility-proof or self-ID evidence",
+      "M3140 hides the M3105 residual collision/offtrack blockers"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3140 audits engineering deployment interface evidence",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit",
+  "priority": 31400,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3140 must audit M3139 contract action-probe evidence and residual blocker rows",
+    "M3140 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3140 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3140 must state that residual M3105 blockers remain unsolved"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3139 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3140 audits a deployable current-frame engineering API and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3140; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve deployable interface evidence and residual blockers rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3139 deployable API materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md exists",
+    "M3140 audits M3139 public API contract action equivalence and residual blockers",
+    "M3140 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3139 summary contract action probe incumbent evidence residual blocker and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+      "docs/reviews/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+      "experiments/reviews/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.json",
+      "M3140 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3140 accepts or rejects M3139 as complete and claim-safe",
+      "M3140 preserves residual blocker limitations explicitly"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3139 deployable public API binding to M3105/M3103 incumbent"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_m3105_incumbent_deployable_interface",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "deployable_reflex_interface_binding",
+    "evidence_increment": "audits that the public runtime API is bound to the M3105/M3103 incumbent and preserves residual blocker evidence",
+    "fallback_plan": [
+      "route to deployable API repair if the public API binding is incomplete",
+      "route to residual blocker branch only after M3140 accepts the deployable interface artifact",
+      "retain M3105/M3103 incumbent until a stronger measured candidate passes same-row no-regression gates"
+    ],
+    "stop_condition": [
+      "stop if M3139 artifacts are missing or gate matrix fails",
+      "stop if public API action probes diverge from M3103 incumbent action",
+      "stop if residual M3105 blockers are hidden or reinterpreted as solved"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3138 stops the guarded fallback hybrid branch and retains M3105/M3103 as incumbent"
+  }
+}

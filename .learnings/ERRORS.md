@@ -25,6 +25,173 @@ Use Python standard-library JSON extraction for repo-local checks unless `jq` av
 - Related Files: runs/m2714_engineering_controller_route_a_current_m1690_exact_executable_reentry_panel/summary.json
 
 ---
+## [ERR-20260608-002] pytest_fixture_import_path
+
+**Logged**: 2026-06-08T13:30:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+Debug helper tried to import a test file via `tests.<module>` even though this repository's tests directory is not a Python package.
+
+### Error
+```text
+ModuleNotFoundError: No module named 'tests.test_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight'
+```
+
+### Context
+- Command attempted: ad hoc Python snippet to inspect failing M3187 gates.
+- The test file exists but `tests/` has no package import path for direct dotted import.
+
+### Suggested Fix
+Use `importlib.util.spec_from_file_location` or duplicate the small fixture in the debug snippet when inspecting tests in this repo.
+
+### Metadata
+- Reproducible: yes
+- Related Files: tests/test_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight.py
+
+---
+## [ERR-20260608-001] autodrift_artifact_filename_guess
+
+**Logged**: 2026-06-08T13:13:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: docs
+
+### Summary
+Guessed an M3153 artifact filename instead of checking the summary path map first.
+
+### Error
+```text
+head: cannot open 'runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/counterfactual_replay_rows.csv' for reading: No such file or directory
+```
+
+### Context
+- Command attempted: `head -n 10 .../counterfactual_replay_rows.csv`
+- Actual artifact is `counterfactual_replay_comparison_rows.csv`, listed by `summary.json` and `ls`.
+
+### Suggested Fix
+When inspecting AutoDrift run artifacts, read `summary.json.paths` or list the run directory before guessing long generated filenames.
+
+### Metadata
+- Reproducible: yes
+- Related Files: runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json
+
+---
+## [ERR-20260608-001] research_validate_manifest_stage_scoreboard
+
+**Logged**: 2026-06-08T01:15:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+`make research-validate` failed after M3147/M3148 because one manifest used a non-enumerated training stage and completed queue tasks lacked scoreboard rows.
+
+### Error
+```text
+error: m3147...: training_stage.stage must be one of ['action_grounding_posttrain', 'behavior_pretrain', 'capability_pretrain', 'evaluation_only', 'guarded_rl', 'infrastructure', 'process']
+error: m3147...: completed enforced task missing scoreboard row
+error: m3148...: completed enforced task missing scoreboard row
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3147 used `training_stage.stage: diagnostic_materialization`, which is descriptive but not in the validator enum.
+- M3147 and M3148 had completed queue rows but no matching `experiments/scoreboard.csv` rows.
+
+### Suggested Fix
+Use one of the validator stage enum values such as `infrastructure` or `process`; after completing manually queued milestones, add matching scoreboard rows before `make research-validate`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight.json, experiments/scoreboard.csv
+
+---
+## [ERR-20260608-001] shell_json_inspection_jq_missing
+
+**Logged**: 2026-06-08T08:10:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+The local AutoDrift shell environment does not have `jq`, so JSON summary inspection should use Python or repository readers.
+
+### Error
+```text
+/bin/bash: line 1: jq: command not found
+```
+
+### Context
+- Command attempted: `jq '{status_pass, gate_matrix_pass, ...}' runs/m3137_.../summary.json`
+- The failure happened while inspecting M3137 output, not during the research runner.
+
+### Suggested Fix
+Use `python - <<'PY'` or repo JSON helpers for structured JSON reads unless `jq` availability has been verified.
+
+### Metadata
+- Reproducible: yes
+- Related Files: runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/summary.json
+
+---
+## [ERR-20260608-002] autodrift_research_status_parallel_plan_validate
+
+**Logged**: 2026-06-08T06:20:03+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: infra
+
+### Summary
+Running `make research-validate` in parallel with `make research-plan` can make the validator read `experiments/research_status.json` during a status rewrite.
+
+### Error
+```text
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+```
+
+### Context
+- Commands attempted in parallel: `make research-validate` and `make research-plan`
+- `research-plan` updates `experiments/research_status.json`; `research-validate` read it while it was transiently empty.
+- The status file was immediately valid afterward and pointed to M3121.
+
+### Suggested Fix
+Run AutoDrift status-mutating commands serially. Do not parallelize `research-plan`, `research-run-next`, or other `research_cycle` status writers with `research-validate`.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/research_status.json, src/autodrift/research_cycle.py, src/autodrift/research_validate.py
+
+---
+## [ERR-20260608-001] autodrift_local_search_guard_reset_after_synthesis
+
+**Logged**: 2026-06-08T05:58:30+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: docs
+
+### Summary
+AutoDrift materialization manifests after a concrete synthesis should not carry stale same-failure repeat counts that force the validator to require another synthesis decision.
+
+### Error
+```text
+error: m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight: local_search_guard requires a workflow synthesis decision when local_search_risk is high or repeat/repair counts reach 3
+```
+
+### Context
+- Command attempted: `make research-validate`
+- M3117 was the concrete synthesis decision.
+- M3118 is the next materialization on the selected route, but its `local_search_guard.same_failure_repeat_count` was copied as 4.
+
+### Suggested Fix
+After a concrete synthesis routes to a new materialization mechanism, reset materialization-local repeat counters to the new branch scope unless the materialization itself is another synthesis milestone.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/manifests/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.json
+
+---
 
 ## [ERR-20260607-009] autodrift_trace_artifact_schema_assumption
 
@@ -460,5 +627,32 @@ For concrete synthesis milestones, put `synthesis_artifact` and a list-form `syn
 ### Metadata
 - Reproducible: yes
 - Related Files: experiments/manifests/m3020-engineering-controller-route-a-post-residual-stop-new-source-failure-localization-result-synthesis.json
+
+---
+## [ERR-20260607-001] research_review_scoreboard_csv
+
+**Logged**: 2026-06-07T20:56:00Z
+**Priority**: medium
+**Status**: pending
+**Area**: docs
+
+### Summary
+Manual scoreboard row contained an unescaped comma, causing `make research-review` to fail while parsing `experiments/scoreboard.csv`.
+
+### Error
+```text
+ValueError: scoreboard row 3027 has extra fields
+```
+
+### Context
+- Command: `make research-review RESEARCH_MANIFEST=experiments/manifests/m3107-engineering-controller-active-safety-driver-v4-plateau-and-residual-collision-offtrack-hard-safety-synthesis.json`
+- The row was appended by hand instead of through `csv.DictWriter`.
+
+### Suggested Fix
+When adding scoreboard rows manually, avoid commas in free-text fields or use a CSV writer/upsert helper.
+
+### Metadata
+- Reproducible: yes
+- Related Files: experiments/scoreboard.csv
 
 ---

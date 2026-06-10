@@ -1,0 +1,186 @@
+{
+  "id": "m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis",
+  "priority": 32070,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded synthesis can classify M3205/M3206 action-authority/effectiveness residual-trace measurement as behavior-neutral and pivot to a recovery-clearance supervisor architecture route before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3206-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/summary.json",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/same_trace_comparison_rows.csv",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/candidate_trace_execution_rows.csv",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/gate_matrix.csv",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/summary.json",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3206-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-result-audit.json",
+      "experiments/manifests/m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight.json"
+    ],
+    "parent_objective": [
+      "synthesize behavior-neutral residual-trace measurement into exactly one next route"
+    ],
+    "derived_from": [
+      "m3206-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-result-audit",
+      "m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight",
+      "m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit",
+      "m3203-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-materialization-preflight",
+      "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3205 leaves the seven residual terminal outcomes unchanged versus M3194 and incumbent",
+      "M3206 accepts M3205 as claim-safe but behavior-neutral",
+      "full-fresh validation is not admitted without residual trace hard-safety improvement"
+    ],
+    "supersedes": [
+      "continuing action-authority/effectiveness threshold amplification after neutral residual-trace measurement"
+    ],
+    "invalidates": [
+      "M3203 as a repair-success or validation candidate on M3205 evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+  "public_gates": [
+    "M3207 must preserve M3205/M3206 behavior-neutral evidence",
+    "M3207 must preserve M3105/M3103 as incumbent",
+    "M3207 must select exactly one stop pivot artifact-repair or new-architecture route",
+    "M3207 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement new repair logic in M3207",
+    "do not run validation ranking promotion or high-fidelity simulation in M3207",
+    "do not convert M3205 neutral measurement or clearance shifts into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not mutate the public driver default"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_action_authority_effectiveness",
+    "evidence_axis": "action_authority_effectiveness_neutral_residual_trace_synthesis",
+    "evidence_increment": "synthesizes M3205/M3206 behavior-neutral residual-trace measurement and selects a different architecture route",
+    "claim_scope": "Synthesis and route-selection only; no implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop the action-authority/effectiveness branch if stronger local deltas do not change residual outcomes",
+      "stop if a next route requires hidden actor inputs",
+      "stop if neutral M3205 evidence is reworded as repair success"
+    ],
+    "fallback_plan": [
+      "preserve M3105/M3103 as incumbent",
+      "pivot to recovery-clearance supervisor architecture materialization with a new branch name",
+      "route to artifact repair only if M3205/M3206 artifacts are later found incomplete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3206 accepts M3205 as complete and claim-safe but behavior-neutral",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize M3205 neutral residual-trace measurement into a bounded next route",
+    "admission_evidence": [
+      "M3206 audit",
+      "M3205 same-trace comparison rows",
+      "M3203 candidate implementation summary",
+      "M3199 candidate-vs-incumbent residual trace-delta diagnostic"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "docs/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+      "experiments/manifests/m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight.json",
+      "docs/reviews/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+      "experiments/reviews/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.json",
+      "M3207 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3207 selects stop pivot artifact-repair or new-architecture route as exactly one route",
+      "M3208 materialization manifest is registered if M3207 pivots"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3207 is engineering measurement synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3207; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3199 through M3206 artifacts only.",
+    "negative_result_policy": "Preserve neutral engineering evidence and pivot rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3207 neutral measurement synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 3,
+    "same_public_gate_repair_count": 2,
+    "evidence_expansion": "closes behavior-neutral action-authority/effectiveness route and selects a new architecture evidence axis",
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3207 is engineering route synthesis",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md exists",
+    "M3207 synthesizes M3205/M3206 neutral evidence and preserves M3105/M3103 as incumbent",
+    "M3207 selects exactly one next route and rejects overclaims",
+    "M3208 recovery-clearance supervisor materialization manifest is registered"
+  ],
+  "failure_criteria": [
+    "M3207 treats M3205 neutral measurement as validation repair success or driver performance",
+    "M3207 admits a next route that requires hidden actor inputs",
+    "M3207 mutates the public driver default or promotes a checkpoint",
+    "M3207 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3207 synthesizes M3205/M3206 neutral residual-trace evidence into exactly one next route while preserving obs72-only direct action boundaries and rejecting validation repair-success performance and self-ID claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_action_authority_effectiveness_neutral_residual_trace_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3206-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-result-audit.md",
+    "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "docs/m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis.md",
+  "next_blocker": "m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis",
+  "status": "pending"
+}

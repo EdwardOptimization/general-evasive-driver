@@ -1,0 +1,171 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit.md",
+    "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_source_localized_repair_implementation_negative_measurement_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3174 classifies the M3172 behavior-negative same-denominator evidence and selects exactly one claim-safe next route or stop state.",
+  "failure_criteria": [
+    "M3174 treats M3172 as repair success or deployable improvement",
+    "M3174 hides the M3172 negative delta versus M3105 and M3095",
+    "M3174 leaves the next route ambiguous",
+    "M3174 selects a route that requires hidden actor inputs or public driver default mutation"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not hide that M3172 is success -1 and collision +1 versus M3105 and M3095",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded synthesis can classify the M3172 source-localized repair implementation full-fresh measurement as behavior-negative against the M3105 M3095 incumbent and select exactly one next route before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "M3172 is complete and claim-safe but behavior-negative versus M3105 and M3095",
+      "new repair work should not proceed before synthesis selects a single route"
+    ],
+    "derived_from": [
+      "m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit",
+      "m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight",
+      "m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit.md",
+      "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit.json",
+      "experiments/manifests/m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/summary.json",
+      "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "classify negative source-localized repair measurement and select one next route"
+    ],
+    "supersedes": [
+      "direct continuation of M3170 source-localized overlay gains",
+      "promotion of M3170 source-localized candidate"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "stops direct continuation after M3172 negative measurement and requires a synthesis decision before another repair loop",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3174 targets engineering route selection",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight",
+  "priority": 31740,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3174 must preserve M3105/M3103 as incumbent deployable fallback",
+    "M3174 must classify M3172 as behavior-negative versus M3105 and M3095 rather than repair success",
+    "M3174 must select exactly one next route or stop state",
+    "M3174 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+  "scoreboard_checkpoint": "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3174 synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3174 is engineering synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3174; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve negative engineering measurement evidence and route repair decomposition or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3172/M3173 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md exists",
+    "M3174 classifies M3172 as behavior-negative versus M3105 and M3095",
+    "M3174 selects one claim-safe next route and rejects overclaims"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3173 audit",
+      "M3172 measurement summary and same-row comparisons"
+    ],
+    "allowed_updates": [
+      "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+      "docs/reviews/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+      "experiments/reviews/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.json",
+      "M3174 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3174 selects behavior-negative source repair decomposition as exactly one next route or stops the branch"
+    ],
+    "stage": "process",
+    "stage_objective": "Classify M3172 negative measurement and choose one next route"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_source_localized_repair_measurement",
+    "claim_scope": "Synthesis and route-selection only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "source_localized_repair_negative_measurement_synthesis",
+    "evidence_increment": "synthesizes M3172 full-fresh behavior-negative measurement into one next route or stop decision",
+    "fallback_plan": [
+      "retain M3105/M3103 incumbent deployable API unchanged",
+      "route to stop if no actor-visible repair decomposition can target the added collision",
+      "require new branch name before any next repair implementation"
+    ],
+    "stop_condition": [
+      "stop if M3174 cannot classify M3172 as behavior-negative",
+      "stop if M3174 would promote M3170 despite worse hard-safety counts",
+      "stop if next route needs hidden actor inputs"
+    ],
+    "synthesis_artifact": "docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "pivot",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3173 accepts M3172 measurement and rejects behavior-improvement interpretation"
+  }
+}

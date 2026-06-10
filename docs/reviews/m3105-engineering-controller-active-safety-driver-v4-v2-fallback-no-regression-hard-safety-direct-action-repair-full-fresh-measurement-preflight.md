@@ -1,0 +1,91 @@
+# m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T205015Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_v4_v2_fallback_no_regression_hard_safety_repair_full_fresh_measurement_route_to_m3106_result_audit
+- Decision reason: Completed: ran M3105 full-fresh v4 v2-fallback no-regression hard-safety direct-action repair measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 192 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64 success_delta_vs_m3095 0 collision_delta_vs_m3095 0 offtrack_delta_vs_m3095 0 speed_too_low_delta_vs_m3095 0 success_delta_vs_m3100 2 collision_delta_vs_m3100 0 offtrack_delta_vs_m3100 -1 speed_too_low_delta_vs_m3100 -1 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3106 result audit.
+
+## Hypothesis
+
+A bounded full-fresh measurement preflight can execute the M3103 v4 v2-fallback no-regression hard-safety direct-action repair as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison, safety, contract, and claim-boundary artifacts against M3095, M3100, and M3090 before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit.md, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json, src/autodrift/engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight.py
+- parent_dataset: runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/summary.json, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/no_regression_guard_rows.csv, runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv, runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv
+- parent_config: experiments/manifests/m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit.json, experiments/manifests/m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight.json, experiments/manifests/m3102-engineering-controller-active-safety-driver-v3-regression-and-v2-fallback-hard-safety-repair-synthesis.json
+- parent_objective: measure the v4 v2-fallback no-regression repair after materialization audit
+- derived_from: m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit, m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight, m3102-engineering-controller-active-safety-driver-v3-regression-and-v2-fallback-hard-safety-repair-synthesis, m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3103 is materialization only and cannot support repair-success or behavior claims, M3103 no-regression guards require full-fresh same-row measurement after materialization
+- supersedes: unmeasured v4 no-regression hard-safety repair materialization
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv records 64 pre-registered M3084 rows using the v4 repair action function
+- runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv records same-row comparison against M3095 M3100 and M3090
+- runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_contract_guard_rows.csv verifies obs72/action3 direct [steer throttle brake] runtime_base_policy_required false
+- runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/claim_boundary_rows.csv rejects validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- experiments/manifests/m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.json is created and pending
+
+## Failure Criteria
+
+- M3105 changes observation shape action shape action component order or direct-action semantics
+- M3105 requires runtime base policy residual adapter checkpoint model hidden state or hidden actor input
+- M3105 emits non-finite or out-of-bound actions during rollout
+- M3105 expands tunes or reselects rows after seeing M3103 or M3105 results
+- M3105 makes validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claims
+
+## Evidence Gates
+
+- M3105 must execute the complete 64-row M3084 fresh denominator through the v4 direct-action repair function
+- M3105 must preserve obs72/action3 direct [steer throttle brake], runtime_base_policy_required false, checkpoint_model_required false, and no recurrent hidden state
+- M3105 must compare same-row M3105 outcomes against M3095, M3100, and M3090 without treating comparison as validation or performance
+- M3105 must report collision offtrack speed-floor clearance stability recovery and action-pressure fields
+- M3105 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- M3105 must register M3106 result audit before any broader interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune expand reselect rank promote validate or mutate checkpoints after seeing M3103 or M3105 results
+- do not use hidden oracle TTC target source route outcome progress verdict labels or M3095/M3100/M3090 outcome labels as actor input
+- do not use a runtime base policy checkpoint model residual adapter or recurrent hidden state
+- do not treat full-fresh measurement or same-row comparison as driver-performance current-sim robustness-result repair-success validation high-fidelity paper full-driver or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- type: infrastructure
+- checkpoint: runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json
+- success_rate: 0.890625
+- termination_rate: None
+- clearance_margin_mean: 10.981307227309182
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_v4_v2_fallback_no_regression_hard_safety_repair_full_fresh_measurement_route_to_m3106_result_audit
+- reason: Completed: ran M3105 full-fresh v4 v2-fallback no-regression hard-safety direct-action repair measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 192 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64 success_delta_vs_m3095 0 collision_delta_vs_m3095 0 offtrack_delta_vs_m3095 0 speed_too_low_delta_vs_m3095 0 success_delta_vs_m3100 2 collision_delta_vs_m3100 0 offtrack_delta_vs_m3100 -1 speed_too_low_delta_vs_m3100 -1 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3106 result audit.
+
+## Next Blocker
+
+m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight

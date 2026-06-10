@@ -1,0 +1,172 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit.md",
+    "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_action_delta_negative_counterfactual_replay_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3155 synthesizes the negative M3153/M3154 counterfactual replay evidence and selects exactly one stop or pivot route before any repair implementation validation ranking promotion driver-performance current-sim robustness-result high-fidelity full-driver repair-success feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "M3155 treats unchanged M3153 terminals as repair success",
+    "M3155 continues local action-delta tuning without a synthesis decision",
+    "M3155 ignores the 0 of 21 action-channel-sensitive comparison result",
+    "M3155 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M3153 negative replay as validation or impossibility proof",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded synthesis can classify M3153/M3154 negative fixed-variant action-delta replay evidence and select exactly one stop or pivot route before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "M3153 reports 0 of 21 action-channel-sensitive diagnostic comparisons",
+      "M3154 accepts M3153 as complete and claim-safe but negative for continuing the local action-delta route"
+    ],
+    "derived_from": [
+      "m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight",
+      "m3152-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-synthesis",
+      "m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json",
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/counterfactual_replay_comparison_rows.csv",
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "decide whether to stop or pivot after fixed-variant residual action-delta replay is terminal-outcome invariant"
+    ],
+    "supersedes": [
+      "local action-delta repair continuation after M3153",
+      "direct interpretation of M3150 headroom labels as a repair route"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "synthesizes negative fixed-variant replay diagnostics into a stop or pivot decision before repair",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3155 targets engineering route selection after a negative replay panel",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis",
+  "priority": 31550,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3155 must preserve M3105/M3103 as incumbent deployable fallback",
+    "M3155 must classify M3153 as negative diagnostic replay evidence not behavior improvement",
+    "M3155 must select exactly one stop or pivot route",
+    "M3155 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+  "scoreboard_checkpoint": "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3155 synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3155 is engineering synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3155; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering negative replay evidence and route stop or pivot rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3153/M3154 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md exists",
+    "M3155 classifies M3153/M3154 negative replay evidence",
+    "M3155 selects exactly one stop or pivot route",
+    "M3155 rejects overclaims and preserves M3105/M3103 incumbent"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3154 audit",
+      "M3153 summary comparison rows and gate matrix",
+      "M3150 sensitivity rows"
+    ],
+    "allowed_updates": [
+      "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+      "docs/reviews/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+      "experiments/reviews/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.json",
+      "M3155 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3155 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3155 selects an explicit stop route or a new pivot branch"
+    ],
+    "stage": "process",
+    "stage_objective": "Synthesize negative residual action-delta replay evidence into a stop or pivot decision"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_action_delta_negative_replay_route_selection",
+    "claim_scope": "Synthesis and route-selection only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "negative_counterfactual_replay_route_selection",
+    "evidence_increment": "synthesizes negative fixed-variant M3153 replay evidence into one stop or pivot route",
+    "fallback_plan": [
+      "keep M3105/M3103 incumbent deployable API unchanged",
+      "route to stop if no actor-visible pivot is justified",
+      "route to a new branch only if the synthesis names a distinct evidence axis beyond local action-delta tuning"
+    ],
+    "stop_condition": [
+      "stop if M3155 cannot select one next route",
+      "stop if M3153 negative diagnostics are treated as repair success or validation",
+      "stop if the next route would require hidden/oracle actor inputs"
+    ],
+    "synthesis_artifact": "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "pivot",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3154 accepted M3153 as complete and negative for the local action-delta replay route"
+  }
+}

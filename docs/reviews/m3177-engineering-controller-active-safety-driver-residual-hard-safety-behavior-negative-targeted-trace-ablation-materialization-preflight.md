@@ -1,0 +1,75 @@
+# m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T044544Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M3177 materializes targeted actor-visible trace-ablation artifacts for the single M3172 new collision regression row while preserving the obs72/action3 contract and without repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claims.
+
+## Hypothesis
+
+A bounded targeted trace-ablation materialization can inspect the single M3172 new collision regression row with actor-visible per-step features and candidate-vs-incumbent action/ablation variants before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3176-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-result-audit.md
+- parent_dataset: runs/m3175_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_source_repair_decomposition_materialization_preflight/regression_rows.csv, runs/m3175_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_source_repair_decomposition_materialization_preflight/repair_decomposition_rows.csv, runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv
+- parent_config: experiments/manifests/m3176-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-result-audit.json
+- parent_objective: trace the single new collision regression with actor-visible evidence before any repair implementation
+- derived_from: m3176-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-result-audit, m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight, m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight, m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3175 admits decomposition but not repair implementation, the new collision regression must be traced with actor-visible features before any guard or implementation
+- supersedes: direct guard implementation after M3175 decomposition
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/summary.json exists
+- M3177 writes targeted trace ablation guard claim and gate artifacts
+- M3177 preserves actor-visible-only contract and public driver default unchanged
+- M3177 registers M3178 result audit manifest
+
+## Failure Criteria
+
+- M3177 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels or TTC oracle values as actor runtime inputs
+- M3177 mutates the public driver or promotes M3170
+- M3177 expands from the targeted regression row into broad tuning before the trace question is answered
+- M3177 treats trace or ablation rows as repair success or validation evidence
+
+## Evidence Gates
+
+- M3177 must target the M3175 new collision regression row before broad repair
+- M3177 must preserve obs72/action3 direct [steer throttle brake] contract
+- M3177 must keep row labels baseline outcomes source route outcome progress verdict TTC oracle values out of actor runtime inputs
+- M3177 must register M3178 result audit
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not implement or mutate the public driver
+- do not validate rank promote train PPO fit or run high-fidelity simulation
+- do not use hidden oracle target TTC source route outcome progress verdict row-label or baseline-outcome labels as actor runtime inputs
+- do not claim driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight

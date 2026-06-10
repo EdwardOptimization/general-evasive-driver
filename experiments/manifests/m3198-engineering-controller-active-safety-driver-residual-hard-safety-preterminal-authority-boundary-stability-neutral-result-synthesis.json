@@ -1,0 +1,174 @@
+{
+  "id": "m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis",
+  "priority": 31980,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded synthesis can classify the M3192-M3197 preterminal authority and boundary-stability route as hard-safety neutral and select exactly one stop pivot diagnostic trace-delta or artifact-repair route before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.json"
+    ],
+    "parent_objective": [
+      "synthesize M3196 neutral full-fresh measurement into one next route"
+    ],
+    "derived_from": [
+      "m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit",
+      "m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight",
+      "m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit",
+      "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+      "m3191-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-synthesis"
+    ],
+    "blocked_by": [
+      "M3196 is hard-safety neutral versus M3105 and M3181",
+      "validation and promotion are not admitted without count improvement and synthesis"
+    ],
+    "supersedes": [
+      "direct validation of M3194 after neutral full-fresh measurement"
+    ],
+    "invalidates": [
+      "M3194 as a promotion candidate on M3196 evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+  "public_gates": [
+    "M3198 must preserve M3196 hard-safety neutral evidence",
+    "M3198 must preserve M3105/M3103 as incumbent",
+    "M3198 must select exactly one stop pivot diagnostic trace-delta or artifact-repair route",
+    "M3198 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement new repair logic in M3198",
+    "do not run validation ranking promotion or high-fidelity simulation in M3198",
+    "do not convert neutral measurement into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not mutate the public driver default"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability",
+    "evidence_axis": "preterminal_authority_boundary_stability_neutral_result_synthesis",
+    "evidence_increment": "synthesizes M3196 full-fresh neutral measurement and decides whether to stop or pivot",
+    "claim_scope": "Synthesis and route-selection only; no implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if the branch would continue tuning without new evidence",
+      "stop if the next route requires hidden actor inputs",
+      "stop if neutral M3196 evidence is reworded as repair success"
+    ],
+    "fallback_plan": [
+      "preserve M3105/M3103 as incumbent",
+      "route to diagnostic trace-delta materialization if the branch needs step-level candidate-vs-incumbent evidence",
+      "route to stop if no actor-visible evidence axis remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3197 accepts M3196 as complete but hard-safety neutral",
+    "synthesis_decision": "pivot",
+    "synthesis_artifact": "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ]
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Synthesize M3196 neutral measurement into a bounded next route",
+    "admission_evidence": [
+      "M3197 audit",
+      "M3196 summary measurement comparison guard claim and gate artifacts",
+      "M3194 candidate materialization artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+      "docs/reviews/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+      "experiments/reviews/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.json",
+      "M3198 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3198 selects exactly one next route"
+    ],
+    "next_stage_criteria": [
+      "M3198 selects stop pivot diagnostic trace-delta or artifact-repair as exactly one route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3198 is engineering measurement synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3198; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3192 through M3197 artifacts only.",
+    "negative_result_policy": "Preserve neutral engineering evidence and stop or pivot rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3198 neutral measurement synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "synthesizes a full-denominator neutral measurement before any further implementation",
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3198 is engineering route synthesis",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md exists",
+    "M3198 synthesizes M3196 neutral evidence and preserves M3105/M3103 as incumbent",
+    "M3198 selects exactly one next route and rejects overclaims"
+  ],
+  "failure_criteria": [
+    "M3198 treats M3196 neutral measurement as validation repair success or driver performance",
+    "M3198 admits a next route that requires hidden actor inputs",
+    "M3198 mutates the public driver default or promotes a checkpoint",
+    "M3198 leaves the next route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3198 synthesizes M3196 neutral full-fresh evidence into exactly one next route while preserving obs72-only direct action boundaries and rejecting validation repair-success performance and self-ID claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_preterminal_authority_boundary_stability_neutral_result_synthesis_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.md",
+    "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+  "next_blocker": "m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis",
+  "status": "pending"
+}

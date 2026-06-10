@@ -1,0 +1,85 @@
+# m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T231842Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_route_to_m3130_result_audit
+- Decision reason: Completed: materialized M3129 deployable trajectory-level clearance-stability corridor reflex artifacts with status_pass true gate_matrix_pass true required_artifacts_present true rule_rows 8 runtime_contract_rows 4 actor_input_exclusion_rows 10 claim_boundary_rows 22 gate_rows 17 action_probe_rows 4 actor obs72 current frame direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false hidden_oracle_actor_input_required false ttc_actor_input_required false no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3130 result audit.
+
+## Hypothesis
+
+A bounded materialization preflight can produce a deployable actor-visible obs72-to-action3 trajectory-level clearance/stability corridor reflex rule and runtime-contract artifacts from M3128/M3127 diagnostics before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.md, docs/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.md
+- parent_dataset: runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/summary.json, runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/architecture_candidate_rows.csv, runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/controller_contract_requirement_rows.csv
+- parent_config: experiments/manifests/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.json, experiments/manifests/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.json
+- parent_objective: materialize a trajectory-level clearance/stability corridor reflex from accepted architecture diagnostics
+- derived_from: m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit, m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight
+- blocked_by: M3127 supports actor-visible trajectory-level clearance and stability corridor architecture candidates, M3128 accepts architecture diagnostics but forbids repair-success interpretation, M3129 must not run measurement validation ranking promotion or verdict before materialization is audited
+- supersedes: local direct-gain repair after M3127 architecture diagnostics
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- M3129 writes trajectory-level clearance/stability corridor reflex rule artifacts
+- M3129 writes runtime contract artifacts preserving obs72/action3 direct [steer throttle brake]
+- M3129 registers M3130 result audit
+
+## Failure Criteria
+
+- M3129 drops actor input or output contract
+- M3129 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state
+- M3129 runs measurement validation ranking promotion or claims repair-success driver-performance current-sim high-fidelity paper full-driver robustness-result feasibility-proof or self-ID evidence
+
+## Evidence Gates
+
+- M3129 must materialize rule and runtime-contract artifacts only, with no environment execution
+- M3129 must preserve obs72 actor-visible input and direct action3 [steer throttle brake] output
+- M3129 must forbid hidden oracle TTC target source route outcome progress verdict actor inputs and runtime base policy
+- M3129 must register M3130 result audit before any measurement or repair-success interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun tune expand rank promote validate or mutate checkpoints
+- do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input
+- do not run environment reset step rollout measurement validation ranking winner selection or promotion
+- do not claim repair success driver-performance current-sim robustness-result high-fidelity paper full-driver feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_route_to_m3130_result_audit
+- reason: Completed: materialized M3129 deployable trajectory-level clearance-stability corridor reflex artifacts with status_pass true gate_matrix_pass true required_artifacts_present true rule_rows 8 runtime_contract_rows 4 actor_input_exclusion_rows 10 claim_boundary_rows 22 gate_rows 17 action_probe_rows 4 actor obs72 current frame direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false hidden_oracle_actor_input_required false ttc_actor_input_required false no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3130 result audit.
+
+## Next Blocker
+
+m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit

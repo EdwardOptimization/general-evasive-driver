@@ -1,0 +1,165 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_trajectory_level_clearance_stability_corridor_reflex_materialization_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3130 audits M3129 artifacts and selects one next route while preserving actor and claim boundaries.",
+  "failure_criteria": [
+    "M3130 hides M3129 failures or missing artifacts",
+    "M3130 treats M3129 as validation repair-success feasibility proof or performance verdict",
+    "M3130 changes actor input or action contract",
+    "M3130 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not convert M3129 materialization into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof infeasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3129 trajectory-level clearance/stability corridor reflex materialization artifacts before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3129 materialization artifacts require audit before measurement",
+      "M3129 is not repair-success or validation evidence"
+    ],
+    "derived_from": [
+      "m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight",
+      "m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit",
+      "m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight.md",
+      "docs/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/trajectory_level_corridor_rule_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/actor_input_exclusion_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit trajectory-level clearance/stability corridor reflex materialization"
+    ],
+    "supersedes": [
+      "direct measurement after M3128 without materialization audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits deployable materialization before measurement",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3130 cannot accept M3129 as complete and claim-safe",
+      "M3130 would claim validation driver-performance paper high-fidelity current-sim verdict repair-success robustness-result feasibility-proof or self-ID evidence",
+      "M3130 cannot select exactly one next route or stop state"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3130 prepares engineering measurement decision",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit",
+  "priority": 31250,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3130 must audit M3129 summary rule runtime-contract actor-input exclusion claim and gate artifacts",
+    "M3130 must preserve obs72/action3 direct [steer throttle brake] actor contract and runtime_base_policy_required false",
+    "M3130 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof infeasibility-proof and self-ID claims",
+    "M3130 must select exactly one measurement route artifact-repair route synthesis or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3129 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3130 audits engineering materialization artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3130; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve materialization evidence and route engineering decisions rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3129 materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md exists",
+    "M3130 audits M3129 artifact row counts gates actor contract and claim boundaries",
+    "M3130 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3130 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3129 summary gate matrix rule contract exclusion and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+      "docs/reviews/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+      "experiments/reviews/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.json",
+      "M3130 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3130 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no feasibility or infeasibility proof claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3130 accepts or rejects M3129 as complete and claim-safe",
+      "next measurement artifact-repair synthesis or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3129 trajectory-level corridor reflex materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_level_controller_architecture_diagnosis",
+    "claim_scope": "Result audit only; no measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "trajectory_level_clearance_stability_corridor_reflex_materialization_result_audit",
+    "evidence_increment": "audits materialized trajectory-level corridor reflex before measurement",
+    "fallback_plan": [
+      "route to artifact repair if artifacts are incomplete or contract-unsafe",
+      "route to synthesis or stop if no deployable measurement route remains",
+      "route to one constrained smoke or full-fresh measurement only after audit"
+    ],
+    "stop_condition": [
+      "stop if M3129 artifacts are missing or gate matrix fails",
+      "stop if actor input or direct action output contracts were violated",
+      "route to synthesis if no safe measurement route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3129 completes materialization"
+  }
+}

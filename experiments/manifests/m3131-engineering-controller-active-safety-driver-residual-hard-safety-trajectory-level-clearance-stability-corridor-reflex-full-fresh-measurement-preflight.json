@@ -1,0 +1,198 @@
+{
+  "id": "m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight",
+  "priority": 31310,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3129 residual trajectory-level clearance/stability corridor-reflex direct-action repair as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison safety contract and claim-boundary artifacts against M3105 M3095 M3100 and M3090 before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_dataset": [
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/trajectory_level_corridor_rule_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/actor_input_exclusion_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.json",
+      "experiments/manifests/m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "execute M3129 materialized direct-action repair on the full fresh denominator"
+    ],
+    "derived_from": [
+      "m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit",
+      "m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight",
+      "m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit",
+      "m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3129 materialization must be measured before behavior interpretation",
+      "M3129 is not repair-success or performance evidence until full fresh measurement and result audit"
+    ],
+    "supersedes": [
+      "direct interpretation of M3129 materialization without full fresh measurement"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight.md",
+  "public_gates": [
+    "M3131 must execute exactly the complete 64-row M3084 fresh denominator",
+    "M3131 must preserve obs72/action3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3131 must write same-row comparisons against M3105 M3095 M3100 and M3090",
+    "M3131 must not claim validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID evidence",
+    "M3131 must register M3132 result audit before any verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input",
+    "do not treat M3131 measurement rows as repair-success or driver-performance evidence before M3132 audit"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_level_controller_architecture_diagnosis",
+    "evidence_axis": "residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement",
+    "evidence_increment": "changes M3129 materialization evidence into full-fresh current-sim measurement rows and same-row comparisons",
+    "claim_scope": "Measurement artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "stop_condition": [
+      "stop if full fresh row identity cannot be preserved",
+      "stop if M3129 actor contract is violated",
+      "route to M3132 audit before any repair-success or measurement interpretation"
+    ],
+    "fallback_plan": [
+      "route to M3129 artifact repair if execution fails due config or contract errors",
+      "route to M3132 audit if measurement completes even with behavior-negative results",
+      "route to stop or synthesis after M3132 if residual failures persist"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3130 accepts M3129 materialization and routes to full-fresh measurement",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Measure M3129 direct-action repair on the complete M3084 fresh denominator",
+    "admission_evidence": [
+      "M3130 audit",
+      "M3129 materialization artifacts",
+      "M3084 fresh denominator and baseline same-row measurement artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight.py",
+      "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight",
+      "docs/m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight.md",
+      "experiments/manifests/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.json",
+      "M3131 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3131 writes complete full-fresh measurement and same-row comparison artifacts",
+      "M3131 registers M3132 result audit before any verdict",
+      "M3131 preserves actor 72/action 3 direct [steer throttle brake] and claim boundaries"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3131 measures engineering direct-action behavior and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3131; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3131 full-fresh current-sim measurement only.",
+    "negative_result_policy": "If M3131 does not improve residual hard-safety outcomes, audit and synthesize or stop rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3131 measurement artifact completeness and same-row comparison availability",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "measures a mechanism-specific materialization on the full fresh denominator",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3131 targets engineering hard-safety measurement",
+    "must_synthesize_if": [
+      "M3131 cannot preserve deployable obs72/action3 direct-action boundary",
+      "M3131 would require hidden actor inputs runtime base policy or post-hoc labels",
+      "M3131 cannot register an audit route before verdict"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3131 writes complete 64-row measurement artifacts and same-row comparison artifacts",
+    "M3131 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3131 registers M3132 result audit"
+  ],
+  "failure_criteria": [
+    "M3131 drops full-fresh row identity or changes denominator",
+    "M3131 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3131 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3131 writes complete full-fresh measurement artifacts and registers M3132 audit while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight --m3130-audit docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md --m3129-dir runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3095-dir runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --m3100-dir runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight --doc-path docs/m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3130-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-result-audit.md",
+    "runs/m3129_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/summary.json",
+  "next_blocker": "m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit",
+  "status": "pending"
+}

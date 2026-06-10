@@ -1,0 +1,163 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_steer_delta_regression_guard_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3180 audits M3179 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3180 hides missing M3179 artifacts or failed gates",
+    "M3180 treats M3179 materialization as repair success or performance verdict",
+    "M3180 changes actor input or action contract",
+    "M3180 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measurement validation ranking promotion or high-fidelity simulation in M3180",
+    "do not convert M3179 materialization rows into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not change actor input action contract or public driver default"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3179 steer-delta regression guard materialization before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3179 materialization requires audit before any measurement",
+      "the candidate must preserve actor-visible-only runtime inputs"
+    ],
+    "derived_from": [
+      "m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight",
+      "m3178-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-result-audit",
+      "m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight",
+      "m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/summary.json",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/steer_delta_guard_rule_rows.csv",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/action_probe_rows.csv",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3179 steer-delta guard materialization before measurement planning"
+    ],
+    "supersedes": [
+      "direct full-fresh measurement after M3178 without materialization audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits steer-delta guard materialization before measurement",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3180 cannot select measurement artifact-repair synthesis or stop",
+      "M3180 would claim repair-success validation driver-performance current-sim verdict robustness-result or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3180 audits engineering materialization evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit",
+  "priority": 31800,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3180 must audit M3179 rule contract probe claim and gate artifacts",
+    "M3180 must preserve obs72/action3 direct-action contract and public driver default unchanged",
+    "M3180 must reject measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3180 must select exactly one measurement artifact-repair synthesis or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3179 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3180 audits engineering materialization artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3180; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering guard evidence and route measurement or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3179 materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md exists",
+    "M3180 audits M3179 row counts gates actor contract and claim boundaries",
+    "M3180 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3179 summary rule contract probe claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md",
+      "docs/reviews/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.md",
+      "experiments/reviews/m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit.json",
+      "M3180 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3180 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no measurement validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver default mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3180 accepts or rejects M3179 as complete and claim-safe",
+      "next measurement artifact-repair synthesis or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3179 steer-delta regression guard materialization artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_behavior_negative_source_repair_decomposition",
+    "claim_scope": "Result audit only; no measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "behavior_negative_steer_delta_guard_result_audit",
+    "evidence_increment": "audits steer-delta regression guard materialization artifacts before any measurement",
+    "fallback_plan": [
+      "route to M3179 artifact repair if rules or contracts fail",
+      "route to stop if no actor-visible guard can be materialized",
+      "preserve M3105/M3103 incumbent until a later accepted measurement improves hard-safety counts"
+    ],
+    "stop_condition": [
+      "stop if M3179 artifacts are missing or gate matrix fails",
+      "stop if the guard requires hidden runtime labels as actor inputs",
+      "route to measurement only after audit acceptance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3179 materializes steer-delta regression guard artifacts"
+  }
+}

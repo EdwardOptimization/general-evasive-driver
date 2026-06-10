@@ -1,0 +1,88 @@
+# m3098-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T203306Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: route_to_m3099_high_speed_obstacle_edge_hard_safety_repair_materialization_result_audit
+- Decision reason: Completed: materialized M3098 v3 high-speed obstacle/edge hard-safety direct-action repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3098_high_speed_obstacle_edge_hard_safety_direct_action_repair_v3 rule_rows 5 actor_input_exclusion_rows 10 claim_boundary_rows 20 gate_rows 35 low_speed_probe_throttle 0.23000000417232513 high_speed_obstacle_probe_brake 1.0 high_speed_obstacle_probe_throttle -1.0 high_speed_edge_probe_brake 0.14044445753097534 high_speed_edge_probe_throttle -1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim; registered M3099 result audit.
+
+## Hypothesis
+
+A bounded v3 high-speed obstacle/edge hard-safety direct-action repair materialization can produce actor-visible obs72-to-action3 rule and config artifacts that target the M3095 residual collision and offtrack blockers while preserving claim boundaries before any measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3097-engineering-controller-active-safety-driver-v2-residual-collision-offtrack-hard-safety-repair-synthesis.md, runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/summary.json, runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight/direct_action_policy_config.json
+- parent_dataset: runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv, runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_metric_summary_rows.csv
+- parent_config: experiments/manifests/m3097-engineering-controller-active-safety-driver-v2-residual-collision-offtrack-hard-safety-repair-synthesis.json, experiments/manifests/m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit.json, experiments/manifests/m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight.json
+- parent_objective: materialize a hard-safety repair selected from residual collision/offtrack synthesis
+- derived_from: m3097-engineering-controller-active-safety-driver-v2-residual-collision-offtrack-hard-safety-repair-synthesis, m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit, m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight, m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight
+- blocked_by: M3095 still has 5 obstacle-collision failures and 2 off-track failures, M3097 selected hard-safety materialization before any validation or repair-success claim
+- supersedes: v2 speed-floor-only repair materialization as the next unmeasured repair package
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json records obs72/action3 direct [steer throttle brake] v3 config
+- runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/safety_reflex_rule_rows.csv records high-speed obstacle/edge hard-safety rules
+- runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/claim_boundary_rows.csv rejects measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- experiments/manifests/m3099-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-result-audit.json is created and pending
+
+## Failure Criteria
+
+- M3098 changes observation shape action shape action component order or direct-action semantics
+- M3098 requires runtime base policy residual adapter checkpoint model hidden state or hidden actor input
+- M3098 runs environment measurement validation ranking promotion training fitting PPO replay or high-fidelity simulation
+- M3098 makes measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claims
+
+## Evidence Gates
+
+- M3098 must materialize a v3 actor-visible obs72/action3 direct [steer throttle brake] repair config and rule table
+- M3098 must preserve runtime_base_policy_required false checkpoint_model_required false and recurrent_hidden_state_required false
+- M3098 must target high-speed obstacle/edge hard-safety arbitration without using hidden oracle TTC target source route outcome progress or verdict actor inputs
+- M3098 must reject measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- M3098 must register a result audit before any full-fresh measurement route
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run environment reset step rollout validation ranking promotion high-fidelity simulation fitting PPO or training
+- do not tune or select rows after materialization
+- do not use hidden oracle TTC target source route outcome progress verdict or M3095 failure labels as actor input
+- do not claim repair success driver-performance current-sim robustness-result high-fidelity paper full-driver or self-ID evidence from materialization
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3098-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: route_to_m3099_high_speed_obstacle_edge_hard_safety_repair_materialization_result_audit
+- reason: Completed: materialized M3098 v3 high-speed obstacle/edge hard-safety direct-action repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3098_high_speed_obstacle_edge_hard_safety_direct_action_repair_v3 rule_rows 5 actor_input_exclusion_rows 10 claim_boundary_rows 20 gate_rows 35 low_speed_probe_throttle 0.23000000417232513 high_speed_obstacle_probe_brake 1.0 high_speed_obstacle_probe_throttle -1.0 high_speed_edge_probe_brake 0.14044445753097534 high_speed_edge_probe_throttle -1.0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; no reset step rollout replay fitting PPO training measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim; registered M3099 result audit.
+
+## Next Blocker
+
+m3099-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-result-audit

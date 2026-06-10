@@ -1,0 +1,168 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_m3105_residual_trajectory_timing_speed_envelope_synthesis_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3141 selects exactly one bounded actor-visible next route while preserving M3105 residual blocker limitations and claim boundaries.",
+  "failure_criteria": [
+    "M3141 leaves the next route ambiguous",
+    "M3141 treats deployable interface as repair success",
+    "M3141 hides residual blockers or suggests hidden actor inputs"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not hide residual blockers behind deployable-interface language",
+    "do not use M3105 outcomes row labels source route verdict target hidden oracle or TTC as actor inputs",
+    "do not claim repair success validation ranking promotion driver-performance current-sim robustness high-fidelity paper full-driver feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded synthesis can convert M3140 deployable-interface evidence, M3139 residual blocker rows, and M3125 counterfactual action-authority envelope diagnostics into exactly one next branch: residual trajectory-timing speed-envelope materialization before any new full-fresh measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis",
+  "lineage": {
+    "blocked_by": [
+      "M3105 deployable incumbent still has 5 collision and 2 offtrack blockers",
+      "M3112 and M3120 plateaued while M3131 and M3137 regressed, so another blind direct-gain or corridor edit is not justified"
+    ],
+    "derived_from": [
+      "m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit",
+      "m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight",
+      "m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+      "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/residual_blocker_rows.csv",
+      "runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/counterfactual_action_authority_envelope_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "select one next route for the M3105 residual 5 collision and 2 offtrack blockers"
+    ],
+    "supersedes": [
+      "continuing M3135 guarded fallback hybrid tuning after M3140 accepted M3105 as incumbent deployable API"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "synthesis_decision",
+    "evidence_expansion": "switches from failed direct-gain/corridor continuation to a bounded early speed-envelope route derived from envelope diagnostics",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "already_synthesis_milestone"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3141 targets engineering residual blocker route selection",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+  "priority": 31410,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3141 must preserve M3105/M3103 as the incumbent deployable direct-action fallback",
+    "M3141 must explicitly preserve the 5 collision and 2 offtrack residual blockers as unsolved",
+    "M3141 must reject further blind terminal direct-gain and standalone corridor continuation as the next route",
+    "M3141 must select exactly one next branch and make no validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+  "scoreboard_checkpoint": "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3141 synthesis completeness and route selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3141 is engineering synthesis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3141; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering residual blocker route decisions rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3105/M3139/M3125 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md exists",
+    "M3141 selects M3142 as one next route",
+    "M3141 rejects overclaims and preserves residual blockers"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3140 audit",
+      "M3139 residual blocker rows",
+      "M3125 envelope diagnostics"
+    ],
+    "allowed_updates": [
+      "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+      "docs/reviews/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+      "experiments/reviews/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.json",
+      "M3141 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no hidden oracle target TTC source route outcome progress verdict actor input",
+      "no checkpoint mutation profile tuning or promotion"
+    ],
+    "next_stage_criteria": [
+      "M3141 selects M3142 residual trajectory-timing speed-envelope materialization as exactly one next route"
+    ],
+    "stage": "process",
+    "stage_objective": "Choose the next residual blocker branch after M3140 deployable interface acceptance"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_m3105_residual_blocker_route_selection",
+    "claim_scope": "Synthesis and route-selection only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_trajectory_timing_speed_envelope_route_selection",
+    "evidence_increment": "synthesizes M3105 residual blocker evidence and M3125 envelope diagnostics into a single early speed-envelope materialization route",
+    "fallback_plan": [
+      "keep M3105/M3103 incumbent deployable API unchanged",
+      "route to no-go if speed-envelope materialization cannot preserve actor-visible obs72/action3 contract",
+      "require full-fresh measurement after any materialized candidate"
+    ],
+    "stop_condition": [
+      "stop if the synthesis cannot select one next route",
+      "stop if residual blockers are treated as solved",
+      "stop if the next route would require hidden/oracle actor inputs"
+    ],
+    "synthesis_artifact": "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+    "synthesis_cadence": 10,
+    "synthesis_decision": "pivot",
+    "synthesis_questions": [
+      "evidence_summary",
+      "supported_claims",
+      "falsified_claims",
+      "failure_taxonomy_summary",
+      "public_gate_overfit_risk",
+      "next_branch_decision"
+    ],
+    "synthesis_trigger": "M3140 accepted deployable M3105/M3103 interface while preserving residual blockers"
+  }
+}

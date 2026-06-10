@@ -1,0 +1,201 @@
+{
+  "id": "m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight",
+  "priority": 31130,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded residual trajectory-authority and stability-recovery repair materialization can define an actor-visible obs72-to-action3 direct-action policy variant from the M3117 synthesis before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis.md",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json"
+    ],
+    "parent_dataset": [
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv",
+      "runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis.json"
+    ],
+    "parent_objective": [
+      "materialize one actor-visible residual repair mechanism selected by M3117"
+    ],
+    "derived_from": [
+      "m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis",
+      "m3116-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-result-audit",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight",
+      "m3110-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3115 shows action-present clearance-unresolved collision rows and stability-recovery-limited offtrack rows",
+      "M3117 rejects another blind residual overlay gain edit",
+      "a new materialization must preserve obs72/action3 direct-action boundary and speed-floor guard"
+    ],
+    "supersedes": [
+      "blind residual overlay gain edits that do not change action timing or stability allocation"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.md",
+  "public_gates": [
+    "M3118 must materialize rule/config artifacts only and run no environment reset step rollout replay training validation ranking promotion or measurement",
+    "M3118 must preserve actor-visible obs72/action3 direct [steer throttle brake] output and runtime_base_policy_required false",
+    "M3118 must encode early trajectory authority, brake/throttle timing, stability-biased steering allocation, and speed-floor preservation as explicit guards",
+    "M3118 must not claim repair success validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver robustness-result or self-ID evidence",
+    "M3118 must register M3119 result audit before any measurement route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run reset step rollout replay fitting PPO training measurement validation ranking promotion or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input",
+    "do not treat materialized rules as repair-success or driver-performance evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_step_action_influence_diagnosis",
+    "evidence_axis": "residual_trajectory_authority_stability_recovery_repair_materialization",
+    "evidence_increment": "materializes the M3117-selected mechanism as auditable direct-action rule/config artifacts without measurement claims",
+    "claim_scope": "Materialization artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "stop_condition": [
+      "stop if the repair mechanism requires hidden actor inputs runtime base policy or post-hoc row labels",
+      "stop if speed-floor preservation cannot be encoded as a guard",
+      "route to M3119 audit before any measurement"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if rules, guards, or claim boundaries are incomplete",
+      "route to stop if M3117 mechanism cannot be represented within obs72/action3 direct-action contract",
+      "route to full-fresh measurement only after M3119 accepts materialization"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3117 selects residual trajectory-authority and stability-recovery repair materialization",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize one actor-visible direct-action residual repair mechanism selected by M3117",
+    "admission_evidence": [
+      "M3117 synthesis",
+      "M3115 residual step/action trace artifacts",
+      "M3110 direct-action policy config"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight.py",
+      "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight",
+      "docs/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.md",
+      "experiments/manifests/m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit.json",
+      "M3118 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3118 writes complete materialization artifacts and claim-boundary gates",
+      "M3118 registers M3119 result audit before measurement",
+      "M3118 preserves actor 72/action 3 direct [steer throttle brake] and speed-floor guard"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3118 materializes engineering direct-action repair artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3118; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3115 residual trace evidence and M3117 synthesis only.",
+    "negative_result_policy": "If the repair mechanism cannot be represented within actor-visible direct-action constraints, stop or synthesize rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "residual trajectory-authority/stability-recovery materialization completeness and claim-boundary preservation",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes from diagnostic trace synthesis to a mechanism-specific materialization with explicit guards",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3118 targets engineering hard-safety repair materialization",
+    "must_synthesize_if": [
+      "M3118 cannot preserve deployable obs72/action3 direct-action boundary",
+      "M3118 would require hidden actor inputs runtime base policy or post-hoc labels",
+      "M3118 cannot register an audit route before measurement"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3118 writes direct-action policy config, rule rows, trace-derived requirement rows, actor-input exclusion rows, claim-boundary rows, gate matrix, and doc",
+    "M3118 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3118 registers M3119 result audit"
+  ],
+  "failure_criteria": [
+    "M3118 runs environment measurement or claims repair success",
+    "M3118 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3118 omits speed-floor preservation or claim-boundary guards"
+  ],
+  "decision_rule": "Pass only if M3118 writes complete materialization artifacts and registers M3119 audit while preserving actor and claim boundaries without overclaiming.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight --m3117-synthesis docs/m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis.md --m3115-dir runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight --m3112-dir runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight --m3110-dir runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight --output-dir runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight --doc-path docs/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.md --follow-up-manifest experiments/manifests/m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/direct_action_policy_config.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/safety_reflex_rule_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/residual_trace_requirement_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/actor_input_exclusion_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis.md",
+    "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/summary.json",
+  "next_blocker": "m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit",
+  "status": "pending"
+}

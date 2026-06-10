@@ -1,0 +1,95 @@
+{
+  "decision_reason": "Completed: materialized M3168 no-new-execution repair-admission contracts with status_pass true gate_matrix_pass true 7 source rows preserved 5 collision 2 offtrack 2 repair-hypothesis rows 2 implementation-admitted hypotheses 0 validation-admitted hypotheses 4 actor-contract guards 4 measurement-readiness rows 27 claim-boundary rows and M3169 audit registered; no driver mutation repair implementation reset step rollout replay policy action validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "M3168 drops any of the seven residual blocker rows",
+    "M3168 admits unbounded local action-delta tuning",
+    "M3168 mutates the deployed driver or claims repair success",
+    "M3168 changes actor input or direct action contract",
+    "M3168 proceeds to repair implementation without registering M3169 audit"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset or step the environment for M3168",
+    "do not tune rank promote validate mutate checkpoints or implement repair",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation-result current-sim driver-performance robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T032943Z",
+  "hypothesis": "A bounded no-new-execution repair-admission materialization can convert M3167-accepted M3166 source-localization diagnostics into actor-visible implementation-admission contract rows for collision-clearance and boundary-recovery repair hypotheses before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3167 accepts M3166 diagnostics but rejects direct repair implementation",
+      "M3166 repair-admission guard rows require implementation-admission contract materialization before repair mutation",
+      "local action-delta tuning remains blocked by M3153/M3155 negative replay evidence"
+    ],
+    "derived_from": [
+      "m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit",
+      "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+      "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+      "m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/source_localization_rows.csv",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/repair_admission_rows.csv",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "materialize source-localized repair-admission contracts before driver mutation"
+    ],
+    "supersedes": [
+      "direct repair implementation after M3167",
+      "unbounded local action-delta tuning on the same seven residual rows"
+    ]
+  },
+  "milestone": "m3168-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-admission-materialization-preflight",
+  "next_blocker": "m3168-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-admission-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "active_safety_driver_residual_hard_safety_source_localized_repair_admission_route_to_m3169_result_audit",
+  "public_gates": [
+    "M3168 must account for exactly seven residual rows with five collision and two offtrack blockers",
+    "M3168 must admit only bounded actor-visible collision-clearance and boundary-recovery repair hypotheses",
+    "M3168 must preserve local action-delta tuning as blocked",
+    "M3168 must preserve actor-visible obs72 to direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3168 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m3168_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_admission_materialization_preflight/summary.json",
+    "clearance_margin_mean": "",
+    "decision": "active_safety_driver_residual_hard_safety_source_localized_repair_admission_route_to_m3169_result_audit",
+    "milestone": "m3168-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-admission-materialization-preflight",
+    "reason": "Completed: materialized M3168 no-new-execution repair-admission contracts with status_pass true gate_matrix_pass true 7 source rows preserved 5 collision 2 offtrack 2 repair-hypothesis rows 2 implementation-admitted hypotheses 0 validation-admitted hypotheses 4 actor-contract guards 4 measurement-readiness rows 27 claim-boundary rows and M3169 audit registered; no driver mutation repair implementation reset step rollout replay policy action validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "M3168 summary reports status_pass true and gate_matrix_pass true",
+    "M3168 repair_hypothesis_rows.csv preserves two bounded actor-visible repair hypotheses",
+    "M3168 actor_contract_guard_rows.csv forbids hidden oracle TTC target source route outcome progress verdict and runtime base-policy actor inputs",
+    "M3168 measurement_readiness_rows.csv preserves audit-before-implementation and implementation-before-validation ordering",
+    "M3168 registers M3169 result audit"
+  ],
+  "type": "infrastructure"
+}

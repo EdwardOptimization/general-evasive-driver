@@ -1,0 +1,175 @@
+{
+  "id": "m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan",
+  "priority": 32130,
+  "type": "gate",
+  "gate_tier": "process",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded route plan can convert M3212 neutral supervisor synthesis into a terminal-cause/action-effect decomposition route before new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md"
+    ],
+    "parent_dataset": [
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/same_trace_comparison_rows.csv",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/candidate_trace_step_rows.csv",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/candidate_trace_step_rows.csv",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/candidate_trace_step_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_step_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.json"
+    ],
+    "parent_objective": [
+      "define terminal-cause/action-effect decomposition route after two neutral action-changing branches"
+    ],
+    "derived_from": [
+      "m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis",
+      "m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit",
+      "m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight",
+      "m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis",
+      "m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3205 and M3210 both change actions without changing residual terminal outcomes",
+      "M3212 rejects continuing local action-budget tuning without a new evidence axis"
+    ],
+    "supersedes": [
+      "directly implementing another residual hard-safety repair before terminal-cause/action-effect decomposition"
+    ],
+    "invalidates": [
+      "claiming action delta alone as repair evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md",
+  "public_gates": [
+    "M3213 must define decomposition axes using offline trace-step artifacts only",
+    "M3213 must preserve obs72/action3 actor contract and keep offline labels out of actor runtime",
+    "M3213 must preserve M3105/M3103 as incumbent",
+    "M3213 must register exactly one follow-up diagnostic or stop route before any repair implementation"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run new rollouts or validation in M3213",
+    "do not implement a new driver in M3213",
+    "do not promote or mutate checkpoints or public driver defaults",
+    "do not use source labels row outcomes baseline outcomes TTC route progress verdict labels or future terminal status as actor runtime inputs",
+    "do not convert decomposition labels into repair-success performance current-sim robustness-result paper high-fidelity feasibility-proof or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_terminal_cause_action_effect_decomposition",
+    "evidence_axis": "terminal_cause_action_effect_decomposition_route_plan",
+    "evidence_increment": "defines a new diagnostic evidence axis after two behavior-neutral action-changing branches",
+    "claim_scope": "Route planning only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if decomposition would require hidden actor runtime labels",
+      "stop if no actor-visible action-effect diagnostic can be specified",
+      "stop if route plan tries to relabel neutral action deltas as repair success"
+    ],
+    "fallback_plan": [
+      "preserve M3105/M3103 as incumbent",
+      "route to synthesis or stop if decomposition cannot isolate actor-visible failure hypotheses",
+      "route to a bounded no-new-execution decomposition materialization if the plan is complete"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3212 pivots away from recovery-clearance supervisor budget tuning",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "process",
+    "stage_objective": "Write a route plan for terminal-cause/action-effect decomposition",
+    "admission_evidence": [
+      "M3212 synthesis",
+      "M3211 audit",
+      "M3210 same-trace comparison rows",
+      "M3205 neutral measurement",
+      "M3189 incumbent trace telemetry"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md",
+      "one follow-up manifest if M3213 selects a diagnostic materialization route",
+      "docs/reviews/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md",
+      "experiments/reviews/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.json",
+      "M3213 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3213 defines decomposition axes and actor-visible boundaries",
+      "M3213 selects exactly one diagnostic materialization artifact-repair synthesis or stop route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3213 is engineering route planning and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3213; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3189, M3205, and M3210 trace-step artifacts only.",
+    "negative_result_policy": "Preserve neutral engineering evidence and route to actor-visible terminal-cause diagnostics rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3213 route planning completeness and boundary selection",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes from action-budget repair attempts to terminal-cause/action-effect decomposition planning",
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3213 plans engineering diagnostic evidence",
+    "must_synthesize_if": [
+      "M3213 cannot specify actor-visible decomposition axes",
+      "M3213 would require hidden actor runtime labels",
+      "M3213 would implement a repair instead of planning diagnostics"
+    ]
+  },
+  "success_criteria": [
+    "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md exists",
+    "M3213 defines decomposition axes from existing trace-step artifacts",
+    "M3213 preserves actor runtime and claim boundaries",
+    "M3213 selects exactly one next diagnostic route or stop state"
+  ],
+  "failure_criteria": [
+    "M3213 runs new rollouts or validation",
+    "M3213 implements a new driver or mutates public defaults",
+    "M3213 uses offline labels as actor runtime inputs",
+    "M3213 leaves the next diagnostic route ambiguous"
+  ],
+  "decision_rule": "Pass only if M3213 defines a bounded terminal-cause/action-effect decomposition route from existing artifacts while preserving obs72-only direct-action and overclaim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_terminal_cause_action_effect_decomposition_route_plan_doc",
+      "command": "true"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md",
+    "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md",
+  "next_blocker": "m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan",
+  "status": "planned"
+}

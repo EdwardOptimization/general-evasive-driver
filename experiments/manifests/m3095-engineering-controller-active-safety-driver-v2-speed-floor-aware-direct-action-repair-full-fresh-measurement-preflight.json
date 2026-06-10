@@ -209,6 +209,15 @@
     "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/summary.json"
   ],
   "scoreboard_checkpoint": "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/summary.json",
-  "next_blocker": "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
-  "status": "pending"
+  "next_blocker": "m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit",
+  "status": "completed",
+  "completed_at_utc": "20260607T194418Z",
+  "status_pass": true,
+  "gate_matrix_pass": true,
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight_pass",
+  "decision": "active_safety_driver_v2_speed_floor_aware_repair_full_fresh_measurement_route_to_m3096_result_audit",
+  "completed_summary": "Completed: ran M3095 full-fresh v2 speed-floor-aware direct-action repair measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low success_delta_vs_m3090 14 collision_delta 0 offtrack_delta -3 speed_too_low_delta -11 clearance_margin_mean 10.980184738052884 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false same_row_comparison_rows 64 exact_seed_matches 64; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claims; registered M3096 result audit.",
+  "selected_next_action": "m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit",
+  "selected_next_action_type": "result_audit"
 }

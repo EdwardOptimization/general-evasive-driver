@@ -1,0 +1,168 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_route_a_public_deployable_validation_execution_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3162 audits M3161 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3162 hides M3161 failures or missing artifacts",
+    "M3162 treats M3161 execution rows as repair-success or performance verdict",
+    "M3162 changes actor input or action contract",
+    "M3162 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun expand tune rank promote or mutate checkpoints",
+    "do not convert M3161 validation execution rows into driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3161 public deployable validation execution artifacts before any ranking promotion driver-performance current-sim verdict high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "id": "m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3161 validation execution rows require audit before any validation-result or performance verdict",
+      "same-case public-driver versus M3105 comparison is execution evidence and not a repair-success claim before M3162"
+    ],
+    "derived_from": [
+      "m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight",
+      "m3160-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-result-audit",
+      "m3159-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-materialization-preflight",
+      "m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_episode_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_failure_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_metric_summary_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/same_case_comparison_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/known_failure_validation_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/runtime_contract_probe_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_claim_boundary_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit Route A public deployable validation execution before broader interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3161 validation execution rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits newly executed same-case validation artifacts through the public deployable driver API",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "M3162 cannot accept M3161 as complete and claim-safe",
+      "M3162 would claim driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result feasibility-proof or self-ID evidence",
+      "M3162 cannot select validation result synthesis artifact repair stop or next route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3162 audits engineering validation execution evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit",
+  "priority": 31620,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3162 must audit M3161 summary episode comparison known-failure runtime-probe claim and gate artifacts",
+    "M3162 must preserve obs72/action3 direct [steer throttle brake] public API contract",
+    "M3162 must reject ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3162 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3161 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3162 audits engineering validation-execution artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3162; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve residual blocker evidence and route to engineering validation audit rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3161 public deployable validation execution artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md exists",
+    "M3162 audits M3161 row counts gates actor contract same-case comparison known-failure disclosure and claim boundaries",
+    "M3162 rejects ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3162 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3161 validation execution summary gate matrix comparison known-failure runtime-probe and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md",
+      "docs/reviews/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md",
+      "experiments/reviews/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.json",
+      "M3162 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3162 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3162 accepts or rejects M3161 as complete and claim-safe",
+      "next validation result synthesis artifact repair stop or high-fidelity-prep route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3161 public deployable validation execution artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_route_a_deployable_benchmark_pack",
+    "claim_scope": "Result audit only; no ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "route_a_public_deployable_validation_execution_result_audit",
+    "evidence_increment": "audits full-fresh same-case validation execution rows through the public deployable driver API",
+    "fallback_plan": [
+      "route to M3161 artifact repair if execution artifacts are incomplete",
+      "route to public deployable interface repair if actor contract is violated",
+      "route to validation result synthesis only after M3162 accepts artifact completeness and claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M3161 artifacts are missing or gate matrix fails",
+      "stop if public API actor or direct-action contracts were violated",
+      "synthesize if M3162 cannot select one next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3161 completes Route A public deployable validation execution preflight"
+  }
+}

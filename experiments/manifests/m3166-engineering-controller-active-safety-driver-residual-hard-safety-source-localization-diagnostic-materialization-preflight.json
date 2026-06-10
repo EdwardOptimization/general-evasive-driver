@@ -1,0 +1,203 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+    "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/summary.json",
+    "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json",
+    "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight --m3165-audit docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md --m3164-dir runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight --m3115-dir runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight --m3147-dir runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight --output-dir runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight --doc-path docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md --follow-up-manifest experiments/manifests/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.json",
+      "name": "active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization"
+    }
+  ],
+  "decision_rule": "Pass only if M3166 joins M3164 residual rows with M3115 and M3147 per-step traces into row-preserving source-localization diagnostics while rejecting repair validation ranking promotion verdict performance feasibility paper and self-ID claims.",
+  "failure_criteria": [
+    "M3166 drops any of the seven residual blocker rows",
+    "M3166 ignores M3115 or M3147 step-trace evidence and repeats only aggregate M3164 rows",
+    "M3166 treats source-localization diagnostics as repair success or driver-performance evidence",
+    "M3166 changes actor input or direct action contract",
+    "M3166 proceeds to repair without registering M3167 audit"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset or step the environment for M3166",
+    "do not tune rank promote validate mutate checkpoints or implement repair",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation-result current-sim driver-performance robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded no-new-execution diagnostic can join M3164 residual hard-safety failure-source rows with M3115 step/action influence traces and M3147 action-delta coverage traces to localize collision-clearance and boundary-recovery source axes before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "id": "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3165 accepts M3164 branch pack but rejects direct repair admission",
+      "M3164 requires source-localization diagnostics before repair",
+      "M3153 reports 0 of 21 action-channel-sensitive comparisons so local action-delta tuning remains blocked"
+    ],
+    "derived_from": [
+      "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+      "m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/failure_source_rows.csv",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/branch_route_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize residual hard-safety source-localization diagnostic rows before repair"
+    ],
+    "supersedes": [
+      "direct repair admission after M3164",
+      "unbounded local action-delta tuning on the same seven residual rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "evidence_expansion": "joins row-preserving M3164 residual branch rows with M3115 and M3147 step traces to localize failure-source axes before repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3166 cannot align all seven residual rows across M3164 M3115 and M3147",
+      "M3166 cannot separate collision-clearance from boundary-recovery source axes",
+      "M3166 would require hidden or oracle actor inputs"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3166 advances engineering source-localization evidence only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+  "priority": 31660,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3166 must account for exactly seven residual rows with five collision and two offtrack blockers",
+    "M3166 must use M3115 and M3147 per-step traces, not only M3164 aggregate rows",
+    "M3166 must preserve actor-visible obs72 to direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3166 must preserve local action-delta tuning as blocked until source-localization evidence changes the repair hypothesis",
+    "M3166 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/source_localization_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/repair_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3166 source-localization diagnostic artifact completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3166 is engineering source-localization reanalysis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3166; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve negative local action-delta evidence and route only through engineering source-localization before repair.",
+    "temporal_evidence_window": "M3164 M3115 and M3147 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "M3166 summary reports status_pass true and gate_matrix_pass true",
+    "M3166 source_localization_rows.csv contains seven joined residual rows",
+    "M3166 accounts for 256 M3115 step-trace rows and 256 M3147 action-delta step-trace rows",
+    "M3166 repair_admission_rows.csv preserves no-repair diagnostic admission and local action-delta block",
+    "M3166 registers M3167 result audit"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3165 audit",
+      "M3164 residual failure-source branch pack",
+      "M3115 residual step/action influence traces",
+      "M3147 action-delta coverage traces"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight.py",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/*",
+      "docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md",
+      "docs/reviews/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md",
+      "experiments/manifests/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.json",
+      "experiments/reviews/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.json",
+      "M3166 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3166 materializes source-localization diagnostics and registers M3167 audit"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize residual hard-safety source-localization diagnostic rows"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_failure_source_resolution",
+    "claim_scope": "Diagnostic materialization only; no repair implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_hard_safety_source_localization_diagnostic",
+    "evidence_increment": "joins residual branch-pack rows with M3115 and M3147 per-step traces to localize collision-clearance and boundary-recovery source axes",
+    "fallback_plan": [
+      "route to M3167 audit if artifacts are complete",
+      "repair M3166 artifacts if row alignment or gates fail",
+      "synthesize if source-localization diagnostics cannot support any repair-admission hypothesis"
+    ],
+    "stop_condition": [
+      "stop if residual rows cannot be aligned across M3164 M3115 and M3147",
+      "stop if M3166 would mutate driver behavior or execute validation",
+      "stop if source localization requires hidden or oracle actor inputs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3165 selected source-localization diagnostic after accepting M3164 branch pack"
+  }
+}

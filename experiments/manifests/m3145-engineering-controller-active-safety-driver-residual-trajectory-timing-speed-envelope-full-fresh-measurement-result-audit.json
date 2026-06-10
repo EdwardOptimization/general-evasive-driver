@@ -1,0 +1,169 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3145 audits M3144 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3145 hides M3144 failures or missing artifacts",
+    "M3145 treats M3144 runtime measurement as validation repair-success or performance verdict",
+    "M3145 changes actor input or action contract",
+    "M3145 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not convert M3144 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3144 residual trajectory-timing speed-envelope full-fresh measurement artifacts before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "id": "m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3144 full-fresh measurement rows require audit before any validation or repair-success route",
+      "same-row comparison against M3105 M3095 M3100 and M3090 is measurement context and not a performance verdict before M3145"
+    ],
+    "derived_from": [
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+      "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
+      "m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.md",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_failure_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_metric_summary_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_contract_guard_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit full-fresh M3142 residual trajectory-timing speed-envelope measurement before broader interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3144 rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits complete fresh-denominator environment-loop evidence through the M3142 residual trajectory-timing speed-envelope direct-action candidate",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3145 cannot accept M3144 as complete and claim-safe",
+      "M3145 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result or self-ID evidence",
+      "M3145 cannot select behavior synthesis validation planning stop or next repair route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3145 audits engineering runtime measurement evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit",
+  "priority": 31450,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3145 must audit M3144 summary measurement comparison metric guard claim and gate artifacts",
+    "M3145 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3145 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3145 must select exactly one behavior synthesis validation-planning stop or next repair route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3144 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3145 audits engineering runtime-measurement artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3145; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve runtime evidence and route to engineering repair synthesis or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3144 full-fresh residual repair measurement artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md exists",
+    "M3145 audits M3144 row counts gates actor contract same-row comparison and claim boundaries",
+    "M3145 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3145 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3144 summary gate matrix comparison measurement metric contract and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+      "docs/reviews/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+      "experiments/reviews/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.json",
+      "M3145 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3145 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3145 accepts or rejects M3144 as complete and claim-safe",
+      "next behavior synthesis validation-planning stop or repair route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3144 full-fresh residual trajectory-timing speed-envelope measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_timing_speed_envelope",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "residual_trajectory_timing_speed_envelope_full_fresh_measurement_result_audit",
+    "evidence_increment": "audits full-fresh current-sim measurement rows and same-row comparison from the M3142 residual trajectory-timing speed-envelope direct-action candidate",
+    "fallback_plan": [
+      "route to M3142 artifact repair if artifacts are incomplete or contract-unsafe",
+      "route to behavior repair synthesis if measurement is behavior-negative but contract-safe",
+      "route to validation planning only after M3145 accepts artifact completeness and claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M3144 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize if M3145 cannot select one next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3144 completes full-fresh M3142 residual trajectory-timing speed-envelope measurement preflight"
+  }
+}

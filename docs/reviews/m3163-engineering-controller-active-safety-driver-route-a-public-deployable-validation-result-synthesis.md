@@ -1,0 +1,77 @@
+# m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T025950Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M3163 synthesizes the M3161 public deployable validation execution evidence and M3162 audit into exactly one next branch decision while preserving residual blocker and claim boundaries.
+
+## Hypothesis
+
+A bounded synthesis can convert M3161 public deployable validation execution and M3162 audit evidence into a Route A branch decision before any repair validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.md
+- parent_dataset: runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_episode_rows.csv, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/same_case_comparison_rows.csv, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/known_failure_validation_rows.csv, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit.json
+- parent_objective: synthesize Route A public deployable validation execution evidence into a next branch decision
+- derived_from: m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit, m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight, m3160-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-result-audit, m3159-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-materialization-preflight, m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3161 preserves 5 collision and 2 offtrack residual blockers, M3161 exactly matches M3105 on 64 of 64 same-case outcomes, M3162 accepts M3161 artifacts but rejects validation-result and repair-success interpretation
+- supersedes: continuing Route A validation interpretation without synthesis, direct interpretation of M3161 as a validation-result verdict
+- invalidates: None
+
+## Success Criteria
+
+- docs/m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis.md exists
+- M3163 synthesizes M3161 execution and M3162 audit evidence
+- M3163 preserves 5 collision and 2 offtrack residual blockers
+- M3163 selects exactly one next branch decision
+- M3163 rejects overclaims and preserves the public runtime contract
+
+## Failure Criteria
+
+- M3163 treats M3161 same-case execution as repair success or driver improvement
+- M3163 hides the 5 collision and 2 offtrack residual blockers
+- M3163 leaves the next branch ambiguous
+- M3163 claims validation-result current-sim driver-performance high-fidelity robustness-result paper full-driver feasibility-proof or self-ID evidence
+
+## Evidence Gates
+
+- M3163 must preserve the public obs72 to direct [steer throttle brake] runtime contract
+- M3163 must preserve M3161 row counts and residual blocker counts
+- M3163 must classify exact same-case M3105 match as deployable-interface evidence not improvement evidence
+- M3163 must select exactly one next branch decision
+- M3163 must reject validation-result driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun expand tune rank promote or mutate checkpoints
+- do not convert exact M3105 same-case match into driver improvement
+- do not claim validation-result current-sim driver-performance robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence
+- do not change actor input or action contract
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis

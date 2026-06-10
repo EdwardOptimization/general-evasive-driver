@@ -1,28 +1,28 @@
 {
   "counts": {
     "blocked": 1,
-    "completed": 3100,
+    "completed": 3218,
     "failed": 4,
-    "pending": 1,
-    "planned": 0,
+    "pending": 0,
+    "planned": 1,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z/command.log",
+    "command_log": "runs/research/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis_20260608T081117Z/command.log",
     "returncode": 0,
-    "run_dir": "runs/research/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit_20260607T192922Z",
+    "run_dir": "runs/research/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis_20260608T081117Z",
     "status": "completed",
-    "task_id": "m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit"
+    "task_id": "m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis"
   },
   "next_task": {
-    "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --m3094-audit docs/m3094-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-result-audit.md --m3093-dir runs/m3093_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_materialization_preflight --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --doc-path docs/m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3096-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-result-audit.json --device cpu",
-    "hypothesis": "A bounded full-fresh measurement preflight can execute the M3093 v2 speed-floor-aware direct-action repair as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison, safety, contract, and claim-boundary artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "id": "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
-    "kind": "infrastructure",
-    "notes": "Pending: run the M3093 v2 speed-floor-aware direct-action repair on the complete M3084 fresh denominator and write measurement comparison guard claim doc and M3096 audit artifacts without validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
-    "priority": 30900,
-    "status": "pending",
-    "success_artifact": "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/summary.json"
+    "command": "true",
+    "hypothesis": "A bounded route plan can convert M3212 neutral supervisor synthesis into a terminal-cause/action-effect decomposition route before new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+    "id": "m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan",
+    "kind": "gate",
+    "notes": "Planned: define terminal-cause/action-effect decomposition axes from existing trace-step artifacts before new repair implementation.",
+    "priority": 32130,
+    "status": "planned",
+    "success_artifact": "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md"
   },
-  "updated_at_utc": "20260607T193006Z"
+  "updated_at_utc": "20260608T081117Z"
 }

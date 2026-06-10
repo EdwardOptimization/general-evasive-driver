@@ -1,0 +1,162 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/summary.json",
+    "docs/m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight.md"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_failure_source_branch_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3165 audits M3164 branch-pack artifacts and selects one next source-localization diagnostic or repair-admission route without overclaiming.",
+  "failure_criteria": [
+    "M3165 hides M3164 residual rows or missing artifacts",
+    "M3165 treats M3164 branch pack as repair success or performance verdict",
+    "M3165 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune rank promote validate or mutate checkpoints",
+    "do not convert M3164 branch-pack rows into validation performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3164 residual hard-safety failure-source branch artifacts before any repair validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "id": "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3164 branch-pack artifacts require audit before source-localization or repair-admission work",
+      "M3164 is branch materialization not repair evidence"
+    ],
+    "derived_from": [
+      "m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight",
+      "m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis",
+      "m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight",
+      "m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/summary.json",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/failure_source_rows.csv",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/branch_route_rows.csv",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit residual hard-safety failure-source branch pack"
+    ],
+    "supersedes": [
+      "direct repair-admission from M3163 synthesis without M3164 branch-pack audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits new residual failure-source branch-pack artifacts before repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3165 cannot accept M3164 as complete and claim-safe",
+      "M3165 cannot select one source-localization diagnostic or repair-admission route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3165 audits engineering branch admission",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+  "priority": 31650,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3165 must audit M3164 summary failure-source branch-route claim and gate artifacts",
+    "M3165 must preserve obs72/action3 direct [steer throttle brake] contract and residual blocker disclosure",
+    "M3165 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3165 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3164 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3165 audits engineering branch-pack artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3165; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve residual blocker evidence and route to engineering source-localization rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3164 branch-pack artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md exists",
+    "M3165 audits M3164 branch-pack artifacts and claim boundaries",
+    "M3165 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3164 summary failure-source branch-route claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+      "docs/reviews/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md",
+      "experiments/reviews/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.json",
+      "M3165 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3165 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation execution ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3165 accepts or rejects M3164 as complete and claim-safe",
+      "M3165 selects source-localization diagnostic repair-admission synthesis or stop explicitly"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3164 residual hard-safety failure-source branch artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_failure_source_resolution",
+    "claim_scope": "Result audit only; no repair validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_hard_safety_failure_source_branch_result_audit",
+    "evidence_increment": "audits M3164 residual failure-source branch-pack artifacts",
+    "fallback_plan": [
+      "route to M3164 artifact repair if branch-pack artifacts are incomplete",
+      "route to source-localization diagnostic if M3164 is complete and claim-safe",
+      "synthesize if M3165 cannot select one next route"
+    ],
+    "stop_condition": [
+      "stop if M3164 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "stop if next route would require hidden or oracle actor inputs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3164 completes residual hard-safety failure-source branch-pack materialization"
+  }
+}

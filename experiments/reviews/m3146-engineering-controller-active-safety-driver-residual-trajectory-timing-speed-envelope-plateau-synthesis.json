@@ -1,0 +1,77 @@
+{
+  "decision_reason": "Pass only if M3146 classifies the M3144 plateau and selects exactly one claim-safe next diagnostic route.",
+  "failure_criteria": [
+    "M3146 treats M3144 as repair success",
+    "M3146 leaves the next route ambiguous",
+    "M3146 hides residual collision/offtrack blockers"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not hide that M3144 equals M3105 on success collision offtrack and speed-too-low counts",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or M3105 blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260608T005116Z",
+  "hypothesis": "A bounded synthesis can classify the M3144 residual trajectory-timing speed-envelope full-fresh measurement plateau and select exactly one next diagnostic route before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3144 plateaus exactly against M3105 hard-safety counts",
+      "next repair should not proceed before diagnosing overlay action-delta coverage on residual rows"
+    ],
+    "derived_from": [
+      "m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit",
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.md",
+      "docs/m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.json",
+      "experiments/manifests/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/action_probe_rows.csv"
+    ],
+    "parent_objective": [
+      "classify the M3144 speed-envelope plateau and select one next route"
+    ],
+    "supersedes": [
+      "direct gain tuning after M3144 plateau",
+      "promotion of M3142 speed-envelope candidate"
+    ]
+  },
+  "milestone": "m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis",
+  "next_blocker": "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3146 must preserve M3105/M3103 as incumbent deployable fallback",
+    "M3146 must classify M3144 as plateau rather than repair success",
+    "M3146 must select exactly one next route or stop state",
+    "M3146 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "docs/m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis.md exists",
+    "M3146 classifies M3144 as plateau",
+    "M3146 selects M3147 action-delta coverage diagnostic and rejects overclaims"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,188 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+    "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md",
+    "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json",
+    "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight --m3155-synthesis docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md --m3139-dir runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3153-dir runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight --output-dir runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight --doc-path docs/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.md --follow-up-manifest experiments/manifests/m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit.json",
+      "name": "active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M3156 materializes a claim-safe Route A deployable benchmark pack from existing M3105/M3139/M3153 evidence while preserving obs72/action3 direct-action boundaries and rejecting validation ranking promotion driver-performance current-sim verdict high-fidelity full-driver repair-success robustness-result feasibility-proof and self-ID claims.",
+  "failure_criteria": [
+    "M3156 treats benchmark packaging as validation or driver-performance verdict",
+    "M3156 hides the 5 collision and 2 offtrack residual blockers",
+    "M3156 changes actor input or direct action contract",
+    "M3156 reruns or tunes policies instead of materializing the existing evidence pack"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run new measurement validation ranking promotion training PPO or checkpoint mutation",
+    "do not hide residual collision/offtrack blockers or the negative M3153 replay result",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded materialization can package the deployable M3105/M3103 active-safety reflex baseline into a Route A benchmark and failure-taxonomy pack, preserving obs72/action3 contract evidence, M3105 hard-safety metrics, residual blockers, and M3153 negative replay diagnostics before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3155 stops the local action-delta repair branch and pivots to Route A deployable verification pack materialization",
+      "M3105/M3139 provides a deployable incumbent but residual blockers remain explicit"
+    ],
+    "derived_from": [
+      "m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis",
+      "m3154-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-result-audit",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight",
+      "m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit",
+      "m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.md",
+      "docs/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/deployable_contract.json",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/residual_blocker_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/summary.json",
+      "runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/counterfactual_replay_comparison_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize a deployable Route A active-safety benchmark pack and known-failure taxonomy from existing evidence"
+    ],
+    "supersedes": [
+      "continuing local action-delta tuning as the immediate route",
+      "unpackaged incumbent evidence spread across M3105 M3139 and M3153 artifacts"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "packages the deployable incumbent contract metrics and known residual blockers into a verification pack for subsequent audits",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "M3156 cannot preserve the residual blocker taxonomy",
+      "M3156 would claim validation driver-performance or repair success",
+      "M3156 reveals the existing evidence pack is insufficient to support Route A verification"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3156 advances engineering verification packaging only",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit",
+  "priority": 31560,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3156 must preserve obs72/action3 direct [steer throttle brake] runtime contract",
+    "M3156 must preserve M3105 64-row denominator metrics and residual blocker counts",
+    "M3156 must preserve M3153 negative replay diagnostics as diagnostic-only evidence",
+    "M3156 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/benchmark_metric_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3156 benchmark-pack artifact completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3156 packages engineering artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3156; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve negative replay and residual blocker evidence in the benchmark pack rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3105/M3139/M3153 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "M3156 summary and benchmark pack artifacts exist",
+    "M3156 preserves M3105/M3139 deployable obs72/action3 contract evidence",
+    "M3156 preserves M3105 metrics and residual blocker taxonomy",
+    "M3156 registers M3157 result audit without overclaiming"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3155 synthesis",
+      "M3139 deployable contract and residual blocker rows",
+      "M3105 full-fresh measurement summary and episode rows",
+      "M3153 negative replay summary and comparison rows"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight.py",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/*",
+      "docs/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.md",
+      "docs/reviews/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.md",
+      "experiments/manifests/m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit.json",
+      "experiments/reviews/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.json",
+      "M3156 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3156 writes claim-safe Route A benchmark pack artifacts and registers M3157 audit"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize deployable Route A active-safety benchmark pack and known-failure taxonomy"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_route_a_deployable_benchmark_pack",
+    "claim_scope": "Benchmark pack materialization only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "route_a_deployable_baseline_verification_pack",
+    "evidence_increment": "packages deployable incumbent contract metrics residual blockers and negative replay diagnostics into a bounded verification pack",
+    "fallback_plan": [
+      "route to M3157 audit if artifacts are complete",
+      "repair M3156 artifacts if row accounting or gates fail",
+      "route to synthesis if benchmark packaging exposes missing contract or metric evidence"
+    ],
+    "stop_condition": [
+      "stop if M3156 cannot preserve obs72/action3 contract",
+      "stop if M3156 would hide residual blockers or negative replay evidence",
+      "stop if M3156 would claim validation or repair success"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3155 pivots from negative local action-delta replay to Route A deployable verification packaging"
+  }
+}

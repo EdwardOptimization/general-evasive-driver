@@ -1,0 +1,166 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit.md",
+    "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_route_a_deployable_benchmark_pack_validation_prep_plan_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3158 defines a bounded validation-prep plan for the accepted M3156 Route A benchmark pack while preserving obs72/action3 direct-action boundaries residual blocker disclosure and rejecting validation execution ranking promotion driver-performance current-sim verdict high-fidelity full-driver repair-success robustness-result feasibility-proof paper and self-ID claims.",
+  "failure_criteria": [
+    "M3158 executes validation or treats planning as a validation result",
+    "M3158 hides the M3105 residual 5 collision and 2 offtrack blockers",
+    "M3158 changes actor input or direct action contract",
+    "M3158 leaves validation denominators same-case comparisons or go/no-go gates ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute validation ranking promotion training PPO replay rollout or checkpoint mutation",
+    "do not convert M3156 benchmark pack rows into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded validation-prep plan can define the Route A benchmark pack validation surface from M3157 without executing validation ranking promotion or making driver-performance current-sim high-fidelity robustness-result repair-success feasibility-proof paper full-driver or self-ID claims.",
+  "id": "m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan",
+  "lineage": {
+    "blocked_by": [
+      "M3157 accepts M3156 as a benchmark pack but not as validation or performance evidence",
+      "Route A needs a validation-prep plan before any execution or external verdict"
+    ],
+    "derived_from": [
+      "m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit",
+      "m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight",
+      "m3155-engineering-controller-active-safety-driver-residual-action-delta-negative-counterfactual-replay-synthesis",
+      "m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3157-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/summary.json",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/deployable_driver_contract_snapshot.json",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/deployable_benchmark_pack_manifest.json",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/benchmark_metric_rows.csv",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv",
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "define validation-prep gates and denominators for the accepted Route A deployable benchmark pack"
+    ],
+    "supersedes": [
+      "direct validation execution without a disclosed benchmark-pack plan"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "defines the validation surface and go/no-go gates needed before Route A execution rather than extending residual action-delta local search",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "M3158 cannot define same-case validation denominators and explicit residual blocker coverage",
+      "M3158 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result feasibility-proof or self-ID evidence",
+      "M3158 cannot select one next route after validation prep"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3158 only prepares engineering validation gates",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan",
+  "priority": 31580,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3158 must define validation denominators and same-case comparison requirements",
+    "M3158 must preserve obs72/action3 direct [steer throttle brake] contract and residual blocker disclosure",
+    "M3158 must reject validation execution ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3158 must select exactly one next route: validation materialization preflight artifact repair synthesis or stop"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md",
+  "scoreboard_checkpoint": "docs/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3158 validation-prep plan completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3158 prepares engineering validation and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3158; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Keep negative replay and residual blocker evidence explicit while planning Route A engineering validation.",
+    "temporal_evidence_window": "M3156/M3157 benchmark-pack artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md exists",
+    "M3158 defines validation denominators same-case comparisons failure taxonomy coverage and go/no-go gates",
+    "M3158 preserves obs72/action3 direct action contract and residual blocker disclosure",
+    "M3158 rejects validation execution ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3157 accepted M3156 benchmark pack audit",
+      "M3156 summary contract metric failure taxonomy claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md",
+      "docs/reviews/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.md",
+      "experiments/reviews/m3158-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-prep-plan.json",
+      "M3158 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3158 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation execution ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3158 selects validation materialization preflight artifact repair synthesis or stop explicitly"
+    ],
+    "stage": "process",
+    "stage_objective": "Plan Route A validation gates for the deployable benchmark pack"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_route_a_deployable_benchmark_pack",
+    "claim_scope": "Validation-prep planning only; no validation execution ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "route_a_deployable_benchmark_pack_validation_prep",
+    "evidence_increment": "defines validation denominators same-case comparisons failure taxonomy coverage and go/no-go gates for the M3156 benchmark pack",
+    "fallback_plan": [
+      "route to validation materialization preflight if the plan is complete",
+      "route to artifact repair if pack artifacts are insufficient",
+      "route to synthesis or stop if validation prep cannot preserve claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if validation denominators or same-case comparisons cannot be defined",
+      "stop if residual blockers would be hidden",
+      "stop if M3158 would claim validation or repair success"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3157 accepts M3156 benchmark pack and routes to validation prep"
+  }
+}

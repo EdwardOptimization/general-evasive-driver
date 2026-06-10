@@ -1,0 +1,177 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.md",
+    "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight --m3149-synthesis docs/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.md --m3147-dir runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight --output-dir runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight --doc-path docs/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md --follow-up-manifest experiments/manifests/m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit.json",
+      "name": "active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight"
+    }
+  ],
+  "decision_rule": "Pass only if M3150 materializes no-new-execution residual action-delta effectiveness and counterfactual sensitivity diagnostics from M3147 trace artifacts while preserving obs72/action3 claim boundaries.",
+  "failure_criteria": [
+    "M3150 reruns or validates the driver instead of using M3147 diagnostic traces",
+    "M3150 treats counterfactual sensitivity labels as repair success",
+    "M3150 hides missing residual rows or missing action-delta trace rows",
+    "M3150 changes actor input or direct action contract"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run new reset step rollout validation ranking promotion or checkpoint mutation",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded no-new-execution diagnostic can convert M3147 residual action-delta step traces into terminal-window authority headroom delta-utilization saturation and counterfactual sensitivity rows before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3147 shows active action deltas on all residual rows while outcomes remain unresolved",
+      "M3149 requires sensitivity diagnostics before any new repair implementation"
+    ],
+    "derived_from": [
+      "m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis",
+      "m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/residual_overlay_coverage_summary_rows.csv"
+    ],
+    "parent_objective": [
+      "diagnose residual action-delta effectiveness and sensitivity before repair"
+    ],
+    "supersedes": [
+      "blind speed-envelope gain tuning after M3147",
+      "missing-overlay explanation after M3148"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "evidence_expansion": "converts step-level action-delta traces into residual authority and sensitivity diagnostics without another repair attempt",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3150 cannot classify whether terminal windows have action headroom",
+      "M3150 labels would require hidden actor inputs or rollout counterfactuals",
+      "M3150 cannot select a bounded audit route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3150 targets engineering action-delta effectiveness evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit",
+  "priority": 31500,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3150 must consume M3147 action-delta trace artifacts and not rerun validation",
+    "M3150 must account for exactly seven residual rows and nonempty step traces",
+    "M3150 must preserve obs72/action3 direct-action contract and runtime_base_policy_required false",
+    "M3150 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/residual_delta_effectiveness_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3150 diagnostic artifact completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3150 is engineering trace reanalysis and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3150; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve diagnostic evidence and route to audit or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3147 action-delta traces only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "M3150 summary and diagnostic CSV artifacts exist",
+    "M3150 accounts for seven residual rows with no missing trace identities",
+    "M3150 preserves obs72/action3 direct-action and no-hidden-input claim boundaries",
+    "M3150 registers M3151 result audit"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3149 synthesis",
+      "M3147 action-delta step trace rows and coverage rows"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight.py",
+      "runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/*",
+      "docs/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md",
+      "docs/reviews/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md",
+      "experiments/manifests/m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit.json",
+      "experiments/reviews/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.json",
+      "M3150 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3150 writes diagnostic artifacts and registers M3151 audit"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize no-new-execution residual action-delta effectiveness sensitivity diagnostics"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_action_delta_effectiveness_diagnostic",
+    "claim_scope": "Diagnostic materialization only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_action_delta_effectiveness_sensitivity",
+    "evidence_increment": "adds no-new-execution terminal-window authority headroom and delta-utilization diagnostics from M3147 traces",
+    "fallback_plan": [
+      "route to M3151 audit if artifacts are complete",
+      "repair M3150 artifacts if row accounting or gates fail",
+      "route to stop if sensitivity cannot be diagnosed without hidden inputs"
+    ],
+    "stop_condition": [
+      "stop if M3150 cannot preserve the no-new-execution boundary",
+      "stop if actor obs72/action3 contract is violated",
+      "stop if M3147 traces are insufficient for headroom diagnostics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3149 selects residual action-delta effectiveness sensitivity diagnostics before any repair continuation"
+  }
+}

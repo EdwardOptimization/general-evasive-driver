@@ -1,0 +1,82 @@
+{
+  "decision_reason": "Pass only if M3194 materializes a deterministic obs72-to-action3 candidate artifact for the two M3193-admitted rule families while preserving M3105 as incumbent and rejecting measurement validation ranking promotion repair-success performance and self-ID claims.",
+  "failure_criteria": [
+    "M3194 mutates ActiveSafetyReflexDriver public default or replaces M3105 incumbent",
+    "M3194 requires hidden actor labels TTC future terminal status baseline outcomes or runtime base policy",
+    "M3194 omits either preterminal clearance authority timing or boundary stability recovery from the candidate artifact",
+    "M3194 runs measurement validation ranking promotion or claims repair success driver performance current-sim robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not mutate the public ActiveSafetyReflexDriver default",
+    "do not run environment reset step rollout replay measurement validation ranking promotion or high-fidelity simulation in M3194",
+    "do not use hidden oracle target TTC source route outcome progress verdict labels baseline outcomes or future terminal status as actor inputs",
+    "do not claim repair success driver performance current-sim robustness-result paper or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T062456Z",
+  "hypothesis": "A bounded implementation materialization can define a deterministic obs72-to-action3 preterminal authority and boundary-stability candidate artifact from M3193-accepted admission rows before any measurement validation ranking promotion or repair-success claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3193 accepts M3192 admission but requires separate implementation materialization",
+      "M3105 remains incumbent until a later accepted measurement improves hard-safety counts",
+      "the seven residual blockers remain unresolved before candidate measurement"
+    ],
+    "derived_from": [
+      "m3193-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-result-audit",
+      "m3192-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-materialization-preflight",
+      "m3191-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-synthesis",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [
+      "direct candidate measurement without materialized implementation artifact",
+      "public driver default mutation before same-denominator measurement audit"
+    ],
+    "parent_checkpoint": [
+      "docs/m3193-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3193-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3192_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_admission_materialization_preflight/summary.json",
+      "runs/m3192_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_admission_materialization_preflight/implementation_admission_rows.csv",
+      "runs/m3192_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_admission_materialization_preflight/rule_contract_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_step_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize a deterministic candidate implementation artifact before measurement"
+    ],
+    "supersedes": [
+      "unmaterialized implementation idea from M3192 admission rows"
+    ]
+  },
+  "milestone": "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+  "next_blocker": "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3194 must materialize a deterministic obs72-to-action3 candidate artifact",
+    "M3194 must include both admitted rule families and a saturation overfit guard",
+    "M3194 must preserve M3105/M3103 as public incumbent and keep public driver default unchanged",
+    "M3194 must register M3195 result audit",
+    "M3194 must reject measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json exists",
+    "M3194 writes candidate policy config rule contract action-probe claim and gate artifacts",
+    "M3194 registers M3195 audit and rejects overclaims"
+  ],
+  "type": "infrastructure"
+}

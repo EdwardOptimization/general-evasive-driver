@@ -1,0 +1,72 @@
+# m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T031829Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M3167 audits M3166 source-localization diagnostics and selects one repair-admission synthesis artifact-repair or stop route without overclaiming.
+
+## Hypothesis
+
+A bounded result audit can accept or reject M3166 residual hard-safety source-localization diagnostics before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md
+- parent_dataset: runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json, runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/source_localization_rows.csv, runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/repair_admission_rows.csv, runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/claim_boundary_rows.csv, runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.json
+- parent_objective: audit residual hard-safety source-localization diagnostics
+- derived_from: m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight, m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit, m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight, m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight, m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight
+- blocked_by: M3166 source-localization diagnostics require audit before repair admission or synthesis, M3166 is diagnostic materialization not repair evidence
+- supersedes: direct repair admission from M3165 without M3166 source-localization audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md exists
+- M3167 audits M3166 source-localization diagnostic artifacts and claim boundaries
+- M3167 selects exactly one next route or stop state
+
+## Failure Criteria
+
+- M3167 hides missing M3166 rows or failed gates
+- M3167 treats M3166 diagnostics as repair success or performance verdict
+- M3167 leaves the next route ambiguous
+
+## Evidence Gates
+
+- M3167 must audit M3166 summary source-localization repair-admission claim and gate artifacts
+- M3167 must preserve obs72/action3 direct [steer throttle brake] contract and residual blocker disclosure
+- M3167 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+- M3167 must select exactly one next route or stop state
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun tune rank promote validate or mutate checkpoints
+- do not convert M3166 source-localization rows into validation performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claims
+- do not change actor input or action contract
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit

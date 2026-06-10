@@ -1,0 +1,81 @@
+{
+  "decision_reason": "Pass only if M3192 materializes actor-visible implementation-admission rows for preterminal clearance authority timing and boundary stability recovery plus cross-cutting action-authority guards without implementation validation ranking promotion repair-success performance or self-ID claims.",
+  "failure_criteria": [
+    "M3192 admits a rule requiring hidden actor labels TTC future terminal status or baseline outcomes",
+    "M3192 implements repair logic or mutates the public driver",
+    "M3192 drops either collision-clearance timing or boundary-stability recovery from admission accounting",
+    "M3192 claims validation repair success driver performance current-sim verdict robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement repair logic or modify ActiveSafetyReflexDriver in M3192",
+    "do not run environment reset step rollout replay validation ranking promotion or high-fidelity simulation in M3192",
+    "do not use hidden oracle target TTC source route outcome progress verdict labels baseline outcomes or future terminal status as actor inputs",
+    "do not claim repair success driver performance current-sim robustness-result paper or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T062444Z",
+  "hypothesis": "A bounded no-new-execution admission materialization can convert M3191 synthesis and M3189 trace telemetry into actor-visible implementation-admission rows for preterminal clearance authority timing and boundary stability recovery before any repair implementation or validation claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3191 selects preterminal authority timing and boundary stability as the next admission route",
+      "M3189 trace telemetry is complete but does not itself admit implementation",
+      "the seven residual blockers remain 5 collision and 2 offtrack"
+    ],
+    "derived_from": [
+      "m3191-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-synthesis",
+      "m3190-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-result-audit",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight",
+      "m3187-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-spec-materialization-preflight"
+    ],
+    "invalidates": [
+      "direct implementation from M3189 without admission guards",
+      "pure terminal action-saturation implementation thesis"
+    ],
+    "parent_checkpoint": [
+      "docs/m3191-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3191-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/summary.json",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_execution_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_step_rows.csv",
+      "runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight/trace_spec_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize actor-visible implementation-admission contracts before repair implementation"
+    ],
+    "supersedes": [
+      "unstructured implementation admission from M3189 telemetry"
+    ]
+  },
+  "milestone": "m3192-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-materialization-preflight",
+  "next_blocker": "m3192-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3192 must preserve M3189 row accounting and obs72-only actor contract",
+    "M3192 must materialize at least two implementation-admission rule families",
+    "M3192 must keep action-authority saturation as a cross-cutting guard not a standalone thesis",
+    "M3192 must register M3193 result audit",
+    "M3192 must reject implementation validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "runs/m3192_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_admission_materialization_preflight/summary.json exists",
+    "M3192 writes implementation-admission and rule-contract rows for both selected axes",
+    "M3192 registers M3193 audit and rejects overclaims"
+  ],
+  "type": "infrastructure"
+}

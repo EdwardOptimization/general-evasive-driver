@@ -1,0 +1,88 @@
+# m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T030143Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_residual_hard_safety_failure_source_branch_materialization_route_to_m3165_result_audit
+- Decision reason: Completed: materialized M3164 residual hard-safety failure-source branch pack with status_pass true gate_matrix_pass true 7 failure-source rows 5 collision blockers 2 offtrack blockers 0 speed-too-low blockers 4 branch-route rows 23 claim-boundary rows M3153 comparisons 21 action-channel-sensitive 0 and follow-up M3165 audit registered; no reset step rollout replay training repair implementation validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Hypothesis
+
+A bounded materialization can convert M3163 synthesis M3161 validation execution M3156 known-failure taxonomy and M3153 negative action-delta replay evidence into a residual hard-safety failure-source branch pack before any repair validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis.md
+- parent_dataset: runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/known_failure_validation_rows.csv, runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/same_case_comparison_rows.csv, runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv, runs/m3153_engineering_controller_active_safety_driver_residual_action_delta_counterfactual_replay_diagnostic_materialization_preflight/counterfactual_replay_comparison_rows.csv
+- parent_config: experiments/manifests/m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis.json
+- parent_objective: materialize residual hard-safety failure-source branch pack from public deployable validation evidence
+- derived_from: m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis, m3162-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-result-audit, m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight, m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight, m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3161 preserves 5 collision and 2 offtrack residual blockers, M3153 reports 0 of 21 action-channel-sensitive comparisons on the residual panel, M3163 pivots away from Route A packaging into a new residual hard-safety branch
+- supersedes: continuing Route A packaging after public deployable validation execution, unbounded local action-delta retuning on the same seven residual rows
+- invalidates: None
+
+## Success Criteria
+
+- M3164 summary reports status_pass true and gate_matrix_pass true
+- M3164 failure_source_rows.csv contains 7 residual blocker rows
+- M3164 branch_route_rows.csv names a distinct next evidence axis beyond local action-delta tuning
+- M3164 claim boundaries reject repair validation performance current-sim high-fidelity paper feasibility and self-ID claims
+- M3164 registers M3165 result audit
+
+## Failure Criteria
+
+- M3164 hides any of the 7 residual blocker rows
+- M3164 treats exact M3105 same-case match as improvement
+- M3164 reopens local action-delta tuning without a new evidence axis
+- M3164 mutates the driver or claims repair validation performance current-sim high-fidelity robustness paper feasibility or self-ID evidence
+
+## Evidence Gates
+
+- M3164 must preserve all 7 residual blocker rows and their source ids
+- M3164 must preserve obs72 to direct [steer throttle brake] runtime contract boundaries
+- M3164 must classify exact same-case M3105 match as baseline equivalence not improvement
+- M3164 must preserve M3153 0 of 21 action-channel-sensitive comparisons as a negative local action-delta diagnostic
+- M3164 must register M3165 result audit before any repair implementation or validation verdict
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune rank promote mutate or rerun driver checkpoints
+- do not convert residual row disclosure into repair success
+- do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs
+- do not claim validation-result current-sim driver-performance robustness-result high-fidelity paper full-driver feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_residual_hard_safety_failure_source_branch_materialization_route_to_m3165_result_audit
+- reason: Completed: materialized M3164 residual hard-safety failure-source branch pack with status_pass true gate_matrix_pass true 7 failure-source rows 5 collision blockers 2 offtrack blockers 0 speed-too-low blockers 4 branch-route rows 23 claim-boundary rows M3153 comparisons 21 action-channel-sensitive 0 and follow-up M3165 audit registered; no reset step rollout replay training repair implementation validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Next Blocker
+
+m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight

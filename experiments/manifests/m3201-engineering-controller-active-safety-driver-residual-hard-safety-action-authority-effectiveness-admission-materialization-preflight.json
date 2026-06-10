@@ -1,0 +1,188 @@
+{
+  "id": "m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight",
+  "priority": 32010,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded no-execution admission materialization can convert M3200-accepted M3199 trace-delta evidence into an actor-visible action-authority/effectiveness implementation-admission surface before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/trace_delta_rows.csv",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/trace_delta_summary_rows.csv",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.json",
+      "experiments/manifests/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "admit a stronger action-authority/effectiveness implementation route after M3194 changed actions preterminally but did not change residual outcomes"
+    ],
+    "derived_from": [
+      "m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit",
+      "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+      "m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis",
+      "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3199 shows preterminal action deltas on all residual trace steps but zero outcome changes",
+      "direct threshold micro-tuning of M3194 would be local-search overfit without an admitted action-effectiveness surface"
+    ],
+    "supersedes": [
+      "continuing M3194 preterminal authority threshold tuning without action-effectiveness admission"
+    ],
+    "invalidates": [
+      "claiming M3194 failed because it did not engage before terminal windows"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.md",
+  "public_gates": [
+    "M3201 must preserve obs72-only direct action3 runtime boundaries",
+    "M3201 must use M3199 trace-delta evidence as offline diagnostic input only",
+    "M3201 must materialize admission rows for action-authority/effectiveness gaps without implementing a repair",
+    "M3201 must register a bounded M3202 result audit manifest",
+    "M3201 must reject validation repair-success performance current-sim high-fidelity full-driver robustness-result feasibility-proof and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not run reset step rollout replay validation training PPO ranking or high-fidelity simulation in M3201",
+    "do not mutate ActiveSafetyReflexDriver public default",
+    "do not implement new action logic or tune M3194 thresholds in M3201",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline-outcome or future-terminal labels as actor inputs",
+    "do not claim repair success driver performance current-sim robustness-result paper or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_action_authority_effectiveness",
+    "evidence_axis": "action_authority_effectiveness_admission",
+    "evidence_increment": "converts M3199 preterminal action-delta outcome-neutral evidence into implementation-admission rows for a stronger action-authority candidate",
+    "claim_scope": "Admission materialization only; no repair implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if M3199 artifacts or M3200 audit are missing",
+      "stop if admission rows require hidden labels as actor runtime inputs",
+      "route through M3202 audit before any implementation materialization"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if M3199 row accounting is incomplete",
+      "route to synthesis if no actor-visible action-effectiveness gap can be admitted",
+      "preserve M3105/M3103 incumbent until later accepted measurement improves hard-safety counts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3200 selects action-authority/effectiveness admission after M3199 outcome-neutral preterminal deltas",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize action-authority/effectiveness admission rows from M3199 diagnostics",
+    "admission_evidence": [
+      "M3200 audit",
+      "M3199 summary",
+      "M3199 trace_delta_rows",
+      "M3199 trace_delta_summary_rows",
+      "M3199 contract guards and gate matrix"
+    ],
+    "blocked_shortcuts": [
+      "no repair implementation validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver default mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight.py",
+      "runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight/**",
+      "docs/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.md",
+      "experiments/manifests/m3202-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-result-audit.json",
+      "docs/reviews/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.md",
+      "experiments/reviews/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.json",
+      "M3201 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3201 materializes admission rows contract guards claim rows gate rows doc and M3202 audit manifest"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3201 is engineering action-effectiveness admission and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3201; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3199 trace-delta artifacts and M3200 audit only.",
+    "negative_result_policy": "Preserve action-effectiveness admission evidence and route implementation materialization or synthesis through M3202 rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3201 admission completeness and contract-safety evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "moves from trace-delta diagnostic counts to a bounded implementation-admission surface for action-authority/effectiveness",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3201 targets engineering action-effectiveness admission only",
+    "must_synthesize_if": [
+      "M3201 cannot identify actor-visible action-effectiveness gaps",
+      "M3202 cannot select implementation materialization artifact repair synthesis or stop",
+      "admission rows imply hidden-label dependence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight/summary.json exists",
+    "M3201 writes action-authority/effectiveness admission rows guard claim and gate artifacts",
+    "M3201 preserves actor-visible-only contract and public driver default unchanged",
+    "M3201 registers M3202 result audit manifest"
+  ],
+  "failure_criteria": [
+    "M3201 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels TTC oracle values or future terminal status as actor runtime inputs",
+    "M3201 mutates the public driver or promotes a candidate",
+    "M3201 expands from admission materialization into implementation validation ranking or broad tuning",
+    "M3201 treats M3199 trace deltas as repair success or validation evidence"
+  ],
+  "decision_rule": "Pass only if M3201 materializes action-authority/effectiveness implementation-admission artifacts and registers M3202 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_action_authority_effectiveness_admission_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight --m3200-audit docs/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.md --m3199-dir runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight --output-dir runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight --doc-path docs/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.md --follow-up-manifest experiments/manifests/m3202-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight/action_authority_effectiveness_admission_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3202-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.md",
+    "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3201_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_admission_materialization_preflight/summary.json",
+  "next_blocker": "m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight",
+  "status": "pending"
+}

@@ -1,0 +1,162 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json",
+    "docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_source_localization_diagnostic_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3167 audits M3166 source-localization diagnostics and selects one repair-admission synthesis artifact-repair or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3167 hides missing M3166 rows or failed gates",
+    "M3167 treats M3166 diagnostics as repair success or performance verdict",
+    "M3167 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune rank promote validate or mutate checkpoints",
+    "do not convert M3166 source-localization rows into validation performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3166 residual hard-safety source-localization diagnostics before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "id": "m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3166 source-localization diagnostics require audit before repair admission or synthesis",
+      "M3166 is diagnostic materialization not repair evidence"
+    ],
+    "derived_from": [
+      "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+      "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+      "m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/summary.json",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/source_localization_rows.csv",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/repair_admission_rows.csv",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3166_engineering_controller_active_safety_driver_residual_hard_safety_source_localization_diagnostic_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit residual hard-safety source-localization diagnostics"
+    ],
+    "supersedes": [
+      "direct repair admission from M3165 without M3166 source-localization audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits source-localization diagnostics before repair admission",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3167 cannot accept M3166 as complete and claim-safe",
+      "M3167 cannot select one repair-admission diagnostic continuation artifact-repair synthesis or stop route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3167 audits engineering source-localization evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit",
+  "priority": 31670,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3167 must audit M3166 summary source-localization repair-admission claim and gate artifacts",
+    "M3167 must preserve obs72/action3 direct [steer throttle brake] contract and residual blocker disclosure",
+    "M3167 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3167 must select exactly one next route or stop state"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3166 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3167 audits engineering diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3167; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve residual blocker evidence and route to engineering repair-admission or synthesis rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3166 source-localization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md exists",
+    "M3167 audits M3166 source-localization diagnostic artifacts and claim boundaries",
+    "M3167 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3166 summary source-localization repair-admission claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md",
+      "docs/reviews/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.md",
+      "experiments/reviews/m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit.json",
+      "M3167 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3167 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation execution ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3167 accepts or rejects M3166 as complete and claim-safe",
+      "M3167 selects repair-admission diagnostic continuation artifact-repair synthesis or stop explicitly"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3166 residual hard-safety source-localization diagnostics"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_failure_source_resolution",
+    "claim_scope": "Result audit only; no repair validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_hard_safety_source_localization_diagnostic_result_audit",
+    "evidence_increment": "audits M3166 residual source-localization diagnostics before repair admission",
+    "fallback_plan": [
+      "route to M3166 artifact repair if diagnostics are incomplete",
+      "route to repair-admission planning if M3166 is complete and claim-safe",
+      "synthesize if M3167 cannot select one next route"
+    ],
+    "stop_condition": [
+      "stop if M3166 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "stop if next route would require hidden or oracle actor inputs"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3166 completes residual hard-safety source-localization diagnostic materialization"
+  }
+}

@@ -1,0 +1,86 @@
+# m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T042055Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_behavior_negative_source_repair_decomposition_route_to_m3176_result_audit
+- Decision reason: Completed: materialized M3175 no-new-execution decomposition with status_pass true gate_matrix_pass true 1 regression row 1 new collision regression versus M3105 8 blocker context rows 7 inherited blocker rows 4 repair-decomposition rows 13 contract guards 11 claim-boundary rows and M3176 audit registered; no environment execution policy action driver mutation implementation validation promotion repair-success robustness-result or self-ID claim.
+
+## Hypothesis
+
+A bounded no-new-execution decomposition preflight can reanalyze M3172 same-row negative measurement evidence into regression blocker-context repair-decomposition guard and claim artifacts that isolate the single new collision regression versus M3105 and preserve M3105/M3103 as incumbent before any targeted trace ablation repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.md, docs/m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit.md
+- parent_dataset: runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/summary.json, runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/same_row_comparison_rows.csv, runs/m3172_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_full_fresh_measurement_preflight/gate_matrix.csv, runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/source_localized_rule_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv
+- parent_config: experiments/manifests/m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis.json, experiments/manifests/m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight.json
+- parent_objective: materialize behavior-negative repair decomposition before targeted trace or implementation
+- derived_from: m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis, m3173-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-result-audit, m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight, m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3172 is behavior-negative versus M3105 and M3095, M3174 selected decomposition before any next repair implementation, the next repair must be based on actor-visible features rather than row labels or outcome labels
+- supersedes: direct continuation of M3170 source-localized overlay, direct implementation after M3174 negative synthesis
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3175_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_source_repair_decomposition_materialization_preflight/summary.json exists
+- M3175 writes regression blocker-context repair-decomposition guard claim and gate artifacts
+- M3175 preserves obs72/action3 direct-action contract and public driver default unchanged
+- M3175 registers M3176 result audit manifest without overclaiming
+
+## Failure Criteria
+
+- M3175 cannot load M3174 synthesis M3173 audit M3172 measurement M3170 candidate or M3105 incumbent artifacts
+- M3175 hides the single M3172 new collision regression versus M3105
+- M3175 admits direct public driver mutation or repair implementation before targeted actor-visible trace evidence
+- M3175 treats decomposition rows as repair success validation performance or self-ID evidence
+
+## Evidence Gates
+
+- M3175 must preserve M3105/M3103 as incumbent deployable fallback
+- M3175 must materialize exactly the M3172-vs-M3105 new regression rows and inherited blocker context rows
+- M3175 must reject direct repair implementation public driver mutation validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+- M3175 must register M3176 result audit
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run reset step rollout replay policy action fitting PPO training repair implementation validation ranking promotion or high-fidelity simulation
+- do not use hidden oracle target TTC source route outcome progress verdict row-label or baseline-outcome labels as actor runtime inputs
+- do not mutate public ActiveSafetyReflexDriver default binding
+- do not claim driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3175_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_source_repair_decomposition_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_behavior_negative_source_repair_decomposition_route_to_m3176_result_audit
+- reason: Completed: materialized M3175 no-new-execution decomposition with status_pass true gate_matrix_pass true 1 regression row 1 new collision regression versus M3105 8 blocker context rows 7 inherited blocker rows 4 repair-decomposition rows 13 contract guards 11 claim-boundary rows and M3176 audit registered; no environment execution policy action driver mutation implementation validation promotion repair-success robustness-result or self-ID claim.
+
+## Next Blocker
+
+m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight

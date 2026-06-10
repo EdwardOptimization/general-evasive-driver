@@ -1,0 +1,192 @@
+{
+  "id": "m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight",
+  "priority": 32100,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded residual-trace measurement preflight can execute the M3208 recovery-clearance supervisor candidate on the same seven residual blocker trace bindings and compare same traces against M3205, M3194, and incumbent evidence before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claims.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/summary.json",
+      "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/action_probe_rows.csv",
+      "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/gate_matrix.csv",
+      "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/summary.json",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_execution_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit.json",
+      "experiments/manifests/m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "measure M3208 recovery-clearance supervisor on same seven residual trace bindings before validation or promotion"
+    ],
+    "derived_from": [
+      "m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit",
+      "m3208-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-materialization-preflight",
+      "m3207-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-neutral-residual-trace-synthesis",
+      "m3205-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-residual-trace-measurement-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3209 admits residual-trace measurement only, not validation or repair success",
+      "M3208 materializes the supervisor architecture but does not measure it on residual traces"
+    ],
+    "supersedes": [
+      "architecture-probe-only interpretation after M3208"
+    ],
+    "invalidates": [
+      "claiming M3208 probe coverage as closed-loop improvement without M3210 measurement"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md",
+  "public_gates": [
+    "M3210 must execute the same seven residual blocker trace bindings before interpretation",
+    "M3210 must preserve obs72/action3 direct [steer throttle brake] contract",
+    "M3210 must compare same traces against M3205, M3194, and incumbent trace evidence without ranking or promotion",
+    "M3210 must register M3211 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not validate rank promote train PPO fit replay or run high-fidelity simulation",
+    "do not use hidden oracle target TTC source route outcome progress verdict row-label baseline-outcome or future terminal labels as actor runtime inputs",
+    "do not mutate ActiveSafetyReflexDriver public default or promote any checkpoint",
+    "do not claim driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_recovery_clearance_supervisor",
+    "evidence_axis": "recovery_clearance_supervisor_residual_trace_measurement",
+    "evidence_increment": "adds same-seven residual-trace closed-loop measurement for the M3208 supervisor candidate after implementation audit",
+    "claim_scope": "Measurement preflight only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if M3210 cannot execute the same seven residual trace bindings without contract violations",
+      "stop if M3210 is behavior-negative versus incumbent or M3205 on residual blockers",
+      "route through M3211 audit before validation or deployable update"
+    ],
+    "fallback_plan": [
+      "route to M3210 artifact repair if row counts or guards fail",
+      "route to synthesis if M3210 is behavior-negative or inconclusive",
+      "preserve M3105/M3103 incumbent until audit accepts improved hard-safety counts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3209 accepts M3208 materialization and selects residual-trace measurement",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Measure M3208 recovery-clearance supervisor candidate on same seven residual trace bindings",
+    "admission_evidence": [
+      "M3209 accepted M3208 materialization",
+      "M3208 preserved direct-action contract and public driver default"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver default mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight.py",
+      "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/**",
+      "docs/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md",
+      "experiments/manifests/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.json",
+      "docs/reviews/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md",
+      "experiments/reviews/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.json",
+      "M3210 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3210 completes same-seven residual trace measurement and registers M3211 audit",
+      "M3211 audits M3210 before full-fresh measurement validation synthesis or stop"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3210 measures engineering driver behavior and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3210; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3208 candidate over residual trace bindings only.",
+    "negative_result_policy": "Route negative measurement evidence through M3211 audit and synthesis or stop rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3210 same-trace measurement artifact completeness and contract-safety evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "moves from architecture materialization to same-seven residual-trace closed-loop evidence for the supervisor candidate",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3210 targets engineering measurement evidence only",
+    "must_synthesize_if": [
+      "M3210 repeats residual hard-safety blockers without improvement",
+      "M3211 cannot select full-fresh measurement artifact repair synthesis or stop",
+      "M3210 indicates the supervisor only changes probes without closed-loop benefit"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json exists",
+    "M3210 writes residual trace measurement comparison guard claim and gate artifacts",
+    "M3210 preserves actor-visible-only contract and public driver default unchanged",
+    "M3210 registers M3211 result audit manifest"
+  ],
+  "failure_criteria": [
+    "M3210 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels TTC oracle values or future terminal status as actor runtime inputs",
+    "M3210 mutates the public driver or promotes the candidate",
+    "M3210 expands from measurement into validation ranking or broad tuning",
+    "M3210 treats measurement rows as repair success or validation evidence"
+  ],
+  "decision_rule": "Pass only if M3210 measures the M3208 candidate on the same residual trace bindings and registers M3211 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_recovery_clearance_supervisor_residual_trace_measurement_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight --m3209-audit docs/m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit.md --m3208-dir runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight --m3205-dir runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight --m3189-dir runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight --m3187-dir runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight --doc-path docs/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md --follow-up-manifest experiments/manifests/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/candidate_trace_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/same_trace_comparison_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3211-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3209-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-architecture-result-audit.md",
+    "runs/m3208_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_architecture_materialization_preflight/summary.json",
+    "runs/m3205_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_residual_trace_measurement_preflight/summary.json",
+    "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3210_engineering_controller_active_safety_driver_residual_hard_safety_recovery_clearance_supervisor_residual_trace_measurement_preflight/summary.json",
+  "next_blocker": "m3210-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-residual-trace-measurement-preflight",
+  "status": "pending"
+}

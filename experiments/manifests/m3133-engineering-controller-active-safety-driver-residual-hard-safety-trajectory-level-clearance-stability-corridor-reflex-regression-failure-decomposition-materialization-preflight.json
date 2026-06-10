@@ -1,0 +1,182 @@
+{
+  "id": "m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight",
+  "priority": 31330,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded no-new-execution regression failure decomposition can convert M3131 behavior-negative full-fresh rows and same-row comparisons into failure-axis rows before any new repair materialization validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/summary.json",
+      "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.json",
+      "experiments/manifests/m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight.json"
+    ],
+    "parent_objective": [
+      "decompose M3131 standalone corridor reflex behavior regression before any next repair"
+    ],
+    "derived_from": [
+      "m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit",
+      "m3131-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-preflight",
+      "m3129-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3131 is behavior-negative versus M3105/M3095 and cannot be promoted or interpreted as repair success",
+      "the next repair route must separate added offtrack, speed-too-low, collision, clearance, return, and stability regressions"
+    ],
+    "supersedes": [
+      "blind continuation from M3131 full-fresh measurement to another gain edit"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight.md",
+  "public_gates": [
+    "M3133 must not execute new environment rows",
+    "M3133 must preserve M3131 row identity and same-row baseline alignment",
+    "M3133 must classify added offtrack speed-too-low collision clearance-margin and stability/recovery regressions",
+    "M3133 must not claim validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence",
+    "M3133 must register M3134 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input",
+    "do not convert M3131 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_level_controller_architecture_diagnosis",
+    "evidence_axis": "corridor_reflex_regression_failure_decomposition",
+    "evidence_increment": "decomposes behavior-negative full-fresh measurement into repair-routing evidence without new execution",
+    "claim_scope": "Regression decomposition artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if M3131 row identity or same-row comparison alignment cannot be preserved",
+      "stop if decomposition would require hidden actor inputs or post-hoc labels as runtime inputs",
+      "route to M3134 audit before any next repair materialization"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if source rows are incomplete",
+      "route to guarded fallback or hybridization synthesis if standalone corridor reflex is broadly regressive",
+      "route to stop if no actor-contract-preserving repair route remains"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3132 audits M3131 as complete but behavior-negative",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize no-new-execution regression decomposition rows from M3131",
+    "admission_evidence": [
+      "M3132 audit",
+      "M3131 summary",
+      "M3131 measurement rows",
+      "M3131 same-row comparison rows"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight.py",
+      "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight",
+      "docs/m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight.md",
+      "experiments/manifests/m3134-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-result-audit.json",
+      "M3133 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3133 writes complete regression decomposition artifacts",
+      "M3133 registers M3134 result audit before any next repair route"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3133 decomposes engineering measurement regressions and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3133; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3131 full-fresh measurement rows only.",
+    "negative_result_policy": "Preserve behavior-negative evidence and route engineering repair decisions rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3133 decomposition artifact completeness and claim-safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "turns a behavior-negative full-fresh measurement into axis-specific repair-routing evidence",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3133 targets engineering hard-safety regression decomposition",
+    "must_synthesize_if": [
+      "M3133 cannot preserve row identity or same-row alignment",
+      "M3133 cannot distinguish added offtrack speed-too-low collision clearance and stability regressions",
+      "M3133 cannot register an audit route before next repair"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3133 writes regression failure decomposition artifacts preserving M3131 row identity",
+    "M3133 registers M3134 result audit"
+  ],
+  "failure_criteria": [
+    "M3133 drops M3131 row identity or same-row baseline alignment",
+    "M3133 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3133 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3133 writes complete no-new-execution regression decomposition artifacts and registers M3134 audit while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight --m3132-audit docs/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.md --m3131-dir runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --output-dir runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight --doc-path docs/m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight.md --follow-up-manifest experiments/manifests/m3134-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight/regression_failure_decomposition_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3134-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3132-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-full-fresh-measurement-result-audit.md",
+    "runs/m3131_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_full_fresh_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3133_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_clearance_stability_corridor_reflex_regression_failure_decomposition_materialization_preflight/summary.json",
+  "next_blocker": "m3134-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-result-audit",
+  "status": "pending"
+}

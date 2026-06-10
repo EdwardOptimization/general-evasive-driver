@@ -1,0 +1,194 @@
+{
+  "id": "m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight",
+  "priority": 31220,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded no-new-execution trajectory-level controller architecture diagnostic can convert the M3126 audit M3125 envelope rows and M3115 traces into actor-contract-preserving architecture candidate and requirement artifacts before any repair validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit.md",
+      "docs/m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight.md"
+    ],
+    "parent_dataset": [
+      "runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/summary.json",
+      "runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/counterfactual_action_authority_envelope_rows.csv",
+      "runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/envelope_requirement_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit.json",
+      "experiments/manifests/m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "materialize a trajectory-level controller architecture diagnostic after M3126 accepts M3125 envelope evidence"
+    ],
+    "derived_from": [
+      "m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit",
+      "m3125-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-materialization-preflight",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3125 shows six of seven residual hard-safety rows are near or fully exhausted under direct-action envelope labels",
+      "M3126 rejects another blind local direct-gain edit before architecture evidence",
+      "M3127 must not run repair measurement validation or verdict before architecture diagnostics are materialized"
+    ],
+    "supersedes": [
+      "direct local gain repair after M3125 envelope labels"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.md",
+  "public_gates": [
+    "M3127 must be no-new-execution diagnostic materialization only",
+    "M3127 must preserve obs72/action3 direct [steer throttle brake] actor contract and runtime_base_policy_required false",
+    "M3127 must output architecture candidate and controller contract requirement artifacts before any repair",
+    "M3127 must register M3128 result audit before any implementation measurement or verdict"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input",
+    "do not implement repair materialization or claim repair success from architecture diagnostic rows",
+    "do not treat architecture labels as validation driver-performance current-sim robustness-result high-fidelity paper full-driver feasibility proof or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_level_controller_architecture_diagnosis",
+    "evidence_axis": "residual_trajectory_level_controller_architecture_diagnostic_materialization",
+    "evidence_increment": "materializes architecture candidate and contract requirement evidence after M3125 direct-action envelope saturation diagnostics",
+    "claim_scope": "Diagnostic materialization only; no repair validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if the architecture diagnostic cannot preserve direct [steer throttle brake] output semantics",
+      "stop if the diagnostic would require hidden oracle actor inputs or post-hoc verdict labels",
+      "route to M3128 audit before any implementation or measurement"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if source rows are incomplete",
+      "route to stop/synthesis if no actor-contract-preserving architecture candidate remains",
+      "route to one controlled materialization only after audit"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3126 accepts M3125 and routes away from local gain search toward architecture diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize trajectory-level controller architecture diagnostics for residual hard-safety rows",
+    "admission_evidence": [
+      "M3126 audit",
+      "M3125 envelope diagnostics",
+      "M3115 step/action traces"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no feasibility or infeasibility proof claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight.py",
+      "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight",
+      "docs/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.md",
+      "experiments/manifests/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.json",
+      "M3127 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3127 writes complete architecture diagnostic artifacts",
+      "M3127 registers M3128 result audit before any implementation or verdict"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3127 materializes engineering architecture diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3127; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3125 and M3115 row-preserving engineering artifacts only.",
+    "negative_result_policy": "Preserve architecture evidence and route engineering decisions rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3127 diagnostic artifact completeness and row-preserving architecture candidate categories",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "evidence_reanalysis",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "opens a trajectory-level controller architecture evidence axis after direct-action envelope saturation diagnostics",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3127 targets engineering architecture evidence",
+    "must_synthesize_if": [
+      "M3127 cannot preserve actor-boundary evidence",
+      "M3127 would become repair materialization without architecture diagnostic evidence",
+      "M3127 cannot register an audit route before verdict"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3127 writes row-preserving architecture diagnostic artifacts for the residual hard-safety blockers",
+    "M3127 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3127 registers M3128 result audit"
+  ],
+  "failure_criteria": [
+    "M3127 drops row identity or changes denominator",
+    "M3127 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3127 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3127 writes complete architecture diagnostic artifacts and registers M3128 audit while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_trajectory_level_controller_architecture_diagnostic_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight --m3126-audit docs/m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit.md --m3125-dir runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight --m3115-dir runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight --output-dir runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight --doc-path docs/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.md --follow-up-manifest experiments/manifests/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/architecture_candidate_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/controller_contract_requirement_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3127-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3126-engineering-controller-active-safety-driver-residual-hard-safety-counterfactual-action-authority-envelope-diagnostic-result-audit.md",
+    "runs/m3125_engineering_controller_active_safety_driver_residual_hard_safety_counterfactual_action_authority_envelope_diagnostic_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3127_engineering_controller_active_safety_driver_residual_hard_safety_trajectory_level_controller_architecture_diagnostic_materialization_preflight/summary.json",
+  "next_blocker": "m3128-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-controller-architecture-diagnostic-result-audit",
+  "status": "pending"
+}

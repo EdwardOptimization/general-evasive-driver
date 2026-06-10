@@ -1,0 +1,165 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/summary.json",
+    "docs/m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight.md"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_source_localized_repair_implementation_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3171 audits M3170 artifacts and selects one measurement preflight artifact-repair synthesis or stop route without overclaiming.",
+  "failure_criteria": [
+    "M3171 hides missing M3170 rows or failed gates",
+    "M3171 treats M3170 action probes as repair success or performance verdict",
+    "M3171 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measurement validation ranking promotion high-fidelity simulation fitting PPO or training",
+    "do not convert action probes into validation performance robustness-result repair-success feasibility-proof or self-ID evidence",
+    "do not change actor input action contract runtime base-policy-free boundary or public driver default binding"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3170 source-localized repair implementation materialization artifacts before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "id": "m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3170 is candidate materialization only and needs audit before measurement",
+      "action probes are runtime contract probes not validation evidence"
+    ],
+    "derived_from": [
+      "m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight",
+      "m3169-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-admission-result-audit",
+      "m3168-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-admission-materialization-preflight",
+      "m3167-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-result-audit",
+      "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight.md",
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/summary.json",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/source_localized_rule_rows.csv",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/repair_hypothesis_binding_rows.csv",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/action_probe_rows.csv",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3170_engineering_controller_active_safety_driver_residual_hard_safety_source_localized_repair_implementation_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3170 candidate implementation before measurement admission"
+    ],
+    "supersedes": [
+      "direct measurement admission from M3168 repair-admission rows"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits the new source-localized candidate implementation before measurement",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3171 cannot select measurement preflight artifact repair synthesis or stop"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3171 audits engineering candidate artifacts",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit",
+  "priority": 31710,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3171 must audit M3170 config rule contract binding action-probe claim and gate artifacts",
+    "M3171 must preserve obs72/action3 direct [steer throttle brake] runtime contract and public driver default unchanged boundary",
+    "M3171 must reject measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3171 must select measurement preflight artifact-repair synthesis or stop explicitly"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3170 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3171 audits engineering materialization artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3171; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Reject or repair M3170 artifacts rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3170 materialization artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md exists",
+    "M3171 audits M3170 materialization artifacts and claim boundaries",
+    "M3171 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3170 summary config rule contract binding probe claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md",
+      "docs/reviews/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.md",
+      "experiments/reviews/m3171-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-result-audit.json",
+      "M3171 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3171 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no measurement validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input runtime base policy or public driver default mutation"
+    ],
+    "next_stage_criteria": [
+      "M3171 accepts or rejects M3170 as complete and claim-safe",
+      "next measurement preflight artifact-repair synthesis or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3170 materialized candidate implementation artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_failure_source_resolution",
+    "claim_scope": "Result audit only; no measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "source_localized_repair_implementation_result_audit",
+    "evidence_increment": "audits materialized candidate implementation artifacts before measurement admission",
+    "fallback_plan": [
+      "route to M3170 artifact repair if incomplete",
+      "route to synthesis if candidate cannot preserve deployable boundary",
+      "require full-fresh same-case measurement before behavior interpretation"
+    ],
+    "stop_condition": [
+      "stop if M3170 artifacts are incomplete or gate matrix fails",
+      "stop if actor or direct-action contracts are violated",
+      "route to measurement only after audit acceptance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3170 materializes source-localized candidate implementation"
+  }
+}

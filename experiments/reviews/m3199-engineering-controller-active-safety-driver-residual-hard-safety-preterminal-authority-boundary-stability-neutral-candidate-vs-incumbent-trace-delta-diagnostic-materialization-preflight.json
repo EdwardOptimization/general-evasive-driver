@@ -1,0 +1,83 @@
+{
+  "decision_reason": "Pass only if M3199 materializes candidate-vs-incumbent residual trace-delta diagnostics and registers M3200 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "failure_criteria": [
+    "M3199 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels TTC oracle values or future terminal status as actor runtime inputs",
+    "M3199 mutates the public driver or promotes the candidate",
+    "M3199 expands from diagnostic trace execution into validation ranking or broad tuning",
+    "M3199 treats trace deltas as repair success or validation evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not implement new repair logic in M3199",
+    "do not mutate ActiveSafetyReflexDriver public default",
+    "do not run validation ranking promotion high-fidelity simulation training PPO or replay",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline-outcome or future-terminal labels as actor inputs",
+    "do not claim repair success driver performance current-sim robustness-result paper or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T064649Z",
+  "hypothesis": "A bounded diagnostic materialization can compare M3194 candidate trace-step actions against M3189 incumbent trace-step actions on the seven residual blocker bindings and classify timing sign magnitude clipping and terminal-window deltas before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3196 is neutral in hard-safety counts",
+      "direct tuning without step-level candidate-vs-incumbent evidence is overfit-prone"
+    ],
+    "derived_from": [
+      "m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis",
+      "m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit",
+      "m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight",
+      "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight"
+    ],
+    "invalidates": [
+      "M3194 validation or promotion on M3196 evidence"
+    ],
+    "parent_checkpoint": [
+      "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_execution_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_step_rows.csv",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "diagnose why the M3194 candidate is hard-safety neutral by comparing residual trace deltas against the incumbent"
+    ],
+    "supersedes": [
+      "direct M3194 parameter tuning after neutral full-fresh measurement"
+    ]
+  },
+  "milestone": "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+  "next_blocker": "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3199 must preserve obs72-only direct action3 runtime",
+    "M3199 must use the same seven residual blocker trace bindings accepted by M3188-M3190",
+    "M3199 must compare candidate and incumbent trace-step action deltas without ranking or promotion",
+    "M3199 must register M3200 result audit",
+    "M3199 must reject validation repair-success performance current-sim high-fidelity full-driver robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json exists",
+    "M3199 writes candidate trace execution rows trace step rows trace delta rows guard claim and gate artifacts",
+    "M3199 preserves actor-visible-only contract and public driver default unchanged",
+    "M3199 registers M3200 result audit manifest"
+  ],
+  "type": "infrastructure"
+}

@@ -1,0 +1,85 @@
+# m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T205015Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: accept_m3105_artifacts_with_no_regression_plateau_route_to_m3107_residual_collision_offtrack_synthesis
+- Decision reason: Completed: audit accepts M3105 full-fresh v4 v2-fallback no-regression hard-safety direct-action repair measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 192 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64; M3105 removes M3100 behavior regressions but plateaus versus M3095 with unchanged residual 5 collision and 2 offtrack blockers so it is not validation repair-success performance current-sim verdict robustness-result high-fidelity paper full-driver or self-ID evidence; selects exactly one follow-up to M3107 residual collision/offtrack hard-safety synthesis.
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M3105 v4 v2-fallback no-regression hard-safety full-fresh measurement artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight.md, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json
+- parent_dataset: runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_failure_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_metric_summary_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_contract_guard_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/claim_boundary_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight.json
+- parent_objective: audit full-fresh v4 v2-fallback no-regression hard-safety repair measurement before broader interpretation
+- derived_from: m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight, m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit, m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight, m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight, m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight, m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight
+- blocked_by: M3105 full-fresh measurement rows require audit before any validation or repair-success route, same-row comparison against M3095 M3100 and M3090 is measurement context and not a performance verdict before M3106
+- supersedes: direct interpretation of M3105 rows without audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md exists
+- M3106 audits M3105 row counts gates actor contract same-row comparison and claim boundaries
+- M3106 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- M3106 selects exactly one next route or stop state
+
+## Failure Criteria
+
+- M3106 hides M3105 failures or missing artifacts
+- M3106 treats M3105 runtime measurement as validation repair-success or performance verdict
+- M3106 changes actor input or action contract
+- M3106 leaves next route ambiguous
+
+## Evidence Gates
+
+- M3106 must audit M3105 summary measurement comparison metric guard claim and gate artifacts
+- M3106 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false
+- M3106 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- M3106 must select exactly one behavior synthesis validation-planning stop or next repair route
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun tune expand rank promote validate or mutate checkpoints
+- do not convert M3105 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims
+- do not change actor input or action contract
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit
+- type: gate
+- checkpoint: docs/m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: accept_m3105_artifacts_with_no_regression_plateau_route_to_m3107_residual_collision_offtrack_synthesis
+- reason: Completed: audit accepts M3105 full-fresh v4 v2-fallback no-regression hard-safety direct-action repair measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 192 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64; M3105 removes M3100 behavior regressions but plateaus versus M3095 with unchanged residual 5 collision and 2 offtrack blockers so it is not validation repair-success performance current-sim verdict robustness-result high-fidelity paper full-driver or self-ID evidence; selects exactly one follow-up to M3107 residual collision/offtrack hard-safety synthesis.
+
+## Next Blocker
+
+m3106-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-result-audit

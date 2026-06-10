@@ -1,0 +1,79 @@
+{
+  "decision_reason": "Pass only if M3178 audits M3177 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3178 hides missing M3177 artifacts or failed gates",
+    "M3178 treats M3177 trace-ablation as repair success or performance verdict",
+    "M3178 changes actor input or action contract",
+    "M3178 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run repair implementation validation ranking promotion or high-fidelity simulation in M3178",
+    "do not convert M3177 trace rows into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not change actor input action contract or public driver default"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260608T044544Z",
+  "hypothesis": "A bounded result audit can accept or reject M3177 targeted trace-ablation artifacts before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3177 trace-ablation rows require audit before any guard or implementation",
+      "the regression route must preserve actor-visible-only runtime inputs"
+    ],
+    "derived_from": [
+      "m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight",
+      "m3176-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-result-audit",
+      "m3175-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-source-repair-decomposition-materialization-preflight",
+      "m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight",
+      "m3170-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/summary.json",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/targeted_trace_rows.csv",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/ablation_variant_rows.csv",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/contract_guard_rows.csv",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3177 targeted actor-visible trace-ablation before implementation planning"
+    ],
+    "supersedes": [
+      "direct repair implementation after M3176"
+    ]
+  },
+  "milestone": "m3178-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-result-audit",
+  "next_blocker": "m3178-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3178 must audit M3177 targeted trace variant guard claim and gate artifacts",
+    "M3178 must preserve obs72/action3 direct-action contract and public driver default unchanged",
+    "M3178 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3178 must select exactly one implementation-planning artifact-repair synthesis or stop route"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "docs/m3178-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-result-audit.md exists",
+    "M3178 audits M3177 row counts gates actor contract and claim boundaries",
+    "M3178 selects exactly one next route or stop state"
+  ],
+  "type": "gate"
+}

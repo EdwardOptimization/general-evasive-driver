@@ -1,0 +1,88 @@
+# m3110-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260607T211748Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_route_to_m3111_result_audit
+- Decision reason: Completed: materialized M3110 actor-visible residual collision offtrack repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3110_residual_collision_offtrack_actor_visible_repair source_residual_rows 7 collisions 5 offtracks 2 speed_too_low 0 rule_rows 6 residual_repair_guard_rows 7 claim_boundary_rows 21 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false no measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim registered M3111 result audit.
+
+## Hypothesis
+
+A bounded actor-visible residual collision/offtrack repair materialization can produce obs72-to-action3 direct-action rule config guard and claim-boundary artifacts that target M3108 residual hard-safety requirements while preserving the M3105 zero speed-too-low guard before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3109-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-result-audit.md, docs/m3108-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-materialization-preflight.md, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json
+- parent_dataset: runs/m3108_engineering_controller_active_safety_driver_residual_collision_offtrack_failure_decomposition_materialization_preflight/summary.json, runs/m3108_engineering_controller_active_safety_driver_residual_collision_offtrack_failure_decomposition_materialization_preflight/residual_failure_rows.csv, runs/m3108_engineering_controller_active_safety_driver_residual_collision_offtrack_failure_decomposition_materialization_preflight/residual_repair_requirement_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json
+- parent_config: experiments/manifests/m3109-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-result-audit.json, experiments/manifests/m3108-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-materialization-preflight.json, experiments/manifests/m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight.json
+- parent_objective: materialize an actor-visible direct-action residual collision/offtrack repair package after M3109 accepts M3108 decomposition
+- derived_from: m3109-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-result-audit, m3108-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-materialization-preflight, m3107-engineering-controller-active-safety-driver-v4-plateau-and-residual-collision-offtrack-hard-safety-synthesis, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight, m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight
+- blocked_by: M3108 decomposes 5 residual collisions and 2 residual offtracks, M3105 preserves zero speed-too-low rows and that guard must not be reopened, M3109 requires a bounded materialization audit before measurement
+- supersedes: direct measurement admission without residual repair materialization artifacts
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/direct_action_policy_config.json materializes obs72/action3 direct [steer throttle brake] with runtime_base_policy_required false
+- runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/residual_repair_guard_rows.csv covers M3108 residual collision offtrack speed-floor and actor-boundary requirements
+- runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/claim_boundary_rows.csv rejects measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- experiments/manifests/m3111-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-materialization-result-audit.json is created and pending
+
+## Failure Criteria
+
+- M3110 changes observation shape action shape action component order or direct-action semantics
+- M3110 requires runtime base policy residual adapter checkpoint model hidden state or hidden actor input
+- M3110 omits M3108 residual repair requirements or speed-floor preservation guard
+- M3110 makes measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claims
+
+## Evidence Gates
+
+- M3110 must materialize artifacts only and run no reset step rollout replay fitting training validation ranking promotion high-fidelity simulation or self-ID test
+- M3110 must preserve obs72/action3 direct [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false and no recurrent hidden state
+- M3110 must include repair guards for M3108 collision_lateral_intrusion offtrack_boundary_recovery residual_collision residual_offtrack and speed_floor_preservation requirements
+- M3110 must reject measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result and self-ID claims
+- M3110 must register M3111 result audit before any measurement route
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run measurement validation ranking promotion high-fidelity simulation fitting PPO or training
+- do not treat materialization as driver-performance repair-success robustness-result current-sim verdict or self-ID evidence
+- do not use hidden oracle TTC target source route outcome progress verdict labels or M3108 residual outcome labels as actor input
+- do not reopen the M3105 zero speed-too-low guard with broad throttle suppression
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3110-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3110_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_preflight/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_residual_collision_offtrack_actor_visible_repair_materialization_route_to_m3111_result_audit
+- reason: Completed: materialized M3110 actor-visible residual collision offtrack repair artifacts with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3110_residual_collision_offtrack_actor_visible_repair source_residual_rows 7 collisions 5 offtracks 2 speed_too_low 0 rule_rows 6 residual_repair_guard_rows 7 claim_boundary_rows 21 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false no measurement validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim registered M3111 result audit.
+
+## Next Blocker
+
+m3111-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-materialization-result-audit

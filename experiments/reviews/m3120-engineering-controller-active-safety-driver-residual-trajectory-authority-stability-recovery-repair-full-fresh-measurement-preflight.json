@@ -1,0 +1,94 @@
+{
+  "decision_reason": "Completed: ran M3120 full-fresh M3118 residual trajectory-authority stability-recovery direct-action repair measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 256 exact_seed_matches_m3105 64 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64 success_delta_vs_m3105 0 collision_delta_vs_m3105 0 offtrack_delta_vs_m3105 0 speed_too_low_delta_vs_m3105 0 success_delta_vs_m3095 0 collision_delta_vs_m3095 0 offtrack_delta_vs_m3095 0 speed_too_low_delta_vs_m3095 0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false no validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim registered M3121 result audit.",
+  "failure_criteria": [
+    "M3120 drops full-fresh row identity or changes denominator",
+    "M3120 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3120 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels or baseline outcomes as actor input",
+    "do not treat M3120 measurement rows as repair-success or driver-performance evidence before M3121 audit"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260607T222028Z",
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3118 residual trajectory-authority and stability-recovery direct-action repair as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison safety contract and claim-boundary artifacts against M3105 M3095 M3100 and M3090 before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3118 materialization must be measured before behavior interpretation",
+      "M3118 is not repair-success or performance evidence until full fresh measurement and result audit"
+    ],
+    "derived_from": [
+      "m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit",
+      "m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight",
+      "m3117-engineering-controller-active-safety-driver-residual-action-influence-repair-synthesis",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit.md",
+      "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit.json",
+      "experiments/manifests/m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/summary.json",
+      "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/residual_trace_requirement_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_objective": [
+      "execute M3118 materialized direct-action repair on the full fresh denominator"
+    ],
+    "supersedes": [
+      "direct interpretation of M3118 materialization without full fresh measurement"
+    ]
+  },
+  "milestone": "m3120-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-preflight",
+  "next_blocker": "m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_route_to_m3121_result_audit",
+  "public_gates": [
+    "M3120 must execute exactly the complete 64-row M3084 fresh denominator",
+    "M3120 must preserve obs72/action3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3120 must write same-row comparisons against M3105 M3095 M3100 and M3090",
+    "M3120 must not claim validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID evidence",
+    "M3120 must register M3121 result audit before any verdict"
+  ],
+  "scoreboard": {
+    "checkpoint": "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/summary.json",
+    "clearance_margin_mean": "10.981241004822653",
+    "decision": "active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_route_to_m3121_result_audit",
+    "milestone": "m3120-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-preflight",
+    "reason": "Completed: ran M3120 full-fresh M3118 residual trajectory-authority stability-recovery direct-action repair measurement with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 57 success 5 collision 2 offtrack 0 speed_too_low same_row_comparison_rows 256 exact_seed_matches_m3105 64 exact_seed_matches_m3095 64 exact_seed_matches_m3100 64 exact_seed_matches_m3090 64 success_delta_vs_m3105 0 collision_delta_vs_m3105 0 offtrack_delta_vs_m3105 0 speed_too_low_delta_vs_m3105 0 success_delta_vs_m3095 0 collision_delta_vs_m3095 0 offtrack_delta_vs_m3095 0 speed_too_low_delta_vs_m3095 0 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false no validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID claim registered M3121 result audit.",
+    "reset_success": "",
+    "success_rate": "0.890625",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3120 writes complete 64-row measurement artifacts and same-row comparison artifacts",
+    "M3120 preserves actor 72/action 3 direct [steer throttle brake] and runtime_base_policy_required false",
+    "M3120 registers M3121 result audit"
+  ],
+  "type": "infrastructure"
+}

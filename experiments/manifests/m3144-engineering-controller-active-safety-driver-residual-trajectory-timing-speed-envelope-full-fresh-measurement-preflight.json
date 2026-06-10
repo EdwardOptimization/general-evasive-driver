@@ -1,0 +1,195 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.md",
+    "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight --m3143-audit docs/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.md --m3142-dir runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3095-dir runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --m3100-dir runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight --doc-path docs/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.json --device cpu",
+      "name": "active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement"
+    }
+  ],
+  "decision_rule": "Pass only if M3144 completes the full fresh measurement artifacts and registers M3145 audit while preserving actor and claim boundaries.",
+  "failure_criteria": [
+    "M3144 drops rows from the full fresh denominator",
+    "M3144 violates the actor-visible obs72-to-action3 direct-action contract",
+    "M3144 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validation or mutate checkpoints",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or M3105 blocker labels as actor inputs",
+    "do not convert M3144 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3142 residual trajectory-timing speed-envelope candidate as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison safety contract and claim-boundary artifacts against M3105 M3095 M3100 and M3090 before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3142 is only materialized and needs full-fresh measurement before any behavior interpretation",
+      "M3144 must preserve same-row denominator alignment against M3105 M3095 M3100 and M3090"
+    ],
+    "derived_from": [
+      "m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.md",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.json",
+      "experiments/manifests/m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/summary.json",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/speed_envelope_rule_rows.csv",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/action_probe_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_objective": [
+      "measure M3142 speed-envelope candidate on the complete fresh denominator"
+    ],
+    "supersedes": [
+      "interpreting M3142 action probes as measured repair success"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "evidence_expansion": "measures the new speed-envelope route rather than another terminal direct-gain overlay",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3144 cannot preserve full denominator and same-row baseline alignment",
+      "M3144 is behavior-negative or plateaus against M3105",
+      "M3145 cannot select exactly one next route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3144 targets engineering hard-safety measurement",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit",
+  "priority": 31440,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3144 must execute exactly the complete M3084 64-row fresh denominator",
+    "M3144 must use the M3142 speed-envelope candidate as the full obs72-to-action3 action source",
+    "M3144 must write same-row comparisons against M3105 M3095 M3100 and M3090 with exact seed alignment",
+    "M3144 must preserve obs72/action3 direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3144 must not claim validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence",
+    "M3144 must register M3145 result audit"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.md",
+  "scoreboard_checkpoint": "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3144 measurement artifact completeness and claim-safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3144 measures an engineering direct-action reflex candidate and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3144; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve behavior evidence and route engineering repair decisions rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3144 full-fresh measurement rows only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3144 writes 64 measurement episode rows and zero measurement failure rows",
+    "M3144 writes 256 same-row comparison rows and registers M3145 result audit"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3143 audit",
+      "M3142 materialization",
+      "M3084 fresh denominator",
+      "M3105 M3095 M3100 M3090 same-row baselines"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight.py",
+      "runs/m3144_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_full_fresh_measurement_preflight",
+      "docs/m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight.md",
+      "experiments/manifests/m3145-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-result-audit.json",
+      "M3144 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime learned base policy"
+    ],
+    "next_stage_criteria": [
+      "M3144 writes complete full-fresh measurement artifacts",
+      "M3144 registers M3145 result audit before any interpretation"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Execute M3142 speed-envelope candidate on the full fresh denominator"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_timing_speed_envelope",
+    "claim_scope": "Measurement artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_trajectory_timing_speed_envelope_full_fresh_measurement",
+    "evidence_increment": "executes the M3142 speed-envelope candidate on the full fresh denominator and compares same rows against the active baselines",
+    "fallback_plan": [
+      "route to artifact repair if measurement artifacts are incomplete or contract-unsafe",
+      "route to synthesis if M3144 is behavior-negative or plateaus against M3105",
+      "route to a constrained audit only after measurement completes"
+    ],
+    "stop_condition": [
+      "stop if M3142 artifacts or M3143 audit are missing",
+      "stop if row identity or same-row baseline alignment cannot be preserved",
+      "route to M3145 audit before any behavior interpretation"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3143 accepts M3142 materialization and selects full-fresh measurement"
+  }
+}

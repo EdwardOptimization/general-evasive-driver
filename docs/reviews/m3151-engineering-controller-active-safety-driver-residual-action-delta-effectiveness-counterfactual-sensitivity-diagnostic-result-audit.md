@@ -1,0 +1,74 @@
+# m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T012429Z
+- Type: gate
+- Gate tier: process
+- Promotion decision: not_applicable
+- Decision reason: Pass only if M3151 audits M3150 artifacts and selects one next route while preserving no-new-execution and claim boundaries.
+
+## Hypothesis
+
+A bounded result audit can accept or reject the M3150 residual action-delta sensitivity diagnostics before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.md
+- parent_dataset: runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/summary.json, runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/residual_delta_effectiveness_rows.csv, runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/sensitivity_summary_rows.csv, runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/claim_boundary_rows.csv, runs/m3150_engineering_controller_active_safety_driver_residual_action_delta_effectiveness_counterfactual_sensitivity_diagnostic_materialization_preflight/gate_matrix.csv
+- parent_config: experiments/manifests/m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight.json
+- parent_objective: audit M3150 residual action-delta sensitivity diagnostics
+- derived_from: m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight, m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis, m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight
+- blocked_by: M3150 diagnostic labels require audit before any repair route, counterfactual sensitivity rows are not repair-success or performance evidence
+- supersedes: direct interpretation of M3150 diagnostics without audit
+- invalidates: None
+
+## Success Criteria
+
+- docs/m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit.md exists
+- M3151 audits M3150 rows gates no-new-execution boundary and claim boundaries
+- M3151 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+- M3151 selects exactly one next route or stop state
+
+## Failure Criteria
+
+- M3151 hides M3150 missing rows or missing artifacts
+- M3151 treats M3150 diagnostics as validation repair-success or performance verdict
+- M3151 changes actor input or action contract
+- M3151 leaves next route ambiguous
+
+## Evidence Gates
+
+- M3151 must audit M3150 row counts gates actor contract and claim boundaries
+- M3151 must preserve no-new-execution diagnostic boundary
+- M3151 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+- M3151 must choose exactly one next route: synthesis, no-go, artifact repair, or bounded repair hypothesis
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not run tune expand rank promote validate or mutate checkpoints
+- do not convert M3150 sensitivity labels into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims
+- do not change actor input or action contract
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- No scoreboard row recorded.
+
+## Next Blocker
+
+m3151-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-result-audit

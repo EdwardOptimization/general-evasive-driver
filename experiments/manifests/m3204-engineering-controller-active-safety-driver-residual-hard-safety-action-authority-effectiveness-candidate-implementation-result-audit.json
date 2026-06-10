@@ -1,0 +1,164 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3204 audits M3203 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3204 hides missing M3203 artifacts or failed gates",
+    "M3204 treats M3203 candidate probes as measurement or repair success",
+    "M3204 changes actor input or action contract",
+    "M3204 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measurement validation ranking or promotion in M3204",
+    "do not convert M3203 synthetic probes into repair-success performance current-sim robustness-result paper or self-ID claims",
+    "do not change actor input action contract or public driver default"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3203 action-authority/effectiveness candidate implementation artifacts before any measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3203 candidate artifacts require audit before any measurement",
+      "M3203 materialization is not validation, repair success, or public default replacement"
+    ],
+    "derived_from": [
+      "m3203-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-materialization-preflight",
+      "m3202-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-result-audit",
+      "m3201-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-admission-materialization-preflight",
+      "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+      "m3194_preterminal_authority_boundary_stability_candidate"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3203-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3203-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/summary.json",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/candidate_rule_rows.csv",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/action_probe_rows.csv",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3203_engineering_controller_active_safety_driver_residual_hard_safety_action_authority_effectiveness_candidate_implementation_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3203 candidate artifacts before residual-trace measurement"
+    ],
+    "supersedes": [
+      "direct measurement without audited M3203 candidate artifacts"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits candidate materialization before same-seven residual trace measurement",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3204 cannot select residual-trace measurement artifact-repair synthesis or stop",
+      "M3204 would claim repair-success validation driver-performance current-sim verdict robustness-result or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3204 audits engineering candidate artifacts",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1
+  },
+  "next_blocker": "m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit",
+  "priority": 32040,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3204 must audit M3203 candidate config rule contract action-probe claim and gate artifacts",
+    "M3204 must preserve obs72-only direct action runtime and public driver unchanged",
+    "M3204 must reject measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3204 must select residual-trace measurement artifact-repair synthesis or stop as exactly one route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3203 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3204 audits engineering candidate artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3204; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve candidate evidence and route measurement or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3203 candidate artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md exists",
+    "M3204 audits M3203 row counts gates actor contract and claim boundaries",
+    "M3204 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3203 summary config rule contract action-probe claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md",
+      "docs/reviews/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.md",
+      "experiments/reviews/m3204-engineering-controller-active-safety-driver-residual-hard-safety-action-authority-effectiveness-candidate-implementation-result-audit.json",
+      "M3204 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3204 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no measurement validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "next_stage_criteria": [
+      "M3204 accepts or rejects M3203 as complete and claim-safe",
+      "next residual-trace measurement artifact-repair synthesis or stop route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3203 candidate implementation artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_action_authority_effectiveness",
+    "claim_scope": "Result audit only; no measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "candidate_implementation_result_audit",
+    "evidence_increment": "audits deterministic stronger action-authority/effectiveness candidate artifacts before measurement",
+    "fallback_plan": [
+      "route to M3203 artifact repair if rules probes or gates fail",
+      "route to synthesis if deterministic candidate cannot preserve actor contract",
+      "preserve M3105/M3103 incumbent until later accepted measurement improves hard-safety counts"
+    ],
+    "stop_condition": [
+      "stop if M3203 artifacts are missing or gate matrix fails",
+      "stop if actor contract was violated",
+      "route to measurement only after M3204 accepts claim boundaries"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3203 materializes candidate artifacts"
+  }
+}

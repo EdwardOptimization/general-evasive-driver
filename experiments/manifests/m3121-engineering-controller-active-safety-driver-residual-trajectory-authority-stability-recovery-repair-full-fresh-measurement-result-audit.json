@@ -1,0 +1,174 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_repair_full_fresh_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3121 audits M3120 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3121 hides M3120 failures or missing artifacts",
+    "M3121 treats M3120 runtime measurement as validation repair-success or performance verdict",
+    "M3121 changes actor input or action contract",
+    "M3121 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not convert M3120 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3120 residual trajectory authority and stability recovery full-fresh measurement artifacts before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "id": "m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3120 full-fresh measurement rows require audit before any validation or repair-success route",
+      "same-row comparison against M3105 M3095 M3100 and M3090 is measurement context and not a performance verdict before M3121",
+      "M3121 routes behavior-negative M3120 artifacts to M3122 plateau synthesis before any further repair"
+    ],
+    "derived_from": [
+      "m3120-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-preflight",
+      "m3119-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-result-audit",
+      "m3118-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+      "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
+      "m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3120-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-preflight.md",
+      "runs/m3118_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3120-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/summary.json",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/measurement_failure_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/measurement_metric_summary_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/measurement_contract_guard_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3120_engineering_controller_active_safety_driver_residual_trajectory_authority_stability_recovery_repair_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit full-fresh M3118 residual trajectory-authority stability-recovery repair measurement before broader interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3120 rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits complete fresh-denominator environment-loop evidence through the M3118 residual trajectory-authority stability-recovery direct-action repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3121 cannot accept M3120 as complete and claim-safe",
+      "M3121 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result or self-ID evidence",
+      "M3121 cannot select behavior synthesis validation planning stop or next repair route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3121 audits engineering runtime measurement evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit",
+  "priority": 31160,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3121 must audit M3120 summary measurement comparison metric guard claim and gate artifacts",
+    "M3121 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3121 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3121 must select exactly one behavior synthesis validation-planning stop or next repair route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3122-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-plateau-synthesis.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3120 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3121 audits engineering runtime-measurement artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3121; self-ID/GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve runtime evidence and route to engineering repair synthesis or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3120 full-fresh residual repair measurement artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md exists",
+    "M3121 audits M3120 row counts gates actor contract same-row comparison and claim boundaries",
+    "M3121 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3121 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3120 summary gate matrix comparison measurement metric contract and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md",
+      "docs/reviews/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.md",
+      "experiments/reviews/m3121-engineering-controller-active-safety-driver-residual-trajectory-authority-stability-recovery-repair-full-fresh-measurement-result-audit.json",
+      "M3121 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3121 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3121 accepts or rejects M3120 as complete and claim-safe",
+      "next behavior synthesis validation-planning stop or repair route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3120 full-fresh residual trajectory-authority stability-recovery repair measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_step_action_influence_diagnosis",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "residual_trajectory_authority_stability_recovery_full_fresh_measurement_result_audit",
+    "evidence_increment": "audits full-fresh current-sim measurement rows and same-row comparison from the M3118 residual trajectory-authority stability-recovery direct-action repair",
+    "fallback_plan": [
+      "route to M3118 artifact repair if artifacts are incomplete or contract-unsafe",
+      "route to behavior repair synthesis if measurement is behavior-negative but contract-safe",
+      "route to validation planning only after M3121 accepts artifact completeness and claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M3120 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize if M3121 cannot select one next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3120 completes full-fresh M3118 residual repair measurement preflight"
+  }
+}

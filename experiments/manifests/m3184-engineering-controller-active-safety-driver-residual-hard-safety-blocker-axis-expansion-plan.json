@@ -1,0 +1,174 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis.md",
+    "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv",
+    "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/known_failure_validation_rows.csv",
+    "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_residual_hard_safety_blocker_axis_expansion_plan_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3184 defines a bounded residual-blocker axis-expansion plan, preserves M3105/M3103 as incumbent, rejects hidden actor inputs and overclaims, and selects exactly one no-new-execution materialization route.",
+  "failure_criteria": [
+    "M3184 continues steer-delta or action-delta tuning without a new evidence axis",
+    "M3184 hides the seven inherited residual blockers",
+    "M3184 admits hidden oracle labels TTC target source route outcome progress verdict labels or baseline outcomes as actor inputs",
+    "M3184 claims validation repair success performance current-sim high-fidelity robustness-result paper full-driver feasibility-proof or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not execute validation rollout replay ranking training PPO or checkpoint mutation",
+    "do not mutate the public driver default",
+    "do not convert route planning into repair-success or validation evidence",
+    "do not admit hidden labels or TTC as actor runtime inputs"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded route plan can convert M3183's pivot into a no-new-execution blocker-axis expansion materialization route that changes the evidence axis away from steer-delta local search.",
+  "id": "m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan",
+  "lineage": {
+    "blocked_by": [
+      "M3183 closes the steer-delta guard loop as regression-neutral but not promotable",
+      "the seven inherited residual blockers remain unresolved",
+      "a new evidence axis is required before another repair implementation"
+    ],
+    "derived_from": [
+      "m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis",
+      "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+      "m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis",
+      "m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [
+      "continuing direct steer-delta guard tuning",
+      "promoting M3179 as a hard-safety improvement over M3105"
+    ],
+    "parent_checkpoint": [
+      "docs/m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv",
+      "runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/known_failure_validation_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "define the residual blocker axis-expansion route after steer-delta equivalence synthesis"
+    ],
+    "supersedes": [
+      "unbounded residual blocker tuning without an evidence-axis plan"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "design_only",
+    "evidence_expansion": "defines a new blocker-family evidence axis before any new repair implementation",
+    "local_search_risk": "low",
+    "must_synthesize_if": [
+      "M3184 cannot define a no-new-execution materialization route",
+      "M3184 would admit hidden actor inputs or hide residual blockers",
+      "M3184 would claim validation repair-success current-sim verdict or promotion"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain auxiliary; M3184 is an engineering route plan for residual blockers",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan",
+  "priority": 31840,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3184 must preserve M3105/M3103 as incumbent deployable baseline",
+    "M3184 must preserve the seven inherited residual blocker counts",
+    "M3184 must define actor-visible evidence axes and forbidden runtime labels",
+    "M3184 must select exactly one no-new-execution materialization route",
+    "M3184 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md",
+  "scoreboard_checkpoint": "docs/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3184 route-plan completeness and claim safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3184 plans engineering blocker evidence and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3184; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve residual blocker evidence and route no-new-execution materialization before any repair implementation.",
+    "temporal_evidence_window": "M3156, M3161, M3181, and M3183 artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md exists",
+    "M3184 defines blocker-axis expansion artifacts and forbidden runtime labels",
+    "M3184 preserves M3105/M3103 as incumbent and the seven inherited blockers",
+    "M3184 selects M3185 no-new-execution materialization and rejects overclaims"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3183 synthesis",
+      "M3156 known failure taxonomy rows",
+      "M3161 known failure validation rows",
+      "M3181 measurement summary"
+    ],
+    "allowed_updates": [
+      "docs/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md",
+      "docs/reviews/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.md",
+      "experiments/reviews/m3184-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-plan.json",
+      "experiments/manifests/m3185-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-expansion-pack-materialization-preflight.json",
+      "M3184 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation execution ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3184 selects a no-new-execution blocker-axis pack materialization route"
+    ],
+    "stage": "process",
+    "stage_objective": "Plan residual hard-safety blocker-axis expansion"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_blocker_axis_expansion",
+    "claim_scope": "Route planning only; no implementation measurement validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_blocker_axis_expansion_plan",
+    "evidence_increment": "defines the next no-new-execution blocker-axis materialization route after steer-delta parity synthesis",
+    "fallback_plan": [
+      "route to M3185 blocker-axis expansion pack materialization if plan is complete",
+      "route to synthesis or stop if no actor-visible evidence axis can be defined",
+      "retain M3105/M3103 incumbent deployable API unchanged"
+    ],
+    "stop_condition": [
+      "stop if M3184 would hide residual blockers",
+      "stop if M3184 would require hidden actor inputs",
+      "stop if M3184 would claim validation or repair success"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3183 pivots from steer-delta parity evidence to residual blocker axis expansion"
+  }
+}

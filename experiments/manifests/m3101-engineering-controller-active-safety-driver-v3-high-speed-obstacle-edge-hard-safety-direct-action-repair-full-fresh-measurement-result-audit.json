@@ -1,0 +1,177 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_repair_full_fresh_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3101 audits M3100 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3101 hides M3100 failures or missing artifacts",
+    "M3101 treats M3100 runtime measurement as validation repair-success or performance verdict",
+    "M3101 changes actor input or action contract",
+    "M3101 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validate or mutate checkpoints",
+    "do not convert M3100 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3100 v3 high-speed obstacle/edge hard-safety full-fresh measurement artifacts before any validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "id": "m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3100 full-fresh measurement rows require audit before any validation or repair-success route",
+      "same-row comparison against M3095 and M3090 is measurement context and not a performance verdict before M3101"
+    ],
+    "derived_from": [
+      "m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+      "m3099-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-result-audit",
+      "m3098-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-materialization-preflight",
+      "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
+      "m3090-engineering-controller-active-safety-driver-v1-deployable-direct-action-safety-reflex-full-fresh-runtime-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight.md",
+      "runs/m3098_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_failure_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_metric_summary_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_contract_guard_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/claim_boundary_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit full-fresh v3 high-speed obstacle/edge hard-safety repair measurement before broader interpretation"
+    ],
+    "supersedes": [
+      "direct interpretation of M3100 rows without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits complete fresh-denominator environment-loop evidence through the v3 direct-action repair",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3101 cannot accept M3100 as complete and claim-safe",
+      "M3101 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result or self-ID evidence",
+      "M3101 cannot select behavior synthesis validation planning stop or next repair route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3101 audits engineering runtime measurement evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3102-engineering-controller-active-safety-driver-v3-regression-and-v2-fallback-hard-safety-repair-synthesis",
+  "priority": 30960,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3101 must audit M3100 summary measurement comparison metric guard claim and gate artifacts",
+    "M3101 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3101 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3101 must select exactly one behavior synthesis validation-planning stop or next repair route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3100 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3101 audits engineering runtime-measurement artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3101; finite-window and GRU comparisons remain later same-case engineering ablations."
+    ],
+    "negative_result_policy": "Preserve negative runtime evidence and route to engineering repair synthesis or stop rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3100 full-fresh v3 repair measurement artifacts only."
+  },
+  "status": "completed",
+  "completed_at_utc": "20260607T201550Z",
+  "status_pass": true,
+  "gate_matrix_pass": true,
+  "required_artifacts_present": true,
+  "result_class": "active_safety_driver_v3_full_fresh_measurement_result_audit_accept_with_behavior_regression",
+  "decision": "accept_m3100_artifacts_with_behavior_regression_route_to_m3102_v3_regression_and_v2_fallback_hard_safety_synthesis",
+  "completed_summary": "Completed: audit accepts M3100 full-fresh v3 high-speed obstacle edge hard-safety direct-action repair measurement artifacts as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true 64/64 episode rows 0 execution failures 55 success 5 collision 3 offtrack 1 speed_too_low same_row_comparison_rows 64 exact_seed_matches_m3095 64 exact_seed_matches_m3090 64 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; behavior regression versus M3095 is -2 successes 0 collision delta +1 offtrack +1 speed_too_low lower mean return and lower mean speed, so M3100 is not validation repair-success performance current-sim verdict robustness-result high-fidelity paper full-driver or self-ID evidence; selects exactly one follow-up to M3102 v3 regression and v2 fallback hard-safety synthesis.",
+  "selected_next_action": "m3102-engineering-controller-active-safety-driver-v3-regression-and-v2-fallback-hard-safety-repair-synthesis",
+  "selected_next_action_type": "regression_and_fallback_synthesis",
+  "success_criteria": [
+    "docs/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md exists",
+    "M3101 audits M3100 row counts gates actor contract same-row comparison and claim boundaries",
+    "M3101 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3101 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3100 summary gate matrix comparison measurement metric contract and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md",
+      "docs/reviews/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.md",
+      "experiments/reviews/m3101-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-result-audit.json",
+      "M3101 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3101 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3101 accepts or rejects M3100 as complete and claim-safe",
+      "next behavior synthesis validation-planning stop or repair route is explicit"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3100 full-fresh v3 high-speed obstacle/edge hard-safety repair measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_repair",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "evidence_axis": "high_speed_obstacle_edge_hard_safety_full_fresh_measurement_result_audit",
+    "evidence_increment": "audits full-fresh current-sim measurement rows and same-row comparison from the v3 high-speed obstacle/edge hard-safety direct-action repair",
+    "fallback_plan": [
+      "route to v3 materialization repair if artifacts are incomplete or contract-unsafe",
+      "route to behavior repair synthesis if measurement is behavior-negative but contract-safe",
+      "route to validation planning only after M3101 accepts artifact completeness and claim boundaries"
+    ],
+    "stop_condition": [
+      "stop if M3100 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize if M3101 cannot select one next route"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3100 completes full-fresh v3 high-speed obstacle/edge hard-safety repair measurement preflight"
+  }
+}

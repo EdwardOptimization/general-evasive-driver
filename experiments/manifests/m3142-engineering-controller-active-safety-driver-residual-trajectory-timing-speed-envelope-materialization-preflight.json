@@ -1,0 +1,210 @@
+{
+  "baseline_checkpoints": [
+    "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+    "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json",
+    "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight --m3141-synthesis docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md --m3139-dir runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --output-dir runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight --doc-path docs/m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight.md --follow-up-manifest experiments/manifests/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.json",
+      "name": "active_safety_driver_residual_trajectory_timing_speed_envelope_materialization"
+    }
+  ],
+  "decision_rule": "Pass only if M3142 materializes a bounded actor-visible residual trajectory-timing speed-envelope candidate that defaults to M3105/M3103, preserves obs72/action3 direct-action contract, writes rule contract probe requirement claim and gate artifacts, and registers M3143 audit before any measurement or repair-success interpretation.",
+  "failure_criteria": [
+    "M3142 requires hidden oracle TTC source route outcome verdict row-label or baseline-outcome actor inputs",
+    "M3142 changes the obs72/action3 [steer throttle brake] runtime contract",
+    "M3142 does not preserve M3105/M3103 as fallback default on safe and low-speed probes",
+    "M3142 converts action probes into measurement validation repair-success or performance evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not rerun tune expand rank promote validation or mutate checkpoints",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome row labels or M3105 blocker labels as actor inputs",
+    "do not convert action probes or blocker requirements into measurement validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims",
+    "do not replace the M3105/M3103 incumbent fallback with an unmeasured standalone corridor or full-brake blanket rule"
+  ],
+  "gate_tier": "infrastructure",
+  "hypothesis": "A bounded residual trajectory-timing speed-envelope materialization can define an actor-visible obs72-to-action3 direct-action candidate that keeps M3105/M3103 as fallback and applies only capped early speed-envelope throttle suppression brake support and small steer damping under obstacle edge or stability risk before any full-fresh measurement validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+  "lineage": {
+    "blocked_by": [
+      "M3105 deployable incumbent still has 5 collision and 2 offtrack blockers",
+      "M3125 shows residual collision rows are late-clearance high-speed failures with terminal brake and steer authority often near exhausted",
+      "M3131 and M3137 behavior regressions make another unbounded corridor or guarded fallback branch unacceptable without a new bounded route"
+    ],
+    "derived_from": [
+      "m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis",
+      "m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit",
+      "m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.md",
+      "src/autodrift/engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight.py",
+      "src/autodrift/engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight.py"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3141-engineering-controller-active-safety-driver-m3105-residual-collision-offtrack-trajectory-timing-speed-envelope-synthesis.json"
+    ],
+    "parent_dataset": [
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json",
+      "runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/residual_blocker_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize one bounded early speed-envelope candidate for M3105 residual collision/offtrack blockers without behavior interpretation"
+    ],
+    "supersedes": [
+      "blind terminal direct-gain continuation",
+      "unmeasured standalone corridor reflex replacement"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "evidence_expansion": "materializes a new early trajectory-timing speed-envelope candidate route selected by M3141 instead of repeating terminal gain overlays",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3142 cannot preserve M3105 fallback and speed-floor guard",
+      "M3143 cannot accept or reject the materialized artifacts",
+      "the next full-fresh measurement regresses against M3105"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3142 targets deployable engineering residual blocker route materialization",
+    "process_overhead": "low",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit",
+  "priority": 31420,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3142 must keep M3105/M3103 as fallback default and exact safe/low-speed path",
+    "M3142 must use only actor-visible obs72 current-frame features and direct [steer throttle brake] action output",
+    "M3142 must cap throttle brake and steer deltas and avoid full-brake blanket behavior",
+    "M3142 must write speed-envelope rule runtime-contract action-probe residual-requirement claim-boundary gate and summary artifacts",
+    "M3142 must register M3143 result audit and make no measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim"
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/direct_action_policy_config.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/speed_envelope_rule_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/runtime_contract_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/action_probe_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/residual_blocker_requirement_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight.md",
+  "scoreboard_checkpoint": "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/summary.json",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3142 materialization artifact completeness and claim-safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3142 materializes an engineering direct-action speed-envelope wrapper and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3142; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve residual blocker evidence and route to audit or full-fresh measurement rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3141/M3139/M3105 artifacts and M3142 action probes only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/direct_action_policy_config.json records M3105/M3103 fallback and no runtime base policy checkpoint or recurrent state",
+    "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/action_probe_rows.csv includes exact fallback probes and bounded overlay probes",
+    "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight/residual_blocker_requirement_rows.csv preserves the seven M3139 residual blockers as requirements, not solved rows",
+    "experiments/manifests/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.json exists"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3141 synthesis",
+      "M3139 residual blocker rows",
+      "M3105 full-fresh measurement summary"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight.py",
+      "runs/m3142_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_materialization_preflight",
+      "docs/m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight.md",
+      "experiments/manifests/m3143-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-result-audit.json",
+      "M3142 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime learned base policy"
+    ],
+    "next_stage_criteria": [
+      "M3142 writes rule contract action probe residual requirement claim gate summary and doc artifacts",
+      "M3142 registers M3143 result audit before any full-fresh measurement or deployment-readiness interpretation"
+    ],
+    "stage": "infrastructure",
+    "stage_objective": "Materialize bounded residual trajectory-timing speed-envelope candidate around the M3105/M3103 incumbent fallback"
+  },
+  "type": "infrastructure",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_trajectory_timing_speed_envelope",
+    "claim_scope": "Materialization artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "residual_speed_envelope_materialization",
+    "evidence_increment": "turns the M3141-selected early speed-envelope route into a runnable obs72-to-action3 candidate with contract probes and M3143 audit route",
+    "fallback_plan": [
+      "retain M3105/M3103 incumbent if M3142 cannot preserve contract or safe/low-speed fallback",
+      "repair materialization artifacts if M3143 rejects completeness",
+      "require full-fresh same-denominator measurement before behavior interpretation"
+    ],
+    "stop_condition": [
+      "stop if actor-visible obs72/action3 contract cannot be preserved",
+      "stop if bounded overlay probes violate delta caps",
+      "route to M3143 audit before any full-fresh measurement"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3141 selected residual trajectory-timing speed-envelope materialization"
+  }
+}

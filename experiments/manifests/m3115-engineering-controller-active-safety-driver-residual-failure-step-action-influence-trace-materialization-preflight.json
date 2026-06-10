@@ -1,0 +1,191 @@
+{
+  "id": "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight",
+  "priority": 31100,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded residual failure step/action influence trace materialization can produce row-preserving diagnostic traces for the seven M3112 residual collision/offtrack failures before any new repair materialization validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3114-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-plateau-synthesis.md",
+      "runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight/summary.json"
+    ],
+    "parent_dataset": [
+      "runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3108_engineering_controller_active_safety_driver_residual_collision_offtrack_failure_decomposition_materialization_preflight/residual_failure_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3114-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-plateau-synthesis.json"
+    ],
+    "parent_objective": [
+      "materialize residual failure step/action influence traces after M3114 plateau synthesis"
+    ],
+    "derived_from": [
+      "m3114-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-plateau-synthesis",
+      "m3113-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-full-fresh-measurement-result-audit",
+      "m3112-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-full-fresh-measurement-preflight",
+      "m3108-engineering-controller-active-safety-driver-residual-collision-offtrack-failure-decomposition-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3112 leaves the same 5 collision and 2 offtrack residual failures as M3105 and M3095",
+      "another actor-visible overlay should not be materialized before action influence evidence exists"
+    ],
+    "supersedes": [
+      "blind residual overlay gain edits without per-step action influence traces"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight.md",
+  "public_gates": [
+    "M3115 must preserve residual row identity for the seven M3112 non-success rows",
+    "M3115 must write step/action trace artifacts for steer throttle brake clearance speed sideslip lateral error obstacle urgency and edge urgency",
+    "M3115 must preserve obs72/action3 direct [steer throttle brake] and forbid hidden actor inputs",
+    "M3115 must not claim repair success validation ranking promotion driver-performance current-sim high-fidelity full-driver robustness-result or self-ID evidence",
+    "M3115 must register M3116 result audit before any repair route"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle TTC target source route outcome progress verdict labels as actor input",
+    "do not treat diagnostic traces as repair-success or driver-performance evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_step_action_influence_diagnosis",
+    "evidence_axis": "residual_failure_step_action_trace_materialization",
+    "evidence_increment": "changes evidence from aggregate plateau counts to per-step action influence traces for residual failures",
+    "claim_scope": "Diagnostic trace artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim",
+    "stop_condition": [
+      "stop if residual row identity cannot be preserved",
+      "stop if trace generation requires hidden actor inputs or runtime base policy",
+      "route to M3116 audit before any repair materialization"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if traces are incomplete",
+      "route to stop if deployable actor boundary prevents useful trace evidence",
+      "route to repair synthesis only after M3116 accepts trace artifacts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3114 pivots from residual repair plateau to step/action influence diagnosis",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize residual failure step/action influence traces",
+    "admission_evidence": [
+      "M3114 synthesis",
+      "M3112 measurement rows and same-row comparisons",
+      "M3108 residual failure rows"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight.py",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight",
+      "docs/m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight.md",
+      "experiments/manifests/m3116-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-result-audit.json",
+      "M3115 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3115 writes complete residual step/action trace artifacts",
+      "M3115 registers M3116 result audit before any repair route",
+      "M3115 preserves actor 72/action 3 direct [steer throttle brake] and claim boundaries"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3115 materializes engineering diagnostic traces and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3115; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3112 residual failure measurement and trace artifacts only.",
+    "negative_result_policy": "If trace artifacts do not explain residual failures synthesize or stop rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "residual step/action diagnostic trace completeness and claim-boundary preservation",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "changes from aggregate plateau evidence to per-step action influence trace evidence",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3115 targets engineering hard-safety diagnosis",
+    "must_synthesize_if": [
+      "M3115 cannot preserve deployable obs72/action3 direct-action boundary",
+      "M3115 would require hidden actor inputs runtime base policy or post-hoc row labels",
+      "M3115 cannot produce auditable trace artifacts for all seven residual failures"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3115 materializes traces for all seven M3112 residual failure rows",
+    "M3115 writes action influence and claim-boundary artifacts",
+    "M3115 registers M3116 result audit"
+  ],
+  "failure_criteria": [
+    "M3115 drops residual rows or changes row identity",
+    "M3115 requires hidden actor input runtime base policy checkpoint model or recurrent hidden state",
+    "M3115 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3115 writes complete diagnostic trace artifacts and registers M3116 audit while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_failure_step_action_influence_trace_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight --m3114-synthesis docs/m3114-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-plateau-synthesis.md --m3112-dir runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight --m3108-dir runs/m3108_engineering_controller_active_safety_driver_residual_collision_offtrack_failure_decomposition_materialization_preflight --output-dir runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight --doc-path docs/m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight.md --follow-up-manifest experiments/manifests/m3116-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-result-audit.json"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/claim_boundary_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3116-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3114-engineering-controller-active-safety-driver-residual-collision-offtrack-actor-visible-repair-plateau-synthesis.md",
+    "runs/m3112_engineering_controller_active_safety_driver_residual_collision_offtrack_actor_visible_repair_full_fresh_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/summary.json",
+  "next_blocker": "m3116-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-result-audit",
+  "status": "pending"
+}

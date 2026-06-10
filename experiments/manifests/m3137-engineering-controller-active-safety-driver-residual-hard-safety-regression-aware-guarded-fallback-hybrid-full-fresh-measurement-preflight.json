@@ -1,0 +1,192 @@
+{
+  "id": "m3137-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-preflight",
+  "priority": 31370,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3135 guarded fallback hybrid as the full obs72-to-action3 action source on the complete M3084 fresh denominator and write same-row comparison safety contract and claim-boundary artifacts against M3105 M3095 M3100 and M3090 before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3136-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-result-audit.md",
+      "runs/m3135_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_dataset": [
+      "runs/m3135_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_materialization_preflight/summary.json",
+      "runs/m3135_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_materialization_preflight/gate_matrix.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight/runtime_measurement_episode_rows.csv",
+      "runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3136-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-result-audit.json",
+      "experiments/manifests/m3135-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-preflight.json"
+    ],
+    "parent_objective": [
+      "measure M3135 guarded fallback hybrid on the complete fresh denominator"
+    ],
+    "derived_from": [
+      "m3136-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-result-audit",
+      "m3135-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-preflight",
+      "m3133-engineering-controller-active-safety-driver-residual-hard-safety-trajectory-level-clearance-stability-corridor-reflex-regression-failure-decomposition-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "blocked_by": [
+      "M3135 is only materialized and needs full-fresh measurement before any behavior interpretation",
+      "M3137 must preserve same-row denominator alignment against M3105 M3095 M3100 and M3090"
+    ],
+    "supersedes": [
+      "interpreting M3135 action probes as measured repair success"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3137-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-preflight.md",
+  "public_gates": [
+    "M3137 must execute exactly the complete M3084 64-row fresh denominator",
+    "M3137 must use the M3135 guarded fallback hybrid as the full obs72-to-action3 action source",
+    "M3137 must write same-row comparisons against M3105 M3095 M3100 and M3090 with exact seed alignment",
+    "M3137 must preserve obs72/action3 direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3137 must not claim validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence",
+    "M3137 must register M3138 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not tune expand rank promote validate or mutate checkpoints",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or M3133 row labels as actor inputs",
+    "do not convert M3137 same-row deltas into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_regression_aware_guarded_fallback_hybrid",
+    "evidence_axis": "guarded_fallback_hybrid_full_fresh_measurement",
+    "evidence_increment": "executes the guarded fallback hybrid on the full fresh denominator and compares same rows against the active baselines",
+    "claim_scope": "Measurement artifact only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if M3135 artifacts or M3136 audit are missing",
+      "stop if row identity or same-row baseline alignment cannot be preserved",
+      "route to M3138 audit before any behavior interpretation"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if measurement artifacts are incomplete or contract-unsafe",
+      "route to decomposition or synthesis if M3137 is behavior-negative",
+      "route to a constrained audit only after measurement completes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3136 accepts M3135 materialization and selects full-fresh measurement",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Execute M3135 guarded fallback hybrid on the full fresh denominator",
+    "admission_evidence": [
+      "M3136 audit",
+      "M3135 materialization",
+      "M3084 fresh denominator",
+      "M3105 M3095 M3100 M3090 same-row baselines"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime learned base policy"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight.py",
+      "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight",
+      "docs/m3137-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-preflight.md",
+      "experiments/manifests/m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit.json",
+      "M3137 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3137 writes complete full-fresh measurement artifacts",
+      "M3137 registers M3138 result audit before any interpretation"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3137 measures an engineering direct-action reflex candidate and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3137; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3137 full-fresh measurement rows only.",
+    "negative_result_policy": "Preserve behavior evidence and route engineering repair decisions rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3137 measurement artifact completeness and claim-safety",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "measures a guarded fallback hybrid rather than another standalone corridor edit",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3137 targets engineering hard-safety measurement",
+    "must_synthesize_if": [
+      "M3137 cannot preserve full denominator and same-row baseline alignment",
+      "M3137 is behavior-negative or plateaus against M3105",
+      "M3138 cannot select exactly one next route"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/summary.json reports status_pass true and gate_matrix_pass true",
+    "M3137 writes 64 measurement episode rows and zero measurement failure rows",
+    "M3137 writes 256 same-row comparison rows and registers M3138 result audit"
+  ],
+  "failure_criteria": [
+    "M3137 drops rows from the full fresh denominator",
+    "M3137 violates the actor-visible obs72-to-action3 direct-action contract",
+    "M3137 claims validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence"
+  ],
+  "decision_rule": "Pass only if M3137 completes the full fresh measurement artifacts and registers M3138 audit while preserving actor and claim boundaries.",
+  "commands": [
+    {
+      "name": "active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight --m3136-audit docs/m3136-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-result-audit.md --m3135-dir runs/m3135_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_materialization_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3095-dir runs/m3095_engineering_controller_active_safety_driver_v2_speed_floor_aware_direct_action_repair_full_fresh_measurement_preflight --m3100-dir runs/m3100_engineering_controller_active_safety_driver_v3_high_speed_obstacle_edge_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3090-dir runs/m3090_engineering_controller_active_safety_driver_v1_deployable_direct_action_safety_reflex_full_fresh_runtime_measurement_preflight --m3084-dir runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight --doc-path docs/m3137-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/gate_matrix.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3137-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3136-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-materialization-result-audit.md",
+    "runs/m3135_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3137_engineering_controller_active_safety_driver_residual_hard_safety_regression_aware_guarded_fallback_hybrid_full_fresh_measurement_preflight/summary.json",
+  "next_blocker": "m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit",
+  "status": "pending"
+}

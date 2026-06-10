@@ -1,0 +1,166 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_speed_envelope_action_delta_coverage_diagnostic_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3148 audits M3147 artifacts and selects one next route or stop state while preserving actor direct-action and claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3148 hides M3147 missing rows or missing artifacts",
+    "M3148 treats M3147 diagnostics as validation repair-success or performance verdict",
+    "M3148 changes actor input or action contract",
+    "M3148 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not tune gains run full-fresh validation rank promote or mutate checkpoints",
+    "do not convert M3147 action-delta labels into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims",
+    "do not change actor input or action contract"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject the M3147 speed-envelope action-delta coverage diagnostic artifacts before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "id": "m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3147 diagnostics require audit before selecting a repair route",
+      "action-delta coverage labels are not validation, repair-success, or performance evidence"
+    ],
+    "derived_from": [
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis",
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/residual_overlay_coverage_summary_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_trace_failure_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3147 residual action-delta coverage diagnostics"
+    ],
+    "supersedes": [
+      "direct interpretation of M3147 action-delta diagnostics without audit"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits per-step candidate-vs-fallback action deltas rather than another blind repair overlay",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3148 cannot accept M3147 as complete and claim-safe",
+      "M3148 would claim validation driver-performance paper high-fidelity finite-window-vs-GRU current-sim verdict robustness-result feasibility-proof or self-ID evidence",
+      "M3148 cannot select no-go synthesis artifact repair or bounded repair route"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3148 audits engineering hard-safety action-delta evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit",
+  "priority": 31480,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3148 must audit M3147 row counts action-delta coverage gates actor contract and claim boundaries",
+    "M3148 must preserve obs72/action3 direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3148 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3148 must choose exactly one next route: no-go, synthesis, artifact repair, or a bounded repair hypothesis"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3147 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3148 audits engineering action-delta diagnostics and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3148; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve diagnostic evidence and route to engineering synthesis or no-go rather than returning self-ID to the mainline objective.",
+    "temporal_evidence_window": "M3147 residual action-delta diagnostic artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md exists",
+    "M3148 audits M3147 row counts gates actor contract action-delta coverage and claim boundaries",
+    "M3148 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3148 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3147 summary action-delta traces coverage rows gate matrix and claim artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+      "docs/reviews/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+      "experiments/reviews/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.json",
+      "M3148 status queue scoreboard research log and review",
+      "one follow-up manifest only if M3148 selects exactly one next route"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or promotion",
+      "no hidden oracle target TTC source route outcome progress verdict actor input or runtime base policy"
+    ],
+    "next_stage_criteria": [
+      "M3148 accepts or rejects M3147 as complete and claim-safe",
+      "M3148 selects no-go synthesis artifact repair or bounded repair route explicitly"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3147 action-delta coverage diagnostic artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_speed_envelope_action_delta_coverage_diagnostic",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "speed_envelope_action_delta_coverage_result_audit",
+    "evidence_increment": "audits residual-row candidate-vs-fallback action-delta coverage and saturation diagnostics",
+    "fallback_plan": [
+      "route to M3147 artifact repair if diagnostics are incomplete or contract-unsafe",
+      "route to no-go if action deltas are absent or too late on residual rows",
+      "route to bounded repair synthesis only if diagnostics identify an actor-visible coverage gap"
+    ],
+    "stop_condition": [
+      "stop if M3147 artifacts are missing or gate matrix fails",
+      "stop if actor or direct-action contracts were violated",
+      "synthesize before any repair if coverage labels are mixed or inconclusive"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3147 completes residual action-delta coverage diagnostic materialization"
+  }
+}

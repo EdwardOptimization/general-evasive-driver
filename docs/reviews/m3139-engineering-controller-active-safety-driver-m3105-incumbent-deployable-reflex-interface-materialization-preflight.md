@@ -1,0 +1,88 @@
+# m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T002500Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_route_to_m3140_result_audit
+- Decision reason: Completed: materialized M3139 deployable public API binding to M3105/M3103 incumbent with status_pass true gate_matrix_pass true required_artifacts_present true driver_id active_safety_reflex_driver_m3105_incumbent_v4_no_regression incumbent_policy_id m3103_v4_v2_fallback_no_regression_hard_safety_direct_action_repair action_probe_rows 5 all finite bounded and equivalent_to_incumbent true residual_blocker_rows 7 collision 5 offtrack 2 speed_too_low 0 M3105 evidence 64 rows 57 success 5 collision 2 offtrack 0 speed_too_low actor obs72 direct [steer throttle brake] runtime_base_policy_required false no validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3140 audit.
+
+## Hypothesis
+
+A bounded materialization can bind the public active_safety_reflex_driver deployable runtime API to the current M3105/M3103 no-regression direct-action incumbent, prove obs72-to-action3 action equivalence on contract probes, preserve M3105 measurement and residual blocker evidence, and register M3140 audit before any validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit.md, src/autodrift/active_safety_reflex_driver.py, src/autodrift/engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight.py
+- parent_dataset: runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/summary.json, runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json
+- parent_config: experiments/manifests/m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit.json, experiments/manifests/m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight.json
+- parent_objective: make the deployable public runtime API reflect the current M3105/M3103 incumbent rather than the older M3078 interface
+- derived_from: m3138-engineering-controller-active-safety-driver-residual-hard-safety-regression-aware-guarded-fallback-hybrid-full-fresh-measurement-result-audit, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight, m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight
+- blocked_by: the public deployable API was still bound to the older M3078 deterministic reflex while M3138 retained M3105/M3103 as incumbent, M3105 residual 5 collision and 2 offtrack blockers must remain visible in deployment artifacts
+- supersedes: using active_safety_reflex_driver as an M3078-bound deployment interface
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json reports status_pass true and gate_matrix_pass true
+- runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/deployable_contract.json binds driver id to M3105/M3103 incumbent policy and config fingerprint
+- runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/action_probe_rows.csv proves public API action equivalence to M3103 incumbent action on contract probes
+- runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/residual_blocker_rows.csv preserves 7 M3105 residual blockers
+- experiments/manifests/m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit.json exists
+
+## Failure Criteria
+
+- M3139 public API remains bound to older M3078 behavior
+- M3139 action probes diverge from M3103 incumbent action
+- M3139 hides residual collision/offtrack blockers or claims repair success
+- M3139 violates obs72/action3 direct-action actor contract
+
+## Evidence Gates
+
+- M3139 must bind active_safety_reflex_driver to the M3105/M3103 incumbent policy id and config fingerprint
+- M3139 must prove public API action equivalence to v4_v2_fallback_no_regression_hard_safety_direct_action on contract probes
+- M3139 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false
+- M3139 must preserve M3105 measurement evidence including 64 rows 57 success 5 collision 2 offtrack 0 speed-too-low and 7 residual blocker rows
+- M3139 must register M3140 result audit and make no validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not rerun tune expand rank promote validate or mutate checkpoints
+- do not hide M3105 residual collision/offtrack blockers behind deployable API wording
+- do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or row labels as actor inputs
+- do not convert deployable interface binding into validation driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID claims
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3139-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-materialization-preflight
+- type: infrastructure
+- checkpoint: runs/m3139_engineering_controller_active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_preflight/summary.json
+- success_rate: 0.890625
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_m3105_incumbent_deployable_reflex_interface_materialization_route_to_m3140_result_audit
+- reason: Completed: materialized M3139 deployable public API binding to M3105/M3103 incumbent with status_pass true gate_matrix_pass true required_artifacts_present true driver_id active_safety_reflex_driver_m3105_incumbent_v4_no_regression incumbent_policy_id m3103_v4_v2_fallback_no_regression_hard_safety_direct_action_repair action_probe_rows 5 all finite bounded and equivalent_to_incumbent true residual_blocker_rows 7 collision 5 offtrack 2 speed_too_low 0 M3105 evidence 64 rows 57 success 5 collision 2 offtrack 0 speed_too_low actor obs72 direct [steer throttle brake] runtime_base_policy_required false no validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim registered M3140 audit.
+
+## Next Blocker
+
+m3140-engineering-controller-active-safety-driver-m3105-incumbent-deployable-reflex-interface-result-audit

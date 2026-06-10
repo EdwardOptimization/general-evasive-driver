@@ -1,0 +1,81 @@
+{
+  "decision_reason": "Pass only if M3149 synthesizes M3147 action-delta coverage evidence into exactly one claim-safe next route while preserving M3105/M3103 as incumbent and rejecting repair-success validation performance feasibility-proof and self-ID claims.",
+  "failure_criteria": [
+    "M3149 treats action-delta coverage as repair success",
+    "M3149 ignores that overlay was active on all residual rows",
+    "M3149 routes directly to blind gain tuning without a diagnostic reason",
+    "M3149 leaves the next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat M3147 overlay coverage as behavior improvement",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation ranking promotion driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260608T011154Z",
+  "hypothesis": "A bounded synthesis can classify M3147 action-delta coverage as active-but-ineffective on the seven residual rows and select exactly one next route for delta-effectiveness or saturation diagnosis before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3147 shows overlay activation and nonzero action deltas on all seven residual rows while outcomes remain 5 collision and 2 offtrack",
+      "M3148 accepts M3147 artifacts but rejects missing-overlay and repair-success interpretations"
+    ],
+    "derived_from": [
+      "m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3146-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-plateau-synthesis",
+      "m3144-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-full-fresh-measurement-preflight",
+      "m3142-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-materialization-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.md",
+      "docs/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3148-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-result-audit.json",
+      "experiments/manifests/m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/summary.json",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/residual_overlay_coverage_summary_rows.csv"
+    ],
+    "parent_objective": [
+      "classify whether M3142 speed-envelope plateau is due to action-delta effectiveness or saturation rather than missing overlay coverage"
+    ],
+    "supersedes": [
+      "direct M3142 gain continuation after M3147",
+      "missing-overlay explanation for the M3144 plateau"
+    ]
+  },
+  "milestone": "m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis",
+  "next_blocker": "m3150-engineering-controller-active-safety-driver-residual-action-delta-effectiveness-counterfactual-sensitivity-diagnostic-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3149 must preserve M3105/M3103 as incumbent deployable fallback",
+    "M3149 must classify M3147 as diagnostic coverage evidence not behavior improvement",
+    "M3149 must select exactly one next route or stop state",
+    "M3149 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "docs/m3149-engineering-controller-active-safety-driver-speed-envelope-action-delta-effectiveness-and-saturation-synthesis.md exists",
+    "M3149 classifies M3147 action-delta coverage evidence",
+    "M3149 selects M3150 counterfactual sensitivity diagnostic or an explicit no-go",
+    "M3149 rejects overclaims and preserves M3105/M3103 incumbent"
+  ],
+  "type": "gate"
+}

@@ -1,0 +1,151 @@
+{
+  "baseline_checkpoints": [
+    "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json"
+  ],
+  "commands": [
+    {
+      "command": "true",
+      "name": "active_safety_driver_steer_delta_regression_guard_full_fresh_measurement_result_audit_doc"
+    }
+  ],
+  "decision_rule": "Pass only if M3182 audits M3181 artifacts and selects one next route or stop state while preserving claim boundaries without overclaiming.",
+  "failure_criteria": [
+    "M3182 hides missing M3181 artifacts or failed gates",
+    "M3182 treats M3181 measurement as validation or repair success",
+    "M3182 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run validation ranking promotion or high-fidelity simulation in M3182",
+    "do not convert M3181 measurement rows into repair-success performance current-sim robustness-result paper or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "hypothesis": "A bounded result audit can accept or reject M3181 full-fresh measurement artifacts before validation or stop.",
+  "id": "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+  "lineage": {
+    "blocked_by": [
+      "M3181 measurement requires audit before validation or promotion"
+    ],
+    "derived_from": [
+      "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+      "m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit",
+      "m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight",
+      "m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3181 full-fresh measurement before validation or stop"
+    ],
+    "supersedes": [
+      "unreviewed M3179 measurement interpretation"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "result_audit",
+    "evidence_expansion": "audits full-fresh measurement before validation or synthesis",
+    "local_search_risk": "medium",
+    "must_synthesize_if": [
+      "M3182 cannot select validation planning synthesis artifact-repair or stop",
+      "M3182 would claim repair-success validation driver-performance current-sim verdict robustness-result or self-ID evidence"
+    ],
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3182 audits engineering measurement evidence",
+    "process_overhead": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 0
+  },
+  "next_blocker": "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+  "priority": 31820,
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3182 must audit M3181 measurement rows comparisons guards claims and gates",
+    "M3182 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3182 must select exactly one validation-planning synthesis artifact-repair or stop route"
+  ],
+  "required_artifacts": [
+    {
+      "path": "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "review_artifact": "docs/reviews/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+  "scoreboard_checkpoint": "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+  "self_id_evidence_discipline": {
+    "allowed_claims": [
+      "M3181 artifact completeness and claim-safety audit",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ],
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3182 audits engineering measurement artifacts and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3182; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "negative_result_policy": "Preserve engineering evidence and route validation planning synthesis or stop rather than returning self-ID to mainline objective.",
+    "temporal_evidence_window": "M3181 measurement artifacts only."
+  },
+  "status": "pending",
+  "success_criteria": [
+    "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md exists",
+    "M3182 audits M3181 row counts gates actor contract and claim boundaries",
+    "M3182 selects exactly one next route or stop state"
+  ],
+  "training_stage": {
+    "admission_evidence": [
+      "M3181 summary measurement comparison guard claim and gate artifacts"
+    ],
+    "allowed_updates": [
+      "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+      "docs/reviews/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+      "experiments/reviews/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.json",
+      "M3182 status queue scoreboard research log and review"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim"
+    ],
+    "next_stage_criteria": [
+      "M3182 accepts or rejects M3181 and selects next route"
+    ],
+    "stage": "process",
+    "stage_objective": "Audit M3181 full-fresh measurement artifacts"
+  },
+  "type": "gate",
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_behavior_negative_source_repair_decomposition",
+    "claim_scope": "Result audit only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "evidence_axis": "behavior_negative_steer_delta_guard_full_fresh_measurement_result_audit",
+    "evidence_increment": "audits full-fresh measurement evidence for M3179 guard candidate",
+    "fallback_plan": [
+      "route to M3181 artifact repair if rows or gates fail",
+      "route to synthesis if behavior-negative"
+    ],
+    "stop_condition": [
+      "stop if M3181 is behavior-negative or contract-unsafe",
+      "route to validation planning only after audit acceptance"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_decision": "not_applicable",
+    "synthesis_trigger": "M3181 completes full-fresh measurement"
+  }
+}

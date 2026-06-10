@@ -1,0 +1,191 @@
+{
+  "id": "m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight",
+  "priority": 31960,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded full-fresh measurement preflight can execute the M3194 preterminal authority and boundary-stability candidate on the complete 64-row fresh denominator and compare same rows against M3105 and M3181 before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit.md"
+    ],
+    "parent_dataset": [
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/direct_action_policy_config.json",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/candidate_rule_rows.csv",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/runtime_contract_rows.csv",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/action_probe_rows.csv",
+      "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/measurement_episode_rows.csv"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit.json"
+    ],
+    "parent_objective": [
+      "measure the M3194 deterministic candidate on the same full fresh denominator before validation or promotion"
+    ],
+    "derived_from": [
+      "m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit",
+      "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+      "m3193-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-result-audit",
+      "m3192-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-admission-materialization-preflight",
+      "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "blocked_by": [
+      "M3195 admits measurement only not validation",
+      "M3194 materializes the candidate but does not measure it"
+    ],
+    "supersedes": [
+      "candidate-probe-only interpretation after M3194"
+    ],
+    "invalidates": []
+  },
+  "review_artifact": "docs/reviews/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.md",
+  "public_gates": [
+    "M3196 must execute the complete 64-row fresh denominator before interpretation",
+    "M3196 must preserve obs72/action3 direct [steer throttle brake] contract",
+    "M3196 must compare same rows against M3105 and M3181 without ranking or promotion",
+    "M3196 must register M3197 result audit"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not validate rank promote train PPO fit replay or run high-fidelity simulation",
+    "do not use hidden oracle target TTC source route outcome progress verdict row-label baseline-outcome or future terminal labels as actor runtime inputs",
+    "do not mutate ActiveSafetyReflexDriver public default or promote any checkpoint",
+    "do not claim driver-performance current-sim robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability",
+    "evidence_axis": "preterminal_authority_boundary_stability_full_fresh_measurement",
+    "evidence_increment": "adds same-denominator full-fresh measurement for the M3194 candidate after implementation audit",
+    "claim_scope": "Measurement preflight only; no validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if M3196 cannot execute the full denominator without contract violations",
+      "stop if M3196 is behavior-negative versus M3105",
+      "route through M3197 audit before validation or deployable update"
+    ],
+    "fallback_plan": [
+      "route to M3196 artifact repair if row counts or guards fail",
+      "route to synthesis if M3196 is behavior-negative or inconclusive",
+      "preserve M3105/M3103 incumbent until audit accepts improved hard-safety counts"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3195 accepts M3194 materialization and selects measurement",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Measure M3194 preterminal authority and boundary-stability candidate on the full fresh denominator",
+    "admission_evidence": [
+      "M3195 accepted M3194 materialization",
+      "M3194 preserved direct-action contract and public driver default"
+    ],
+    "blocked_shortcuts": [
+      "no validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver default mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight.py",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/**",
+      "docs/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.md",
+      "experiments/manifests/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.json",
+      "docs/reviews/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.md",
+      "experiments/reviews/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.json",
+      "M3196 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3196 completes full-fresh measurement and registers M3197 audit",
+      "M3197 audits M3196 before validation synthesis or stop"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3196 measures engineering driver behavior and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3196; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3194 candidate over M3181/M3105 fresh denominator only.",
+    "negative_result_policy": "Route negative measurement evidence through M3197 audit and synthesis or stop rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3196 same-denominator measurement artifact completeness and contract-safety evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 1,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "moves from materialization to full-denominator closed-loop evidence for the preterminal authority and boundary-stability candidate",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3196 targets engineering measurement evidence only",
+    "must_synthesize_if": [
+      "M3196 repeats residual hard-safety blockers without improvement",
+      "M3197 cannot select validation planning measurement repair synthesis or stop",
+      "M3196 indicates the candidate only changes probes without closed-loop benefit"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json exists",
+    "M3196 writes measurement comparison guard claim and gate artifacts",
+    "M3196 preserves actor-visible-only contract and public driver default unchanged",
+    "M3196 registers M3197 result audit manifest"
+  ],
+  "failure_criteria": [
+    "M3196 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels TTC oracle values or future terminal status as actor runtime inputs",
+    "M3196 mutates the public driver or promotes the candidate",
+    "M3196 expands from measurement into validation ranking or broad tuning",
+    "M3196 treats measurement rows as repair success or validation evidence"
+  ],
+  "decision_rule": "Pass only if M3196 measures the M3194 candidate on the full fresh denominator and registers M3197 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight --m3195-audit docs/m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit.md --m3194-dir runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight --m3181-dir runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight --m3105-dir runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight --doc-path docs/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.md --follow-up-manifest experiments/manifests/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3195-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-result-audit.md",
+    "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json",
+    "runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/summary.json",
+    "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json",
+  "next_blocker": "m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight",
+  "status": "pending"
+}

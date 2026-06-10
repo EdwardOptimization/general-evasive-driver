@@ -1,0 +1,85 @@
+{
+  "decision_reason": "Pass only if M3166 joins M3164 residual rows with M3115 and M3147 per-step traces into row-preserving source-localization diagnostics while rejecting repair validation ranking promotion verdict performance feasibility paper and self-ID claims.",
+  "failure_criteria": [
+    "M3166 drops any of the seven residual blocker rows",
+    "M3166 ignores M3115 or M3147 step-trace evidence and repeats only aggregate M3164 rows",
+    "M3166 treats source-localization diagnostics as repair success or driver-performance evidence",
+    "M3166 changes actor input or direct action contract",
+    "M3166 proceeds to repair without registering M3167 audit"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not reset or step the environment for M3166",
+    "do not tune rank promote validate mutate checkpoints or implement repair",
+    "do not use hidden oracle target TTC source route outcome progress verdict or blocker labels as actor inputs",
+    "do not claim validation-result current-sim driver-performance robustness-result high-fidelity paper full-driver repair-success feasibility-proof or self-ID evidence"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260608T031658Z",
+  "hypothesis": "A bounded no-new-execution diagnostic can join M3164 residual hard-safety failure-source rows with M3115 step/action influence traces and M3147 action-delta coverage traces to localize collision-clearance and boundary-recovery source axes before any repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3165 accepts M3164 branch pack but rejects direct repair admission",
+      "M3164 requires source-localization diagnostics before repair",
+      "M3153 reports 0 of 21 action-channel-sensitive comparisons so local action-delta tuning remains blocked"
+    ],
+    "derived_from": [
+      "m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit",
+      "m3164-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-materialization-preflight",
+      "m3115-engineering-controller-active-safety-driver-residual-failure-step-action-influence-trace-materialization-preflight",
+      "m3147-engineering-controller-active-safety-driver-residual-trajectory-timing-speed-envelope-action-delta-coverage-diagnostic-materialization-preflight",
+      "m3153-engineering-controller-active-safety-driver-residual-action-delta-counterfactual-replay-diagnostic-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3165-engineering-controller-active-safety-driver-residual-hard-safety-failure-source-branch-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/failure_source_rows.csv",
+      "runs/m3164_engineering_controller_active_safety_driver_residual_hard_safety_failure_source_branch_materialization_preflight/branch_route_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_step_trace_rows.csv",
+      "runs/m3115_engineering_controller_active_safety_driver_residual_failure_step_action_influence_trace_materialization_preflight/residual_action_influence_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_step_trace_rows.csv",
+      "runs/m3147_engineering_controller_active_safety_driver_residual_trajectory_timing_speed_envelope_action_delta_coverage_diagnostic_materialization_preflight/action_delta_coverage_rows.csv"
+    ],
+    "parent_objective": [
+      "materialize residual hard-safety source-localization diagnostic rows before repair"
+    ],
+    "supersedes": [
+      "direct repair admission after M3164",
+      "unbounded local action-delta tuning on the same seven residual rows"
+    ]
+  },
+  "milestone": "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+  "next_blocker": "m3166-engineering-controller-active-safety-driver-residual-hard-safety-source-localization-diagnostic-materialization-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "not_applicable",
+  "public_gates": [
+    "M3166 must account for exactly seven residual rows with five collision and two offtrack blockers",
+    "M3166 must use M3115 and M3147 per-step traces, not only M3164 aggregate rows",
+    "M3166 must preserve actor-visible obs72 to direct [steer throttle brake] contract and runtime_base_policy_required false",
+    "M3166 must preserve local action-delta tuning as blocked until source-localization evidence changes the repair hypothesis",
+    "M3166 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {},
+  "success_criteria": [
+    "M3166 summary reports status_pass true and gate_matrix_pass true",
+    "M3166 source_localization_rows.csv contains seven joined residual rows",
+    "M3166 accounts for 256 M3115 step-trace rows and 256 M3147 action-delta step-trace rows",
+    "M3166 repair_admission_rows.csv preserves no-repair diagnostic admission and local action-delta block",
+    "M3166 registers M3167 result audit"
+  ],
+  "type": "infrastructure"
+}

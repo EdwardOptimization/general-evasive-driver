@@ -1,0 +1,93 @@
+{
+  "decision_reason": "Completed: audit accepts M3103 v4 v2-fallback no-regression hard-safety direct-action repair materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3103_v4_v2_fallback_no_regression_hard_safety_direct_action_repair rule_rows 5 no_regression_guard_rows 4 actor_input_exclusion_rows 10 claim_boundary_rows 21 low_speed_probe_throttle 0.3700000047683716 local_high_speed_obstacle_probe_brake 0.5479999780654907 local_high_speed_edge_probe_brake -0.46895238757133484 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; rejects measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; selects exactly one follow-up to M3105 full-fresh v4 repair measurement.",
+  "failure_criteria": [
+    "M3104 hides M3103 failures or missing artifacts",
+    "M3104 treats M3103 materialization as measurement validation or performance verdict",
+    "M3104 changes actor input or action contract",
+    "M3104 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run measurement validation ranking promotion high-fidelity simulation fitting PPO or training",
+    "do not treat M3103 materialization as driver-performance repair-success robustness-result or self-ID evidence",
+    "do not change actor input action contract or runtime base-policy-free boundary"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260607T203321Z",
+  "hypothesis": "A bounded result audit can accept or reject the M3103 v4 v2-fallback no-regression hard-safety repair materialization artifacts before any measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "M3103 materialization artifacts require audit before measurement",
+      "materialization cannot support repair-success or driver-performance claims"
+    ],
+    "derived_from": [
+      "m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight",
+      "m3102-engineering-controller-active-safety-driver-v3-regression-and-v2-fallback-hard-safety-repair-synthesis",
+      "m3100-engineering-controller-active-safety-driver-v3-high-speed-obstacle-edge-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+      "m3095-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-full-fresh-measurement-preflight",
+      "m3093-engineering-controller-active-safety-driver-v2-speed-floor-aware-direct-action-repair-materialization-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight.md",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/direct_action_policy_config.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3103-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/summary.json",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/safety_reflex_rule_rows.csv",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/no_regression_guard_rows.csv",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/actor_input_exclusion_rows.csv",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/claim_boundary_rows.csv",
+      "runs/m3103_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit v4 v2-fallback no-regression materialization before measurement admission"
+    ],
+    "supersedes": [
+      "direct measurement admission without v4 materialization audit"
+    ]
+  },
+  "milestone": "m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit",
+  "next_blocker": "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m3103_materialization_route_to_m3105_full_fresh_measurement",
+  "public_gates": [
+    "M3104 must audit M3103 summary rule config no-regression exclusion claim and gate artifacts",
+    "M3104 must preserve obs72/action3 direct [steer throttle brake] runtime contract and runtime_base_policy_required false",
+    "M3104 must reject measurement validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3104 must select exactly one measurement artifact-repair synthesis or stop route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m3103_materialization_route_to_m3105_full_fresh_measurement",
+    "milestone": "m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit",
+    "reason": "Completed: audit accepts M3103 v4 v2-fallback no-regression hard-safety direct-action repair materialization as complete and claim-safe with status_pass true gate_matrix_pass true required_artifacts_present true policy_id m3103_v4_v2_fallback_no_regression_hard_safety_direct_action_repair rule_rows 5 no_regression_guard_rows 4 actor_input_exclusion_rows 10 claim_boundary_rows 21 low_speed_probe_throttle 0.3700000047683716 local_high_speed_obstacle_probe_brake 0.5479999780654907 local_high_speed_edge_probe_brake -0.46895238757133484 actor 72/action 3 direct_action_clipped [steer throttle brake] runtime_base_policy_required false checkpoint_model_required false recurrent_hidden_state_required false; rejects measurement validation ranking promotion driver-performance current-sim verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result and self-ID claims; selects exactly one follow-up to M3105 full-fresh v4 repair measurement.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3104-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-materialization-result-audit.md exists",
+    "M3104 audits M3103 artifact row counts gates actor contract and claim boundaries",
+    "M3104 rejects validation ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result and self-ID claims",
+    "M3104 selects exactly one next route or stop state"
+  ],
+  "type": "gate"
+}

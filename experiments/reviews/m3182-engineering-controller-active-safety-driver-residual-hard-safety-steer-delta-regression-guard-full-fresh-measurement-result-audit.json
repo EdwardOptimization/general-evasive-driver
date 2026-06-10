@@ -1,0 +1,85 @@
+{
+  "decision_reason": "Completed: audit accepts M3181 as complete claim-safe regression-neutral versus M3105 and recovery versus M3172 with 64 measurement rows 128 same-row comparisons contract guards pass and claim boundaries pass; selects M3183 equivalence synthesis without validation promotion repair-success robustness-result feasibility-proof or self-ID claims.",
+  "failure_criteria": [
+    "M3182 hides missing M3181 artifacts or failed gates",
+    "M3182 treats M3181 measurement as validation or repair success",
+    "M3182 leaves next route ambiguous"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not run validation ranking promotion or high-fidelity simulation in M3182",
+    "do not convert M3181 measurement rows into repair-success performance current-sim robustness-result paper or self-ID claims"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260608T052342Z",
+  "hypothesis": "A bounded result audit can accept or reject M3181 full-fresh measurement artifacts before validation or stop.",
+  "lineage": {
+    "blocked_by": [
+      "M3181 measurement requires audit before validation or promotion"
+    ],
+    "derived_from": [
+      "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+      "m3180-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-result-audit",
+      "m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight",
+      "m3172-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-full-fresh-measurement-preflight",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [],
+    "parent_checkpoint": [
+      "docs/m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight.json"
+    ],
+    "parent_dataset": [
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/gate_matrix.csv"
+    ],
+    "parent_objective": [
+      "audit M3181 full-fresh measurement before validation or stop"
+    ],
+    "supersedes": [
+      "unreviewed M3179 measurement interpretation"
+    ]
+  },
+  "milestone": "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+  "next_blocker": "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "accept_m3181_measurement_route_to_m3183_equivalence_synthesis",
+  "public_gates": [
+    "M3182 must audit M3181 measurement rows comparisons guards claims and gates",
+    "M3182 must reject validation ranking promotion driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims",
+    "M3182 must select exactly one validation-planning synthesis artifact-repair or stop route"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md",
+    "clearance_margin_mean": "",
+    "decision": "accept_m3181_measurement_route_to_m3183_equivalence_synthesis",
+    "milestone": "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+    "reason": "Completed: audit accepts M3181 as complete claim-safe regression-neutral versus M3105 and recovery versus M3172 with 64 measurement rows 128 same-row comparisons contract guards pass and claim boundaries pass; selects M3183 equivalence synthesis without validation promotion repair-success robustness-result feasibility-proof or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md exists",
+    "M3182 audits M3181 row counts gates actor contract and claim boundaries",
+    "M3182 selects exactly one next route or stop state"
+  ],
+  "type": "gate"
+}

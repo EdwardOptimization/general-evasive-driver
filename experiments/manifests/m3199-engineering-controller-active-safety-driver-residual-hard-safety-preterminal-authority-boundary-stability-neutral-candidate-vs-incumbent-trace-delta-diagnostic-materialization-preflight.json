@@ -1,0 +1,193 @@
+{
+  "id": "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+  "priority": 31990,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "hypothesis": "A bounded diagnostic materialization can compare M3194 candidate trace-step actions against M3189 incumbent trace-step actions on the seven residual blocker bindings and classify timing sign magnitude clipping and terminal-window deltas before any new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md"
+    ],
+    "parent_dataset": [
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/summary.json",
+      "runs/m3196_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_execution_rows.csv",
+      "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/trace_step_rows.csv",
+      "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.json"
+    ],
+    "parent_objective": [
+      "diagnose why the M3194 candidate is hard-safety neutral by comparing residual trace deltas against the incumbent"
+    ],
+    "derived_from": [
+      "m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis",
+      "m3197-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-result-audit",
+      "m3196-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-full-fresh-measurement-preflight",
+      "m3194-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-candidate-implementation-materialization-preflight",
+      "m3189-engineering-controller-active-safety-driver-residual-hard-safety-blocker-axis-trace-execution-materialization-preflight"
+    ],
+    "blocked_by": [
+      "M3196 is neutral in hard-safety counts",
+      "direct tuning without step-level candidate-vs-incumbent evidence is overfit-prone"
+    ],
+    "supersedes": [
+      "direct M3194 parameter tuning after neutral full-fresh measurement"
+    ],
+    "invalidates": [
+      "M3194 validation or promotion on M3196 evidence"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.md",
+  "public_gates": [
+    "M3199 must preserve obs72-only direct action3 runtime",
+    "M3199 must use the same seven residual blocker trace bindings accepted by M3188-M3190",
+    "M3199 must compare candidate and incumbent trace-step action deltas without ranking or promotion",
+    "M3199 must register M3200 result audit",
+    "M3199 must reject validation repair-success performance current-sim high-fidelity full-driver robustness-result feasibility-proof and self-ID claims"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not implement new repair logic in M3199",
+    "do not mutate ActiveSafetyReflexDriver public default",
+    "do not run validation ranking promotion high-fidelity simulation training PPO or replay",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline-outcome or future-terminal labels as actor inputs",
+    "do not claim repair success driver performance current-sim robustness-result paper or self-ID evidence"
+  ],
+  "workflow_synthesis": {
+    "branch": "active_safety_driver_residual_hard_safety_candidate_vs_incumbent_trace_delta_diagnostic",
+    "evidence_axis": "candidate_vs_incumbent_residual_trace_delta",
+    "evidence_increment": "adds step-level residual trace delta evidence for the neutral M3194 candidate against the M3105 incumbent trace",
+    "claim_scope": "Diagnostic trace-delta materialization only; no repair implementation validation ranking promotion performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if candidate trace execution cannot preserve actor contract",
+      "stop if trace deltas require hidden actor inputs to interpret",
+      "route through M3200 audit before any implementation repair route"
+    ],
+    "fallback_plan": [
+      "route to artifact repair if trace rows or deltas are incomplete",
+      "route to stop if candidate has no meaningful preterminal action delta",
+      "route to implementation admission only after M3200 accepts a specific actor-visible failure mode"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3198 pivots from neutral full-fresh measurement to trace-delta diagnostics",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Materialize candidate-vs-incumbent residual trace-delta diagnostics",
+    "admission_evidence": [
+      "M3198 synthesis",
+      "M3197 audit",
+      "M3196 neutral full-fresh measurement",
+      "M3194 candidate artifacts",
+      "M3189 incumbent residual trace artifacts"
+    ],
+    "blocked_shortcuts": [
+      "no repair implementation validation ranking promotion driver-performance verdict high-fidelity paper finite-window-vs-GRU full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+      "no checkpoint mutation profile tuning or public driver default mutation",
+      "no hidden oracle target TTC source route outcome progress verdict actor input"
+    ],
+    "allowed_updates": [
+      "src/autodrift/engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight.py",
+      "tests/test_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight.py",
+      "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/**",
+      "docs/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.md",
+      "experiments/manifests/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.json",
+      "docs/reviews/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.md",
+      "experiments/reviews/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.json",
+      "M3199 status queue scoreboard research log and review"
+    ],
+    "next_stage_criteria": [
+      "M3199 materializes candidate trace rows incumbent alignment rows trace-delta rows guard claim gate doc and M3200 audit manifest"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "M3199 diagnoses engineering trace deltas and cannot infer history necessity or self-ID.",
+    "history_necessity_tests": [
+      "None in M3199; self-ID and GRU comparisons remain auxiliary diagnostics only."
+    ],
+    "temporal_evidence_window": "M3189 and M3194-M3198 artifacts only.",
+    "negative_result_policy": "Preserve diagnostic evidence and route stop or implementation admission through M3200 rather than returning self-ID to the mainline objective.",
+    "allowed_claims": [
+      "M3199 trace-delta diagnostic completeness and contract-safety evidence",
+      "no driver-performance verdict paper-level result finite-window-vs-GRU result high-fidelity validation result full ideal driver completion repair-success robustness-result feasibility-proof or level3 self-identification claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 2,
+    "same_public_gate_repair_count": 1,
+    "evidence_expansion": "moves from neutral full-fresh count evidence to residual step-level candidate-vs-incumbent diagnostics",
+    "paper_verdict_delta": "paper and self-ID remain diagnostic; M3199 targets engineering trace-delta evidence only",
+    "must_synthesize_if": [
+      "M3199 finds no meaningful preterminal candidate delta",
+      "M3200 cannot select implementation admission artifact-repair synthesis or stop",
+      "trace deltas imply hidden-label dependence"
+    ]
+  },
+  "success_criteria": [
+    "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json exists",
+    "M3199 writes candidate trace execution rows trace step rows trace delta rows guard claim and gate artifacts",
+    "M3199 preserves actor-visible-only contract and public driver default unchanged",
+    "M3199 registers M3200 result audit manifest"
+  ],
+  "failure_criteria": [
+    "M3199 uses row labels baseline outcomes source labels route labels outcome labels progress labels verdict labels TTC oracle values or future terminal status as actor runtime inputs",
+    "M3199 mutates the public driver or promotes the candidate",
+    "M3199 expands from diagnostic trace execution into validation ranking or broad tuning",
+    "M3199 treats trace deltas as repair success or validation evidence"
+  ],
+  "decision_rule": "Pass only if M3199 materializes candidate-vs-incumbent residual trace-delta diagnostics and registers M3200 audit while preserving contract and claim boundaries without validation or repair-success claims.",
+  "commands": [
+    {
+      "name": "active_safety_driver_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization",
+      "command": "PYTHONPATH=src python -m autodrift.engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight --m3198-synthesis docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md --m3194-dir runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight --m3189-dir runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight --m3187-dir runs/m3187_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_spec_materialization_preflight --m3012-dir runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight --output-dir runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight --doc-path docs/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.md --follow-up-manifest experiments/manifests/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.json --device cpu"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/candidate_trace_execution_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/trace_delta_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight.md",
+      "type": "markdown"
+    },
+    {
+      "path": "experiments/manifests/m3200-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-result-audit.json",
+      "type": "json"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/m3198-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-result-synthesis.md",
+    "runs/m3194_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_candidate_implementation_materialization_preflight/summary.json",
+    "runs/m3189_engineering_controller_active_safety_driver_residual_hard_safety_blocker_axis_trace_execution_materialization_preflight/summary.json"
+  ],
+  "scoreboard_checkpoint": "runs/m3199_engineering_controller_active_safety_driver_residual_hard_safety_preterminal_authority_boundary_stability_neutral_candidate_vs_incumbent_trace_delta_diagnostic_materialization_preflight/summary.json",
+  "next_blocker": "m3199-engineering-controller-active-safety-driver-residual-hard-safety-preterminal-authority-boundary-stability-neutral-candidate-vs-incumbent-trace-delta-diagnostic-materialization-preflight",
+  "status": "pending"
+}

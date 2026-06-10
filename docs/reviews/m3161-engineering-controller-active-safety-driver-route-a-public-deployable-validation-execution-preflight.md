@@ -1,0 +1,88 @@
+# m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight Research Review
+
+## Summary
+
+- Generated at UTC: 20260608T024003Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: active_safety_driver_route_a_public_deployable_validation_execution_route_to_m3162_result_audit
+- Decision reason: all structured gates passed
+
+## Hypothesis
+
+A bounded public deployable validation execution preflight can execute the accepted M3159 Route A same-case 64-row denominator through ActiveSafetyReflexDriver.act(obs72) as the full direct [steer throttle brake] action source and write validation execution same-case M3105 comparison known-failure runtime-probe claim and gate artifacts before any ranking promotion driver-performance current-sim verdict high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/m3160-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-result-audit.md, src/autodrift/active_safety_reflex_driver.py
+- parent_dataset: runs/m3159_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_validation_spec_materialization_preflight/summary.json, runs/m3159_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_validation_spec_materialization_preflight/validation_denominator_rows.csv, runs/m3159_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_validation_spec_materialization_preflight/validation_gate_spec_rows.csv, runs/m3159_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_validation_spec_materialization_preflight/validation_reporting_artifact_rows.csv, runs/m3159_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_validation_spec_materialization_preflight/validation_claim_boundary_rows.csv, runs/m3156_engineering_controller_active_safety_driver_route_a_deployable_benchmark_pack_materialization_preflight/known_failure_taxonomy_rows.csv, runs/m3105_engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_full_fresh_measurement_preflight/measurement_episode_rows.csv, runs/m3084_engineering_controller_active_safety_driver_v1_actor_visible_deterministic_direct_action_safety_reflex_fresh_robustness_measurement_preflight/measurement_episode_rows.csv, runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_workload_rows.csv
+- parent_config: experiments/manifests/m3160-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-result-audit.json, experiments/manifests/m3159-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-materialization-preflight.json, experiments/manifests/m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight.json
+- parent_objective: execute Route A public deployable validation preflight after M3159 validation specs are accepted
+- derived_from: m3160-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-result-audit, m3159-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-validation-spec-materialization-preflight, m3156-engineering-controller-active-safety-driver-route-a-deployable-benchmark-pack-materialization-preflight, m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight
+- blocked_by: M3159 specs are accepted by M3160 but no public deployable API validation execution artifact exists yet, M3159 reporting requirements require validation_execution_summary validation_episode same_case known_failure runtime_probe claim and gate artifacts before a result audit
+- supersedes: using M3159 specs without public deployable validation execution evidence
+- invalidates: None
+
+## Success Criteria
+
+- runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json exists
+- M3161 executes 64 validation episode rows through public ActiveSafetyReflexDriver.act
+- M3161 writes same-case comparison rows against M3105 and seven known-failure validation rows
+- M3161 rejects ranking promotion driver-performance high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims
+- M3161 registers M3162 result audit
+
+## Failure Criteria
+
+- M3161 cannot execute all accepted denominator rows
+- M3161 changes actor input or direct action contract
+- M3161 treats validation execution rows as validation-result verdict repair-success or performance evidence
+- M3161 fails to register M3162 audit
+
+## Evidence Gates
+
+- M3161 must execute the complete accepted 64-row M3159/M3105 same-case denominator through public ActiveSafetyReflexDriver.act(obs72)
+- M3161 must preserve direct action3 [steer throttle brake], runtime_base_policy_required false, checkpoint_model_required false, recurrent_hidden_state_required false, no hidden oracle and no TTC actor inputs
+- M3161 must write same-case comparison rows against M3105 and known-failure validation rows for all seven residual blockers
+- M3161 must write validation execution artifacts without claiming validation-result verdict driver-performance current-sim high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID evidence
+- M3161 must register M3162 result audit before any broader interpretation
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not tune expand reselect rank promote or mutate checkpoints after seeing validation execution rows
+- do not use hidden oracle TTC target source route outcome progress verdict labels or M3105 outcome labels as actor input
+- do not use a runtime base policy checkpoint model residual adapter or recurrent hidden state
+- do not treat validation execution or same-case comparison as driver-performance current-sim robustness-result repair-success high-fidelity paper full-driver feasibility-proof or self-ID evidence
+
+## Failure Taxonomy
+
+- contract_violation
+- lineage_invalid
+- metric_artifact
+- scenario_sampling_failure
+- behavior_regression
+- objective_overfit
+- proof_washout
+- seed_fragility
+
+## Scoreboard
+
+- milestone: m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight
+- type: infrastructure
+- checkpoint: runs/m3161_engineering_controller_active_safety_driver_route_a_public_deployable_validation_execution_preflight/validation_execution_summary.json
+- success_rate: 0.890625
+- termination_rate: None
+- clearance_margin_mean: 10.9813
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: active_safety_driver_route_a_public_deployable_validation_execution_route_to_m3162_result_audit
+- reason: all structured gates passed
+
+## Next Blocker
+
+m3161-engineering-controller-active-safety-driver-route-a-public-deployable-validation-execution-preflight

@@ -1,0 +1,102 @@
+{
+  "decision_reason": "Completed: synthesis closes the steer-delta guard loop as regression-neutral but not promotable preserves M3105/M3103 incumbent and pivots to residual blocker axis expansion for the inherited 5 collision and 2 offtrack blockers without implementation validation promotion repair-success robustness-result feasibility-proof or self-ID claims.",
+  "failure_criteria": [
+    "M3183 treats M3181 equivalence to M3105 as improvement or repair success",
+    "M3183 hides the seven inherited residual blockers",
+    "M3183 continues narrow steer-delta tuning without a new evidence axis",
+    "M3183 leaves the next branch ambiguous",
+    "M3183 claims validation driver-performance current-sim high-fidelity robustness-result paper full-driver feasibility-proof repair-success or self-ID evidence"
+  ],
+  "failure_types": [
+    "contract_violation",
+    "lineage_invalid",
+    "metric_artifact",
+    "scenario_sampling_failure",
+    "behavior_regression",
+    "objective_overfit",
+    "proof_washout",
+    "seed_fragility"
+  ],
+  "forbidden_shortcuts": [
+    "do not promote M3179 or replace the public driver default",
+    "do not convert M3181 parity with M3105 into repair-success or performance evidence",
+    "do not hide the 5 collision and 2 offtrack inherited blockers",
+    "do not use hidden oracle target TTC source route outcome progress verdict baseline outcome or blocker labels as actor inputs"
+  ],
+  "gate_tier": "process",
+  "generated_at_utc": "20260608T052342Z",
+  "hypothesis": "A bounded synthesis can classify M3181 as regression-neutral versus M3105 and recovery versus M3172, close the narrow steer-delta guard loop, and select a new residual hard-safety evidence axis before validation promotion or repair-success claims.",
+  "lineage": {
+    "blocked_by": [
+      "M3181 restores M3105 parity but does not improve hard-safety counts over the incumbent",
+      "the seven inherited residual blockers remain unresolved",
+      "continuing steer-delta guard tuning would repeat a narrow local search"
+    ],
+    "derived_from": [
+      "m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit",
+      "m3181-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-preflight",
+      "m3179-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-materialization-preflight",
+      "m3177-engineering-controller-active-safety-driver-residual-hard-safety-behavior-negative-targeted-trace-ablation-materialization-preflight",
+      "m3174-engineering-controller-active-safety-driver-residual-hard-safety-source-localized-repair-implementation-negative-measurement-synthesis",
+      "m3163-engineering-controller-active-safety-driver-route-a-public-deployable-validation-result-synthesis",
+      "m3105-engineering-controller-active-safety-driver-v4-v2-fallback-no-regression-hard-safety-direct-action-repair-full-fresh-measurement-preflight"
+    ],
+    "invalidates": [
+      "direct promotion of M3170 source-localized repair overlay",
+      "direct continuation of M3170 steer-delta tuning"
+    ],
+    "parent_checkpoint": [
+      "docs/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.md"
+    ],
+    "parent_config": [
+      "experiments/manifests/m3182-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-full-fresh-measurement-result-audit.json"
+    ],
+    "parent_dataset": [
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/summary.json",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/measurement_episode_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/same_row_comparison_rows.csv",
+      "runs/m3181_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_full_fresh_measurement_preflight/gate_matrix.csv",
+      "runs/m3177_engineering_controller_active_safety_driver_residual_hard_safety_behavior_negative_targeted_trace_ablation_materialization_preflight/summary.json",
+      "runs/m3179_engineering_controller_active_safety_driver_residual_hard_safety_steer_delta_regression_guard_materialization_preflight/summary.json"
+    ],
+    "parent_objective": [
+      "synthesize steer-delta guard measurement evidence and select one next branch"
+    ],
+    "supersedes": [
+      "unreviewed interpretation of M3181 as repair success",
+      "continuing behavior-negative source repair decomposition without synthesis"
+    ]
+  },
+  "milestone": "m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis",
+  "next_blocker": "m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "pivot_to_m3184_residual_hard_safety_blocker_axis_expansion_plan",
+  "public_gates": [
+    "M3183 must classify M3181 as regression-neutral versus M3105 and recovery versus M3172",
+    "M3183 must preserve M3105/M3103 as incumbent deployable baseline",
+    "M3183 must preserve the seven inherited residual blocker counts",
+    "M3183 must select exactly one next branch decision",
+    "M3183 must reject validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof and self-ID claims"
+  ],
+  "scoreboard": {
+    "checkpoint": "docs/m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis.md",
+    "clearance_margin_mean": "",
+    "decision": "pivot_to_m3184_residual_hard_safety_blocker_axis_expansion_plan",
+    "milestone": "m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis",
+    "reason": "Completed: synthesis closes the steer-delta guard loop as regression-neutral but not promotable preserves M3105/M3103 incumbent and pivots to residual blocker axis expansion for the inherited 5 collision and 2 offtrack blockers without implementation validation promotion repair-success robustness-result feasibility-proof or self-ID claims.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "gate",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "docs/m3183-engineering-controller-active-safety-driver-residual-hard-safety-steer-delta-regression-guard-equivalence-synthesis.md exists",
+    "M3183 classifies M3181 as regression-neutral versus M3105 and recovery versus M3172",
+    "M3183 preserves M3105/M3103 as incumbent and preserves the seven inherited blockers",
+    "M3183 selects exactly one next route and rejects overclaims"
+  ],
+  "type": "gate"
+}
