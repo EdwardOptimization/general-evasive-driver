@@ -1,10 +1,10 @@
 {
   "counts": {
-    "blocked": 1,
+    "blocked": 2,
     "completed": 3218,
     "failed": 4,
     "pending": 0,
-    "planned": 1,
+    "planned": 0,
     "running": 0
   },
   "last_result": {
@@ -14,15 +14,6 @@
     "status": "completed",
     "task_id": "m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis"
   },
-  "next_task": {
-    "command": "true",
-    "hypothesis": "A bounded route plan can convert M3212 neutral supervisor synthesis into a terminal-cause/action-effect decomposition route before new repair implementation validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
-    "id": "m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan",
-    "kind": "gate",
-    "notes": "Planned: define terminal-cause/action-effect decomposition axes from existing trace-step artifacts before new repair implementation.",
-    "priority": 32130,
-    "status": "planned",
-    "success_artifact": "docs/m3213-engineering-controller-active-safety-driver-residual-hard-safety-terminal-cause-action-effect-decomposition-route-plan.md"
-  },
-  "updated_at_utc": "20260608T081117Z"
+  "next_task": null,
+  "updated_at_utc": "20260611T000000Z"
 }
