@@ -598,8 +598,8 @@ class AutoDriftEnv(gym.Env):
 
         self.termination_reason = self._termination_reason(frame) or ""
         terminated = bool(self.termination_reason)
-        self.obstacle_passed_raw = self._obstacle_completed(frame)
-        self.obstacle_completed = self.obstacle_passed_raw and not terminated
+        self.obstacle_passed_raw = self._obstacle_passed(frame)
+        self.obstacle_completed = self._obstacle_completed(frame) and not terminated
         dense_margin_reward, dense_margin_terms = self._dense_clearance_margin_reward(frame)
         if dense_margin_terms:
             reward += dense_margin_reward
@@ -1131,12 +1131,15 @@ class AutoDriftEnv(gym.Env):
         ego_position = np.array([self.state.x, self.state.y], dtype=np.float64)
         return float(np.dot(self.obstacle_position - ego_position, frame.tangent))
 
-    def _obstacle_completed(self, frame: PathFrame) -> bool:
-        if not self.config.obstacle.enabled or not self.config.obstacle.finish_on_pass:
+    def _obstacle_passed(self, frame: PathFrame) -> bool:
+        if not self.config.obstacle.enabled:
             return False
         if self.obstacle_scenario is None or self.obstacle_position is None:
             return False
         return self._obstacle_longitudinal_distance(frame) <= -self.config.obstacle.finish_pass_distance
+
+    def _obstacle_completed(self, frame: PathFrame) -> bool:
+        return bool(self.config.obstacle.finish_on_pass and self._obstacle_passed(frame))
 
     def _update_obstacle_status(self, frame: PathFrame) -> None:
         del frame

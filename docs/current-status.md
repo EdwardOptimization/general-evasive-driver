@@ -4,10 +4,11 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3225,
+replaced the stale paper-route state; this update folds in M3215-M3226,
 the C5 pricing disposition, the S4-HF-lite backend connector smoke, WP6.2
 guardrails, the A1 lateral-channel rider, the A2 obs-normalization audit, and
-the A3 C5-prime target consolidation plus B1/B2/B3 env-engineering smokes).
+the A3 C5-prime target consolidation plus B1/B2/B3/B4 env-engineering
+smokes).
 
 ## Project Identity
 
@@ -23,8 +24,8 @@ the A3 C5-prime target consolidation plus B1/B2/B3 env-engineering smokes).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered and
-completed M3215-M3225. `experiments/research_status.json` now records
-3230 completed / 4 failed / 2 blocked task entries, with `next_task:
+completed M3215-M3226. `experiments/research_status.json` now records
+3231 completed / 4 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -83,7 +84,11 @@ geometry-channel degradation **completed / smoke passed** (config-gated road
 boundary plus active-obstacle continuous-channel noise, 16 episodes / 400
 paired frames, ego/command and present/size/empty-slot channels unchanged,
 deterministic replay 4/4; split-mu recorded as not expressible in the current
-`DriftObstacleEnv` single-track outcome path); WP4 spot
+`DriftObstacleEnv` single-track outcome path); B4 minute-scale drive structure
+**completed / smoke passed** (4 full seeds reached 3000 steps / 60.0 s,
+warmup gate passed at steps 215-216, emergency obstacle appeared at step 250,
+raw pass recorded at steps 991-999, minimum post-pass continuation 2001 steps,
+deterministic replay 2/2; env-contract only, no controller outcome claim); WP4 spot
 checks **pending**
 (Chrono outcome coverage remains Sedan-only; M3219 adds variant reset/step
 smoke only); WP5 papers **pending**
@@ -92,7 +97,7 @@ positive + the capstone bound; plus C5' only if PI accepts the structural
 ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
-Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222, M3223, M3224, M3225 registered and executed through the
+Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222, M3223, M3224, M3225, M3226 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
@@ -114,9 +119,11 @@ blocker for the explicit profile only. M3225 completed B3 geometry-channel
 degradation and split-mu expressibility: road/active-obstacle continuous
 channels can now be degraded behind an explicit config gate, while current-sim
 split-mu is a documented non-expression in the `DriftObstacleEnv` single-track
-outcome path. The next
-lowest OPEN roadmap item is B4 minute-scale drive structure. D1 Chrono S4
-pricing also remains open but lower in the ordered queue.
+outcome path. M3226 completed B4 minute-scale drive structure: raw obstacle
+pass is now distinct from pass-triggered truncation, and a 60 s same-episode
+warmup -> emergency obstacle -> post-pass continuation smoke passed. Track C
+still waits on CP-1. The next lowest OPEN roadmap item is D1 Chrono S4
+multi-vehicle pricing.
 
 ## Pointer Table
 
@@ -126,7 +133,7 @@ pricing also remains open but lower in the ordered queue.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3225: B3 geometry degradation + split-mu expressibility smoke) | `docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md` |
+| Latest harness milestone (M3226: B4 minute-scale drive structure smoke) | `docs/m3226-b4-minute-scale-drive-structure-smoke.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

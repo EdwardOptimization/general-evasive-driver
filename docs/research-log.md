@@ -56234,3 +56234,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/feasibility_audit/geometry_degradation_smoke/frame_rows.csv`
 - success artifact: `experiments/feasibility_audit/geometry_degradation_smoke.json`
 - notes: Completed pre-registered B3 geometry-channel degradation smoke and split-mu expressibility audit. Full smoke ran 16 episodes and 400 paired frames. Verdict: all gates passed; ego/command delta 0, present/size delta 0, empty-slot delta 0, road max delta 0.159, active obstacle continuous max delta 0.132, deterministic replay failures 0. Split-mu is declared not expressible in the current `DriftObstacleEnv` single-track outcome path because it has one scalar mu, aggregated front/rear tire forces, and no left/right contacts or per-side normal loads; source-only four-wheel HF0 primitives exist but are not integrated as the B3 obstacle-env outcome backend. B3 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T212500Z m3226-b4-minute-scale-drive-structure-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A B4 minute-scale env profile can preserve obs72 shape, carry warmup-gate familiarization into a later emergency-obstacle phase in the same episode, record raw obstacle pass without finish_on_pass truncation, and continue to max_steps before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/minute_scale_drive_structure_smoke.py`
+- returncode: `0`
+- run dir: `runs/feasibility_audit/minute_scale_drive_structure_smoke`
+- command log: `runs/feasibility_audit/minute_scale_drive_structure_smoke/frame_rows.csv`
+- success artifact: `experiments/feasibility_audit/minute_scale_drive_structure_smoke.json`
+- notes: Completed pre-registered B4 minute-scale drive-structure env smoke. Full smoke ran 4 seeds, 12004 frames, and 3000 steps / 60.0 s per seed. Verdict: all gates passed; obs72 shape and finite observations preserved; warmup gate passed at steps 215-216; emergency obstacle appeared at step 250; raw obstacle pass occurred at steps 991-999 without `obstacle_completed`; minimum post-pass continuation was 2001 steps; deterministic replay failures 0. B4 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

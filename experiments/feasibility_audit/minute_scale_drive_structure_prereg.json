@@ -1,0 +1,87 @@
+{
+  "id": "minute_scale_drive_structure_prereg",
+  "milestone": "m3226-b4-minute-scale-drive-structure-smoke",
+  "created_utc": "20260611T211500Z",
+  "roadmap_unit": "B4 minute-scale drive structure",
+  "protocol": "minute_scale_drive_structure_smoke",
+  "claim_boundary": "B4 minute-scale env-contract smoke only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no current-sim robustness-result, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim.",
+  "motivation": [
+    "The roadmap requires minute-scale drive structure or episode chaining before L3.5-scale claims.",
+    "The current env can set max_steps to minute scale, but raw obstacle-pass visibility must be verified independently from finish_on_pass truncation.",
+    "Warmup-gate familiarization must carry over within the same episode before the emergency obstacle appears."
+  ],
+  "frozen_profile": {
+    "dt": 0.02,
+    "full_max_steps": 3000,
+    "quick_max_steps": 1200,
+    "full_duration_s": 60.0,
+    "quick_duration_s": 24.0,
+    "track_kind": "circle",
+    "track_radius": 1000000.0,
+    "track_width": 200.0,
+    "speed_range": [
+      6.0,
+      6.0
+    ],
+    "friction_limited_speed": false,
+    "max_speed_limit": 20.0,
+    "obstacle_finish_on_pass": false,
+    "obstacle_distance_m": 120.0,
+    "obstacle_lateral_offset_m": 40.0,
+    "obstacle_half_width_m": 0.5,
+    "obstacle_reveal_step": 250,
+    "warmup_gate_distance_m": 24.0,
+    "warmup_gate_lateral_offset_m": 25.0,
+    "warmup_gate_half_width_m": 0.5,
+    "warmup_gate_max_active_steps": 260
+  },
+  "scripted_controller": {
+    "purpose": "Keep the env alive for an infrastructure smoke; it is not a driver-performance arm.",
+    "uses_info_fields": [
+      "speed",
+      "speed_ref"
+    ],
+    "claim": "scripted survival controller only; not deployable and not a policy result"
+  },
+  "seed_streams": {
+    "quick_seeds": [
+      20260940,
+      20260941
+    ],
+    "full_seeds": [
+      20260940,
+      20260941,
+      20260942,
+      20260943
+    ],
+    "deterministic_replay_seeds": [
+      20260940,
+      20260941
+    ],
+    "disjoint_from_prior": "B4 uses a fresh 20260940 seed stream and does not select or train policies."
+  },
+  "success_criteria": [
+    "full smoke artifact exists at experiments/feasibility_audit/minute_scale_drive_structure_smoke.json",
+    "all full seeds reach max_steps=3000 with termination_reason empty and completion_reason max_steps",
+    "obs72 shape is preserved at reset and every sampled frame",
+    "warmup_gate is the first active obstacle kind, warmup_gate_passed becomes true, and warmup_gate_active becomes false before the emergency obstacle phase",
+    "emergency_obstacle appears after warmup carry-over in the same episode",
+    "obstacle_passed_raw becomes true while obstacle_completed remains false and the episode continues for at least 200 post-pass steps",
+    "deterministic replay has zero mismatches on the replay seeds"
+  ],
+  "failure_criteria": [
+    "any full seed terminates before max_steps",
+    "warmup gate never appears or never passes",
+    "emergency obstacle never appears after warmup",
+    "obstacle_passed_raw stays false after physical pass",
+    "finish_on_pass=false still truncates the episode on obstacle pass",
+    "obs shape changes from 72",
+    "deterministic replay mismatch"
+  ],
+  "outputs": {
+    "quick": "experiments/feasibility_audit/minute_scale_drive_structure_smoke_quick.json",
+    "full": "experiments/feasibility_audit/minute_scale_drive_structure_smoke.json",
+    "quick_rows": "runs/feasibility_audit/minute_scale_drive_structure_smoke_quick/frame_rows.csv",
+    "rows": "runs/feasibility_audit/minute_scale_drive_structure_smoke/frame_rows.csv"
+  }
+}

@@ -118,9 +118,19 @@ demonstrating the new axis, registered as a milestone. No training claims.
   four-wheel HF0 primitives are not integrated as this B3 obstacle-env outcome
   backend.
 
-### B4. Minute-scale drive structure [OPEN]
+### B4. Minute-scale drive structure [DONE: M3226]
 - episode chaining or long-episode support (the real L3.5 scale);
   familiarization carry-over semantics; smoke.
+- result: `docs/m3226-b4-minute-scale-drive-structure-smoke.md` completed
+  the minute-scale env-structure smoke. The env now records raw obstacle pass
+  independently from `finish_on_pass` truncation, preserving the existing
+  `finish_on_pass=True` completion behavior while allowing post-pass
+  continuation when `finish_on_pass=False`. Full smoke ran 4 seeds for 3000
+  steps / 60.0 s each with obs72 shape preserved; warmup gate passed at steps
+  215-216, emergency obstacle appeared at step 250, raw obstacle pass occurred
+  at steps 991-999, minimum post-pass continuation was 2001 steps, and
+  deterministic replay passed 2/2. This is env engineering only, not a
+  controller-performance claim.
 
 ## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
@@ -162,7 +172,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B1: DONE (M3223; flagged constant-velocity crosser smoke passed)
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
-- B4: OPEN
+- B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - C1-C3: BLOCKED on CP-1
 - D1: OPEN
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the

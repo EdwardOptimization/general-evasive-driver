@@ -395,8 +395,9 @@ check (not "~1 command").
    (iii) > 20 m/s speed domain (B2 env engineering complete in M3224,
    outcome panels still unpriced); (iv) geometry-channel degradation (B3 env
    engineering complete in M3225, outcome panels still unpriced) and split-mu
-   (M3225 audited as not expressible in current-sim); (v) minute-scale drive
-   structure (the real L3.5 scale). Items
+   (M3225 audited as not expressible in the current `DriftObstacleEnv`
+   single-track path); (v) minute-scale drive structure (B4 env engineering
+   complete in M3226, outcome panels still unpriced). Items
    (ii)-(v) are env-engineering
    prerequisites scheduled before the corresponding training claims, not
    after.

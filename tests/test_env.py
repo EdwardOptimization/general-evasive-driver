@@ -812,6 +812,38 @@ def test_obstacle_pass_can_complete_episode_successfully():
     assert reward > 0.0
 
 
+def test_obstacle_pass_raw_can_continue_when_finish_on_pass_disabled():
+    env = AutoDriftEnv(
+        DriftEnvConfig(
+            max_steps=20,
+            obstacle=ObstacleTaskConfig(
+                enabled=True,
+                distance_range=(20.0, 20.0),
+                half_width_range=(0.8, 0.8),
+                finish_on_pass=False,
+                finish_pass_distance=2.0,
+                pass_reward=5.0,
+            ),
+        )
+    )
+    _, _ = env.reset(seed=33)
+    frame = env.track.frame(env.state.x, env.state.y, env.state.psi)
+    position = np.array([env.state.x, env.state.y], dtype=np.float64)
+    env.obstacle_position = position - frame.tangent * 3.0
+    env.collision = False
+    env.min_obstacle_clearance = 3.0
+
+    _, _, terminated, truncated, info = env.step(np.array([0.0, -1.0, -1.0], dtype=np.float32))
+
+    assert terminated is False
+    assert truncated is False
+    assert info["obstacle_passed_raw"] is True
+    assert info["obstacle_completed"] is False
+    assert info["termination_reason"] == ""
+    assert info["completion_reason"] == ""
+    assert "pass_reward" not in info["reward_terms"]
+
+
 def test_terminal_clearance_margin_reward_is_config_gated():
     disabled_env = AutoDriftEnv(
         DriftEnvConfig(

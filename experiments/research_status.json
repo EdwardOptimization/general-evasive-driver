@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 2,
-    "completed": 3230,
+    "completed": 3231,
     "failed": 4,
     "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/feasibility_audit/geometry_degradation_smoke/frame_rows.csv",
+    "command_log": "runs/feasibility_audit/minute_scale_drive_structure_smoke/frame_rows.csv",
     "returncode": 0,
-    "run_dir": "runs/feasibility_audit/geometry_degradation_smoke",
+    "run_dir": "runs/feasibility_audit/minute_scale_drive_structure_smoke",
     "status": "completed",
-    "task_id": "m3225-b3-geometry-degradation-split-mu-expressibility-smoke"
+    "task_id": "m3226-b4-minute-scale-drive-structure-smoke"
   },
   "next_task": null,
-  "updated_at_utc": "20260611T210000Z"
+  "updated_at_utc": "20260611T212500Z"
 }
