@@ -107,6 +107,13 @@ bit-for-bit unchanged.
   require ``delay_steps == 0``. The realized per-step schedule is exposed as
   ``episode_delay_schedule`` (length ``max_steps + 1``).
 
+B3 (M3225) adds optional geometry-channel noise. It is OFF by default and uses
+a disjoint RNG substream, so existing ego-degradation streams are unchanged.
+Geometry noise can target road-boundary channels, obstacle continuous geometry
+channels, or both. It deliberately does not perturb obstacle present bits,
+obstacle size slots, previous commands, privileged channels, rewards,
+termination, or info.
+
 Observation shape, dtype, action space, rewards, termination, and info are
 unchanged.
 """
@@ -118,7 +125,15 @@ from typing import Any
 import gymnasium as gym
 import numpy as np
 
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM, ObservationDegradationConfig
+from autodrift.env import (
+    AutoDriftEnv,
+    DriftEnvConfig,
+    EGO_OBS_DIM,
+    LAST_ACTION_OBS_DIM,
+    OBSTACLE_SLOT_DIM,
+    ROAD_POINT_DIM,
+    ObservationDegradationConfig,
+)
 
 
 # Ego response channels degraded by this task family (per stacked frame).
@@ -168,6 +183,7 @@ DEFAULT_NOISE_SEED_STREAM = ObservationDegradationConfig().noise_seed_stream
 # derivation, preserving bit-compatibility for existing configurations.
 DROPOUT_SEED_SUBSTREAM = 1
 DELAY_PROFILE_SEED_SUBSTREAM = 2
+GEOMETRY_NOISE_SEED_SUBSTREAM = 3
 
 DELAY_PROFILES = ("constant", "episode_random", "piecewise")
 
@@ -191,6 +207,25 @@ def _noise_std_vector(noise_std: float | tuple | list | np.ndarray) -> np.ndarra
     return _sigma_vector(noise_std, "noise_std")
 
 
+def _geometry_degradation_indices(config: DriftEnvConfig, scope: str) -> tuple[int, ...]:
+    if scope == "none":
+        return ()
+    action_dim = LAST_ACTION_OBS_DIM if config.action_history_mode == "full" else 0
+    road_start = EGO_OBS_DIM + action_dim
+    road_dim = 2 * int(config.road_lookahead_count) * ROAD_POINT_DIM
+    obstacle_start = road_start + road_dim
+    indices: list[int] = []
+    if scope in {"road_boundary", "road_and_obstacle"}:
+        indices.extend(range(road_start, road_start + road_dim))
+    if scope in {"obstacle_slots", "road_and_obstacle"}:
+        for slot in range(int(config.obstacle_slots)):
+            base = obstacle_start + slot * OBSTACLE_SLOT_DIM
+            # Continuous obstacle geometry/motion only:
+            # x, y, rel_vx, rel_vy. Present bit and size slots stay exact.
+            indices.extend([base + 1, base + 2, base + 3, base + 4])
+    return tuple(indices)
+
+
 class ObservationDegradationWrapper(gym.Wrapper):
     """Delay and/or add noise to the ego-response channels of AutoDriftEnv."""
 
@@ -207,6 +242,8 @@ class ObservationDegradationWrapper(gym.Wrapper):
         delay_profile: str = "constant",
         delay_lo: int = 0,
         delay_hi: int = 0,
+        geometry_scope: str = "none",
+        geometry_noise_std: float = 0.0,
     ):
         super().__init__(env)
         base_env = env.unwrapped
@@ -234,6 +271,12 @@ class ObservationDegradationWrapper(gym.Wrapper):
         self.delay_profile = str(delay_profile)
         self.delay_lo = int(delay_lo)
         self.delay_hi = int(delay_hi)
+        self.geometry_scope = str(geometry_scope)
+        self.geometry_noise_std = float(geometry_noise_std)
+        self._geometry_indices = np.asarray(
+            _geometry_degradation_indices(config, self.geometry_scope),
+            dtype=np.int64,
+        )
 
         # Loud validation of the full parameter set; the single source of truth
         # for value/cross-field constraints is ObservationDegradationConfig.
@@ -247,6 +290,8 @@ class ObservationDegradationWrapper(gym.Wrapper):
             delay_profile=self.delay_profile,
             delay_lo=self.delay_lo,
             delay_hi=self.delay_hi,
+            geometry_scope=self.geometry_scope,
+            geometry_noise_std=self.geometry_noise_std,
         )
         if self.delay_profile == "piecewise" and int(config.max_steps) < 4:
             raise ValueError(
@@ -261,11 +306,15 @@ class ObservationDegradationWrapper(gym.Wrapper):
             or self.dropout_prob > 0.0
             or self.delay_profile != "constant"
         )
+        self._geometry_active = self.geometry_noise_std > 0.0 and len(self._geometry_indices) > 0
 
         # Episode seed bookkeeping for deterministic noise derivation.
         self._seed_root = 0
         self._episode_index = -1
         self._rng = np.random.default_rng([self._noise_seed_stream, 0, 0])
+        self._geometry_rng = np.random.default_rng(
+            [self._noise_seed_stream, 0, 0, GEOMETRY_NOISE_SEED_SUBSTREAM]
+        )
 
         # Extended-mode per-episode state (inert when self._extended is False).
         self._ar1_state = np.zeros(EGO_OBS_DIM, dtype=np.float64)
@@ -279,6 +328,7 @@ class ObservationDegradationWrapper(gym.Wrapper):
         # Per-episode raw/degraded ego-channel streams indexed by env time.
         self._raw_ego: list[np.ndarray] = []
         self._degraded_ego: list[np.ndarray] = []
+        self._degraded_geometry: list[np.ndarray] = []
         self._t = 0
 
     @property
@@ -300,6 +350,8 @@ class ObservationDegradationWrapper(gym.Wrapper):
         )
         if self._extended:
             self._reset_extended_episode_state()
+        if self._geometry_active:
+            self._reset_geometry_episode_state()
 
     def _reset_extended_episode_state(self) -> None:
         """Derive per-episode AR(1)/dropout/delay-profile state from disjoint substreams."""
@@ -344,6 +396,34 @@ class ObservationDegradationWrapper(gym.Wrapper):
                     segment_index
                 ]
         self.episode_delay_schedule = schedule
+
+    def _reset_geometry_episode_state(self) -> None:
+        self._geometry_rng = np.random.default_rng(
+            [
+                self._noise_seed_stream,
+                self._seed_root,
+                self._episode_index,
+                GEOMETRY_NOISE_SEED_SUBSTREAM,
+            ]
+        )
+
+    def _geometry_noise_mask(self, raw_base_frame: np.ndarray) -> np.ndarray:
+        mask = np.ones(len(self._geometry_indices), dtype=np.float64)
+        if self.geometry_scope not in {"obstacle_slots", "road_and_obstacle"}:
+            return mask
+        action_dim = LAST_ACTION_OBS_DIM if self._config.action_history_mode == "full" else 0
+        road_start = EGO_OBS_DIM + action_dim
+        road_dim = 2 * int(self._config.road_lookahead_count) * ROAD_POINT_DIM
+        obstacle_start = road_start + road_dim
+        for slot in range(int(self._config.obstacle_slots)):
+            base = obstacle_start + slot * OBSTACLE_SLOT_DIM
+            if float(raw_base_frame[base]) > 0.5:
+                continue
+            for index in (base + 1, base + 2, base + 3, base + 4):
+                positions = np.flatnonzero(self._geometry_indices == index)
+                if positions.size:
+                    mask[positions] = 0.0
+        return mask
 
     # -- degradation core -----------------------------------------------------
 
@@ -397,6 +477,20 @@ class ObservationDegradationWrapper(gym.Wrapper):
             time_index = max(self._t - slot, 0)
             start = slot * self._base_obs_dim
             obs[start : start + EGO_OBS_DIM] = self._degraded_ego[time_index].astype(np.float32)
+        if self._geometry_active:
+            raw_base_frame = obs[: self._base_obs_dim].astype(np.float64)
+            raw_geometry = raw_base_frame[self._geometry_indices].copy()
+            mask = self._geometry_noise_mask(raw_base_frame)
+            noise = self._geometry_rng.normal(
+                0.0,
+                self.geometry_noise_std,
+                size=len(self._geometry_indices),
+            ) * mask
+            self._degraded_geometry.append(raw_geometry + noise)
+            for slot in range(self._history_length):
+                time_index = max(self._t - slot, 0)
+                start = slot * self._base_obs_dim
+                obs[start + self._geometry_indices] = self._degraded_geometry[time_index].astype(np.float32)
         self._t += 1
         return obs
 
@@ -412,6 +506,7 @@ class ObservationDegradationWrapper(gym.Wrapper):
         self._derive_episode_rng(seed)
         self._raw_ego = []
         self._degraded_ego = []
+        self._degraded_geometry = []
         self._t = 0
         return self._degrade(observation), info
 
@@ -432,6 +527,8 @@ def make_observation_degradation_env(
     delay_profile: str = "constant",
     delay_lo: int = 0,
     delay_hi: int = 0,
+    geometry_scope: str = "none",
+    geometry_noise_std: float = 0.0,
 ) -> ObservationDegradationWrapper:
     """Build an AutoDriftEnv wrapped as a degraded-observation task family member."""
 
@@ -446,6 +543,8 @@ def make_observation_degradation_env(
         delay_profile=delay_profile,
         delay_lo=delay_lo,
         delay_hi=delay_hi,
+        geometry_scope=geometry_scope,
+        geometry_noise_std=geometry_noise_std,
     )
 
 
@@ -473,4 +572,6 @@ def make_env_from_config(config: DriftEnvConfig) -> AutoDriftEnv | ObservationDe
         delay_profile=degradation.delay_profile,
         delay_lo=degradation.delay_lo,
         delay_hi=degradation.delay_hi,
+        geometry_scope=degradation.geometry_scope,
+        geometry_noise_std=degradation.geometry_noise_std,
     )

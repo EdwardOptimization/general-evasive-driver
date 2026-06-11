@@ -54,6 +54,14 @@ and a 2.5 s road preview capped at 120 m. That profile is an explicit
 high-speed env-contract profile, not the canonical default and not a checkpoint
 compatibility shim.
 
+M3225 adds config-gated geometry degradation for wrapper-level environment
+smokes. The default is off. When enabled, it may add noise to road-boundary
+coordinates and active obstacle-slot continuous fields (`x`, `y`, `rel_vx`,
+`rel_vy`) while preserving obs72 shape. It deliberately does not change ego
+response, previous commands, obstacle present bits, obstacle size fields, empty
+obstacle slots, rewards, termination, or `info`. This is a sensing-corruption
+surface for measurement, not an actor contract change.
+
 History is carried by the online GRU hidden state, not by stacking frames. The
 current frame still includes the previous command because a driver knows what
 they just asked the car to do.

@@ -35,6 +35,7 @@ FULL_DYNAMICS_PRIVILEGED_OBS_DIM = 10
 PRIVILEGED_OBSERVATION_MODES = ("basic", "full_dynamics")
 OBSTACLE_RELATIVE_VELOCITY_MODES = ("ego", "zero")
 OBSTACLE_MOTION_MODES = ("static", "constant_velocity_crosser")
+GEOMETRY_DEGRADATION_SCOPES = ("none", "road_boundary", "obstacle_slots", "road_and_obstacle")
 RAW_FRONT_REAR_WHEEL_OBSERVATION_MODES = (
     "front_rear_raw",
     "front_rear_omega",
@@ -189,6 +190,8 @@ class ObservationDegradationConfig:
     delay_profile: str = "constant"
     delay_lo: int = 0
     delay_hi: int = 0
+    geometry_scope: str = "none"
+    geometry_noise_std: float = 0.0
 
     def __post_init__(self) -> None:
         if isinstance(self.delay_steps, bool) or not isinstance(self.delay_steps, int):
@@ -284,6 +287,18 @@ class ObservationDegradationConfig:
                 raise ValueError(
                     "observation_degradation delay_profile 'episode_random' requires delay_hi > 0"
                 )
+        if self.geometry_scope not in GEOMETRY_DEGRADATION_SCOPES:
+            raise ValueError(
+                "observation_degradation geometry_scope must be one of: "
+                + ", ".join(GEOMETRY_DEGRADATION_SCOPES)
+            )
+        if isinstance(self.geometry_noise_std, bool) or not isinstance(self.geometry_noise_std, (int, float)):
+            raise ValueError("observation_degradation geometry_noise_std must be a number")
+        object.__setattr__(self, "geometry_noise_std", float(self.geometry_noise_std))
+        if not math.isfinite(self.geometry_noise_std) or self.geometry_noise_std < 0.0:
+            raise ValueError("observation_degradation geometry_noise_std must be finite and non-negative")
+        if self.geometry_noise_std > 0.0 and self.geometry_scope == "none":
+            raise ValueError("observation_degradation geometry_noise_std requires geometry_scope != 'none'")
 
 
 @dataclass(frozen=True)

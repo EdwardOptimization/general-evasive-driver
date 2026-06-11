@@ -1,0 +1,58 @@
+{
+  "claim_boundary": "B3 geometry-degradation implementation smoke and split-mu expressibility audit only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no current-sim robustness-result, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim.",
+  "geometry_degradation_profile": {
+    "geometry_noise_std": 0.04,
+    "geometry_scope": "road_and_obstacle",
+    "obstacle_continuous_indices": [
+      45,
+      48
+    ],
+    "obstacle_present_and_size_untouched": [
+      44,
+      49,
+      50
+    ],
+    "road_indices": [
+      12,
+      43
+    ]
+  },
+  "preregistration": "experiments/feasibility_audit/geometry_degradation_prereg.json",
+  "protocol": "geometry_degradation_and_split_mu_expressibility_smoke",
+  "quick": true,
+  "readouts": {
+    "all_pass": true,
+    "deterministic_replay_failures": [],
+    "deterministic_replay_pass": true,
+    "ego_command_delta_max_abs": 0.0,
+    "ego_command_untouched_pass": true,
+    "empty_slot_delta_max_abs": 0.0,
+    "empty_slots_untouched_pass": true,
+    "episodes": 3,
+    "frames": 75,
+    "obs72_shape_pass": true,
+    "obstacle_continuous_delta_max_abs": 0.11776810884475708,
+    "obstacle_geometry_degraded_pass": true,
+    "present_and_size_untouched_pass": true,
+    "present_size_delta_max_abs": 0.0,
+    "road_boundary_degraded_pass": true,
+    "road_delta_max_abs": 0.14669254422187805,
+    "split_mu_declared_not_expressible_pass": true,
+    "split_mu_expressibility": {
+      "current_obstacle_env_expressible": false,
+      "current_sim_expressible": false,
+      "reason": "DriftObstacleEnv currently runs SingleTrackDriftModel, a bicycle model with one scalar VehicleParams.mu and aggregated front/rear tire forces. That path has no left/right wheel contacts or per-side normal loads, so a split-mu flag there would be a fake label rather than a physical obstacle-env mechanism. The repository also contains source-only four-wheel HF0 primitives that can express split-mu source shapes, but they are not integrated as this B3 obstacle-env outcome backend.",
+      "source_only_four_wheel_primitives_present": true
+    },
+    "termination_consistency_pass": true
+  },
+  "replay_seeds": [
+    20260825,
+    20260826,
+    20260827
+  ],
+  "roadmap_unit": "B3 geometry-channel degradation + split-mu",
+  "rows_csv": "runs/feasibility_audit/geometry_degradation_smoke/frame_rows_quick.csv",
+  "seed_base": 20260825,
+  "seed_count": 3
+}

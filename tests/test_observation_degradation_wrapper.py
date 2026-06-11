@@ -16,7 +16,7 @@ import numpy as np
 import pytest
 
 from autodrift.config import build_env_config
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM, ObstacleTaskConfig
 from autodrift.observation_degradation_wrapper import (
     DEGRADED_EGO_RESPONSE_INDICES,
     OBS72_INDEX_TABLE,
@@ -135,6 +135,77 @@ def test_non_degraded_channels_are_bitwise_identical() -> None:
     )
     for raw, degraded in zip(raw_frames, degraded_frames, strict=True):
         np.testing.assert_array_equal(degraded[EGO_OBS_DIM:], raw[EGO_OBS_DIM:])
+
+
+def _geometry_obstacle_config() -> DriftEnvConfig:
+    return _base_config(
+        speed_range=(10.0, 10.0),
+        friction_limited_speed=False,
+        obstacle=ObstacleTaskConfig(
+            enabled=True,
+            distance_range=(24.0, 24.0),
+            half_width_range=(0.8, 0.8),
+            allowed_labels=("aeb_feasible", "aes_feasible", "drift_required", "unavoidable"),
+            max_sample_attempts=50,
+        ),
+    )
+
+
+def test_geometry_noise_perturbs_scene_channels_only() -> None:
+    config = _geometry_obstacle_config()
+    actions = _action_sequence(8)
+    raw_frames = _rollout(AutoDriftEnv(config), seed=9901, actions=actions)
+    degraded_frames = _rollout(
+        make_observation_degradation_env(
+            config,
+            geometry_scope="road_and_obstacle",
+            geometry_noise_std=0.04,
+        ),
+        seed=9901,
+        actions=actions,
+    )
+
+    assert len(raw_frames) == len(degraded_frames)
+    road_slice = slice(12, 44)
+    slot0 = slice(44, 51)
+    for raw, degraded in zip(raw_frames, degraded_frames, strict=True):
+        np.testing.assert_array_equal(degraded[:12], raw[:12])
+        assert np.max(np.abs(degraded[road_slice] - raw[road_slice])) > 0.0
+        assert degraded[44] == raw[44] == 1.0
+        assert np.max(np.abs(degraded[45:49] - raw[45:49])) > 0.0
+        np.testing.assert_array_equal(degraded[49:51], raw[49:51])
+        for start in (51, 58, 65):
+            # Empty obstacle slots keep present/geometry/size exact-zero.
+            np.testing.assert_array_equal(degraded[start:start + 7], raw[start:start + 7])
+        assert degraded[slot0].shape == (7,)
+
+
+def test_geometry_noise_is_deterministic_for_same_seed() -> None:
+    config = _geometry_obstacle_config()
+    actions = _action_sequence(6)
+    env_a = make_observation_degradation_env(
+        config,
+        geometry_scope="road_and_obstacle",
+        geometry_noise_std=0.03,
+    )
+    env_b = make_observation_degradation_env(
+        config,
+        geometry_scope="road_and_obstacle",
+        geometry_noise_std=0.03,
+    )
+    frames_a = _rollout(env_a, seed=9902, actions=actions)
+    frames_b = _rollout(env_b, seed=9902, actions=actions)
+
+    for frame_a, frame_b in zip(frames_a, frames_b, strict=True):
+        np.testing.assert_array_equal(frame_a, frame_b)
+
+
+def test_geometry_degradation_rejects_invalid_scope_and_scope_less_noise() -> None:
+    config = _base_config()
+    with pytest.raises(ValueError, match="geometry_scope"):
+        make_observation_degradation_env(config, geometry_scope="camera", geometry_noise_std=0.01)
+    with pytest.raises(ValueError, match="geometry_noise_std"):
+        make_observation_degradation_env(config, geometry_scope="none", geometry_noise_std=0.01)
 
 
 def test_observation_shape_dtype_and_finiteness() -> None:

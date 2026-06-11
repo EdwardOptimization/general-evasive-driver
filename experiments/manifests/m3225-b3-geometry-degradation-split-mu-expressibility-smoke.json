@@ -1,0 +1,192 @@
+{
+  "id": "m3225-b3-geometry-degradation-split-mu-expressibility-smoke",
+  "priority": 32250,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "implementation_smoke",
+  "hypothesis": "A config-gated geometry-channel observation degradation mode can perturb road-boundary and obstacle continuous geometry channels while preserving ego response, commands, obstacle present bits, obstacle sizes, empty slots, obs72 shape, and deterministic replay; left/right split-mu will be implemented only if physically expressible in the current single-track simulator, otherwise declared not expressible before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md"
+    ],
+    "parent_dataset": [
+      "none: new env-contract smoke and expressibility audit only"
+    ],
+    "parent_config": [
+      "src/autodrift/observation_degradation_wrapper.py",
+      "src/autodrift/env.py",
+      "experiments/feasibility_audit/geometry_degradation_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap B3 geometry-channel degradation engineering and split-mu expressibility audit without changing incumbent driver, obs72 shape, or training configs"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "experiments/feasibility_audit/geometry_degradation_prereg.json"
+    ],
+    "blocked_by": [
+      "B3 full smoke completed"
+    ],
+    "supersedes": [
+      "the B3 OPEN status line if the implementation and smoke are documented"
+    ],
+    "invalidates": [
+      "assuming obs72 road/obstacle geometry channels cannot be degraded by the task wrapper",
+      "assuming current single-track dynamics necessarily express left/right split-mu"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md",
+  "public_gates": [
+    "M3225 must keep default geometry_scope=none behavior compatible with existing ego-degradation tests",
+    "M3225 must keep obs72 shape",
+    "M3225 geometry noise must perturb road-boundary and active obstacle continuous geometry channels",
+    "M3225 geometry noise must not perturb ego response, previous commands, obstacle present bits, obstacle size fields, empty obstacle slots, privileged channels, rewards, or termination",
+    "M3225 deterministic replay must pass on frozen replay seeds",
+    "M3225 must declare split-mu not expressible if current-sim lacks left/right wheel contact semantics"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not perturb obstacle present bits or create ghost obstacle slots",
+    "do not change obs72 shape",
+    "do not train RL or create checkpoints",
+    "do not add a fake split-mu label without a physical current-sim mechanism",
+    "do not claim driver performance, robustness, or self-ID from the smoke"
+  ],
+  "workflow_synthesis": {
+    "branch": "geometry_degradation_env_axis",
+    "evidence_axis": "b3_geometry_degradation_contract_smoke",
+    "evidence_increment": "config-gated road/obstacle continuous geometry noise plus current-sim split-mu expressibility verdict",
+    "claim_scope": "Auxiliary env-engineering smoke only; no training admission, no validation ranking promotion, no driver-performance, no current-sim robustness claim, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if default ego-degradation tests regress",
+      "stop if geometry noise perturbs ego/command channels or obstacle present/size fields",
+      "stop if empty obstacle slots become non-zero",
+      "stop if deterministic replay fails",
+      "stop after documenting B3 smoke and split-mu expressibility"
+    ],
+    "fallback_plan": [
+      "on wrapper contract failure, mark B3 blocked and document the failing frame/artifact",
+      "on smoke pass, mark B3 DONE as env-axis implementation plus split-mu expressibility verdict",
+      "on split-mu non-expressibility, record the simulator limitation instead of adding fake dynamics"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected B3 after B2 completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Implement and smoke-test geometry-channel degradation without training, and audit split-mu expressibility.",
+    "admission_evidence": [
+      "B3 is the lowest OPEN roadmap item after M3224",
+      "coverage map marks geometry-channel degradation and split-mu as uncovered sensing/road-surface axes",
+      "B3 is an env-contract implementation smoke and expressibility audit only"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no driver mutation",
+      "no Track C admission"
+    ],
+    "allowed_updates": [
+      "src/autodrift/observation_degradation_wrapper.py",
+      "src/autodrift/env.py",
+      "tests covering geometry degradation contracts",
+      "scripts/feasibility_audit/geometry_degradation_smoke.py",
+      "experiments/feasibility_audit/geometry_degradation_prereg.json",
+      "experiments/feasibility_audit/geometry_degradation_smoke*.json",
+      "docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md",
+      "docs/reviews/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md",
+      "M3225 queue, status, scoreboard, roadmap, current-status, research-log, observation-contract, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol geometry_degradation_and_split_mu_expressibility_smoke",
+      "geometry wrapper contract gates pass",
+      "split-mu current-sim expressibility is recorded honestly"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3225 changes observation degradation mechanics and runs scripted smoke only, with no learned-history policy or self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3225: env-contract smoke only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A failed or inconclusive B3 smoke is reported at full fidelity and B3 remains open or blocked.",
+    "allowed_claims": [
+      "geometry_scope config exists",
+      "geometry noise perturbs selected scene channels only",
+      "split-mu current-sim expressibility verdict"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "medium",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new geometry-degradation env-axis smoke",
+    "paper_verdict_delta": "B3 can close a coverage-map env-axis gap if full smoke passes; no paper or controller outcome claim is admitted.",
+    "must_synthesize_if": [
+      "default ego-degradation behavior regresses",
+      "geometry noise leaks into forbidden channels",
+      "B3 implementation expands into training or driver changes"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/geometry_degradation_prereg.json exists before full smoke",
+    "experiments/feasibility_audit/geometry_degradation_smoke.json exists with protocol geometry_degradation_and_split_mu_expressibility_smoke",
+    "full smoke reports pass for obs72_shape, ego_command_untouched, road_boundary_degraded, obstacle_geometry_degraded, present_and_size_untouched, empty_slots_untouched, termination_consistency, deterministic_replay, and split_mu_declared_not_expressible when applicable",
+    "the result document states that no training or driver claim is admitted"
+  ],
+  "failure_criteria": [
+    "default ego-degradation behavior changes",
+    "geometry noise perturbs ego/command channels, obstacle present bits, size fields, or empty slots",
+    "same seed and same actions do not replay deterministically",
+    "split-mu is added without current-sim left/right wheel-contact semantics",
+    "the milestone trains, mutates a driver, changes actor-input labels, or admits Track C"
+  ],
+  "decision_rule": "Accept M3225 as complete only if implementation, tests, full smoke artifact, result doc, and review all pass while preserving legacy default observation-degradation behavior.",
+  "commands": [
+    {
+      "name": "geometry_degradation_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/geometry_degradation_smoke.py --quick"
+    },
+    {
+      "name": "geometry_degradation_full_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/geometry_degradation_smoke.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/geometry_degradation_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/geometry_degradation_smoke_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/geometry_degradation_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/data-coverage-map-2026-06.md",
+    "docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/geometry_degradation_smoke.json",
+  "next_blocker": "B4 minute-scale drive structure remains open after B3; Track C remains blocked on CP-1.",
+  "status": "completed"
+}

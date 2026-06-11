@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (39 as of 2026-06-12), mapped to its
+Index of every script in this directory (40 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -92,6 +92,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | `obs_normalization_audit.py` | `experiments/feasibility_audit/obs_normalization_prereg.json`, `obs_normalization_audit.json`; `runs/feasibility_audit/obs_normalization_audit/channel_stats.csv`, `episode_summary.csv` | `docs/m3221-a2-obs-normalization-audit.md` | Are canonical obs72 normalization constants population/high-speed ready? No: road_y/20, high-speed ego speed/accel, and obstacle rel-vy/12 saturate; population/high-speed training remains blocked on a follow-up normalization/preview implementation. |
 | `high_speed_domain_smoke.py` | `experiments/feasibility_audit/high_speed_domain_prereg.json`, `high_speed_domain_smoke.json`; `runs/feasibility_audit/high_speed_domain_smoke/episode_rows.csv` | `docs/m3224-b2-high-speed-domain-normalization-preview-smoke.md` | Does the explicit B2 high-speed obs72 profile represent 36 m/s scenarios without the M3221 scaling/preview blocker? Yes: legacy vx/20 exposes max abs 1.800 and 1.111 s preview; scaled profile selected-channel max abs 0.900, 2.500 s preview, labels 592/592, deterministic replay 4/4. |
 | `moving_obstacle_smoke.py` | `experiments/feasibility_audit/moving_obstacle_prereg.json`, `moving_obstacle_smoke.json`; `runs/feasibility_audit/moving_obstacle_smoke/episode_rows.csv` | `docs/m3223-b1-moving-obstacle-kinematics-smoke.md` | Does the flagged constant-velocity crosser env axis preserve legacy static/zero-relvel contracts while exposing dynamic labels and ego-mode rel-v? Yes: zero-relvel violations 0, moving body-y delta min 0.6053 m, deterministic replay 4/4. |
+| `geometry_degradation_smoke.py` | `experiments/feasibility_audit/geometry_degradation_prereg.json`, `geometry_degradation_smoke.json`; `runs/feasibility_audit/geometry_degradation_smoke/frame_rows.csv` | `docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md` | Does geometry-channel degradation perturb road/obstacle continuous scene channels without leaking into ego/commands/present/size/empty slots, and can the current obstacle-env path express split-mu? Geometry smoke passes; split-mu is not expressible in the `DriftObstacleEnv` single-track outcome path. |
 | `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | At M3218, could S4-HF-lite passenger-car-population pricing run on the then-current Chrono backend wiring? No: Chrono resources supported extension, but repo wiring had no vehicle/tire variant selector; routed to M3219 variant-selector smoke before pricing. |
 
 ## Artifacts without a script in this directory

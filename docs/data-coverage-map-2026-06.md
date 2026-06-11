@@ -14,19 +14,20 @@ at ~0.04 s/episode on demand. **Concentration is**: deep coverage of a
 single nominal mid-size sedan (1450 kg, 2.8 m wheelbase) within a
 within-model band, on two scenario geometries, static obstacles only,
 <= 20 m/s for outcome panels, scalar uniform mu. M3224 adds a 36 m/s
-env-contract smoke only, not a controller outcome panel. Fine for the scoped
-self-ID science; the
-gap map below is what C5's population claim must close.
+env-contract smoke only, and M3225 adds geometry-channel degradation and a
+split-mu expressibility audit only, not controller outcome panels. Fine for
+the scoped self-ID science; the gap map below is what C5's population claim
+must close.
 
 ## Coverage by axis
 
 | axis | covered (artifacts) | uncovered / C5 gap |
 |---|---|---|
 | vehicle parameters | nominal sedan +- within-model band: mass 0.85-1.20x (S2 in-flight: 0.70-1.50x), brake/drive 0.80-1.15x (S2: 0.60-1.30x), stiffness 0.65-1.35x, tau to 1.75-2.5x, cg shift +-0.12 m (panels, regime maps, WP1); M3220 A1 rider sampled cg shift about +-0.42 m and Iz 0.6-1.6x in current-sim and found 0/4 qualifying cells | **vehicle-class structure still unpriced**: wheelbase classes, load transfer, tire-curve shape, and high-fidelity multi-vehicle dynamics remain uncovered; the 900 kg-3.2 t population envelope is not yet covered by Chrono pricing |
-| road surface | scalar mu in [0.25, 1.15], continuous + 12-point grids; mid-episode mu steps (all measurement series) | spatially varying mu (split-mu left/right — the canonical ESC scenario); tire-curve shape (tanh fixed; winter/summer shape difference inexpressible); no load transfer (h_cg unused) |
+| road surface | scalar mu in [0.25, 1.15], continuous + 12-point grids; mid-episode mu steps (all measurement series); M3225 audited split-mu expressibility and found it is not physical in the current `DriftObstacleEnv` single-track outcome path | spatially varying mu (split-mu left/right — the canonical ESC scenario) remains uncovered for outcome panels until a backend exposes per-wheel/per-side contacts and normal loads through the executable env path; tire-curve shape (tanh fixed; winter/summer shape difference inexpressible); no load transfer (h_cg unused) |
 | scenario geometry | family #1 B2K2 (r=900 arc commitment) and family #2 F2C1 (straight asymmetric gap choice), both deeply measured; legacy r=18 drift circle, figure-eight, M3082 4-axis panel; M3223 adds a flagged constant-velocity crosser smoke with deterministic replay and preserved legacy zero-relvel contracts | S-curves, multi-obstacle (4 obs slots, only slot 0 ever used), preregistered moving-obstacle outcome panels, oncoming traffic, lane-change topologies |
 | speed regime | 5-20 m/s outcome panels; utilization 0.2-0.95 sweeps; overshoot injection to 150% (measurements A/C); M3224 adds an explicit 36 m/s observation/preview smoke with obs72 preserved, selected channels max abs 0.900, and 2.5 s road preview | **> 72 km/h outcome coverage still missing** (production AEB/AES operates to 130+ km/h); sustained drift equilibria (de-scoped to Phase-3) |
-| sensing degradation | ego channels thoroughly: delay (constant/episode-random/piecewise, 100-500 ms), iid Gaussian, AR(1) rho 0.9/0.95, dropout 0.2 (M3215) | geometry-channel degradation (obstacle/boundary perception noise — only binary reveal timing exists); calibration-bias error classes; action-side wrapper built (S1) but never measured |
+| sensing degradation | ego channels thoroughly: delay (constant/episode-random/piecewise, 100-500 ms), iid Gaussian, AR(1) rho 0.9/0.95, dropout 0.2 (M3215); M3225 adds config-gated road-boundary and active-obstacle continuous-channel noise with present/size/empty-slot preservation | geometry-degraded outcome panels remain unpriced; calibration-bias error classes; action-side wrapper built (S1) but never measured |
 | temporal structure | episodes 5.7-9.6 s; familiarization prefixes to 15 s (belief decomposition) | minute-scale continuous drives (the real L3.5 scale; per-car identification across the population needs it); cross-episode persistence |
 | fidelity | single-track toy (all measurements) + Chrono::Vehicle **Sedan only** spot checks (279 rows, HF4 + minis); M3218 inventory confirms Chrono resources for multi-vehicle/tire extension; M3219 reset/step-smoked default Sedan plus explicit BMW_E90/UAZBUS selectors | Chrono multi-vehicle zero pricing rollout coverage — selector exists, but S4 pricing still needs a frozen preregistration and a declared handling of unmapped `lf/lr/iz/cf/cr` |
 
@@ -68,7 +69,11 @@ budgets.
 3. High-speed outcome panels: B2 env engineering is complete (M3224), but any
    controller measurement on this axis still needs preregistered labels,
    floors, and criteria.
-4. Geometry-channel degradation + split-mu (env/wrapper extensions).
+4. Geometry-channel degradation env engineering is complete (M3225); split-mu
+   is not expressible in the `DriftObstacleEnv` single-track outcome path and
+   remains a high-fidelity/backend integration gap for outcome panels.
+   Geometry-degraded controller outcome panels still require preregistered
+   labels, floors, and criteria.
 5. Minute-scale drive structure (episode chaining or long episodes).
 
 RL training-data distribution for C5 must be designed directly against

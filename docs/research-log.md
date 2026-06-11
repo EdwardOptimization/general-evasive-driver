@@ -56223,3 +56223,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/feasibility_audit/high_speed_domain_smoke/episode_rows.csv`
 - success artifact: `experiments/feasibility_audit/high_speed_domain_smoke.json`
 - notes: Completed pre-registered B2 high-speed env-contract smoke. Full smoke ran 48 episodes and 1776 frames over legacy fixed preview, scaled high-speed, and scaled high-speed crosser modes. Verdict: all gates passed; legacy vx/20 exposed max abs 1.800 and fixed preview 1.111 s; scaled profile selected-channel max abs 0.900, preview 2.500 s, high-speed labels 592/592, deterministic replay failures 0. B2 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T210000Z m3225-b3-geometry-degradation-split-mu-expressibility-smoke
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A config-gated geometry-channel observation degradation mode can perturb road-boundary and obstacle continuous geometry channels while preserving ego response, commands, obstacle present bits, obstacle sizes, empty slots, obs72 shape, and deterministic replay; left/right split-mu will be implemented only if physically expressible in the current single-track simulator, otherwise declared not expressible before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/geometry_degradation_smoke.py`
+- returncode: `0`
+- run dir: `runs/feasibility_audit/geometry_degradation_smoke`
+- command log: `runs/feasibility_audit/geometry_degradation_smoke/frame_rows.csv`
+- success artifact: `experiments/feasibility_audit/geometry_degradation_smoke.json`
+- notes: Completed pre-registered B3 geometry-channel degradation smoke and split-mu expressibility audit. Full smoke ran 16 episodes and 400 paired frames. Verdict: all gates passed; ego/command delta 0, present/size delta 0, empty-slot delta 0, road max delta 0.159, active obstacle continuous max delta 0.132, deterministic replay failures 0. Split-mu is declared not expressible in the current `DriftObstacleEnv` single-track outcome path because it has one scalar mu, aggregated front/rear tire forces, and no left/right contacts or per-side normal loads; source-only four-wheel HF0 primitives exist but are not integrated as the B3 obstacle-env outcome backend. B3 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

@@ -101,10 +101,22 @@ demonstrating the new axis, registered as a milestone. No training claims.
   the high-speed env-contract blocker only; it does not admit training or a
   controller-performance claim.
 
-### B3. Geometry-channel degradation + split-mu [OPEN]
+### B3. Geometry-channel degradation + split-mu [DONE: M3225]
 - wrapper extension to obstacle/boundary channels (the only sensing axis
   never degraded) + left/right split-mu in dynamics if expressible without
   load transfer; declare honestly what is not expressible.
+- result: `docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md`
+  completed the config-gated geometry-channel degradation smoke and split-mu
+  expressibility audit. Full smoke ran 16 paired episodes and 400 paired
+  frames. Road boundary channels changed (max 0.159) and active obstacle
+  continuous channels changed (max 0.132), while ego/commands,
+  present/size fields, empty obstacle slots, termination, and obs72 shape were
+  preserved; deterministic replay passed 4/4. Current-sim split-mu was
+  declared not expressible on the `DriftObstacleEnv` single-track outcome path
+  because that path has one scalar `mu`, aggregated front/rear tire forces, and
+  no left/right contacts or per-side normal loads. Existing source-only
+  four-wheel HF0 primitives are not integrated as this B3 obstacle-env outcome
+  backend.
 
 ### B4. Minute-scale drive structure [OPEN]
 - episode chaining or long-episode support (the real L3.5 scale);
@@ -149,7 +161,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 still required)
 - B1: DONE (M3223; flagged constant-velocity crosser smoke passed)
 - B2: DONE (M3224; explicit 36 m/s normalization/preview smoke passed)
-- B3: OPEN
+- B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: OPEN
 - C1-C3: BLOCKED on CP-1
 - D1: OPEN

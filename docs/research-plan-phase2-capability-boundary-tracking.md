@@ -393,8 +393,10 @@ check (not "~1 command").
    variant still needs explicit preregistration); (ii) moving obstacles (B1
    env engineering complete in M3223, outcome panels still unpriced);
    (iii) > 20 m/s speed domain (B2 env engineering complete in M3224,
-   outcome panels still unpriced); (iv) geometry-channel degradation +
-   split-mu; (v) minute-scale drive structure (the real L3.5 scale). Items
+   outcome panels still unpriced); (iv) geometry-channel degradation (B3 env
+   engineering complete in M3225, outcome panels still unpriced) and split-mu
+   (M3225 audited as not expressible in current-sim); (v) minute-scale drive
+   structure (the real L3.5 scale). Items
    (ii)-(v) are env-engineering
    prerequisites scheduled before the corresponding training claims, not
    after.

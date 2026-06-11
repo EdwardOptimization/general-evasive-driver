@@ -1,0 +1,48 @@
+{
+  "protocol": "geometry_degradation_and_split_mu_expressibility_smoke_preregistration",
+  "roadmap_unit": "B3 geometry-channel degradation + split-mu",
+  "frozen_at_utc": "20260612T000000Z",
+  "frozen_before_full_smoke": true,
+  "claim_under_pricing": "Implementation smoke only: extend the observation-degradation wrapper to road-boundary and obstacle continuous geometry channels, and audit whether left/right split-mu is physically expressible in the current single-track simulator. This admits no training, no driver mutation, and no controller-performance claim.",
+  "seed_discipline": {
+    "seed_base": 20260825,
+    "quick_seed_count": 3,
+    "full_seed_count": 16,
+    "deterministic_replay_count": 4,
+    "selection_training_or_validation_reuse": "none: this is an env-contract smoke and expressibility audit, not training, target pricing, selection, or validation"
+  },
+  "geometry_degradation_profile": {
+    "geometry_scope": "road_and_obstacle",
+    "geometry_noise_std": 0.04,
+    "road_boundary_indices": "canonical obs72 indices 12-43",
+    "obstacle_continuous_indices": "canonical obs72 slot continuous indices x/y/rel_vx/rel_vy; present bits and size slots untouched"
+  },
+  "scenario_fixture": {
+    "track_kind": "circle",
+    "track_radius": 70.0,
+    "track_width": 8.0,
+    "speed_range": [12.0, 12.0],
+    "obstacle_distance_range": [26.0, 26.0],
+    "obstacle_half_width_range": [0.8, 0.8],
+    "obstacle_lateral_offset_range": [-1.2, -1.2],
+    "max_steps": 80
+  },
+  "preregistered_readouts": {
+    "obs_shape": "Raw and degraded frames must keep obs72 shape.",
+    "ego_and_command_boundary": "Ego-response channels 0-8 and previous-command channels 9-11 must remain bitwise identical when only geometry noise is enabled.",
+    "road_degradation": "Road-boundary indices 12-43 must show non-zero perturbation under geometry_scope=road_and_obstacle.",
+    "obstacle_degradation": "The active obstacle slot continuous fields x/y/rel_vx/rel_vy must show non-zero perturbation.",
+    "obstacle_slot_contract": "Obstacle present bits, active-slot size fields, and empty obstacle slots must remain bitwise identical.",
+    "termination_consistency": "Raw and degraded paired rollouts must keep identical termination/truncation fields because geometry noise is observation-only.",
+    "determinism": "Same seed plus same scripted actions must reproduce degraded observations and termination fields bit-for-bit.",
+    "split_mu_expressibility": "If the current simulator lacks left/right wheel contacts or per-side normal loads, declare split-mu not physically expressible instead of adding a fake dynamics label."
+  },
+  "decision_rule": "Accept B3 smoke iff all wrapper contract readouts pass on the full seed set and split-mu is either implemented with a physically meaningful mechanism or explicitly declared not expressible in current-sim.",
+  "runtime_gates": [
+    "quick smoke passes before the full smoke",
+    "default observation_degradation geometry_scope=none leaves existing ego-degradation tests green",
+    "geometry noise uses a disjoint RNG substream from ego noise/dropout/delay",
+    "empty obstacle slots stay exact-zero"
+  ],
+  "claim_boundary": "B3 geometry-degradation implementation smoke and split-mu expressibility audit only; no training, no driver mutation, no validation ranking, no promotion, no driver-performance, no current-sim robustness-result, no high-fidelity sufficiency, no paper, no repair-success, no feasibility-proof, and no self-ID claim."
+}
