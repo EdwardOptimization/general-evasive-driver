@@ -38,6 +38,16 @@ from autodrift.research_schema import (
     PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
     PROCESS_V6_LOCAL_SEARCH_GUARD_FIELDS,
     PROCESS_V6_LOCAL_SEARCH_RISK_LEVELS,
+    PROCESS_V7_CERTIFIED_DEAD_END_RESIDUAL_SEEDS,
+    PROCESS_V7_DEAD_END_CERTIFICATION_ARTIFACTS,
+    PROCESS_V7_FEASIBILITY_PRICING_ENFORCE_FROM_PRIORITY,
+    PROCESS_V7_FEASIBILITY_PRICING_FIELDS,
+    PROCESS_V7_PRICED_EVIDENCE_AXIS_TOKENS,
+    PROCESS_V7_PRICED_INTENTS,
+    PROCESS_V7_REPAIR_LIKE_TOKENS,
+    PROCESS_V7B_DEPENDENCY_STREAK_LIMIT,
+    PROCESS_V7B_DEPENDENCY_UNAVAILABLE_TOKENS,
+    PROCESS_V7B_ESCALATION_DIR,
     SCOREBOARD_FIELDS,
 )
 
@@ -108,6 +118,10 @@ def _is_process_v5(task: ResearchTask, process_v5_from_priority: int) -> bool:
 
 def _is_process_v6(task: ResearchTask, process_v6_from_priority: int) -> bool:
     return int(task.priority) >= int(process_v6_from_priority)
+
+
+def _is_process_v7(task: ResearchTask, process_v7_from_priority: int) -> bool:
+    return int(task.priority) >= int(process_v7_from_priority)
 
 
 def _manifest_path(manifest_dir: Path, task_id: str) -> Path:
@@ -742,6 +756,198 @@ def _validate_process_v6_local_search_cadence(records: list[tuple[ResearchTask, 
     return issues
 
 
+def _manifest_intent(manifest: dict[str, Any]) -> str | None:
+    intent = manifest.get("milestone_intent")
+    if isinstance(intent, str) and intent.strip():
+        return intent.strip().lower()
+    return None
+
+
+def _requires_feasibility_pricing(manifest: dict[str, Any]) -> bool:
+    intent = _manifest_intent(manifest)
+    if intent is not None:
+        return intent in PROCESS_V7_PRICED_INTENTS
+    synthesis = _workflow_synthesis(manifest)
+    axis = "" if synthesis is None else str(synthesis.get("evidence_axis", "")).lower()
+    return any(token in axis for token in PROCESS_V7_PRICED_EVIDENCE_AXIS_TOKENS)
+
+
+def _is_number(value: Any) -> bool:
+    return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
+def _dead_end_scan_text(task: ResearchTask, manifest: dict[str, Any]) -> str:
+    synthesis = _workflow_synthesis(manifest) or {}
+    parts = [
+        task.hypothesis,
+        task.notes,
+        str(manifest.get("hypothesis", "")),
+        str(synthesis.get("evidence_axis", "")),
+        str(manifest.get("milestone_intent", "")),
+    ]
+    return " ".join(parts).lower()
+
+
+def _certified_dead_end_reason(task: ResearchTask, manifest: dict[str, Any]) -> str | None:
+    text = _dead_end_scan_text(task, manifest)
+    repair_like = _requires_feasibility_pricing(manifest) or any(
+        token in text for token in PROCESS_V7_REPAIR_LIKE_TOKENS
+    )
+    mentioned_seeds = [seed for seed in PROCESS_V7_CERTIFIED_DEAD_END_RESIDUAL_SEEDS if seed in text]
+    if repair_like and mentioned_seeds:
+        return (
+            f"residual hard-safety rows (seeds {', '.join(mentioned_seeds)}) are oracle-certified "
+            "unrepairable by any controller, causal or privileged"
+        )
+    if repair_like and "drift_required" in text and "reflex" in text:
+        return "reflex-family drift_required repair is a certified dead end"
+    if (
+        "reflex" in text
+        and any(token in text for token in ("retun", "re-tune", "tuning", "per-instance"))
+        and any(token in text for token in ("spread", "vehicle"))
+    ):
+        return "vehicle-spread reflex retuning was rejected by the pre-registered C5 pricing (0/8 cells)"
+    return None
+
+
+def _has_new_pricing_artifact(root: Path, manifest: dict[str, Any]) -> bool:
+    pricing = manifest.get("feasibility_pricing")
+    if not isinstance(pricing, dict):
+        return False
+    artifact = pricing.get("pricing_artifact")
+    if not _non_empty_text(artifact):
+        return False
+    normalized = str(artifact).strip()
+    if normalized in PROCESS_V7_DEAD_END_CERTIFICATION_ARTIFACTS:
+        return False
+    return _path_exists(root, normalized)
+
+
+def _validate_process_v7_manifest(task: ResearchTask, manifest: dict[str, Any], root: Path) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+
+    if _requires_feasibility_pricing(manifest):
+        pricing = manifest.get("feasibility_pricing")
+        if not isinstance(pricing, dict):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: process-v7 repair/improvement/training milestone requires a "
+                    "feasibility_pricing object (feasibility-oracle-first, WP6.2 G1): "
+                    f"{{{', '.join(PROCESS_V7_FEASIBILITY_PRICING_FIELDS)}}}",
+                )
+            )
+        else:
+            missing = [field for field in PROCESS_V7_FEASIBILITY_PRICING_FIELDS if field not in pricing]
+            if missing:
+                issues.append(
+                    ValidationIssue("error", f"{task.id}: feasibility_pricing missing fields {missing}")
+                )
+            else:
+                artifact = pricing.get("pricing_artifact")
+                if not _non_empty_text(artifact):
+                    issues.append(
+                        ValidationIssue(
+                            "error",
+                            f"{task.id}: feasibility_pricing.pricing_artifact must be non-empty text",
+                        )
+                    )
+                elif not _path_exists(root, str(artifact).strip()):
+                    issues.append(
+                        ValidationIssue(
+                            "error",
+                            f"{task.id}: feasibility_pricing.pricing_artifact does not exist: {artifact}",
+                        )
+                    )
+                for field in ("priced_gap", "threshold"):
+                    if not _is_number(pricing.get(field)):
+                        issues.append(
+                            ValidationIssue(
+                                "error",
+                                f"{task.id}: feasibility_pricing.{field} must be a number",
+                            )
+                        )
+                if not isinstance(pricing.get("gap_meets_threshold"), bool):
+                    issues.append(
+                        ValidationIssue(
+                            "error",
+                            f"{task.id}: feasibility_pricing.gap_meets_threshold must be a boolean",
+                        )
+                    )
+
+    dead_end_reason = _certified_dead_end_reason(task, manifest)
+    if dead_end_reason is not None and not _has_new_pricing_artifact(root, manifest):
+        issues.append(
+            ValidationIssue(
+                "error",
+                f"{task.id}: certified dead end — {dead_end_reason}; see "
+                f"{PROCESS_V7_DEAD_END_CERTIFICATION_ARTIFACTS[0]} and "
+                f"{PROCESS_V7_DEAD_END_CERTIFICATION_ARTIFACTS[1]}; this target is auto-rejected "
+                "unless the manifest carries a NEW feasibility_pricing.pricing_artifact that "
+                "re-prices the gap",
+            )
+        )
+
+    return issues
+
+
+def _mentions_dependency_unavailable(task: ResearchTask, manifest: dict[str, Any]) -> bool:
+    text = " ".join([task.hypothesis, task.notes, str(manifest.get("hypothesis", ""))]).lower()
+    return any(token in text for token in PROCESS_V7B_DEPENDENCY_UNAVAILABLE_TOKENS)
+
+
+def _escalation_exists(root: Path, branch: str, task_ids: list[str]) -> bool:
+    directory = root / PROCESS_V7B_ESCALATION_DIR
+    if not directory.exists():
+        return False
+    needles = [branch.lower()] + [task_id.lower() for task_id in task_ids]
+    for path in sorted(directory.glob("*.md")):
+        if path.name.lower() == "readme.md":
+            continue
+        content = path.read_text(encoding="utf-8", errors="replace").lower()
+        if any(needle in content for needle in needles):
+            return True
+    return False
+
+
+def _validate_process_v7_escalation_protocol(
+    records: list[tuple[ResearchTask, dict[str, Any]]], root: Path
+) -> list[ValidationIssue]:
+    issues: list[ValidationIssue] = []
+    streaks: dict[str, list[str]] = {}
+    sorted_records = sorted(records, key=lambda item: (item[0].priority, item[0].id))
+
+    for task, manifest in sorted_records:
+        if task.status != "completed":
+            continue
+        synthesis = _workflow_synthesis(manifest)
+        if synthesis is None:
+            continue
+        branch = synthesis.get("branch")
+        if not _non_empty_text(branch):
+            continue
+        branch_text = str(branch)
+        if not _mentions_dependency_unavailable(task, manifest):
+            streaks[branch_text] = []
+            continue
+        streaks.setdefault(branch_text, []).append(task.id)
+        streak = streaks[branch_text]
+        if len(streak) >= PROCESS_V7B_DEPENDENCY_STREAK_LIMIT and not _escalation_exists(root, branch_text, streak):
+            issues.append(
+                ValidationIssue(
+                    "error",
+                    f"{task.id}: branch {branch_text!r} has {len(streak)} consecutive completed "
+                    f"milestones reporting an unavailable dependency ({', '.join(streak)}); "
+                    "escalate instead of bookkeeping — write a "
+                    f"{PROCESS_V7B_ESCALATION_DIR}/<date>-<slug>.md escalation note naming this "
+                    "branch or these milestones (template: "
+                    f"{PROCESS_V7B_ESCALATION_DIR}/README.md) and set the queue row to blocked",
+                )
+            )
+
+    return issues
+
+
 def _validate_metric_extractors(task: ResearchTask, manifest: dict[str, Any]) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     extractors = manifest.get("metric_extractors", [])
@@ -833,6 +1039,7 @@ def validate_research_state(
     process_v4_from_priority: int = PROCESS_V4_TRAINING_STAGE_ENFORCE_FROM_PRIORITY,
     process_v5_from_priority: int = PROCESS_V5_SELF_ID_DISCIPLINE_ENFORCE_FROM_PRIORITY,
     process_v6_from_priority: int = PROCESS_V6_LOCAL_SEARCH_GUARD_ENFORCE_FROM_PRIORITY,
+    process_v7_from_priority: int = PROCESS_V7_FEASIBILITY_PRICING_ENFORCE_FROM_PRIORITY,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     tasks = load_queue(queue_path)

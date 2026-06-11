@@ -177,3 +177,89 @@ PROCESS_V6_EVIDENCE_PROGRESS_TYPES = {
 }
 
 PROCESS_V6_DEFAULT_NON_EVIDENCE_STREAK_LIMIT = 5
+
+# Process v7 (WP6.2 guardrails): feasibility-oracle-first pricing gate and
+# blocked-dependency escalation protocol. Enforced only for priority >= 32200
+# (M3220+); the 3138 historical enforced tasks are unaffected by design.
+PROCESS_V7_FEASIBILITY_PRICING_ENFORCE_FROM_PRIORITY = 32200
+
+PROCESS_V7_FEASIBILITY_PRICING_FIELDS = [
+    "pricing_artifact",
+    "priced_gap",
+    "threshold",
+    "gap_meets_threshold",
+]
+
+# Explicit declaration (new optional manifest field `milestone_intent`).
+# When present it overrides evidence-axis inference.
+PROCESS_V7_PRICED_INTENTS = {
+    "repair",
+    "improvement",
+    "training",
+}
+
+# Inference fallback: workflow_synthesis.evidence_axis substrings that mark a
+# repair/improvement/training milestone (feasibility pricing required).
+PROCESS_V7_PRICED_EVIDENCE_AXIS_TOKENS = (
+    "repair",
+    "improv",
+    "train",
+    "retun",
+    "tuning",
+)
+
+# Certified dead ends (auto-reject without a NEW pricing artifact):
+# the 7 residual hard-safety rows certified unrepairable by the oracle
+# certification (43,372 privileged rollouts, 7/7 hard-fail in both tiers).
+PROCESS_V7_CERTIFIED_DEAD_END_RESIDUAL_SEEDS = (
+    "401530",
+    "401541",
+    "401560",
+    "401631",
+    "401640",
+    "401641",
+    "401660",
+)
+
+PROCESS_V7_DEAD_END_CERTIFICATION_ARTIFACTS = (
+    "experiments/feasibility_audit/oracle_certification_results.json",
+    "experiments/feasibility_audit/c5_reflex_degradation.json",
+)
+
+PROCESS_V7_REPAIR_LIKE_TOKENS = (
+    "repair",
+    "fix",
+    "rescue",
+    "recover",
+    "retrain",
+    "retune",
+    "retuning",
+    "re-tune",
+    "tune",
+    "tuning",
+)
+
+# Process v7b: dependency-unavailable semantics in completed-task notes or
+# hypotheses. Two or more consecutive completed milestones on the same
+# workflow_synthesis.branch matching these tokens require an escalation file
+# under docs/escalations/ (escalate instead of bookkeeping).
+PROCESS_V7B_DEPENDENCY_UNAVAILABLE_TOKENS = (
+    "dependency-unavailable",
+    "dependency unavailable",
+    "unavailable dependency",
+    "blocked dependency",
+    "blocked-dependency",
+    "blocked on dependency",
+    "blocked on external",
+    "missing dependency",
+    "dependency missing",
+    "dependency is missing",
+    "dependency not available",
+    "upstream unavailable",
+    "waiting on dependency",
+    "waiting for dependency",
+    "external dependency unavailable",
+)
+
+PROCESS_V7B_ESCALATION_DIR = "docs/escalations"
+PROCESS_V7B_DEPENDENCY_STREAK_LIMIT = 2
