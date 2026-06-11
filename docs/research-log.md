@@ -56168,3 +56168,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3219-s4-hf-lite-chrono-variant-selector-smoke_20260612T000000Z/command.log`
 - success artifact: `experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json`
 - notes: Completed variant-selector reset/step smoke for default Sedan, BMW_E90, and UAZBUS. S4-HF-lite pricing pre-registration is admitted; pricing execution remains blocked until that preregistration exists. No pricing result, driver mutation, training, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness, feasibility-proof, or self-ID claim.
+## 20260611T192233Z m3220-a1-s4-lateral-spread-rider-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen A1 lateral cg/Iz pricing rider can report whether the S4L tier moves the handling-limit boundary under the existing four-arm C5 measurement protocol before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider`
+- returncode: `0`
+- run dir: `runs/managed/m3220-a1-s4-lateral-spread-rider_20260611T191239Z`
+- command log: `runs/managed/m3220-a1-s4-lateral-spread-rider_20260611T191239Z/run.log`
+- success artifact: `experiments/feasibility_audit/c5_lateral_spread_rider.json`
+- notes: Completed pre-registered A1 lateral cg/Iz pricing rider through a managed CPU process. Full run took 345.6 s with 7776 selection episodes, 2112 validation arm episodes, 5687 oracle rollouts, and 24 RLS prefixes. Verdict: 0/4 cells qualified; S4L/T-limit prize +0.007 CI95 [-0.014 to +0.028]. A1 is DONE negative in current-sim; Track C remains blocked on A3 and CP-1; no driver-performance, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

@@ -14,13 +14,14 @@
 - PI checkpoints are hard stops: mark the unit blocked-on-PI and move to the
   next independent track; do not self-approve.
 - default path note: the C5 spread formulation was rejected by pricing
-  (`docs/c5-reflex-degradation-2026-06.md`); the default forward path below
-  is C5'-main (structural-ceiling prize) with one S4-lateral rider as the
-  spread mechanism's final check. PI may override at CP-1.
+  (`docs/c5-reflex-degradation-2026-06.md`), and the A1 S4-lateral rider was
+  also negative (`docs/m3220-a1-s4-lateral-spread-rider-pricing.md`). The
+  default forward path is therefore C5'-main (structural-ceiling prize),
+  pending A3 and CP-1. PI may override at CP-1.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
-### A1. S4-lateral spread rider [OPEN]
+### A1. S4-lateral spread rider [DONE: M3220]
 - question: can vehicle-population spread move the handling-limit feasible
   boundary when it hits the LATERAL channel (cg position lf/lr, inertia Iz)
   — the one channel the rejected mass/brake spread never touched?
@@ -31,6 +32,11 @@
 - acceptance: pre-registered: (per-tuned - fixed) and (per-tuned - RLS) per
   cell with paired CIs; either verdict feeds the papers.
 - template: `experiments/feasibility_audit/c5_prereg.json` + the C5 doc.
+- result: `docs/m3220-a1-s4-lateral-spread-rider-pricing.md` completed the
+  cg/Iz rider. Verdict: 0/4 cells qualified; S4L/T-limit prize was +0.007
+  with paired CI95 [-0.014, 0.028]. Current-sim lateral spread does not rescue
+  the original C5 spread mechanism; this does not cover load transfer,
+  tire-curve shape, wheelbase classes, or Chrono multi-vehicle dynamics.
 
 ### A2. Obs-normalization audit [OPEN; precondition for ANY population training]
 - question: how far do the nominal-vehicle normalization constants (vx/20,
@@ -109,12 +115,12 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - Papers (WP5): Claude + PI via the ARS pipeline.
 - v5 promotion: deferred by PI until research completion.
 - Anything touching `ActiveSafetyReflexDriver` or loosening a frozen
-  criterion. Autonomous-loop restart: only after M3220 guardrails are
-  merged AND smoked, and only with PI sign-off.
+  criterion. Guardrails are merged in commit 05607bcd; autonomous/Codex
+  sessions still follow this ordered roadmap and PI checkpoints.
 
 ## Status lines (update in place)
 
-- A1: OPEN
+- A1: DONE (M3220; 0/4 cells qualified under cg/Iz S4L rider)
 - A2: OPEN
 - A3: OPEN
 - B1: OPEN

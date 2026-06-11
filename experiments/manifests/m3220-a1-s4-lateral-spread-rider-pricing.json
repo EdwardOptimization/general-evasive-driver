@@ -1,0 +1,186 @@
+{
+  "id": "m3220-a1-s4-lateral-spread-rider-pricing",
+  "priority": 32200,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "measurement",
+  "hypothesis": "A frozen A1 lateral cg/Iz pricing rider can report whether the S4L tier moves the handling-limit boundary under the existing four-arm C5 measurement protocol before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/c5-reflex-degradation-2026-06.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_reflex_degradation.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5_lateral_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A1 as the final cheap current-sim check of the lateral cg/Iz channel before Track C decisions"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/c5_lateral_prereg.json",
+      "scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider --quick"
+    ],
+    "blocked_by": [
+      "none for A1: CP-1 gates Track C after A3, not this pricing rider"
+    ],
+    "supersedes": [
+      "the A1 OPEN status line in docs/roadmap-phase3-codex-execution.md after the full result is documented"
+    ],
+    "invalidates": [
+      "using the quick smoke artifact as a scientific verdict"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3220-a1-s4-lateral-spread-rider-pricing.md",
+  "public_gates": [
+    "M3220 must use the frozen A1 preregistration before the full run",
+    "M3220 must use the new 20260812 seed base and assert selection/validation seed disjointness",
+    "M3220 must run only the existing scripted four-arm pricing protocol plus reveal-constrained oracle",
+    "M3220 must not run RL, mutate the incumbent, promote a driver, or admit Track C training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not infer a paper or driver-performance result from the quick smoke",
+    "do not change acceptance criteria after seeing the full run",
+    "do not add wheelbase classes or tire-curve/load-transfer claims to this A1 measurement",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5_lateral_rider_pricing",
+    "evidence_axis": "c5_lateral_pricing_measurement",
+    "evidence_increment": "new pre-registered S0 vs S4L cg/Iz pricing panel with the same four-arm C5 protocol and matched oracle denominator",
+    "claim_scope": "Auxiliary pricing measurement only; incumbent unchanged; no training admission, no validation ranking promotion, no driver-performance, no high-fidelity sufficiency, no paper, no repair-success, no robustness-result, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if the preregistration file is absent or changed after full-run launch",
+      "stop if quick mode fails runtime gates before the full run",
+      "stop if the full result lacks per-cell primary prize and classical residual paired CIs",
+      "stop after documenting the A1 verdict; any Track C action still waits on A3 and CP-1"
+    ],
+    "fallback_plan": [
+      "on runtime-gate failure, document the failed gate and leave A1 OPEN or BLOCKED with artifact paths",
+      "on inconclusive full result, report the frozen per-cell readouts without criteria changes",
+      "on positive S4L cells, route to PI disposition rather than training",
+      "on negative S4L cells, close A1 as the current-sim lateral-channel rider result"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected A1 as the lowest-numbered OPEN unit after M3219",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the pre-registered A1 S4L lateral cg/Iz pricing rider and record per-cell readouts.",
+    "admission_evidence": [
+      "C5 S0-S3 pricing rejected the original spread formulation and identified cg/Iz as the cheap remaining current-sim check",
+      "The existing env randomization path already maps exact cg_shift and inertia_scale into VehicleParams",
+      "The quick smoke passed the composed-action, seed-disjointness, rollout-semantics, and RLS-prefix gates"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no driver mutation, promotion, or Track C admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5_lateral_prereg.json",
+      "experiments/feasibility_audit/c5_lateral_spread_rider_quick.json",
+      "experiments/feasibility_audit/c5_lateral_spread_rider.json",
+      "docs/m3220-a1-s4-lateral-spread-rider-pricing.md",
+      "docs/reviews/m3220-a1-s4-lateral-spread-rider-pricing.md",
+      "M3220 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol c5_lateral_spread_rider",
+      "full summary JSON reports S0 and S4L across T_mid and T_limit",
+      "result document separates measured values from inference and explicitly keeps training blocked"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3220 runs no learned-history policy, no belief substitution, and no self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3220: scripted pricing panel only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A negative A1 result is reported at full fidelity and closes only the current-sim lateral-channel rider, not any real-world load-transfer or tire-curve question.",
+    "allowed_claims": [
+      "A1 preregistration exists before the full run",
+      "S0 vs S4L per-cell pricing readouts under the scripted protocol",
+      "incumbent unchanged and training not admitted"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new A1 S0/S4L pricing panel with disjoint seed streams and matched oracle denominator",
+    "paper_verdict_delta": "A1 lateral-channel rider is negative in current-sim: 0/4 cells qualified, so the original C5 spread mechanism remains rejected within the measured channels",
+    "must_synthesize_if": [
+      "another C5 lateral connector step is proposed before the full panel result",
+      "the result is used to admit training before A3 and CP-1",
+      "criteria are changed after inspecting full results"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5_lateral_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/c5_lateral_spread_rider.json exists with protocol c5_lateral_spread_rider and quick_mode false",
+    "the summary reports cells S0/T_mid, S0/T_limit, S4L/T_mid, and S4L/T_limit",
+    "each cell reports primary prize and classical residual paired bootstrap CI95",
+    "the result document states that Track C training remains blocked"
+  ],
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "runtime gates fail or selection/validation seed sets overlap",
+    "the summary omits S4L cells or paired-CI readouts",
+    "the milestone runs RL, mutates the incumbent, or admits training",
+    "the result is described as a driver-performance or high-fidelity sufficiency claim"
+  ],
+  "decision_rule": "Accept M3220 as complete only if the full A1 pricing artifact and result document exist, report all four preregistered cells with paired-CI readouts, and keep all downstream training/promotion claims blocked.",
+  "commands": [
+    {
+      "name": "a1_lateral_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider --quick"
+    },
+    {
+      "name": "a1_lateral_full_pricing",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5_lateral_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5_lateral_spread_rider_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5_lateral_spread_rider.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3220-a1-s4-lateral-spread-rider-pricing.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/c5_reflex_degradation.json",
+    "experiments/feasibility_audit/c5_prereg.json",
+    "docs/c5-reflex-degradation-2026-06.md",
+    "docs/roadmap-phase3-codex-execution.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5_lateral_spread_rider.json",
+  "next_blocker": "A2 observation-normalization audit is the next roadmap unit unless PI redirects",
+  "status": "completed"
+}

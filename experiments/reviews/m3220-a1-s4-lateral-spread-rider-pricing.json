@@ -1,0 +1,85 @@
+{
+  "decision_reason": "Completed: pre-registered A1 lateral cg/Iz pricing rider. Full managed run took 345.6 s CPU with 7776 selection episodes 2112 validation arm episodes and 5687 oracle rollouts. Verdict 0/4 cells qualified; S4L/T-limit prize +0.007 CI95 [-0.014 to +0.028]. Track C remains blocked on A3 and CP-1; no driver-performance high-fidelity sufficiency validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "runtime gates fail or selection/validation seed sets overlap",
+    "the summary omits S4L cells or paired-CI readouts",
+    "the milestone runs RL, mutates the incumbent, or admits training",
+    "the result is described as a driver-performance or high-fidelity sufficiency claim"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not infer a paper or driver-performance result from the quick smoke",
+    "do not change acceptance criteria after seeing the full run",
+    "do not add wheelbase classes or tire-curve/load-transfer claims to this A1 measurement",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260611T192602Z",
+  "hypothesis": "A frozen A1 lateral cg/Iz pricing rider can report whether the S4L tier moves the handling-limit boundary under the existing four-arm C5 measurement protocol before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "none for A1: CP-1 gates Track C after A3, not this pricing rider"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/c5_lateral_prereg.json",
+      "scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider --quick"
+    ],
+    "invalidates": [
+      "using the quick smoke artifact as a scientific verdict"
+    ],
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/c5-reflex-degradation-2026-06.md",
+      "docs/current-status.md"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5_lateral_prereg.json"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_reflex_degradation.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A1 as the final cheap current-sim check of the lateral cg/Iz channel before Track C decisions"
+    ],
+    "supersedes": [
+      "the A1 OPEN status line in docs/roadmap-phase3-codex-execution.md after the full result is documented"
+    ]
+  },
+  "milestone": "m3220-a1-s4-lateral-spread-rider-pricing",
+  "next_blocker": "A2 observation-normalization audit is the next roadmap unit unless PI redirects",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "a1_lateral_rider_negative_0_of_4_qualified",
+  "public_gates": [
+    "M3220 must use the frozen A1 preregistration before the full run",
+    "M3220 must use the new 20260812 seed base and assert selection/validation seed disjointness",
+    "M3220 must run only the existing scripted four-arm pricing protocol plus reveal-constrained oracle",
+    "M3220 must not run RL, mutate the incumbent, promote a driver, or admit Track C training"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/c5_lateral_spread_rider.json",
+    "clearance_margin_mean": "",
+    "decision": "a1_lateral_rider_negative_0_of_4_qualified",
+    "milestone": "m3220-a1-s4-lateral-spread-rider-pricing",
+    "reason": "Completed: pre-registered A1 lateral cg/Iz pricing rider. Full managed run took 345.6 s CPU with 7776 selection episodes 2112 validation arm episodes and 5687 oracle rollouts. Verdict 0/4 cells qualified; S4L/T-limit prize +0.007 CI95 [-0.014 to +0.028]. Track C remains blocked on A3 and CP-1; no driver-performance high-fidelity sufficiency validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5_lateral_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/c5_lateral_spread_rider.json exists with protocol c5_lateral_spread_rider and quick_mode false",
+    "the summary reports cells S0/T_mid, S0/T_limit, S4L/T_mid, and S4L/T_limit",
+    "each cell reports primary prize and classical residual paired bootstrap CI95",
+    "the result document states that Track C training remains blocked"
+  ],
+  "type": "infrastructure"
+}

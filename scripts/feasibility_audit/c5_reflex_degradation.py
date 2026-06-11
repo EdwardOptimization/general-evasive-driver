@@ -18,6 +18,7 @@ x 2 task surfaces (T-mid / T-limit) x 12 vehicle instances x (10|12) paired vali
 
 Run:
     PYTHONPATH=src python scripts/feasibility_audit/c5_reflex_degradation.py [--quick]
+    PYTHONPATH=src python scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider [--quick]
 """
 
 from __future__ import annotations
@@ -43,22 +44,34 @@ from autodrift.engineering_controller_active_safety_driver_v2_speed_floor_aware_
 import autodrift.engineering_controller_active_safety_driver_v4_v2_fallback_no_regression_hard_safety_direct_action_repair_materialization_preflight as m4
 
 REPO = Path(__file__).resolve().parents[2]
-PREREG = REPO / "experiments/feasibility_audit/c5_prereg.json"
-RESULTS_JSON = REPO / "experiments/feasibility_audit/c5_reflex_degradation.json"
-RUN_DIR = REPO / "runs/feasibility_audit/c5_reflex_degradation"
+MAIN_PREREG = REPO / "experiments/feasibility_audit/c5_prereg.json"
+MAIN_RESULTS_JSON = REPO / "experiments/feasibility_audit/c5_reflex_degradation.json"
+MAIN_RUN_DIR = REPO / "runs/feasibility_audit/c5_reflex_degradation"
+LATERAL_PREREG = REPO / "experiments/feasibility_audit/c5_lateral_prereg.json"
+LATERAL_RESULTS_JSON = REPO / "experiments/feasibility_audit/c5_lateral_spread_rider.json"
+LATERAL_RUN_DIR = REPO / "runs/feasibility_audit/c5_lateral_spread_rider"
 
-BASE = 20260712
+BASE_MAIN = 20260712
+BASE_LATERAL = 20260812
+BASE = BASE_MAIN
 GRAV = 9.81
 MASS_NOM = 1450.0
+IZ_NOM = 2300.0
+LF_NOM = 1.35
+LR_NOM = 1.45
+WHEELBASE_NOM = LF_NOM + LR_NOM
 MAX_BRAKE, MAX_DRIVE = 6000.0, 8200.0
 DT = 0.02
 
-LEVELS = ["S0", "S1", "S2", "S3"]
+LEVELS_MAIN = ["S0", "S1", "S2", "S3"]
+LEVELS_LATERAL = ["S0", "S4L"]
+LEVELS = LEVELS_MAIN
 LEVEL_RANGES = {
-    "S0": {"mass": (1.0, 1.0), "brake": (1.0, 1.0), "drive": (1.0, 1.0), "stiff": (1.0, 1.0), "tau": (1.0, 1.0)},
-    "S1": {"mass": (0.85, 1.20), "brake": (0.80, 1.15), "drive": (0.80, 1.15), "stiff": (0.65, 1.35), "tau": (0.75, 1.75)},
-    "S2": {"mass": (0.70, 1.50), "brake": (0.60, 1.30), "drive": (0.60, 1.30), "stiff": (0.50, 1.50), "tau": (0.75, 2.50)},
-    "S3": {"mass": (1.40, 1.50), "brake": (0.60, 0.70), "drive": (0.60, 0.72), "stiff": (0.50, 0.62), "tau": (2.25, 2.50)},
+    "S0": {"mass": (1.0, 1.0), "brake": (1.0, 1.0), "drive": (1.0, 1.0), "stiff": (1.0, 1.0), "tau": (1.0, 1.0), "cg": (0.0, 0.0), "inertia": (1.0, 1.0)},
+    "S1": {"mass": (0.85, 1.20), "brake": (0.80, 1.15), "drive": (0.80, 1.15), "stiff": (0.65, 1.35), "tau": (0.75, 1.75), "cg": (0.0, 0.0), "inertia": (1.0, 1.0)},
+    "S2": {"mass": (0.70, 1.50), "brake": (0.60, 1.30), "drive": (0.60, 1.30), "stiff": (0.50, 1.50), "tau": (0.75, 2.50), "cg": (0.0, 0.0), "inertia": (1.0, 1.0)},
+    "S3": {"mass": (1.40, 1.50), "brake": (0.60, 0.70), "drive": (0.60, 0.72), "stiff": (0.50, 0.62), "tau": (2.25, 2.50), "cg": (0.0, 0.0), "inertia": (1.0, 1.0)},
+    "S4L": {"mass": (1.0, 1.0), "brake": (1.0, 1.0), "drive": (1.0, 1.0), "stiff": (1.0, 1.0), "tau": (1.0, 1.0), "cg": (-0.42, 0.42), "inertia": (0.6, 1.6)},
 }
 SURFACES = ["T_mid", "T_limit"]
 MU_DOMAIN = (0.25, 1.15)
@@ -76,6 +89,18 @@ CLAIM_BOUNDARY = (
     "vehicle-randomized obstacle family. Zero training; RL never run. No driver promotion, "
     "repair-success, gate-validity, paper, or self-ID capability claim."
 )
+
+LATERAL_CLAIM_BOUNDARY = (
+    "Feasibility-audit lateral-spread rider only: scripted reflex controllers, the same "
+    "kappa-RLS identification arm, a grid-tuned upper bound, and a reveal-constrained "
+    "oracle compared on S0 vs S4L cg/Iz vehicle instances. Zero training; no incumbent "
+    "driver mutation, driver-performance, validation ranking, promotion, high-fidelity "
+    "sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim."
+)
+
+PREREG = MAIN_PREREG
+RESULTS_JSON = MAIN_RESULTS_JSON
+RUN_DIR = MAIN_RUN_DIR
 
 
 # ----------------------------------------------------------------- controllers
@@ -178,11 +203,20 @@ class VehicleRLS:
 
 
 def sample_vehicle(level: str, instance: int) -> dict[str, float]:
-    if level == "S0":
-        return {"mass": 1.0, "brake": 1.0, "drive": 1.0, "stiff": 1.0, "tau": 1.0}
     rng = np.random.default_rng([BASE, 11, LEVELS.index(level), instance])
     rg = LEVEL_RANGES[level]
-    return {k: float(rng.uniform(*rg[k])) for k in ("mass", "brake", "drive", "stiff", "tau")}
+    return {k: float(rng.uniform(*rg[k])) for k in ("mass", "brake", "drive", "stiff", "tau", "cg", "inertia")}
+
+
+def lateral_vehicle_summary(veh: dict[str, float]) -> dict[str, float]:
+    lf = float(np.clip(LF_NOM + veh.get("cg", 0.0), 0.9, WHEELBASE_NOM - 0.9))
+    lr = WHEELBASE_NOM - lf
+    return {
+        "cg_shift": lf - LF_NOM,
+        "lf": lf,
+        "lr": lr,
+        "iz": IZ_NOM * veh.get("inertia", 1.0),
+    }
 
 
 def true_kappas(veh: dict[str, float]) -> tuple[float, float]:
@@ -204,7 +238,7 @@ def familiarization_rls(level: str, instance: int, veh: dict[str, float]) -> dic
             "mu_range": [mu, mu], "mass_scale_range": [veh["mass"]] * 2,
             "brake_scale_range": [veh["brake"]] * 2, "drive_scale_range": [veh["drive"]] * 2,
             "tire_stiffness_scale_range": [veh["stiff"]] * 2, "actuator_tau_scale_range": [veh["tau"]] * 2,
-            "cg_shift_range": [0.0, 0.0], "inertia_scale_range": [1.0, 1.0]},
+            "cg_shift_range": [veh["cg"]] * 2, "inertia_scale_range": [veh["inertia"]] * 2},
     })
     env = AutoDriftEnv(cfg)
     rls = VehicleRLS()
@@ -269,7 +303,7 @@ def row_env_config(surface: str, v: float, mu: float, s_arc: float, hw: float, v
             "mu_range": [mu, mu], "mass_scale_range": [veh["mass"]] * 2,
             "brake_scale_range": [veh["brake"]] * 2, "drive_scale_range": [veh["drive"]] * 2,
             "tire_stiffness_scale_range": [veh["stiff"]] * 2, "actuator_tau_scale_range": [veh["tau"]] * 2,
-            "cg_shift_range": [0.0, 0.0], "inertia_scale_range": [1.0, 1.0]},
+            "cg_shift_range": [veh["cg"]] * 2, "inertia_scale_range": [veh["inertia"]] * 2},
     })
 
 
@@ -458,24 +492,44 @@ def paired_bootstrap_ci(a: np.ndarray, b: np.ndarray, rng: np.random.Generator,
 
 
 def main() -> None:
+    global BASE, LEVELS, PREREG, RESULTS_JSON, RUN_DIR
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--quick", action="store_true")
+    ap.add_argument("--lateral-rider", action="store_true",
+                    help="Run the A1 S4-lateral cg/Iz spread rider instead of the original S0-S3 C5 panel.")
     ap.add_argument("--device", default="cpu", choices=["cpu"])
     args = ap.parse_args()
     quick = args.quick
+    if args.lateral_rider:
+        BASE = BASE_LATERAL
+        LEVELS = LEVELS_LATERAL
+        PREREG = LATERAL_PREREG
+        RESULTS_JSON = LATERAL_RESULTS_JSON
+        RUN_DIR = LATERAL_RUN_DIR
+        protocol = "c5_lateral_spread_rider"
+        claim_boundary = LATERAL_CLAIM_BOUNDARY
+    else:
+        BASE = BASE_MAIN
+        LEVELS = LEVELS_MAIN
+        PREREG = MAIN_PREREG
+        RESULTS_JSON = MAIN_RESULTS_JSON
+        RUN_DIR = MAIN_RUN_DIR
+        protocol = "c5_reflex_degradation"
+        claim_boundary = CLAIM_BOUNDARY
 
     t_start = time.time()
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     progress_path = RUN_DIR / ("progress_quick.json" if quick else "progress.json")
     rows_csv = RUN_DIR / ("episode_rows_quick.csv" if quick else "episode_rows.csv")
-    results_json = RESULTS_JSON if not quick else RESULTS_JSON.with_name("c5_reflex_degradation_quick.json")
+    quick_name = "c5_lateral_spread_rider_quick.json" if args.lateral_rider else "c5_reflex_degradation_quick.json"
+    results_json = RESULTS_JSON if not quick else RESULTS_JSON.with_name(quick_name)
 
     prereg = json.loads(PREREG.read_text(encoding="utf-8"))
 
     n_inst = 2 if quick else 12
     n_sel = 2 if quick else 6
     n_val = {"T_mid": 3 if quick else 10, "T_limit": 3 if quick else 12}
-    levels = ["S0", "S2"] if quick else LEVELS
+    levels = (["S0", "S4L"] if args.lateral_rider else ["S0", "S2"]) if quick else LEVELS
 
     def progress(stage: str, **kw):
         progress_path.write_text(json.dumps(
@@ -609,6 +663,7 @@ def main() -> None:
         for v_i in range(n_inst):
             veh = vehicles[(level, v_i)]
             rinfo = rls_table[(level, v_i)]
+            lateral_summary = lateral_vehicle_summary(veh)
             rls_cfg = rls_cfgs(star, rinfo["kappa_b_hat"], rinfo["kappa_d_hat"])
             pt_cfg = grid_cfg_cache[pertuned_choice[(level, surface, v_i)]]
             for r in val_rows[(level, surface, v_i)]:
@@ -637,6 +692,9 @@ def main() -> None:
                     "hw": round(r["hw"], 3), "gen_label": r["label"], "instance_label": r["instance_label"],
                     "mass": round(veh["mass"], 4), "brake": round(veh["brake"], 4), "drive": round(veh["drive"], 4),
                     "stiff": round(veh["stiff"], 4), "tau": round(veh["tau"], 4),
+                    "cg_shift": round(lateral_summary["cg_shift"], 4),
+                    "lf": round(lateral_summary["lf"], 4), "lr": round(lateral_summary["lr"], 4),
+                    "inertia_scale": round(veh["inertia"], 4), "iz": round(lateral_summary["iz"], 2),
                     "kappa_b_hat": round(rinfo["kappa_b_hat"], 4), "kappa_d_hat": round(rinfo["kappa_d_hat"], 4),
                     "pertuned_grid": str(GRID[pertuned_choice[(level, surface, v_i)]]),
                     "reveal_step": reveal,
@@ -719,17 +777,25 @@ def main() -> None:
                 and resid["value"] >= 0.08):
             qualifying.append(cell)
     c5_supported = len(qualifying) >= 2
+    s4l_qualifying = [cell for cell in qualifying if cell.startswith("S4L/")]
 
     pertuned_grid_hist: dict[str, int] = {}
     for key, gi in pertuned_choice.items():
         pertuned_grid_hist[str(GRID[gi])] = pertuned_grid_hist.get(str(GRID[gi]), 0) + 1
 
     payload = {
-        "protocol": "c5_reflex_degradation",
+        "protocol": protocol,
         "generated_by": "scripts/feasibility_audit/c5_reflex_degradation.py",
+        "lateral_rider_mode": bool(args.lateral_rider),
         "quick_mode": quick,
-        "claim_boundary": CLAIM_BOUNDARY,
-        "preregistration_echo": {"file": str(PREREG), "decision_rule": prereg["preregistered_readouts"]["c5_decision_rule"]},
+        "claim_boundary": claim_boundary,
+        "preregistration_echo": {
+            "file": str(PREREG),
+            "decision_rule": prereg["preregistered_readouts"].get(
+                "c5_decision_rule",
+                prereg["preregistered_readouts"].get("lateral_rider_decision_rule", ""),
+            ),
+        },
         "seed_base": BASE,
         "levels": levels, "surfaces": SURFACES, "instances_per_level": n_inst,
         "sel_rows_per_instance": n_sel, "val_rows_per_instance": n_val,
@@ -738,7 +804,10 @@ def main() -> None:
                        "pooled_s0_sel_n": int(n_inst * n_sel * 2),
                        "identity_pooled_s0_sel_success": int(pool[IDENTITY_INDEX])},
         "pertuned_grid_histogram": pertuned_grid_hist,
-        "vehicles": {f"{lv}/{vi}": vehicles[(lv, vi)] for (lv, vi) in vehicles},
+        "vehicles": {
+            f"{lv}/{vi}": {**vehicles[(lv, vi)], **lateral_vehicle_summary(vehicles[(lv, vi)])}
+            for (lv, vi) in vehicles
+        },
         "rls_identification": {
             f"{lv}/{vi}": {k: round(v, 4) if isinstance(v, float) else v for k, v in rls_table[(lv, vi)].items()}
             for (lv, vi) in rls_table},
@@ -750,6 +819,11 @@ def main() -> None:
         "cells": cells_out,
         "c5_decision": {"qualifying_cells": qualifying, "c5_supported": c5_supported,
                         "rule": ">=2 cells with primary_prize >= 0.15, paired CI95 lower > 0, classical_residual >= 0.08"},
+        "lateral_rider_decision": {
+            "s4l_qualifying_cells": s4l_qualifying,
+            "reported_cells": [cell for cell in cells_out if cell.startswith("S4L/")],
+            "interpretation": "A1 rider is a per-cell pricing readout; it does not by itself promote C5 or admit training.",
+        },
         "budget": {"selection_episodes": n_sel_eps, "validation_episodes": n_val_eps,
                    "oracle_rollouts": n_oracle_rollouts,
                    "rls_prefixes": len(rls_table), "elapsed_s": round(time.time() - t_start, 1)},

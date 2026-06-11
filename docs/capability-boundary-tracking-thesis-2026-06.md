@@ -317,11 +317,14 @@ oracles. The first population-spread pricing pass then split the user's
 original C5 argument in two. The mass/brake/tau spread mechanism did
 **not** price out in S0-S3, but the reflex structural-ceiling gap did:
 +0.16-0.21 at T-limit, CI-excluding 0, concentrated in drift-grade rows.
-The remaining population question is narrower and high-fidelity: whether
-lateral/tire/load-transfer spread across passenger cars moves the
-boundary. M3218 found Chrono resources for that extension but also found
-the repo wiring still hard-coded to Sedan + TMeasy; M3219 then added and
-smoked the reset-time selector on default Sedan, BMW_E90, and UAZBUS. S4
-pricing now waits on a frozen preregistration, not on backend wiring. Claim
-C5 and the WP-RL program operationalize this discipline: price first, then
-train RL only against a measured, pre-registered gap.
+M3220 then ran the cheap current-sim lateral rider over cg/Iz and also
+found no spread prize: 0/4 cells qualified, with S4L/T-limit at only
++0.007 CI95 [-0.014, +0.028]. The remaining population question is now
+narrower and higher-fidelity: whether tire-shape, load-transfer,
+wheelbase-class, or Chrono vehicle-family dynamics move the boundary.
+M3218 found Chrono resources for that extension but also found the repo
+wiring still hard-coded to Sedan + TMeasy; M3219 then added and smoked the
+reset-time selector on default Sedan, BMW_E90, and UAZBUS. S4 pricing now
+waits on a frozen preregistration, not on backend wiring. Claim C5 and the
+WP-RL program operationalize this discipline: price first, then train RL
+only against a measured, pre-registered gap.

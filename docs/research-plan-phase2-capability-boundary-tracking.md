@@ -12,9 +12,9 @@
   the commit message.
 - process registration: WP0-WP4 measurement/implementation units are
   registered as harness milestones (M3215+) with manifests and
-  pre-registration artifacts for provenance, but execute under manual
-  takeover; the autonomous loop stays paused until the WP6.2 guardrails are
-  implemented and smoke-tested.
+  pre-registration artifacts for provenance. WP6.2 guardrails are now live;
+  autonomous/Codex sessions execute only through the ordered Phase-3 roadmap
+  and PI checkpoints.
 - live progress and gate dispositions after this plan are tracked in
   `docs/current-status.md`; this plan remains the program/criteria
   definition and may retain work-package wording that was later completed
@@ -337,7 +337,7 @@ check (not "~1 command").
 
 ### WP-RL — C5 program (priced first, trained second)
 
-1. **Pricing (zero training; S0-S3 completed, S4 connector pending, C5'
+1. **Pricing (zero training; S0-S3 completed, A1 lateral rider completed, C5'
    available in the live ledger)**: the reflex degradation curve —
    spread tiers S0 nominal / S1 current (+-20%, what v4 was tuned on) /
    S2 extended (mass 0.70-1.50, brake/drive 0.60-1.30, stiffness
@@ -352,13 +352,13 @@ check (not "~1 command").
    and per-instance oracles; the S0-S3 run prices the within-model rungs
    and S4 prices the population claim itself.
 
-   Live disposition (2026-06-12, M3219): the Chrono variant-selector
-   connector is implemented and smoke-tested. Omitted selector preserves the
-   default Sedan/TMeasy path; explicit BMW_E90 and UAZBUS variants reset and
-   step through the worker with finite obs72/action3. This admits only a
-   frozen S4-HF-lite pricing pre-registration. Pricing execution is still
-   blocked until that pre-registration decides how to handle the still-
-   unmapped `lf/lr/Iz/cf/cr` lateral/tire channels.
+   Live disposition (2026-06-12, M3220): S0-S3 rejected the original spread
+   formulation, and the cheap current-sim A1 lateral rider over cg/Iz also
+   rejected the spread mechanism (0/4 cells qualified; S4L/T-limit prize
+   +0.007 CI95 [-0.014, +0.028]). The Chrono variant-selector connector is
+   implemented and smoke-tested, but any S4-HF-lite pricing execution still
+   needs a frozen preregistration and a declared handling of the unmapped
+   continuous `lf/lr/Iz/cf/cr` lateral/tire channels.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /

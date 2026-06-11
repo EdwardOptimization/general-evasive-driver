@@ -1,0 +1,836 @@
+{
+  "protocol": "c5_lateral_spread_rider",
+  "generated_by": "scripts/feasibility_audit/c5_reflex_degradation.py",
+  "lateral_rider_mode": true,
+  "quick_mode": true,
+  "claim_boundary": "Feasibility-audit lateral-spread rider only: scripted reflex controllers, the same kappa-RLS identification arm, a grid-tuned upper bound, and a reveal-constrained oracle compared on S0 vs S4L cg/Iz vehicle instances. Zero training; no incumbent driver mutation, driver-performance, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.",
+  "preregistration_echo": {
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/c5_lateral_prereg.json",
+    "decision_rule": "Report per-cell A1 readouts for S0/T_mid, S0/T_limit, S4L/T_mid, and S4L/T_limit. A cell is marked qualifying if primary_prize >= 0.15, paired-bootstrap CI95 lower bound > 0, and classical_residual >= 0.08. This rider does not by itself stand up C5, admit training, or make a driver-performance claim."
+  },
+  "seed_base": 20260812,
+  "levels": [
+    "S0",
+    "S4L"
+  ],
+  "surfaces": [
+    "T_mid",
+    "T_limit"
+  ],
+  "instances_per_level": 2,
+  "sel_rows_per_instance": 2,
+  "val_rows_per_instance": {
+    "T_mid": 3,
+    "T_limit": 3
+  },
+  "fixed_star": {
+    "grid": [
+      1.0,
+      1.45,
+      1.0
+    ],
+    "grid_index": 12,
+    "pooled_s0_sel_success": 8,
+    "pooled_s0_sel_n": 8,
+    "identity_pooled_s0_sel_success": 1
+  },
+  "pertuned_grid_histogram": {
+    "(1.0, 1.45, 1.0)": 8
+  },
+  "vehicles": {
+    "S0/0": {
+      "mass": 1.0,
+      "brake": 1.0,
+      "drive": 1.0,
+      "stiff": 1.0,
+      "tau": 1.0,
+      "cg": 0.0,
+      "inertia": 1.0,
+      "cg_shift": 0.0,
+      "lf": 1.35,
+      "lr": 1.4499999999999997,
+      "iz": 2300.0
+    },
+    "S0/1": {
+      "mass": 1.0,
+      "brake": 1.0,
+      "drive": 1.0,
+      "stiff": 1.0,
+      "tau": 1.0,
+      "cg": 0.0,
+      "inertia": 1.0,
+      "cg_shift": 0.0,
+      "lf": 1.35,
+      "lr": 1.4499999999999997,
+      "iz": 2300.0
+    },
+    "S4L/0": {
+      "mass": 1.0,
+      "brake": 1.0,
+      "drive": 1.0,
+      "stiff": 1.0,
+      "tau": 1.0,
+      "cg": 0.30693634283587984,
+      "inertia": 1.5661785312311154,
+      "cg_shift": 0.3069363428358798,
+      "lf": 1.6569363428358799,
+      "lr": 1.14306365716412,
+      "iz": 3602.2106218315653
+    },
+    "S4L/1": {
+      "mass": 1.0,
+      "brake": 1.0,
+      "drive": 1.0,
+      "stiff": 1.0,
+      "tau": 1.0,
+      "cg": -0.07016846858000159,
+      "inertia": 0.6402743143516614,
+      "cg_shift": -0.0701684685800017,
+      "lf": 1.2798315314199984,
+      "lr": 1.5201684685800014,
+      "iz": 1472.6309230088211
+    }
+  },
+  "rls_identification": {
+    "S0/0": {
+      "kappa_b_hat": 1.0002,
+      "kappa_d_hat": 0.9997,
+      "kappa_b_true": 1.0,
+      "kappa_d_true": 1.0,
+      "kappa_b_abs_err": 0.0002,
+      "kappa_d_abs_err": 0.0003,
+      "rls_frames": 152,
+      "prefix_mu": 0.6344,
+      "max_rear_utilization": 0.1937
+    },
+    "S0/1": {
+      "kappa_b_hat": 1.0004,
+      "kappa_d_hat": 0.9997,
+      "kappa_b_true": 1.0,
+      "kappa_d_true": 1.0,
+      "kappa_b_abs_err": 0.0004,
+      "kappa_d_abs_err": 0.0003,
+      "rls_frames": 152,
+      "prefix_mu": 0.3419,
+      "max_rear_utilization": 0.3602
+    },
+    "S4L/0": {
+      "kappa_b_hat": 1.0006,
+      "kappa_d_hat": 0.9997,
+      "kappa_b_true": 1.0,
+      "kappa_d_true": 1.0,
+      "kappa_b_abs_err": 0.0006,
+      "kappa_d_abs_err": 0.0003,
+      "rls_frames": 152,
+      "prefix_mu": 0.9391,
+      "max_rear_utilization": 0.1077
+    },
+    "S4L/1": {
+      "kappa_b_hat": 1.0001,
+      "kappa_d_hat": 0.9998,
+      "kappa_b_true": 1.0,
+      "kappa_d_true": 1.0,
+      "kappa_b_abs_err": 0.0001,
+      "kappa_d_abs_err": 0.0002,
+      "rls_frames": 152,
+      "prefix_mu": 0.5365,
+      "max_rear_utilization": 0.2413
+    }
+  },
+  "rls_kappa_err_summary": {
+    "kappa_b_abs_err_median": 0.0003,
+    "kappa_b_abs_err_p90": 0.0005,
+    "kappa_d_abs_err_median": 0.0003
+  },
+  "cells": {
+    "S0/T_mid": {
+      "n_rows_unfiltered": 6,
+      "n_rows_oracle_solved": 5,
+      "oracle_solvability": 0.8333,
+      "filtered": {
+        "fixed_v4_incumbent": {
+          "success": 0.2,
+          "n": 5,
+          "wilson_ci95": [
+            0.0362,
+            0.6245
+          ],
+          "failure_modes": {
+            "success": 1,
+            "collision": 4,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 5,
+          "wilson_ci95": [
+            0.5655,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 5,
+          "wilson_ci95": [
+            0.5655,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 5,
+          "wilson_ci95": [
+            0.5655,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.1667,
+          "n": 6,
+          "wilson_ci95": [
+            0.0301,
+            0.5635
+          ],
+          "failure_modes": {
+            "success": 1,
+            "collision": 5,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_filtered": {
+        "primary_prize_pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4345,
+            0.4345
+          ]
+        },
+        "classical_residual_pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4345,
+            0.4345
+          ]
+        },
+        "rls_recovery_rls_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "secondary_incumbent_prize_pertuned_minus_incumbent": {
+          "value": 0.8,
+          "paired_bootstrap_ci95": [
+            0.4,
+            1.0
+          ]
+        }
+      }
+    },
+    "S0/T_limit": {
+      "n_rows_unfiltered": 6,
+      "n_rows_oracle_solved": 6,
+      "oracle_solvability": 1.0,
+      "filtered": {
+        "fixed_v4_incumbent": {
+          "success": 0.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.0,
+            0.3903
+          ],
+          "failure_modes": {
+            "success": 0,
+            "collision": 6,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.0,
+            0.3903
+          ],
+          "failure_modes": {
+            "success": 0,
+            "collision": 6,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_filtered": {
+        "primary_prize_pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4197,
+            0.4197
+          ]
+        },
+        "classical_residual_pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4197,
+            0.4197
+          ]
+        },
+        "rls_recovery_rls_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "secondary_incumbent_prize_pertuned_minus_incumbent": {
+          "value": 0.8333,
+          "paired_bootstrap_ci95": [
+            0.5,
+            1.0
+          ]
+        }
+      }
+    },
+    "S4L/T_mid": {
+      "n_rows_unfiltered": 6,
+      "n_rows_oracle_solved": 4,
+      "oracle_solvability": 0.6667,
+      "filtered": {
+        "fixed_v4_incumbent": {
+          "success": 0.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.0,
+            0.4899
+          ],
+          "failure_modes": {
+            "success": 0,
+            "collision": 4,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 4,
+          "wilson_ci95": [
+            0.5101,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 4,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.0,
+            0.3903
+          ],
+          "failure_modes": {
+            "success": 0,
+            "collision": 6,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 1.0,
+          "n": 6,
+          "wilson_ci95": [
+            0.6097,
+            1.0
+          ],
+          "failure_modes": {
+            "success": 6,
+            "collision": 0,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_filtered": {
+        "primary_prize_pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4899,
+            0.4899
+          ]
+        },
+        "classical_residual_pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4899,
+            0.4899
+          ]
+        },
+        "rls_recovery_rls_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "secondary_incumbent_prize_pertuned_minus_incumbent": {
+          "value": 1.0,
+          "paired_bootstrap_ci95": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "S4L/T_limit": {
+      "n_rows_unfiltered": 6,
+      "n_rows_oracle_solved": 6,
+      "oracle_solvability": 1.0,
+      "filtered": {
+        "fixed_v4_incumbent": {
+          "success": 0.3333,
+          "n": 6,
+          "wilson_ci95": [
+            0.0968,
+            0.7
+          ],
+          "failure_modes": {
+            "success": 2,
+            "collision": 4,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "unfiltered": {
+        "fixed_v4_incumbent": {
+          "success": 0.3333,
+          "n": 6,
+          "wilson_ci95": [
+            0.0968,
+            0.7
+          ],
+          "failure_modes": {
+            "success": 2,
+            "collision": 4,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "fixed_star": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_rls": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        },
+        "v4_pertuned": {
+          "success": 0.8333,
+          "n": 6,
+          "wilson_ci95": [
+            0.4365,
+            0.9699
+          ],
+          "failure_modes": {
+            "success": 5,
+            "collision": 1,
+            "offtrack": 0,
+            "speed_too_low": 0,
+            "timeout_other": 0
+          }
+        }
+      },
+      "readouts_filtered": {
+        "primary_prize_pertuned_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4197,
+            0.4197
+          ]
+        },
+        "classical_residual_pertuned_minus_rls": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ],
+          "newcombe_ci95": [
+            -0.4197,
+            0.4197
+          ]
+        },
+        "rls_recovery_rls_minus_fixed_star": {
+          "value": 0.0,
+          "paired_bootstrap_ci95": [
+            0.0,
+            0.0
+          ]
+        },
+        "secondary_incumbent_prize_pertuned_minus_incumbent": {
+          "value": 0.5,
+          "paired_bootstrap_ci95": [
+            0.1667,
+            0.8333
+          ]
+        }
+      }
+    }
+  },
+  "c5_decision": {
+    "qualifying_cells": [],
+    "c5_supported": false,
+    "rule": ">=2 cells with primary_prize >= 0.15, paired CI95 lower > 0, classical_residual >= 0.08"
+  },
+  "lateral_rider_decision": {
+    "s4l_qualifying_cells": [],
+    "reported_cells": [
+      "S4L/T_mid",
+      "S4L/T_limit"
+    ],
+    "interpretation": "A1 rider is a per-cell pricing readout; it does not by itself promote C5 or admit training."
+  },
+  "budget": {
+    "selection_episodes": 432,
+    "validation_episodes": 96,
+    "oracle_rollouts": 232,
+    "rls_prefixes": 4,
+    "elapsed_s": 17.1
+  },
+  "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/c5_lateral_spread_rider/episode_rows_quick.csv"
+}

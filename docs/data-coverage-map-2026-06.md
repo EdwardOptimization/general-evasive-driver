@@ -20,7 +20,7 @@ gap map below is what C5's population claim must close.
 
 | axis | covered (artifacts) | uncovered / C5 gap |
 |---|---|---|
-| vehicle parameters | nominal sedan +- within-model band: mass 0.85-1.20x (S2 in-flight: 0.70-1.50x), brake/drive 0.80-1.15x (S2: 0.60-1.30x), stiffness 0.65-1.35x, tau to 1.75-2.5x, cg shift +-0.12 m (panels, regime maps, WP1) | **geometry essentially fixed** (wheelbase/lf/lr never varied beyond cg shift); no vehicle-class structure; the 900 kg-3.2 t population envelope (S4) has zero coverage |
+| vehicle parameters | nominal sedan +- within-model band: mass 0.85-1.20x (S2 in-flight: 0.70-1.50x), brake/drive 0.80-1.15x (S2: 0.60-1.30x), stiffness 0.65-1.35x, tau to 1.75-2.5x, cg shift +-0.12 m (panels, regime maps, WP1); M3220 A1 rider sampled cg shift about +-0.42 m and Iz 0.6-1.6x in current-sim and found 0/4 qualifying cells | **vehicle-class structure still unpriced**: wheelbase classes, load transfer, tire-curve shape, and high-fidelity multi-vehicle dynamics remain uncovered; the 900 kg-3.2 t population envelope is not yet covered by Chrono pricing |
 | road surface | scalar mu in [0.25, 1.15], continuous + 12-point grids; mid-episode mu steps (all measurement series) | spatially varying mu (split-mu left/right — the canonical ESC scenario); tire-curve shape (tanh fixed; winter/summer shape difference inexpressible); no load transfer (h_cg unused) |
 | scenario geometry | family #1 B2K2 (r=900 arc commitment) and family #2 F2C1 (straight asymmetric gap choice), both deeply measured; legacy r=18 drift circle, figure-eight, M3082 4-axis panel | S-curves, multi-obstacle (4 obs slots, only slot 0 ever used), **moving obstacles (rel-vel == 0 everywhere, contract-enforced)**, oncoming traffic, lane-change topologies |
 | speed regime | 5-20 m/s; utilization 0.2-0.95 sweeps; overshoot injection to 150% (measurements A/C) | **> 72 km/h zero coverage** (production AEB/AES operates to 130+ km/h); sustained drift equilibria (de-scoped to Phase-3) |
@@ -50,7 +50,7 @@ budgets.
 
 ## Priority order for closing (feeds WP-RL prerequisites)
 
-1. S4 population tier pricing pre-registration + obs-normalization audit, then S4 population tier pricing (zero training, CPU).
+1. Obs-normalization audit before any population training; S4 current-sim cg/Iz rider is closed negative (M3220), while Chrono S4 pricing still needs its own frozen pre-registration.
 2. Moving obstacles (env engineering: kinematics, collision, label
    re-derivation; >= 1-2 days).
 3. High-speed domain (> 20 m/s scenarios; preview/normalization rework).
