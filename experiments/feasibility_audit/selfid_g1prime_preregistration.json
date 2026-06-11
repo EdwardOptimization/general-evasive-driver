@@ -1,0 +1,97 @@
+{
+  "protocol": "feasibility_audit_selfid_g1prime_preregistration",
+  "written_at_utc": "20260611T071421Z",
+  "written_before_any_g1prime_training_or_eval": true,
+  "mode": "preregistered_gate",
+  "criteria": {
+    "question": "Can a history-bearing learner learn the probe->commit mapping from demonstrations on the final B2K2 spec, and does that ability depend on history?",
+    "signature": "per-run Spearman(speed_at_reveal, mu) on held-out closed-loop episodes",
+    "pass_rule": {
+      "history_median_min": 0.8,
+      "current_median_max": 0.4,
+      "paired_bootstrap": {
+        "resamples": 10000,
+        "ci_percentiles": [
+          2.5,
+          97.5
+        ],
+        "rule": "CI of per-seed (history - current) must exclude 0 (low > 0)"
+      },
+      "all_three_conjunctive": true
+    },
+    "fail_semantics": {
+      "history_lt_0.8": "TEACHER/TASK REWORK -- task or demonstration design goes back; no RL escalation",
+      "history_geq_0.8_and_current_gt_0.4": "CURRENT-FRAME LEAK -- gate self-check fails; route to P4 protocol review",
+      "medians_ok_ci_contains_0": "UNDERPOWERED -- more seeds/demos and rerun; no claim",
+      "history_lt_0.8_and_current_gt_0.4": "LEAK + WEAK TEACHER -- P4 review first, then teacher rework"
+    },
+    "validity_preconditions": {
+      "kept_demo_fraction_min": 0.6,
+      "min_reveal_coverage_per_run": 0.5,
+      "min_valid_runs_per_arm": 6
+    },
+    "auxiliary_non_adjudicating": [
+      "history-arm hidden-reset ablation at the commitment step (signature should degrade)",
+      "free-prior hedge baseline (medium-bin best fixed plan) signature",
+      "teacher closed-loop signature (privileged ceiling)",
+      "per-arm panel success vs the gate-3 bar from the final spec",
+      "preparation-segment action energy vs the no-probe baseline (S2 analogue)"
+    ],
+    "design_constants": {
+      "arms": {
+        "history": "GRU(72->40) + Linear(40->3), tanh",
+        "current_frame": "MLP 72->64->64->64->3, ReLU, tanh out"
+      },
+      "parameter_alignment_tolerance": 0.1,
+      "hidden_cap": 64,
+      "optimizer": "Adam lr=0.001, epochs=25, batch=16 episodes, MSE, grad clip 1.0",
+      "seeds_per_arm": 8,
+      "demos_generated": 400,
+      "demo_filter": "keep success episodes only",
+      "eval_episodes_per_run": 64,
+      "eval_pairing": "identical (mu, env seed) eval set for every run and arm",
+      "teacher": "track v0=8 (steps 0..11), full-brake pulse (12..21), commit v_oracle_est(mu) from step 22, reactive swerve post-reveal",
+      "seed_streams": {
+        "demo_env": "20260616*10 + 300000 + i",
+        "demo_mu": "U(0.25,1.15) from default_rng([20260616, 1, i])",
+        "eval_env": "20260616*10 + 600000 + j",
+        "eval_mu": "U(0.25,1.15) from default_rng([20260616, 2, j])",
+        "torch": "20260616*1000 + seed*10 + arm_index",
+        "batch_order": "default_rng([20260616, 5, seed]) (shared by both arms)"
+      }
+    }
+  },
+  "final_spec_digest": {
+    "generated_at_utc": "20260611T070433Z",
+    "all_acceptance_pass": false,
+    "gate3_bar": 0.7223,
+    "best_fixed_plan": "cem_robust",
+    "knobs": {
+      "reveal_distance": 9.5,
+      "max_steps": 285,
+      "obstacle_half_width": 1.25,
+      "jitter_d_m": 0.75,
+      "pass_reward": 40.0,
+      "collision_penalty": 60.0,
+      "d_knots": [
+        24.0,
+        38.0,
+        47.0,
+        52.0
+      ],
+      "v_oracle_knots": [
+        4.5,
+        7.5,
+        9.5,
+        10.5
+      ]
+    }
+  },
+  "panel": {
+    "demos": 400,
+    "seeds": 8,
+    "eval_episodes": 64,
+    "epochs": 25
+  },
+  "claim_boundary": "Feasibility-audit ignition-gate measurement only: scripted per-mu oracle demonstrations and minutes-scale supervised imitation probes of HISTORY DEPENDENCE on the final B2K2 commitment family. No driver-performance, repair-success, robustness-result, validation, ranking, promotion, paper, or self-ID *capability* claim is made."
+}

@@ -1,0 +1,370 @@
+{
+  "protocol": "feasibility_audit_selfid_g1prime_ignition_gate",
+  "generated_by": "scripts/feasibility_audit/selfid_g1prime_ignition_gate.py",
+  "generated_at_utc": "20260611T071509Z",
+  "mode": "preregistered_gate",
+  "claim_boundary": "Feasibility-audit ignition-gate measurement only: scripted per-mu oracle demonstrations and minutes-scale supervised imitation probes of HISTORY DEPENDENCE on the final B2K2 commitment family. No driver-performance, repair-success, robustness-result, validation, ranking, promotion, paper, or self-ID *capability* claim is made.",
+  "preregistration": {
+    "json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/selfid_g1prime_preregistration.json",
+    "criteria": {
+      "question": "Can a history-bearing learner learn the probe->commit mapping from demonstrations on the final B2K2 spec, and does that ability depend on history?",
+      "signature": "per-run Spearman(speed_at_reveal, mu) on held-out closed-loop episodes",
+      "pass_rule": {
+        "history_median_min": 0.8,
+        "current_median_max": 0.4,
+        "paired_bootstrap": {
+          "resamples": 10000,
+          "ci_percentiles": [
+            2.5,
+            97.5
+          ],
+          "rule": "CI of per-seed (history - current) must exclude 0 (low > 0)"
+        },
+        "all_three_conjunctive": true
+      },
+      "fail_semantics": {
+        "history_lt_0.8": "TEACHER/TASK REWORK -- task or demonstration design goes back; no RL escalation",
+        "history_geq_0.8_and_current_gt_0.4": "CURRENT-FRAME LEAK -- gate self-check fails; route to P4 protocol review",
+        "medians_ok_ci_contains_0": "UNDERPOWERED -- more seeds/demos and rerun; no claim",
+        "history_lt_0.8_and_current_gt_0.4": "LEAK + WEAK TEACHER -- P4 review first, then teacher rework"
+      },
+      "validity_preconditions": {
+        "kept_demo_fraction_min": 0.6,
+        "min_reveal_coverage_per_run": 0.5,
+        "min_valid_runs_per_arm": 6
+      },
+      "auxiliary_non_adjudicating": [
+        "history-arm hidden-reset ablation at the commitment step (signature should degrade)",
+        "free-prior hedge baseline (medium-bin best fixed plan) signature",
+        "teacher closed-loop signature (privileged ceiling)",
+        "per-arm panel success vs the gate-3 bar from the final spec",
+        "preparation-segment action energy vs the no-probe baseline (S2 analogue)"
+      ],
+      "design_constants": {
+        "arms": {
+          "history": "GRU(72->40) + Linear(40->3), tanh",
+          "current_frame": "MLP 72->64->64->64->3, ReLU, tanh out"
+        },
+        "parameter_alignment_tolerance": 0.1,
+        "hidden_cap": 64,
+        "optimizer": "Adam lr=0.001, epochs=25, batch=16 episodes, MSE, grad clip 1.0",
+        "seeds_per_arm": 8,
+        "demos_generated": 400,
+        "demo_filter": "keep success episodes only",
+        "eval_episodes_per_run": 64,
+        "eval_pairing": "identical (mu, env seed) eval set for every run and arm",
+        "teacher": "track v0=8 (steps 0..11), full-brake pulse (12..21), commit v_oracle_est(mu) from step 22, reactive swerve post-reveal",
+        "seed_streams": {
+          "demo_env": "20260616*10 + 300000 + i",
+          "demo_mu": "U(0.25,1.15) from default_rng([20260616, 1, i])",
+          "eval_env": "20260616*10 + 600000 + j",
+          "eval_mu": "U(0.25,1.15) from default_rng([20260616, 2, j])",
+          "torch": "20260616*1000 + seed*10 + arm_index",
+          "batch_order": "default_rng([20260616, 5, seed]) (shared by both arms)"
+        }
+      }
+    }
+  },
+  "final_spec_digest": {
+    "generated_at_utc": "20260611T070433Z",
+    "all_acceptance_pass": false,
+    "gate3_bar": 0.7223,
+    "best_fixed_plan": "cem_robust",
+    "knobs": {
+      "reveal_distance": 9.5,
+      "max_steps": 285,
+      "obstacle_half_width": 1.25,
+      "jitter_d_m": 0.75,
+      "pass_reward": 40.0,
+      "collision_penalty": 60.0,
+      "d_knots": [
+        24.0,
+        38.0,
+        47.0,
+        52.0
+      ],
+      "v_oracle_knots": [
+        4.5,
+        7.5,
+        9.5,
+        10.5
+      ]
+    }
+  },
+  "demos": {
+    "generated": 400,
+    "kept_success_only": 367,
+    "kept_fraction": 0.9175,
+    "teacher_demo_success_rate": 0.9175,
+    "precondition_kept_geq_0.6": true,
+    "frames_total": 98511
+  },
+  "arms": {
+    "parameter_counts": {
+      "history": 13803,
+      "current_frame": 13187
+    },
+    "parameter_alignment_rel_diff": 0.0446,
+    "parameter_alignment_ok": true,
+    "training": {
+      "epochs": 25,
+      "lr": 0.001,
+      "batch_episodes": 16,
+      "optimizer": "Adam",
+      "loss": "masked MSE",
+      "grad_clip": 1.0
+    }
+  },
+  "per_seed": {
+    "history": [
+      {
+        "seed": 0,
+        "spearman": 0.8082,
+        "success_rate": 0.0938,
+        "reveal_coverage": 0.9375,
+        "prep_action_sq_mean": 1.701,
+        "final_loss": 0.008304,
+        "valid": true,
+        "hidden_reset_spearman": 0.5115,
+        "hidden_reset_success": 0.25
+      },
+      {
+        "seed": 1,
+        "spearman": 0.5145,
+        "success_rate": 0.0,
+        "reveal_coverage": 0.9531,
+        "prep_action_sq_mean": 1.4502,
+        "final_loss": 0.012152,
+        "valid": true,
+        "hidden_reset_spearman": 0.5088,
+        "hidden_reset_success": 0.0
+      },
+      {
+        "seed": 2,
+        "spearman": -0.2947,
+        "success_rate": 0.0625,
+        "reveal_coverage": 0.5,
+        "prep_action_sq_mean": 1.5986,
+        "final_loss": 0.012025,
+        "valid": true,
+        "hidden_reset_spearman": -0.0476,
+        "hidden_reset_success": 0.0469
+      },
+      {
+        "seed": 3,
+        "spearman": 0.7136,
+        "success_rate": 0.2812,
+        "reveal_coverage": 0.9688,
+        "prep_action_sq_mean": 1.7054,
+        "final_loss": 0.009621,
+        "valid": true,
+        "hidden_reset_spearman": 0.5483,
+        "hidden_reset_success": 0.1719
+      },
+      {
+        "seed": 4,
+        "spearman": 0.8304,
+        "success_rate": 0.2344,
+        "reveal_coverage": 0.875,
+        "prep_action_sq_mean": 1.5412,
+        "final_loss": 0.00772,
+        "valid": true,
+        "hidden_reset_spearman": 0.8314,
+        "hidden_reset_success": 0.125
+      },
+      {
+        "seed": 5,
+        "spearman": 0.1559,
+        "success_rate": 0.1094,
+        "reveal_coverage": 0.25,
+        "prep_action_sq_mean": 1.4473,
+        "final_loss": 0.0096,
+        "valid": false,
+        "hidden_reset_spearman": 0.6271,
+        "hidden_reset_success": 0.0938
+      },
+      {
+        "seed": 6,
+        "spearman": -0.4967,
+        "success_rate": 0.1094,
+        "reveal_coverage": 0.8125,
+        "prep_action_sq_mean": 1.6794,
+        "final_loss": 0.011138,
+        "valid": true,
+        "hidden_reset_spearman": -0.5348,
+        "hidden_reset_success": 0.2188
+      },
+      {
+        "seed": 7,
+        "spearman": 0.5367,
+        "success_rate": 0.0,
+        "reveal_coverage": 0.5312,
+        "prep_action_sq_mean": 1.5389,
+        "final_loss": 0.006316,
+        "valid": true,
+        "hidden_reset_spearman": -0.0327,
+        "hidden_reset_success": 0.0156
+      }
+    ],
+    "current_frame": [
+      {
+        "seed": 0,
+        "spearman": -0.7836,
+        "success_rate": 0.1094,
+        "reveal_coverage": 0.9844,
+        "prep_action_sq_mean": 1.921,
+        "final_loss": 0.008258,
+        "valid": true
+      },
+      {
+        "seed": 1,
+        "spearman": -0.6182,
+        "success_rate": 0.0938,
+        "reveal_coverage": 1.0,
+        "prep_action_sq_mean": 1.8755,
+        "final_loss": 0.010245,
+        "valid": true
+      },
+      {
+        "seed": 2,
+        "spearman": -0.717,
+        "success_rate": 0.0625,
+        "reveal_coverage": 1.0,
+        "prep_action_sq_mean": 1.9037,
+        "final_loss": 0.010236,
+        "valid": true
+      },
+      {
+        "seed": 3,
+        "spearman": -0.5969,
+        "success_rate": 0.2812,
+        "reveal_coverage": 0.9844,
+        "prep_action_sq_mean": 1.8195,
+        "final_loss": 0.008361,
+        "valid": true
+      },
+      {
+        "seed": 4,
+        "spearman": -0.6155,
+        "success_rate": 0.1406,
+        "reveal_coverage": 0.9844,
+        "prep_action_sq_mean": 1.8858,
+        "final_loss": 0.009636,
+        "valid": true
+      },
+      {
+        "seed": 5,
+        "spearman": -0.7532,
+        "success_rate": 0.0469,
+        "reveal_coverage": 1.0,
+        "prep_action_sq_mean": 1.8981,
+        "final_loss": 0.009103,
+        "valid": true
+      },
+      {
+        "seed": 6,
+        "spearman": -0.6797,
+        "success_rate": 0.125,
+        "reveal_coverage": 0.9844,
+        "prep_action_sq_mean": 1.8765,
+        "final_loss": 0.008975,
+        "valid": true
+      },
+      {
+        "seed": 7,
+        "spearman": -0.7727,
+        "success_rate": 0.2344,
+        "reveal_coverage": 1.0,
+        "prep_action_sq_mean": 1.8876,
+        "final_loss": 0.009572,
+        "valid": true
+      }
+    ]
+  },
+  "adjudication": {
+    "history_median_spearman": 0.5367,
+    "current_frame_median_spearman": -0.6984,
+    "paired_diff_mean": 1.0565,
+    "paired_bootstrap_ci95": [
+      0.6612,
+      1.4025
+    ],
+    "criterion_history_geq_0.8": false,
+    "criterion_current_leq_0.4": true,
+    "criterion_ci_excludes_0": true,
+    "preconditions_ok": true,
+    "valid_runs": {
+      "history": 7,
+      "current_frame": 8
+    },
+    "G1PRIME_PASS": false,
+    "verdict": "FAIL_TEACHER_TASK_REWORK",
+    "route": "TEACHER/TASK REWORK -- task or demonstration design goes back; no RL escalation"
+  },
+  "auxiliary_non_adjudicating": {
+    "hidden_reset_ablation": {
+      "per_seed_spearman": [
+        0.5115,
+        0.5088,
+        -0.0476,
+        0.5483,
+        0.8314,
+        0.6271,
+        -0.5348,
+        -0.0327
+      ],
+      "median": 0.5101,
+      "expectation": "signature should degrade vs the un-ablated history arm"
+    },
+    "baselines": {
+      "hedge_free_prior": {
+        "plan": "cem_robust",
+        "episodes": 64,
+        "revealed": 64,
+        "spearman_speed_mu": 0.3277,
+        "success_rate": 0.2656,
+        "prep_action_sq_mean": 1.8563
+      },
+      "teacher_privileged": {
+        "plan": "OracleTeacher(v_oracle_est(mu))",
+        "episodes": 64,
+        "revealed": 64,
+        "spearman_speed_mu": 0.9955,
+        "success_rate": 0.9062,
+        "prep_action_sq_mean": 1.8115
+      },
+      "no_probe_prep_energy_baseline": 1.8563
+    },
+    "gate3_bar_from_final_spec": 0.7223,
+    "per_arm_success_vs_gate3_bar": {
+      "history": {
+        "median_success": 0.1016,
+        "bar": 0.7223
+      },
+      "current_frame": {
+        "median_success": 0.1172,
+        "bar": 0.7223
+      }
+    },
+    "prep_energy_vs_no_probe_baseline": {
+      "no_probe_baseline": 1.8563,
+      "history_median": 1.5699,
+      "current_frame_median": 1.8867,
+      "teacher": 1.8115
+    }
+  },
+  "panel": {
+    "seeds_per_arm": 8,
+    "eval_episodes_per_run": 64,
+    "workers": 8,
+    "torch_threads": 2
+  },
+  "elapsed_s": 48.9,
+  "artifacts": {
+    "run_dir": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_g1prime/full",
+    "demo_meta_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_g1prime/full/demo_meta.csv",
+    "demos_npz": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_g1prime/full/demos.npz",
+    "eval_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_g1prime/full/eval_rows.csv",
+    "summary_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/selfid_g1prime_summary.json"
+  }
+}

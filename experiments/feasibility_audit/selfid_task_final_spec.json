@@ -1,0 +1,1361 @@
+{
+  "protocol": "feasibility_audit_selfid_task_final_spec",
+  "generated_by": "scripts/feasibility_audit/selfid_task_final_spec.py",
+  "generated_at_utc": "20260611T070433Z",
+  "claim_boundary": "Feasibility-audit task-DESIGN repair measurement only: the B2-continuous+K2 commitment family is re-knobbed (reward recalibration, distance jitter, reveal geometry) and ALL acceptance items are re-measured with scripted mu-agnostic / bin-aware adversarial plans, per-mu empirical oracles, numeric physics bounds and linear probes. No driver-performance, repair-success, robustness-result, validation, ranking, promotion, paper, or self-ID *capability* claim is made.",
+  "builds_on": {
+    "task_b_design": "experiments/feasibility_audit/voi_commitment_task_design.json",
+    "adversarial_audit": "experiments/feasibility_audit/voi_commitment_adversarial_audit.json",
+    "conditional_prior": "experiments/feasibility_audit/voi_conditional_prior.json"
+  },
+  "final_spec": {
+    "family_id": "B2K2_final (B2 continuous-mu + K2 reveal-10 + adversarial repairs)",
+    "env_knobs": {
+      "track_kind": "circle",
+      "track_radius_m": 900.0,
+      "track_width_m": 5.0,
+      "dt_s": 0.02,
+      "initial_speed_mps": 8.0,
+      "speed_range": [
+        8.0,
+        8.0
+      ],
+      "friction_limited_speed": false,
+      "beta_target_range": [
+        0.4,
+        0.4
+      ],
+      "max_steps": 285,
+      "deadline_s": 5.7,
+      "perception_reveal_distance_m": 9.5,
+      "obstacle_half_width_m": 1.25,
+      "required_lateral_offset_m": 2.45,
+      "finish_on_pass": true,
+      "finish_pass_distance_m": 2.0,
+      "pass_reward": 40.0,
+      "collision_penalty": 60.0,
+      "all_non_mu_randomization": "pinned to 1.0 / 0.0 (degenerate)"
+    },
+    "scenario_family": {
+      "mu_domain": [
+        0.25,
+        1.15
+      ],
+      "theta_anchors_mu": [
+        0.3,
+        0.55,
+        0.85,
+        1.15
+      ],
+      "mu_to_distance_knots": {
+        "mu": [
+          0.3,
+          0.55,
+          0.85,
+          1.15
+        ],
+        "d_m": [
+          24.0,
+          38.0,
+          47.0,
+          52.0
+        ]
+      },
+      "knot_retune_note": "B2 top knots (49, 62) are reveal-10 infeasible (theta4 deadline floor above the in-env dodge ceiling ~11 m/s at mu=1.15); retuned to keep a nonempty feasible entry-speed band at every theta under jitter.",
+      "design_oracle_speed_knots": {
+        "mu": [
+          0.3,
+          0.55,
+          0.85,
+          1.15
+        ],
+        "v_mps": [
+          4.5,
+          7.5,
+          9.5,
+          10.5
+        ]
+      },
+      "interpolation": "piecewise linear, linear extrapolation outside",
+      "distance_jitter": {
+        "law": "d = d_of_mu(mu) + eps, eps ~ U(-J, J) per episode",
+        "J_m": 0.75,
+        "floor_m": 14.5,
+        "purpose": "P2 anti-ladder: breaks the exact mu<->d inversion (silence is no longer mu)"
+      },
+      "obstacle_lateral_offset": "centerline-compensated per episode: R - sqrt(R^2 - d^2)",
+      "prior_bins": {
+        "medium_pm0.20": [
+          0.45,
+          0.85
+        ],
+        "full_pm0.45": [
+          0.25,
+          1.15
+        ]
+      }
+    },
+    "gate_protocol": {
+      "free_prior_control_arm": "any gate run MUST include a control arm where the policy receives the +/-0.2 mu bin as a free observation constant; the bin-aware best fixed plan (cem_robust, validated 0.5278) is its scripted ceiling -- a 'self-identifying' policy that only matches this ceiling has learned a bin hedge, not identification.",
+      "measurement_anchor": "hidden-swap / wrong-history comparisons anchored at frame <= step 12 (before the first probe pulse); measured pre-pulse anchor-frame R^2 = -0.0382, post-probe final frame R^2 = 0.9409",
+      "signatures_conjunctive": [
+        "S1 reveal-crossing speed Spearman(speed, mu) >= 0.8 across the panel",
+        "S2 preparation-segment action energy above the no-probe baseline",
+        "S3 panel success >= gate-3 bar = best_fixed_validated + 0.5*VoI_validated = 0.7223",
+        "ALL THREE must hold simultaneously (each alone is ladder-forgeable)."
+      ]
+    },
+    "env_feature_needs": [
+      "mu-conditional obstacle distance sampling WITH a noise term in ONE config (e.g. obstacle.distance_from_mu knots + obstacle.distance_jitter); currently a per-episode mixture of degenerate configs",
+      "per-episode centerline compensation tied to the sampled distance (lateral_offset = R - sqrt(R^2 - d^2)); currently computed at the script level",
+      "independent initial_speed_range decoupled from speed_ref (inherited gap)",
+      "reward speed target decoupled from speed_ref (inherited gap)"
+    ],
+    "seed_streams": {
+      "base": 20260615,
+      "anchor_panel": "20260615*10 + level*1000 + k (k 0..15; key-cell groups k 100.. / 200..)",
+      "bins": "20260615*10 + offset(50000 medium / 90000 full) + 17*point + 1000*k (+100000 val)",
+      "probe": "20260615*100 + mode*10000 + episode",
+      "jitter": "U(-J,J) from default_rng([20260615, 777, rollout_seed])"
+    }
+  },
+  "acceptance_table": {
+    "P1_reward_alignment": {
+      "PASS": false,
+      "chosen_pass_reward": 40.0,
+      "chosen_collision_penalty": 60.0,
+      "run_pass_reward": 40.0,
+      "run_collision_penalty": 60.0,
+      "repricing_identity_max_abs_diff": null,
+      "per_level": [
+        {
+          "level_mu": 0.3,
+          "gamma_return_vs_success": 0.7586,
+          "spearman_tie_corrected": 0.8277,
+          "spearman_ceiling_given_ties": 0.9526,
+          "spearman_normalized": 0.8688
+        },
+        {
+          "level_mu": 0.55,
+          "gamma_return_vs_success": 0.8484,
+          "spearman_tie_corrected": 0.8803,
+          "spearman_ceiling_given_ties": 0.9681,
+          "spearman_normalized": 0.9093
+        },
+        {
+          "level_mu": 0.85,
+          "gamma_return_vs_success": 0.9424,
+          "spearman_tie_corrected": 0.8135,
+          "spearman_ceiling_given_ties": 0.8459,
+          "spearman_normalized": 0.9617
+        },
+        {
+          "level_mu": 1.15,
+          "gamma_return_vs_success": 0.7432,
+          "spearman_tie_corrected": 0.4964,
+          "spearman_ceiling_given_ties": 0.6555,
+          "spearman_normalized": 0.7572
+        }
+      ],
+      "oracle_dominance_gaps": {
+        "theta1": {
+          "oracle_plan": "aref0_v5_D",
+          "oracle_return": 156.1,
+          "best_failing_plan": "adv_swerve_v6",
+          "best_failing_return": 108.2,
+          "gap": 47.8,
+          "gap_required": 10.8,
+          "dominates_all_failing": true
+        },
+        "theta4": {
+          "oracle_plan": "swerve_only_v10",
+          "oracle_return": 357.0,
+          "best_failing_plan": "adv_swerve_v9.5",
+          "best_failing_return": 312.3,
+          "gap": 44.6,
+          "gap_required": 31.2,
+          "dominates_all_failing": true
+        }
+      },
+      "at_run_rewards_criteria_met": false,
+      "metric_note": "raw tie-corrected Spearman is structurally capped below 0.9 by success ties (cap reported per level); acceptance uses Goodman-Kruskal gamma >= 0.9 AND Spearman/cap >= 0.9, both of which equal 1.0 under perfect alignment."
+    },
+    "P2_anti_ladder_and_conditional_voi": {
+      "PASS": true,
+      "best_ladder_validated": 0.3611,
+      "best_simple_fixed_validated": 0.4167,
+      "ladder_leq_simple_fixed": true,
+      "voi_medium_validated": 0.3889,
+      "voi_medium_in_sample": 0.4444,
+      "voi_target": 0.2,
+      "voi_target_met": true,
+      "best_fixed_all_plan": "cem_robust",
+      "best_fixed_all_group": "cem_robust",
+      "best_fixed_all_validated": 0.5278,
+      "jitter_d_m": 0.75
+    },
+    "P3_theta1_unavoidability": {
+      "PASS": true,
+      "min_pointmass_eta1_deficit_m": 0.895,
+      "deficit_target_m": 0.5,
+      "fast_arrival_speed_range_mps": [
+        9.5,
+        10.2
+      ],
+      "fast_arrival_episodes": 208,
+      "deficit_by_arrival_speed": {
+        "9.5": 0.895,
+        "9.9": 1.034,
+        "10": 1.061,
+        "10.1": 1.09,
+        "10.2": 1.12
+      },
+      "reactive_escape_successes": 0,
+      "reactive_escape_episodes": 128
+    },
+    "P4_gate_protocol": {
+      "PASS": true,
+      "anchor_frame_step": 11,
+      "first_pulse_step": 12,
+      "r2_anchor_frame_pre_pulse": -0.0382,
+      "r2_final_frame_post_probe": 0.9409,
+      "protocol": [
+        "gate measurement anchor (hidden-swap / wrong-history comparisons) MUST be taken at a frame index <= first probe pulse (step 12); post-probe single frames leak mu and would let a policy re-derive mu without history.",
+        "the three behavioral signatures (reveal-speed Spearman >= 0.8, prep action energy above no-probe baseline, panel success >= gate-3 bar) are CONJUNCTIVE -- any single signature is forgeable by silence ladders."
+      ]
+    },
+    "KE_knife_edge": {
+      "PASS": false,
+      "fractional_cells": 44,
+      "total_cells": 164,
+      "fraction": 0.2683,
+      "target": 0.15,
+      "baseline_audit_fraction": 0.2375,
+      "census_note": "census over the 41 mu-agnostic zoo plans x 4 anchors (comparable to the audit's 40x4)",
+      "key_cells": [
+        {
+          "role": "oracle",
+          "plan": "aref0_v5_D",
+          "level_mu": 0.3,
+          "panel_success": 0.938,
+          "groupA_success": 0.875,
+          "groupB_success": 1.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_fixed",
+          "plan": "swerve_only_v10",
+          "level_mu": 0.3,
+          "panel_success": 0.0,
+          "groupA_success": 0.0,
+          "groupB_success": 0.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_ladder",
+          "plan": "aladder_cons",
+          "level_mu": 0.3,
+          "panel_success": 0.938,
+          "groupA_success": 1.0,
+          "groupB_success": 1.0,
+          "consistent": true,
+          "gate_relevant": false
+        },
+        {
+          "role": "oracle",
+          "plan": "aref1_v7.25_A",
+          "level_mu": 0.55,
+          "panel_success": 0.938,
+          "groupA_success": 1.0,
+          "groupB_success": 0.875,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_fixed",
+          "plan": "swerve_only_v10",
+          "level_mu": 0.55,
+          "panel_success": 0.062,
+          "groupA_success": 0.0,
+          "groupB_success": 0.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_ladder",
+          "plan": "aladder_cons",
+          "level_mu": 0.55,
+          "panel_success": 0.0,
+          "groupA_success": 0.0,
+          "groupB_success": 0.0,
+          "consistent": true,
+          "gate_relevant": false
+        },
+        {
+          "role": "oracle",
+          "plan": "adv_swerve_v9",
+          "level_mu": 0.85,
+          "panel_success": 0.938,
+          "groupA_success": 1.0,
+          "groupB_success": 1.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_fixed",
+          "plan": "swerve_only_v10",
+          "level_mu": 0.85,
+          "panel_success": 0.5,
+          "groupA_success": 0.375,
+          "groupB_success": 0.625,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_ladder",
+          "plan": "aladder_cons",
+          "level_mu": 0.85,
+          "panel_success": 0.0,
+          "groupA_success": 0.0,
+          "groupB_success": 0.0,
+          "consistent": true,
+          "gate_relevant": false
+        },
+        {
+          "role": "oracle",
+          "plan": "swerve_only_v10",
+          "level_mu": 1.15,
+          "panel_success": 1.0,
+          "groupA_success": 1.0,
+          "groupB_success": 1.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_fixed",
+          "plan": "swerve_only_v10",
+          "level_mu": 1.15,
+          "panel_success": 1.0,
+          "groupA_success": 1.0,
+          "groupB_success": 1.0,
+          "consistent": true,
+          "gate_relevant": true
+        },
+        {
+          "role": "best_ladder",
+          "plan": "aladder_cons",
+          "level_mu": 1.15,
+          "panel_success": 0.0,
+          "groupA_success": 0.0,
+          "groupB_success": 0.0,
+          "consistent": true,
+          "gate_relevant": false
+        }
+      ],
+      "gate_relevant_cells_all_consistent": true,
+      "consistency_note": "acceptance requires consistency (|groupA - groupB| <= 0.25) for the gate-relevant cells (oracle, best_fixed); best-ladder cells are reported as diagnostics (ladders sit on band edges by construction)."
+    },
+    "I5_integrity": {
+      "PASS": true,
+      "anchor_oracle_fresh_seeds": [
+        {
+          "level_mu": 0.3,
+          "plan": "aref0_v5_D",
+          "fresh_success": 0.9375
+        },
+        {
+          "level_mu": 0.55,
+          "plan": "aref1_v7.25_A",
+          "fresh_success": 0.9375
+        },
+        {
+          "level_mu": 0.85,
+          "plan": "adv_swerve_v9",
+          "fresh_success": 1.0
+        },
+        {
+          "level_mu": 1.15,
+          "plan": "swerve_only_v10",
+          "fresh_success": 1.0
+        }
+      ],
+      "anchor_oracle_all_geq_0.9": true,
+      "medium_bin_oracle_validated": 0.9167,
+      "medium_bin_oracle_geq_0.9": true,
+      "probe_r2_raw_history": 0.9999,
+      "no_probe_r2_raw_history": -3.085,
+      "probe_r2_geq_0.9": true,
+      "always_slow_vs_oracle": [
+        {
+          "level": "theta3",
+          "level_mu": 0.85,
+          "always_crawl_return": 142.5,
+          "oracle_return": 321.5,
+          "ratio": 0.443,
+          "clearly_worse": true
+        },
+        {
+          "level": "theta4",
+          "level_mu": 1.15,
+          "always_crawl_return": 141.5,
+          "oracle_return": 357.0,
+          "ratio": 0.396,
+          "clearly_worse": true
+        }
+      ],
+      "reward_tension_ok": true
+    }
+  },
+  "all_acceptance_pass": false,
+  "iteration_log": [
+    {
+      "iteration": 1,
+      "knobs": {
+        "iteration": 1,
+        "reveal_distance": 10.0,
+        "max_steps": 285,
+        "obstacle_half_width": 1.25,
+        "jitter_d_m": 2.0,
+        "mu1": 0.3,
+        "pass_reward": 40.0,
+        "collision_penalty": 60.0,
+        "d_knots": [
+          24.0,
+          38.0,
+          47.0,
+          52.0
+        ],
+        "v_oracle_knots": [
+          4.5,
+          7.5,
+          9.5,
+          10.5
+        ],
+        "note": "initial"
+      },
+      "acceptance_pass": {
+        "P1_reward_alignment": false,
+        "P2_anti_ladder_and_conditional_voi": true,
+        "P3_theta1_unavoidability": true,
+        "P4_gate_protocol": true,
+        "KE_knife_edge": false,
+        "I5_integrity": false
+      },
+      "all_pass": false,
+      "voi_medium_validated": 0.2778,
+      "knife_edge_fraction": 0.2927,
+      "p3_min_deficit_m": 0.718,
+      "elapsed_s": 186.0
+    },
+    {
+      "iteration": 2,
+      "knobs": {
+        "iteration": 2,
+        "reveal_distance": 10.0,
+        "max_steps": 285,
+        "obstacle_half_width": 1.25,
+        "jitter_d_m": 1.2,
+        "mu1": 0.3,
+        "pass_reward": 40.0,
+        "collision_penalty": 60.0,
+        "d_knots": [
+          24.0,
+          38.0,
+          47.0,
+          52.0
+        ],
+        "v_oracle_knots": [
+          4.5,
+          7.5,
+          9.5,
+          10.5
+        ],
+        "note": "jitter down -> 1.2"
+      },
+      "acceptance_pass": {
+        "P1_reward_alignment": false,
+        "P2_anti_ladder_and_conditional_voi": false,
+        "P3_theta1_unavoidability": true,
+        "P4_gate_protocol": true,
+        "KE_knife_edge": false,
+        "I5_integrity": false
+      },
+      "all_pass": false,
+      "voi_medium_validated": 0.1667,
+      "knife_edge_fraction": 0.2805,
+      "p3_min_deficit_m": 0.718,
+      "elapsed_s": 184.4
+    },
+    {
+      "iteration": 3,
+      "knobs": {
+        "iteration": 3,
+        "reveal_distance": 9.5,
+        "max_steps": 285,
+        "obstacle_half_width": 1.25,
+        "jitter_d_m": 0.75,
+        "mu1": 0.3,
+        "pass_reward": 40.0,
+        "collision_penalty": 60.0,
+        "d_knots": [
+          24.0,
+          38.0,
+          47.0,
+          52.0
+        ],
+        "v_oracle_knots": [
+          4.5,
+          7.5,
+          9.5,
+          10.5
+        ],
+        "note": "jitter down -> 0.75; reveal -> 9.5"
+      },
+      "acceptance_pass": {
+        "P1_reward_alignment": false,
+        "P2_anti_ladder_and_conditional_voi": true,
+        "P3_theta1_unavoidability": true,
+        "P4_gate_protocol": true,
+        "KE_knife_edge": false,
+        "I5_integrity": true
+      },
+      "all_pass": false,
+      "voi_medium_validated": 0.3889,
+      "knife_edge_fraction": 0.2683,
+      "p3_min_deficit_m": 0.895,
+      "elapsed_s": 215.3
+    }
+  ],
+  "final_iteration_detail": {
+    "knobs": {
+      "iteration": 3,
+      "reveal_distance": 9.5,
+      "max_steps": 285,
+      "obstacle_half_width": 1.25,
+      "jitter_d_m": 0.75,
+      "mu1": 0.3,
+      "pass_reward": 40.0,
+      "collision_penalty": 60.0,
+      "d_knots": [
+        24.0,
+        38.0,
+        47.0,
+        52.0
+      ],
+      "v_oracle_knots": [
+        4.5,
+        7.5,
+        9.5,
+        10.5
+      ],
+      "note": "jitter down -> 0.75; reveal -> 9.5"
+    },
+    "required_lateral_offset_m": 2.4499999999999997,
+    "elapsed_s": 215.3,
+    "acceptance": {
+      "P1_reward_alignment": {
+        "PASS": false,
+        "chosen_pass_reward": 40.0,
+        "chosen_collision_penalty": 60.0,
+        "run_pass_reward": 40.0,
+        "run_collision_penalty": 60.0,
+        "repricing_identity_max_abs_diff": null,
+        "per_level": [
+          {
+            "level_mu": 0.3,
+            "gamma_return_vs_success": 0.7586,
+            "spearman_tie_corrected": 0.8277,
+            "spearman_ceiling_given_ties": 0.9526,
+            "spearman_normalized": 0.8688
+          },
+          {
+            "level_mu": 0.55,
+            "gamma_return_vs_success": 0.8484,
+            "spearman_tie_corrected": 0.8803,
+            "spearman_ceiling_given_ties": 0.9681,
+            "spearman_normalized": 0.9093
+          },
+          {
+            "level_mu": 0.85,
+            "gamma_return_vs_success": 0.9424,
+            "spearman_tie_corrected": 0.8135,
+            "spearman_ceiling_given_ties": 0.8459,
+            "spearman_normalized": 0.9617
+          },
+          {
+            "level_mu": 1.15,
+            "gamma_return_vs_success": 0.7432,
+            "spearman_tie_corrected": 0.4964,
+            "spearman_ceiling_given_ties": 0.6555,
+            "spearman_normalized": 0.7572
+          }
+        ],
+        "oracle_dominance_gaps": {
+          "theta1": {
+            "oracle_plan": "aref0_v5_D",
+            "oracle_return": 156.1,
+            "best_failing_plan": "adv_swerve_v6",
+            "best_failing_return": 108.2,
+            "gap": 47.8,
+            "gap_required": 10.8,
+            "dominates_all_failing": true
+          },
+          "theta4": {
+            "oracle_plan": "swerve_only_v10",
+            "oracle_return": 357.0,
+            "best_failing_plan": "adv_swerve_v9.5",
+            "best_failing_return": 312.3,
+            "gap": 44.6,
+            "gap_required": 31.2,
+            "dominates_all_failing": true
+          }
+        },
+        "at_run_rewards_criteria_met": false,
+        "metric_note": "raw tie-corrected Spearman is structurally capped below 0.9 by success ties (cap reported per level); acceptance uses Goodman-Kruskal gamma >= 0.9 AND Spearman/cap >= 0.9, both of which equal 1.0 under perfect alignment."
+      },
+      "P2_anti_ladder_and_conditional_voi": {
+        "PASS": true,
+        "best_ladder_validated": 0.3611,
+        "best_simple_fixed_validated": 0.4167,
+        "ladder_leq_simple_fixed": true,
+        "voi_medium_validated": 0.3889,
+        "voi_medium_in_sample": 0.4444,
+        "voi_target": 0.2,
+        "voi_target_met": true,
+        "best_fixed_all_plan": "cem_robust",
+        "best_fixed_all_group": "cem_robust",
+        "best_fixed_all_validated": 0.5278,
+        "jitter_d_m": 0.75
+      },
+      "P3_theta1_unavoidability": {
+        "PASS": true,
+        "min_pointmass_eta1_deficit_m": 0.895,
+        "deficit_target_m": 0.5,
+        "fast_arrival_speed_range_mps": [
+          9.5,
+          10.2
+        ],
+        "fast_arrival_episodes": 208,
+        "deficit_by_arrival_speed": {
+          "9.5": 0.895,
+          "9.9": 1.034,
+          "10": 1.061,
+          "10.1": 1.09,
+          "10.2": 1.12
+        },
+        "reactive_escape_successes": 0,
+        "reactive_escape_episodes": 128
+      },
+      "P4_gate_protocol": {
+        "PASS": true,
+        "anchor_frame_step": 11,
+        "first_pulse_step": 12,
+        "r2_anchor_frame_pre_pulse": -0.0382,
+        "r2_final_frame_post_probe": 0.9409,
+        "protocol": [
+          "gate measurement anchor (hidden-swap / wrong-history comparisons) MUST be taken at a frame index <= first probe pulse (step 12); post-probe single frames leak mu and would let a policy re-derive mu without history.",
+          "the three behavioral signatures (reveal-speed Spearman >= 0.8, prep action energy above no-probe baseline, panel success >= gate-3 bar) are CONJUNCTIVE -- any single signature is forgeable by silence ladders."
+        ]
+      },
+      "KE_knife_edge": {
+        "PASS": false,
+        "fractional_cells": 44,
+        "total_cells": 164,
+        "fraction": 0.2683,
+        "target": 0.15,
+        "baseline_audit_fraction": 0.2375,
+        "census_note": "census over the 41 mu-agnostic zoo plans x 4 anchors (comparable to the audit's 40x4)",
+        "key_cells": [
+          {
+            "role": "oracle",
+            "plan": "aref0_v5_D",
+            "level_mu": 0.3,
+            "panel_success": 0.938,
+            "groupA_success": 0.875,
+            "groupB_success": 1.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_fixed",
+            "plan": "swerve_only_v10",
+            "level_mu": 0.3,
+            "panel_success": 0.0,
+            "groupA_success": 0.0,
+            "groupB_success": 0.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_ladder",
+            "plan": "aladder_cons",
+            "level_mu": 0.3,
+            "panel_success": 0.938,
+            "groupA_success": 1.0,
+            "groupB_success": 1.0,
+            "consistent": true,
+            "gate_relevant": false
+          },
+          {
+            "role": "oracle",
+            "plan": "aref1_v7.25_A",
+            "level_mu": 0.55,
+            "panel_success": 0.938,
+            "groupA_success": 1.0,
+            "groupB_success": 0.875,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_fixed",
+            "plan": "swerve_only_v10",
+            "level_mu": 0.55,
+            "panel_success": 0.062,
+            "groupA_success": 0.0,
+            "groupB_success": 0.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_ladder",
+            "plan": "aladder_cons",
+            "level_mu": 0.55,
+            "panel_success": 0.0,
+            "groupA_success": 0.0,
+            "groupB_success": 0.0,
+            "consistent": true,
+            "gate_relevant": false
+          },
+          {
+            "role": "oracle",
+            "plan": "adv_swerve_v9",
+            "level_mu": 0.85,
+            "panel_success": 0.938,
+            "groupA_success": 1.0,
+            "groupB_success": 1.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_fixed",
+            "plan": "swerve_only_v10",
+            "level_mu": 0.85,
+            "panel_success": 0.5,
+            "groupA_success": 0.375,
+            "groupB_success": 0.625,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_ladder",
+            "plan": "aladder_cons",
+            "level_mu": 0.85,
+            "panel_success": 0.0,
+            "groupA_success": 0.0,
+            "groupB_success": 0.0,
+            "consistent": true,
+            "gate_relevant": false
+          },
+          {
+            "role": "oracle",
+            "plan": "swerve_only_v10",
+            "level_mu": 1.15,
+            "panel_success": 1.0,
+            "groupA_success": 1.0,
+            "groupB_success": 1.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_fixed",
+            "plan": "swerve_only_v10",
+            "level_mu": 1.15,
+            "panel_success": 1.0,
+            "groupA_success": 1.0,
+            "groupB_success": 1.0,
+            "consistent": true,
+            "gate_relevant": true
+          },
+          {
+            "role": "best_ladder",
+            "plan": "aladder_cons",
+            "level_mu": 1.15,
+            "panel_success": 0.0,
+            "groupA_success": 0.0,
+            "groupB_success": 0.0,
+            "consistent": true,
+            "gate_relevant": false
+          }
+        ],
+        "gate_relevant_cells_all_consistent": true,
+        "consistency_note": "acceptance requires consistency (|groupA - groupB| <= 0.25) for the gate-relevant cells (oracle, best_fixed); best-ladder cells are reported as diagnostics (ladders sit on band edges by construction)."
+      },
+      "I5_integrity": {
+        "PASS": true,
+        "anchor_oracle_fresh_seeds": [
+          {
+            "level_mu": 0.3,
+            "plan": "aref0_v5_D",
+            "fresh_success": 0.9375
+          },
+          {
+            "level_mu": 0.55,
+            "plan": "aref1_v7.25_A",
+            "fresh_success": 0.9375
+          },
+          {
+            "level_mu": 0.85,
+            "plan": "adv_swerve_v9",
+            "fresh_success": 1.0
+          },
+          {
+            "level_mu": 1.15,
+            "plan": "swerve_only_v10",
+            "fresh_success": 1.0
+          }
+        ],
+        "anchor_oracle_all_geq_0.9": true,
+        "medium_bin_oracle_validated": 0.9167,
+        "medium_bin_oracle_geq_0.9": true,
+        "probe_r2_raw_history": 0.9999,
+        "no_probe_r2_raw_history": -3.085,
+        "probe_r2_geq_0.9": true,
+        "always_slow_vs_oracle": [
+          {
+            "level": "theta3",
+            "level_mu": 0.85,
+            "always_crawl_return": 142.5,
+            "oracle_return": 321.5,
+            "ratio": 0.443,
+            "clearly_worse": true
+          },
+          {
+            "level": "theta4",
+            "level_mu": 1.15,
+            "always_crawl_return": 141.5,
+            "oracle_return": 357.0,
+            "ratio": 0.396,
+            "clearly_worse": true
+          }
+        ],
+        "reward_tension_ok": true
+      }
+    },
+    "all_pass": false,
+    "anchor_panel": {
+      "seeds_per_level": 16,
+      "plans": 41,
+      "success_matrix": {
+        "commit_v4.5": {
+          "mu_0.3": 0.312,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v9.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v10.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.875,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.5,
+          "mu_1.15": 1.0
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 0.312,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v4.5": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v5": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v5.5": {
+          "mu_0.3": 0.75,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v6": {
+          "mu_0.3": 0.312,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v6.5": {
+          "mu_0.3": 0.062,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v7": {
+          "mu_0.3": 0.062,
+          "mu_0.55": 0.188,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.875,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.5,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v8.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.25,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v9": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.125,
+          "mu_0.85": 0.938,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v9.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.688,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.5,
+          "mu_1.15": 1.0
+        },
+        "adv_swerve_v10.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.125,
+          "mu_1.15": 0.938
+        },
+        "adv_swerve_v11": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.812
+        },
+        "adv_swerve_v11.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.312
+        },
+        "adv_swerve_v12": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.062
+        },
+        "adv_swerve_v12.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.062
+        },
+        "adv_swerve_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v13.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "adv_swerve_v14": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_cons": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_cons_fast": {
+          "mu_0.3": 0.75,
+          "mu_0.55": 0.125,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_mid": {
+          "mu_0.3": 0.938,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_mid_fast": {
+          "mu_0.3": 0.75,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_aggr": {
+          "mu_0.3": 0.812,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_aggr_fast": {
+          "mu_0.3": 0.625,
+          "mu_0.55": 0.188,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_75_aggr": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.062,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aladder_75_max": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.875,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        }
+      },
+      "oracle_plan_per_level": [
+        "aref0_v5_D",
+        "aref1_v7.25_A",
+        "adv_swerve_v9",
+        "swerve_only_v10"
+      ],
+      "best_fixed_plan": "swerve_only_v10",
+      "best_fixed_mean_success": 0.3906,
+      "best_ladder_plan": "aladder_cons",
+      "best_ladder_mean_success": 0.2344
+    },
+    "medium_bin": {
+      "bin_id": "medium_pm0.20",
+      "mu_lo": 0.45,
+      "mu_hi": 0.85,
+      "prior_half_width": 0.2,
+      "n_mu_points": 12,
+      "mu_points": [
+        0.4667,
+        0.5,
+        0.5333,
+        0.5667,
+        0.6,
+        0.6333,
+        0.6667,
+        0.7,
+        0.7333,
+        0.7667,
+        0.8,
+        0.8333
+      ],
+      "n_sel_seeds": 3,
+      "n_val_seeds": 3,
+      "seed_formula": "20260615*10 + 50000 + 17*point + 1000*k (+100000 val)",
+      "episodes": 2482,
+      "oracle_in_sample": 0.9722,
+      "oracle_validated": 0.9167,
+      "oracle_plan_per_point": [
+        "ladder_d0_m1",
+        "ladder_d0.5_m0",
+        "ladder_d0.5_m-1.75",
+        "grid_v7.5_A",
+        "cem_robust",
+        "pt5_v7.75_A",
+        "cem_robust",
+        "cem_robust",
+        "grid_v9_A",
+        "pt9_v9.75_A",
+        "grid_v9_A",
+        "grid_v9.5_A"
+      ],
+      "oracle_success_per_point_validated": [
+        1.0,
+        1.0,
+        0.333,
+        1.0,
+        0.667,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "best_fixed_all_plan": "cem_robust",
+      "best_fixed_all_group": "cem_robust",
+      "best_fixed_all_in_sample": 0.5278,
+      "best_fixed_all_validated": 0.5278,
+      "best_simple_fixed_plan": "grid_v8.5_A",
+      "best_simple_fixed_in_sample": 0.4444,
+      "best_simple_fixed_validated": 0.4167,
+      "best_ladder_plan": "ladder_d1_m-1.75",
+      "best_ladder_in_sample": 0.3056,
+      "best_ladder_validated": 0.3611,
+      "voi_in_sample": 0.4444,
+      "voi_validated": 0.3889,
+      "cem_robust": {
+        "enabled": true,
+        "params_v_cap_off_gain": [
+          8.599,
+          0.875,
+          3.066,
+          1.762
+        ]
+      },
+      "top_fixed_plans_sel": [
+        {
+          "plan": "cem_robust",
+          "group": "cem_robust",
+          "mean_success_sel": 0.5278
+        },
+        {
+          "plan": "grid_v8.5_A",
+          "group": "grid",
+          "mean_success_sel": 0.4444
+        },
+        {
+          "plan": "grid_v8.5_B",
+          "group": "grid",
+          "mean_success_sel": 0.4444
+        },
+        {
+          "plan": "grid_v8_A",
+          "group": "grid",
+          "mean_success_sel": 0.4167
+        },
+        {
+          "plan": "grid_v8_B",
+          "group": "grid",
+          "mean_success_sel": 0.4167
+        },
+        {
+          "plan": "grid_v9_B",
+          "group": "grid",
+          "mean_success_sel": 0.4167
+        }
+      ]
+    },
+    "full_bin": {
+      "bin_id": "full_pm0.45",
+      "mu_lo": 0.25,
+      "mu_hi": 1.15,
+      "prior_half_width": 0.45,
+      "n_mu_points": 12,
+      "mu_points": [
+        0.2875,
+        0.3625,
+        0.4375,
+        0.5125,
+        0.5875,
+        0.6625,
+        0.7375,
+        0.8125,
+        0.8875,
+        0.9625,
+        1.0375,
+        1.1125
+      ],
+      "n_sel_seeds": 2,
+      "n_val_seeds": 2,
+      "seed_formula": "20260615*10 + 90000 + 17*point + 1000*k (+100000 val)",
+      "episodes": 654,
+      "oracle_in_sample": 0.9583,
+      "oracle_validated": 0.75,
+      "oracle_plan_per_point": [
+        "grid_v5.5_A",
+        "grid_v6_A",
+        "grid_v6_A",
+        "grid_v7_A",
+        "grid_v8_A",
+        "grid_v8_A",
+        "grid_v8.5_A",
+        "grid_v9.5_A",
+        "grid_v10_A",
+        "grid_v10_A",
+        "grid_v10.5_A",
+        "pt11_v10.75_A"
+      ],
+      "oracle_success_per_point_validated": [
+        0.5,
+        1.0,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        0.5,
+        1.0,
+        0.5
+      ],
+      "best_fixed_all_plan": "grid_v9.5_A",
+      "best_fixed_all_group": "grid",
+      "best_fixed_all_in_sample": 0.375,
+      "best_fixed_all_validated": 0.3333,
+      "best_simple_fixed_plan": "grid_v9.5_A",
+      "best_simple_fixed_in_sample": 0.375,
+      "best_simple_fixed_validated": 0.3333,
+      "best_ladder_plan": "ladder_d0.5_m1",
+      "best_ladder_in_sample": 0.1667,
+      "best_ladder_validated": 0.1667,
+      "voi_in_sample": 0.5833,
+      "voi_validated": 0.4167,
+      "cem_robust": {
+        "enabled": false
+      },
+      "top_fixed_plans_sel": [
+        {
+          "plan": "grid_v9.5_A",
+          "group": "grid",
+          "mean_success_sel": 0.375
+        },
+        {
+          "plan": "grid_v10_A",
+          "group": "grid",
+          "mean_success_sel": 0.3333
+        },
+        {
+          "plan": "grid_v6_A",
+          "group": "grid",
+          "mean_success_sel": 0.2083
+        },
+        {
+          "plan": "grid_v9_A",
+          "group": "grid",
+          "mean_success_sel": 0.2083
+        },
+        {
+          "plan": "grid_v10.5_A",
+          "group": "grid",
+          "mean_success_sel": 0.2083
+        },
+        {
+          "plan": "grid_v5_A",
+          "group": "grid",
+          "mean_success_sel": 0.1667
+        }
+      ]
+    },
+    "probe_leak": {
+      "episodes_per_mode": 160,
+      "window_steps": 110,
+      "anchor_frame_step": 11,
+      "first_pulse_step": 12,
+      "probe_pulses": {
+        "r2_raw_history": 0.9999,
+        "r2_anchor_frame_pre_pulse": -0.0382,
+        "r2_final_frame_post_probe": 0.9409,
+        "mu_range": [
+          0.254,
+          1.147
+        ]
+      },
+      "no_probe": {
+        "r2_raw_history": -3.085,
+        "r2_anchor_frame_pre_pulse": -0.6169,
+        "r2_final_frame_post_probe": -0.0794,
+        "mu_range": [
+          0.25,
+          1.147
+        ]
+      }
+    },
+    "gate3_bar_recomputed": 0.7223
+  },
+  "panel_args": {
+    "anchor_seeds": 16,
+    "keycell_seeds": 8,
+    "escape_seeds": 8,
+    "bin_points": 12,
+    "sel_seeds": 3,
+    "val_seeds": 3,
+    "cem_pop": 12,
+    "cem_iters": 3,
+    "probe_episodes": 160
+  },
+  "elapsed_s": 586.8,
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_task_final_spec/episode_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/selfid_task_final_spec.json"
+  }
+}
