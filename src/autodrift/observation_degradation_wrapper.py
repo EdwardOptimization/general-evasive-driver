@@ -66,6 +66,47 @@ Degradation semantics:
   degraded per-timestep stream, so the stack stays temporally consistent and
   each frame is degraded exactly once.
 
+Extended degradation modes (WP0, 2026-06). All of them act on ego channels
+0-8 only, exactly like delay/noise above, and all are OFF by default. When
+every extended parameter is at its default the wrapper executes the original
+code path verbatim, so existing (delay_steps, noise_std) configurations are
+bit-for-bit unchanged.
+
+- AR(1) correlated noise (``ar1_rho``, ``ar1_sigma``): per-channel process
+  ``n_t = ar1_rho * n_{t-1} + ar1_sigma * eps_t`` with ``eps_t ~ N(0, I)``
+  drawn from the SAME per-frame main-RNG slot the iid path uses, and the state
+  zero-initialized at episode start. ``ar1_sigma`` is the INNOVATION std
+  (scalar or length-9 per-channel); the stationary std is
+  ``ar1_sigma / sqrt(1 - ar1_rho^2)``. Consequence: with ``ar1_rho = 0`` the
+  produced noise is bit-identical to the iid ``noise_std`` path with
+  ``noise_std = ar1_sigma``. To keep that equivalence unambiguous,
+  ``noise_std`` and ``ar1_sigma`` are mutually exclusive (loud ValueError).
+  The AR(1) state advances every frame, including frames later dropped by
+  ``dropout_prob`` (the sensor noise process does not pause when a frame is
+  lost).
+- Frame dropout (``dropout_prob``): every frame after the episode's first is
+  dropped independently with probability ``dropout_prob``. A dropped frame
+  HOLDS THE LAST DEGRADED VALUE: the ego channels repeat the previous
+  timestep's degraded ego vector (so consecutive drops keep holding the last
+  delivered value). The episode's first frame (t=0) is never dropped. The
+  drop sequence is deterministic per episode, drawn from the substream
+  ``[noise_seed_stream, seed_root, episode, 1]`` (disjoint from the noise
+  stream, so enabling dropout does not shift the noise draws).
+- Time-varying delay (``delay_profile``):
+  * ``"constant"`` (default): ``delay_steps`` everywhere — original behavior.
+  * ``"episode_random"``: one integer delay drawn uniformly from
+    ``[delay_lo, delay_hi]`` at each episode start, constant within the
+    episode.
+  * ``"piecewise"``: each episode is split into 2-3 segments (segment count,
+    cut points, and per-segment delays all seed-derived; adjacent segments get
+    different delays from ``[delay_lo, delay_hi]``); within each segment the
+    ego channels are bit-identical to a constant-delay wrapper at that
+    segment's delay (the raw ring buffer always spans the whole episode).
+  Profile draws come from the substream
+  ``[noise_seed_stream, seed_root, episode, 2]``; non-constant profiles
+  require ``delay_steps == 0``. The realized per-step schedule is exposed as
+  ``episode_delay_schedule`` (length ``max_steps + 1``).
+
 Observation shape, dtype, action space, rewards, termination, and info are
 unchanged.
 """
@@ -121,19 +162,33 @@ OBS72_INDEX_TABLE: dict[str, dict[str, Any]] = {
 # single source of truth is the ObservationDegradationConfig default in env.py.
 DEFAULT_NOISE_SEED_STREAM = ObservationDegradationConfig().noise_seed_stream
 
+# Sub-stream tags appended to [noise_seed_stream, seed_root, episode] so each
+# extended degradation mode owns an RNG stream disjoint from the noise stream
+# (and from each other). The plain noise stream keeps the original 3-element
+# derivation, preserving bit-compatibility for existing configurations.
+DROPOUT_SEED_SUBSTREAM = 1
+DELAY_PROFILE_SEED_SUBSTREAM = 2
 
-def _noise_std_vector(noise_std: float | tuple | list | np.ndarray) -> np.ndarray:
-    values = np.asarray(noise_std, dtype=np.float64)
+DELAY_PROFILES = ("constant", "episode_random", "piecewise")
+
+
+def _sigma_vector(value: float | tuple | list | np.ndarray, name: str = "noise_std") -> np.ndarray:
+    values = np.asarray(value, dtype=np.float64)
     if values.ndim == 0:
         values = np.full(EGO_OBS_DIM, float(values), dtype=np.float64)
     if values.shape != (EGO_OBS_DIM,):
         raise ValueError(
-            f"noise_std must be a scalar or a length-{EGO_OBS_DIM} per-channel sequence, "
+            f"{name} must be a scalar or a length-{EGO_OBS_DIM} per-channel sequence, "
             f"got shape {values.shape}"
         )
     if np.any(values < 0.0) or not np.all(np.isfinite(values)):
-        raise ValueError("noise_std values must be finite and non-negative")
+        raise ValueError(f"{name} values must be finite and non-negative")
     return values
+
+
+# Backward-compatible alias (pre-WP0 name).
+def _noise_std_vector(noise_std: float | tuple | list | np.ndarray) -> np.ndarray:
+    return _sigma_vector(noise_std, "noise_std")
 
 
 class ObservationDegradationWrapper(gym.Wrapper):
@@ -146,6 +201,12 @@ class ObservationDegradationWrapper(gym.Wrapper):
         delay_steps: int = 0,
         noise_std: float | tuple | list | np.ndarray = 0.0,
         noise_seed_stream: int = DEFAULT_NOISE_SEED_STREAM,
+        ar1_rho: float = 0.0,
+        ar1_sigma: float | tuple | list | np.ndarray = 0.0,
+        dropout_prob: float = 0.0,
+        delay_profile: str = "constant",
+        delay_lo: int = 0,
+        delay_hi: int = 0,
     ):
         super().__init__(env)
         base_env = env.unwrapped
@@ -167,11 +228,53 @@ class ObservationDegradationWrapper(gym.Wrapper):
         self.delay_steps = int(delay_steps)
         self.noise_std = _noise_std_vector(noise_std)
         self._noise_seed_stream = int(noise_seed_stream)
+        self.ar1_rho = float(ar1_rho)
+        self.ar1_sigma = _sigma_vector(ar1_sigma, "ar1_sigma")
+        self.dropout_prob = float(dropout_prob)
+        self.delay_profile = str(delay_profile)
+        self.delay_lo = int(delay_lo)
+        self.delay_hi = int(delay_hi)
+
+        # Loud validation of the full parameter set; the single source of truth
+        # for value/cross-field constraints is ObservationDegradationConfig.
+        ObservationDegradationConfig(
+            delay_steps=self.delay_steps,
+            noise_std=tuple(float(v) for v in self.noise_std),
+            noise_seed_stream=self._noise_seed_stream,
+            ar1_rho=self.ar1_rho,
+            ar1_sigma=tuple(float(v) for v in self.ar1_sigma),
+            dropout_prob=self.dropout_prob,
+            delay_profile=self.delay_profile,
+            delay_lo=self.delay_lo,
+            delay_hi=self.delay_hi,
+        )
+        if self.delay_profile == "piecewise" and int(config.max_steps) < 4:
+            raise ValueError(
+                "delay_profile 'piecewise' requires max_steps >= 4 to place segment cut points"
+            )
+
+        # Extended-mode flag: when False, _degrade runs the original M3214 code
+        # path verbatim (structural clean-anchor guarantee).
+        self._ar1_active = bool(np.any(self.ar1_sigma > 0.0))
+        self._extended = (
+            self._ar1_active
+            or self.dropout_prob > 0.0
+            or self.delay_profile != "constant"
+        )
 
         # Episode seed bookkeeping for deterministic noise derivation.
         self._seed_root = 0
         self._episode_index = -1
         self._rng = np.random.default_rng([self._noise_seed_stream, 0, 0])
+
+        # Extended-mode per-episode state (inert when self._extended is False).
+        self._ar1_state = np.zeros(EGO_OBS_DIM, dtype=np.float64)
+        self._dropout_rng = np.random.default_rng(
+            [self._noise_seed_stream, 0, 0, DROPOUT_SEED_SUBSTREAM]
+        )
+        # Realized per-step delay schedule for the current episode (length
+        # max_steps + 1); None when delay_profile == "constant".
+        self.episode_delay_schedule: np.ndarray | None = None
 
         # Per-episode raw/degraded ego-channel streams indexed by env time.
         self._raw_ego: list[np.ndarray] = []
@@ -195,8 +298,83 @@ class ObservationDegradationWrapper(gym.Wrapper):
         self._rng = np.random.default_rng(
             [self._noise_seed_stream, self._seed_root, self._episode_index]
         )
+        if self._extended:
+            self._reset_extended_episode_state()
+
+    def _reset_extended_episode_state(self) -> None:
+        """Derive per-episode AR(1)/dropout/delay-profile state from disjoint substreams."""
+
+        self._ar1_state = np.zeros(EGO_OBS_DIM, dtype=np.float64)
+        self._dropout_rng = np.random.default_rng(
+            [self._noise_seed_stream, self._seed_root, self._episode_index, DROPOUT_SEED_SUBSTREAM]
+        )
+        if self.delay_profile == "constant":
+            self.episode_delay_schedule = None
+            return
+        delay_rng = np.random.default_rng(
+            [
+                self._noise_seed_stream,
+                self._seed_root,
+                self._episode_index,
+                DELAY_PROFILE_SEED_SUBSTREAM,
+            ]
+        )
+        horizon = int(self._config.max_steps) + 1  # frames: reset frame + max_steps steps
+        if self.delay_profile == "episode_random":
+            delay = int(delay_rng.integers(self.delay_lo, self.delay_hi + 1))
+            schedule = np.full(horizon, delay, dtype=np.int64)
+        else:  # piecewise
+            num_segments = int(delay_rng.integers(2, 4))  # 2 or 3 segments
+            cut_points = np.sort(
+                delay_rng.choice(np.arange(1, horizon), size=num_segments - 1, replace=False)
+            )
+            delays: list[int] = []
+            for _ in range(num_segments):
+                value = int(delay_rng.integers(self.delay_lo, self.delay_hi + 1))
+                while delays and value == delays[-1]:
+                    # adjacent segments must carry different delays; the redraw
+                    # loop is deterministic given the substream rng and always
+                    # terminates because delay_hi > delay_lo is enforced.
+                    value = int(delay_rng.integers(self.delay_lo, self.delay_hi + 1))
+                delays.append(value)
+            schedule = np.empty(horizon, dtype=np.int64)
+            boundaries = [0, *(int(c) for c in cut_points), horizon]
+            for segment_index in range(num_segments):
+                schedule[boundaries[segment_index] : boundaries[segment_index + 1]] = delays[
+                    segment_index
+                ]
+        self.episode_delay_schedule = schedule
 
     # -- degradation core -----------------------------------------------------
+
+    def _extended_degraded_value(self) -> np.ndarray:
+        """Degraded ego vector at env time self._t for the extended modes.
+
+        Composition order: time-varying delay -> noise (AR(1) or iid; the main
+        rng draws exactly one eps per frame, same as the original path) ->
+        dropout hold-last-value.
+        """
+
+        if self.episode_delay_schedule is None:
+            delay_now = self.delay_steps
+        else:
+            schedule = self.episode_delay_schedule
+            delay_now = int(schedule[min(self._t, len(schedule) - 1)])
+        delayed_index = max(self._t - delay_now, 0)
+        eps = self._rng.normal(0.0, 1.0, EGO_OBS_DIM)
+        if self._ar1_active:
+            self._ar1_state = self.ar1_rho * self._ar1_state + eps * self.ar1_sigma
+            noise = self._ar1_state
+        else:
+            noise = eps * self.noise_std
+        value = self._raw_ego[delayed_index] + noise
+        if self.dropout_prob > 0.0:
+            # One uniform draw per frame (including t=0) keeps the dropout
+            # stream aligned with env time regardless of outcomes.
+            dropped = float(self._dropout_rng.uniform()) < self.dropout_prob
+            if dropped and self._t > 0:
+                value = self._degraded_ego[self._t - 1].copy()
+        return value
 
     def _degrade(self, observation: np.ndarray) -> np.ndarray:
         obs = np.asarray(observation, dtype=np.float32).copy()
@@ -207,9 +385,13 @@ class ObservationDegradationWrapper(gym.Wrapper):
         # Frame slot 0 is the newest base frame (env time self._t).
         raw_ego = obs[: EGO_OBS_DIM].astype(np.float64).copy()
         self._raw_ego.append(raw_ego)
-        delayed_index = max(self._t - self.delay_steps, 0)
-        noise = self._rng.normal(0.0, 1.0, EGO_OBS_DIM) * self.noise_std
-        self._degraded_ego.append(self._raw_ego[delayed_index] + noise)
+        if self._extended:
+            self._degraded_ego.append(self._extended_degraded_value())
+        else:
+            # Original M3214 code path, kept verbatim: constant delay + iid noise.
+            delayed_index = max(self._t - self.delay_steps, 0)
+            noise = self._rng.normal(0.0, 1.0, EGO_OBS_DIM) * self.noise_std
+            self._degraded_ego.append(self._raw_ego[delayed_index] + noise)
 
         for slot in range(self._history_length):
             time_index = max(self._t - slot, 0)
@@ -244,6 +426,12 @@ def make_observation_degradation_env(
     delay_steps: int = 0,
     noise_std: float | tuple | list | np.ndarray = 0.0,
     noise_seed_stream: int = DEFAULT_NOISE_SEED_STREAM,
+    ar1_rho: float = 0.0,
+    ar1_sigma: float | tuple | list | np.ndarray = 0.0,
+    dropout_prob: float = 0.0,
+    delay_profile: str = "constant",
+    delay_lo: int = 0,
+    delay_hi: int = 0,
 ) -> ObservationDegradationWrapper:
     """Build an AutoDriftEnv wrapped as a degraded-observation task family member."""
 
@@ -252,6 +440,12 @@ def make_observation_degradation_env(
         delay_steps=delay_steps,
         noise_std=noise_std,
         noise_seed_stream=noise_seed_stream,
+        ar1_rho=ar1_rho,
+        ar1_sigma=ar1_sigma,
+        dropout_prob=dropout_prob,
+        delay_profile=delay_profile,
+        delay_lo=delay_lo,
+        delay_hi=delay_hi,
     )
 
 
@@ -273,4 +467,10 @@ def make_env_from_config(config: DriftEnvConfig) -> AutoDriftEnv | ObservationDe
         delay_steps=degradation.delay_steps,
         noise_std=degradation.noise_std,
         noise_seed_stream=degradation.noise_seed_stream,
+        ar1_rho=degradation.ar1_rho,
+        ar1_sigma=degradation.ar1_sigma,
+        dropout_prob=degradation.dropout_prob,
+        delay_profile=degradation.delay_profile,
+        delay_lo=degradation.delay_lo,
+        delay_hi=degradation.delay_hi,
     )

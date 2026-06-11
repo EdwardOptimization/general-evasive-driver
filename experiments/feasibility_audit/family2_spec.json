@@ -1,0 +1,793 @@
+{
+  "protocol": "feasibility_audit_family2_design",
+  "generated_by": "scripts/feasibility_audit/family2_design.py",
+  "generated_at_utc": "20260611T114810Z",
+  "claim_boundary": "Feasibility-audit task-DESIGN measurement only: scripted mu-agnostic commitment plans, a per-mu oracle and a belief-free threshold-seeker are rolled out on candidate family-2 geometries to measure construction VoI and the clean-sensing seeker-vs-oracle gap. No driver promotion, training, repair-success, gate-validity, paper, or self-ID capability claim is made.",
+  "quick_mode": false,
+  "preregistration": {
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/family2_prereg.json",
+    "criteria_echo": {
+      "construction_voi_bar": 0.25,
+      "acceptance_gap_bar": 0.05,
+      "oracle_strength_slack": 0.02,
+      "winner_rule": "winner = argmax VoI_val among candidates with VoI_val >= 0.25; tie -> lowest candidate index; if none qualifies -> report binding constraints per candidate (oracle ceiling vs reactive-dominance diagnosis), skip acceptance stage, deliver env-expressiveness gap list"
+    }
+  },
+  "seed_discipline": {
+    "seed_base": 20260624,
+    "formula": "SEED_BASE*10 + 17*point + 1000*k + stream_offset",
+    "stream_offsets": {
+      "A": 0,
+      "B": 100000,
+      "C": 300000,
+      "D": 600000
+    },
+    "sel_seeds_per_point": {
+      "construction": 4,
+      "acceptance": 4
+    },
+    "val_seeds_per_point": {
+      "construction": 8,
+      "acceptance": 10
+    }
+  },
+  "design_constraint_note": "single-disc geometric fact (reported): from a free centerline approach the wider gap is always the nearer one, so 'near-narrow vs far-wide' requires pinning the approach line; the mu-SIGNED open side (F2C2/F2C3) is the honest single-obstacle realization of a mu-dependent gap choice; the warmup-gate pin variant was rejected by design (gate collision lacks env-native failure semantics)",
+  "candidates_all_reported": [
+    {
+      "knobs": {
+        "candidate_id": "F2C1_offset_jitter_react",
+        "intent": "random gap side per episode; side reactive; mu-commitment = entry speed",
+        "track": {
+          "kind": "circle",
+          "radius_m": 3000.0,
+          "corridor_half_width_m": 3.2,
+          "offtrack_rule": "hard failure at |lateral_error| > corridor_half (env track_width knob)"
+        },
+        "obstacle": {
+          "half_width_m": 1.0,
+          "lateral_offset_delta_mag_m": 0.8,
+          "sign_rule": "coin",
+          "mu_side_threshold": null,
+          "centerline_compensation": "R - sqrt(R^2 - d^2) added to the signed offset",
+          "effective_offset_jitter": "inherits ego reset radial noise N(0, 0.3) keyed by rollout seed",
+          "open_side_traverse_from_center_nominal_m": 1.75,
+          "closed_side_room_nominal_m": 0.5
+        },
+        "mu_to_distance_knots": {
+          "mu": [
+            0.3,
+            0.55,
+            0.85,
+            1.15
+          ],
+          "d_m": [
+            24.0,
+            40.0,
+            50.0,
+            58.0
+          ]
+        },
+        "distance_jitter": {
+          "law": "U(-0.75, 0.75) keyed [SEED_BASE,777,seed]",
+          "floor_m": 14.5
+        },
+        "reveal_distance_m": 9.5,
+        "max_steps": 260,
+        "deadline_s": 5.2,
+        "rewards": {
+          "pass": 40.0,
+          "collision": 60.0
+        },
+        "initial_speed_mps": 8.0,
+        "mu_domain": [
+          0.25,
+          1.15
+        ]
+      },
+      "construction": {
+        "candidate_id": "F2C1_offset_jitter_react",
+        "intent": "random gap side per episode; side reactive; mu-commitment = entry speed",
+        "episodes": 4032,
+        "n_plans": 28,
+        "mu_points": [
+          0.2875,
+          0.3625,
+          0.4375,
+          0.5125,
+          0.5875,
+          0.6625,
+          0.7375,
+          0.8125,
+          0.8875,
+          0.9625,
+          1.0375,
+          1.1125
+        ],
+        "oracle_plan_per_point": [
+          "swerve_only_v6.5_react",
+          "swerve_only_v8.5_react",
+          "swerve_only_v8.5_react",
+          "swerve_only_v8.5_react",
+          "swerve_only_v10.5_react",
+          "swerve_only_v10.5_react",
+          "swerve_only_v10.5_react",
+          "swerve_only_v10.5_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react"
+        ],
+        "best_fixed_plan": "swerve_only_v12_react",
+        "oracle_success_val": 0.9271,
+        "best_fixed_success_val": 0.5208,
+        "voi_commitment_val": 0.4062,
+        "voi_commitment_sel": 0.4375,
+        "voi_bar": 0.25,
+        "construction_pass": true,
+        "oracle_per_point_success_val": [
+          1.0,
+          0.75,
+          1.0,
+          1.0,
+          0.875,
+          0.875,
+          1.0,
+          1.0,
+          0.75,
+          0.875,
+          1.0,
+          1.0
+        ],
+        "best_fixed_per_point_success_val": [
+          0.375,
+          0.0,
+          0.125,
+          0.125,
+          0.25,
+          0.375,
+          0.5,
+          0.875,
+          0.75,
+          0.875,
+          1.0,
+          1.0
+        ],
+        "best_fixed_collision_val": 0.4792,
+        "best_fixed_timeout_val": 0.0,
+        "val_episodes_per_readout_arm": 96,
+        "binding_constraints_if_fail": [],
+        "top5_fixed_plans_val": [
+          {
+            "plan": "swerve_only_v12_react",
+            "success_val": 0.5208
+          },
+          {
+            "plan": "swerve_only_v10.5_react",
+            "success_val": 0.4792
+          },
+          {
+            "plan": "commit_v11.5_bias_left",
+            "success_val": 0.4062
+          },
+          {
+            "plan": "commit_v11.5_bias_right",
+            "success_val": 0.3646
+          },
+          {
+            "plan": "commit_v10.5_bias_left",
+            "success_val": 0.3125
+          }
+        ],
+        "elapsed_s": 112.0
+      }
+    },
+    {
+      "knobs": {
+        "candidate_id": "F2C2_mu_signed_gap",
+        "intent": "open side flips with mu at 0.70; belief predicts gap side AND entry speed",
+        "track": {
+          "kind": "circle",
+          "radius_m": 3000.0,
+          "corridor_half_width_m": 3.0,
+          "offtrack_rule": "hard failure at |lateral_error| > corridor_half (env track_width knob)"
+        },
+        "obstacle": {
+          "half_width_m": 1.0,
+          "lateral_offset_delta_mag_m": 0.85,
+          "sign_rule": "mu_threshold",
+          "mu_side_threshold": 0.7,
+          "centerline_compensation": "R - sqrt(R^2 - d^2) added to the signed offset",
+          "effective_offset_jitter": "inherits ego reset radial noise N(0, 0.3) keyed by rollout seed",
+          "open_side_traverse_from_center_nominal_m": 1.7,
+          "closed_side_room_nominal_m": 0.25
+        },
+        "mu_to_distance_knots": {
+          "mu": [
+            0.3,
+            0.55,
+            0.85,
+            1.15
+          ],
+          "d_m": [
+            24.0,
+            40.0,
+            50.0,
+            58.0
+          ]
+        },
+        "distance_jitter": {
+          "law": "U(-0.75, 0.75) keyed [SEED_BASE,777,seed]",
+          "floor_m": 14.5
+        },
+        "reveal_distance_m": 9.5,
+        "max_steps": 260,
+        "deadline_s": 5.2,
+        "rewards": {
+          "pass": 40.0,
+          "collision": 60.0
+        },
+        "initial_speed_mps": 8.0,
+        "mu_domain": [
+          0.25,
+          1.15
+        ]
+      },
+      "construction": {
+        "candidate_id": "F2C2_mu_signed_gap",
+        "intent": "open side flips with mu at 0.70; belief predicts gap side AND entry speed",
+        "episodes": 4032,
+        "n_plans": 28,
+        "mu_points": [
+          0.2875,
+          0.3625,
+          0.4375,
+          0.5125,
+          0.5875,
+          0.6625,
+          0.7375,
+          0.8125,
+          0.8875,
+          0.9625,
+          1.0375,
+          1.1125
+        ],
+        "oracle_plan_per_point": [
+          "commit_v11.5_bias_right",
+          "swerve_only_v8.5_react",
+          "swerve_only_v8.5_react",
+          "swerve_only_v10.5_react",
+          "commit_v11.5_bias_right",
+          "swerve_only_v10.5_react",
+          "swerve_only_v10.5_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react"
+        ],
+        "best_fixed_plan": "swerve_only_v12_react",
+        "oracle_success_val": 0.9167,
+        "best_fixed_success_val": 0.5312,
+        "voi_commitment_val": 0.3854,
+        "voi_commitment_sel": 0.375,
+        "voi_bar": 0.25,
+        "construction_pass": true,
+        "oracle_per_point_success_val": [
+          0.875,
+          1.0,
+          1.0,
+          0.625,
+          1.0,
+          1.0,
+          1.0,
+          0.875,
+          0.625,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "best_fixed_per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.25,
+          0.375,
+          0.75,
+          0.5,
+          0.875,
+          0.625,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "best_fixed_collision_val": 0.4688,
+        "best_fixed_timeout_val": 0.0,
+        "val_episodes_per_readout_arm": 96,
+        "binding_constraints_if_fail": [],
+        "top5_fixed_plans_val": [
+          {
+            "plan": "swerve_only_v12_react",
+            "success_val": 0.5312
+          },
+          {
+            "plan": "commit_v9.5_bias_right",
+            "success_val": 0.4583
+          },
+          {
+            "plan": "swerve_only_v10.5_react",
+            "success_val": 0.4583
+          },
+          {
+            "plan": "commit_v10.5_bias_right",
+            "success_val": 0.4479
+          },
+          {
+            "plan": "commit_v11.5_bias_right",
+            "success_val": 0.4375
+          }
+        ],
+        "elapsed_s": 112.3
+      }
+    },
+    {
+      "knobs": {
+        "candidate_id": "F2C3_mu_signed_tight",
+        "intent": "tightened F2C2: closed side fully blocked, reveal 8.5, deadline 4.8 s",
+        "track": {
+          "kind": "circle",
+          "radius_m": 3000.0,
+          "corridor_half_width_m": 2.9,
+          "offtrack_rule": "hard failure at |lateral_error| > corridor_half (env track_width knob)"
+        },
+        "obstacle": {
+          "half_width_m": 1.1,
+          "lateral_offset_delta_mag_m": 0.95,
+          "sign_rule": "mu_threshold",
+          "mu_side_threshold": 0.7,
+          "centerline_compensation": "R - sqrt(R^2 - d^2) added to the signed offset",
+          "effective_offset_jitter": "inherits ego reset radial noise N(0, 0.3) keyed by rollout seed",
+          "open_side_traverse_from_center_nominal_m": 1.7,
+          "closed_side_room_nominal_m": -0.05
+        },
+        "mu_to_distance_knots": {
+          "mu": [
+            0.3,
+            0.55,
+            0.85,
+            1.15
+          ],
+          "d_m": [
+            22.0,
+            38.0,
+            48.0,
+            56.0
+          ]
+        },
+        "distance_jitter": {
+          "law": "U(-0.75, 0.75) keyed [SEED_BASE,777,seed]",
+          "floor_m": 14.5
+        },
+        "reveal_distance_m": 8.5,
+        "max_steps": 240,
+        "deadline_s": 4.8,
+        "rewards": {
+          "pass": 40.0,
+          "collision": 60.0
+        },
+        "initial_speed_mps": 8.0,
+        "mu_domain": [
+          0.25,
+          1.15
+        ]
+      },
+      "construction": {
+        "candidate_id": "F2C3_mu_signed_tight",
+        "intent": "tightened F2C2: closed side fully blocked, reveal 8.5, deadline 4.8 s",
+        "episodes": 4032,
+        "n_plans": 28,
+        "mu_points": [
+          0.2875,
+          0.3625,
+          0.4375,
+          0.5125,
+          0.5875,
+          0.6625,
+          0.7375,
+          0.8125,
+          0.8875,
+          0.9625,
+          1.0375,
+          1.1125
+        ],
+        "oracle_plan_per_point": [
+          "commit_v5.5_bias_right",
+          "commit_v8.5_bias_right",
+          "swerve_only_v8.5_react",
+          "swerve_only_v8.5_react",
+          "commit_v10.5_bias_right",
+          "commit_v11.5_bias_right",
+          "commit_v11.5_bias_left",
+          "commit_v11.5_bias_left",
+          "commit_v11.5_bias_left",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react",
+          "swerve_only_v12_react"
+        ],
+        "best_fixed_plan": "commit_v9.5_bias_right",
+        "oracle_success_val": 0.75,
+        "best_fixed_success_val": 0.3958,
+        "voi_commitment_val": 0.3542,
+        "voi_commitment_sel": 0.4167,
+        "voi_bar": 0.25,
+        "construction_pass": true,
+        "oracle_per_point_success_val": [
+          0.875,
+          1.0,
+          0.5,
+          0.625,
+          1.0,
+          1.0,
+          1.0,
+          0.875,
+          0.75,
+          0.75,
+          0.625,
+          0.0
+        ],
+        "best_fixed_per_point_success_val": [
+          0.625,
+          0.75,
+          0.875,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "best_fixed_collision_val": 0.1562,
+        "best_fixed_timeout_val": 0.4479,
+        "val_episodes_per_readout_arm": 96,
+        "binding_constraints_if_fail": [],
+        "top5_fixed_plans_val": [
+          {
+            "plan": "commit_v11.5_bias_right",
+            "success_val": 0.4375
+          },
+          {
+            "plan": "commit_v10.5_bias_right",
+            "success_val": 0.4271
+          },
+          {
+            "plan": "commit_v9.5_bias_right",
+            "success_val": 0.3958
+          },
+          {
+            "plan": "commit_v8.5_bias_right",
+            "success_val": 0.3021
+          },
+          {
+            "plan": "swerve_only_v12_react",
+            "success_val": 0.25
+          }
+        ],
+        "elapsed_s": 104.0
+      }
+    }
+  ],
+  "winner": "F2C1_offset_jitter_react",
+  "acceptance": {
+    "candidate_id": "F2C1_offset_jitter_react",
+    "validation_episodes_per_arm": 120,
+    "seeker": {
+      "plan": "seeker_drive_r6000_t0.08_b0.06_v+0.75",
+      "params": {
+        "seek_style": "drive",
+        "ramp_rate_nps": 6000.0,
+        "tau": 0.08,
+        "backoff": 0.06,
+        "dv": 0.75
+      },
+      "styles_in_grid": [
+        "brake",
+        "drive"
+      ],
+      "tau_recalibration_note": "tau/rate/backoff/dv selected on stream C for THIS family (not inherited from B2K2)",
+      "success_val": 0.9833,
+      "wilson95": [
+        0.9413,
+        0.9954
+      ],
+      "collision_val": 0.0167,
+      "timeout_val": 0.0,
+      "per_point_success_val": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9,
+        0.9,
+        1.0,
+        1.0
+      ],
+      "mu_abs_err_mean_uncensored": 0.0002,
+      "censored_fraction": 0.0,
+      "id_step_mean": 47.4,
+      "side_pred_match_fraction": 1.0
+    },
+    "oracle": {
+      "dv_per_point": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success_val": 1.0,
+      "wilson95": [
+        0.969,
+        1.0
+      ],
+      "collision_val": 0.0,
+      "timeout_val": 0.0,
+      "per_point_success_val": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "plan_family_oracle_success_val_stream_D": 0.9417,
+    "best_fixed_success_val_stream_D": 0.5917,
+    "voi_commitment_stream_D": 0.35,
+    "oracle_strength_guard": {
+      "required": "oracle >= plan_oracle - 0.02",
+      "oracle": 1.0,
+      "plan_oracle": 0.9417,
+      "pass": true
+    },
+    "voi_belief_clean_val": 0.0167,
+    "gap_bar": 0.05,
+    "acceptance_pass": true,
+    "gap_pass": true,
+    "episodes": 2976
+  },
+  "final_spec": {
+    "family_id": "F2_F2C1_offset_jitter_react",
+    "status": "frozen",
+    "env_knobs": {
+      "candidate_id": "F2C1_offset_jitter_react",
+      "intent": "random gap side per episode; side reactive; mu-commitment = entry speed",
+      "track": {
+        "kind": "circle",
+        "radius_m": 3000.0,
+        "corridor_half_width_m": 3.2,
+        "offtrack_rule": "hard failure at |lateral_error| > corridor_half (env track_width knob)"
+      },
+      "obstacle": {
+        "half_width_m": 1.0,
+        "lateral_offset_delta_mag_m": 0.8,
+        "sign_rule": "coin",
+        "mu_side_threshold": null,
+        "centerline_compensation": "R - sqrt(R^2 - d^2) added to the signed offset",
+        "effective_offset_jitter": "inherits ego reset radial noise N(0, 0.3) keyed by rollout seed",
+        "open_side_traverse_from_center_nominal_m": 1.75,
+        "closed_side_room_nominal_m": 0.5
+      },
+      "mu_to_distance_knots": {
+        "mu": [
+          0.3,
+          0.55,
+          0.85,
+          1.15
+        ],
+        "d_m": [
+          24.0,
+          40.0,
+          50.0,
+          58.0
+        ]
+      },
+      "distance_jitter": {
+        "law": "U(-0.75, 0.75) keyed [SEED_BASE,777,seed]",
+        "floor_m": 14.5
+      },
+      "reveal_distance_m": 9.5,
+      "max_steps": 260,
+      "deadline_s": 5.2,
+      "rewards": {
+        "pass": 40.0,
+        "collision": 60.0
+      },
+      "initial_speed_mps": 8.0,
+      "mu_domain": [
+        0.25,
+        1.15
+      ]
+    },
+    "construction_criterion": {
+      "voi_commitment_val": 0.4062,
+      "bar": 0.25,
+      "oracle_plan_per_point": [
+        "swerve_only_v6.5_react",
+        "swerve_only_v8.5_react",
+        "swerve_only_v8.5_react",
+        "swerve_only_v8.5_react",
+        "swerve_only_v10.5_react",
+        "swerve_only_v10.5_react",
+        "swerve_only_v10.5_react",
+        "swerve_only_v10.5_react",
+        "swerve_only_v12_react",
+        "swerve_only_v12_react",
+        "swerve_only_v12_react",
+        "swerve_only_v12_react"
+      ],
+      "best_fixed_plan": "swerve_only_v12_react"
+    },
+    "clean_acceptance_numbers": {
+      "round": 1,
+      "oracle_success_val": 1.0,
+      "seeker_success_val": 0.9833,
+      "voi_belief_clean_val": 0.0167,
+      "gap_bar": 0.05,
+      "seeker_params": {
+        "seek_style": "drive",
+        "ramp_rate_nps": 6000.0,
+        "tau": 0.08,
+        "backoff": 0.06,
+        "dv": 0.75
+      },
+      "oracle_dv_per_point": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "validation_episodes_per_arm": 120
+    },
+    "degradation_scan_adapter": {
+      "wrapper": "autodrift.observation_degradation_wrapper.make_env_from_config (add observation_degradation block to the env config)",
+      "env_config_builder": "scripts/feasibility_audit/family2_design.py::env_config(candidate, mu, seed)",
+      "controllers": "Family2Ramp(mode='oracle'|'seeker') in the same script; seeker tau must be re-calibrated per degradation cell (B2K2 lesson: noise makes single-frame detection blind)",
+      "seed_streams_reserved_for_scan": "use a NEW SEED_BASE; A-D offsets of 20260624 are consumed by this design measurement"
+    }
+  },
+  "env_expressiveness_gaps": [
+    "mu-correlated obstacle distance AND mu-signed lateral offset both require per-episode mixtures of degenerate configs; a single env config cannot couple randomization.mu_range with obstacle.distance_range/lateral_offset_range (same gap as B2K2, now needed on two knobs: e.g. obstacle.distance_from_mu and obstacle.lateral_offset_from_mu knot tables)",
+    "ego reset radial noise N(0,0.3) leaks into the obstacle's effective lateral offset (obstacle placed relative to the reset pose); a track-frame-anchored obstacle placement knob would decouple geometry jitter from reset noise",
+    "warmup_gate collision is metric-only (no termination/penalty), so gate-based approach-line pinning cannot be expressed with env-native failure semantics"
+  ],
+  "elapsed_s": 386.9,
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/family2_design/episode_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/family2_spec.json",
+    "preregistration_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/family2_prereg.json"
+  },
+  "acceptance_round_0": {
+    "candidate_id": "F2C1_offset_jitter_react",
+    "validation_episodes_per_arm": 120,
+    "seeker": {
+      "plan": "seeker_r20000_t0.08_b0.06_v+0.75",
+      "params": {
+        "ramp_rate_nps": 20000.0,
+        "tau": 0.08,
+        "backoff": 0.06,
+        "dv": 0.75
+      },
+      "tau_recalibration_note": "tau/rate/backoff/dv selected on stream C for THIS family (not inherited from B2K2)",
+      "success_val": 0.85,
+      "wilson95": [
+        0.7753,
+        0.903
+      ],
+      "collision_val": 0.05,
+      "timeout_val": 0.1,
+      "per_point_success_val": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9,
+        0.9,
+        0.9,
+        0.9,
+        0.6,
+        0.0
+      ],
+      "mu_abs_err_mean_uncensored": 0.0003,
+      "censored_fraction": 0.0,
+      "id_step_mean": 26.6,
+      "side_pred_match_fraction": 1.0
+    },
+    "oracle": {
+      "dv_per_point": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success_val": 1.0,
+      "wilson95": [
+        0.969,
+        1.0
+      ],
+      "collision_val": 0.0,
+      "timeout_val": 0.0,
+      "per_point_success_val": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "plan_family_oracle_success_val_stream_D": 0.9417,
+    "best_fixed_success_val_stream_D": 0.5917,
+    "voi_commitment_stream_D": 0.35,
+    "oracle_strength_guard": {
+      "required": "oracle >= plan_oracle - 0.02",
+      "oracle": 1.0,
+      "plan_oracle": 0.9417,
+      "pass": true
+    },
+    "voi_belief_clean_val": 0.15,
+    "gap_bar": 0.05,
+    "acceptance_pass": false,
+    "gap_pass": false,
+    "episodes": 1824
+  },
+  "repair_round_1": {
+    "preregistration_file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/family2_prereg_repair1.json",
+    "what_changed": "ONLY the threshold-seeker controller family: add a 'drive_ramp' seek style (settle -> throttle-force ramp; drive-side shortfall onset identifies mu while accelerating \u2014 identification embedded in the useful action, which for this family's tight-deadline cells is speed-building, not braking). Physics note: MAX_DRIVE 8200 N exceeds the rear tire limit 0.98*mu*Fzr for ALL mu <= 1.15 (7727 N), so drive-side onset covers the entire domain with no actuator censoring.",
+    "declared_deviation": "the parent prereg scoped repairs to 'speed-law constants/dv grids'; adding a seek style is a controller-family extension slightly beyond that literal wording \u2014 declared here BEFORE the run; the alternative (reporting a clean-regime anomaly caused by a non-transferring seeker design choice) would mislead the C1 readout",
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/family2_design/episode_rows_repair1.csv"
+  },
+  "repair_elapsed_s": 97.4
+}

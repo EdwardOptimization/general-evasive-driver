@@ -1,0 +1,23 @@
+{
+  "protocol": "feasibility_audit_family2_design_prereg_repair_round_1",
+  "kind": "pre-registration addendum (frozen BEFORE the repair acceptance run)",
+  "written_at_local": "2026-06-11",
+  "parent_prereg": "experiments/feasibility_audit/family2_prereg.json",
+  "trigger": "round-0 acceptance FAIL on winner F2C1_offset_jitter_react: oracle 1.000 vs seeker 0.850, gap +0.150 > 0.05 (120 validation episodes, stream D)",
+  "diagnosis_measured": {
+    "seeker_identification_quality": "mu_hat abs err 0.0003 (uncensored), censored fraction 0.0, id_step mean 26.6 — identification is not the problem",
+    "failure_localization": "per-point seeker success [1,1,1,1,1,1,.9,.9,.9,.9,.6,0]: losses concentrated at top-mu points; timeout 0.10 vs collision 0.05",
+    "mechanism": "the B2K2-style brake-first ramp seeker pays a ~1 s speed dip; at d(1.15)=58 m / 5.2 s deadline (mean speed floor 11.2 m/s) that dip is fatal; in B2K2 (52 m / 5.7 s) the slack absorbed it"
+  },
+  "repair_frozen": {
+    "what_changes": "ONLY the threshold-seeker controller family: add a 'drive_ramp' seek style (settle -> throttle-force ramp; drive-side shortfall onset identifies mu while accelerating — identification embedded in the useful action, which for this family's tight-deadline cells is speed-building, not braking). Physics note: MAX_DRIVE 8200 N exceeds the rear tire limit 0.98*mu*Fzr for ALL mu <= 1.15 (7727 N), so drive-side onset covers the entire domain with no actuator censoring.",
+    "what_does_not_change": "geometry knobs, candidates, winner (F2C1 by frozen rule), construction results, acceptance criteria (gap <= 0.05, oracle strength guard), oracle controller, seed streams (selection C, validation D), validation episode count (120/arm)",
+    "repair_seeker_grid": "styles {brake, drive} x rates {6000, 20000, 60000} N/s x tau {0.08, 0.18} x backoff {0.06, 0.15} x dv {0, 0.75}; single best selected on stream C as before",
+    "shots": "exactly one validation pass on stream D; no further repair rounds",
+    "declared_deviation": "the parent prereg scoped repairs to 'speed-law constants/dv grids'; adding a seek style is a controller-family extension slightly beyond that literal wording — declared here BEFORE the run; the alternative (reporting a clean-regime anomaly caused by a non-transferring seeker design choice) would mislead the C1 readout"
+  },
+  "outcome_routes_frozen": {
+    "pass": "family #2 spec frozen with the repaired acceptance numbers; both rounds reported",
+    "fail": "report as a clean-regime anomaly on family #2 (evidence against the law's generality at the family's top-mu deadline edge); no further repairs"
+  }
+}

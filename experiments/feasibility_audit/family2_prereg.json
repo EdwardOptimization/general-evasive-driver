@@ -1,0 +1,99 @@
+{
+  "protocol": "feasibility_audit_family2_design_prereg",
+  "kind": "pre-registration (criteria frozen BEFORE any measurement run)",
+  "written_at_local": "2026-06-11",
+  "plan_anchor": "docs/research-plan-phase2-capability-boundary-tracking.md WP0.1 (Track F, week-1)",
+  "thesis_anchor": "docs/capability-boundary-tracking-thesis-2026-06.md Section 8 (two-regime law)",
+  "claim_boundary": "Feasibility-audit task-DESIGN measurement only: scripted mu-agnostic commitment plans, a per-mu oracle and a belief-free threshold-seeker are rolled out on candidate family-2 geometries to measure construction VoI and the clean-sensing seeker-vs-oracle gap. No driver promotion, training, repair-success, gate-validity, paper, or self-ID capability claim.",
+  "pinned_geometry_direction": "large-radius straight (circle R=3000 m approximation) + laterally offset single obstacle = asymmetric gap choice; expressible today via obstacle.lateral_offset_range (env.py:516,551); per-cell degenerate-config mechanism reused from ramp_policy_voi_regime.py",
+  "candidates_frozen": [
+    {
+      "candidate_id": "F2C1_offset_jitter_react",
+      "intent": "minimal geometry change: asymmetric gaps with per-episode random side (coin keyed by rollout seed), side choice reactive at reveal, mu-commitment = entry speed only (B2K2 engine on the new geometry)",
+      "track": {"kind": "circle", "radius_m": 3000.0, "corridor_half_width_m": 3.2, "note": "hard offtrack at |lateral_error| > track_width = 3.2"},
+      "obstacle": {"half_width_m": 1.0, "delta_mag_m": 0.8, "delta_sign_rule": "coin per rollout seed (rng [BASE,555,seed])", "note": "effective offset also inherits reset radial noise N(0,0.3) keyed by the same seed (documented jitter, breaks exact mu<->geometry inversion)"},
+      "mu_to_distance_knots": {"mu": [0.3, 0.55, 0.85, 1.15], "d_m": [24.0, 40.0, 50.0, 58.0]},
+      "distance_jitter": {"law": "U(-0.75,0.75) from rng [BASE,777,seed]", "floor_m": 14.5},
+      "reveal_distance_m": 9.5,
+      "max_steps": 260,
+      "deadline_s": 5.2,
+      "rewards": {"pass": 40.0, "collision": 60.0}
+    },
+    {
+      "candidate_id": "F2C2_mu_signed_gap",
+      "intent": "full asymmetric-gap-choice semantics: the open (wide) side flips with mu at threshold 0.70 (per-cell degenerate configs); knowing mu before reveal predicts the correct gap side AND the entry speed; low mu -> obstacle offset left (open gap RIGHT, early lateral commitment pays), high mu -> obstacle offset right (open gap LEFT, keep speed for the deadline)",
+      "track": {"kind": "circle", "radius_m": 3000.0, "corridor_half_width_m": 3.0},
+      "obstacle": {"half_width_m": 1.0, "delta_mag_m": 0.85, "delta_sign_rule": "+0.85 (left/inward) if mu < 0.70 else -0.85 (right)", "closed_side_room_nominal_m": 0.25, "open_side_traverse_from_center_nominal_m": 1.35},
+      "mu_side_threshold": 0.70,
+      "mu_to_distance_knots": {"mu": [0.3, 0.55, 0.85, 1.15], "d_m": [24.0, 40.0, 50.0, 58.0]},
+      "distance_jitter": {"law": "U(-0.75,0.75) from rng [BASE,777,seed]", "floor_m": 14.5},
+      "reveal_distance_m": 9.5,
+      "max_steps": 260,
+      "deadline_s": 5.2,
+      "rewards": {"pass": 40.0, "collision": 60.0}
+    },
+    {
+      "candidate_id": "F2C3_mu_signed_tight",
+      "intent": "tightened variant of F2C2 in case its VoI lands below the bar: narrower corridor, wider obstacle, closed side fully blocked, tighter reveal and deadline",
+      "track": {"kind": "circle", "radius_m": 3000.0, "corridor_half_width_m": 2.9},
+      "obstacle": {"half_width_m": 1.1, "delta_mag_m": 0.95, "delta_sign_rule": "+0.95 (left/inward) if mu < 0.70 else -0.95 (right)", "closed_side_room_nominal_m": -0.05, "open_side_traverse_from_center_nominal_m": 1.35},
+      "mu_side_threshold": 0.70,
+      "mu_to_distance_knots": {"mu": [0.3, 0.55, 0.85, 1.15], "d_m": [22.0, 38.0, 48.0, 56.0]},
+      "distance_jitter": {"law": "U(-0.75,0.75) from rng [BASE,777,seed]", "floor_m": 14.5},
+      "reveal_distance_m": 8.5,
+      "max_steps": 240,
+      "deadline_s": 4.8,
+      "rewards": {"pass": 40.0, "collision": 60.0}
+    }
+  ],
+  "rejected_by_design_alternatives": [
+    "warmup-gate-pinned approach line (gate disc forcing an off-center line so the near gap is the narrow one): rejected because warmup_gate collision has no env-native failure semantics (metric only) -> success criterion would need script-level composition, contaminating comparability with the B2K2 measurement semantics; and the pinned-line narrow-thread vs wide-swing trade-off collapses to the speed axis anyway (lateral detour path-length cost is negligible)",
+    "geometric impossibility note (reported as a design constraint): from a free centerline approach with a single offset disc, the wider gap is ALWAYS the nearer one (less displacement), so 'near-narrow vs far-wide' cannot be realized without pinning the approach line; the mu-signed open-side flip (F2C2/F2C3) is the honest single-obstacle realization of a mu-dependent gap choice"
+  ],
+  "shared_task_constants": {
+    "dt_s": 0.02, "initial_speed_mps": 8.0, "mu_domain": [0.25, 1.15],
+    "mu_grid": "12 points: 0.25 + (i+0.5)/12*0.90",
+    "non_mu_randomization": "degenerate (pinned to 1.0/0.0)",
+    "obs_contract": "obs72 (history 1, action_history full, wheel none, no privileged)"
+  },
+  "seed_discipline": {
+    "SEED_BASE": 20260624,
+    "note": "fresh stream; prior bases 20260611..20260622 all disjoint",
+    "formula": "seed = SEED_BASE*10 + 17*point + 1000*k + stream_offset",
+    "streams": {
+      "A_construction_selection": {"offset": 0, "k": "0..3"},
+      "B_construction_validation": {"offset": 100000, "k": "0..7"},
+      "C_acceptance_selection": {"offset": 300000, "k": "0..3"},
+      "D_acceptance_validation": {"offset": 600000, "k": "0..9"}
+    },
+    "disjointness": "selection and validation streams share no seed; candidate selection consumes only A/B; acceptance tau/dv selection only C; acceptance readout only D",
+    "jitter_keys": "distance jitter rng [SEED_BASE,777,seed]; F2C1 side coin rng [SEED_BASE,555,seed]"
+  },
+  "construction_criterion_frozen": {
+    "name": "commitment VoI (per-mu oracle vs best fixed plan), validation-stream",
+    "definition": "VoI_val = mean_over_12_points[ success_val(per-point best plan selected on stream A) ] - max_plan mean_over_points[ success_val(plan selected on stream A by mean) ], success_val measured on stream B (8 seeds/point -> 96 episodes per readout arm)",
+    "bar": 0.25,
+    "plan_family": "28 mu-agnostic plans: entry speeds {4.5..11.5 step 1} x side policy {react, bias_left(+1.0 m), bias_right(-1.0 m)} with brake-then-swerve reaction, + 4 swerve-only react plans at {6.5, 8.5, 10.5, 12.0}",
+    "separation_note": "this criterion is computed from fixed commitment plans only; it shares no controller with the tested readout (threshold-seeker vs parametric oracle), breaking the construction/readout circularity"
+  },
+  "winner_selection_rule_frozen": "winner = argmax VoI_val among candidates with VoI_val >= 0.25; tie -> lowest candidate index; if none qualifies -> report binding constraints per candidate (oracle ceiling vs reactive-dominance diagnosis), skip acceptance stage, deliver env-expressiveness gap list",
+  "acceptance_criteria_frozen": {
+    "readout": "clean-sensing two-regime acceptance on the winner: threshold-seeker (shortfall detector, tau/rate/backoff/dv re-selected for this family on stream C) vs per-mu parametric oracle (dv fine-tuned per point on stream C)",
+    "validation_set": "stream D: 12 mu points x 10 seeds = 120 episodes per arm (>= 120 required)",
+    "PASS_bar": "gap_val = oracle_success_val - seeker_success_val <= 0.05",
+    "oracle_strength_guard": "parametric oracle success_val >= plan-family per-point oracle success_val (re-measured on stream D) - 0.02; if violated the gap readout is declared non-informative (oracle too weak) and reported as such",
+    "report_also": "Wilson 95% CIs for oracle and seeker rates; collision/timeout split; seeker telemetry (mu_hat error, censoring fraction, id_step, side prediction accuracy)"
+  },
+  "outcome_routes_frozen": {
+    "all_candidates_fail_construction": "report binding constraints + env expressiveness gaps; that is the Track-F result",
+    "winner_fails_acceptance": "report the gap with CIs; one bounded repair round allowed ONLY on controller calibration (speed-law constants/dv grids), never on the frozen geometry knobs or criteria; re-run acceptance on stream D once; if still failing, report as a clean-regime anomaly on family #2 (itself a result against the law's generality)",
+    "degradation_scan": "explicitly OUT of this track's scope (next stage, after Track W modes land); the final spec JSON must be directly consumable by that scan"
+  },
+  "compute_budget": "single background process, ~15-25 min CPU expected (~15k episodes at ~0.04-0.1 s/episode); polled to completion",
+  "artifacts_planned": {
+    "script": "scripts/feasibility_audit/family2_design.py",
+    "spec_json": "experiments/feasibility_audit/family2_spec.json",
+    "episode_rows": "runs/feasibility_audit/family2_design/episode_rows.csv",
+    "doc": "docs/selfid-family2-design-2026-06.md"
+  }
+}

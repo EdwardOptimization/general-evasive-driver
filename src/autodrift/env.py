@@ -140,18 +140,48 @@ class WarmupGateConfig:
 
 @dataclass(frozen=True)
 class ObservationDegradationConfig:
-    """Degraded-response TASK FAMILY parameters (delay/noise on ego channels 0-8).
+    """Degraded-response TASK FAMILY parameters (ego channels 0-8 only).
 
     Consumed by ``autodrift.observation_degradation_wrapper.make_env_from_config``;
     ``AutoDriftEnv`` itself ignores this block, so entry points that build envs
     from a ``DriftEnvConfig`` must go through that factory for the degradation
     to apply. ``noise_seed_stream`` default must stay equal to
     ``observation_degradation_wrapper.DEFAULT_NOISE_SEED_STREAM``.
+
+    Modes (semantics defined in ``observation_degradation_wrapper``):
+
+    - ``delay_steps`` + ``noise_std``: original M3214 behavior (constant integer
+      delay + i.i.d. Gaussian noise); when only these are set the wrapper runs
+      the original code path bit-for-bit.
+    - AR(1) correlated noise (``ar1_rho``, ``ar1_sigma``): per-channel process
+      ``n_t = ar1_rho * n_{t-1} + ar1_sigma * eps_t`` with ``eps_t ~ N(0, I)``,
+      zero-initialized at episode start. ``ar1_sigma`` is the INNOVATION std
+      (scalar or length-9); stationary std = ``ar1_sigma / sqrt(1 - ar1_rho^2)``.
+      With ``ar1_rho = 0`` the process is bit-identical to the iid ``noise_std``
+      path (same per-frame RNG draw), so ``noise_std`` and ``ar1_sigma`` are
+      mutually exclusive (loud ValueError instead of silently correlated sums).
+    - Frame dropout (``dropout_prob``): each frame after the episode's first is
+      dropped independently with this probability; dropped frames HOLD THE LAST
+      DEGRADED VALUE on the ego channels. Deterministic per-episode substream
+      ``[stream, seed_root, episode, 1]``.
+    - Time-varying delay (``delay_profile``): "constant" = ``delay_steps``
+      everywhere (original behavior); "episode_random" = one delay drawn
+      uniformly from ``[delay_lo, delay_hi]`` per episode; "piecewise" = 2-3
+      segments per episode with per-segment delays from ``[delay_lo, delay_hi]``
+      (adjacent segments differ), segment cut points seed-derived. Substream
+      ``[stream, seed_root, episode, 2]``. Non-constant profiles require
+      ``delay_steps == 0`` (no competing delay specifications).
     """
 
     delay_steps: int = 0
     noise_std: float | tuple[float, ...] = 0.0
     noise_seed_stream: int = 20260610
+    ar1_rho: float = 0.0
+    ar1_sigma: float | tuple[float, ...] = 0.0
+    dropout_prob: float = 0.0
+    delay_profile: str = "constant"
+    delay_lo: int = 0
+    delay_hi: int = 0
 
     def __post_init__(self) -> None:
         if isinstance(self.delay_steps, bool) or not isinstance(self.delay_steps, int):
@@ -175,6 +205,78 @@ class ObservationDegradationConfig:
             raise ValueError("observation_degradation noise_std must be a number or a sequence of numbers")
         if any((not math.isfinite(value)) or value < 0.0 for value in values):
             raise ValueError("observation_degradation noise_std values must be finite and non-negative")
+        noise_values = values
+
+        # -- AR(1) correlated noise -------------------------------------------
+        if isinstance(self.ar1_rho, bool) or not isinstance(self.ar1_rho, (int, float)):
+            raise ValueError("observation_degradation ar1_rho must be a number")
+        object.__setattr__(self, "ar1_rho", float(self.ar1_rho))
+        if not math.isfinite(self.ar1_rho) or self.ar1_rho < 0.0 or self.ar1_rho >= 1.0:
+            raise ValueError("observation_degradation ar1_rho must satisfy 0 <= ar1_rho < 1")
+        if isinstance(self.ar1_sigma, (list, tuple, np.ndarray)):
+            ar1_values = tuple(float(item) for item in self.ar1_sigma)
+            if len(ar1_values) != EGO_OBS_DIM:
+                raise ValueError(
+                    "observation_degradation ar1_sigma must be a scalar or a "
+                    f"length-{EGO_OBS_DIM} per-channel sequence, got length {len(ar1_values)}"
+                )
+            object.__setattr__(self, "ar1_sigma", ar1_values)
+        elif isinstance(self.ar1_sigma, (int, float)) and not isinstance(self.ar1_sigma, bool):
+            ar1_values = (float(self.ar1_sigma),)
+            object.__setattr__(self, "ar1_sigma", float(self.ar1_sigma))
+        else:
+            raise ValueError("observation_degradation ar1_sigma must be a number or a sequence of numbers")
+        if any((not math.isfinite(value)) or value < 0.0 for value in ar1_values):
+            raise ValueError("observation_degradation ar1_sigma values must be finite and non-negative")
+        if self.ar1_rho > 0.0 and not any(value > 0.0 for value in ar1_values):
+            raise ValueError("observation_degradation ar1_rho > 0 requires a positive ar1_sigma")
+        if any(value > 0.0 for value in ar1_values) and any(value > 0.0 for value in noise_values):
+            raise ValueError(
+                "observation_degradation noise_std and ar1_sigma are mutually exclusive; "
+                "AR(1) noise with ar1_rho=0 reproduces the iid noise_std path bit-for-bit"
+            )
+
+        # -- frame dropout ------------------------------------------------------
+        if isinstance(self.dropout_prob, bool) or not isinstance(self.dropout_prob, (int, float)):
+            raise ValueError("observation_degradation dropout_prob must be a number")
+        object.__setattr__(self, "dropout_prob", float(self.dropout_prob))
+        if not math.isfinite(self.dropout_prob) or self.dropout_prob < 0.0 or self.dropout_prob >= 1.0:
+            raise ValueError("observation_degradation dropout_prob must satisfy 0 <= dropout_prob < 1")
+
+        # -- time-varying delay profile -----------------------------------------
+        if self.delay_profile not in ("constant", "episode_random", "piecewise"):
+            raise ValueError(
+                "observation_degradation delay_profile must be one of: "
+                "constant, episode_random, piecewise"
+            )
+        for name in ("delay_lo", "delay_hi"):
+            value = getattr(self, name)
+            if isinstance(value, bool) or not isinstance(value, int):
+                raise ValueError(f"observation_degradation {name} must be an integer")
+            if value < 0:
+                raise ValueError(f"observation_degradation {name} must be non-negative")
+        if self.delay_profile == "constant":
+            if self.delay_lo != 0 or self.delay_hi != 0:
+                raise ValueError(
+                    "observation_degradation delay_lo/delay_hi require delay_profile "
+                    "'episode_random' or 'piecewise'"
+                )
+        else:
+            if self.delay_steps != 0:
+                raise ValueError(
+                    "observation_degradation delay_steps must stay 0 when delay_profile is "
+                    f"'{self.delay_profile}'; the delay comes from [delay_lo, delay_hi]"
+                )
+            if self.delay_hi < self.delay_lo:
+                raise ValueError("observation_degradation delay_hi must be >= delay_lo")
+            if self.delay_profile == "piecewise" and self.delay_hi <= self.delay_lo:
+                raise ValueError(
+                    "observation_degradation delay_profile 'piecewise' requires delay_hi > delay_lo"
+                )
+            if self.delay_profile == "episode_random" and self.delay_hi == 0:
+                raise ValueError(
+                    "observation_degradation delay_profile 'episode_random' requires delay_hi > 0"
+                )
 
 
 @dataclass(frozen=True)
