@@ -123,4 +123,6 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B4: OPEN
 - C1-C3: BLOCKED on A3 + CP-1
 - D1: OPEN
-- M3220 guardrails: in flight (this unit precedes any Codex execution)
+- WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
+  pre-commit hook, escalation protocol in docs/escalations/, managed-run
+  helper scripts/run_managed.sh). Codex execution may begin.
