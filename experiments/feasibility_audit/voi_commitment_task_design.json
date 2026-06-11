@@ -1,0 +1,1553 @@
+{
+  "protocol": "feasibility_audit_voi_commitment_task_design",
+  "generated_by": "scripts/feasibility_audit/voi_commitment_task_design.py",
+  "generated_at_utc": "20260611T032236Z",
+  "claim_boundary": "Feasibility-audit task-DESIGN measurement only: scripted mu-agnostic commitment plans and a per-theta empirical oracle are rolled out on candidate scenario families to measure VoI(success) and probe inferability. No driver-performance verdict, repair-success, robustness-result, validation, ranking, winner selection, checkpoint mutation/promotion, high-fidelity, paper, or self-ID *capability* claim is made.",
+  "hypothesis_link": "Task A (experiments/feasibility_audit/voi_current_task_family.json) measured voi_success == 0 on all 24 skeletons of the CURRENT family; this script designs a commitment family where voi_success is structurally positive.",
+  "voi_definition": "VoI = E_theta[per-theta best plan success] - max_plan E_theta[success]; theta = episode-constant hidden mu (uniform over 4 levels); plans are mu-agnostic observation-only entry-speed commitment + reaction strategies; success = outcome_bucket == success_obstacle_pass (autodrift.evaluate semantics); split-seed validation: plan selection on even seeds, evaluation on odd seeds.",
+  "dominance_theorem_note": "With success monotone in mu for every fixed plan, mu-agnostically trackable speed profiles, and a mu-independent success threshold, the most cautious feasible plan succeeds wherever any plan succeeds => VoI_success = 0. The commitment family breaks this through the deadline (max_steps + finish_on_pass) x late reveal (perception_reveal_distance) x mu-correlated hazard distance.",
+  "elapsed_s": 76.2,
+  "panel": {
+    "theta_levels_mu": [
+      0.3,
+      0.55,
+      0.85,
+      1.15
+    ],
+    "candidate_seeds_per_level": 6,
+    "final_seeds_per_level": 16,
+    "seed_formula": "20260612*10 + level_index*1000 + k"
+  },
+  "candidate_iterations": [
+    {
+      "design": {
+        "design_id": "A1_independent_geometry",
+        "kind": "independent",
+        "track_radius": 3000.0,
+        "track_width": 5.0,
+        "reveal_distance": 11.0,
+        "max_steps": 290,
+        "obstacle_half_width": 1.15,
+        "pass_reward": 10.0,
+        "collision_penalty": 20.0,
+        "levels": [
+          {
+            "mu": 0.3,
+            "d_lo": 24.0,
+            "d_hi": 60.0,
+            "entry_speed": 5.0
+          },
+          {
+            "mu": 0.55,
+            "d_lo": 24.0,
+            "d_hi": 60.0,
+            "entry_speed": 7.5
+          },
+          {
+            "mu": 0.85,
+            "d_lo": 24.0,
+            "d_hi": 60.0,
+            "entry_speed": 10.0
+          },
+          {
+            "mu": 1.15,
+            "d_lo": 24.0,
+            "d_hi": 60.0,
+            "entry_speed": 13.0
+          }
+        ],
+        "notes": "Single-env-config expressible variant: hazard distance independent of mu. Multiplicative oracle leak (slow oracle misses deadline on far hazards) caps achievable VoI_success (analytic sup ~0.28)."
+      },
+      "deadline_s": 5.8,
+      "analytic_design_table_inferred": [
+        {
+          "mu": 0.3,
+          "hazard_distance_m": 42.0,
+          "entry_speed_mps": 5.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 6.053751000000002,
+          "aeb_stop_distance_at_entry_m": 4.719296258541926,
+          "min_time_to_finish_s": 8.4,
+          "deadline_s": 5.8
+        },
+        {
+          "mu": 0.55,
+          "hazard_distance_m": 42.0,
+          "entry_speed_mps": 7.5,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.932686,
+          "aeb_stop_distance_at_entry_m": 5.7918635900287265,
+          "min_time_to_finish_s": 5.6,
+          "deadline_s": 5.8
+        },
+        {
+          "mu": 0.85,
+          "hazard_distance_m": 42.0,
+          "entry_speed_mps": 10.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.288073625000001,
+          "aeb_stop_distance_at_entry_m": 6.66253589441213,
+          "min_time_to_finish_s": 4.2,
+          "deadline_s": 5.8
+        },
+        {
+          "mu": 1.15,
+          "hazard_distance_m": 42.0,
+          "entry_speed_mps": 13.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 3.432846967455621,
+          "aeb_stop_distance_at_entry_m": 8.322376358541762,
+          "min_time_to_finish_s": 3.230769230769231,
+          "deadline_s": 5.8
+        }
+      ],
+      "success_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.333
+        },
+        "commit_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.167,
+          "mu_1.15": 0.667
+        },
+        "commit_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 0.167,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 0.5,
+          "mu_0.55": 0.5,
+          "mu_0.85": 0.167,
+          "mu_1.15": 0.5
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.5,
+          "mu_0.85": 0.667,
+          "mu_1.15": 0.667
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.333,
+          "mu_1.15": 1.0
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 0.167,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.167,
+          "mu_1.15": 0.5
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.333
+        }
+      },
+      "return_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 174.5,
+          "mu_0.55": 154.3,
+          "mu_0.85": 166.2,
+          "mu_1.15": 164.2
+        },
+        "commit_v7.5": {
+          "mu_0.3": 211.2,
+          "mu_0.55": 220.7,
+          "mu_0.85": 259.9,
+          "mu_1.15": 251.9
+        },
+        "commit_v10": {
+          "mu_0.3": 233.4,
+          "mu_0.55": 230.1,
+          "mu_0.85": 297.0,
+          "mu_1.15": 293.6
+        },
+        "commit_v13": {
+          "mu_0.3": 232.0,
+          "mu_0.55": 224.9,
+          "mu_0.85": 273.5,
+          "mu_1.15": 253.9
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 177.3,
+          "mu_0.55": 157.2,
+          "mu_0.85": 166.2,
+          "mu_1.15": 165.8
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 231.2,
+          "mu_0.55": 220.2,
+          "mu_0.85": 262.9,
+          "mu_1.15": 253.4
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 233.0,
+          "mu_0.55": 254.2,
+          "mu_0.85": 307.4,
+          "mu_1.15": 291.7
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 232.1,
+          "mu_0.55": 225.3,
+          "mu_0.85": 287.8,
+          "mu_1.15": 294.5
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 162.8,
+          "mu_0.55": 135.6,
+          "mu_0.85": 144.7,
+          "mu_1.15": 143.4
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 231.7,
+          "mu_0.55": 222.9,
+          "mu_0.85": 267.3,
+          "mu_1.15": 245.9
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 225.5,
+          "mu_0.55": 222.6,
+          "mu_0.85": 275.3,
+          "mu_1.15": 267.4
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 217.2,
+          "mu_0.55": 217.3,
+          "mu_0.85": 267.2,
+          "mu_1.15": 246.6
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 213.7,
+          "mu_0.55": 222.3,
+          "mu_0.85": 261.7,
+          "mu_1.15": 254.1
+        }
+      },
+      "voi_success": {
+        "oracle_in_sample": 0.6666666666666666,
+        "best_fixed_in_sample": 0.45833333333333326,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 0.20833333333333337,
+        "oracle_split_validated": 0.5,
+        "best_fixed_split_validated": 0.41666666666666663,
+        "voi_split_validated": 0.08333333333333337,
+        "oracle_plan_index_per_level": [
+          5,
+          5,
+          6,
+          7
+        ],
+        "fixed_plan_index_split": 6,
+        "n_seeds_per_level": 6
+      },
+      "voi_return": {
+        "oracle_in_sample": 272.37847918063926,
+        "best_fixed_in_sample": 271.5839763353964,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 0.794502845242846,
+        "oracle_split_validated": 279.665444472236,
+        "best_fixed_split_validated": 279.2199421596115,
+        "voi_split_validated": 0.44550231262451234,
+        "oracle_plan_index_per_level": [
+          6,
+          6,
+          6,
+          7
+        ],
+        "fixed_plan_index_split": 6,
+        "n_seeds_per_level": 6
+      },
+      "best_fixed_plan_success": "swerve_only_v10",
+      "oracle_plans_success": [
+        "swerve_only_v7.5",
+        "swerve_only_v7.5",
+        "swerve_only_v10",
+        "swerve_only_v13"
+      ]
+    },
+    {
+      "design": {
+        "design_id": "A2_independent_geometry_mild_deadline",
+        "kind": "independent",
+        "track_radius": 3000.0,
+        "track_width": 5.0,
+        "reveal_distance": 11.0,
+        "max_steps": 320,
+        "obstacle_half_width": 1.15,
+        "pass_reward": 10.0,
+        "collision_penalty": 20.0,
+        "levels": [
+          {
+            "mu": 0.3,
+            "d_lo": 24.0,
+            "d_hi": 48.0,
+            "entry_speed": 5.0
+          },
+          {
+            "mu": 0.55,
+            "d_lo": 24.0,
+            "d_hi": 48.0,
+            "entry_speed": 7.5
+          },
+          {
+            "mu": 0.85,
+            "d_lo": 24.0,
+            "d_hi": 48.0,
+            "entry_speed": 10.0
+          },
+          {
+            "mu": 1.15,
+            "d_lo": 24.0,
+            "d_hi": 48.0,
+            "entry_speed": 13.0
+          }
+        ],
+        "notes": "Independent-geometry variant tuned toward its theoretical VoI ceiling."
+      },
+      "deadline_s": 6.4,
+      "analytic_design_table_inferred": [
+        {
+          "mu": 0.3,
+          "hazard_distance_m": 36.0,
+          "entry_speed_mps": 5.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 6.053751000000002,
+          "aeb_stop_distance_at_entry_m": 4.719296258541926,
+          "min_time_to_finish_s": 7.2,
+          "deadline_s": 6.4
+        },
+        {
+          "mu": 0.55,
+          "hazard_distance_m": 36.0,
+          "entry_speed_mps": 7.5,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.932686,
+          "aeb_stop_distance_at_entry_m": 5.7918635900287265,
+          "min_time_to_finish_s": 4.8,
+          "deadline_s": 6.4
+        },
+        {
+          "mu": 0.85,
+          "hazard_distance_m": 36.0,
+          "entry_speed_mps": 10.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.288073625000001,
+          "aeb_stop_distance_at_entry_m": 6.66253589441213,
+          "min_time_to_finish_s": 3.6,
+          "deadline_s": 6.4
+        },
+        {
+          "mu": 1.15,
+          "hazard_distance_m": 36.0,
+          "entry_speed_mps": 13.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 3.432846967455621,
+          "aeb_stop_distance_at_entry_m": 8.322376358541762,
+          "min_time_to_finish_s": 2.769230769230769,
+          "deadline_s": 6.4
+        }
+      ],
+      "success_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 0.167,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.667,
+          "mu_0.85": 0.667,
+          "mu_1.15": 0.667
+        },
+        "commit_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.333,
+          "mu_1.15": 1.0
+        },
+        "commit_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 0.5,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 0.667,
+          "mu_0.55": 0.833,
+          "mu_0.85": 0.667,
+          "mu_1.15": 0.667
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.833,
+          "mu_0.85": 1.0,
+          "mu_1.15": 1.0
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.167,
+          "mu_1.15": 1.0
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 0.167,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 0.667,
+          "mu_0.55": 0.333,
+          "mu_0.85": 0.167,
+          "mu_1.15": 1.0
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.667,
+          "mu_0.85": 0.667,
+          "mu_1.15": 0.667
+        }
+      },
+      "return_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 172.9,
+          "mu_0.55": 157.6,
+          "mu_0.85": 175.8,
+          "mu_1.15": 166.4
+        },
+        "commit_v7.5": {
+          "mu_0.3": 188.2,
+          "mu_0.55": 214.2,
+          "mu_0.85": 246.1,
+          "mu_1.15": 237.4
+        },
+        "commit_v10": {
+          "mu_0.3": 196.1,
+          "mu_0.55": 194.4,
+          "mu_0.85": 245.2,
+          "mu_1.15": 254.7
+        },
+        "commit_v13": {
+          "mu_0.3": 198.0,
+          "mu_0.55": 191.1,
+          "mu_0.85": 222.5,
+          "mu_1.15": 208.5
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 179.3,
+          "mu_0.55": 161.4,
+          "mu_0.85": 178.7,
+          "mu_1.15": 171.1
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 218.2,
+          "mu_0.55": 211.7,
+          "mu_0.85": 249.6,
+          "mu_1.15": 237.4
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 195.9,
+          "mu_0.55": 228.6,
+          "mu_0.85": 258.8,
+          "mu_1.15": 250.9
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 198.0,
+          "mu_0.55": 191.3,
+          "mu_0.85": 229.6,
+          "mu_1.15": 249.8
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 162.5,
+          "mu_0.55": 142.6,
+          "mu_0.85": 156.3,
+          "mu_1.15": 149.7
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 197.5,
+          "mu_0.55": 190.5,
+          "mu_0.85": 218.7,
+          "mu_1.15": 202.8
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 215.4,
+          "mu_0.55": 193.2,
+          "mu_0.85": 216.5,
+          "mu_1.15": 239.1
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 188.7,
+          "mu_0.55": 187.3,
+          "mu_0.85": 231.4,
+          "mu_1.15": 214.9
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 190.8,
+          "mu_0.55": 215.1,
+          "mu_0.85": 248.2,
+          "mu_1.15": 239.8
+        }
+      },
+      "voi_success": {
+        "oracle_in_sample": 0.875,
+        "best_fixed_in_sample": 0.7083333333333334,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 0.16666666666666663,
+        "oracle_split_validated": 0.6666666666666666,
+        "best_fixed_split_validated": 0.5833333333333333,
+        "voi_split_validated": 0.08333333333333337,
+        "oracle_plan_index_per_level": [
+          5,
+          5,
+          1,
+          2
+        ],
+        "fixed_plan_index_split": 5,
+        "n_seeds_per_level": 6
+      },
+      "voi_return": {
+        "oracle_in_sample": 240.07303759560725,
+        "best_fixed_in_sample": 233.54806364838473,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 6.52497394722252,
+        "oracle_split_validated": 245.1932973465388,
+        "best_fixed_split_validated": 239.68039643896174,
+        "voi_split_validated": 5.5129009075770625,
+        "oracle_plan_index_per_level": [
+          5,
+          6,
+          6,
+          2
+        ],
+        "fixed_plan_index_split": 6,
+        "n_seeds_per_level": 6
+      },
+      "best_fixed_plan_success": "swerve_only_v10",
+      "oracle_plans_success": [
+        "swerve_only_v7.5",
+        "swerve_only_v7.5",
+        "commit_v7.5",
+        "commit_v10"
+      ]
+    },
+    {
+      "design": {
+        "design_id": "B1_mu_correlated_hazard",
+        "kind": "mu_correlated",
+        "track_radius": 900.0,
+        "track_width": 5.0,
+        "reveal_distance": 11.0,
+        "max_steps": 295,
+        "obstacle_half_width": 1.15,
+        "pass_reward": 10.0,
+        "collision_penalty": 20.0,
+        "levels": [
+          {
+            "mu": 0.3,
+            "d_lo": 24.0,
+            "d_hi": 24.0,
+            "entry_speed": 5.0
+          },
+          {
+            "mu": 0.55,
+            "d_lo": 38.0,
+            "d_hi": 38.0,
+            "entry_speed": 7.5
+          },
+          {
+            "mu": 0.85,
+            "d_lo": 48.0,
+            "d_hi": 48.0,
+            "entry_speed": 10.0
+          },
+          {
+            "mu": 1.15,
+            "d_lo": 60.0,
+            "d_hi": 60.0,
+            "entry_speed": 13.0
+          }
+        ],
+        "notes": "mu-correlated hazard distance (low grip => near hazard, high grip => far hazard + deadline). Mixture of per-theta env configs; needs a new env feature (mu-conditional obstacle distance sampling) to live in ONE config."
+      },
+      "deadline_s": 5.9,
+      "analytic_design_table_inferred": [
+        {
+          "mu": 0.3,
+          "hazard_distance_m": 24.0,
+          "entry_speed_mps": 5.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 6.053751000000002,
+          "aeb_stop_distance_at_entry_m": 4.719296258541926,
+          "min_time_to_finish_s": 4.8,
+          "deadline_s": 5.9
+        },
+        {
+          "mu": 0.55,
+          "hazard_distance_m": 38.0,
+          "entry_speed_mps": 7.5,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.932686,
+          "aeb_stop_distance_at_entry_m": 5.7918635900287265,
+          "min_time_to_finish_s": 5.066666666666666,
+          "deadline_s": 5.9
+        },
+        {
+          "mu": 0.85,
+          "hazard_distance_m": 48.0,
+          "entry_speed_mps": 10.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 4.288073625000001,
+          "aeb_stop_distance_at_entry_m": 6.66253589441213,
+          "min_time_to_finish_s": 4.8,
+          "deadline_s": 5.9
+        },
+        {
+          "mu": 1.15,
+          "hazard_distance_m": 60.0,
+          "entry_speed_mps": 13.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.3499999999999996,
+          "drift_lateral_capacity_at_reveal_m": 3.432846967455621,
+          "aeb_stop_distance_at_entry_m": 8.322376358541762,
+          "min_time_to_finish_s": 4.615384615384615,
+          "deadline_s": 5.9
+        }
+      ],
+      "success_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 0.5,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.833,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.333,
+          "mu_1.15": 0.0
+        },
+        "commit_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 1.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 0.667,
+          "mu_0.55": 1.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.667,
+          "mu_0.85": 1.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.167,
+          "mu_1.15": 1.0
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 0.833,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 1.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.833,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        }
+      },
+      "return_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 124.9,
+          "mu_0.55": 170.9,
+          "mu_0.85": 168.9,
+          "mu_1.15": 167.9
+        },
+        "commit_v7.5": {
+          "mu_0.3": 118.9,
+          "mu_0.55": 231.1,
+          "mu_0.85": 266.1,
+          "mu_1.15": 272.7
+        },
+        "commit_v10": {
+          "mu_0.3": 125.8,
+          "mu_0.55": 210.3,
+          "mu_0.85": 285.4,
+          "mu_1.15": 355.2
+        },
+        "commit_v13": {
+          "mu_0.3": 127.7,
+          "mu_0.55": 206.5,
+          "mu_0.85": 261.2,
+          "mu_1.15": 329.3
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 131.3,
+          "mu_0.55": 174.4,
+          "mu_0.85": 168.9,
+          "mu_1.15": 167.9
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 145.1,
+          "mu_0.55": 228.8,
+          "mu_0.85": 267.2,
+          "mu_1.15": 272.7
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 125.9,
+          "mu_0.55": 237.4,
+          "mu_0.85": 298.1,
+          "mu_1.15": 354.2
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 127.8,
+          "mu_0.55": 205.7,
+          "mu_0.85": 267.6,
+          "mu_1.15": 370.3
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 126.7,
+          "mu_0.55": 153.9,
+          "mu_0.85": 147.0,
+          "mu_1.15": 145.7
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 127.8,
+          "mu_0.55": 206.3,
+          "mu_0.85": 255.9,
+          "mu_1.15": 318.6
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 131.3,
+          "mu_0.55": 174.4,
+          "mu_0.85": 177.0,
+          "mu_1.15": 176.2
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 118.7,
+          "mu_0.55": 203.2,
+          "mu_0.85": 271.9,
+          "mu_1.15": 291.1
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 121.4,
+          "mu_0.55": 233.8,
+          "mu_0.85": 267.9,
+          "mu_1.15": 274.6
+        }
+      },
+      "voi_success": {
+        "oracle_in_sample": 1.0,
+        "best_fixed_in_sample": 0.41666666666666663,
+        "best_fixed_plan_index": 5,
+        "voi_in_sample": 0.5833333333333334,
+        "oracle_split_validated": 0.75,
+        "best_fixed_split_validated": 0.3333333333333333,
+        "voi_split_validated": 0.4166666666666667,
+        "oracle_plan_index_per_level": [
+          0,
+          5,
+          6,
+          7
+        ],
+        "fixed_plan_index_split": 5,
+        "n_seeds_per_level": 6
+      },
+      "voi_return": {
+        "oracle_in_sample": 262.7201111071612,
+        "best_fixed_in_sample": 253.89619233482995,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 8.82391877233124,
+        "oracle_split_validated": 259.3034527569035,
+        "best_fixed_split_validated": 253.55741083378234,
+        "voi_split_validated": 5.74604192312114,
+        "oracle_plan_index_per_level": [
+          5,
+          6,
+          6,
+          7
+        ],
+        "fixed_plan_index_split": 6,
+        "n_seeds_per_level": 6
+      },
+      "best_fixed_plan_success": "swerve_only_v7.5",
+      "oracle_plans_success": [
+        "commit_v5",
+        "swerve_only_v7.5",
+        "swerve_only_v10",
+        "swerve_only_v13"
+      ]
+    },
+    {
+      "design": {
+        "design_id": "B2_mu_correlated_hazard_tight",
+        "kind": "mu_correlated",
+        "track_radius": 900.0,
+        "track_width": 5.0,
+        "reveal_distance": 12.0,
+        "max_steps": 285,
+        "obstacle_half_width": 1.25,
+        "pass_reward": 10.0,
+        "collision_penalty": 20.0,
+        "levels": [
+          {
+            "mu": 0.3,
+            "d_lo": 24.0,
+            "d_hi": 24.0,
+            "entry_speed": 5.0
+          },
+          {
+            "mu": 0.55,
+            "d_lo": 38.0,
+            "d_hi": 38.0,
+            "entry_speed": 7.5
+          },
+          {
+            "mu": 0.85,
+            "d_lo": 49.0,
+            "d_hi": 49.0,
+            "entry_speed": 10.0
+          },
+          {
+            "mu": 1.15,
+            "d_lo": 62.0,
+            "d_hi": 62.0,
+            "entry_speed": 13.0
+          }
+        ],
+        "notes": "Tighter deadline / wider obstacle variant of B1."
+      },
+      "deadline_s": 5.7,
+      "analytic_design_table_inferred": [
+        {
+          "mu": 0.3,
+          "hazard_distance_m": 24.0,
+          "entry_speed_mps": 5.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.4499999999999997,
+          "drift_lateral_capacity_at_reveal_m": 7.204464000000001,
+          "aeb_stop_distance_at_entry_m": 4.719296258541926,
+          "min_time_to_finish_s": 4.8,
+          "deadline_s": 5.7
+        },
+        {
+          "mu": 0.55,
+          "hazard_distance_m": 38.0,
+          "entry_speed_mps": 7.5,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.4499999999999997,
+          "drift_lateral_capacity_at_reveal_m": 5.870304000000002,
+          "aeb_stop_distance_at_entry_m": 5.7918635900287265,
+          "min_time_to_finish_s": 5.066666666666666,
+          "deadline_s": 5.7
+        },
+        {
+          "mu": 0.85,
+          "hazard_distance_m": 49.0,
+          "entry_speed_mps": 10.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.4499999999999997,
+          "drift_lateral_capacity_at_reveal_m": 5.103161999999999,
+          "aeb_stop_distance_at_entry_m": 6.66253589441213,
+          "min_time_to_finish_s": 4.9,
+          "deadline_s": 5.7
+        },
+        {
+          "mu": 1.15,
+          "hazard_distance_m": 62.0,
+          "entry_speed_mps": 13.0,
+          "generator_label_at_entry_speed": "aeb_feasible",
+          "required_lateral_offset_m": 2.4499999999999997,
+          "drift_lateral_capacity_at_reveal_m": 4.085371597633136,
+          "aeb_stop_distance_at_entry_m": 8.322376358541762,
+          "min_time_to_finish_s": 4.769230769230769,
+          "deadline_s": 5.7
+        }
+      ],
+      "success_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 0.833,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.833,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 1.0,
+          "mu_1.15": 0.0
+        },
+        "commit_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 1.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 0.833,
+          "mu_0.55": 1.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.833,
+          "mu_0.85": 1.0,
+          "mu_1.15": 0.0
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.333,
+          "mu_1.15": 1.0
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 0.833,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 1.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.0,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 0.0,
+          "mu_0.55": 0.667,
+          "mu_0.85": 0.0,
+          "mu_1.15": 0.0
+        }
+      },
+      "return_matrix_measured": {
+        "commit_v5": {
+          "mu_0.3": 129.0,
+          "mu_0.55": 165.8,
+          "mu_0.85": 163.7,
+          "mu_1.15": 162.7
+        },
+        "commit_v7.5": {
+          "mu_0.3": 118.6,
+          "mu_0.55": 224.1,
+          "mu_0.85": 260.1,
+          "mu_1.15": 263.6
+        },
+        "commit_v10": {
+          "mu_0.3": 125.1,
+          "mu_0.55": 210.1,
+          "mu_0.85": 310.6,
+          "mu_1.15": 347.8
+        },
+        "commit_v13": {
+          "mu_0.3": 128.6,
+          "mu_0.55": 206.4,
+          "mu_0.85": 266.8,
+          "mu_1.15": 341.2
+        },
+        "swerve_only_v5": {
+          "mu_0.3": 127.9,
+          "mu_0.55": 169.4,
+          "mu_0.85": 163.7,
+          "mu_1.15": 162.7
+        },
+        "swerve_only_v7.5": {
+          "mu_0.3": 144.7,
+          "mu_0.55": 231.4,
+          "mu_0.85": 261.9,
+          "mu_1.15": 263.6
+        },
+        "swerve_only_v10": {
+          "mu_0.3": 126.4,
+          "mu_0.55": 238.2,
+          "mu_0.85": 305.7,
+          "mu_1.15": 348.5
+        },
+        "swerve_only_v13": {
+          "mu_0.3": 128.3,
+          "mu_0.55": 205.8,
+          "mu_0.85": 279.6,
+          "mu_1.15": 377.9
+        },
+        "always_crawl_v4.5": {
+          "mu_0.3": 126.6,
+          "mu_0.55": 149.7,
+          "mu_0.85": 142.7,
+          "mu_1.15": 141.4
+        },
+        "always_max_v14.5": {
+          "mu_0.3": 128.7,
+          "mu_0.55": 205.5,
+          "mu_0.85": 260.6,
+          "mu_1.15": 329.5
+        },
+        "ladder_adaptive": {
+          "mu_0.3": 127.9,
+          "mu_0.55": 169.4,
+          "mu_0.85": 171.8,
+          "mu_1.15": 171.0
+        },
+        "aeb_reflex_v8": {
+          "mu_0.3": 118.1,
+          "mu_0.55": 201.4,
+          "mu_0.85": 268.7,
+          "mu_1.15": 281.2
+        },
+        "probe_then_commit_v7.5": {
+          "mu_0.3": 121.1,
+          "mu_0.55": 224.9,
+          "mu_0.85": 261.7,
+          "mu_1.15": 265.5
+        }
+      },
+      "voi_success": {
+        "oracle_in_sample": 1.0,
+        "best_fixed_in_sample": 0.45833333333333337,
+        "best_fixed_plan_index": 5,
+        "voi_in_sample": 0.5416666666666666,
+        "oracle_split_validated": 0.9166666666666666,
+        "best_fixed_split_validated": 0.41666666666666663,
+        "voi_split_validated": 0.5,
+        "oracle_plan_index_per_level": [
+          0,
+          5,
+          2,
+          7
+        ],
+        "fixed_plan_index_split": 5,
+        "n_seeds_per_level": 6
+      },
+      "voi_return": {
+        "oracle_in_sample": 267.8469821980294,
+        "best_fixed_in_sample": 254.6835890291767,
+        "best_fixed_plan_index": 6,
+        "voi_in_sample": 13.163393168852735,
+        "oracle_split_validated": 267.6689053933373,
+        "best_fixed_split_validated": 255.3748171928669,
+        "voi_split_validated": 12.294088200470384,
+        "oracle_plan_index_per_level": [
+          5,
+          6,
+          2,
+          7
+        ],
+        "fixed_plan_index_split": 6,
+        "n_seeds_per_level": 6
+      },
+      "best_fixed_plan_success": "swerve_only_v7.5",
+      "oracle_plans_success": [
+        "commit_v5",
+        "swerve_only_v7.5",
+        "commit_v10",
+        "swerve_only_v13"
+      ]
+    }
+  ],
+  "selected_design_id": "B2_mu_correlated_hazard_tight",
+  "final_design": {
+    "design": {
+      "design_id": "B2_mu_correlated_hazard_tight",
+      "kind": "mu_correlated",
+      "track_radius": 900.0,
+      "track_width": 5.0,
+      "reveal_distance": 12.0,
+      "max_steps": 285,
+      "obstacle_half_width": 1.25,
+      "pass_reward": 10.0,
+      "collision_penalty": 20.0,
+      "levels": [
+        {
+          "mu": 0.3,
+          "d_lo": 24.0,
+          "d_hi": 24.0,
+          "entry_speed": 5.0
+        },
+        {
+          "mu": 0.55,
+          "d_lo": 38.0,
+          "d_hi": 38.0,
+          "entry_speed": 7.5
+        },
+        {
+          "mu": 0.85,
+          "d_lo": 49.0,
+          "d_hi": 49.0,
+          "entry_speed": 10.0
+        },
+        {
+          "mu": 1.15,
+          "d_lo": 62.0,
+          "d_hi": 62.0,
+          "entry_speed": 13.0
+        }
+      ],
+      "notes": "Tighter deadline / wider obstacle variant of B1."
+    },
+    "deadline_s": 5.7,
+    "analytic_design_table_inferred": [
+      {
+        "mu": 0.3,
+        "hazard_distance_m": 24.0,
+        "entry_speed_mps": 5.0,
+        "generator_label_at_entry_speed": "aeb_feasible",
+        "required_lateral_offset_m": 2.4499999999999997,
+        "drift_lateral_capacity_at_reveal_m": 7.204464000000001,
+        "aeb_stop_distance_at_entry_m": 4.719296258541926,
+        "min_time_to_finish_s": 4.8,
+        "deadline_s": 5.7
+      },
+      {
+        "mu": 0.55,
+        "hazard_distance_m": 38.0,
+        "entry_speed_mps": 7.5,
+        "generator_label_at_entry_speed": "aeb_feasible",
+        "required_lateral_offset_m": 2.4499999999999997,
+        "drift_lateral_capacity_at_reveal_m": 5.870304000000002,
+        "aeb_stop_distance_at_entry_m": 5.7918635900287265,
+        "min_time_to_finish_s": 5.066666666666666,
+        "deadline_s": 5.7
+      },
+      {
+        "mu": 0.85,
+        "hazard_distance_m": 49.0,
+        "entry_speed_mps": 10.0,
+        "generator_label_at_entry_speed": "aeb_feasible",
+        "required_lateral_offset_m": 2.4499999999999997,
+        "drift_lateral_capacity_at_reveal_m": 5.103161999999999,
+        "aeb_stop_distance_at_entry_m": 6.66253589441213,
+        "min_time_to_finish_s": 4.9,
+        "deadline_s": 5.7
+      },
+      {
+        "mu": 1.15,
+        "hazard_distance_m": 62.0,
+        "entry_speed_mps": 13.0,
+        "generator_label_at_entry_speed": "aeb_feasible",
+        "required_lateral_offset_m": 2.4499999999999997,
+        "drift_lateral_capacity_at_reveal_m": 4.085371597633136,
+        "aeb_stop_distance_at_entry_m": 8.322376358541762,
+        "min_time_to_finish_s": 4.769230769230769,
+        "deadline_s": 5.7
+      }
+    ],
+    "success_matrix_measured": {
+      "commit_v5": {
+        "mu_0.3": 0.688,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "commit_v7.5": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.75,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "commit_v10": {
+        "mu_0.3": 0.062,
+        "mu_0.55": 0.0,
+        "mu_0.85": 1.0,
+        "mu_1.15": 0.0
+      },
+      "commit_v13": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "swerve_only_v5": {
+        "mu_0.3": 1.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "swerve_only_v7.5": {
+        "mu_0.3": 0.875,
+        "mu_0.55": 1.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "swerve_only_v10": {
+        "mu_0.3": 0.062,
+        "mu_0.55": 0.875,
+        "mu_0.85": 1.0,
+        "mu_1.15": 0.0
+      },
+      "swerve_only_v13": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.5,
+        "mu_1.15": 1.0
+      },
+      "always_crawl_v4.5": {
+        "mu_0.3": 0.688,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "always_max_v14.5": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "ladder_adaptive": {
+        "mu_0.3": 1.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "aeb_reflex_v8": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.0,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      },
+      "probe_then_commit_v7.5": {
+        "mu_0.3": 0.0,
+        "mu_0.55": 0.688,
+        "mu_0.85": 0.0,
+        "mu_1.15": 0.0
+      }
+    },
+    "return_matrix_measured": {
+      "commit_v5": {
+        "mu_0.3": 123.0,
+        "mu_0.55": 165.5,
+        "mu_0.85": 163.9,
+        "mu_1.15": 162.6
+      },
+      "commit_v7.5": {
+        "mu_0.3": 118.5,
+        "mu_0.55": 223.3,
+        "mu_0.85": 260.4,
+        "mu_1.15": 263.5
+      },
+      "commit_v10": {
+        "mu_0.3": 128.7,
+        "mu_0.55": 210.3,
+        "mu_0.85": 310.9,
+        "mu_1.15": 347.8
+      },
+      "commit_v13": {
+        "mu_0.3": 128.8,
+        "mu_0.55": 206.8,
+        "mu_0.85": 267.0,
+        "mu_1.15": 340.8
+      },
+      "swerve_only_v5": {
+        "mu_0.3": 123.7,
+        "mu_0.55": 169.0,
+        "mu_0.85": 163.9,
+        "mu_1.15": 162.6
+      },
+      "swerve_only_v7.5": {
+        "mu_0.3": 145.3,
+        "mu_0.55": 231.2,
+        "mu_0.85": 262.2,
+        "mu_1.15": 263.5
+      },
+      "swerve_only_v10": {
+        "mu_0.3": 128.8,
+        "mu_0.55": 239.8,
+        "mu_0.85": 307.6,
+        "mu_1.15": 348.4
+      },
+      "swerve_only_v13": {
+        "mu_0.3": 128.9,
+        "mu_0.55": 206.0,
+        "mu_0.85": 287.0,
+        "mu_1.15": 377.3
+      },
+      "always_crawl_v4.5": {
+        "mu_0.3": 121.4,
+        "mu_0.55": 149.4,
+        "mu_0.85": 142.9,
+        "mu_1.15": 141.3
+      },
+      "always_max_v14.5": {
+        "mu_0.3": 128.9,
+        "mu_0.55": 206.2,
+        "mu_0.85": 260.8,
+        "mu_1.15": 329.4
+      },
+      "ladder_adaptive": {
+        "mu_0.3": 123.7,
+        "mu_0.55": 169.0,
+        "mu_0.85": 172.0,
+        "mu_1.15": 170.9
+      },
+      "aeb_reflex_v8": {
+        "mu_0.3": 118.3,
+        "mu_0.55": 201.2,
+        "mu_0.85": 268.8,
+        "mu_1.15": 281.1
+      },
+      "probe_then_commit_v7.5": {
+        "mu_0.3": 120.6,
+        "mu_0.55": 225.1,
+        "mu_0.85": 262.0,
+        "mu_1.15": 265.2
+      }
+    },
+    "voi_success": {
+      "oracle_in_sample": 1.0,
+      "best_fixed_in_sample": 0.484375,
+      "best_fixed_plan_index": 6,
+      "voi_in_sample": 0.515625,
+      "oracle_split_validated": 1.0,
+      "best_fixed_split_validated": 0.4375,
+      "voi_split_validated": 0.5625,
+      "oracle_plan_index_per_level": [
+        4,
+        5,
+        2,
+        7
+      ],
+      "fixed_plan_index_split": 5,
+      "n_seeds_per_level": 16
+    },
+    "voi_return": {
+      "oracle_in_sample": 268.32324296453135,
+      "best_fixed_in_sample": 256.13073921056866,
+      "best_fixed_plan_index": 6,
+      "voi_in_sample": 12.192503753962683,
+      "oracle_split_validated": 268.11688873170556,
+      "best_fixed_split_validated": 256.2043841650717,
+      "voi_split_validated": 11.912504566633856,
+      "oracle_plan_index_per_level": [
+        5,
+        6,
+        2,
+        7
+      ],
+      "fixed_plan_index_split": 6,
+      "n_seeds_per_level": 16
+    },
+    "best_fixed_plan_success": "swerve_only_v10",
+    "oracle_plans_success": [
+      "swerve_only_v5",
+      "swerve_only_v7.5",
+      "commit_v10",
+      "swerve_only_v13"
+    ]
+  },
+  "final_headline": {
+    "voi_success_in_sample": 0.515625,
+    "voi_success_split_validated": 0.5625,
+    "voi_target": 0.25,
+    "voi_target_met": true,
+    "voi_return_in_sample": 12.192503753962683,
+    "inferability_r2_probe_pulses_raw": 0.999892345090637,
+    "inferability_r2_target": 0.3,
+    "inferability_target_met": true
+  },
+  "inferability_probe": [
+    {
+      "mode": "probe_pulses",
+      "episodes": 200,
+      "early_terminated_episodes": 0,
+      "mu_min": 0.25431103309768843,
+      "mu_max": 1.149109744246023,
+      "raw_history_features": 336,
+      "summary_features": 18,
+      "linear_probe_r2_raw_history": 0.999892345090637,
+      "ridge_alpha_raw": 1.0,
+      "linear_probe_r2_summary": 0.9999211171015933,
+      "ridge_alpha_summary": 0.01,
+      "probe_protocol": "episode-level 60/20/20 split, alpha on val, test R^2; channels obs[0:12] (ego response + previous command), 110 prep steps, stride 4"
+    },
+    {
+      "mode": "no_probe",
+      "episodes": 200,
+      "early_terminated_episodes": 0,
+      "mu_min": 0.2534185944169807,
+      "mu_max": 1.1466364289331046,
+      "raw_history_features": 336,
+      "summary_features": 18,
+      "linear_probe_r2_raw_history": 0.009844563526439809,
+      "ridge_alpha_raw": 100.0,
+      "linear_probe_r2_summary": -0.010146498895219791,
+      "ridge_alpha_summary": 100.0,
+      "probe_protocol": "episode-level 60/20/20 split, alpha on val, test R^2; channels obs[0:12] (ego response + previous command), 110 prep steps, stride 4"
+    },
+    {
+      "mode": "random",
+      "episodes": 200,
+      "early_terminated_episodes": 0,
+      "mu_min": 0.25022459472434894,
+      "mu_max": 1.1494840982336223,
+      "raw_history_features": 336,
+      "summary_features": 18,
+      "linear_probe_r2_raw_history": -0.382626762937768,
+      "ridge_alpha_raw": 100.0,
+      "linear_probe_r2_summary": 0.7419171403627246,
+      "ridge_alpha_summary": 100.0,
+      "probe_protocol": "episode-level 60/20/20 split, alpha on val, test R^2; channels obs[0:12] (ego response + previous command), 110 prep steps, stride 4"
+    }
+  ],
+  "behavioral_signatures": {
+    "oracle_plan_per_level": [
+      "swerve_only_v5",
+      "swerve_only_v7.5",
+      "commit_v10",
+      "swerve_only_v13"
+    ],
+    "oracle_entry_speed_per_level_mps": [
+      5.0,
+      7.5,
+      10.0,
+      13.0
+    ],
+    "mu_levels": [
+      0.3,
+      0.55,
+      0.85,
+      1.15
+    ],
+    "spearman_mu_vs_oracle_entry_speed": 1.0,
+    "gate_proposal": {
+      "signature_1": "reveal-crossing speed rank-correlated with episode mu (Spearman >= 0.8 across the theta panel) while mu is hidden until reveal -- requires pre-reveal inference.",
+      "signature_2": "preparation-segment action energy above the no-probe baseline (active probing pulses), measurable as prep_action_sq_mean.",
+      "signature_3": "panel success >= best_fixed_split_validated + 0.5 * voi_split_validated (i.e., the policy realizes a meaningful share of the measured VoI)."
+    }
+  },
+  "env_expressiveness_gaps": [
+    "mu-correlated hazard distance requires a MIXTURE of per-theta env configs; a single config cannot couple randomization.mu_range with obstacle.distance_range. Needed env feature: conditional obstacle distance sampling given the drawn mu (e.g., obstacle.distance_from_mu: [[mu_lo, mu_hi, d_lo, d_hi], ...]).",
+    "initial speed is always speed_ref; entry-speed commitment would be cleaner with an independent initial_speed_range knob (current design works around it by giving the preparation segment enough length to reach any commitment speed from v0=8).",
+    "speed_ref is also the reward target (speed_cost), so slow commitments pay a reward penalty against speed_ref=8 on ALL theta; acceptable here because success-VoI is deadline-driven, but a per-plan reward target is not expressible."
+  ],
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/voi_commitment_task_design/episode_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/voi_commitment_task_design.json"
+  }
+}

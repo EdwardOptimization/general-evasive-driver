@@ -1,0 +1,2437 @@
+{
+  "protocol": "feasibility_audit_voi_current_task_family",
+  "generated_by": "scripts/feasibility_audit/voi_current_task_family.py",
+  "claim_scope": "Measures VoI(skeleton) = E_theta[per-theta open-loop oracle outcome] - max_fixed_plan E_theta[outcome] on representative faces of the current task family, with theta = post-friction-step mu on a fixed 4-point grid and a uniform prior. Oracle and fixed-plan baselines are search lower bounds (structured + CEM); the fixed-plan baseline includes per-theta oracle replays, 6 robust archetypes and a robust-CEM plan, and the oracle is closed over all fixed plans so VoI >= 0 by construction. No claim is made about closed-loop controllers or learned policies.",
+  "hypothesis": "If the ~1500 null self-ID milestones are explained by task design (hidden theta not worth knowing), VoI should be ~0 on these faces.",
+  "theta_grid": [
+    0.3,
+    0.55,
+    0.8,
+    1.05
+  ],
+  "theta_semantics": "friction_step.mu_range collapsed to (theta, theta): mu after the mid-episode friction step",
+  "skeleton_invariance": "asserted per skeleton: mu_pre, speed_ref, beta_target, friction_step_at, obstacle geometry identical across the 4 theta arms (same reset seed, identical rng stream consumption)",
+  "excluded_faces_note": "m3012 specs without friction_step (0002-0007, 0009, 0012, 0013, 0015, 0016) are excluded: episode-constant mu there friction-limits the sampled initial speed (friction_limited_speed=true), so a fixed-skeleton theta intervention does not exist for them.",
+  "budget": {
+    "cem_population": 28,
+    "cem_elites": 7,
+    "cem_iterations": 18,
+    "robust_population": 20,
+    "robust_elites": 5,
+    "robust_iterations": 12
+  },
+  "quick": false,
+  "elapsed_s": 67.3,
+  "total_rollouts": 75072,
+  "faces": {
+    "g1_ignition_gate_clean": {
+      "env_source": "runs/feasibility_audit/selfid_g1_ignition_gate/configs/clean_seed710001.json#env",
+      "capability_pair": null,
+      "n_skeletons": 12,
+      "voi_return": {
+        "mean": 3.0525,
+        "median": 2.3415,
+        "min": 0.1547,
+        "max": 11.151,
+        "p90": 5.3212,
+        "values": [
+          2.9448,
+          4.5485,
+          1.5199,
+          1.1619,
+          0.1547,
+          2.0081,
+          5.407,
+          2.4293,
+          2.4548,
+          2.2538,
+          11.151,
+          0.596
+        ]
+      },
+      "voi_success": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p90": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oracle_mean_return": {
+        "mean": 84.4187,
+        "median": 86.9613,
+        "min": 33.3265,
+        "max": 117.7206,
+        "p90": 113.1853,
+        "values": [
+          60.9214,
+          110.995,
+          52.0678,
+          104.1657,
+          72.9153,
+          113.4287,
+          94.0869,
+          33.3265,
+          86.4006,
+          117.7206,
+          79.4741,
+          87.5221
+        ]
+      },
+      "oracle_mean_success": {
+        "mean": 0.9375,
+        "median": 1.0,
+        "min": 0.5,
+        "max": 1.0,
+        "p90": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          0.75,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "m3012_spec0001_mu_nominal_drop": {
+      "env_source": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json#m3012-executable-source-spec-0001",
+      "capability_pair": "mu_nominal|mu_drop",
+      "n_skeletons": 4,
+      "voi_return": {
+        "mean": 6.7344,
+        "median": 6.745,
+        "min": 2.7221,
+        "max": 10.7255,
+        "p90": 10.6657,
+        "values": [
+          10.7255,
+          2.7221,
+          2.9639,
+          10.5262
+        ]
+      },
+      "voi_success": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p90": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oracle_mean_return": {
+        "mean": 129.4307,
+        "median": 128.7842,
+        "min": 115.5796,
+        "max": 144.5748,
+        "p90": 142.6954,
+        "values": [
+          115.5796,
+          138.3102,
+          119.2581,
+          144.5748
+        ]
+      },
+      "oracle_mean_success": {
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p90": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "m3012_spec0010_late_brake": {
+      "env_source": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json#m3012-executable-source-spec-0010",
+      "capability_pair": "late_brake_low|late_brake_high",
+      "n_skeletons": 4,
+      "voi_return": {
+        "mean": 0.8907,
+        "median": 0.8491,
+        "min": 0.1854,
+        "max": 1.6792,
+        "p90": 1.5704,
+        "values": [
+          0.1854,
+          0.3817,
+          1.3166,
+          1.6792
+        ]
+      },
+      "voi_success": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p90": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oracle_mean_return": {
+        "mean": 23.0691,
+        "median": 19.5444,
+        "min": 10.7152,
+        "max": 42.4724,
+        "p90": 36.4979,
+        "values": [
+          10.7152,
+          16.5313,
+          22.5575,
+          42.4724
+        ]
+      },
+      "oracle_mean_success": {
+        "mean": 0.25,
+        "median": 0.25,
+        "min": 0.0,
+        "max": 0.5,
+        "p90": 0.425,
+        "values": [
+          0.0,
+          0.25,
+          0.25,
+          0.5
+        ]
+      }
+    },
+    "m3012_spec0011_mu_recover": {
+      "env_source": "runs/m3012_engineering_controller_route_a_post_residual_stop_new_source_executable_env_materialization_preflight/executable_source_specs.json#m3012-executable-source-spec-0011",
+      "capability_pair": "mu_recover|mu_low",
+      "n_skeletons": 4,
+      "voi_return": {
+        "mean": 4.4048,
+        "median": 3.3696,
+        "min": 0.6246,
+        "max": 10.2553,
+        "p90": 8.5318,
+        "values": [
+          0.6246,
+          10.2553,
+          2.229,
+          4.5102
+        ]
+      },
+      "voi_success": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0,
+        "p90": 0.0,
+        "values": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "oracle_mean_return": {
+        "mean": 136.4515,
+        "median": 138.3291,
+        "min": 112.2087,
+        "max": 156.9393,
+        "p90": 153.7397,
+        "values": [
+          146.2741,
+          130.3841,
+          112.2087,
+          156.9393
+        ]
+      },
+      "oracle_mean_success": {
+        "mean": 1.0,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "p90": 1.0,
+        "values": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "overall": {
+    "n_skeletons": 24,
+    "voi_return": {
+      "mean": 3.5312,
+      "median": 2.3415,
+      "min": 0.1547,
+      "max": 11.151,
+      "p90": 10.4449,
+      "values": [
+        2.9448,
+        4.5485,
+        1.5199,
+        1.1619,
+        0.1547,
+        2.0081,
+        5.407,
+        2.4293,
+        2.4548,
+        2.2538,
+        11.151,
+        0.596,
+        10.7255,
+        2.7221,
+        2.9639,
+        10.5262,
+        0.1854,
+        0.3817,
+        1.3166,
+        1.6792,
+        0.6246,
+        10.2553,
+        2.229,
+        4.5102
+      ]
+    },
+    "voi_success": {
+      "mean": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "p90": 0.0,
+      "values": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "oracle_mean_return": {
+      "mean": 90.3679,
+      "median": 99.1263,
+      "min": 10.7152,
+      "max": 156.9393,
+      "p90": 142.6954,
+      "values": [
+        60.9214,
+        110.995,
+        52.0678,
+        104.1657,
+        72.9153,
+        113.4287,
+        94.0869,
+        33.3265,
+        86.4006,
+        117.7206,
+        79.4741,
+        87.5221,
+        115.5796,
+        138.3102,
+        119.2581,
+        144.5748,
+        10.7152,
+        16.5313,
+        22.5575,
+        42.4724,
+        146.2741,
+        130.3841,
+        112.2087,
+        156.9393
+      ]
+    },
+    "oracle_mean_success": {
+      "mean": 0.8438,
+      "median": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "p90": 1.0,
+      "values": [
+        1.0,
+        1.0,
+        0.75,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.25,
+        0.25,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "best_fixed_mean_return": {
+      "mean": 86.8367,
+      "median": 95.8418,
+      "min": 10.5298,
+      "max": 152.4291,
+      "p90": 135.1262,
+      "values": [
+        57.9766,
+        106.4465,
+        50.5479,
+        103.0038,
+        72.7606,
+        111.4206,
+        88.6799,
+        30.8972,
+        83.9458,
+        115.4668,
+        68.3231,
+        86.9261,
+        104.8541,
+        135.5881,
+        116.2942,
+        134.0486,
+        10.5298,
+        16.1496,
+        21.2409,
+        40.7932,
+        145.6495,
+        120.1288,
+        109.9797,
+        152.4291
+      ]
+    },
+    "best_fixed_mean_success": {
+      "mean": 0.8438,
+      "median": 1.0,
+      "min": 0.0,
+      "max": 1.0,
+      "p90": 1.0,
+      "values": [
+        1.0,
+        1.0,
+        0.75,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.25,
+        0.25,
+        0.5,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "skeletons_with_voi_success_gt_0": 0,
+    "skeletons_with_voi_return_gt_1": 19
+  },
+  "skeletons": [
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-00",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910001,
+      "skeleton": {
+        "mu_pre": 0.7497567323666141,
+        "speed_ref": 11.461474059498562,
+        "beta_target": 0.14924980143808136,
+        "friction_step_at": 28,
+        "obstacle_distance": 8.196358961397472,
+        "obstacle_half_width": 0.5025100976670281,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          44.79232385311715,
+          40.730979922915594
+        ],
+        "tto_steps": 36,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 8,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 5.0023,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 36,
+          "min_clearance_margin": -0.0589,
+          "kind": "cem",
+          "closed_return": 61.0183,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 60.2378,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 55,
+          "min_clearance_margin": 0.0202,
+          "kind": "cem",
+          "closed_return": 60.2378,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 61.5678,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 51,
+          "min_clearance_margin": 0.0265,
+          "kind": "cem",
+          "closed_return": 61.5678,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 60.8617,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 50,
+          "min_clearance_margin": 0.0005,
+          "kind": "cem",
+          "closed_return": 60.8617,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 57.9766
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 60.9214,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.9448,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 27.7
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-01",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910002,
+      "skeleton": {
+        "mu_pre": 0.3517558313388052,
+        "speed_ref": 14.472407241822278,
+        "beta_target": 0.29739438180475936,
+        "friction_step_at": 14,
+        "obstacle_distance": 22.319675934116535,
+        "obstacle_half_width": 1.0060098347837743,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          59.18700390781426,
+          -23.833570125660096
+        ],
+        "tto_steps": 77,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 63,
+        "segment_length_steps": 8,
+        "searched_horizon_steps": 144
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 112.9692,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 83,
+          "min_clearance_margin": 1.1919,
+          "kind": "cem",
+          "closed_return": 112.9692,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 113.2421,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 78,
+          "min_clearance_margin": 2.0016,
+          "kind": "cem",
+          "closed_return": 113.2421,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 110.6992,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 77,
+          "min_clearance_margin": 2.044,
+          "kind": "cem",
+          "closed_return": 110.6992,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 107.0694,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 77,
+          "min_clearance_margin": 1.6962,
+          "kind": "cem",
+          "closed_return": 107.0694,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 106.4465
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 110.995,
+      "oracle_mean_success": 1.0,
+      "voi_return": 4.5485,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 42.4
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-02",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910003,
+      "skeleton": {
+        "mu_pre": 0.6231118552470529,
+        "speed_ref": 13.11444566521491,
+        "beta_target": 0.13600164376623025,
+        "friction_step_at": 26,
+        "obstacle_distance": 9.440055892362443,
+        "obstacle_half_width": 0.5546500967798289,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          53.08182302330935,
+          -28.947594394198184
+        ],
+        "tto_steps": 36,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 10,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 9.5857,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 36,
+          "min_clearance_margin": -0.1251,
+          "kind": "cem",
+          "closed_return": 9.5857,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 9.6984,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 37,
+          "min_clearance_margin": -0.0923,
+          "kind": "cem",
+          "closed_return": 66.5572,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 67.131,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 51,
+          "min_clearance_margin": 0.0129,
+          "kind": "cem",
+          "closed_return": 67.131,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 64.9973,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 46,
+          "min_clearance_margin": 0.0025,
+          "kind": "cem",
+          "closed_return": 64.9973,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 50.5479
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.75
+        }
+      },
+      "oracle_mean_return": 52.0678,
+      "oracle_mean_success": 0.75,
+      "voi_return": 1.5199,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 23.9
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-03",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910004,
+      "skeleton": {
+        "mu_pre": 0.5283454720979631,
+        "speed_ref": 14.652045048038456,
+        "beta_target": 0.2993042579365452,
+        "friction_step_at": 26,
+        "obstacle_distance": 20.262069721947405,
+        "obstacle_half_width": 1.1334962259533565,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          -58.05385143210546,
+          -25.276418978252018
+        ],
+        "tto_steps": 69,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 43,
+        "segment_length_steps": 7,
+        "searched_horizon_steps": 126
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 104.0189,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 86,
+          "min_clearance_margin": 1.6371,
+          "kind": "cem",
+          "closed_return": 104.6689,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 101.2618,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 87,
+          "min_clearance_margin": 2.4554,
+          "kind": "cem",
+          "closed_return": 105.9933,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 104.663,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 75,
+          "min_clearance_margin": 2.2672,
+          "kind": "cem",
+          "closed_return": 104.663,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 101.3377,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 73,
+          "min_clearance_margin": 0.538,
+          "kind": "cem",
+          "closed_return": 101.3377,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 103.0038
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 104.1657,
+      "oracle_mean_success": 1.0,
+      "voi_return": 1.1619,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 41.5
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-04",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910005,
+      "skeleton": {
+        "mu_pre": 0.7334663759594211,
+        "speed_ref": 12.778965042411844,
+        "beta_target": 0.08286173685606654,
+        "friction_step_at": 29,
+        "obstacle_distance": 9.710882808670805,
+        "obstacle_half_width": 0.5245155379061475,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          -25.82944910560402,
+          -54.71716153229286
+        ],
+        "tto_steps": 38,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 9,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 69.1965,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 50,
+          "min_clearance_margin": 0.03,
+          "kind": "cem",
+          "closed_return": 72.927,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 67.4627,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 51,
+          "min_clearance_margin": 0.0002,
+          "kind": "cem",
+          "closed_return": 73.329,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 64.3904,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 54,
+          "min_clearance_margin": 0.6858,
+          "kind": "structured:robust_conservative_left",
+          "closed_return": 72.8006,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 72.6046,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 45,
+          "min_clearance_margin": 0.0751,
+          "kind": "cem",
+          "closed_return": 72.6046,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 72.7606
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 72.9153,
+      "oracle_mean_success": 1.0,
+      "voi_return": 0.1547,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 26.5
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-05",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910006,
+      "skeleton": {
+        "mu_pre": 0.4035608498034241,
+        "speed_ref": 12.547278142624414,
+        "beta_target": 0.3072508109087443,
+        "friction_step_at": 9,
+        "obstacle_distance": 21.364434678864317,
+        "obstacle_half_width": 0.7914518459090634,
+        "obstacle_label_at_mu_pre": "aes_feasible",
+        "obstacle_position": [
+          -4.075957890160279,
+          -63.20700838123648
+        ],
+        "tto_steps": 85,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 76,
+        "segment_length_steps": 8,
+        "searched_horizon_steps": 144
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 114.9687,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 87,
+          "min_clearance_margin": 0.7631,
+          "kind": "cem",
+          "closed_return": 114.9687,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 114.854,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 83,
+          "min_clearance_margin": 0.9938,
+          "kind": "cem",
+          "closed_return": 114.854,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 112.8796,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 80,
+          "min_clearance_margin": 1.2789,
+          "kind": "cem",
+          "closed_return": 112.8796,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 111.0127,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 81,
+          "min_clearance_margin": 1.5954,
+          "kind": "cem",
+          "closed_return": 111.0127,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 111.4206
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 113.4287,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.0081,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 45.9
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-06",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910007,
+      "skeleton": {
+        "mu_pre": 0.34402993442167,
+        "speed_ref": 11.114392231063388,
+        "beta_target": 0.21924508700634338,
+        "friction_step_at": 26,
+        "obstacle_distance": 12.94673889776753,
+        "obstacle_half_width": 0.8293624864472193,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          -49.42606976666416,
+          36.892578422951274
+        ],
+        "tto_steps": 58,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 32,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 93.4933,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 68,
+          "min_clearance_margin": 0.0553,
+          "kind": "cem",
+          "closed_return": 93.4933,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 95.7675,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 66,
+          "min_clearance_margin": 0.1904,
+          "kind": "cem",
+          "closed_return": 95.7675,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 94.4347,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 68,
+          "min_clearance_margin": 0.576,
+          "kind": "cem",
+          "closed_return": 94.4347,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 92.6519,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 65,
+          "min_clearance_margin": 0.7373,
+          "kind": "cem",
+          "closed_return": 92.6519,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 88.6798
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 94.0869,
+      "oracle_mean_success": 1.0,
+      "voi_return": 5.407,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 37.1
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-07",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910008,
+      "skeleton": {
+        "mu_pre": 0.6847143873380317,
+        "speed_ref": 11.191570324835531,
+        "beta_target": 0.31069973563376135,
+        "friction_step_at": 22,
+        "obstacle_distance": 9.029426559574215,
+        "obstacle_half_width": 0.9510599290209534,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          -54.528645685987634,
+          26.312396241256476
+        ],
+        "tto_steps": 40,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 18,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 6.5338,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 38,
+          "min_clearance_margin": -0.1321,
+          "kind": "cem",
+          "closed_return": 6.5338,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 6.2109,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 39,
+          "min_clearance_margin": -0.0647,
+          "kind": "structured:robust_conservative_left",
+          "closed_return": 6.2109,
+          "closed_success": 0.0
+        },
+        "0.80": {
+          "return": 57.826,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 60,
+          "min_clearance_margin": 0.0008,
+          "kind": "cem",
+          "closed_return": 58.4084,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 62.153,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 58,
+          "min_clearance_margin": 0.0013,
+          "kind": "cem",
+          "closed_return": 62.153,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 30.8972
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.5
+        }
+      },
+      "oracle_mean_return": 33.3265,
+      "oracle_mean_success": 0.5,
+      "voi_return": 2.4293,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 26.7
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-08",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910009,
+      "skeleton": {
+        "mu_pre": 0.35257545624498193,
+        "speed_ref": 11.114453319719207,
+        "beta_target": 0.154443546451654,
+        "friction_step_at": 37,
+        "obstacle_distance": 10.924850308327215,
+        "obstacle_half_width": 0.47670008222196397,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          34.31321636873313,
+          -50.691121369164854
+        ],
+        "tto_steps": 49,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 12,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 85.7266,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 65,
+          "min_clearance_margin": 0.0321,
+          "kind": "cem",
+          "closed_return": 85.8206,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 86.9303,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 66,
+          "min_clearance_margin": 0.0447,
+          "kind": "cem",
+          "closed_return": 86.9303,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 86.4721,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 67,
+          "min_clearance_margin": 0.0136,
+          "kind": "cem",
+          "closed_return": 86.4721,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 86.3795,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 68,
+          "min_clearance_margin": 0.0757,
+          "kind": "cem",
+          "closed_return": 86.3795,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 83.9458
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 86.4006,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.4548,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 36.5
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-09",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910010,
+      "skeleton": {
+        "mu_pre": 0.3749642775006627,
+        "speed_ref": 13.35842027762006,
+        "beta_target": 0.22373880313758238,
+        "friction_step_at": 39,
+        "obstacle_distance": 20.748079502303902,
+        "obstacle_half_width": 0.8372636980630648,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          23.570851243640533,
+          58.70701254423497
+        ],
+        "tto_steps": 78,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 39,
+        "segment_length_steps": 8,
+        "searched_horizon_steps": 144
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 117.9583,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 81,
+          "min_clearance_margin": 0.5048,
+          "kind": "cem",
+          "closed_return": 117.9583,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 118.8315,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 80,
+          "min_clearance_margin": 0.5415,
+          "kind": "cem",
+          "closed_return": 118.8315,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 117.0682,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 82,
+          "min_clearance_margin": 1.4687,
+          "kind": "cem",
+          "closed_return": 117.0682,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 117.0242,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 81,
+          "min_clearance_margin": 1.7614,
+          "kind": "cem",
+          "closed_return": 117.0242,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 115.4667
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 117.7206,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.2538,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 44.8
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-10",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910011,
+      "skeleton": {
+        "mu_pre": 0.5835780567022881,
+        "speed_ref": 12.07993554667662,
+        "beta_target": 0.15256477655388206,
+        "friction_step_at": 33,
+        "obstacle_distance": 12.454198409709143,
+        "obstacle_half_width": 1.0208882584135532,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          55.3406761116682,
+          27.570495623680912
+        ],
+        "tto_steps": 52,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 19,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 68.5847,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 67,
+          "min_clearance_margin": 0.095,
+          "kind": "cem",
+          "closed_return": 68.5847,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 85.672,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 70,
+          "min_clearance_margin": 0.0278,
+          "kind": "cem",
+          "closed_return": 85.672,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 78.9984,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 70,
+          "min_clearance_margin": 0.2623,
+          "kind": "cem",
+          "closed_return": 83.6618,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 78.7388,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 67,
+          "min_clearance_margin": 0.116,
+          "kind": "cem",
+          "closed_return": 79.9778,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 68.3231
+        },
+        "by_success": {
+          "plan": "oracle_replay_theta_0.30",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 79.4741,
+      "oracle_mean_success": 1.0,
+      "voi_return": 11.151,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 36.2
+    },
+    {
+      "skeleton_id": "g1_ignition_gate_clean-skeleton-11",
+      "face_id": "g1_ignition_gate_clean",
+      "seed": 910012,
+      "skeleton": {
+        "mu_pre": 0.6579980984853975,
+        "speed_ref": 13.232987246105608,
+        "beta_target": 0.2311421571875964,
+        "friction_step_at": 36,
+        "obstacle_distance": 14.335189208840804,
+        "obstacle_half_width": 0.7136758918814399,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          -5.941971708198215,
+          60.826783799955074
+        ],
+        "tto_steps": 54,
+        "reveal_step": 0,
+        "steps_between_mu_switch_and_obstacle": 18,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 86.5561,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 60,
+          "min_clearance_margin": 0.4209,
+          "kind": "cem",
+          "closed_return": 87.021,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 86.6816,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 60,
+          "min_clearance_margin": 0.3857,
+          "kind": "cem",
+          "closed_return": 87.4986,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 89.3706,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 76,
+          "min_clearance_margin": 0.4439,
+          "kind": "cem",
+          "closed_return": 89.3706,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 86.1981,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 60,
+          "min_clearance_margin": 0.5941,
+          "kind": "cem",
+          "closed_return": 86.1981,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 86.926
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 87.5221,
+      "oracle_mean_success": 1.0,
+      "voi_return": 0.596,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 35.6
+    },
+    {
+      "skeleton_id": "m3012_spec0001_mu_nominal_drop-skeleton-00",
+      "face_id": "m3012_spec0001_mu_nominal_drop",
+      "seed": 920001,
+      "skeleton": {
+        "mu_pre": 0.6574915645803072,
+        "speed_ref": 9.9027678910905,
+        "beta_target": 0.4925711353344119,
+        "friction_step_at": 23,
+        "obstacle_distance": 22.973425185561922,
+        "obstacle_half_width": 0.6735274674025875,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          -24.816649582324736,
+          -15.362729983807242
+        ],
+        "tto_steps": 116,
+        "reveal_step": 34,
+        "steps_between_mu_switch_and_obstacle": 93,
+        "segment_length_steps": 10,
+        "searched_horizon_steps": 180
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 111.4141,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 105,
+          "min_clearance_margin": 7.9218,
+          "kind": "cem",
+          "closed_return": 111.4141,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 116.212,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 94,
+          "min_clearance_margin": 8.7447,
+          "kind": "cem",
+          "closed_return": 116.212,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 116.1345,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 92,
+          "min_clearance_margin": 9.0713,
+          "kind": "cem",
+          "closed_return": 116.1345,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 118.558,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 85,
+          "min_clearance_margin": 9.0595,
+          "kind": "cem",
+          "closed_return": 118.558,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 104.8541
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 115.5796,
+      "oracle_mean_success": 1.0,
+      "voi_return": 10.7255,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 48.5
+    },
+    {
+      "skeleton_id": "m3012_spec0001_mu_nominal_drop-skeleton-01",
+      "face_id": "m3012_spec0001_mu_nominal_drop",
+      "seed": 920002,
+      "skeleton": {
+        "mu_pre": 0.45740292448951575,
+        "speed_ref": 7.464621631111418,
+        "beta_target": 0.6064219052772015,
+        "friction_step_at": 22,
+        "obstacle_distance": 29.755703712891002,
+        "obstacle_half_width": 0.6343485336371715,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          -34.39264980334969,
+          -5.89224934661547
+        ],
+        "tto_steps": 199,
+        "reveal_step": 34,
+        "steps_between_mu_switch_and_obstacle": 177,
+        "segment_length_steps": 14,
+        "searched_horizon_steps": 252
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 155.943,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 137,
+          "min_clearance_margin": 14.2758,
+          "kind": "cem",
+          "closed_return": 155.943,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 136.218,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 125,
+          "min_clearance_margin": 15.0804,
+          "kind": "cem",
+          "closed_return": 136.218,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 130.4506,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 124,
+          "min_clearance_margin": 15.1728,
+          "kind": "cem",
+          "closed_return": 130.4506,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 130.6293,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 125,
+          "min_clearance_margin": 15.0941,
+          "kind": "cem",
+          "closed_return": 130.6293,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 135.5882
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 138.3102,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.7221,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 63.0
+    },
+    {
+      "skeleton_id": "m3012_spec0001_mu_nominal_drop-skeleton-02",
+      "face_id": "m3012_spec0001_mu_nominal_drop",
+      "seed": 920003,
+      "skeleton": {
+        "mu_pre": 0.9394472745744491,
+        "speed_ref": 8.59053652096973,
+        "beta_target": 0.5477355786556211,
+        "friction_step_at": 22,
+        "obstacle_distance": 22.535975126312657,
+        "obstacle_half_width": 0.6487290639013773,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          20.5518192289154,
+          20.557406607249497
+        ],
+        "tto_steps": 131,
+        "reveal_step": 34,
+        "steps_between_mu_switch_and_obstacle": 109,
+        "segment_length_steps": 11,
+        "searched_horizon_steps": 198
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 122.3663,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 102,
+          "min_clearance_margin": 8.5972,
+          "kind": "cem",
+          "closed_return": 122.3663,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 124.036,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 91,
+          "min_clearance_margin": 8.8939,
+          "kind": "cem",
+          "closed_return": 124.036,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 119.2833,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 90,
+          "min_clearance_margin": 8.9668,
+          "kind": "cem",
+          "closed_return": 119.2833,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 111.347,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 87,
+          "min_clearance_margin": 9.011,
+          "kind": "cem",
+          "closed_return": 111.347,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 116.2942
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 119.2581,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.9639,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 49.5
+    },
+    {
+      "skeleton_id": "m3012_spec0001_mu_nominal_drop-skeleton-03",
+      "face_id": "m3012_spec0001_mu_nominal_drop",
+      "seed": 920004,
+      "skeleton": {
+        "mu_pre": 0.334722617281793,
+        "speed_ref": 7.002630648811593,
+        "beta_target": 0.6992000127299147,
+        "friction_step_at": 23,
+        "obstacle_distance": 27.3576161735392,
+        "obstacle_half_width": 1.0020230850543594,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          -14.823957140875414,
+          -29.019086488802493
+        ],
+        "tto_steps": 195,
+        "reveal_step": 34,
+        "steps_between_mu_switch_and_obstacle": 172,
+        "segment_length_steps": 14,
+        "searched_horizon_steps": 252
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 155.0947,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 144,
+          "min_clearance_margin": 12.289,
+          "kind": "cem",
+          "closed_return": 155.0947,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 134.7773,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 131,
+          "min_clearance_margin": 12.5764,
+          "kind": "cem",
+          "closed_return": 137.2773,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 146.099,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 114,
+          "min_clearance_margin": 12.0488,
+          "kind": "cem",
+          "closed_return": 146.099,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 139.8282,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 108,
+          "min_clearance_margin": 12.3266,
+          "kind": "cem",
+          "closed_return": 139.8282,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 134.0486
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 144.5748,
+      "oracle_mean_success": 1.0,
+      "voi_return": 10.5262,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 61.3
+    },
+    {
+      "skeleton_id": "m3012_spec0010_late_brake-skeleton-00",
+      "face_id": "m3012_spec0010_late_brake",
+      "seed": 930001,
+      "skeleton": {
+        "mu_pre": 0.3699853193644669,
+        "speed_ref": 17.266045165625663,
+        "beta_target": 0.3970927050356129,
+        "friction_step_at": 15,
+        "obstacle_distance": 12.129835038640035,
+        "obstacle_half_width": 0.8090645980174024,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          -9.029818365624134,
+          -20.164852661721504
+        ],
+        "tto_steps": 35,
+        "reveal_step": 22,
+        "steps_between_mu_switch_and_obstacle": 20,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 10.5518,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 31,
+          "min_clearance_margin": -0.3302,
+          "kind": "cem",
+          "closed_return": 10.5518,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 10.7791,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 31,
+          "min_clearance_margin": -0.317,
+          "kind": "cem",
+          "closed_return": 10.7791,
+          "closed_success": 0.0
+        },
+        "0.80": {
+          "return": 10.8305,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 31,
+          "min_clearance_margin": -0.2649,
+          "kind": "cem",
+          "closed_return": 10.8305,
+          "closed_success": 0.0
+        },
+        "1.05": {
+          "return": 10.0346,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 34,
+          "min_clearance_margin": -0.2155,
+          "kind": "cem",
+          "closed_return": 10.6995,
+          "closed_success": 0.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 10.5298
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.0
+        }
+      },
+      "oracle_mean_return": 10.7152,
+      "oracle_mean_success": 0.0,
+      "voi_return": 0.1854,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 18.3
+    },
+    {
+      "skeleton_id": "m3012_spec0010_late_brake-skeleton-01",
+      "face_id": "m3012_spec0010_late_brake",
+      "seed": 930002,
+      "skeleton": {
+        "mu_pre": 0.938458785816595,
+        "speed_ref": 17.442706493989697,
+        "beta_target": 0.5392042133458196,
+        "friction_step_at": 12,
+        "obstacle_distance": 14.479351101416428,
+        "obstacle_half_width": 1.2321423960713676,
+        "obstacle_label_at_mu_pre": "drift_required",
+        "obstacle_position": [
+          13.530303066432333,
+          -19.1131225885746
+        ],
+        "tto_steps": 42,
+        "reveal_step": 22,
+        "steps_between_mu_switch_and_obstacle": 30,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 7.9801,
+          "success": 0.0,
+          "outcome_bucket": "off_track_noncollision_noncompletion",
+          "steps": 36,
+          "min_clearance_margin": 0.006,
+          "kind": "cem",
+          "closed_return": 7.9801,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 8.6504,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 36,
+          "min_clearance_margin": -0.1812,
+          "kind": "cem",
+          "closed_return": 8.6504,
+          "closed_success": 0.0
+        },
+        "0.80": {
+          "return": 9.49,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 37,
+          "min_clearance_margin": -0.2262,
+          "kind": "cem",
+          "closed_return": 9.49,
+          "closed_success": 0.0
+        },
+        "1.05": {
+          "return": 40.0045,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 44,
+          "min_clearance_margin": 0.0207,
+          "kind": "cem",
+          "closed_return": 40.0045,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 16.1496
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.25
+        }
+      },
+      "oracle_mean_return": 16.5313,
+      "oracle_mean_success": 0.25,
+      "voi_return": 0.3817,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 23.0
+    },
+    {
+      "skeleton_id": "m3012_spec0010_late_brake-skeleton-02",
+      "face_id": "m3012_spec0010_late_brake",
+      "seed": 930003,
+      "skeleton": {
+        "mu_pre": 0.51437182929995,
+        "speed_ref": 17.291616700400994,
+        "beta_target": 0.5002656720910614,
+        "friction_step_at": 11,
+        "obstacle_distance": 13.508608382519343,
+        "obstacle_half_width": 0.8544117703072179,
+        "obstacle_label_at_mu_pre": "unavoidable",
+        "obstacle_position": [
+          7.14301407193935,
+          21.130029019968582
+        ],
+        "tto_steps": 39,
+        "reveal_step": 22,
+        "steps_between_mu_switch_and_obstacle": 28,
+        "segment_length_steps": 6,
+        "searched_horizon_steps": 108
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 13.7732,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 34,
+          "min_clearance_margin": -0.2358,
+          "kind": "cem",
+          "closed_return": 13.7732,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 14.6295,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 34,
+          "min_clearance_margin": -0.2356,
+          "kind": "cem",
+          "closed_return": 14.6295,
+          "closed_success": 0.0
+        },
+        "0.80": {
+          "return": 15.4668,
+          "success": 0.0,
+          "outcome_bucket": "collision_failure",
+          "steps": 35,
+          "min_clearance_margin": -0.2636,
+          "kind": "cem",
+          "closed_return": 15.4668,
+          "closed_success": 0.0
+        },
+        "1.05": {
+          "return": 46.3607,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 47,
+          "min_clearance_margin": 0.1008,
+          "kind": "cem",
+          "closed_return": 46.3607,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 21.2409
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.25
+        }
+      },
+      "oracle_mean_return": 22.5575,
+      "oracle_mean_success": 0.25,
+      "voi_return": 1.3166,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 22.7
+    },
+    {
+      "skeleton_id": "m3012_spec0010_late_brake-skeleton-03",
+      "face_id": "m3012_spec0010_late_brake",
+      "seed": 930004,
+      "skeleton": {
+        "mu_pre": 0.6957367917860899,
+        "speed_ref": 15.721945343874353,
+        "beta_target": 0.4857636830095472,
+        "friction_step_at": 12,
+        "obstacle_distance": 21.54465748388036,
+        "obstacle_half_width": 1.141936790470977,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          -27.35394514321992,
+          -6.906490289211366
+        ],
+        "tto_steps": 69,
+        "reveal_step": 22,
+        "steps_between_mu_switch_and_obstacle": 57,
+        "segment_length_steps": 7,
+        "searched_horizon_steps": 126
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 30.8553,
+          "success": 0.0,
+          "outcome_bucket": "off_track_noncollision_noncompletion",
+          "steps": 51,
+          "min_clearance_margin": 3.7472,
+          "kind": "cem",
+          "closed_return": 30.8553,
+          "closed_success": 0.0
+        },
+        "0.55": {
+          "return": 32.4993,
+          "success": 0.0,
+          "outcome_bucket": "off_track_noncollision_noncompletion",
+          "steps": 55,
+          "min_clearance_margin": 3.215,
+          "kind": "cem",
+          "closed_return": 32.4993,
+          "closed_success": 0.0
+        },
+        "0.80": {
+          "return": 47.9421,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 63,
+          "min_clearance_margin": 4.1512,
+          "kind": "cem",
+          "closed_return": 47.9421,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 58.5931,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 71,
+          "min_clearance_margin": 5.9288,
+          "kind": "cem",
+          "closed_return": 58.5931,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 40.7932
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 0.5
+        }
+      },
+      "oracle_mean_return": 42.4724,
+      "oracle_mean_success": 0.5,
+      "voi_return": 1.6792,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 33.0
+    },
+    {
+      "skeleton_id": "m3012_spec0011_mu_recover-skeleton-00",
+      "face_id": "m3012_spec0011_mu_recover",
+      "seed": 940001,
+      "skeleton": {
+        "mu_pre": 0.9516201833428459,
+        "speed_ref": 7.527544868812295,
+        "beta_target": 0.4361146795650907,
+        "friction_step_at": 31,
+        "obstacle_distance": 29.12605783125138,
+        "obstacle_half_width": 1.0278893526727597,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          12.326544379819403,
+          -32.031733228788255
+        ],
+        "tto_steps": 193,
+        "reveal_step": 42,
+        "steps_between_mu_switch_and_obstacle": 162,
+        "segment_length_steps": 14,
+        "searched_horizon_steps": 252
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 142.8813,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 141,
+          "min_clearance_margin": 14.027,
+          "kind": "cem",
+          "closed_return": 151.2085,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 144.9662,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 131,
+          "min_clearance_margin": 14.4181,
+          "kind": "cem",
+          "closed_return": 144.9662,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 144.4485,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 142,
+          "min_clearance_margin": 13.9891,
+          "kind": "cem",
+          "closed_return": 144.4485,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 143.2965,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 136,
+          "min_clearance_margin": 14.1922,
+          "kind": "cem",
+          "closed_return": 144.4731,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "oracle_replay_theta_0.80",
+          "mean_return": 145.6495
+        },
+        "by_success": {
+          "plan": "oracle_replay_theta_0.80",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 146.2741,
+      "oracle_mean_success": 1.0,
+      "voi_return": 0.6246,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 67.2
+    },
+    {
+      "skeleton_id": "m3012_spec0011_mu_recover-skeleton-01",
+      "face_id": "m3012_spec0011_mu_recover",
+      "seed": 940002,
+      "skeleton": {
+        "mu_pre": 0.649791533445022,
+        "speed_ref": 8.668215489755962,
+        "beta_target": 0.6306721692780626,
+        "friction_step_at": 34,
+        "obstacle_distance": 28.798952589474823,
+        "obstacle_half_width": 0.9319344790898678,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          20.192488864589173,
+          27.273872936103473
+        ],
+        "tto_steps": 166,
+        "reveal_step": 42,
+        "steps_between_mu_switch_and_obstacle": 132,
+        "segment_length_steps": 12,
+        "searched_horizon_steps": 216
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 131.4104,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 115,
+          "min_clearance_margin": 12.5712,
+          "kind": "cem",
+          "closed_return": 131.4104,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 134.9674,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 104,
+          "min_clearance_margin": 13.6513,
+          "kind": "cem",
+          "closed_return": 134.9674,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 134.0145,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 104,
+          "min_clearance_margin": 13.882,
+          "kind": "cem",
+          "closed_return": 134.0145,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 121.1443,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 100,
+          "min_clearance_margin": 13.5114,
+          "kind": "cem",
+          "closed_return": 121.1443,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 120.1288
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 130.3841,
+      "oracle_mean_success": 1.0,
+      "voi_return": 10.2553,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 54.5
+    },
+    {
+      "skeleton_id": "m3012_spec0011_mu_recover-skeleton-02",
+      "face_id": "m3012_spec0011_mu_recover",
+      "seed": 940003,
+      "skeleton": {
+        "mu_pre": 0.9555479669209161,
+        "speed_ref": 10.54069889951409,
+        "beta_target": 0.3673490184497192,
+        "friction_step_at": 36,
+        "obstacle_distance": 27.87749760186432,
+        "obstacle_half_width": 0.6215063676267916,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          -20.505387771417205,
+          26.145815102785736
+        ],
+        "tto_steps": 132,
+        "reveal_step": 42,
+        "steps_between_mu_switch_and_obstacle": 96,
+        "segment_length_steps": 11,
+        "searched_horizon_steps": 198
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 115.426,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 100,
+          "min_clearance_margin": 12.4597,
+          "kind": "cem",
+          "closed_return": 115.426,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 115.8014,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 87,
+          "min_clearance_margin": 12.7711,
+          "kind": "cem",
+          "closed_return": 115.8014,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 106.0128,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 99,
+          "min_clearance_margin": 13.446,
+          "kind": "cem",
+          "closed_return": 111.3669,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 106.2406,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 94,
+          "min_clearance_margin": 13.614,
+          "kind": "cem",
+          "closed_return": 106.2406,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 109.9797
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 112.2087,
+      "oracle_mean_success": 1.0,
+      "voi_return": 2.229,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 48.4
+    },
+    {
+      "skeleton_id": "m3012_spec0011_mu_recover-skeleton-03",
+      "face_id": "m3012_spec0011_mu_recover",
+      "seed": 940004,
+      "skeleton": {
+        "mu_pre": 0.5866470641931367,
+        "speed_ref": 8.028403176860479,
+        "beta_target": 0.3684259825255226,
+        "friction_step_at": 34,
+        "obstacle_distance": 37.27899124490747,
+        "obstacle_half_width": 0.7945346834378303,
+        "obstacle_label_at_mu_pre": "aeb_feasible",
+        "obstacle_position": [
+          25.593600001811595,
+          -32.519260037732714
+        ],
+        "tto_steps": 232,
+        "reveal_step": 42,
+        "steps_between_mu_switch_and_obstacle": 198,
+        "segment_length_steps": 16,
+        "searched_horizon_steps": 288
+      },
+      "oracle_per_theta": {
+        "0.30": {
+          "return": 164.5538,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 133,
+          "min_clearance_margin": 20.6718,
+          "kind": "cem",
+          "closed_return": 164.5538,
+          "closed_success": 1.0
+        },
+        "0.55": {
+          "return": 162.9202,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 116,
+          "min_clearance_margin": 20.9589,
+          "kind": "cem",
+          "closed_return": 162.9202,
+          "closed_success": 1.0
+        },
+        "0.80": {
+          "return": 149.7961,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 129,
+          "min_clearance_margin": 21.5429,
+          "kind": "cem",
+          "closed_return": 149.8312,
+          "closed_success": 1.0
+        },
+        "1.05": {
+          "return": 150.4519,
+          "success": 1.0,
+          "outcome_bucket": "success_obstacle_pass",
+          "steps": 128,
+          "min_clearance_margin": 21.8681,
+          "kind": "cem",
+          "closed_return": 150.4519,
+          "closed_success": 1.0
+        }
+      },
+      "best_fixed_plan": {
+        "by_return": {
+          "plan": "robust_cem_mean_return",
+          "mean_return": 152.4291
+        },
+        "by_success": {
+          "plan": "robust_cem_mean_return",
+          "mean_success": 1.0
+        }
+      },
+      "oracle_mean_return": 156.9393,
+      "oracle_mean_success": 1.0,
+      "voi_return": 4.5102,
+      "voi_success": 0.0,
+      "rollouts": 3128,
+      "elapsed_s": 62.2
+    }
+  ]
+}

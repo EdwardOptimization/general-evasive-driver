@@ -1,0 +1,493 @@
+{
+  "protocol": "feasibility_audit_voi_commitment_adversarial_audit",
+  "generated_by": "scripts/feasibility_audit/voi_commitment_adversarial_audit.py",
+  "generated_at_utc": "20260611T034528Z",
+  "claim_boundary": "Feasibility-audit ADVERSARIAL task-design review only: scripted mu-agnostic counter-plans, leakage probes and numeric physics bounds are run against the Task-B B2 commitment family. No driver-performance, repair-success, robustness, validation, ranking, promotion, high-fidelity, paper, or self-ID capability claim is made.",
+  "design_under_attack": "B2_mu_correlated_hazard_tight (experiments/feasibility_audit/voi_commitment_task_design.json)",
+  "elapsed_s": 187.1,
+  "panel": {
+    "seeds_per_level": 16,
+    "seed_formula": "same as Task B: 20260612*10 + level*1000 + k"
+  },
+  "reproduction_check": {
+    "checked": true,
+    "cells": 52,
+    "mismatches": []
+  },
+  "voi_repricing": {
+    "original_family_voi_success_in_sample": 0.5156,
+    "original_family_voi_success_split_validated": 0.5625,
+    "augmented_family_voi_success_in_sample": 0.4375,
+    "augmented_family_voi_success_split_validated": 0.4375,
+    "augmented_best_fixed_plan": "adv_ladder_75_aggressive",
+    "augmented_best_fixed_mean_success": 0.5625,
+    "augmented_oracle_in_sample": 1.0,
+    "voi_target": 0.25,
+    "still_meets_target_in_sample": true,
+    "still_meets_target_split_validated": true,
+    "top_fixed_plans": [
+      {
+        "plan": "adv_ladder_75_aggressive",
+        "mean_success": 0.5625,
+        "per_level": [
+          0.875,
+          0.875,
+          0.5,
+          0.0
+        ]
+      },
+      {
+        "plan": "adv_swerve_v9.5",
+        "mean_success": 0.5312,
+        "per_level": [
+          0.125,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "plan": "adv_ladder_65",
+        "mean_success": 0.5,
+        "per_level": [
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "plan": "adv_swerve_v12",
+        "mean_success": 0.5,
+        "per_level": [
+          0.0,
+          0.0625,
+          0.9375,
+          1.0
+        ]
+      },
+      {
+        "plan": "swerve_only_v10",
+        "mean_success": 0.4844,
+        "per_level": [
+          0.0625,
+          0.875,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "plan": "adv_swerve_v10",
+        "mean_success": 0.4844,
+        "per_level": [
+          0.0625,
+          0.875,
+          1.0,
+          0.0
+        ]
+      },
+      {
+        "plan": "adv_swerve_v7.5",
+        "mean_success": 0.4688,
+        "per_level": [
+          0.875,
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "plan": "swerve_only_v7.5",
+        "mean_success": 0.4688,
+        "per_level": [
+          0.875,
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "note": "augmented family adds fine entry-speed hedges and tuned reveal-silence ladders; ladders are mu-agnostic (position-indexed) and exploit the perfect mu<->hazard-distance correlation: silence past 13/27/38 m identifies theta with zero self-identification."
+  },
+  "reactive_escape": {
+    "level0_mu0.3": {
+      "episodes": 128,
+      "successes": 1,
+      "best_variant": "esc_v10_bnone_c1_o3.8_g3",
+      "best_variant_success": 0.125,
+      "mean_speed_at_reveal": 9.77
+    },
+    "level1_mu0.55": {
+      "episodes": 128,
+      "successes": 24,
+      "best_variant": "esc_v10_bnone_c1_o3_g4.5",
+      "best_variant_success": 0.75,
+      "mean_speed_at_reveal": 11.45
+    }
+  },
+  "physics_irrecoverability_bounds": {
+    "required_lateral_offset_m": 2.4499999999999997,
+    "method": "friction-circle point mass, total accel eta*mu*g, optimal over constant brake/steer allocations and full-brake-then-full-steer switches, dt=0.002",
+    "cells": [
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 9.9,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 1.938,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 18.5,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": false
+      },
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 9.9,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 2.331,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 18.5,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": false
+      },
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 7.5,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 3.953,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 10.62,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 7.5,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 6.299,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 10.62,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 11.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 1.543,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 22.84,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": false
+      },
+      {
+        "mu": 0.3,
+        "arrival_speed_mps": 11.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 1.837,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 22.84,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": false
+      },
+      {
+        "mu": 0.55,
+        "arrival_speed_mps": 12.8,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 2.15,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 16.87,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": false
+      },
+      {
+        "mu": 0.55,
+        "arrival_speed_mps": 12.8,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 2.601,
+        "full_stop_fits_before_obstacle": false,
+        "aeb_stop_distance_m": 16.87,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 0.85,
+        "arrival_speed_mps": 13.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 3.589,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 11.26,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 0.85,
+        "arrival_speed_mps": 13.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 5.461,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 11.26,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 1.15,
+        "arrival_speed_mps": 13.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 0.85,
+        "max_lateral_offset_m": 11.702,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 8.32,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      },
+      {
+        "mu": 1.15,
+        "arrival_speed_mps": 13.0,
+        "reveal_distance_m": 12.0,
+        "friction_fraction_eta": 1.0,
+        "max_lateral_offset_m": 15.645,
+        "full_stop_fits_before_obstacle": true,
+        "aeb_stop_distance_m": 8.32,
+        "required_offset_m": 2.4499999999999997,
+        "pass_feasible": true
+      }
+    ]
+  },
+  "current_frame_leak_probe": {
+    "window_steps": 110,
+    "conditions": [
+      {
+        "mode": "probe_pulses",
+        "episodes": 160,
+        "v_entry": 8.0,
+        "r2_history_stride4": 1.0,
+        "alpha_history_stride4": 0.01,
+        "r2_current_frame_final": 0.9745,
+        "alpha_current_frame_final": 0.01,
+        "r2_current_frames_last5": 0.9941,
+        "alpha_current_frames_last5": 0.01,
+        "r2_current_frame_mid": 0.9988,
+        "alpha_current_frame_mid": 0.01
+      },
+      {
+        "mode": "no_probe",
+        "episodes": 160,
+        "v_entry": 8.0,
+        "r2_history_stride4": -0.5836,
+        "alpha_history_stride4": 0.1,
+        "r2_current_frame_final": 0.0149,
+        "alpha_current_frame_final": 100.0,
+        "r2_current_frames_last5": 0.0462,
+        "alpha_current_frames_last5": 0.01,
+        "r2_current_frame_mid": 0.0225,
+        "alpha_current_frame_mid": 100.0
+      },
+      {
+        "mode": "accel_commit",
+        "episodes": 160,
+        "v_entry": 11.5,
+        "r2_history_stride4": 0.9998,
+        "alpha_history_stride4": 1.0,
+        "r2_current_frame_final": -4.1531,
+        "alpha_current_frame_final": 0.01,
+        "r2_current_frames_last5": -3.6992,
+        "alpha_current_frames_last5": 0.01,
+        "r2_current_frame_mid": 0.9298,
+        "alpha_current_frame_mid": 0.01
+      }
+    ],
+    "interpretation_note": "r2_current_frame_final is the wrong-history-gate substitution channel: if high, a policy can re-derive mu from the present frame and the gate cannot prove history dependence."
+  },
+  "reward_alignment": [
+    {
+      "level_mu": 0.3,
+      "spearman_plan_return_vs_success": 0.246,
+      "best_failing_episode_return": 143.5,
+      "best_failing_plan_mean_return": 133.3,
+      "oracle_plan_mean_return": 142.4,
+      "median_successful_episode_return": 138.8,
+      "max_timeout_failure_return": null,
+      "max_collision_failure_return": 143.5,
+      "failing_beats_oracle": false
+    },
+    {
+      "level_mu": 0.55,
+      "spearman_plan_return_vs_success": 0.846,
+      "best_failing_episode_return": 218.7,
+      "best_failing_plan_mean_return": 220.7,
+      "oracle_plan_mean_return": 240.2,
+      "median_successful_episode_return": 237.2,
+      "max_timeout_failure_return": 218.7,
+      "max_collision_failure_return": 215.8,
+      "failing_beats_oracle": false
+    },
+    {
+      "level_mu": 0.85,
+      "spearman_plan_return_vs_success": 0.85,
+      "best_failing_episode_return": 303.1,
+      "best_failing_plan_mean_return": 295.9,
+      "oracle_plan_mean_return": 310.9,
+      "median_successful_episode_return": 308.9,
+      "max_timeout_failure_return": 303.1,
+      "max_collision_failure_return": 277.1,
+      "failing_beats_oracle": false
+    },
+    {
+      "level_mu": 1.15,
+      "spearman_plan_return_vs_success": 0.655,
+      "best_failing_episode_return": 376.0,
+      "best_failing_plan_mean_return": 371.4,
+      "oracle_plan_mean_return": 381.0,
+      "median_successful_episode_return": 376.9,
+      "max_timeout_failure_return": 376.0,
+      "max_collision_failure_return": 342.5,
+      "failing_beats_oracle": false
+    }
+  ],
+  "knife_edge_census": {
+    "fractional_cells": 38,
+    "total_cells": 160,
+    "examples": [
+      {
+        "plan": "adv_ladder_75_aggr_brake7",
+        "mu": 0.3,
+        "success": 0.188
+      },
+      {
+        "plan": "adv_ladder_75_aggressive",
+        "mu": 0.3,
+        "success": 0.875
+      },
+      {
+        "plan": "adv_ladder_75_aggressive",
+        "mu": 0.55,
+        "success": 0.875
+      },
+      {
+        "plan": "adv_ladder_75_aggressive",
+        "mu": 0.85,
+        "success": 0.5
+      },
+      {
+        "plan": "adv_ladder_75_max",
+        "mu": 0.3,
+        "success": 0.875
+      },
+      {
+        "plan": "adv_ladder_75_oracle",
+        "mu": 0.3,
+        "success": 0.875
+      },
+      {
+        "plan": "adv_ladder_8_aggressive",
+        "mu": 0.3,
+        "success": 0.625
+      },
+      {
+        "plan": "adv_ladder_8_aggressive",
+        "mu": 0.55,
+        "success": 0.75
+      },
+      {
+        "plan": "adv_ladder_8_aggressive",
+        "mu": 0.85,
+        "success": 0.375
+      },
+      {
+        "plan": "adv_swerve_v10",
+        "mu": 0.3,
+        "success": 0.062
+      },
+      {
+        "plan": "adv_swerve_v10",
+        "mu": 0.55,
+        "success": 0.875
+      },
+      {
+        "plan": "adv_swerve_v10.5",
+        "mu": 0.55,
+        "success": 0.75
+      }
+    ]
+  },
+  "gate_measurability": {
+    "oracle_speed_at_reveal": [
+      {
+        "level_mu": 0.3,
+        "oracle_plan": "swerve_only_v5",
+        "n": 16,
+        "success": 1.0,
+        "return_mean": 123.735,
+        "speed_at_reveal_mean": 5.405,
+        "speed_at_reveal_std": 0.015
+      },
+      {
+        "level_mu": 0.55,
+        "oracle_plan": "swerve_only_v7.5",
+        "n": 16,
+        "success": 1.0,
+        "return_mean": 231.224,
+        "speed_at_reveal_mean": 7.479,
+        "speed_at_reveal_std": 0.0
+      },
+      {
+        "level_mu": 0.85,
+        "oracle_plan": "commit_v10",
+        "n": 16,
+        "success": 1.0,
+        "return_mean": 310.893,
+        "speed_at_reveal_mean": 9.976,
+        "speed_at_reveal_std": 0.0
+      },
+      {
+        "level_mu": 1.15,
+        "oracle_plan": "swerve_only_v13",
+        "n": 16,
+        "success": 1.0,
+        "return_mean": 377.294,
+        "speed_at_reveal_mean": 12.971,
+        "speed_at_reveal_std": 0.0
+      }
+    ],
+    "adjacent_theta_cohens_d": [
+      195.5,
+      2497.0,
+      2995.0
+    ],
+    "signature_forgery": {
+      "best_ladder": "adv_ladder_75_aggressive",
+      "ladder_mean_success": 0.5625,
+      "ladder_per_level_success": [
+        0.875,
+        0.875,
+        0.5,
+        0.0
+      ],
+      "ladder_speed_at_reveal_per_level": [
+        7.55,
+        9.95,
+        12.75,
+        12.97
+      ],
+      "ladder_spearman_revealspeed_vs_mu": 1.0,
+      "ladder_prep_action_energy": 1.747,
+      "steady_tracking_prep_action_energy": 1.899,
+      "task_b_gate3_bar": 0.72,
+      "recomputed_gate3_bar_with_adversarial_family": 0.7812
+    }
+  },
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/voi_commitment_adversarial_audit/episode_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/voi_commitment_adversarial_audit.json"
+  }
+}
