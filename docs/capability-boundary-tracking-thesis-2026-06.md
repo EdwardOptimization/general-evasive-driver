@@ -163,3 +163,36 @@ Expected synthesis: a regime map stating where prior/belief is unnecessary
 windows: blind commitment), and what it is worth in between (frontier
 shift); then, and only then, a learnability gate for a history-bearing
 policy measured in rate/regret terms.
+
+## 7. Results addendum (2026-06-11, measurements complete)
+
+The expectation in Section 6 was **half wrong, in the strong direction**:
+
+- A: incipient slip is detectable from obs72 alone (140-400 ms latency at
+  task-relevant ramps, zero false positives); the signal identifies the
+  effective combined capability, surviving brake/mass randomization
+  (`docs/selfid-threshold-seeking-onset-2026-06.md`).
+- C: the v4 reflex saves 92.6% of injected overshoots; the save>=0.75
+  boundary is unbroken within 150% overshoot for mu>=0.45; recovery inside
+  the budget costs ~1.5-1.9 s and ~1 m. A's detection overshoots fit inside
+  C's budget with 20-40 pp margin
+  (`docs/selfid-reflex-recovery-budget-2026-06.md`).
+- B: **VoI(belief) = 0.000 at every window tested, including the tightest.**
+  The belief-free seeker matches the per-mu oracle everywhere; the
+  prior-seeker is *worse* at the domain edge. The 0.39-0.44 commitment-VoI
+  was real but is fully captured by embedded identification
+  (`docs/selfid-threshold-seeking-regime-2026-06.md`).
+
+Revised decomposition of "experience": detection speed and rescue bandwidth
+carry all measured value; the persistent prior carries none in clean-sensing
+conditions and can hurt when miscalibrated. The driver mechanism of Section
+2, implemented faithfully, **dissolves the original self-ID question rather
+than answering it**: there is no residual for a memory-borne belief to earn
+in this simulator's task universe under noiseless observation.
+
+The single remaining door for belief, identified by the fidelity notes and
+the latency arithmetic: **observation degradation**. Detection latency is
+what makes belief unnecessary; delayed/noisy ego channels lengthen it, and
+the M3214 observation-degradation wrapper exists precisely to test whether
+belief value re-emerges then. That is the final measurement before the
+scientific story closes either way.
