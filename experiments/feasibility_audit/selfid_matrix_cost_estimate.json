@@ -1,0 +1,83 @@
+{
+  "run_type": "feasibility_audit_cost_estimate",
+  "audit": "selfid full-budget matrix cost (audit 1 of pre-launch design audit)",
+  "date": "2026-06-11",
+  "claim_level": "not_applicable",
+  "no_scientific_conclusion": true,
+  "machine": {
+    "cpu_cores": 32,
+    "ram_gb": 62,
+    "gpu": "NVIDIA GeForce RTX 5080 16GB",
+    "torch": "2.11.0+cu130",
+    "cuda_available": true
+  },
+  "method": {
+    "config": "configs/selfid_positive_control_p0_smoke.json (obs72, online_gru, rollout_steps=128, hidden_size=64, recurrent_sequence_training=true) with CLI overrides; privileged twin = configs/selfid_positive_control_privileged_smoke.json",
+    "throughput_definition": "marginal env steps/s = (steps_long - steps_short) / (wall_long - wall_short), wall measured with /usr/bin/time on full subprocess; short run = 1 rollout to absorb import/env-init/final-eval overhead",
+    "caveat": "throughput measured on undertrained (smoke-maturity) policies with ~65-step episodes; converged policies have longer episodes and fewer resets. Assigned +-30% uncertainty (inference, not measured)."
+  },
+  "measured_training_throughput": [
+    {"label": "cpu_ne2_default_threads (config default)", "device": "cpu", "num_envs": 2, "torch_threads": "default", "steps_long": 65536, "wall_long_s": 85.99, "steps_short": 256, "wall_short_s": 2.11, "marginal_env_steps_per_s": 778, "cpu_util_pct": 809},
+    {"label": "cpu_ne16_default_threads", "device": "cpu", "num_envs": 16, "torch_threads": "default", "steps_long": 262144, "wall_long_s": 250.78, "steps_short": 2048, "wall_short_s": 3.47, "marginal_env_steps_per_s": 1052, "cpu_util_pct": 700},
+    {"label": "cpu_ne24_default_threads", "device": "cpu", "num_envs": 24, "torch_threads": "default", "steps_long": 147456, "wall_long_s": 124.07, "steps_short": 3072, "wall_short_s": 11.84, "marginal_env_steps_per_s": 1287, "cpu_util_pct": 624},
+    {"label": "cuda_ne16", "device": "cuda", "num_envs": 16, "torch_threads": "default", "steps_long": 131072, "wall_long_s": 328.73, "steps_short": 2048, "wall_short_s": 7.97, "marginal_env_steps_per_s": 402, "cpu_util_pct": 100, "note": "CUDA is ~2.6x SLOWER than CPU: per-env-step act() host<->device transfers dominate for a 64-hidden GRU"},
+    {"label": "cpu_ne16_singlethread (OMP_NUM_THREADS=1)", "device": "cpu", "num_envs": 16, "torch_threads": 1, "steps_long": 131072, "wall_long_s": 87.26, "steps_short": 2048, "wall_short_s": 3.13, "marginal_env_steps_per_s": 1534, "cpu_util_pct": 99, "note": "single thread BEATS default threading (1534 vs 1052) while using 1 core instead of ~7"},
+    {"label": "privileged_obs76_ne16_singlethread", "device": "cpu", "num_envs": 16, "torch_threads": 1, "steps_long": 32768, "wall_long_s": 23.96, "marginal_env_steps_per_s": 1475, "note": "obs76 twin trains at ~same speed as obs72; overhead proxy taken from p0 short run (inference component)"}
+  ],
+  "measured_parallel_scaling": [
+    {"label": "8 concurrent singlethread ne16 jobs", "jobs": 8, "steps_per_job": 65536, "wall_s": 60.29, "aggregate_env_steps_per_s": 8695, "per_job_env_steps_per_s": 1087, "ram_gb_total": 8.1},
+    {"label": "16 concurrent singlethread ne16 jobs", "jobs": 16, "steps_per_job": 32768, "wall_s": 40.59, "aggregate_env_steps_per_s": 12917, "per_job_env_steps_per_s": 807, "ram_gb_total": 16.1},
+    {"label": "24-32 concurrent", "status": "NOT measured; inferred aggregate ~14000-16000 env steps/s, RAM fits (1.0 GB/job)"}
+  ],
+  "measured_eval_throughput": {
+    "eval_300_episodes_smoke_checkpoint_wall_s": 5.80,
+    "eval_30_episodes_wall_s": 1.55,
+    "eval_1_episode_wall_s": 1.07,
+    "mean_episode_steps_smoke": 61.4,
+    "eval_env_steps_per_s_singlethread": 3882,
+    "worst_case_300ep_at_800_steps_per_episode_s": 62,
+    "note": "smoke policy dies early (~61 steps/ep); converged-policy bound uses max_steps=800 (inference): 300 x 800 / 3882 ~= 62 s per 300-episode eval"
+  },
+  "measured_gate_chain": {
+    "pilot_skip_training_wall_s": 2.78,
+    "scope": "hidden_swap_gate on BOTH twins (8 seeds each) + privileged_value_swap probe, smoke checkpoints, single thread",
+    "full_budget_extrapolation": "inference: with 128 gate seeds and 800-step continuations ~ 2.78 x 16 x 12 ~= 9 min per twin-pair; even per-seed (10 pairs) stays < 2 h total"
+  },
+  "measured_degradation_wrapper_overhead_pct": 4.0,
+  "budget": {
+    "experiment1_env_steps": 100000000,
+    "experiment2_env_steps": 10000000,
+    "total_training_env_steps": 110000000,
+    "evaluations": {"count": 220, "episodes_each": 300}
+  },
+  "total_cost_estimates": {
+    "gpu_hours": 0,
+    "gpu_note": "MEASURED: CUDA is 2.6x slower than CPU for this model; the correct device is cpu. The whole matrix costs ~0 GPU hours.",
+    "training_wall_hours": {
+      "naive_config_as_is_serial_ne2_default_threads": 39.3,
+      "serial_single_job_ne16_singlethread": 19.9,
+      "recommended_16_concurrent_singlethread_ne16": 2.37
+    },
+    "eval_wall_hours": {"serial_worst_case_800step_episodes": 3.8, "16_way_parallel_worst_case": 0.24, "serial_at_measured_smoke_lengths": 0.35},
+    "gate_wall_hours_inferred": "0.15-2",
+    "recommended_plan_total_wall_hours": "~3 (range 2.5-4 with +-30% throughput uncertainty)",
+    "recommended_plan": "16-32 concurrent single-seed processes, OMP_NUM_THREADS=1 MKL_NUM_THREADS=1, device=cpu, num_envs=16, vector_env_mode=sync; one process per (cell, seed)"
+  },
+  "reduction_menu": [
+    {"option": "stage 1 first: 4 extreme cells (e.g. P1,P3 x T1,T4) + full Exp2 before go/no-go", "steps": 30000000, "wall_hours_at_16way": 0.65, "deferred_steps": 80000000, "warning": "pre-registered stop rule forbids outcome-based continuation decisions; staging must be re-registered as execution order with an infrastructure-only interim look, or it violates the design"},
+    {"option": "drop T5 (pre-registered first cut)", "saves_steps": 20000000, "saves_wall_hours_at_16way": 0.43, "saves_pct_of_training": 18},
+    {"option": "drop T5 + T2 (pre-registered second cut)", "saves_steps": 40000000, "saves_wall_hours_at_16way": 0.86, "saves_pct_of_training": 36},
+    {"option": "500k -> 300k steps", "saves_steps": 44000000, "saves_wall_hours_at_16way": 0.95, "allowed": false, "reason": "violates pre-registered non-negotiable >=500k floor"},
+    {"option": "10 -> 8 seeds", "saves_steps": 22000000, "saves_wall_hours_at_16way": 0.47, "allowed": false, "reason": "violates pre-registered >=10 seed floor"}
+  ],
+  "bottleneck_observation": "CPU-bound single-process rollout: Python env stepping + per-step GRU act() dominate; PPO update is a minor share. GPU update never pays off at this model size (CUDA run pinned at 100% of ONE cpu core and 402 sps). Default torch threading actively hurts (809% CPU for 778 sps at ne2 vs 99% CPU for 1534 sps singlethread at ne16). Parallelism across seeds, not within a job, is the win.",
+  "launch_blockers_noted_for_other_audits": [
+    "ObservationDegradationWrapper is NOT wired into train_ppo.py / vector_env.py / evaluate.py: Experiment 1 degraded cells (16 of 20) cannot currently be launched via any config path. Cost numbers transfer (wrapper overhead 4.0%) but this is a NEEDS-FIX before launch.",
+    "evaluate.py summary lacks success_rate and clearance_margin_p10; per-episode rows carry outcome_bucket and min_clearance_margin so a post-hoc analysis script suffices (no rerun needed), but it must exist before launch.",
+    "full-budget config must freeze num_envs (smoke config says 2; this audit's throughput recommendation is 16) BEFORE launch since the design requires identical env count across cells."
+  ],
+  "artifacts": {
+    "runs": "runs/feasibility_audit/selfid_cost/",
+    "this_file": "experiments/feasibility_audit/selfid_matrix_cost_estimate.json"
+  }
+}

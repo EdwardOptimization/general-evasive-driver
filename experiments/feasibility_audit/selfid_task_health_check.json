@@ -1,0 +1,403 @@
+{
+  "audit": "selfid_task_health_check",
+  "stage": "pre_launch_feasibility_audit_no_scientific_claim",
+  "task_config": "/home/quyaonan/workspace/autodrift/configs/selfid_positive_control_p0_smoke.json",
+  "conditions": {
+    "clean": {
+      "delay_steps": 0,
+      "noise_std": 0.0
+    },
+    "delay_12": {
+      "delay_steps": 12,
+      "noise_std": 0.0
+    },
+    "delay_25": {
+      "delay_steps": 25,
+      "noise_std": 0.0
+    },
+    "noise_05": {
+      "delay_steps": 0,
+      "noise_std": 0.05
+    },
+    "delay_25_noise_05": {
+      "delay_steps": 25,
+      "noise_std": 0.05
+    }
+  },
+  "criteria": {
+    "single_failure_mode_fail_threshold": 0.7,
+    "history_probe_min_r2_delta_delay_25": 0.05
+  },
+  "manipulation_check": {
+    "seed": 424242,
+    "open_loop_actions": 60,
+    "compared_steps": 38,
+    "clean_wrapper_identity_vs_bare_env": true,
+    "delay_12_exact_k_step_semantics": true,
+    "pairs": [
+      {
+        "pair": "clean_vs_delay_12",
+        "compared_steps": 38,
+        "ego_0_8_first_diff_step": 1,
+        "ego_0_8_diff_step_count": 37,
+        "ego_0_8_expected_diff_from_step": 1,
+        "ego_0_8_max_abs_diff": 1.8011562824249268,
+        "prev_command_9_11_bitwise_identical": true,
+        "geometry_12_71_bitwise_identical": true,
+        "rewards_bitwise_identical": true,
+        "repeat_run_bitwise_identical": true,
+        "pass": true
+      },
+      {
+        "pair": "clean_vs_noise_05",
+        "compared_steps": 38,
+        "ego_0_8_first_diff_step": 0,
+        "ego_0_8_diff_step_count": 38,
+        "ego_0_8_expected_diff_from_step": 0,
+        "ego_0_8_max_abs_diff": 0.13563711941242218,
+        "prev_command_9_11_bitwise_identical": true,
+        "geometry_12_71_bitwise_identical": true,
+        "rewards_bitwise_identical": true,
+        "repeat_run_bitwise_identical": true,
+        "pass": true
+      }
+    ],
+    "pass": true
+  },
+  "task_health_cells": [
+    {
+      "policy": "heuristic",
+      "condition": "clean",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 37,
+        "off_track": 2,
+        "success": 11
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.74,
+        "off_track": 0.04,
+        "success": 0.22
+      },
+      "success_rate": 0.22,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.74,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 56.24,
+      "episode_length_p50": 54.5,
+      "return_mean": 38.81832239731151,
+      "min_clearance_margin_p10": -0.2017789086544302
+    },
+    {
+      "policy": "heuristic",
+      "condition": "delay_12",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 37,
+        "off_track": 2,
+        "success": 11
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.74,
+        "off_track": 0.04,
+        "success": 0.22
+      },
+      "success_rate": 0.22,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.74,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 56.18,
+      "episode_length_p50": 54.5,
+      "return_mean": 38.813326864787044,
+      "min_clearance_margin_p10": -0.18278236778099494
+    },
+    {
+      "policy": "heuristic",
+      "condition": "delay_25",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 37,
+        "off_track": 2,
+        "success": 11
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.74,
+        "off_track": 0.04,
+        "success": 0.22
+      },
+      "success_rate": 0.22,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.74,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 56.18,
+      "episode_length_p50": 54.5,
+      "return_mean": 38.83909049310799,
+      "min_clearance_margin_p10": -0.17930794979610717
+    },
+    {
+      "policy": "heuristic",
+      "condition": "noise_05",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 37,
+        "off_track": 2,
+        "success": 11
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.74,
+        "off_track": 0.04,
+        "success": 0.22
+      },
+      "success_rate": 0.22,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.74,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 56.3,
+      "episode_length_p50": 54.5,
+      "return_mean": 38.72807508473966,
+      "min_clearance_margin_p10": -0.2022478106352506
+    },
+    {
+      "policy": "heuristic",
+      "condition": "delay_25_noise_05",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 37,
+        "off_track": 2,
+        "success": 11
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.74,
+        "off_track": 0.04,
+        "success": 0.22
+      },
+      "success_rate": 0.22,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.74,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 56.22,
+      "episode_length_p50": 54.5,
+      "return_mean": 38.834610073143224,
+      "min_clearance_margin_p10": -0.2090514549524275
+    },
+    {
+      "policy": "random",
+      "condition": "clean",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 36,
+        "off_track": 1,
+        "success": 13
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.72,
+        "off_track": 0.02,
+        "success": 0.26
+      },
+      "success_rate": 0.26,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.72,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 57.02,
+      "episode_length_p50": 56.0,
+      "return_mean": 36.199838193566,
+      "min_clearance_margin_p10": -0.19022969084361374
+    },
+    {
+      "policy": "random",
+      "condition": "delay_25",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 36,
+        "off_track": 1,
+        "success": 13
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.72,
+        "off_track": 0.02,
+        "success": 0.26
+      },
+      "success_rate": 0.26,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.72,
+      "single_failure_mode_over_70pct": true,
+      "episode_length_mean": 57.02,
+      "episode_length_p50": 56.0,
+      "return_mean": 36.199838193566,
+      "min_clearance_margin_p10": -0.19022969084361374
+    },
+    {
+      "policy": "ppo_short",
+      "condition": "clean",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 11,
+        "success": 39
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.22,
+        "success": 0.78
+      },
+      "success_rate": 0.78,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.22,
+      "single_failure_mode_over_70pct": false,
+      "episode_length_mean": 63.52,
+      "episode_length_p50": 64.0,
+      "return_mean": 70.15264041149588,
+      "min_clearance_margin_p10": -0.038861389889055985
+    },
+    {
+      "policy": "ppo_short",
+      "condition": "delay_25",
+      "episodes": 50,
+      "outcome_counts": {
+        "obstacle_collision": 12,
+        "success": 38
+      },
+      "outcome_distribution": {
+        "obstacle_collision": 0.24,
+        "success": 0.76
+      },
+      "success_rate": 0.76,
+      "dominant_failure_mode": "obstacle_collision",
+      "dominant_failure_rate": 0.24,
+      "single_failure_mode_over_70pct": false,
+      "episode_length_mean": 63.34,
+      "episode_length_p50": 64.0,
+      "return_mean": 69.06175949405761,
+      "min_clearance_margin_p10": -0.05240377398261651
+    }
+  ],
+  "ppo_short_checkpoint_present": true,
+  "ppo_short_checkpoint": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/selfid_task_health_ppo_short/checkpoint.pt",
+  "closed_loop_divergence": [
+    {
+      "pair": "clean_vs_delay_25",
+      "policy": "heuristic",
+      "episodes": 50,
+      "episodes_with_action_divergence": 50,
+      "first_action_diff_step_median": 1.0,
+      "max_action_divergence_mean": 0.1183059901278466,
+      "max_action_divergence_max": 0.39279113709926605,
+      "episodes_with_different_outcome": 0,
+      "episodes_with_different_length": 9,
+      "note": "HeuristicPolicy reads ground-truth info fields (lateral_error, heading_error, speed_ref, beta_target) that bypass the degradation by construction; only its beta/speed terms use degraded obs channels 0-1."
+    },
+    {
+      "pair": "clean_vs_noise_05",
+      "policy": "heuristic",
+      "episodes": 50,
+      "episodes_with_action_divergence": 50,
+      "first_action_diff_step_median": 0.0,
+      "max_action_divergence_mean": 0.28371168121695517,
+      "max_action_divergence_max": 0.4167332202196121,
+      "episodes_with_different_outcome": 0,
+      "episodes_with_different_length": 5,
+      "note": "HeuristicPolicy reads ground-truth info fields (lateral_error, heading_error, speed_ref, beta_target) that bypass the degradation by construction; only its beta/speed terms use degraded obs channels 0-1."
+    }
+  ],
+  "history_information_probe": [
+    {
+      "condition": "clean",
+      "episodes": 240,
+      "samples": 2360,
+      "history_frames": 25,
+      "frame_feature_channels": "per-frame indices 0-11 (ego response 0-8 + previous command 9-11)",
+      "r2_current_mu": -0.0443700184128617,
+      "r2_current_plus_hist25_mu": 0.045150300312401304,
+      "alpha_current_mu": 0.1,
+      "alpha_hist25_mu": 1000.0,
+      "r2_delta_mu": 0.089520318725263,
+      "r2_current_mass_scale": -0.037110350714471,
+      "r2_current_plus_hist25_mass_scale": -0.04553983182704524,
+      "alpha_current_mass_scale": 10.0,
+      "alpha_hist25_mass_scale": 1000.0,
+      "r2_delta_mass_scale": -0.008429481112574244
+    },
+    {
+      "condition": "delay_12",
+      "episodes": 240,
+      "samples": 2360,
+      "history_frames": 25,
+      "frame_feature_channels": "per-frame indices 0-11 (ego response 0-8 + previous command 9-11)",
+      "r2_current_mu": 0.003703439595314717,
+      "r2_current_plus_hist25_mu": 0.04247983897008689,
+      "alpha_current_mu": 0.1,
+      "alpha_hist25_mu": 1000.0,
+      "r2_delta_mu": 0.038776399374772175,
+      "r2_current_mass_scale": -0.01220584183960094,
+      "r2_current_plus_hist25_mass_scale": -0.06863946456485404,
+      "alpha_current_mass_scale": 1000.0,
+      "alpha_hist25_mass_scale": 1000.0,
+      "r2_delta_mass_scale": -0.056433622725253096
+    },
+    {
+      "condition": "delay_25",
+      "episodes": 240,
+      "samples": 2360,
+      "history_frames": 25,
+      "frame_feature_channels": "per-frame indices 0-11 (ego response 0-8 + previous command 9-11)",
+      "r2_current_mu": 0.012253722526844535,
+      "r2_current_plus_hist25_mu": 0.05571183280622405,
+      "alpha_current_mu": 1000.0,
+      "alpha_hist25_mu": 1000.0,
+      "r2_delta_mu": 0.043458110279379514,
+      "r2_current_mass_scale": -0.012291681872976579,
+      "r2_current_plus_hist25_mass_scale": -0.02097390173547664,
+      "alpha_current_mass_scale": 1000.0,
+      "alpha_hist25_mass_scale": 1000.0,
+      "r2_delta_mass_scale": -0.008682219862500062
+    },
+    {
+      "condition": "noise_05",
+      "episodes": 240,
+      "samples": 2360,
+      "history_frames": 25,
+      "frame_feature_channels": "per-frame indices 0-11 (ego response 0-8 + previous command 9-11)",
+      "r2_current_mu": -0.04389728321752351,
+      "r2_current_plus_hist25_mu": 0.03925712230876732,
+      "alpha_current_mu": 1000.0,
+      "alpha_hist25_mu": 1000.0,
+      "r2_delta_mu": 0.08315440552629083,
+      "r2_current_mass_scale": 0.004281980517572226,
+      "r2_current_plus_hist25_mass_scale": -0.008076363213889604,
+      "alpha_current_mass_scale": 1000.0,
+      "alpha_hist25_mass_scale": 1000.0,
+      "r2_delta_mass_scale": -0.01235834373146183
+    },
+    {
+      "condition": "delay_25_noise_05",
+      "episodes": 240,
+      "samples": 2360,
+      "history_frames": 25,
+      "frame_feature_channels": "per-frame indices 0-11 (ego response 0-8 + previous command 9-11)",
+      "r2_current_mu": 0.007933189220919123,
+      "r2_current_plus_hist25_mu": 0.04170934807190996,
+      "alpha_current_mu": 1000.0,
+      "alpha_hist25_mu": 1000.0,
+      "r2_delta_mu": 0.033776158850990834,
+      "r2_current_mass_scale": 0.0046897087977932905,
+      "r2_current_plus_hist25_mass_scale": -0.007439829554758415,
+      "alpha_current_mass_scale": 1000.0,
+      "alpha_hist25_mass_scale": 1000.0,
+      "r2_delta_mass_scale": -0.012129538352551705
+    }
+  ],
+  "wallclock_seconds": 93.4,
+  "training_pipeline_integration": {
+    "measured": true,
+    "method": "repo-wide grep for ObservationDegradationWrapper / make_observation_degradation_env / delay_steps / noise_std",
+    "references_found_only_in": [
+      "src/autodrift/observation_degradation_wrapper.py",
+      "tests/test_observation_degradation_wrapper.py"
+    ],
+    "train_ppo_has_degradation_hook": false,
+    "vector_env_has_wrapper_hook": false,
+    "evaluate_actor_has_degradation_hook": false,
+    "detail": "train_ppo.make_vector_env -> SyncAutoDriftVectorEnv/ParallelAutoDriftVectorEnv construct AutoDriftEnv(config) directly (vector_env.py line 79 / _env_worker line 26); the only wrapper hook is ObservationMaskSpec. evaluate_actor (train_ppo.py line 1940) builds bare AutoDriftEnv. No config key (env or ppo block) carries delay_steps/noise_std. The 16 degraded cells (T2-T5) of the 20-cell matrix cannot currently be trained as pre-registered.",
+    "verdict": "NEEDS-FIX (blocking before launch)",
+    "manipulation_check_scope_note": "Phase B was therefore run at the make_observation_degradation_env level (the constructor any future training integration would call), not inside train_ppo, because no such path exists yet."
+  },
+  "random_policy_note": "RandomPolicy ignores observations entirely, so its identical clean/delay_25 distributions are expected by construction and carry no information about degradation bite; the heuristic and ppo_short rows are the informative ones."
+}
