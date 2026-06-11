@@ -1,0 +1,4477 @@
+{
+  "protocol": "feasibility_audit_degraded_regime_final",
+  "generated_by": "scripts/feasibility_audit/degraded_regime_final.py",
+  "claim_boundary": "Feasibility-audit policy-family VoI measurement only: the scripted threshold-seeking controller family of ramp_policy_voi_regime.py (per-mu oracle ramp, belief-free seekers with per-cell re-calibrated shortfall detectors, +/-0.2 prior-granted seekers, no-detection fixed plans) is rolled out on the B2K2_final family at reveal 9.5/12 m with the M3214 observation-degradation wrapper (delay/noise on ego channels 0-8). No driver promotion, training, repair-success, gate-validity, paper, or self-ID capability claim.",
+  "question": "Clean-sensing VoI(belief)=0.000 rests entirely on 140-400 ms detection latency (docs/selfid-threshold-seeking-regime-2026-06.md). Does belief value re-emerge when the ego-response channels are delayed/noisy (M3214 wrapper), with the seeker given a fair per-cell detector re-calibration?",
+  "decision_rule": {
+    "pre_registered": true,
+    "threshold": 0.15,
+    "rule": "if any degraded cell (delay>0 or noise>0) has voi_belief_val >= 0.15 on validation seeds -> belief value re-emerges under degraded sensing; if all degraded cells are below -> the constructive null closes: passive fast adaptation + reflex is self-sufficient in this simulator universe",
+    "voi_definition": "voi_belief_val = clean-cell oracle success (degradation-free anchor, per PI spec: the oracle knows mu and needs no detection; in this deterministic sim it can dead-reckon ego state from the undegraded command channels) minus the best belief-free seeker in the cell, identical episodes. voi_belief_matched_val (secondary) uses the same-cell degraded oracle instead (no dead-reckoning credit); the two bracket the value of belief from above/below."
+  },
+  "degradation_matrix": {
+    "delay_steps": [
+      0,
+      5,
+      12,
+      25
+    ],
+    "delay_ms": [
+      0,
+      100,
+      240,
+      500
+    ],
+    "noise_std_ego_channels": [
+      0.0,
+      0.05
+    ],
+    "wrapper": "src/autodrift/observation_degradation_wrapper.py (M3214 task family)",
+    "semantics": "ego response channels 0-8 delayed then noised; geometry/commands/truth untouched",
+    "construction": "identical wrapper path for every cell including delay0/noise0 (clean anchor)"
+  },
+  "task_surface": {
+    "family": "B2K2_final, reveal tiers 9.5,12 m (tightest two)",
+    "mu_points": [
+      0.2875,
+      0.3625,
+      0.4375,
+      0.5125,
+      0.5875,
+      0.6625,
+      0.7375,
+      0.8125,
+      0.8875,
+      0.9625,
+      1.0375,
+      1.1125
+    ],
+    "selection_seeds": 2,
+    "validation_seeds": 2,
+    "seed_note": "episode seeds reuse reg.TierMeasurement.seed_for (20260618 stream) so the clean cell bit-replicates the original regime measurement; wrapper noise stream 20260610"
+  },
+  "controller_family": {
+    "source": "scripts/feasibility_audit/ramp_policy_voi_regime.py (reused)",
+    "trim_note": "seeker grid trimmed vs the clean run (rates 2000/6000/20000, strategy hold, deltas 0.06/0.15, dv 0/0.75) -- rate 800 and 'retry' never uniquely won at 9.5/12 m in the clean run; tau grid is per-cell re-calibrated (see calibration)",
+    "degradation_fairness": "per-cell tau re-calibration on sub-limit ramps (1.2x observed max shortfall, floor 0.08) + optional 5-frame ego-channel moving average competing in selection"
+  },
+  "calibration": {
+    "delay0_noise0": {
+      "n_episodes": 6,
+      "delay_steps": 0,
+      "noise_std": 0.0,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w5": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w12": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      },
+      "w25": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      }
+    },
+    "delay0_noise0.05": {
+      "n_episodes": 6,
+      "delay_steps": 0,
+      "noise_std": 0.05,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w5": {
+        "max_signal": 0.9946,
+        "tau": 1.1935
+      },
+      "w12": {
+        "max_signal": 0.4984,
+        "tau": 0.598
+      },
+      "w25": {
+        "max_signal": 0.2494,
+        "tau": 0.2993
+      }
+    },
+    "delay5_noise0": {
+      "n_episodes": 6,
+      "delay_steps": 5,
+      "noise_std": 0.0,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w5": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w12": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      },
+      "w25": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      }
+    },
+    "delay5_noise0.05": {
+      "n_episodes": 6,
+      "delay_steps": 5,
+      "noise_std": 0.05,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w5": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w12": {
+        "max_signal": 0.4985,
+        "tau": 0.5982
+      },
+      "w25": {
+        "max_signal": 0.3055,
+        "tau": 0.3666
+      }
+    },
+    "delay12_noise0": {
+      "n_episodes": 6,
+      "delay_steps": 12,
+      "noise_std": 0.0,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w5": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w12": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      },
+      "w25": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      }
+    },
+    "delay12_noise0.05": {
+      "n_episodes": 6,
+      "delay_steps": 12,
+      "noise_std": 0.05,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w5": {
+        "max_signal": 0.9946,
+        "tau": 1.1935
+      },
+      "w12": {
+        "max_signal": 0.5004,
+        "tau": 0.6005
+      },
+      "w25": {
+        "max_signal": 0.289,
+        "tau": 0.3468
+      }
+    },
+    "delay25_noise0": {
+      "n_episodes": 6,
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w5": {
+        "max_signal": 0.0002,
+        "tau": 0.08
+      },
+      "w12": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      },
+      "w25": {
+        "max_signal": 0.0001,
+        "tau": 0.08
+      }
+    },
+    "delay25_noise0.05": {
+      "n_episodes": 6,
+      "delay_steps": 25,
+      "noise_std": 0.05,
+      "brake_cap_limit_frac": 0.55,
+      "safety_factor": 1.2,
+      "tau_floor": 0.08,
+      "w1": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w5": {
+        "max_signal": 1.0,
+        "tau": 1.2
+      },
+      "w12": {
+        "max_signal": 0.4129,
+        "tau": 0.4955
+      },
+      "w25": {
+        "max_signal": 0.2844,
+        "tau": 0.3413
+      }
+    }
+  },
+  "detection_latency_rerun": {
+    "delay0_noise0": {
+      "delay_steps": 0,
+      "noise_std": 0.0,
+      "delay_ms": 0,
+      "tau_recalibrated": 0.15,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 0.0274,
+        "p99_signal": 0.0268,
+        "tau_floor": 0.15,
+        "tau": 0.15
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 4,
+        "n_detected": 4,
+        "n_missed": 0,
+        "miss_rate": 0.0,
+        "missed_post_onset_steps_median": null,
+        "u_at_detect_median": 1.0,
+        "delay_steps_median": 7.0,
+        "delay_steps_p90": 22.400000000000006,
+        "overshoot_frac_median": 0.05599999999550925,
+        "overshoot_pct_median": 10.251445682746116,
+        "overshoot_pct_p90": 14.900790077151807,
+        "onset_in_native_window_frac": 1.0,
+        "detect_in_native_window_frac": 0.75
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 1,
+          "n_detected": 1,
+          "n_missed": 0,
+          "miss_rate": 0.0,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": 1.0,
+          "delay_steps_median": 29.0,
+          "delay_steps_p90": 29.0,
+          "overshoot_frac_median": 0.05799999999999994,
+          "overshoot_pct_median": 10.780669144981402,
+          "overshoot_pct_p90": 10.780669144981402,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": 0.0
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 3,
+          "n_detected": 3,
+          "n_missed": 0,
+          "miss_rate": 0.0,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": 1.0,
+          "delay_steps_median": 7.0,
+          "delay_steps_p90": 7.0,
+          "overshoot_frac_median": 0.055999999991136806,
+          "overshoot_pct_median": 9.72222222051083,
+          "overshoot_pct_p90": 15.277689396853464,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": 1.0
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay0_noise0.05": {
+      "delay_steps": 0,
+      "noise_std": 0.05,
+      "delay_ms": 0,
+      "tau_recalibrated": 3.646,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 2.4307,
+        "p99_signal": 2.4228,
+        "tau_floor": 0.15,
+        "tau": 3.646
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 4,
+        "n_detected": 0,
+        "n_missed": 4,
+        "miss_rate": 1.0,
+        "missed_post_onset_steps_median": 61.0,
+        "u_at_detect_median": null,
+        "delay_steps_median": null,
+        "delay_steps_p90": null,
+        "overshoot_frac_median": null,
+        "overshoot_pct_median": null,
+        "overshoot_pct_p90": null,
+        "onset_in_native_window_frac": 1.0,
+        "detect_in_native_window_frac": null
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 0,
+          "n_missed": 2,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 18.5,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 0,
+          "n_missed": 2,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 135.0,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": null
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay5_noise0": {
+      "delay_steps": 5,
+      "noise_std": 0.0,
+      "delay_ms": 100,
+      "tau_recalibrated": 0.15,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 0.0408,
+        "p99_signal": 0.04,
+        "tau_floor": 0.15,
+        "tau": 0.15
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 4,
+        "n_detected": 4,
+        "n_missed": 0,
+        "miss_rate": 0.0,
+        "missed_post_onset_steps_median": null,
+        "u_at_detect_median": 1.0,
+        "delay_steps_median": 11.5,
+        "delay_steps_p90": 13.4,
+        "overshoot_frac_median": 0.09199999722315907,
+        "overshoot_pct_median": 24.790689231149848,
+        "overshoot_pct_p90": 27.27441279179204,
+        "onset_in_native_window_frac": 1.0,
+        "detect_in_native_window_frac": 1.0
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 0,
+          "n_detected": 0,
+          "n_missed": 0,
+          "miss_rate": null,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": null,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 4,
+          "n_detected": 4,
+          "n_missed": 0,
+          "miss_rate": 0.0,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": 1.0,
+          "delay_steps_median": 11.5,
+          "delay_steps_p90": 13.4,
+          "overshoot_frac_median": 0.09199999722315907,
+          "overshoot_pct_median": 24.790689231149848,
+          "overshoot_pct_p90": 27.27441279179204,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": 1.0
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay5_noise0.05": {
+      "delay_steps": 5,
+      "noise_std": 0.05,
+      "delay_ms": 100,
+      "tau_recalibrated": 3.8633,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 2.5755,
+        "p99_signal": 2.5648,
+        "tau_floor": 0.15,
+        "tau": 3.8633
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 3,
+        "n_detected": 0,
+        "n_missed": 3,
+        "miss_rate": 1.0,
+        "missed_post_onset_steps_median": 35.0,
+        "u_at_detect_median": null,
+        "delay_steps_median": null,
+        "delay_steps_p90": null,
+        "overshoot_frac_median": null,
+        "overshoot_pct_median": null,
+        "overshoot_pct_p90": null,
+        "onset_in_native_window_frac": 0.6666666666666666,
+        "detect_in_native_window_frac": null
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 1,
+          "n_detected": 0,
+          "n_missed": 1,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 33.0,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 0.0,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 0,
+          "n_missed": 2,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 84.5,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": null
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay12_noise0": {
+      "delay_steps": 12,
+      "noise_std": 0.0,
+      "delay_ms": 240,
+      "tau_recalibrated": 0.15,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 0.0463,
+        "p99_signal": 0.0449,
+        "tau_floor": 0.15,
+        "tau": 0.15
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 6,
+        "n_detected": 4,
+        "n_missed": 2,
+        "miss_rate": 0.3333333333333333,
+        "missed_post_onset_steps_median": 18.0,
+        "u_at_detect_median": 1.0,
+        "delay_steps_median": 27.5,
+        "delay_steps_p90": 37.4,
+        "overshoot_frac_median": 0.10599999999999327,
+        "overshoot_pct_median": 19.00027847396164,
+        "overshoot_pct_p90": 22.86718906953378,
+        "onset_in_native_window_frac": 0.8333333333333334,
+        "detect_in_native_window_frac": 1.0
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 3,
+          "n_detected": 2,
+          "n_missed": 1,
+          "miss_rate": 0.3333333333333333,
+          "missed_post_onset_steps_median": 7.0,
+          "u_at_detect_median": 1.0,
+          "delay_steps_median": 37.0,
+          "delay_steps_p90": 37.8,
+          "overshoot_frac_median": 0.07400000000000001,
+          "overshoot_pct_median": 18.790774130579955,
+          "overshoot_pct_p90": 19.84281091077209,
+          "onset_in_native_window_frac": 0.6666666666666666,
+          "detect_in_native_window_frac": 1.0
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 3,
+          "n_detected": 2,
+          "n_missed": 1,
+          "miss_rate": 0.3333333333333333,
+          "missed_post_onset_steps_median": 29.0,
+          "u_at_detect_median": 0.9999999999999998,
+          "delay_steps_median": 18.0,
+          "delay_steps_p90": 18.8,
+          "overshoot_frac_median": 0.1439999999993135,
+          "overshoot_pct_median": 20.972684876614252,
+          "overshoot_pct_p90": 23.435043304223125,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": 1.0
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay12_noise0.05": {
+      "delay_steps": 12,
+      "noise_std": 0.05,
+      "delay_ms": 240,
+      "tau_recalibrated": 4.2714,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 2.8476,
+        "p99_signal": 2.8292,
+        "tau_floor": 0.15,
+        "tau": 4.2714
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 5,
+        "n_detected": 0,
+        "n_missed": 5,
+        "miss_rate": 1.0,
+        "missed_post_onset_steps_median": 180.0,
+        "u_at_detect_median": null,
+        "delay_steps_median": null,
+        "delay_steps_p90": null,
+        "overshoot_frac_median": null,
+        "overshoot_pct_median": null,
+        "overshoot_pct_p90": null,
+        "onset_in_native_window_frac": 0.8,
+        "detect_in_native_window_frac": null
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 0,
+          "n_missed": 2,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 95.0,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 0.5,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 3,
+          "n_detected": 0,
+          "n_missed": 3,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 186.0,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": null
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay25_noise0": {
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "delay_ms": 500,
+      "tau_recalibrated": 0.15,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 0.0744,
+        "p99_signal": 0.0719,
+        "tau_floor": 0.15,
+        "tau": 0.15
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 2,
+        "n_detected": 2,
+        "n_missed": 0,
+        "miss_rate": 0.0,
+        "missed_post_onset_steps_median": null,
+        "u_at_detect_median": 1.0,
+        "delay_steps_median": 32.0,
+        "delay_steps_p90": 32.0,
+        "overshoot_frac_median": 0.25599999971271686,
+        "overshoot_pct_median": 47.098401922460596,
+        "overshoot_pct_p90": 53.55761126540476,
+        "onset_in_native_window_frac": 1.0,
+        "detect_in_native_window_frac": 1.0
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 0,
+          "n_detected": 0,
+          "n_missed": 0,
+          "miss_rate": null,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": null,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 2,
+          "n_missed": 0,
+          "miss_rate": 0.0,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": 1.0,
+          "delay_steps_median": 32.0,
+          "delay_steps_p90": 32.0,
+          "overshoot_frac_median": 0.25599999971271686,
+          "overshoot_pct_median": 47.098401922460596,
+          "overshoot_pct_p90": 53.55761126540476,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": 1.0
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    },
+    "delay25_noise0.05": {
+      "delay_steps": 25,
+      "noise_std": 0.05,
+      "delay_ms": 500,
+      "tau_recalibrated": 3.7773,
+      "calibration": {
+        "n_episodes": 6,
+        "n_construction_leaks": 0,
+        "max_signal": 2.5182,
+        "p99_signal": 2.5157,
+        "tau_floor": 0.15,
+        "tau": 3.7773
+      },
+      "overall": {
+        "n": 8,
+        "n_truth_onset": 2,
+        "n_detected": 0,
+        "n_missed": 2,
+        "miss_rate": 1.0,
+        "missed_post_onset_steps_median": 82.0,
+        "u_at_detect_median": null,
+        "delay_steps_median": null,
+        "delay_steps_p90": null,
+        "overshoot_frac_median": null,
+        "overshoot_pct_median": null,
+        "overshoot_pct_p90": null,
+        "onset_in_native_window_frac": 1.0,
+        "detect_in_native_window_frac": null
+      },
+      "per_rate": {
+        "rate=0.1": {
+          "n": 4,
+          "n_truth_onset": 0,
+          "n_detected": 0,
+          "n_missed": 0,
+          "miss_rate": null,
+          "missed_post_onset_steps_median": null,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": null,
+          "detect_in_native_window_frac": null
+        },
+        "rate=0.4": {
+          "n": 4,
+          "n_truth_onset": 2,
+          "n_detected": 0,
+          "n_missed": 2,
+          "miss_rate": 1.0,
+          "missed_post_onset_steps_median": 82.0,
+          "u_at_detect_median": null,
+          "delay_steps_median": null,
+          "delay_steps_p90": null,
+          "overshoot_frac_median": null,
+          "overshoot_pct_median": null,
+          "overshoot_pct_p90": null,
+          "onset_in_native_window_frac": 1.0,
+          "detect_in_native_window_frac": null
+        }
+      },
+      "false_positive": {
+        "n_sublimit": 4,
+        "fp_count": 0
+      }
+    }
+  },
+  "cells": [
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 0,
+      "noise_std": 0.0,
+      "delay_ms": 0,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 0.9583,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.06_v+0.75",
+        "success_sel": 0.9167,
+        "success_val": 0.9583,
+        "on_time_val": 1.0,
+        "collision_val": 0.0417,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 26.7,
+          "mu_abs_err_mean": 0.0005,
+          "overshoot_episode_fraction": 0.0833
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w1_t0.08_v+0.75",
+        "success_sel": 0.9583,
+        "success_val": 0.875,
+        "on_time_val": 1.0,
+        "collision_val": 0.125,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 23.6,
+          "mu_abs_err_mean": 0.0006,
+          "overshoot_episode_fraction": 0.0833
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.375,
+        "on_time_val": 0.9167,
+        "collision_val": 0.5417,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.125,
+        "success_val": 0.125,
+        "on_time_val": 0.3333,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.0,
+      "voi_belief_sel": 0.0833,
+      "voi_belief_matched_val": 0.0,
+      "sensing_execution_cost_val": 0.0,
+      "voi_residual_prior_val": 0.0833,
+      "prior_advantage_val": -0.0833,
+      "detection_value_val": 0.5833,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 0.5833,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 0.9167,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 0.5833,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 0.875,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.5417,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 0.75,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.5417,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 0.7083,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.25,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.25,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.2083,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.2083,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.25,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.2083,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.2083,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.1667,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 0.375,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.5417,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 0.3333,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.4583,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.3333,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.375,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.2917,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.3333
+      },
+      "elapsed_s": 41.9
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 0,
+      "noise_std": 0.05,
+      "delay_ms": 0,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.194
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.598
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.299
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 12,
+        "tau": 0.598
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.75,
+        "success_val": 0.6667,
+        "on_time_val": 0.9583,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5"
+        ],
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r2000_w12_t0.598_d0.15_v+0",
+        "success_sel": 0.1667,
+        "success_val": 0.0833,
+        "on_time_val": 0.4167,
+        "collision_val": 0.3333,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.25,
+          "censored_fraction": 0.75,
+          "id_step_mean": 78.2,
+          "mu_abs_err_mean": 0.1895,
+          "overshoot_episode_fraction": 0.4583
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w12_t0.598_v+0",
+        "success_sel": 0.125,
+        "success_val": 0.2083,
+        "on_time_val": 0.75,
+        "collision_val": 0.5417,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.2917,
+          "censored_fraction": 0.7083,
+          "id_step_mean": 34.9,
+          "mu_abs_err_mean": 0.0517,
+          "overshoot_episode_fraction": 0.5
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.2917,
+        "on_time_val": 0.9167,
+        "collision_val": 0.625,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.125,
+        "success_val": 0.1667,
+        "on_time_val": 0.25,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.5,
+          1.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.875,
+      "voi_belief_sel": 0.8333,
+      "voi_belief_matched_val": 0.5833,
+      "sensing_execution_cost_val": 0.2916,
+      "voi_residual_prior_val": 0.75,
+      "prior_advantage_val": 0.125,
+      "detection_value_val": -0.2083,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.598_d0.06_v+0": 0.1667,
+        "seeker_r20000_w12_t0.598_d0.06_v+0.75": 0.125,
+        "seeker_r20000_w12_t0.598_d0.15_v+0": 0.1667,
+        "seeker_r20000_w12_t0.598_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.0833,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.0833,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r20000_w25_t0.299_d0.06_v+0": 0.0833,
+        "seeker_r20000_w25_t0.299_d0.06_v+0.75": 0.125,
+        "seeker_r20000_w25_t0.299_d0.15_v+0": 0.0833,
+        "seeker_r20000_w25_t0.299_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w5_t1.194_d0.06_v+0": 0.0833,
+        "seeker_r20000_w5_t1.194_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w5_t1.194_d0.15_v+0": 0.0833,
+        "seeker_r20000_w5_t1.194_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w12_t0.598_d0.06_v+0": 0.1667,
+        "seeker_r2000_w12_t0.598_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w12_t0.598_d0.15_v+0": 0.1667,
+        "seeker_r2000_w12_t0.598_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.0417,
+        "seeker_r2000_w25_t0.299_d0.06_v+0": 0.0833,
+        "seeker_r2000_w25_t0.299_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w25_t0.299_d0.15_v+0": 0.0833,
+        "seeker_r2000_w25_t0.299_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w5_t1.194_d0.06_v+0": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.15_v+0": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.15_v+0.75": 0.0417,
+        "seeker_r6000_w12_t0.598_d0.06_v+0": 0.0833,
+        "seeker_r6000_w12_t0.598_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w12_t0.598_d0.15_v+0": 0.0833,
+        "seeker_r6000_w12_t0.598_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.0417,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.0417,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w25_t0.299_d0.06_v+0": 0.0833,
+        "seeker_r6000_w25_t0.299_d0.06_v+0.75": 0.125,
+        "seeker_r6000_w25_t0.299_d0.15_v+0": 0.0417,
+        "seeker_r6000_w25_t0.299_d0.15_v+0.75": 0.0833,
+        "seeker_r6000_w5_t1.194_d0.06_v+0": 0.0417,
+        "seeker_r6000_w5_t1.194_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w5_t1.194_d0.15_v+0": 0.0417,
+        "seeker_r6000_w5_t1.194_d0.15_v+0.75": 0.0
+      },
+      "elapsed_s": 62.1
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 5,
+      "noise_std": 0.0,
+      "delay_ms": 100,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 0.9583,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.06_v+0",
+        "success_sel": 0.625,
+        "success_val": 0.75,
+        "on_time_val": 0.875,
+        "collision_val": 0.125,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 31.7,
+          "mu_abs_err_mean": 0.0003,
+          "overshoot_episode_fraction": 0.3333
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w1_t0.08_v+0.75",
+        "success_sel": 0.7083,
+        "success_val": 0.75,
+        "on_time_val": 1.0,
+        "collision_val": 0.25,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 28.6,
+          "mu_abs_err_mean": 0.0003,
+          "overshoot_episode_fraction": 0.4167
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.4167,
+        "on_time_val": 0.9167,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.1667,
+        "success_val": 0.2083,
+        "on_time_val": 0.3333,
+        "collision_val": 0.125,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.2083,
+      "voi_belief_sel": 0.375,
+      "voi_belief_matched_val": 0.2083,
+      "sensing_execution_cost_val": -0.0,
+      "voi_residual_prior_val": 0.2083,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": 0.3333,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 0.625,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 0.625,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 0.5417,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 0.5833,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.5417,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 0.4583,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.4583,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.2083,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.2083,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.2083,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.2083,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.1667,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 0.2917,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.3333,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 0.2917,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.3333,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.25,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.3333,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.25,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.3333
+      },
+      "elapsed_s": 41.7
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 5,
+      "noise_std": 0.05,
+      "delay_ms": 100,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.598
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.367
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.367
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.75,
+        "success_val": 0.5417,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+1",
+          "oracle_dv+0.5"
+        ],
+        "per_point_success_val": [
+          0.5,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.5
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.367_d0.15_v+0",
+        "success_sel": 0.25,
+        "success_val": 0.2083,
+        "on_time_val": 0.7083,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5417,
+          "censored_fraction": 0.4583,
+          "id_step_mean": 41.6,
+          "mu_abs_err_mean": 0.0342,
+          "overshoot_episode_fraction": 0.5417
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r6000_w25_t0.367_v+0",
+        "success_sel": 0.25,
+        "success_val": 0.2083,
+        "on_time_val": 0.7083,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5,
+          "censored_fraction": 0.5,
+          "id_step_mean": 50.6,
+          "mu_abs_err_mean": 0.0298,
+          "overshoot_episode_fraction": 0.5417
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.3333,
+        "on_time_val": 0.9167,
+        "collision_val": 0.5833,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.1667,
+        "success_val": 0.1667,
+        "on_time_val": 0.2917,
+        "collision_val": 0.125,
+        "per_point_success_val": [
+          0.5,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.75,
+      "voi_belief_sel": 0.75,
+      "voi_belief_matched_val": 0.3333,
+      "sensing_execution_cost_val": 0.4166,
+      "voi_residual_prior_val": 0.75,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": -0.125,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.598_d0.06_v+0": 0.0833,
+        "seeker_r20000_w12_t0.598_d0.06_v+0.75": 0.0833,
+        "seeker_r20000_w12_t0.598_d0.15_v+0": 0.0833,
+        "seeker_r20000_w12_t0.598_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.0417,
+        "seeker_r20000_w25_t0.367_d0.06_v+0": 0.25,
+        "seeker_r20000_w25_t0.367_d0.06_v+0.75": 0.0833,
+        "seeker_r20000_w25_t0.367_d0.15_v+0": 0.25,
+        "seeker_r20000_w25_t0.367_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w5_t1.2_d0.06_v+0": 0.0417,
+        "seeker_r20000_w5_t1.2_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w5_t1.2_d0.15_v+0": 0.0417,
+        "seeker_r20000_w5_t1.2_d0.15_v+0.75": 0.0417,
+        "seeker_r2000_w12_t0.598_d0.06_v+0": 0.125,
+        "seeker_r2000_w12_t0.598_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w12_t0.598_d0.15_v+0": 0.125,
+        "seeker_r2000_w12_t0.598_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w25_t0.367_d0.06_v+0": 0.125,
+        "seeker_r2000_w25_t0.367_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w25_t0.367_d0.15_v+0": 0.1667,
+        "seeker_r2000_w25_t0.367_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w5_t1.2_d0.06_v+0": 0.0,
+        "seeker_r2000_w5_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w5_t1.2_d0.15_v+0": 0.0,
+        "seeker_r2000_w5_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w12_t0.598_d0.06_v+0": 0.0417,
+        "seeker_r6000_w12_t0.598_d0.06_v+0.75": 0.0833,
+        "seeker_r6000_w12_t0.598_d0.15_v+0": 0.0417,
+        "seeker_r6000_w12_t0.598_d0.15_v+0.75": 0.0833,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w25_t0.367_d0.06_v+0": 0.1667,
+        "seeker_r6000_w25_t0.367_d0.06_v+0.75": 0.0417,
+        "seeker_r6000_w25_t0.367_d0.15_v+0": 0.1667,
+        "seeker_r6000_w25_t0.367_d0.15_v+0.75": 0.0417,
+        "seeker_r6000_w5_t1.2_d0.06_v+0": 0.0,
+        "seeker_r6000_w5_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w5_t1.2_d0.15_v+0": 0.0,
+        "seeker_r6000_w5_t1.2_d0.15_v+0.75": 0.0
+      },
+      "elapsed_s": 63.2
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 12,
+      "noise_std": 0.0,
+      "delay_ms": 240,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 0.875,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.06_v+0.75",
+        "success_sel": 0.4583,
+        "success_val": 0.3333,
+        "on_time_val": 1.0,
+        "collision_val": 0.6667,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 38.7,
+          "mu_abs_err_mean": 0.0001,
+          "overshoot_episode_fraction": 0.5417
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w1_t0.08_v+0.75",
+        "success_sel": 0.5,
+        "success_val": 0.4583,
+        "on_time_val": 1.0,
+        "collision_val": 0.5417,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 35.6,
+          "mu_abs_err_mean": 0.0002,
+          "overshoot_episode_fraction": 0.5
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.4167,
+        "on_time_val": 0.9167,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.1667,
+        "success_val": 0.1667,
+        "on_time_val": 0.4167,
+        "collision_val": 0.25,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.625,
+      "voi_belief_sel": 0.5417,
+      "voi_belief_matched_val": 0.5417,
+      "sensing_execution_cost_val": 0.0833,
+      "voi_residual_prior_val": 0.5,
+      "prior_advantage_val": 0.125,
+      "detection_value_val": -0.0833,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 0.3333,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 0.4583,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 0.3333,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 0.4583,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.2917,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 0.375,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.2917,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 0.375,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.2083,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.2083,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.1667,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 0.25,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.25,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 0.25,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.25,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.25,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.25,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.25,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.25
+      },
+      "elapsed_s": 41.5
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 12,
+      "noise_std": 0.05,
+      "delay_ms": 240,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.194
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.601
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.347
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.347
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.7083,
+        "success_val": 0.4583,
+        "on_time_val": 0.9167,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1"
+        ],
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.347_d0.06_v+0",
+        "success_sel": 0.125,
+        "success_val": 0.3333,
+        "on_time_val": 0.8333,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          1.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5833,
+          "censored_fraction": 0.4167,
+          "id_step_mean": 47.5,
+          "mu_abs_err_mean": 0.0257,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w25_t0.347_v+0",
+        "success_sel": 0.125,
+        "success_val": 0.25,
+        "on_time_val": 0.8333,
+        "collision_val": 0.5833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5833,
+          "censored_fraction": 0.4167,
+          "id_step_mean": 46.6,
+          "mu_abs_err_mean": 0.0253,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.2917,
+        "on_time_val": 0.9167,
+        "collision_val": 0.625,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.1667,
+        "success_val": 0.1667,
+        "on_time_val": 0.3333,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.5,
+          0.0,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.625,
+      "voi_belief_sel": 0.875,
+      "voi_belief_matched_val": 0.125,
+      "sensing_execution_cost_val": 0.5,
+      "voi_residual_prior_val": 0.7083,
+      "prior_advantage_val": -0.0833,
+      "detection_value_val": 0.0417,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.601_d0.06_v+0": 0.125,
+        "seeker_r20000_w12_t0.601_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w12_t0.601_d0.15_v+0": 0.125,
+        "seeker_r20000_w12_t0.601_d0.15_v+0.75": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r20000_w25_t0.347_d0.06_v+0": 0.125,
+        "seeker_r20000_w25_t0.347_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w25_t0.347_d0.15_v+0": 0.125,
+        "seeker_r20000_w25_t0.347_d0.15_v+0.75": 0.0417,
+        "seeker_r20000_w5_t1.194_d0.06_v+0": 0.0,
+        "seeker_r20000_w5_t1.194_d0.06_v+0.75": 0.0,
+        "seeker_r20000_w5_t1.194_d0.15_v+0": 0.0,
+        "seeker_r20000_w5_t1.194_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w12_t0.601_d0.06_v+0": 0.125,
+        "seeker_r2000_w12_t0.601_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w12_t0.601_d0.15_v+0": 0.125,
+        "seeker_r2000_w12_t0.601_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.0417,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.0417,
+        "seeker_r2000_w25_t0.347_d0.06_v+0": 0.0833,
+        "seeker_r2000_w25_t0.347_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w25_t0.347_d0.15_v+0": 0.0833,
+        "seeker_r2000_w25_t0.347_d0.15_v+0.75": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.06_v+0": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.15_v+0": 0.0417,
+        "seeker_r2000_w5_t1.194_d0.15_v+0.75": 0.0417,
+        "seeker_r6000_w12_t0.601_d0.06_v+0": 0.0417,
+        "seeker_r6000_w12_t0.601_d0.06_v+0.75": 0.125,
+        "seeker_r6000_w12_t0.601_d0.15_v+0": 0.0417,
+        "seeker_r6000_w12_t0.601_d0.15_v+0.75": 0.125,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w25_t0.347_d0.06_v+0": 0.0833,
+        "seeker_r6000_w25_t0.347_d0.06_v+0.75": 0.0833,
+        "seeker_r6000_w25_t0.347_d0.15_v+0": 0.0833,
+        "seeker_r6000_w25_t0.347_d0.15_v+0.75": 0.0833,
+        "seeker_r6000_w5_t1.194_d0.06_v+0": 0.0,
+        "seeker_r6000_w5_t1.194_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w5_t1.194_d0.15_v+0": 0.0,
+        "seeker_r6000_w5_t1.194_d0.15_v+0.75": 0.0
+      },
+      "elapsed_s": 63.2
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "delay_ms": 500,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.5833,
+        "success_val": 0.625,
+        "on_time_val": 0.8333,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+0"
+        ],
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.06_v+0.75",
+        "success_sel": 0.2917,
+        "success_val": 0.2917,
+        "on_time_val": 0.9583,
+        "collision_val": 0.6667,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 51.7,
+          "mu_abs_err_mean": 0.0,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w1_t0.08_v+0.75",
+        "success_sel": 0.3333,
+        "success_val": 0.3333,
+        "on_time_val": 0.8333,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 48.6,
+          "mu_abs_err_mean": 0.0001,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.375,
+        "success_val": 0.375,
+        "on_time_val": 1.0,
+        "collision_val": 0.625,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.1667,
+        "success_val": 0.2083,
+        "on_time_val": 0.4167,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.6666,
+      "voi_belief_sel": 0.7083,
+      "voi_belief_matched_val": 0.3333,
+      "sensing_execution_cost_val": 0.3333,
+      "voi_residual_prior_val": 0.625,
+      "prior_advantage_val": 0.0417,
+      "detection_value_val": -0.0833,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 0.1667,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 0.2917,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 0.1667,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 0.2917,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.1667,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 0.25,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.1667,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 0.25,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.125,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.125,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.125,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.125,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 0.2083,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 0.2083,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.1667,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.1667,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.0
+      },
+      "elapsed_s": 41.8
+    },
+    {
+      "reveal_m": 9.5,
+      "delay_steps": 25,
+      "noise_std": 0.05,
+      "delay_ms": 500,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.495
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.341
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.341
+      },
+      "oracle_clean_anchor": {
+        "success_val": 0.9583,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.5417,
+        "success_val": 0.3333,
+        "on_time_val": 0.75,
+        "plan_per_point": [
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+0"
+        ],
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          0.5,
+          0.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.341_d0.15_v+0",
+        "success_sel": 0.125,
+        "success_val": 0.0833,
+        "on_time_val": 0.375,
+        "collision_val": 0.2917,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.6667,
+          "censored_fraction": 0.3333,
+          "id_step_mean": 62.1,
+          "mu_abs_err_mean": 0.0383,
+          "overshoot_episode_fraction": 0.6667
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w25_t0.341_v+0",
+        "success_sel": 0.125,
+        "success_val": 0.0833,
+        "on_time_val": 0.5417,
+        "collision_val": 0.4583,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.6667,
+          "censored_fraction": 0.3333,
+          "id_step_mean": 61.2,
+          "mu_abs_err_mean": 0.0379,
+          "overshoot_episode_fraction": 0.6667
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.25,
+        "success_val": 0.25,
+        "on_time_val": 0.9583,
+        "collision_val": 0.7083,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f0.35_h1",
+        "success_sel": 0.1667,
+        "success_val": 0.2917,
+        "on_time_val": 0.4583,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.5,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.875,
+      "voi_belief_sel": 0.875,
+      "voi_belief_matched_val": 0.25,
+      "sensing_execution_cost_val": 0.625,
+      "voi_residual_prior_val": 0.875,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": -0.2083,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.495_d0.06_v+0": 0.0833,
+        "seeker_r20000_w12_t0.495_d0.06_v+0.75": 0.0417,
+        "seeker_r20000_w12_t0.495_d0.15_v+0": 0.0833,
+        "seeker_r20000_w12_t0.495_d0.15_v+0.75": 0.0417,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r20000_w25_t0.341_d0.06_v+0": 0.125,
+        "seeker_r20000_w25_t0.341_d0.06_v+0.75": 0.0833,
+        "seeker_r20000_w25_t0.341_d0.15_v+0": 0.125,
+        "seeker_r20000_w25_t0.341_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w5_t1.2_d0.06_v+0": 0.0,
+        "seeker_r20000_w5_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r20000_w5_t1.2_d0.15_v+0": 0.0,
+        "seeker_r20000_w5_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w12_t0.495_d0.06_v+0": 0.0417,
+        "seeker_r2000_w12_t0.495_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w12_t0.495_d0.15_v+0": 0.0417,
+        "seeker_r2000_w12_t0.495_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r2000_w25_t0.341_d0.06_v+0": 0.0833,
+        "seeker_r2000_w25_t0.341_d0.06_v+0.75": 0.0417,
+        "seeker_r2000_w25_t0.341_d0.15_v+0": 0.0833,
+        "seeker_r2000_w25_t0.341_d0.15_v+0.75": 0.0417,
+        "seeker_r2000_w5_t1.2_d0.06_v+0": 0.0,
+        "seeker_r2000_w5_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r2000_w5_t1.2_d0.15_v+0": 0.0,
+        "seeker_r2000_w5_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w12_t0.495_d0.06_v+0": 0.0417,
+        "seeker_r6000_w12_t0.495_d0.06_v+0.75": 0.0417,
+        "seeker_r6000_w12_t0.495_d0.15_v+0": 0.0833,
+        "seeker_r6000_w12_t0.495_d0.15_v+0.75": 0.0417,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.0,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.0,
+        "seeker_r6000_w25_t0.341_d0.06_v+0": 0.0417,
+        "seeker_r6000_w25_t0.341_d0.06_v+0.75": 0.0833,
+        "seeker_r6000_w25_t0.341_d0.15_v+0": 0.0417,
+        "seeker_r6000_w25_t0.341_d0.15_v+0.75": 0.0833,
+        "seeker_r6000_w5_t1.2_d0.06_v+0": 0.0,
+        "seeker_r6000_w5_t1.2_d0.06_v+0.75": 0.0,
+        "seeker_r6000_w5_t1.2_d0.15_v+0": 0.0,
+        "seeker_r6000_w5_t1.2_d0.15_v+0.75": 0.0
+      },
+      "elapsed_s": 64.4
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 0,
+      "noise_std": 0.0,
+      "delay_ms": 0,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.15_v+0",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 26.7,
+          "mu_abs_err_mean": 0.0005,
+          "overshoot_episode_fraction": 0.2083
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r6000_w1_t0.08_v+0",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 29.6,
+          "mu_abs_err_mean": 0.0003,
+          "overshoot_episode_fraction": 0.1667
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.75,
+        "success_val": 0.75,
+        "on_time_val": 0.9167,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.3333,
+        "success_val": 0.3333,
+        "on_time_val": 0.3333,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.0,
+      "voi_belief_sel": 0.0,
+      "voi_belief_matched_val": 0.0,
+      "sensing_execution_cost_val": 0.0,
+      "voi_residual_prior_val": 0.0,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": 0.25,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 1.0,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.5,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.5,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.375,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.4167,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.375,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.4167,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 1.0
+      },
+      "elapsed_s": 40.3
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 0,
+      "noise_std": 0.05,
+      "delay_ms": 0,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.194
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.598
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.299
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.299
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.9583,
+        "success_val": 0.875,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r6000_w25_t0.299_d0.06_v+0.75",
+        "success_sel": 0.7917,
+        "success_val": 0.7917,
+        "on_time_val": 1.0,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.75,
+          "censored_fraction": 0.25,
+          "id_step_mean": 51.8,
+          "mu_abs_err_mean": 0.0265,
+          "overshoot_episode_fraction": 0.5417
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w25_t0.299_v+0",
+        "success_sel": 0.9167,
+        "success_val": 0.75,
+        "on_time_val": 0.9583,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.625,
+          "censored_fraction": 0.375,
+          "id_step_mean": 35.9,
+          "mu_abs_err_mean": 0.0213,
+          "overshoot_episode_fraction": 0.5417
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.75,
+        "success_val": 0.75,
+        "on_time_val": 0.9583,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.375,
+        "success_val": 0.2917,
+        "on_time_val": 0.375,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.2083,
+      "voi_belief_sel": 0.2083,
+      "voi_belief_matched_val": 0.0833,
+      "sensing_execution_cost_val": 0.125,
+      "voi_residual_prior_val": 0.25,
+      "prior_advantage_val": -0.0417,
+      "detection_value_val": 0.0417,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.598_d0.06_v+0": 0.5833,
+        "seeker_r20000_w12_t0.598_d0.06_v+0.75": 0.7083,
+        "seeker_r20000_w12_t0.598_d0.15_v+0": 0.5833,
+        "seeker_r20000_w12_t0.598_d0.15_v+0.75": 0.7083,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.4583,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.5,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.4583,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.5,
+        "seeker_r20000_w25_t0.299_d0.06_v+0": 0.75,
+        "seeker_r20000_w25_t0.299_d0.06_v+0.75": 0.75,
+        "seeker_r20000_w25_t0.299_d0.15_v+0": 0.75,
+        "seeker_r20000_w25_t0.299_d0.15_v+0.75": 0.75,
+        "seeker_r20000_w5_t1.194_d0.06_v+0": 0.4583,
+        "seeker_r20000_w5_t1.194_d0.06_v+0.75": 0.5,
+        "seeker_r20000_w5_t1.194_d0.15_v+0": 0.4583,
+        "seeker_r20000_w5_t1.194_d0.15_v+0.75": 0.5,
+        "seeker_r2000_w12_t0.598_d0.06_v+0": 0.3333,
+        "seeker_r2000_w12_t0.598_d0.06_v+0.75": 0.25,
+        "seeker_r2000_w12_t0.598_d0.15_v+0": 0.2917,
+        "seeker_r2000_w12_t0.598_d0.15_v+0.75": 0.25,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.2917,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.2917,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.25,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.2917,
+        "seeker_r2000_w25_t0.299_d0.06_v+0": 0.4167,
+        "seeker_r2000_w25_t0.299_d0.06_v+0.75": 0.4583,
+        "seeker_r2000_w25_t0.299_d0.15_v+0": 0.375,
+        "seeker_r2000_w25_t0.299_d0.15_v+0.75": 0.4583,
+        "seeker_r2000_w5_t1.194_d0.06_v+0": 0.2917,
+        "seeker_r2000_w5_t1.194_d0.06_v+0.75": 0.2917,
+        "seeker_r2000_w5_t1.194_d0.15_v+0": 0.25,
+        "seeker_r2000_w5_t1.194_d0.15_v+0.75": 0.2917,
+        "seeker_r6000_w12_t0.598_d0.06_v+0": 0.5417,
+        "seeker_r6000_w12_t0.598_d0.06_v+0.75": 0.6667,
+        "seeker_r6000_w12_t0.598_d0.15_v+0": 0.5417,
+        "seeker_r6000_w12_t0.598_d0.15_v+0.75": 0.6667,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.375,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.5417,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.375,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.5417,
+        "seeker_r6000_w25_t0.299_d0.06_v+0": 0.5833,
+        "seeker_r6000_w25_t0.299_d0.06_v+0.75": 0.7917,
+        "seeker_r6000_w25_t0.299_d0.15_v+0": 0.5833,
+        "seeker_r6000_w25_t0.299_d0.15_v+0.75": 0.75,
+        "seeker_r6000_w5_t1.194_d0.06_v+0": 0.375,
+        "seeker_r6000_w5_t1.194_d0.06_v+0.75": 0.5417,
+        "seeker_r6000_w5_t1.194_d0.15_v+0": 0.375,
+        "seeker_r6000_w5_t1.194_d0.15_v+0.75": 0.5417
+      },
+      "elapsed_s": 62.0
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 5,
+      "noise_std": 0.0,
+      "delay_ms": 100,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.08_d0.06_v+0",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 31.7,
+          "mu_abs_err_mean": 0.0003,
+          "overshoot_episode_fraction": 0.5
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r6000_w1_t0.08_v+0",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 34.6,
+          "mu_abs_err_mean": 0.0002,
+          "overshoot_episode_fraction": 0.3333
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.75,
+        "success_val": 0.7917,
+        "on_time_val": 0.9167,
+        "collision_val": 0.125,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.375,
+        "success_val": 0.4167,
+        "on_time_val": 0.4167,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.0,
+      "voi_belief_sel": 0.0,
+      "voi_belief_matched_val": 0.0,
+      "sensing_execution_cost_val": 0.0,
+      "voi_residual_prior_val": 0.0,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": 0.2083,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 1.0,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.4167,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.4167,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.375,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.375,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.375,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.375,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 1.0,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 1.0
+      },
+      "elapsed_s": 40.7
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 5,
+      "noise_std": 0.05,
+      "delay_ms": 100,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.598
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.367
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.367
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.9583,
+        "success_val": 0.875,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+0"
+        ],
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.367_d0.15_v+0.75",
+        "success_sel": 0.9167,
+        "success_val": 0.7917,
+        "on_time_val": 1.0,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5833,
+          "censored_fraction": 0.4167,
+          "id_step_mean": 41.5,
+          "mu_abs_err_mean": 0.0229,
+          "overshoot_episode_fraction": 0.625
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r6000_w25_t0.367_v+0.75",
+        "success_sel": 0.8333,
+        "success_val": 0.9167,
+        "on_time_val": 1.0,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.5833,
+          "censored_fraction": 0.4167,
+          "id_step_mean": 49.8,
+          "mu_abs_err_mean": 0.0123,
+          "overshoot_episode_fraction": 0.625
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.7917,
+        "success_val": 0.75,
+        "on_time_val": 0.9583,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.4167,
+        "success_val": 0.2917,
+        "on_time_val": 0.375,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.2083,
+      "voi_belief_sel": 0.0833,
+      "voi_belief_matched_val": 0.0833,
+      "sensing_execution_cost_val": 0.125,
+      "voi_residual_prior_val": 0.0833,
+      "prior_advantage_val": 0.125,
+      "detection_value_val": 0.0417,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.598_d0.06_v+0": 0.6667,
+        "seeker_r20000_w12_t0.598_d0.06_v+0.75": 0.7083,
+        "seeker_r20000_w12_t0.598_d0.15_v+0": 0.5833,
+        "seeker_r20000_w12_t0.598_d0.15_v+0.75": 0.625,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.4167,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.4167,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.375,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.4167,
+        "seeker_r20000_w25_t0.367_d0.06_v+0": 0.6667,
+        "seeker_r20000_w25_t0.367_d0.06_v+0.75": 0.9167,
+        "seeker_r20000_w25_t0.367_d0.15_v+0": 0.625,
+        "seeker_r20000_w25_t0.367_d0.15_v+0.75": 0.9167,
+        "seeker_r20000_w5_t1.2_d0.06_v+0": 0.4167,
+        "seeker_r20000_w5_t1.2_d0.06_v+0.75": 0.4167,
+        "seeker_r20000_w5_t1.2_d0.15_v+0": 0.375,
+        "seeker_r20000_w5_t1.2_d0.15_v+0.75": 0.4167,
+        "seeker_r2000_w12_t0.598_d0.06_v+0": 0.2917,
+        "seeker_r2000_w12_t0.598_d0.06_v+0.75": 0.2917,
+        "seeker_r2000_w12_t0.598_d0.15_v+0": 0.2917,
+        "seeker_r2000_w12_t0.598_d0.15_v+0.75": 0.2917,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.2917,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.3333,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.2917,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.3333,
+        "seeker_r2000_w25_t0.367_d0.06_v+0": 0.3333,
+        "seeker_r2000_w25_t0.367_d0.06_v+0.75": 0.4583,
+        "seeker_r2000_w25_t0.367_d0.15_v+0": 0.3333,
+        "seeker_r2000_w25_t0.367_d0.15_v+0.75": 0.4583,
+        "seeker_r2000_w5_t1.2_d0.06_v+0": 0.2917,
+        "seeker_r2000_w5_t1.2_d0.06_v+0.75": 0.3333,
+        "seeker_r2000_w5_t1.2_d0.15_v+0": 0.2917,
+        "seeker_r2000_w5_t1.2_d0.15_v+0.75": 0.3333,
+        "seeker_r6000_w12_t0.598_d0.06_v+0": 0.5417,
+        "seeker_r6000_w12_t0.598_d0.06_v+0.75": 0.5417,
+        "seeker_r6000_w12_t0.598_d0.15_v+0": 0.5417,
+        "seeker_r6000_w12_t0.598_d0.15_v+0.75": 0.5,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.5417,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.4167,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.5417,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.4167,
+        "seeker_r6000_w25_t0.367_d0.06_v+0": 0.7917,
+        "seeker_r6000_w25_t0.367_d0.06_v+0.75": 0.7917,
+        "seeker_r6000_w25_t0.367_d0.15_v+0": 0.75,
+        "seeker_r6000_w25_t0.367_d0.15_v+0.75": 0.7917,
+        "seeker_r6000_w5_t1.2_d0.06_v+0": 0.5417,
+        "seeker_r6000_w5_t1.2_d0.06_v+0.75": 0.4167,
+        "seeker_r6000_w5_t1.2_d0.15_v+0": 0.5417,
+        "seeker_r6000_w5_t1.2_d0.15_v+0.75": 0.4167
+      },
+      "elapsed_s": 62.3
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 12,
+      "noise_std": 0.0,
+      "delay_ms": 240,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.18_d0.06_v+0.75",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.8333,
+          "censored_fraction": 0.1667,
+          "id_step_mean": 39.0,
+          "mu_abs_err_mean": 0.0002,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r6000_w1_t0.08_v+0",
+        "success_sel": 1.0,
+        "success_val": 1.0,
+        "on_time_val": 1.0,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 41.6,
+          "mu_abs_err_mean": 0.0136,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.75,
+        "success_val": 0.8333,
+        "on_time_val": 1.0,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.4167,
+        "success_val": 0.4167,
+        "on_time_val": 0.4167,
+        "collision_val": 0.0,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.0,
+      "voi_belief_sel": 0.0,
+      "voi_belief_matched_val": 0.0,
+      "sensing_execution_cost_val": 0.0,
+      "voi_residual_prior_val": 0.0,
+      "prior_advantage_val": 0.0,
+      "detection_value_val": 0.1667,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 1.0,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.9583,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 1.0,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.375,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.2917,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.375,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.2917,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.2917,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.25,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.2917,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.25,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.7083,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 1.0,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.7083,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.6667,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.875,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.6667
+      },
+      "elapsed_s": 40.7
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 12,
+      "noise_std": 0.05,
+      "delay_ms": 240,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.194
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.601
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.347
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.347
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.9167,
+        "success_val": 0.7917,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv+1",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv+0.5",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          1.0,
+          1.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.347_d0.15_v+0.75",
+        "success_sel": 0.875,
+        "success_val": 0.8333,
+        "on_time_val": 1.0,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.5,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.625,
+          "censored_fraction": 0.375,
+          "id_step_mean": 47.5,
+          "mu_abs_err_mean": 0.0197,
+          "overshoot_episode_fraction": 0.625
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w25_t0.347_v+0.75",
+        "success_sel": 0.7917,
+        "success_val": 0.7917,
+        "on_time_val": 1.0,
+        "collision_val": 0.2083,
+        "per_point_success_val": [
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.6667,
+          "censored_fraction": 0.3333,
+          "id_step_mean": 46.4,
+          "mu_abs_err_mean": 0.0225,
+          "overshoot_episode_fraction": 0.6667
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.7917,
+        "success_val": 0.7917,
+        "on_time_val": 0.9583,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.4583,
+        "success_val": 0.3333,
+        "on_time_val": 0.4167,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.1667,
+      "voi_belief_sel": 0.125,
+      "voi_belief_matched_val": -0.0417,
+      "sensing_execution_cost_val": 0.2083,
+      "voi_residual_prior_val": 0.2083,
+      "prior_advantage_val": -0.0417,
+      "detection_value_val": 0.0417,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.601_d0.06_v+0": 0.625,
+        "seeker_r20000_w12_t0.601_d0.06_v+0.75": 0.625,
+        "seeker_r20000_w12_t0.601_d0.15_v+0": 0.625,
+        "seeker_r20000_w12_t0.601_d0.15_v+0.75": 0.625,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.4167,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.375,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.4167,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.375,
+        "seeker_r20000_w25_t0.347_d0.06_v+0": 0.625,
+        "seeker_r20000_w25_t0.347_d0.06_v+0.75": 0.875,
+        "seeker_r20000_w25_t0.347_d0.15_v+0": 0.625,
+        "seeker_r20000_w25_t0.347_d0.15_v+0.75": 0.875,
+        "seeker_r20000_w5_t1.194_d0.06_v+0": 0.4167,
+        "seeker_r20000_w5_t1.194_d0.06_v+0.75": 0.375,
+        "seeker_r20000_w5_t1.194_d0.15_v+0": 0.4167,
+        "seeker_r20000_w5_t1.194_d0.15_v+0.75": 0.375,
+        "seeker_r2000_w12_t0.601_d0.06_v+0": 0.25,
+        "seeker_r2000_w12_t0.601_d0.06_v+0.75": 0.4167,
+        "seeker_r2000_w12_t0.601_d0.15_v+0": 0.25,
+        "seeker_r2000_w12_t0.601_d0.15_v+0.75": 0.4583,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.25,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.3333,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.25,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.375,
+        "seeker_r2000_w25_t0.347_d0.06_v+0": 0.4583,
+        "seeker_r2000_w25_t0.347_d0.06_v+0.75": 0.2083,
+        "seeker_r2000_w25_t0.347_d0.15_v+0": 0.4583,
+        "seeker_r2000_w25_t0.347_d0.15_v+0.75": 0.125,
+        "seeker_r2000_w5_t1.194_d0.06_v+0": 0.25,
+        "seeker_r2000_w5_t1.194_d0.06_v+0.75": 0.3333,
+        "seeker_r2000_w5_t1.194_d0.15_v+0": 0.25,
+        "seeker_r2000_w5_t1.194_d0.15_v+0.75": 0.375,
+        "seeker_r6000_w12_t0.601_d0.06_v+0": 0.375,
+        "seeker_r6000_w12_t0.601_d0.06_v+0.75": 0.4167,
+        "seeker_r6000_w12_t0.601_d0.15_v+0": 0.3333,
+        "seeker_r6000_w12_t0.601_d0.15_v+0.75": 0.375,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.3333,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.2917,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.2917,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.2917,
+        "seeker_r6000_w25_t0.347_d0.06_v+0": 0.6667,
+        "seeker_r6000_w25_t0.347_d0.06_v+0.75": 0.5417,
+        "seeker_r6000_w25_t0.347_d0.15_v+0": 0.6667,
+        "seeker_r6000_w25_t0.347_d0.15_v+0.75": 0.5417,
+        "seeker_r6000_w5_t1.194_d0.06_v+0": 0.3333,
+        "seeker_r6000_w5_t1.194_d0.06_v+0.75": 0.2917,
+        "seeker_r6000_w5_t1.194_d0.15_v+0": 0.2917,
+        "seeker_r6000_w5_t1.194_d0.15_v+0.75": 0.2917
+      },
+      "elapsed_s": 62.2
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 25,
+      "noise_std": 0.0,
+      "delay_ms": 500,
+      "episodes": 1152,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 0.08
+        },
+        {
+          "smooth_window": 1,
+          "tau": 0.18
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 1,
+        "tau": 0.08
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.625,
+        "success_val": 0.5417,
+        "on_time_val": 0.9583,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv+0",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          0.5,
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w1_t0.18_d0.15_v+0",
+        "success_sel": 0.6667,
+        "success_val": 0.6667,
+        "on_time_val": 1.0,
+        "collision_val": 0.3333,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.8333,
+          "censored_fraction": 0.1667,
+          "id_step_mean": 52.0,
+          "mu_abs_err_mean": 0.0001,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w1_t0.08_v+0",
+        "success_sel": 0.6667,
+        "success_val": 0.625,
+        "on_time_val": 1.0,
+        "collision_val": 0.375,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 1.0,
+          "censored_fraction": 0.0,
+          "id_step_mean": 48.6,
+          "mu_abs_err_mean": 0.0001,
+          "overshoot_episode_fraction": 0.5833
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.8333,
+        "success_val": 0.9167,
+        "on_time_val": 1.0,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.5,
+        "success_val": 0.4167,
+        "on_time_val": 0.5,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.3333,
+      "voi_belief_sel": 0.3333,
+      "voi_belief_matched_val": -0.125,
+      "sensing_execution_cost_val": 0.4583,
+      "voi_residual_prior_val": 0.375,
+      "prior_advantage_val": -0.0417,
+      "detection_value_val": -0.25,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w1_t0.08_d0.06_v+0": 0.5417,
+        "seeker_r20000_w1_t0.08_d0.06_v+0.75": 0.2917,
+        "seeker_r20000_w1_t0.08_d0.15_v+0": 0.5833,
+        "seeker_r20000_w1_t0.08_d0.15_v+0.75": 0.2917,
+        "seeker_r20000_w1_t0.18_d0.06_v+0": 0.625,
+        "seeker_r20000_w1_t0.18_d0.06_v+0.75": 0.25,
+        "seeker_r20000_w1_t0.18_d0.15_v+0": 0.6667,
+        "seeker_r20000_w1_t0.18_d0.15_v+0.75": 0.25,
+        "seeker_r2000_w1_t0.08_d0.06_v+0": 0.1667,
+        "seeker_r2000_w1_t0.08_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w1_t0.08_d0.15_v+0": 0.1667,
+        "seeker_r2000_w1_t0.08_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w1_t0.18_d0.06_v+0": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w1_t0.18_d0.15_v+0": 0.1667,
+        "seeker_r2000_w1_t0.18_d0.15_v+0.75": 0.0833,
+        "seeker_r6000_w1_t0.08_d0.06_v+0": 0.4583,
+        "seeker_r6000_w1_t0.08_d0.06_v+0.75": 0.1667,
+        "seeker_r6000_w1_t0.08_d0.15_v+0": 0.4583,
+        "seeker_r6000_w1_t0.08_d0.15_v+0.75": 0.1667,
+        "seeker_r6000_w1_t0.18_d0.06_v+0": 0.4167,
+        "seeker_r6000_w1_t0.18_d0.06_v+0.75": 0.125,
+        "seeker_r6000_w1_t0.18_d0.15_v+0": 0.4167,
+        "seeker_r6000_w1_t0.18_d0.15_v+0.75": 0.125
+      },
+      "elapsed_s": 39.9
+    },
+    {
+      "reveal_m": 12.0,
+      "delay_steps": 25,
+      "noise_std": 0.05,
+      "delay_ms": 500,
+      "episodes": 1728,
+      "detector_variants_offered": [
+        {
+          "smooth_window": 1,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 5,
+          "tau": 1.2
+        },
+        {
+          "smooth_window": 12,
+          "tau": 0.495
+        },
+        {
+          "smooth_window": 25,
+          "tau": 0.341
+        }
+      ],
+      "prior_detector_variant": {
+        "smooth_window": 25,
+        "tau": 0.341
+      },
+      "oracle_clean_anchor": {
+        "success_val": 1.0,
+        "success_sel": 1.0
+      },
+      "oracle_degraded": {
+        "success_sel": 0.8333,
+        "success_val": 0.5,
+        "on_time_val": 1.0,
+        "plan_per_point": [
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+1",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv+0",
+          "oracle_dv-0.5",
+          "oracle_dv+0.5",
+          "oracle_dv-0.5",
+          "oracle_dv-0.5"
+        ],
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0,
+          0.5
+        ]
+      },
+      "best_seeker": {
+        "plan": "seeker_r20000_w25_t0.341_d0.15_v+0",
+        "success_sel": 0.3333,
+        "success_val": 0.4167,
+        "on_time_val": 0.9583,
+        "collision_val": 0.5417,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.5
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.6667,
+          "censored_fraction": 0.3333,
+          "id_step_mean": 62.1,
+          "mu_abs_err_mean": 0.0308,
+          "overshoot_episode_fraction": 0.6667
+        }
+      },
+      "best_prior_seeker": {
+        "plan": "prior_r20000_w25_t0.341_v+0",
+        "success_sel": 0.5,
+        "success_val": 0.4583,
+        "on_time_val": 0.9583,
+        "collision_val": 0.5,
+        "per_point_success_val": [
+          1.0,
+          1.0,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          0.5,
+          0.0,
+          0.0,
+          0.5,
+          1.0,
+          0.5
+        ],
+        "id_telemetry_val": {
+          "identified_fraction": 0.6667,
+          "censored_fraction": 0.3333,
+          "id_step_mean": 61.2,
+          "mu_abs_err_mean": 0.0311,
+          "overshoot_episode_fraction": 0.6667
+        }
+      },
+      "best_fixed_speed": {
+        "plan": "fixed_v9.5",
+        "success_sel": 0.7917,
+        "success_val": 0.8333,
+        "on_time_val": 1.0,
+        "collision_val": 0.1667,
+        "per_point_success_val": [
+          0.0,
+          0.5,
+          0.5,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "best_fixed_ramp": {
+        "plan": "fixedramp_f1_h0.6",
+        "success_sel": 0.4583,
+        "success_val": 0.5,
+        "on_time_val": 0.5833,
+        "collision_val": 0.0833,
+        "per_point_success_val": [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          0.5,
+          1.0,
+          0.5,
+          0.5,
+          0.0,
+          0.5,
+          0.0,
+          0.0
+        ]
+      },
+      "voi_belief_val": 0.5833,
+      "voi_belief_sel": 0.6667,
+      "voi_belief_matched_val": 0.0833,
+      "sensing_execution_cost_val": 0.5,
+      "voi_residual_prior_val": 0.5417,
+      "prior_advantage_val": 0.0417,
+      "detection_value_val": -0.4167,
+      "seeker_family_sel_means": {
+        "seeker_r20000_w12_t0.495_d0.06_v+0": 0.25,
+        "seeker_r20000_w12_t0.495_d0.06_v+0.75": 0.1667,
+        "seeker_r20000_w12_t0.495_d0.15_v+0": 0.25,
+        "seeker_r20000_w12_t0.495_d0.15_v+0.75": 0.125,
+        "seeker_r20000_w1_t1.2_d0.06_v+0": 0.125,
+        "seeker_r20000_w1_t1.2_d0.06_v+0.75": 0.0833,
+        "seeker_r20000_w1_t1.2_d0.15_v+0": 0.125,
+        "seeker_r20000_w1_t1.2_d0.15_v+0.75": 0.0833,
+        "seeker_r20000_w25_t0.341_d0.06_v+0": 0.3333,
+        "seeker_r20000_w25_t0.341_d0.06_v+0.75": 0.1667,
+        "seeker_r20000_w25_t0.341_d0.15_v+0": 0.3333,
+        "seeker_r20000_w25_t0.341_d0.15_v+0.75": 0.1667,
+        "seeker_r20000_w5_t1.2_d0.06_v+0": 0.125,
+        "seeker_r20000_w5_t1.2_d0.06_v+0.75": 0.0833,
+        "seeker_r20000_w5_t1.2_d0.15_v+0": 0.125,
+        "seeker_r20000_w5_t1.2_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w12_t0.495_d0.06_v+0": 0.0833,
+        "seeker_r2000_w12_t0.495_d0.06_v+0.75": 0.0833,
+        "seeker_r2000_w12_t0.495_d0.15_v+0": 0.0833,
+        "seeker_r2000_w12_t0.495_d0.15_v+0.75": 0.0833,
+        "seeker_r2000_w1_t1.2_d0.06_v+0": 0.125,
+        "seeker_r2000_w1_t1.2_d0.06_v+0.75": 0.125,
+        "seeker_r2000_w1_t1.2_d0.15_v+0": 0.125,
+        "seeker_r2000_w1_t1.2_d0.15_v+0.75": 0.125,
+        "seeker_r2000_w25_t0.341_d0.06_v+0": 0.125,
+        "seeker_r2000_w25_t0.341_d0.06_v+0.75": 0.125,
+        "seeker_r2000_w25_t0.341_d0.15_v+0": 0.125,
+        "seeker_r2000_w25_t0.341_d0.15_v+0.75": 0.125,
+        "seeker_r2000_w5_t1.2_d0.06_v+0": 0.125,
+        "seeker_r2000_w5_t1.2_d0.06_v+0.75": 0.125,
+        "seeker_r2000_w5_t1.2_d0.15_v+0": 0.125,
+        "seeker_r2000_w5_t1.2_d0.15_v+0.75": 0.125,
+        "seeker_r6000_w12_t0.495_d0.06_v+0": 0.2917,
+        "seeker_r6000_w12_t0.495_d0.06_v+0.75": 0.1667,
+        "seeker_r6000_w12_t0.495_d0.15_v+0": 0.2917,
+        "seeker_r6000_w12_t0.495_d0.15_v+0.75": 0.2083,
+        "seeker_r6000_w1_t1.2_d0.06_v+0": 0.2083,
+        "seeker_r6000_w1_t1.2_d0.06_v+0.75": 0.2083,
+        "seeker_r6000_w1_t1.2_d0.15_v+0": 0.2083,
+        "seeker_r6000_w1_t1.2_d0.15_v+0.75": 0.2083,
+        "seeker_r6000_w25_t0.341_d0.06_v+0": 0.2083,
+        "seeker_r6000_w25_t0.341_d0.06_v+0.75": 0.25,
+        "seeker_r6000_w25_t0.341_d0.15_v+0": 0.2083,
+        "seeker_r6000_w25_t0.341_d0.15_v+0.75": 0.25,
+        "seeker_r6000_w5_t1.2_d0.06_v+0": 0.2083,
+        "seeker_r6000_w5_t1.2_d0.06_v+0.75": 0.2083,
+        "seeker_r6000_w5_t1.2_d0.15_v+0": 0.2083,
+        "seeker_r6000_w5_t1.2_d0.15_v+0.75": 0.2083
+      },
+      "elapsed_s": 62.9
+    }
+  ],
+  "voi_curves": {
+    "reveal_9.5m": [
+      {
+        "delay_steps": 0,
+        "delay_ms": 0,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.9583,
+        "seeker": 0.9583,
+        "prior_seeker": 0.875,
+        "fixed": 0.375,
+        "voi_belief": 0.0,
+        "voi_belief_matched": 0.0,
+        "prior_advantage": -0.0833,
+        "voi_residual_prior": 0.0833,
+        "detection_value": 0.5833
+      },
+      {
+        "delay_steps": 0,
+        "delay_ms": 0,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.6667,
+        "seeker": 0.0833,
+        "prior_seeker": 0.2083,
+        "fixed": 0.2917,
+        "voi_belief": 0.875,
+        "voi_belief_matched": 0.5833,
+        "prior_advantage": 0.125,
+        "voi_residual_prior": 0.75,
+        "detection_value": -0.2083
+      },
+      {
+        "delay_steps": 5,
+        "delay_ms": 100,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.9583,
+        "seeker": 0.75,
+        "prior_seeker": 0.75,
+        "fixed": 0.4167,
+        "voi_belief": 0.2083,
+        "voi_belief_matched": 0.2083,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.2083,
+        "detection_value": 0.3333
+      },
+      {
+        "delay_steps": 5,
+        "delay_ms": 100,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.5417,
+        "seeker": 0.2083,
+        "prior_seeker": 0.2083,
+        "fixed": 0.3333,
+        "voi_belief": 0.75,
+        "voi_belief_matched": 0.3333,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.75,
+        "detection_value": -0.125
+      },
+      {
+        "delay_steps": 12,
+        "delay_ms": 240,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.875,
+        "seeker": 0.3333,
+        "prior_seeker": 0.4583,
+        "fixed": 0.4167,
+        "voi_belief": 0.625,
+        "voi_belief_matched": 0.5417,
+        "prior_advantage": 0.125,
+        "voi_residual_prior": 0.5,
+        "detection_value": -0.0833
+      },
+      {
+        "delay_steps": 12,
+        "delay_ms": 240,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.4583,
+        "seeker": 0.3333,
+        "prior_seeker": 0.25,
+        "fixed": 0.2917,
+        "voi_belief": 0.625,
+        "voi_belief_matched": 0.125,
+        "prior_advantage": -0.0833,
+        "voi_residual_prior": 0.7083,
+        "detection_value": 0.0417
+      },
+      {
+        "delay_steps": 25,
+        "delay_ms": 500,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.625,
+        "seeker": 0.2917,
+        "prior_seeker": 0.3333,
+        "fixed": 0.375,
+        "voi_belief": 0.6666,
+        "voi_belief_matched": 0.3333,
+        "prior_advantage": 0.0417,
+        "voi_residual_prior": 0.625,
+        "detection_value": -0.0833
+      },
+      {
+        "delay_steps": 25,
+        "delay_ms": 500,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 0.9583,
+        "oracle_degraded": 0.3333,
+        "seeker": 0.0833,
+        "prior_seeker": 0.0833,
+        "fixed": 0.2917,
+        "voi_belief": 0.875,
+        "voi_belief_matched": 0.25,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.875,
+        "detection_value": -0.2083
+      }
+    ],
+    "reveal_12m": [
+      {
+        "delay_steps": 0,
+        "delay_ms": 0,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 1.0,
+        "seeker": 1.0,
+        "prior_seeker": 1.0,
+        "fixed": 0.75,
+        "voi_belief": 0.0,
+        "voi_belief_matched": 0.0,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.0,
+        "detection_value": 0.25
+      },
+      {
+        "delay_steps": 0,
+        "delay_ms": 0,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 0.875,
+        "seeker": 0.7917,
+        "prior_seeker": 0.75,
+        "fixed": 0.75,
+        "voi_belief": 0.2083,
+        "voi_belief_matched": 0.0833,
+        "prior_advantage": -0.0417,
+        "voi_residual_prior": 0.25,
+        "detection_value": 0.0417
+      },
+      {
+        "delay_steps": 5,
+        "delay_ms": 100,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 1.0,
+        "seeker": 1.0,
+        "prior_seeker": 1.0,
+        "fixed": 0.7917,
+        "voi_belief": 0.0,
+        "voi_belief_matched": 0.0,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.0,
+        "detection_value": 0.2083
+      },
+      {
+        "delay_steps": 5,
+        "delay_ms": 100,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 0.875,
+        "seeker": 0.7917,
+        "prior_seeker": 0.9167,
+        "fixed": 0.75,
+        "voi_belief": 0.2083,
+        "voi_belief_matched": 0.0833,
+        "prior_advantage": 0.125,
+        "voi_residual_prior": 0.0833,
+        "detection_value": 0.0417
+      },
+      {
+        "delay_steps": 12,
+        "delay_ms": 240,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 1.0,
+        "seeker": 1.0,
+        "prior_seeker": 1.0,
+        "fixed": 0.8333,
+        "voi_belief": 0.0,
+        "voi_belief_matched": 0.0,
+        "prior_advantage": 0.0,
+        "voi_residual_prior": 0.0,
+        "detection_value": 0.1667
+      },
+      {
+        "delay_steps": 12,
+        "delay_ms": 240,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 0.7917,
+        "seeker": 0.8333,
+        "prior_seeker": 0.7917,
+        "fixed": 0.7917,
+        "voi_belief": 0.1667,
+        "voi_belief_matched": -0.0417,
+        "prior_advantage": -0.0417,
+        "voi_residual_prior": 0.2083,
+        "detection_value": 0.0417
+      },
+      {
+        "delay_steps": 25,
+        "delay_ms": 500,
+        "noise_std": 0.0,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 0.5417,
+        "seeker": 0.6667,
+        "prior_seeker": 0.625,
+        "fixed": 0.9167,
+        "voi_belief": 0.3333,
+        "voi_belief_matched": -0.125,
+        "prior_advantage": -0.0417,
+        "voi_residual_prior": 0.375,
+        "detection_value": -0.25
+      },
+      {
+        "delay_steps": 25,
+        "delay_ms": 500,
+        "noise_std": 0.05,
+        "oracle_clean_anchor": 1.0,
+        "oracle_degraded": 0.5,
+        "seeker": 0.4167,
+        "prior_seeker": 0.4583,
+        "fixed": 0.8333,
+        "voi_belief": 0.5833,
+        "voi_belief_matched": 0.0833,
+        "prior_advantage": 0.0417,
+        "voi_residual_prior": 0.5417,
+        "detection_value": -0.4167
+      }
+    ]
+  },
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/degraded_regime_final/episode_rows.csv",
+    "latency_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/degraded_regime_final/latency_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/degraded_regime_final.json"
+  },
+  "elapsed_s": 838.8,
+  "generated_at_utc": "20260611T092224Z",
+  "decision": {
+    "n_degraded_cells": 14,
+    "max_voi_belief_val_degraded": 0.875,
+    "max_cell": {
+      "reveal_m": 9.5,
+      "delay_steps": 0,
+      "noise_std": 0.05
+    },
+    "cells_at_or_above_threshold": [
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 0,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.875
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 5,
+        "noise_std": 0.0,
+        "voi_belief_val": 0.2083
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 5,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.75
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 12,
+        "noise_std": 0.0,
+        "voi_belief_val": 0.625
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 12,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.625
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 25,
+        "noise_std": 0.0,
+        "voi_belief_val": 0.6666
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 25,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.875
+      },
+      {
+        "reveal_m": 12.0,
+        "delay_steps": 0,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.2083
+      },
+      {
+        "reveal_m": 12.0,
+        "delay_steps": 5,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.2083
+      },
+      {
+        "reveal_m": 12.0,
+        "delay_steps": 12,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.1667
+      },
+      {
+        "reveal_m": 12.0,
+        "delay_steps": 25,
+        "noise_std": 0.0,
+        "voi_belief_val": 0.3333
+      },
+      {
+        "reveal_m": 12.0,
+        "delay_steps": 25,
+        "noise_std": 0.05,
+        "voi_belief_val": 0.5833
+      }
+    ],
+    "cells_at_or_above_threshold_matched_secondary": [
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 0,
+        "noise_std": 0.05,
+        "voi_belief_matched_val": 0.5833
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 5,
+        "noise_std": 0.0,
+        "voi_belief_matched_val": 0.2083
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 5,
+        "noise_std": 0.05,
+        "voi_belief_matched_val": 0.3333
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 12,
+        "noise_std": 0.0,
+        "voi_belief_matched_val": 0.5417
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 25,
+        "noise_std": 0.0,
+        "voi_belief_matched_val": 0.3333
+      },
+      {
+        "reveal_m": 9.5,
+        "delay_steps": 25,
+        "noise_std": 0.05,
+        "voi_belief_matched_val": 0.25
+      }
+    ],
+    "verdict": "belief_value_re_emerges",
+    "verdict_matched_secondary": "belief_value_re_emerges"
+  },
+  "env_fidelity_notes": [
+    "all clean-run fidelity caveats apply (rear-clamp no-lockup, 6000 N brake actuator censoring mu>~0.89); the degradation wrapper changes ONLY what the controller reads",
+    "the oracle runs on the same degraded stream (it uses vx for speed tracking) so its success can itself drop with degradation; voi_belief = oracle - seeker on identical sensing isolates the value of knowing mu, not the value of clean sensing"
+  ],
+  "n_regime_episodes": 23040
+}

@@ -196,3 +196,38 @@ what makes belief unnecessary; delayed/noisy ego channels lengthen it, and
 the M3214 observation-degradation wrapper exists precisely to test whether
 belief value re-emerges then. That is the final measurement before the
 scientific story closes either way.
+
+## 8. Final result: the two-regime law (2026-06-11, measurement complete)
+
+The door is real. Under degraded ego-channel observation
+(`docs/selfid-degraded-regime-final-2026-06.md`, 23,040 episodes,
+pre-registered threshold VoI >= 0.15):
+
+- **Belief value revives in 12/14 degraded cells** — all 7 at the tightest
+  window. A mere 100 ms of self-response delay at reveal 9.5 m reopens a
+  +0.208 gap; noise-and-delay cells reach 0.63-0.88.
+- **Mechanism**: 0.05-sigma noise makes single-frame shortfall detection
+  structurally blind (the honest threshold exceeds the largest physically
+  reachable shortfall; 100% miss); detection is only redeemable by 0.5 s
+  time-averaging — "noise buys delay". Embedded identification flips from
+  asset to liability (detection value down to -0.417); in-task
+  identification success collapses 1.00 -> 0.25-0.67.
+- **Coarse priors do not substitute** (prior advantage -0.08..+0.13): what
+  revives is the value of a *precise* capability belief, echoing the
+  conditional-VoI finding that precision pays exactly in tight windows.
+- The two clean cells bit-reproduce the Section-7 null (replication anchor).
+
+**The two-regime law**: *where the body can sense, belief is worthless;
+where sensing is delayed or drowned, belief is decisive.* Clean-sensing
+passive fast adaptation is complete (the constructive null is bounded, not
+universal); under realistic sensing degradation (unfiltered IMU-grade noise,
+estimator/bus-chain delays — and "noisy sensor + honest filtering" lands in
+the same regime as "delayed sensor") with tight reaction windows, a vehicle
+that *knows its own grip envelope* retains 0.17-0.88 success where the
+purely reactive identify-while-acting controller forfeits it.
+
+This vindicates the original thesis in its precise form and finally gives
+the learning program a measured prize: a history-bearing policy under
+degraded observation at tight windows has 0.21-0.88 of success to capture
+over the best belief-free controller — the first task condition in 3200+
+milestones where that statement is backed by an oracle-level measurement.
