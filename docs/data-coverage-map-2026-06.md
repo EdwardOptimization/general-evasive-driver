@@ -38,11 +38,13 @@ budgets.
 
 ## Known instrumentation risks for S4
 
-1. **Observation normalization constants are nominal-vehicle-tuned**
-   (vx/20, ay/15, boundary lookahead 80 m / 20 m scales): a 3 t MPV and a
-   light sports car shift the observation distribution under the same
-   normalization; at 36 m/s an 80 m lookahead is only 2.2 s of preview.
-   An obs-normalization audit must precede any population training.
+1. **Observation normalization constants are nominal-vehicle-tuned and now
+   measured as a blocker** (`docs/m3221-a2-obs-normalization-audit.md`):
+   road_y/20 saturates on curved far-boundary points, high-speed ego
+   speed/accel scales saturate, obstacle rel-vy/12 saturates with
+   ego-relative obstacle mode, and 40 m road preview is only 1.11 s at
+   36 m/s. Population or high-speed training needs a follow-up
+   normalization/preview implementation first.
 2. v4's absolute thresholds (e.g. 14 m/s hard-safety gate) may be
    structurally misplaced across classes, not merely mistuned — exactly
    what the C5 four-arm pricing is designed to expose (the RLS arm can
@@ -50,7 +52,7 @@ budgets.
 
 ## Priority order for closing (feeds WP-RL prerequisites)
 
-1. Obs-normalization audit before any population training; S4 current-sim cg/Iz rider is closed negative (M3220), while Chrono S4 pricing still needs its own frozen pre-registration.
+1. Normalization/preview implementation and smoke before any population or high-speed training; the A2 audit is complete and found a blocker. S4 current-sim cg/Iz rider is closed negative (M3220), while Chrono S4 pricing still needs its own frozen pre-registration.
 2. Moving obstacles (env engineering: kinematics, collision, label
    re-derivation; >= 1-2 days).
 3. High-speed domain (> 20 m/s scenarios; preview/normalization rework).

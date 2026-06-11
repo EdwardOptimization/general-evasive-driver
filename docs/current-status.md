@@ -4,9 +4,9 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3220,
+replaced the stale paper-route state; this update folds in M3215-M3221,
 the C5 pricing disposition, the S4-HF-lite backend connector smoke, WP6.2
-guardrails, and the A1 lateral-channel rider).
+guardrails, the A1 lateral-channel rider, and the A2 obs-normalization audit).
 
 ## Project Identity
 
@@ -22,8 +22,8 @@ guardrails, and the A1 lateral-channel rider).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered and
-completed M3215-M3220. `experiments/research_status.json` now records
-3225 completed / 4 failed / 2 blocked task entries, with `next_task:
+completed M3215-M3221. `experiments/research_status.json` now records
+3226 completed / 4 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -69,7 +69,10 @@ hardening, governance refresh); WP1 **terminal** (M3216/M3217); WP2/WP3
 rejected**, A1 lateral-channel rider **completed / negative**, S4-HF-lite
 connector **completed / selector smoke passed / pricing pre-registration
 admitted**, and C5' structural-ceiling training remains the measured
-alternative prize; WP4 spot checks **pending**
+alternative prize; A2 obs-normalization audit **completed / blocker found**
+(`road_y/20`, high-speed ego speed/accel, and obstacle `rel_vy/12` require a
+follow-up normalization/preview implementation before population or high-speed
+training); WP4 spot checks **pending**
 (Chrono outcome coverage remains Sedan-only; M3219 adds variant reset/step
 smoke only); WP5 papers **pending**
 (scope fixed: family-scoped mode-dependent two-regime law + estimator
@@ -77,7 +80,7 @@ positive + the capstone bound; plus C5' only if PI accepts the structural
 ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
-Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220 registered and executed through the
+Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
@@ -89,9 +92,10 @@ filed candidate, revisit at research completion
 S0-S3 rejected the original spread formulation and M3220 rejected the cheap
 current-sim cg/Iz lateral rider. The measured C5' structural-ceiling prize
 remains the direct RL target if PI chooses that route, but Track C still waits
-on A3 and CP-1. The next executable roadmap item is A2, the observation
-normalization audit; D1 Chrono S4 pricing also remains open but lower in the
-ordered queue.
+on A3 and CP-1. M3221 found an obs-normalization/preview blocker for any
+population or high-speed training; PI may insert that implementation before
+A3, otherwise the next ordered roadmap item is A3 target consolidation. D1
+Chrono S4 pricing also remains open but lower in the ordered queue.
 
 ## Pointer Table
 
@@ -101,7 +105,7 @@ ordered queue.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3220: A1 S4-lateral spread rider pricing) | `docs/m3220-a1-s4-lateral-spread-rider-pricing.md` |
+| Latest harness milestone (M3221: A2 obs-normalization audit) | `docs/m3221-a2-obs-normalization-audit.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

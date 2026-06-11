@@ -352,13 +352,17 @@ check (not "~1 command").
    and per-instance oracles; the S0-S3 run prices the within-model rungs
    and S4 prices the population claim itself.
 
-   Live disposition (2026-06-12, M3220): S0-S3 rejected the original spread
+   Live disposition (2026-06-12, M3221): S0-S3 rejected the original spread
    formulation, and the cheap current-sim A1 lateral rider over cg/Iz also
    rejected the spread mechanism (0/4 cells qualified; S4L/T-limit prize
    +0.007 CI95 [-0.014, +0.028]). The Chrono variant-selector connector is
    implemented and smoke-tested, but any S4-HF-lite pricing execution still
    needs a frozen preregistration and a declared handling of the unmapped
-   continuous `lf/lr/Iz/cf/cr` lateral/tire channels.
+   continuous `lf/lr/Iz/cf/cr` lateral/tire channels. M3221 completed the
+   obs-normalization audit and found a blocker: road_y/20, high-speed ego
+   speed/accel, and obstacle rel-vy/12 need a follow-up
+   normalization/preview implementation before population or high-speed
+   training.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /
@@ -378,9 +382,9 @@ check (not "~1 command").
 4. **Sampling design is governed by the coverage map**
    (`docs/data-coverage-map-2026-06.md`): training-data distribution for
    C5 is designed against the audited gaps, in priority order —
-   (i) S4 population tier + **obs-normalization audit** (the
-   normalization constants and the 80 m preview are nominal-vehicle
-   artifacts; audit precedes any population training); (ii) moving
+   (i) S4 population tier + **obs-normalization implementation after the
+   M3221 audit** (the normalization constants and preview are nominal-vehicle
+   artifacts; implementation precedes any population training); (ii) moving
    obstacles (env engineering, >= 1-2 days); (iii) > 20 m/s speed domain
    (production AEB/AES reaches 130+ km/h; zero current coverage);
    (iv) geometry-channel degradation + split-mu; (v) minute-scale drive

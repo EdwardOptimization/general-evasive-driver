@@ -38,7 +38,7 @@
   the original C5 spread mechanism; this does not cover load transfer,
   tire-curve shape, wheelbase classes, or Chrono multi-vehicle dynamics.
 
-### A2. Obs-normalization audit [OPEN; precondition for ANY population training]
+### A2. Obs-normalization audit [DONE: M3221; blocker found]
 - question: how far do the nominal-vehicle normalization constants (vx/20,
   ay/15, 80 m boundary lookahead) shift the obs distribution across the
   population envelope, and what rescaling keeps channels in-range?
@@ -47,6 +47,12 @@
   nominal car; propose (do not yet apply) a normalization scheme.
 - acceptance: per-channel saturation/shift table + a frozen recommendation;
   coverage-map risk item 1 closed.
+- result: `docs/m3221-a2-obs-normalization-audit.md` completed the audit.
+  Verdict: population or high-speed training remains blocked on a follow-up
+  normalization/preview implementation. Main failures: `road_y/20` saturated
+  on curved far-boundary points; `vx/20`, `vy/12`, `ax/15`, and `ay/15`
+  saturate in high-speed profiles; obstacle `rel_vy/12` saturates with
+  ego-relative obstacle mode. No normalization was applied in M3221.
 
 ### A3. C5' target consolidation on C5-F1 [OPEN; gates Track C]
 - question: re-confirm the structural-ceiling gap (oracle - per-tuned,
@@ -121,7 +127,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 ## Status lines (update in place)
 
 - A1: DONE (M3220; 0/4 cells qualified under cg/Iz S4L rider)
-- A2: OPEN
+- A2: DONE (M3221; normalization/preview implementation blocker found)
 - A3: OPEN
 - B1: OPEN
 - B2: OPEN (depends A2)

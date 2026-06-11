@@ -1,0 +1,71 @@
+{
+  "protocol": "obs_normalization_audit_preregistration",
+  "roadmap_unit": "A2 Obs-normalization audit",
+  "claim_under_pricing": "Before any population training, audit whether the canonical obs72 normalization constants remain in range when current-sim vehicle parameters and high-speed context are stressed. This is a zero-training distribution measurement and recommendation artifact only; it does not apply a normalization change.",
+  "frozen_at_utc": "2026-06-12T00:00:00Z",
+  "frozen_before_any_full_audit_run": true,
+  "seed_discipline": {
+    "seed_base": 20260813,
+    "vehicle_instance_rng": "np.random.default_rng([20260813, 11, tier_index, instance_index])",
+    "episode_seed": "8000000 + tier_index*100000 + profile_index*10000 + instance_index*17",
+    "disjointness": "new seed base and episode seed stream are disjoint from C5 selection and validation streams; this audit has no training, selection, or validation split."
+  },
+  "tiers": {
+    "S0_nominal": {
+      "mass": [1.0, 1.0],
+      "brake": [1.0, 1.0],
+      "drive": [1.0, 1.0],
+      "stiffness": [1.0, 1.0],
+      "tau": [1.0, 1.0],
+      "cg_shift_m": [0.0, 0.0],
+      "inertia_scale": [1.0, 1.0],
+      "mu": [0.25, 1.15]
+    },
+    "C5_wide_current": {
+      "mass": [0.70, 1.50],
+      "brake": [0.60, 1.30],
+      "drive": [0.60, 1.30],
+      "stiffness": [0.50, 1.50],
+      "tau": [0.75, 2.50],
+      "cg_shift_m": [-0.42, 0.42],
+      "inertia_scale": [0.60, 1.60],
+      "mu": [0.25, 1.15]
+    },
+    "S4_proxy_stress": {
+      "mass": [0.62, 2.20],
+      "brake": [0.55, 1.50],
+      "drive": [0.55, 1.50],
+      "stiffness": [0.45, 1.60],
+      "tau": [0.50, 3.00],
+      "cg_shift_m": [-0.42, 0.42],
+      "inertia_scale": [0.50, 2.00],
+      "mu": [0.25, 1.15],
+      "scope_note": "current-sim stress proxy only; not a validated passenger-fleet physics model"
+    }
+  },
+  "profiles": {
+    "mid_obstacle_arc": "R=60 m obstacle arc, speed target 16 m/s, curvature-compensated static obstacle, v4 scripted control",
+    "high_speed_arc": "R=250 m no-obstacle arc, speed target 28 m/s, v4 scripted control; included to expose vx/20 and preview-time risk before B2",
+    "figure8_context": "R=45 figure-eight no-obstacle context, speed target 14 m/s, v4 scripted control"
+  },
+  "sample_size": {
+    "quick": "2 tiers x 2 profiles x 3 instances",
+    "full": "3 tiers x 3 profiles x 16 instances"
+  },
+  "observed_channels": {
+    "contract": "canonical obs72 with history_length=1, action_history_mode=full, road_lookahead_count=8, obstacle_slots=4",
+    "groups": [
+      "ego speed and acceleration",
+      "actuator state and previous action",
+      "road boundary x/y",
+      "obstacle present/x/y/relative velocity/size"
+    ]
+  },
+  "preregistered_readouts": {
+    "per_channel": "min, max, p01, p50, p99, max_abs, p99_abs, frac_abs_gt_0.8, frac_abs_gt_1.0, frac_abs_gt_1.5, frac_abs_gt_2.0",
+    "per_group": "max p99_abs, max frac_abs_gt_1.0, worst channel",
+    "preview_time": "road lookahead distance 8*5 m divided by profile speed, plus preview distance needed for 2.5 s",
+    "decision_rule": "A2 is complete if it reports channel saturation/shift tables and a frozen recommendation. A channel is flagged if p99_abs > 0.9 or frac_abs_gt_1.0 > 0.01. Recommendations are advisory only and cannot admit training without a follow-up implementation milestone."
+  },
+  "claim_boundary": "Observation-normalization audit only. Zero training. No normalization change applied. No driver mutation, driver-performance, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim."
+}

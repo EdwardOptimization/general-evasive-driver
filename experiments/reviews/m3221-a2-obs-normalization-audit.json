@@ -1,0 +1,86 @@
+{
+  "decision_reason": "Completed: pre-registered A2 obs72 normalization audit ran 144 scripted episodes and 24170 observations in 4.9 s. road_y/20 saturated on curved far-boundary points; high-speed ego speed and acceleration scales saturated; obstacle rel-vy/12 saturated with ego-relative obstacle mode. Population or high-speed training remains blocked on follow-up normalization/preview implementation. No normalization applied and no driver-performance validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "the script emits non-finite obs stats or wrong obs72 shape",
+    "the summary omits per-channel saturation or preview-time readouts",
+    "the milestone applies a normalization change or admits training",
+    "the result is described as driver-performance evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat advisory recommendations as implemented normalization changes",
+    "do not start training from this audit alone",
+    "do not claim driver performance from scripted profile observations",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260611T193820Z",
+  "hypothesis": "A frozen A2 obs72 normalization audit can measure channel saturation and preview-time risk across nominal and population-stress current-sim envelopes before any population training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "none for the audit; any implementation remains a follow-up milestone"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "experiments/feasibility_audit/obs_normalization_prereg.json"
+    ],
+    "invalidates": [
+      "starting population training without an obs-normalization audit artifact"
+    ],
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "docs/current-status.md"
+    ],
+    "parent_config": [
+      "docs/observation-contract.md",
+      "scripts/feasibility_audit/obs_normalization_audit.py",
+      "experiments/feasibility_audit/obs_normalization_prereg.json"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_lateral_spread_rider.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A2 as the precondition audit before any population training or high-speed domain extension"
+    ],
+    "supersedes": [
+      "the A2 OPEN status line in docs/roadmap-phase3-codex-execution.md after the result is documented"
+    ]
+  },
+  "milestone": "m3221-a2-obs-normalization-audit",
+  "next_blocker": "population or high-speed training remains blocked until a follow-up normalization/preview implementation milestone",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "a2_obs_normalization_blocker_found",
+  "public_gates": [
+    "M3221 must use the frozen obs_normalization_prereg.json before the full run",
+    "M3221 must report per-channel saturation and per-group worst channels",
+    "M3221 must report preview-time risk for the road lookahead contract",
+    "M3221 must not apply normalization changes or admit population training"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/obs_normalization_audit.json",
+    "clearance_margin_mean": "",
+    "decision": "a2_obs_normalization_blocker_found",
+    "milestone": "m3221-a2-obs-normalization-audit",
+    "reason": "Completed: pre-registered A2 obs72 normalization audit ran 144 scripted episodes and 24170 observations in 4.9 s. road_y/20 saturated on curved far-boundary points; high-speed ego speed and acceleration scales saturated; obstacle rel-vy/12 saturated with ego-relative obstacle mode. Population or high-speed training remains blocked on follow-up normalization/preview implementation. No normalization applied and no driver-performance validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/obs_normalization_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/obs_normalization_audit.json exists with protocol obs_normalization_audit and quick_mode false",
+    "runs/feasibility_audit/obs_normalization_audit/channel_stats.csv exists",
+    "the summary reports saturated channels and preview-time recommendations",
+    "the result document states that implementation and training remain separate follow-up milestones"
+  ],
+  "type": "infrastructure"
+}

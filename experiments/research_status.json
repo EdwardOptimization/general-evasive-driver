@@ -1,19 +1,19 @@
 {
   "counts": {
     "blocked": 2,
-    "completed": 3225,
+    "completed": 3226,
     "failed": 4,
     "pending": 0,
     "planned": 0,
     "running": 0
   },
   "last_result": {
-    "command_log": "runs/managed/m3220-a1-s4-lateral-spread-rider_20260611T191239Z/run.log",
+    "command_log": "runs/feasibility_audit/obs_normalization_audit/episode_summary.csv",
     "returncode": 0,
-    "run_dir": "runs/managed/m3220-a1-s4-lateral-spread-rider_20260611T191239Z",
+    "run_dir": "runs/feasibility_audit/obs_normalization_audit",
     "status": "completed",
-    "task_id": "m3220-a1-s4-lateral-spread-rider-pricing"
+    "task_id": "m3221-a2-obs-normalization-audit"
   },
   "next_task": null,
-  "updated_at_utc": "20260611T192233Z"
+  "updated_at_utc": "20260611T193544Z"
 }

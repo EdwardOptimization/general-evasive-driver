@@ -56179,3 +56179,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/managed/m3220-a1-s4-lateral-spread-rider_20260611T191239Z/run.log`
 - success artifact: `experiments/feasibility_audit/c5_lateral_spread_rider.json`
 - notes: Completed pre-registered A1 lateral cg/Iz pricing rider through a managed CPU process. Full run took 345.6 s with 7776 selection episodes, 2112 validation arm episodes, 5687 oracle rollouts, and 24 RLS prefixes. Verdict: 0/4 cells qualified; S4L/T-limit prize +0.007 CI95 [-0.014 to +0.028]. A1 is DONE negative in current-sim; Track C remains blocked on A3 and CP-1; no driver-performance, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T193544Z m3221-a2-obs-normalization-audit
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen A2 obs72 normalization audit can measure channel saturation and preview-time risk across nominal and population-stress current-sim envelopes before any population training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/obs_normalization_audit.py`
+- returncode: `0`
+- run dir: `runs/feasibility_audit/obs_normalization_audit`
+- command log: `runs/feasibility_audit/obs_normalization_audit/channel_stats.csv`
+- success artifact: `experiments/feasibility_audit/obs_normalization_audit.json`
+- notes: Completed pre-registered A2 obs72 normalization audit. Full run covered 144 scripted episodes and 24170 observations in 4.9 s. Main blocker: road_y/20 saturated on curved far-boundary points, high-speed ego speed and acceleration scales saturated, and obstacle rel-vy/12 saturated with ego-relative obstacle mode. Population or high-speed training remains blocked on follow-up normalization/preview implementation. No normalization applied and no driver-performance, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

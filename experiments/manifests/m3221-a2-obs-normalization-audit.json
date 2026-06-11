@@ -1,0 +1,187 @@
+{
+  "id": "m3221-a2-obs-normalization-audit",
+  "priority": 32210,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "measurement",
+  "hypothesis": "A frozen A2 obs72 normalization audit can measure channel saturation and preview-time risk across nominal and population-stress current-sim envelopes before any population training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "docs/current-status.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_lateral_spread_rider.json"
+    ],
+    "parent_config": [
+      "docs/observation-contract.md",
+      "scripts/feasibility_audit/obs_normalization_audit.py",
+      "experiments/feasibility_audit/obs_normalization_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A2 as the precondition audit before any population training or high-speed domain extension"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/data-coverage-map-2026-06.md",
+      "experiments/feasibility_audit/obs_normalization_prereg.json"
+    ],
+    "blocked_by": [
+      "none for the audit; any implementation remains a follow-up milestone"
+    ],
+    "supersedes": [
+      "the A2 OPEN status line in docs/roadmap-phase3-codex-execution.md after the result is documented"
+    ],
+    "invalidates": [
+      "starting population training without an obs-normalization audit artifact"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3221-a2-obs-normalization-audit.md",
+  "public_gates": [
+    "M3221 must use the frozen obs_normalization_prereg.json before the full run",
+    "M3221 must report per-channel saturation and per-group worst channels",
+    "M3221 must report preview-time risk for the road lookahead contract",
+    "M3221 must not apply normalization changes or admit population training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat advisory recommendations as implemented normalization changes",
+    "do not start training from this audit alone",
+    "do not claim driver performance from scripted profile observations",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "workflow_synthesis": {
+    "branch": "obs_normalization_audit",
+    "evidence_axis": "obs_normalization_measurement",
+    "evidence_increment": "new obs72 channel saturation and preview-time audit across nominal, C5-wide, and S4-proxy current-sim envelopes",
+    "claim_scope": "Auxiliary measurement only; no normalization change applied, no training admission, no validation ranking promotion, no driver-performance, no high-fidelity sufficiency, no paper, no repair-success, no robustness-result, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if the preregistration file is absent or changed after full-run launch",
+      "stop if the quick smoke fails to emit JSON and CSV artifacts",
+      "stop if the full audit omits per-channel saturation or preview-time readouts",
+      "stop after documenting recommendations; implementation needs a separate milestone"
+    ],
+    "fallback_plan": [
+      "on script failure, document the failed gate and leave A2 OPEN or BLOCKED with artifact paths",
+      "on severe saturation, recommend follow-up implementation but do not apply it in M3221",
+      "on clean audit, record that no normalization change is required for the audited envelope"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected A2 after A1 completed in M3220",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the pre-registered A2 obs72 channel saturation and preview-time audit.",
+    "admission_evidence": [
+      "A1 is complete and roadmap A2 is the next lowest OPEN unit",
+      "docs/observation-contract.md defines the canonical obs72 normalization constants",
+      "docs/data-coverage-map-2026-06.md names obs normalization as a precondition for population work"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no normalization implementation in this milestone",
+      "no population training admission"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/obs_normalization_audit.py",
+      "experiments/feasibility_audit/obs_normalization_prereg.json",
+      "experiments/feasibility_audit/obs_normalization_audit_quick.json",
+      "experiments/feasibility_audit/obs_normalization_audit.json",
+      "runs/feasibility_audit/obs_normalization_audit/channel_stats.csv",
+      "docs/m3221-a2-obs-normalization-audit.md",
+      "docs/reviews/m3221-a2-obs-normalization-audit.md",
+      "M3221 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol obs_normalization_audit",
+      "full summary JSON reports p99_abs and saturation fractions for obs72 channels",
+      "result document states recommendations are advisory and not implemented"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3221 runs scripted observation collection only, with no learned-history policy or self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3221: distribution audit only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A clean or saturated audit is reported at full fidelity and only changes the follow-up implementation recommendation.",
+    "allowed_claims": [
+      "A2 preregistration exists before the full run",
+      "obs72 channel saturation and preview-time readouts under scripted profiles",
+      "normalization recommendations are advisory and not applied"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new obs72 distribution panel across nominal and population-stress current-sim envelopes",
+    "paper_verdict_delta": "A2 measurement found a normalization/preview blocker for population or high-speed training; no claim result changes directly",
+    "must_synthesize_if": [
+      "another population-training step is proposed before this audit is documented",
+      "normalization changes are applied without a follow-up implementation milestone",
+      "the scripted observation audit is cited as driver-performance evidence"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/obs_normalization_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/obs_normalization_audit.json exists with protocol obs_normalization_audit and quick_mode false",
+    "runs/feasibility_audit/obs_normalization_audit/channel_stats.csv exists",
+    "the summary reports saturated channels and preview-time recommendations",
+    "the result document states that implementation and training remain separate follow-up milestones"
+  ],
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "the script emits non-finite obs stats or wrong obs72 shape",
+    "the summary omits per-channel saturation or preview-time readouts",
+    "the milestone applies a normalization change or admits training",
+    "the result is described as driver-performance evidence"
+  ],
+  "decision_rule": "Accept M3221 as complete only if the full audit artifact and result document exist, report per-channel saturation plus preview-time recommendations, and keep implementation/training blocked.",
+  "commands": [
+    {
+      "name": "obs_normalization_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/obs_normalization_audit.py --quick"
+    },
+    {
+      "name": "obs_normalization_full_audit",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/obs_normalization_audit.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/obs_normalization_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/obs_normalization_audit_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/obs_normalization_audit.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3221-a2-obs-normalization-audit.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/observation-contract.md",
+    "docs/data-coverage-map-2026-06.md",
+    "docs/roadmap-phase3-codex-execution.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/obs_normalization_audit.json",
+  "next_blocker": "population or high-speed training remains blocked until a follow-up normalization/preview implementation milestone",
+  "status": "completed"
+}
