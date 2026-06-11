@@ -264,3 +264,33 @@ opposite identifiability (`docs/selfid-belief-decomposition-2026-06.md`):
   noise erases the vehicle component entirely. The expert's edge,
   re-confirmed: knowing the car is how you *feel the road better*; the
   road is what decides.
+
+## 10. Capstone: belief writes itself into the state (2026-06-11)
+
+The WP1 program (M3216/M3217) ended on a terminal bound whose mechanism
+recurred four times across the arc, each time at a deeper level:
+
+1. a braking probe writes mu into the *speed register* (G1');
+2. mu-correlated arrival timing writes into the *geometry channels*
+   (M3216 leak 1);
+3. convergence transients write into the *longitudinal channels*
+   (M3216 leak 2);
+4. a competent closed-loop seeker's approach state at the decision tick
+   encodes *its own belief* — so on-policy training data matched to the
+   evaluation distribution is necessarily single-frame readable, mutually
+   exclusive with the attribution gate (M3217 terminal stop).
+
+The converging statement: **in a deterministic, fully-actuated system,
+any belief that influences action becomes current-frame readable; the
+more competent the agent, the more its state encodes its knowledge.**
+Current-frame substitution — treated for 1500 milestones as an
+experimental nuisance — is a property of competent embodied behavior.
+This is the deepest available explanation of the original nulls, and it
+fixes the final scope of the program's claims: capability belief is
+learnable from degraded history (M3216 estimator, R^2 0.91-0.99,
+history-borne by reset control), its value is real and measured at the
+oracle level (the mode-dependent two-regime law), but *behavioral*
+attribution of that value to history is structurally self-erasing in
+closed loop — the knowledge migrates into the state it produces. The
+honest deliverables are exactly these three measured statements plus
+their boundary.
