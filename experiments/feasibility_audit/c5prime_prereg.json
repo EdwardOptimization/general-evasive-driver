@@ -1,0 +1,82 @@
+{
+  "protocol": "c5prime_target_consolidation_preregistration",
+  "roadmap_unit": "A3 C5' target consolidation on C5-F1",
+  "claim_under_pricing": "Re-confirm the handling-limit structural-ceiling prize on the curvature-compensated C5-F1 family with fresh seed streams before any C5' RL training. The priced prize is oracle - per-instance grid-tuned reflex on T-limit rows. This is zero training and can only prepare a PI CP-1 decision; it cannot admit Track C by itself.",
+  "frozen_at_utc": "2026-06-12T00:00:00Z",
+  "frozen_before_any_selection_or_validation_rollout": true,
+  "seed_discipline": {
+    "c5prime_seed_base": 20260814,
+    "vehicle_scales_rng": "np.random.default_rng([20260814, 11, level_index, instance_index])",
+    "selection_row_params_rng": "np.random.default_rng([20260814, 31, L, S, v, k])",
+    "validation_row_params_rng": "np.random.default_rng([20260814, 41, L, S, v, k])",
+    "selection_eval_seed": "6000000 + L*200000 + S*100000 + v*5000 + k*13",
+    "validation_eval_seed": "7000000 + L*200000 + S*100000 + v*5000 + k*13",
+    "oracle_cem_rng": "np.random.default_rng([20260814, 51, L, S, v, k])",
+    "prefix_env_seed": "9100000 + L*1000 + v*10",
+    "disjointness": "new seed base disjoint from C5 S0-S3 pricing base 20260712, A1 lateral rider base 20260812, and A2 normalization base 20260813; selection and validation eval-seed sets are asserted disjoint at runtime."
+  },
+  "target_cells": [
+    "S0/T_limit",
+    "S1/T_limit",
+    "S2/T_limit",
+    "S3/T_limit"
+  ],
+  "dispersion_levels": {
+    "S0_nominal": {"mass": [1.0, 1.0], "brake": [1.0, 1.0], "drive": [1.0, 1.0], "stiffness": [1.0, 1.0], "tau": [1.0, 1.0], "cg_shift": [0.0, 0.0], "inertia_scale": [1.0, 1.0]},
+    "S1_current": {"mass": [0.85, 1.20], "brake": [0.80, 1.15], "drive": [0.80, 1.15], "stiffness": [0.65, 1.35], "tau": [0.75, 1.75], "cg_shift": [0.0, 0.0], "inertia_scale": [1.0, 1.0]},
+    "S2_extended": {"mass": [0.70, 1.50], "brake": [0.60, 1.30], "drive": [0.60, 1.30], "stiffness": [0.50, 1.50], "tau": [0.75, 2.50], "cg_shift": [0.0, 0.0], "inertia_scale": [1.0, 1.0]},
+    "S3_adversarial_corner": {"mass": [1.40, 1.50], "brake": [0.60, 0.70], "drive": [0.60, 0.72], "stiffness": [0.50, 0.62], "tau": [2.25, 2.50], "cg_shift": [0.0, 0.0], "inertia_scale": [1.0, 1.0]},
+    "instances_per_level": 12,
+    "mu_domain_all_levels": [0.25, 1.15]
+  },
+  "task_surface": {
+    "T_limit": {
+      "track": "circle R=60 m, width 5 m, curvature-compensated C5-F1 obstacle placement",
+      "speed_target": "U(13,22) m/s capped at 0.92*sqrt(mu*g*R)",
+      "arc_distance": "U(20,42) m",
+      "half_width": "U(0.70,1.40) m",
+      "reveal": "perception_reveal_distance=16.0 m",
+      "admission": "same as C5: generator label in {aeb_feasible, aes_feasible} AND per-instance adjusted label in {aeb, aes, drift}; oracle filtering is reported but structural gap uses unfiltered paired oracle-vs-pertuned rows",
+      "selection_rows_per_instance": 6,
+      "validation_rows_per_instance": 12
+    }
+  },
+  "arms": {
+    "fixed_v4_incumbent": "M3105 v4 reflex verbatim; secondary transfer arm",
+    "fixed_star": "one fixed 27-grid config selected on pooled S0/T-limit selection rows",
+    "v4_rls": "5 s sub-limit kappa_b/kappa_d familiarization prefix and frozen kappa map, reported as classical context but not the primary C5' floor",
+    "v4_pertuned": "per (level, T_limit, instance) winner of the 27-point grid on selection rows; primary reflex-family floor",
+    "oracle": "same reveal-constrained privileged search as C5: fixed_star closed-loop prefix to reveal, 15 structured candidates, then CEM with early stop"
+  },
+  "tuning_grid_27": {
+    "brake_mult": [0.6, 1.0, 1.8],
+    "steer_mult": [1.0, 1.45, 1.9],
+    "relevance_mult": [1.0, 1.4, 1.8],
+    "selection_tiebreak": "higher selection success, then fewer hard failures, then fewer multipliers different from 1, then lower grid index"
+  },
+  "preregistered_readouts": {
+    "primary_structural_gap_per_cell": "p(oracle_solved) - p(v4_pertuned_success) on unfiltered paired validation rows",
+    "secondary_gap_vs_fixed_star": "p(oracle_solved) - p(fixed_star_success) on unfiltered paired validation rows",
+    "context_readouts": [
+      "v4_pertuned - fixed_star on oracle-filtered rows",
+      "v4_pertuned - v4_rls on oracle-filtered rows",
+      "oracle solvability per cell",
+      "failure-mode composition per arm"
+    ],
+    "uncertainty": "episode-paired bootstrap CI95 for structural gaps; Wilson CIs per arm already reported by the C5 runner",
+    "decision_rule": "C5' target is confirmed iff >=3 of 4 T-limit target cells have oracle_minus_pertuned >= 0.15 with paired-bootstrap CI95 lower bound > 0. Confirmation only prepares CP-1; it does not admit Track C training without PI sign-off."
+  },
+  "runtime_gates": [
+    "composed v2+v4 action function must equal the canonical M3105 v4 function exactly on 200 random observations",
+    "selection and validation eval-seed sets disjoint",
+    "light rollout outcome must match run_episode_with_policy outcome on sampled rows",
+    "RLS prefix peak rear utilization must stay below 0.6"
+  ],
+  "budget_and_trim_rule": "Full A3 panel is 4 levels x 12 instances x 6 selection rows x 27 grid configs plus 4 levels x 12 instances x 12 validation rows x four scripted arms and oracle. If projected wall time exceeds 2.5 h, trim S3 from 12 to 8 instances; never trim validation rows per retained instance.",
+  "known_blockers_and_limits": [
+    "M3221 found obs-normalization/preview blockers for population or high-speed training; A3 is zero-training pricing and does not implement those changes.",
+    "A3 is current-sim C5-F1 only; Chrono multi-vehicle D1 remains separate.",
+    "CP-1 PI approval is required after A3 before any Track C training."
+  ],
+  "claim_boundary": "C5' target-consolidation pricing measurement only. Zero training. No incumbent driver mutation, driver-performance, validation ranking, promotion, high-fidelity sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim."
+}

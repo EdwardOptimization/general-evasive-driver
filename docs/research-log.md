@@ -56190,3 +56190,14 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/feasibility_audit/obs_normalization_audit/channel_stats.csv`
 - success artifact: `experiments/feasibility_audit/obs_normalization_audit.json`
 - notes: Completed pre-registered A2 obs72 normalization audit. Full run covered 144 scripted episodes and 24170 observations in 4.9 s. Main blocker: road_y/20 saturated on curved far-boundary points, high-speed ego speed and acceleration scales saturated, and obstacle rel-vy/12 saturated with ego-relative obstacle mode. Population or high-speed training remains blocked on follow-up normalization/preview implementation. No normalization applied and no driver-performance, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+## 20260611T200340Z m3222-a3-c5prime-target-consolidation
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen A3 C5-prime target-consolidation panel can re-confirm the C5-F1 T-limit structural ceiling gap and freeze target cells plus judging criteria before CP-1 and before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation`
+- returncode: `0`
+- run dir: `runs/managed/m3222-a3-c5prime-target-consolidation-rerun_20260611T195941Z`
+- command log: `runs/managed/m3222-a3-c5prime-target-consolidation-rerun_20260611T195941Z/run.log`
+- success artifact: `experiments/feasibility_audit/c5prime_target_consolidation.json`
+- notes: Completed pre-registered A3 C5-prime target consolidation through a managed CPU process. Full run took 238.7 s with 7776 selection episodes, 2304 validation arm episodes, 3725 oracle rollouts, and 48 RLS prefixes. Verdict: target confirmed by the frozen rule, 3/4 T-limit cells qualified; S1/S2/S3 oracle-minus-pertuned gaps were +0.1597/+0.2153/+0.1736 with CI95 lower bounds > 0, while S0 was positive but below the +0.15 bar (+0.1389). Track C remains blocked on CP-1; no training admission, normalization implementation, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

@@ -4,9 +4,10 @@ This file is the compact official state for the project. Milestone documents
 and `docs/research-log.md` remain the detailed log of the autonomous-harness
 era; the Phase-2 plan and thesis (pointer table below) define the active
 program. Last full refresh: 2026-06-12 (the 2026-06-11 WP6.3 refresh
-replaced the stale paper-route state; this update folds in M3215-M3221,
+replaced the stale paper-route state; this update folds in M3215-M3222,
 the C5 pricing disposition, the S4-HF-lite backend connector smoke, WP6.2
-guardrails, the A1 lateral-channel rider, and the A2 obs-normalization audit).
+guardrails, the A1 lateral-channel rider, the A2 obs-normalization audit, and
+the A3 C5-prime target consolidation).
 
 ## Project Identity
 
@@ -22,8 +23,8 @@ guardrails, the A1 lateral-channel rider, and the A2 obs-normalization audit).
 
 History in one paragraph: the autonomous harness loop ran through M3214
 before manual takeover; the manual takeover has since registered and
-completed M3215-M3221. `experiments/research_status.json` now records
-3226 completed / 4 failed / 2 blocked task entries, with `next_task:
+completed M3215-M3222. `experiments/research_status.json` now records
+3227 completed / 4 failed / 2 blocked task entries, with `next_task:
 null`. On
 2026-06-11 an independent feasibility audit showed the M3108–M3212
 residual-repair branch was repairing physically unsolvable rows, and the
@@ -60,16 +61,17 @@ Claims:
 | C2 belief learnability | **terminal bound accepted** (G-B FAIL, the single authorized iteration consumed): belief is learnable — the project's first working history-borne capability estimator (GRU R^2 0.91-0.99, reset-control-destroyed, window arms at predict-the-mean) — but not monetizable through the substitution interface; the bounded iteration was stopped by the leak gate because on-policy closed-loop data is necessarily single-frame mu-readable (the thesis Section-10 capstone). delay12 +0.185 (lower bound +0.110) remains the only substitution-level positive. | `docs/m3216-wp1-modular-belief-experiment.md`, `docs/m3217-wp1-belief-substitution-bounded-iteration.md` |
 | C3 FIR vs IIR | **not adjudicated** (pre-registered condition not triggered: no history arm cleared the floor) | M3216 doc |
 | C4 deployable stack | **closed** (WP2 never opened per G-B) | plan Section 2 |
-| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing**. S0-S3 mass/brake/drive/tau spread failed its pre-registered bar (0/8 cells): the fixed reflex's degradation curve was flat, per-instance grid tuning had nothing to buy, and kappa-RLS retuning self-harmed at corners. M3220 then gave the final cheap current-sim lateral-channel rider (cg/Iz S4L): 0/4 cells qualified; S4L/T-limit prize was only +0.007 with CI95 [-0.014, 0.028]. This does not refute real load transfer, tire-curve shape, wheelbase-class, or high-fidelity vehicle-family mechanisms, which remain inexpressible or unpriced here. **Measured surviving prize (C5' candidate): the reflex structural ceiling gap, oracle - per-tuned = +0.16-0.21 at T-limit, CI-excluding 0, spread-insensitive, concentrated in drift-grade rows.** M3218/M3219 completed the Chrono connector inventory + selector smoke; Chrono S4 pricing still needs its own preregistration. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`, `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md` |
+| C5 one policy for all passenger cars (RL as engineering) | **spread formulation rejected by pricing**. S0-S3 mass/brake/drive/tau spread failed its pre-registered bar (0/8 cells): the fixed reflex's degradation curve was flat, per-instance grid tuning had nothing to buy, and kappa-RLS retuning self-harmed at corners. M3220 then gave the final cheap current-sim lateral-channel rider (cg/Iz S4L): 0/4 cells qualified; S4L/T-limit prize was only +0.007 with CI95 [-0.014, 0.028]. This does not refute real load transfer, tire-curve shape, wheelbase-class, or high-fidelity vehicle-family mechanisms, which remain inexpressible or unpriced here. **Measured surviving prize (C5' candidate): the reflex structural ceiling gap. M3222 fresh-seed A3 consolidation confirmed the C5-prime target by the frozen rule: 3/4 T-limit cells qualified with oracle - per-tuned gaps +0.1597 to +0.2153 and CI lower bounds > 0; S0 was positive but below the +0.15 effect-size bar (+0.1389).** M3218/M3219 completed the Chrono connector inventory + selector smoke; Chrono S4 pricing still needs its own preregistration. Track C remains blocked on CP-1. | `docs/c5-reflex-degradation-2026-06.md`, `docs/m3220-a1-s4-lateral-spread-rider-pricing.md`, `docs/m3222-a3-c5prime-target-consolidation.md`, `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md` |
 
 Work packages: WP0 **complete** (wrapper modes M3215-validated, family #2
 frozen with clean acceptance after one pre-registered repair, statistical
 hardening, governance refresh); WP1 **terminal** (M3216/M3217); WP2/WP3
 **closed by gates**; WP-RL S0-S3 spread pricing **completed / original C5
-rejected**, A1 lateral-channel rider **completed / negative**, S4-HF-lite
+rejected**, A1 lateral-channel rider **completed / negative**, A3 C5-prime
+target consolidation **completed / target confirmed for CP-1**, S4-HF-lite
 connector **completed / selector smoke passed / pricing pre-registration
-admitted**, and C5' structural-ceiling training remains the measured
-alternative prize; A2 obs-normalization audit **completed / blocker found**
+admitted**, and C5' structural-ceiling training remains blocked until CP-1;
+A2 obs-normalization audit **completed / blocker found**
 (`road_y/20`, high-speed ego speed/accel, and obstacle `rel_vy/12` require a
 follow-up normalization/preview implementation before population or high-speed
 training); WP4 spot checks **pending**
@@ -80,7 +82,7 @@ positive + the capstone bound; plus C5' only if PI accepts the structural
 ceiling route); WP6 **current guardrails live** (6.0/6.1/6.2/6.3 done;
 validator V7, escalation protocol, and managed-run helper are merged).
 
-Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221 registered and executed through the
+Harness ledger: M3215, M3216, M3217, M3218, M3219, M3220, M3221, M3222 registered and executed through the
 harness (research-validate passed in both states for each); leak gates
 stopped two dataset leaks and one terminal iteration, all per
 pre-registration.
@@ -90,12 +92,12 @@ question while research is ongoing**; v4 stays deployed, v5 remains a
 filed candidate, revisit at research completion
 (`docs/v5-promotion-decision-packet-2026-06.md`). **C5 next decision**:
 S0-S3 rejected the original spread formulation and M3220 rejected the cheap
-current-sim cg/Iz lateral rider. The measured C5' structural-ceiling prize
-remains the direct RL target if PI chooses that route, but Track C still waits
-on A3 and CP-1. M3221 found an obs-normalization/preview blocker for any
-population or high-speed training; PI may insert that implementation before
-A3, otherwise the next ordered roadmap item is A3 target consolidation. D1
-Chrono S4 pricing also remains open but lower in the ordered queue.
+current-sim cg/Iz lateral rider. M3222 confirmed the C5-prime
+structural-ceiling target on a fresh-seed A3 panel, but Track C still waits
+on CP-1. M3221 found an obs-normalization/preview blocker for any population
+or high-speed training. The next lowest independent OPEN roadmap item is B1
+moving obstacles unless PI redirects at CP-1. D1 Chrono S4 pricing also
+remains open but lower in the ordered queue.
 
 ## Pointer Table
 
@@ -105,7 +107,7 @@ Chrono S4 pricing also remains open but lower in the ordered queue.
 | Phase-2 plan v2 (active program definition) | `docs/research-plan-phase2-capability-boundary-tracking.md` |
 | Takeover decision (why M3213 was blocked) | `docs/feasibility-takeover-2026-06-route-decision.md` |
 | Gate protocol v2 (anchors before informative actions; R²≤0.1 self-check) | `docs/selfid-gate-protocol-v2-2026-06.md` |
-| Latest harness milestone (M3221: A2 obs-normalization audit) | `docs/m3221-a2-obs-normalization-audit.md` |
+| Latest harness milestone (M3222: A3 C5-prime target consolidation) | `docs/m3222-a3-c5prime-target-consolidation.md` |
 | Thesis capstone + RL re-entry (Sections 10-11) | `docs/capability-boundary-tracking-thesis-2026-06.md` |
 | Data coverage map (C5 sampling design authority) | `docs/data-coverage-map-2026-06.md` |
 | Incumbent deployed driver (v4, untouched) | `src/autodrift/active_safety_reflex_driver.py`, `DRIVER_ID = active_safety_reflex_driver_m3105_incumbent_v4_no_regression` |

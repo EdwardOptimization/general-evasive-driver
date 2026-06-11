@@ -1,0 +1,188 @@
+{
+  "id": "m3222-a3-c5prime-target-consolidation",
+  "priority": 32220,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "milestone_intent": "measurement",
+  "hypothesis": "A frozen A3 C5-prime target-consolidation panel can re-confirm the C5-F1 T-limit structural ceiling gap and freeze target cells plus judging criteria before CP-1 and before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/c5-reflex-degradation-2026-06.md",
+      "docs/m3221-a2-obs-normalization-audit.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_reflex_degradation.json",
+      "experiments/feasibility_audit/c5_lateral_spread_rider.json"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5prime_prereg.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A3 as fresh-seed C5-prime target consolidation and stop at CP-1"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation --quick"
+    ],
+    "blocked_by": [
+      "Track C remains blocked by CP-1 after this measurement"
+    ],
+    "supersedes": [
+      "the A3 OPEN status line if the full target-consolidation result is documented"
+    ],
+    "invalidates": [
+      "using the old C5 S0-S3 pricing artifact alone as the final C5-prime target freeze"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3222-a3-c5prime-target-consolidation.md",
+  "public_gates": [
+    "M3222 must use c5prime_prereg.json before the full run",
+    "M3222 must use fresh seed base 20260814 and assert selection/validation seed disjointness",
+    "M3222 must report oracle-minus-pertuned structural gap with paired CI95 for S0-S3/T-limit",
+    "M3222 must stop at CP-1 and must not admit Track C training"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not treat target confirmation as PI approval",
+    "do not train RL or create checkpoints",
+    "do not apply the M3221 normalization recommendation in this milestone",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5prime_target_consolidation",
+    "evidence_axis": "c5prime_structural_ceiling_measurement",
+    "evidence_increment": "fresh-seed C5-F1 T-limit oracle-minus-pertuned panel over S0-S3 with paired structural-gap CIs",
+    "claim_scope": "Auxiliary target-consolidation measurement only; no Track C training admission without CP-1, no normalization implementation, no validation ranking promotion, no driver-performance, no high-fidelity sufficiency, no paper, no repair-success, no robustness-result, no feasibility-proof, and no self-ID claim",
+    "stop_condition": [
+      "stop if the preregistration file is absent or changed after full-run launch",
+      "stop if quick mode fails runtime gates before the full run",
+      "stop if the full result omits structural-gap paired CIs for any target cell",
+      "stop after documenting the A3 result and marking CP-1 as pending"
+    ],
+    "fallback_plan": [
+      "on runtime-gate failure, document the failed gate and leave A3 OPEN or BLOCKED with artifact paths",
+      "on target confirmation, mark A3 DONE but Track C BLOCKED on CP-1",
+      "on target failure, mark A3 DONE negative and do not proceed to Track C",
+      "on inconclusive result, report the frozen readouts without criteria changes"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-3 roadmap selected A3 after A1 and A2 completed",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Run the pre-registered A3 C5-prime T-limit structural-ceiling consolidation panel.",
+    "admission_evidence": [
+      "C5 S0-S3 pricing measured a T-limit structural ceiling gap but used the original C5 pricing seed base",
+      "A1 lateral rider was negative, leaving C5-prime structural gap as the default forward target",
+      "A2 normalization audit blocks future training until implementation, but does not block this zero-training pricing panel"
+    ],
+    "blocked_shortcuts": [
+      "no train_ppo invocation",
+      "no checkpoint creation or update",
+      "no Track C training admission before CP-1",
+      "no normalization implementation in this milestone"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "experiments/feasibility_audit/c5prime_target_consolidation_quick.json",
+      "experiments/feasibility_audit/c5prime_target_consolidation.json",
+      "docs/m3222-a3-c5prime-target-consolidation.md",
+      "docs/reviews/m3222-a3-c5prime-target-consolidation.md",
+      "M3222 queue, status, scoreboard, roadmap, current-status, research-log, and measurement-index rows"
+    ],
+    "next_stage_criteria": [
+      "full summary JSON exists with protocol c5prime_target_consolidation",
+      "full summary JSON reports S0-S3/T-limit structural gap readouts",
+      "result document explicitly marks CP-1 as pending before any Track C work"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3222 runs scripted pricing and oracle search only, with no learned-history policy or self-identification measurement.",
+    "history_necessity_tests": [
+      "none in M3222: target-consolidation pricing panel only"
+    ],
+    "temporal_evidence_window": "none: no history-attribution claim is made",
+    "negative_result_policy": "A negative or inconclusive A3 result is reported at full fidelity and stops Track C target admission.",
+    "allowed_claims": [
+      "A3 preregistration exists before the full run",
+      "fresh-seed C5-F1 T-limit structural gap readouts",
+      "CP-1 remains required before Track C"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_dataset_or_panel",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new fresh-seed C5-prime T-limit structural-gap panel",
+    "paper_verdict_delta": "A3 confirms the C5-prime structural-ceiling target for CP-1 review; no training or paper claim is admitted.",
+    "must_synthesize_if": [
+      "Track C training is proposed before CP-1",
+      "criteria are changed after inspecting full results",
+      "a normalization implementation is silently bundled into this pricing milestone"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/c5prime_target_consolidation.json exists with protocol c5prime_target_consolidation and quick_mode false",
+    "the summary reports cells S0/T_limit, S1/T_limit, S2/T_limit, and S3/T_limit",
+    "each target cell reports structural_gap_oracle_minus_pertuned with paired CI95",
+    "the result document states that CP-1 is still required before Track C"
+  ],
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "runtime gates fail or seed sets overlap",
+    "the summary omits any target cell or structural-gap CI",
+    "the milestone runs RL, mutates the incumbent, applies normalization changes, or admits Track C",
+    "the result is described as driver-performance or high-fidelity sufficiency evidence"
+  ],
+  "decision_rule": "Accept M3222 as complete only if the full A3 pricing artifact and result document exist, report all four preregistered T-limit structural gaps with paired-CI readouts, and keep Track C blocked on CP-1.",
+  "commands": [
+    {
+      "name": "c5prime_quick_smoke",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation --quick"
+    },
+    {
+      "name": "c5prime_full_consolidation",
+      "command": "env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/c5prime_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_target_consolidation_quick.json",
+      "type": "json"
+    },
+    {
+      "path": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3222-a3-c5prime-target-consolidation.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/c5_reflex_degradation.json",
+    "docs/c5-reflex-degradation-2026-06.md",
+    "docs/roadmap-phase3-codex-execution.md",
+    "docs/m3221-a2-obs-normalization-audit.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+  "next_blocker": "CP-1 PI checkpoint pending before Track C training; M3221 normalization/preview blocker still applies to population or high-speed training.",
+  "status": "completed"
+}

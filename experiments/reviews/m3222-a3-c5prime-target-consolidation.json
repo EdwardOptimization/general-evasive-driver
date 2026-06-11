@@ -1,0 +1,86 @@
+{
+  "decision_reason": "Completed: pre-registered A3 C5-prime target consolidation executed via managed CPU process in 238.7 s; 3/4 T-limit cells qualified by the frozen oracle-minus-pertuned structural-gap rule; S1/S2/S3 gaps +0.1597/+0.2153/+0.1736 with CI95 lower bounds > 0; S0 positive but below the +0.15 effect-size bar (+0.1389); Track C remains blocked on CP-1; no Track C training admission normalization implementation driver mutation validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+  "failure_criteria": [
+    "the full run starts without the preregistration file",
+    "runtime gates fail or seed sets overlap",
+    "the summary omits any target cell or structural-gap CI",
+    "the milestone runs RL, mutates the incumbent, applies normalization changes, or admits Track C",
+    "the result is described as driver-performance or high-fidelity sufficiency evidence"
+  ],
+  "failure_types": [
+    "none"
+  ],
+  "forbidden_shortcuts": [
+    "do not treat target confirmation as PI approval",
+    "do not train RL or create checkpoints",
+    "do not apply the M3221 normalization recommendation in this milestone",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or checkpoints"
+  ],
+  "gate_tier": "infrastructure",
+  "generated_at_utc": "20260611T200718Z",
+  "hypothesis": "A frozen A3 C5-prime target-consolidation panel can re-confirm the C5-F1 T-limit structural ceiling gap and freeze target cells plus judging criteria before CP-1 and before any training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "blocked_by": [
+      "Track C remains blocked by CP-1 after this measurement"
+    ],
+    "derived_from": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "experiments/feasibility_audit/c5prime_prereg.json",
+      "scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation --quick"
+    ],
+    "invalidates": [
+      "using the old C5 S0-S3 pricing artifact alone as the final C5-prime target freeze"
+    ],
+    "parent_checkpoint": [
+      "docs/roadmap-phase3-codex-execution.md",
+      "docs/c5-reflex-degradation-2026-06.md",
+      "docs/m3221-a2-obs-normalization-audit.md"
+    ],
+    "parent_config": [
+      "scripts/feasibility_audit/c5_reflex_degradation.py",
+      "experiments/feasibility_audit/c5prime_prereg.json"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/c5_reflex_degradation.json",
+      "experiments/feasibility_audit/c5_lateral_spread_rider.json"
+    ],
+    "parent_objective": [
+      "execute roadmap A3 as fresh-seed C5-prime target consolidation and stop at CP-1"
+    ],
+    "supersedes": [
+      "the A3 OPEN status line if the full target-consolidation result is documented"
+    ]
+  },
+  "milestone": "m3222-a3-c5prime-target-consolidation",
+  "next_blocker": "CP-1 PI checkpoint pending before Track C training; M3221 normalization/preview blocker still applies to population or high-speed training.",
+  "private_holdout_policy": "not_used",
+  "promotion_decision": "a3_c5prime_target_confirmed_cp1_required",
+  "public_gates": [
+    "M3222 must use c5prime_prereg.json before the full run",
+    "M3222 must use fresh seed base 20260814 and assert selection/validation seed disjointness",
+    "M3222 must report oracle-minus-pertuned structural gap with paired CI95 for S0-S3/T-limit",
+    "M3222 must stop at CP-1 and must not admit Track C training"
+  ],
+  "scoreboard": {
+    "checkpoint": "experiments/feasibility_audit/c5prime_target_consolidation.json",
+    "clearance_margin_mean": "",
+    "decision": "a3_c5prime_target_confirmed_cp1_required",
+    "milestone": "m3222-a3-c5prime-target-consolidation",
+    "reason": "Completed: pre-registered A3 C5-prime target consolidation executed via managed CPU process in 238.7 s; 3/4 T-limit cells qualified by the frozen oracle-minus-pertuned structural-gap rule; S1/S2/S3 gaps +0.1597/+0.2153/+0.1736 with CI95 lower bounds > 0; S0 positive but below the +0.15 effect-size bar (+0.1389); Track C remains blocked on CP-1; no Track C training admission normalization implementation driver mutation validation promotion paper repair-success robustness-result feasibility-proof or self-ID claim.",
+    "reset_success": "",
+    "success_rate": "",
+    "termination_rate": "",
+    "type": "infrastructure",
+    "wheel_gain_mu": "",
+    "zero_all_success": "",
+    "zero_wheel_success": ""
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/c5prime_prereg.json exists and predates the full run",
+    "experiments/feasibility_audit/c5prime_target_consolidation.json exists with protocol c5prime_target_consolidation and quick_mode false",
+    "the summary reports cells S0/T_limit, S1/T_limit, S2/T_limit, and S3/T_limit",
+    "each target cell reports structural_gap_oracle_minus_pertuned with paired CI95",
+    "the result document states that CP-1 is still required before Track C"
+  ],
+  "type": "infrastructure"
+}

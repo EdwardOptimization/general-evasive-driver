@@ -319,12 +319,16 @@ original C5 argument in two. The mass/brake/tau spread mechanism did
 +0.16-0.21 at T-limit, CI-excluding 0, concentrated in drift-grade rows.
 M3220 then ran the cheap current-sim lateral rider over cg/Iz and also
 found no spread prize: 0/4 cells qualified, with S4L/T-limit at only
-+0.007 CI95 [-0.014, +0.028]. The remaining population question is now
-narrower and higher-fidelity: whether tire-shape, load-transfer,
-wheelbase-class, or Chrono vehicle-family dynamics move the boundary.
-M3218 found Chrono resources for that extension but also found the repo
-wiring still hard-coded to Sedan + TMeasy; M3219 then added and smoked the
-reset-time selector on default Sedan, BMW_E90, and UAZBUS. S4 pricing now
-waits on a frozen preregistration, not on backend wiring. Claim C5 and the
-WP-RL program operationalize this discipline: price first, then train RL
-only against a measured, pre-registered gap.
++0.007 CI95 [-0.014, +0.028]. M3222 then re-measured the surviving C5'
+target on fresh C5-F1 T-limit seeds and confirmed it by the frozen A3 rule:
+3/4 cells qualified, with S1/S2/S3 oracle-minus-pertuned gaps
++0.1597/+0.2153/+0.1736 and CI95 lower bounds > 0; S0 remained positive but
+below the +0.15 effect-size bar (+0.1389). The remaining population question
+is now narrower and higher-fidelity: whether tire-shape, load-transfer,
+wheelbase-class, or Chrono vehicle-family dynamics move the boundary. M3218
+found Chrono resources for that extension but also found the repo wiring still
+hard-coded to Sedan + TMeasy; M3219 then added and smoked the reset-time
+selector on default Sedan, BMW_E90, and UAZBUS. S4 pricing now waits on a
+frozen preregistration, not on backend wiring. Claim C5 and the WP-RL program
+operationalize this discipline: price first, then train RL only against a
+measured, pre-registered gap after CP-1.

@@ -337,8 +337,8 @@ check (not "~1 command").
 
 ### WP-RL — C5 program (priced first, trained second)
 
-1. **Pricing (zero training; S0-S3 completed, A1 lateral rider completed, C5'
-   available in the live ledger)**: the reflex degradation curve —
+1. **Pricing (zero training; S0-S3 completed, A1 lateral rider completed, A3
+   C5' target consolidation completed)**: the reflex degradation curve —
    spread tiers S0 nominal / S1 current (+-20%, what v4 was tuned on) /
    S2 extended (mass 0.70-1.50, brake/drive 0.60-1.30, stiffness
    0.50-1.50, tau to 2.5x) / S3 adversarial corners, at two limit-demand
@@ -352,17 +352,21 @@ check (not "~1 command").
    and per-instance oracles; the S0-S3 run prices the within-model rungs
    and S4 prices the population claim itself.
 
-   Live disposition (2026-06-12, M3221): S0-S3 rejected the original spread
+   Live disposition (2026-06-12, M3222): S0-S3 rejected the original spread
    formulation, and the cheap current-sim A1 lateral rider over cg/Iz also
    rejected the spread mechanism (0/4 cells qualified; S4L/T-limit prize
-   +0.007 CI95 [-0.014, +0.028]). The Chrono variant-selector connector is
+   +0.007 CI95 [-0.014, +0.028]). M3222 then confirmed the C5' structural
+   ceiling target on fresh C5-F1 T-limit seeds by the frozen A3 rule: 3/4
+   cells qualified, with S1/S2/S3 oracle-minus-pertuned gaps
+   +0.1597/+0.2153/+0.1736 and CI95 lower bounds > 0; S0 was positive but
+   below the +0.15 bar (+0.1389). The Chrono variant-selector connector is
    implemented and smoke-tested, but any S4-HF-lite pricing execution still
    needs a frozen preregistration and a declared handling of the unmapped
    continuous `lf/lr/Iz/cf/cr` lateral/tire channels. M3221 completed the
    obs-normalization audit and found a blocker: road_y/20, high-speed ego
    speed/accel, and obstacle rel-vy/12 need a follow-up
    normalization/preview implementation before population or high-speed
-   training.
+   training. Track C remains blocked until CP-1.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /

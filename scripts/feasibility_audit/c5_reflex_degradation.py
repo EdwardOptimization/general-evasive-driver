@@ -19,6 +19,7 @@ x 2 task surfaces (T-mid / T-limit) x 12 vehicle instances x (10|12) paired vali
 Run:
     PYTHONPATH=src python scripts/feasibility_audit/c5_reflex_degradation.py [--quick]
     PYTHONPATH=src python scripts/feasibility_audit/c5_reflex_degradation.py --lateral-rider [--quick]
+    PYTHONPATH=src python scripts/feasibility_audit/c5_reflex_degradation.py --c5prime-consolidation [--quick]
 """
 
 from __future__ import annotations
@@ -50,9 +51,13 @@ MAIN_RUN_DIR = REPO / "runs/feasibility_audit/c5_reflex_degradation"
 LATERAL_PREREG = REPO / "experiments/feasibility_audit/c5_lateral_prereg.json"
 LATERAL_RESULTS_JSON = REPO / "experiments/feasibility_audit/c5_lateral_spread_rider.json"
 LATERAL_RUN_DIR = REPO / "runs/feasibility_audit/c5_lateral_spread_rider"
+C5PRIME_PREREG = REPO / "experiments/feasibility_audit/c5prime_prereg.json"
+C5PRIME_RESULTS_JSON = REPO / "experiments/feasibility_audit/c5prime_target_consolidation.json"
+C5PRIME_RUN_DIR = REPO / "runs/feasibility_audit/c5prime_target_consolidation"
 
 BASE_MAIN = 20260712
 BASE_LATERAL = 20260812
+BASE_C5PRIME = 20260814
 BASE = BASE_MAIN
 GRAV = 9.81
 MASS_NOM = 1450.0
@@ -96,6 +101,15 @@ LATERAL_CLAIM_BOUNDARY = (
     "oracle compared on S0 vs S4L cg/Iz vehicle instances. Zero training; no incumbent "
     "driver mutation, driver-performance, validation ranking, promotion, high-fidelity "
     "sufficiency, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim."
+)
+
+C5PRIME_CLAIM_BOUNDARY = (
+    "C5' target-consolidation pricing measurement only: scripted reflex controllers, "
+    "a grid-tuned per-instance reflex floor, and a reveal-constrained privileged oracle "
+    "compared on fresh C5-F1 T-limit cells. Zero training; no incumbent driver mutation, "
+    "driver-performance, validation ranking, promotion, high-fidelity sufficiency, paper, "
+    "repair-success, robustness-result, feasibility-proof, or self-ID claim. CP-1 PI "
+    "approval is still required before Track C training."
 )
 
 PREREG = MAIN_PREREG
@@ -497,9 +511,13 @@ def main() -> None:
     ap.add_argument("--quick", action="store_true")
     ap.add_argument("--lateral-rider", action="store_true",
                     help="Run the A1 S4-lateral cg/Iz spread rider instead of the original S0-S3 C5 panel.")
+    ap.add_argument("--c5prime-consolidation", action="store_true",
+                    help="Run the A3 C5' T-limit structural-ceiling consolidation panel.")
     ap.add_argument("--device", default="cpu", choices=["cpu"])
     args = ap.parse_args()
     quick = args.quick
+    if args.lateral_rider and args.c5prime_consolidation:
+        raise SystemExit("--lateral-rider and --c5prime-consolidation are mutually exclusive")
     if args.lateral_rider:
         BASE = BASE_LATERAL
         LEVELS = LEVELS_LATERAL
@@ -508,6 +526,16 @@ def main() -> None:
         RUN_DIR = LATERAL_RUN_DIR
         protocol = "c5_lateral_spread_rider"
         claim_boundary = LATERAL_CLAIM_BOUNDARY
+        run_surfaces = SURFACES
+    elif args.c5prime_consolidation:
+        BASE = BASE_C5PRIME
+        LEVELS = LEVELS_MAIN
+        PREREG = C5PRIME_PREREG
+        RESULTS_JSON = C5PRIME_RESULTS_JSON
+        RUN_DIR = C5PRIME_RUN_DIR
+        protocol = "c5prime_target_consolidation"
+        claim_boundary = C5PRIME_CLAIM_BOUNDARY
+        run_surfaces = ["T_limit"]
     else:
         BASE = BASE_MAIN
         LEVELS = LEVELS_MAIN
@@ -516,12 +544,18 @@ def main() -> None:
         RUN_DIR = MAIN_RUN_DIR
         protocol = "c5_reflex_degradation"
         claim_boundary = CLAIM_BOUNDARY
+        run_surfaces = SURFACES
 
     t_start = time.time()
     RUN_DIR.mkdir(parents=True, exist_ok=True)
     progress_path = RUN_DIR / ("progress_quick.json" if quick else "progress.json")
     rows_csv = RUN_DIR / ("episode_rows_quick.csv" if quick else "episode_rows.csv")
-    quick_name = "c5_lateral_spread_rider_quick.json" if args.lateral_rider else "c5_reflex_degradation_quick.json"
+    if args.lateral_rider:
+        quick_name = "c5_lateral_spread_rider_quick.json"
+    elif args.c5prime_consolidation:
+        quick_name = "c5prime_target_consolidation_quick.json"
+    else:
+        quick_name = "c5_reflex_degradation_quick.json"
     results_json = RESULTS_JSON if not quick else RESULTS_JSON.with_name(quick_name)
 
     prereg = json.loads(PREREG.read_text(encoding="utf-8"))
@@ -562,7 +596,7 @@ def main() -> None:
     sel_rows: dict[tuple[str, str, int], list[dict]] = {}
     val_rows: dict[tuple[str, str, int], list[dict]] = {}
     for level in levels:
-        for surface in SURFACES:
+        for surface in run_surfaces:
             for v_i in range(n_inst):
                 veh = vehicles[(level, v_i)]
                 sel_rows[(level, surface, v_i)] = sample_rows(level, surface, v_i, veh, "sel", n_sel)
@@ -628,7 +662,7 @@ def main() -> None:
     pool = np.zeros(len(GRID))
     pool_hard = np.zeros(len(GRID))
     s0 = "S0" if "S0" in levels else levels[0]
-    for surface in SURFACES:
+    for surface in run_surfaces:
         for v_i in range(n_inst):
             for c in sel_stats[(s0, surface, v_i)]:
                 pool[c["grid_index"]] += c["sel_success"]
@@ -642,7 +676,7 @@ def main() -> None:
     star = GRID[star_index]
     star_cfg = grid_cfgs(*star)
     progress("fixed_star_selected", grid=star, sel_success=int(pool[star_index]),
-             out_of=int(n_inst * n_sel * 2))
+             out_of=int(n_inst * n_sel * len(run_surfaces)))
 
     # ---- pertuned winners per (level, surface, instance)
     pertuned_choice: dict[tuple[str, str, int], int] = {}
@@ -658,7 +692,7 @@ def main() -> None:
     episode_rows: list[dict] = []
     n_val_eps = 0
     n_oracle_rollouts = 0
-    cell_keys = [(lv, sf) for lv in levels for sf in SURFACES]
+    cell_keys = [(lv, sf) for lv in levels for sf in run_surfaces]
     for ci, (level, surface) in enumerate(cell_keys):
         for v_i in range(n_inst):
             veh = vehicles[(level, v_i)]
@@ -724,7 +758,7 @@ def main() -> None:
     cells_out = {}
     rng_boot = np.random.default_rng([BASE, 88])
     for level in levels:
-        for surface in SURFACES:
+        for surface in run_surfaces:
             rows = [r for r in episode_rows if r["level"] == level and r["surface"] == surface]
             filt = [r for r in rows if r["oracle_solved"]]
             out: dict[str, Any] = {
@@ -765,6 +799,26 @@ def main() -> None:
                     "paired_bootstrap_ci95": paired_bootstrap_ci(vec["v4_pertuned"], vec["fixed_v4_incumbent"], rng_boot),
                 },
             }
+            sub_all = rows
+            n_all = len(sub_all)
+            vec_all = {
+                arm: np.array([1.0 if r[f"{arm}_outcome"] == "success" else 0.0 for r in sub_all])
+                for arm in ARMS
+            }
+            oracle_vec = np.array([1.0 if r["oracle_solved"] else 0.0 for r in sub_all])
+            p_all = {arm: float(vec_all[arm].mean()) if n_all else float("nan") for arm in ARMS}
+            p_oracle = float(oracle_vec.mean()) if n_all else float("nan")
+            out["readouts_unfiltered"] = {
+                "structural_gap_oracle_minus_pertuned": {
+                    "value": round(p_oracle - p_all["v4_pertuned"], 4),
+                    "paired_bootstrap_ci95": paired_bootstrap_ci(oracle_vec, vec_all["v4_pertuned"], rng_boot),
+                    "newcombe_ci95": newcombe_diff_ci(p_oracle, n_all, p_all["v4_pertuned"], n_all),
+                },
+                "structural_gap_oracle_minus_fixed_star": {
+                    "value": round(p_oracle - p_all["fixed_star"], 4),
+                    "paired_bootstrap_ci95": paired_bootstrap_ci(oracle_vec, vec_all["fixed_star"], rng_boot),
+                },
+            }
             cells_out[f"{level}/{surface}"] = out
 
     # ---- C5 decision (prereg rule)
@@ -778,6 +832,14 @@ def main() -> None:
             qualifying.append(cell)
     c5_supported = len(qualifying) >= 2
     s4l_qualifying = [cell for cell in qualifying if cell.startswith("S4L/")]
+    c5prime_qualifying = []
+    for cell, out in cells_out.items():
+        if not cell.endswith("/T_limit"):
+            continue
+        gap = out["readouts_unfiltered"]["structural_gap_oracle_minus_pertuned"]
+        if gap["value"] >= 0.15 and gap["paired_bootstrap_ci95"][0] > 0.0:
+            c5prime_qualifying.append(cell)
+    c5prime_confirmed = len(c5prime_qualifying) >= 3
 
     pertuned_grid_hist: dict[str, int] = {}
     for key, gi in pertuned_choice.items():
@@ -793,15 +855,18 @@ def main() -> None:
             "file": str(PREREG),
             "decision_rule": prereg["preregistered_readouts"].get(
                 "c5_decision_rule",
-                prereg["preregistered_readouts"].get("lateral_rider_decision_rule", ""),
+                prereg["preregistered_readouts"].get(
+                    "lateral_rider_decision_rule",
+                    prereg["preregistered_readouts"].get("decision_rule", ""),
+                ),
             ),
         },
         "seed_base": BASE,
-        "levels": levels, "surfaces": SURFACES, "instances_per_level": n_inst,
+        "levels": levels, "surfaces": run_surfaces, "instances_per_level": n_inst,
         "sel_rows_per_instance": n_sel, "val_rows_per_instance": n_val,
         "fixed_star": {"grid": star, "grid_index": star_index,
                        "pooled_s0_sel_success": int(pool[star_index]),
-                       "pooled_s0_sel_n": int(n_inst * n_sel * 2),
+                       "pooled_s0_sel_n": int(n_inst * n_sel * len(run_surfaces)),
                        "identity_pooled_s0_sel_success": int(pool[IDENTITY_INDEX])},
         "pertuned_grid_histogram": pertuned_grid_hist,
         "vehicles": {
@@ -824,6 +889,11 @@ def main() -> None:
             "reported_cells": [cell for cell in cells_out if cell.startswith("S4L/")],
             "interpretation": "A1 rider is a per-cell pricing readout; it does not by itself promote C5 or admit training.",
         },
+        "c5prime_decision": {
+            "qualifying_target_cells": c5prime_qualifying,
+            "c5prime_target_confirmed": c5prime_confirmed,
+            "rule": ">=3 T-limit cells with oracle_minus_pertuned >= 0.15 and paired CI95 lower > 0; CP-1 still required before Track C training",
+        },
         "budget": {"selection_episodes": n_sel_eps, "validation_episodes": n_val_eps,
                    "oracle_rollouts": n_oracle_rollouts,
                    "rls_prefixes": len(rls_table), "elapsed_s": round(time.time() - t_start, 1)},
@@ -832,7 +902,8 @@ def main() -> None:
     results_json.parent.mkdir(parents=True, exist_ok=True)
     results_json.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     progress("done", results=str(results_json), elapsed_s=round(time.time() - t_start, 1),
-             c5_supported=c5_supported, qualifying=qualifying)
+             c5_supported=c5_supported, qualifying=qualifying,
+             c5prime_confirmed=c5prime_confirmed, c5prime_qualifying=c5prime_qualifying)
 
 
 if __name__ == "__main__":

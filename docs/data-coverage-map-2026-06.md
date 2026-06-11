@@ -52,7 +52,7 @@ budgets.
 
 ## Priority order for closing (feeds WP-RL prerequisites)
 
-1. Normalization/preview implementation and smoke before any population or high-speed training; the A2 audit is complete and found a blocker. S4 current-sim cg/Iz rider is closed negative (M3220), while Chrono S4 pricing still needs its own frozen pre-registration.
+1. Normalization/preview implementation and smoke before any population or high-speed training; the A2 audit is complete and found a blocker. S4 current-sim cg/Iz rider is closed negative (M3220), A3 C5-prime target consolidation is confirmed for CP-1 review (M3222), and Chrono S4 pricing still needs its own frozen pre-registration.
 2. Moving obstacles (env engineering: kinematics, collision, label
    re-derivation; >= 1-2 days).
 3. High-speed domain (> 20 m/s scenarios; preview/normalization rework).

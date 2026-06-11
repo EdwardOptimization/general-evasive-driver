@@ -17,7 +17,7 @@
   (`docs/c5-reflex-degradation-2026-06.md`), and the A1 S4-lateral rider was
   also negative (`docs/m3220-a1-s4-lateral-spread-rider-pricing.md`). The
   default forward path is therefore C5'-main (structural-ceiling prize),
-  pending A3 and CP-1. PI may override at CP-1.
+  pending CP-1. PI may override at CP-1.
 
 ## Track A — pricing/science completion (CPU only, zero training)
 
@@ -54,7 +54,7 @@
   saturate in high-speed profiles; obstacle `rel_vy/12` saturates with
   ego-relative obstacle mode. No normalization was applied in M3221.
 
-### A3. C5' target consolidation on C5-F1 [OPEN; gates Track C]
+### A3. C5' target consolidation on C5-F1 [DONE: M3222; gates Track C]
 - question: re-confirm the structural-ceiling gap (oracle - per-tuned,
   measured +0.16-0.21 at T-limit) on the curvature-compensated C5-F1 family
   with hardened seeds (>= 10 validation seeds/cell), and freeze the RL
@@ -62,6 +62,11 @@
 - acceptance: gap CI excluding 0 in >= 3 T-limit cells on the re-measured
   panel; frozen `experiments/feasibility_audit/c5prime_prereg.json` naming
   target cells, floors, per-instance oracle protocol.
+- result: `docs/m3222-a3-c5prime-target-consolidation.md` completed the
+  fresh-seed A3 consolidation. Verdict: C5-prime target confirmed by the
+  frozen rule, with 3/4 T-limit cells qualifying. S1/S2/S3 had oracle -
+  pertuned gaps +0.1597/+0.2153/+0.1736 with paired CI95 lower bounds > 0;
+  S0 was positive but below the +0.15 effect-size bar (+0.1389).
 - **CP-1 (PI checkpoint)** after A3: PI confirms the C5' target before
   Track C training begins.
 
@@ -92,9 +97,9 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - episode chaining or long-episode support (the real L3.5 scale);
   familiarization carry-over semantics; smoke.
 
-## Track C — C5' RL program (m1087 staged; opens after A3 + CP-1)
+## Track C — C5' RL program (m1087 staged; opens after CP-1)
 
-### C1. Oracle demo generator + BC warm-start [BLOCKED on A3/CP-1]
+### C1. Oracle demo generator + BC warm-start [BLOCKED on CP-1]
 - per-instance oracle demos on the frozen C5' cells; BC with DAgger-lite +
   held-out epoch selection (the G1' lessons are mandatory); capacity and
   seed discipline per the WP1 pattern.
@@ -128,12 +133,12 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 - A1: DONE (M3220; 0/4 cells qualified under cg/Iz S4L rider)
 - A2: DONE (M3221; normalization/preview implementation blocker found)
-- A3: OPEN
+- A3: DONE (M3222; C5-prime target confirmed 3/4 T-limit cells; CP-1 still required)
 - B1: OPEN
 - B2: OPEN (depends A2)
 - B3: OPEN
 - B4: OPEN
-- C1-C3: BLOCKED on A3 + CP-1
+- C1-C3: BLOCKED on CP-1
 - D1: OPEN
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
