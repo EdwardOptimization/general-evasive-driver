@@ -56097,3 +56097,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate_20260611T024006Z/command.log`
 - success artifact: `runs/feasibility_audit/selfid_g1_ignition_gate/summary.json`
 - notes: Pending: execute the pre-registered G1 ignition gate for the selfid degradation diagnostic branch; auxiliary diagnostic only; active-safety driver objective boundary unchanged; verdict fail cancels the full 20-cell matrix.
+
+## 20260611T122844Z m3215-wp0-degraded-sweep-bridge-validation
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A pre-registered degraded-regime sweep over the extended M3214 wrapper modes on both the B2K2 tight-window family and the frozen F2C1 family with matched-anchor VoI at 12 mu points x at least 10 validation seeds and Wilson CIs can decide the G-A gate and the falsifiable noise-buys-delay bridge before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp0_degraded_sweep.py --full --output-dir runs/feasibility_audit/wp0_degraded_sweep`
+- returncode: `0`
+- run dir: `runs/research/m3215-wp0-degraded-sweep-bridge-validation_20260611T121026Z`
+- command log: `runs/research/m3215-wp0-degraded-sweep-bridge-validation_20260611T121026Z/command.log`
+- success artifact: `runs/feasibility_audit/wp0_degraded_sweep/summary.json`
+- notes: Pending: Phase-2 WP0.2/WP0.3 closing measurement under manual-takeover mixed bookkeeping; criteria frozen in experiments/feasibility_audit/wp0_degraded_sweep_prereg.json; auxiliary measurement; incumbent unchanged.

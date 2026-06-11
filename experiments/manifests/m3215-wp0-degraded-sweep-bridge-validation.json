@@ -1,0 +1,187 @@
+{
+  "id": "m3215-wp0-degraded-sweep-bridge-validation",
+  "priority": 32150,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "metric_artifact",
+    "seed_fragility",
+    "contract_violation",
+    "scenario_sampling_failure",
+    "objective_overfit"
+  ],
+  "hypothesis": "A pre-registered degraded-regime sweep over the extended M3214 wrapper modes (AR(1) correlated noise, frame dropout, episode-random and piecewise time-varying delay, at least five new cells per family plus the existing delay/noise anchors) on both the B2K2 tight-window family and the frozen F2C1 family with matched-anchor VoI against the best belief-free floor at 12 mu points x at least 10 validation seeds with Wilson CIs can decide the G-A gate (two-regime-law replication on family 2) and the falsifiable noise-buys-delay bridge (threshold-classification agreement at least 75 percent and Spearman at least 0.6) before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/research-plan-phase2-capability-boundary-tracking.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/family2_spec.json",
+      "experiments/feasibility_audit/degraded_regime_final.json",
+      "experiments/feasibility_audit/slip_onset_detectability.json"
+    ],
+    "parent_config": [
+      "experiments/feasibility_audit/wp0_degraded_sweep_prereg.json"
+    ],
+    "parent_objective": [
+      "close Phase-2 WP0: replicate or refute the two-regime law direction on family 2 under hardened statistics and validate the detection-latency bridge across the new degradation modes"
+    ],
+    "derived_from": [
+      "docs/research-plan-phase2-capability-boundary-tracking.md",
+      "experiments/feasibility_audit/family2_spec.json",
+      "experiments/feasibility_audit/degraded_regime_final.json",
+      "docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md"
+    ],
+    "blocked_by": [
+      "WP1 eligible-cell freezing requires the WP0.3 hardened re-measurement delivered by this milestone",
+      "the G-A gate must be adjudicated before WP1 runs on family 2"
+    ],
+    "supersedes": [
+      "reading the 2-seed degraded_regime_final cell estimates as main-table numbers"
+    ],
+    "invalidates": [
+      "none"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3215-wp0-degraded-sweep-bridge-validation.md",
+  "public_gates": [
+    "M3215 must freeze all decision criteria (cells, seeds, VoI definition, G-A rule, bridge rule, saturation rule, budget rule) in experiments/feasibility_audit/wp0_degraded_sweep_prereg.json before the --full run and echo them into summary.json",
+    "M3215 must measure every validation arm on at least 120 episodes per cell (12 mu points x at least 10 disjoint validation seeds) with Wilson 95% CIs; if runtime exceeds budget, cells are dropped and reported, seeds are never reduced",
+    "M3215 must use the matched anchor (same-cell degraded oracle) against the best belief-free floor (max over seeker variants with per-cell re-calibrated detectors and fixed plans) as the primary VoI readout",
+    "M3215 must use the drive-side (throttle) seek style in the family-2 seeker grid per the frozen family-2 design lesson",
+    "M3215 must report the bridge verdict in whichever direction it lands, including AR(1) breaking the prediction",
+    "M3215 must leave ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary unchanged"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not weaken thresholds, extend seeds, or re-pick cells after seeing results",
+    "do not substitute the clean-anchor VoI for the matched-anchor VoI in the G-A or bridge verdicts",
+    "do not tune the seeker on validation seeds; selection and validation streams stay disjoint",
+    "do not read any cell number as driver-performance, robustness, feasibility-proof, gate-validity, paper, or self-ID evidence",
+    "do not promote, mutate, or train any driver or checkpoint inside M3215",
+    "do not bypass make_env_from_config when constructing degraded envs"
+  ],
+  "workflow_synthesis": {
+    "branch": "phase2_wp0_degraded_sweep",
+    "evidence_axis": "degraded_regime_generality_and_bridge_validation",
+    "evidence_increment": "first hardened (>=120 validation episodes per arm per cell) degraded-regime VoI panel on two task families across nine degradation cells each including five new wrapper modes, plus the first measurement of the falsifiable detection-latency bridge",
+    "claim_scope": "Phase-2 WP0 measurement; auxiliary; incumbent unchanged; no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if the pre-registered criteria file is missing or altered after the run starts",
+      "stop if any cell's validation arm falls below 120 episodes",
+      "stop if the run would exceed 2.5 h: drop cells per the pre-registered budget rule, never seeds"
+    ],
+    "fallback_plan": [
+      "on execution failure resume from progress.jsonl and rerun the identical pre-registered measurement",
+      "on G-A fail apply the plan's pre-registered fallback: scope the law family-specific, re-scope papers, run WP1 on family 1 only",
+      "on bridge fail demote the bridge to direct per-cell measurement and report the falsification",
+      "preserve the engineering incumbent and the active-safety mainline untouched"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "Phase-2 plan registers WP0-WP4 measurement units as harness milestones (M3215+) under the mixed bookkeeping mode of the manual takeover",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "evaluation_only",
+    "stage_objective": "Execute the pre-registered WP0 degraded sweep and bridge validation with scripted controllers only (zero training): per-cell detector tau calibration, measurement-A latency bridge inputs, and per-family degraded-cell VoI measurement with hardened validation statistics",
+    "admission_evidence": [
+      "family-2 final_spec frozen with clean acceptance PASS (gap +0.0167 <= 0.05) in experiments/feasibility_audit/family2_spec.json",
+      "extended wrapper modes (AR(1), dropout, time-varying delay) shipped with unit tests and clean-anchor bit-reproduction in src/autodrift/observation_degradation_wrapper.py",
+      "degraded_regime_final.py machinery measured the 16-cell anchor matrix at 2 seeds; this milestone hardens to >= 10 validation seeds per the WP0.3 plan requirement",
+      "--quick smoke test executed end to end (calibration, latency, both families, bridge, G-A) with resume verified"
+    ],
+    "blocked_shortcuts": [
+      "no training runs, no checkpoint creation or reuse",
+      "no post-hoc threshold or seed changes",
+      "no promotion of any seeker/oracle configuration as a driver"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/wp0_degraded_sweep.py",
+      "experiments/feasibility_audit/wp0_degraded_sweep_prereg.json",
+      "runs/feasibility_audit/wp0_degraded_sweep artifacts",
+      "docs/m3215-wp0-degraded-sweep-bridge-validation.md",
+      "docs/reviews/m3215-wp0-degraded-sweep-bridge-validation.md",
+      "experiments/reviews/m3215-wp0-degraded-sweep-bridge-validation.json",
+      "M3215 status queue scoreboard research log and review rows"
+    ],
+    "next_stage_criteria": [
+      "summary.json records status completed with the pre-registered criteria echo, per-cell VoI tables with Wilson CIs, the bridge table, and deterministic ga_gate and bridge verdicts",
+      "G-A pass routes WP1 to both families; G-A fail routes to the plan's pre-registered family-specific fallback; bridge fail demotes the bridge to direct measurement"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "The degradation cells remove current-frame sufficiency on ego channels 0-8 by construction; this milestone measures scripted-controller VoI only and cannot speak to learned-history necessity, which remains reserved for WP1.",
+    "history_necessity_tests": [
+      "none in M3215: scripted oracle/seeker VoI measurement only; learned-estimator substitution tests are WP1"
+    ],
+    "temporal_evidence_window": "Pre-reveal ramp identification window (drive-side onset for family 2, brake/drive for family 1) under per-cell degraded sensing; detection latency measured separately on sub-limit ramps as the bridge input.",
+    "negative_result_policy": "G-A fail or bridge falsification is reported as written with no threshold weakening; the plan's pre-registered fallback routes apply (family-specific scoping; bridge demotion to direct measurement).",
+    "allowed_claims": [
+      "pre-registered feasibility-audit VoI measurement outcomes on the two scripted task families and the bridge verdict only",
+      "no self-identification evidence at any level above not_applicable, no profile ranking, no gate validity, no information ceiling, no driver-performance or robustness-result claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "first hardened two-family degraded-regime panel (approximately 18 full cells x >= 120 validation episodes per arm plus calibration and latency-bridge data) covering five new degradation modes never measured before, with a falsifiable cross-mode prediction tested",
+    "paper_verdict_delta": "G-A adjudication determines whether Paper A claims the two-regime law as general (two families) or family-specific; bridge verdict determines whether degradation placements can be predicted from detection latency",
+    "must_synthesize_if": [
+      "the measurement fails twice on the same infrastructure failure",
+      "any follow-up proposes re-running with weakened thresholds or fewer validation seeds",
+      "results are quoted beyond the feasibility-audit claim boundary"
+    ]
+  },
+  "success_criteria": [
+    "runs/feasibility_audit/wp0_degraded_sweep/summary.json exists with status completed, the pre-registration echo, per-cell results for both families with n_val_episodes_per_arm >= 120, Wilson CIs, and deterministic ga_gate and bridge verdicts",
+    "every degradation cell ran through make_env_from_config with the identical wrapper construction path including the clean cell",
+    "the bridge table reports delta_L, predicted and measured VoI, classification agreement, and Spearman over the pooled new cells",
+    "docs/m3215-wp0-degraded-sweep-bridge-validation.md records the pre-registered criteria, the measured tables, the G-A adjudication, and the routing",
+    "ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary are unchanged"
+  ],
+  "failure_criteria": [
+    "summary.json missing, status not completed, or any required verdict non-deterministic",
+    "criteria, seeds, or cells altered after the full run started",
+    "any validation arm below 120 episodes in a non-dropped cell",
+    "results quoted as driver-performance, robustness, gate-validity, feasibility-proof, paper, or self-ID evidence",
+    "the milestone trains, promotes, or mutates any driver or checkpoint"
+  ],
+  "decision_rule": "Pass only if the --full run completes end to end with the pre-registered criteria echoed into summary.json, both families measured at >= 120 validation episodes per arm per cell with Wilson CIs, and deterministic G-A and bridge verdicts recorded; the verdicts then route per the frozen outcome routes (G-A pass -> WP1 on both families, G-A fail -> family-specific fallback with WP1 on family 1; bridge fail -> demote bridge to direct measurement) with no threshold weakening and all claim boundaries preserved.",
+  "commands": [
+    {
+      "name": "wp0_degraded_sweep_full",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/wp0_degraded_sweep.py --full --output-dir runs/feasibility_audit/wp0_degraded_sweep"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/feasibility_audit/wp0_degraded_sweep/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/wp0_degraded_sweep/progress.jsonl",
+      "type": "jsonl"
+    },
+    {
+      "path": "experiments/feasibility_audit/wp0_degraded_sweep_prereg.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3215-wp0-degraded-sweep-bridge-validation.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/family2_spec.json",
+    "experiments/feasibility_audit/degraded_regime_final.json",
+    "experiments/feasibility_audit/wp0_degraded_sweep_prereg.json"
+  ],
+  "scoreboard_checkpoint": "runs/feasibility_audit/wp0_degraded_sweep/summary.json",
+  "next_blocker": "m3215-wp0-degraded-sweep-bridge-validation",
+  "status": "completed"
+}

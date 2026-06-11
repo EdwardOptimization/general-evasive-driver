@@ -1,0 +1,77 @@
+{
+  "protocol": "feasibility_audit_wp0_degraded_sweep_bridge_validation_preregistration",
+  "milestone": "m3215-wp0-degraded-sweep-bridge-validation",
+  "frozen_at_utc": "2026-06-11T00:00:00Z (frozen BEFORE the --full run; only the --quick smoke test, which reads no verdicts, ran before this freeze)",
+  "plan_anchor": "docs/research-plan-phase2-capability-boundary-tracking.md WP0.2/WP0.3 + G-A",
+  "claim_boundary": "Feasibility-audit policy-family VoI measurement only (Phase-2 WP0, manual takeover). Auxiliary measurement; engineering incumbent unchanged. No driver promotion, training, validation ranking, repair-success, gate-validity, paper, high-fidelity, robustness-result, feasibility-proof, or self-ID capability claim.",
+  "task_surfaces": {
+    "family1": {
+      "family": "B2K2_final",
+      "reveal_m": 9.5,
+      "machinery": "scripts/feasibility_audit/ramp_policy_voi_regime.py via degraded_regime_final classes",
+      "episode_seeds": "reg.TierMeasurement.seed_for (SEED_BASE 20260618): sel k in {0,1}, val k in {0..9} offset 100000; val k 0,1 bit-extend the degraded_regime_final anchor stream"
+    },
+    "family2": {
+      "family": "F2_F2C1_offset_jitter_react (frozen final_spec, experiments/feasibility_audit/family2_spec.json)",
+      "reveal_m": 9.5,
+      "machinery": "scripts/feasibility_audit/family2_design.py Family2Ramp/Family2Controller; the drive-side (throttle) seek style REQUIRED in the seeker grid per docs/selfid-family2-design-2026-06.md (identification embedded in the family's useful action), brake style competes alongside",
+      "episode_seeds": "fresh SEED_BASE 20260625: seed = 20260625*10 + 17*point + 1000*k + offset, sel offset 0 (k 0,1), val offset 100000 (k 0..9), calibration offset 700000 (family1 calibration offset 500000); 20260624 A-D streams consumed by the design measurement"
+    }
+  },
+  "degradation_cells_per_family": {
+    "anchors": [
+      {"cell_id": "clean", "degradation": {"delay_steps": 0, "noise_std": 0.0}},
+      {"cell_id": "delay5", "degradation": {"delay_steps": 5}, "note": "100 ms"},
+      {"cell_id": "delay12", "degradation": {"delay_steps": 12}, "note": "240 ms"},
+      {"cell_id": "delay25", "degradation": {"delay_steps": 25}, "note": "500 ms; needed as the upper pure-delay bridge anchor"},
+      {"cell_id": "noise0.05", "degradation": {"noise_std": 0.05}}
+    ],
+    "new_cells": [
+      {"cell_id": "ar1_r0.9_s0.05eq", "degradation": {"ar1_rho": 0.9, "ar1_sigma": 0.021794}, "note": "stationary std 0.05"},
+      {"cell_id": "ar1_r0.95_s0.05eq", "degradation": {"ar1_rho": 0.95, "ar1_sigma": 0.015612}, "note": "stationary std 0.05, longer correlation time"},
+      {"cell_id": "dropout0.2", "degradation": {"dropout_prob": 0.2}},
+      {"cell_id": "eprand_d5_25", "degradation": {"delay_profile": "episode_random", "delay_lo": 5, "delay_hi": 25}},
+      {"cell_id": "piecewise_d5_25", "degradation": {"delay_profile": "piecewise", "delay_lo": 5, "delay_hi": 25}}
+    ],
+    "wrapper": "src/autodrift/observation_degradation_wrapper.py via make_env_from_config; identical wrapper construction path for every cell including clean"
+  },
+  "statistics_frozen": {
+    "mu_points": 12,
+    "selection_seeds": 2,
+    "validation_seeds": 10,
+    "val_episodes_per_arm_per_cell": 120,
+    "intervals": "Wilson 95% per arm; Newcombe hybrid 95% on the VoI difference",
+    "hardening_rule": "if projected runtime exceeds 2.5 h, DROP CELLS (reported), never reduce validation seeds (statistical-review lesson)"
+  },
+  "voi_definition_frozen": {
+    "primary": "VoI_matched = same-cell degraded per-mu-oracle validation success - floor, floor = max(best belief-free seeker over the per-cell re-calibrated detector grid, best fixed plan), identical episodes",
+    "secondary": "clean-anchor VoI (clean-cell oracle minus same floor), reported not gated on",
+    "detector_fairness": "per-cell tau re-calibration on sub-limit ramps (1.2x observed max shortfall, floor 0.08); noise-like cells (iid, AR(1)) additionally get W in {1,5,12,25} smoothing arms in the seeker selection grid"
+  },
+  "ga_gate_frozen": {
+    "clean_rule": "family-2 clean-cell VoI_matched <= 0.05 on the hardened validation set",
+    "degraded_rule": "VoI_matched >= 0.15 in >= half (>= 3 of 5) of the NEW family-2 degraded cells",
+    "verdict_pass": "two-regime law direction replicated on family #2 -> route WP1 on both families",
+    "verdict_fail": "pre-registered G-A fallback: law scoped family-specific, papers re-scoped, WP1 still runs on family #1"
+  },
+  "bridge_frozen": {
+    "protocol": "measurement-A (slip_onset_detectability) sub-limit ramp latency per degradation cell, per-cell tau re-calibration via mod_a.calibrate_tau, task outcomes never consulted; rates {0.10, 0.40} x 6 ramps, 6 calibration episodes, 4 sub-limit false-positive episodes",
+    "delta_l": "dL = median detection delay (steps) in cell - clean-cell median, floored at 0",
+    "prediction": "predicted VoI_matched(new cell, family) = linear interpolation of the same family's pure-delay curve {clean, delay5, delay12, delay25} (x = measured dL of those cells, y = measured VoI_matched) at x = dL(new cell), clamped at the endpoints",
+    "saturation_rule": "if a cell's ramp miss rate > 0.5 or its median is undefined, dL saturates to the family's largest pure-delay dL (declared per cell)",
+    "pass_rule": "threshold classification (VoI_matched >= 0.15) agreement >= 75% over the 10 new cells (both families pooled) AND Spearman(predicted, measured) >= 0.6, validation seeds",
+    "falsifiability_note": "AR(1) genuinely threatens the prediction (it defeats time-averaging); either direction is reported as measured"
+  },
+  "execution": {
+    "command": "PYTHONPATH=src python scripts/feasibility_audit/wp0_degraded_sweep.py --full",
+    "runtime_estimate": "~34k episodes at ~0.03-0.04 s/episode plus calibration/latency overhead: 25-50 min, well under the 2.5 h budget bar",
+    "resume": "progress.jsonl per completed unit; rerun skips completed units",
+    "summary_contract": "summary.json written only on full completion; partial state in summary_partial.json"
+  },
+  "outcome_routes_frozen": [
+    "G-A pass + bridge pass: WP1 proceeds on both families; bridge becomes the degradation-placement instrument",
+    "G-A pass + bridge fail: WP1 proceeds; degradation placements require direct measurement per cell (bridge demoted, reported)",
+    "G-A fail: plan G-A fallback (family-specific scope); bridge result still reported on family #1",
+    "no threshold weakening, no seed/budget extension after seeing results"
+  ]
+}
