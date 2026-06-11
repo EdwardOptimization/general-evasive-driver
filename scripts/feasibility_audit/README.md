@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (41 as of 2026-06-12), mapped to its
+Index of every script in this directory (42 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -95,6 +95,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | `geometry_degradation_smoke.py` | `experiments/feasibility_audit/geometry_degradation_prereg.json`, `geometry_degradation_smoke.json`; `runs/feasibility_audit/geometry_degradation_smoke/frame_rows.csv` | `docs/m3225-b3-geometry-degradation-split-mu-expressibility-smoke.md` | Does geometry-channel degradation perturb road/obstacle continuous scene channels without leaking into ego/commands/present/size/empty slots, and can the current obstacle-env path express split-mu? Geometry smoke passes; split-mu is not expressible in the `DriftObstacleEnv` single-track outcome path. |
 | `minute_scale_drive_structure_smoke.py` | `experiments/feasibility_audit/minute_scale_drive_structure_prereg.json`, `minute_scale_drive_structure_smoke.json`; `runs/feasibility_audit/minute_scale_drive_structure_smoke/frame_rows.csv` | `docs/m3226-b4-minute-scale-drive-structure-smoke.md` | Can one env episode carry warmup familiarization into a later emergency-obstacle phase, record raw obstacle pass without pass-triggered truncation, and continue to minute scale? Yes: 4 seeds reached 3000 steps / 60.0 s, raw pass steps 991-999, min post-pass continuation 2001, deterministic replay 2/2. |
 | `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | At M3218, could S4-HF-lite passenger-car-population pricing run on the then-current Chrono backend wiring? No: Chrono resources supported extension, but repo wiring had no vehicle/tire variant selector; routed to M3219 variant-selector smoke before pricing. |
+| `s4_hf_lite_chrono_pricing.py` | `experiments/feasibility_audit/s4_hf_lite_chrono_pricing_prereg.json`, `s4_hf_lite_chrono_pricing_quick.json`, `s4_hf_lite_chrono_pricing.json`; `runs/feasibility_audit/s4_hf_lite_chrono_pricing/episode_rows.csv`, `progress.jsonl` | `docs/m3227-d1-s4-hf-lite-chrono-pricing.md` | Does the A3 C5-prime structured-gap direction preserve across Chrono Sedan/BMW_E90/UAZBUS variants? No under the frozen proxy: direction reversed in all three variants; absolute rates are not claims and no fresh HF oracle or continuous lf/lr/Iz/cf/cr mapping was priced. |
 
 ## Artifacts without a script in this directory
 

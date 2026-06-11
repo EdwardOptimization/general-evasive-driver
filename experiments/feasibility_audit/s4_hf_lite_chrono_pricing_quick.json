@@ -1,0 +1,378 @@
+{
+  "arms": [
+    "fixed_star",
+    "v4_pertuned",
+    "structured_oracle_tail"
+  ],
+  "backend_id": "chrono_sedan_tmeasy_hf_backend",
+  "budget": {
+    "chrono_episodes": 27,
+    "elapsed_s": 296.3,
+    "selected_source_rows": 3
+  },
+  "chrono_known_differences": [
+    "vehicle model: default Chrono Sedan (double wishbone / multilink, TMeasy tires, RWD, 4-speed automatic) vs AutoDrift single-track analytic model; explicit S4-HF-lite smoke variants can select BMW_E90 or UAZBUS through scenario chrono_vehicle_variant",
+    "total mass matched by chassis-mass override; inertia, CG height/shift and per-axle load split remain the selected Chrono vehicle's, so iz / cg_shift / inertia_scale hidden parameters are NOT mapped",
+    "tire stiffness scales (cf/cr) NOT mapped (TMeasy parameters fixed by the Sedan tire JSON); effective grip at a given mu differs from mu*g (measured ~1.1-1.25x at full braking)",
+    "drive_scale / brake_scale mapped multiplicatively onto throttle/brake inputs and clipped at 1.0, so scales > 1.0 saturate",
+    "max steering angle: Chrono Sedan 0.4363 rad at full lock vs AutoDrift max_steer 0.62 rad; the normalized steer command maps full-scale to full lock, so the physical steer gain is ~0.70x",
+    "steer/drive first-order lags + steer rate limit replicated exactly at the 50 Hz control layer in front of the Chrono driver inputs; Chrono's own engine/transmission/brake dynamics act in addition (double shaping)",
+    "initial state: pose and planar velocity (x, y, psi, vx, vy, yaw_rate) matched exactly at handoff after spin-up; suspension/driveline internal state is the spun-up straight-line state, not a curved steady state",
+    "reset observation reports ax=ay=0 and zero actuator states (current-sim reports force-model accelerations at reset)",
+    "ego acceleration channels are body-frame finite differences of vx/vy over the 0.02 s control step (current-sim uses instantaneous force-model accelerations)",
+    "friction step changes terrain mu for the tires; AutoDrift additionally resamples speed_ref (reward-only, no actor/dynamics effect)",
+    "AutoDrift aerodynamic drag/rolling resistance coefficients are not transferred; the selected Chrono vehicle's own drag and rolling resistance apply"
+  ],
+  "claim_boundary": "D1 S4-HF-lite Chrono direction-pricing only: frozen A3 C5-prime structured gap rows are replayed through whitelisted Chrono vehicle variants with scripted fixed/per-tuned reflex floors and a reproducible structured-oracle tail. Absolute success rates are not claims. No training, incumbent driver mutation, validation ranking, promotion, paper, repair-success, robustness result, feasibility-proof, high-fidelity sufficiency, or self-ID claim.",
+  "decision": {
+    "absolute_numbers_are_claims": false,
+    "all_vehicle_direction_preserved": false,
+    "interpretation": "Direction-preservation only. Mixed, neutral, or reversed vehicles are accepted as negative/mixed D1 evidence and do not invalidate A3 current-sim pricing by themselves.",
+    "vehicle_verdicts": {
+      "bmw_e90_tmeasy": "direction_preserved",
+      "sedan_tmeasy": "neutral",
+      "uazbus_tmeasy": "reversed"
+    }
+  },
+  "generated_at_utc": "20260611T212735Z",
+  "per_vehicle": {
+    "bmw_e90_tmeasy": {
+      "arm_n": {
+        "fixed_star": 3,
+        "structured_oracle_tail": 3,
+        "v4_pertuned": 3
+      },
+      "arm_success_counts": {
+        "fixed_star": 1,
+        "structured_oracle_tail": 1,
+        "v4_pertuned": 0
+      },
+      "direction_delta_oracle_minus_fixed_star": 0.0,
+      "direction_delta_oracle_minus_pertuned": 0.3333,
+      "direction_verdict": "direction_preserved",
+      "failure_modes": {
+        "fixed_star": {
+          "collision": 2,
+          "success": 1
+        },
+        "structured_oracle_tail": {
+          "collision": 1,
+          "offtrack": 1,
+          "success": 1
+        },
+        "v4_pertuned": {
+          "collision": 2,
+          "offtrack": 1
+        }
+      },
+      "n_rows": 3,
+      "reset_obs_finite_all": true,
+      "success_rates_context_not_claims": {
+        "fixed_star": 0.3333,
+        "structured_oracle_tail": 0.3333,
+        "v4_pertuned": 0.0
+      },
+      "variant_match_all": true
+    },
+    "sedan_tmeasy": {
+      "arm_n": {
+        "fixed_star": 3,
+        "structured_oracle_tail": 3,
+        "v4_pertuned": 3
+      },
+      "arm_success_counts": {
+        "fixed_star": 2,
+        "structured_oracle_tail": 2,
+        "v4_pertuned": 2
+      },
+      "direction_delta_oracle_minus_fixed_star": 0.0,
+      "direction_delta_oracle_minus_pertuned": 0.0,
+      "direction_verdict": "neutral",
+      "failure_modes": {
+        "fixed_star": {
+          "collision": 1,
+          "success": 2
+        },
+        "structured_oracle_tail": {
+          "collision": 1,
+          "success": 2
+        },
+        "v4_pertuned": {
+          "collision": 1,
+          "success": 2
+        }
+      },
+      "n_rows": 3,
+      "reset_obs_finite_all": true,
+      "success_rates_context_not_claims": {
+        "fixed_star": 0.6667,
+        "structured_oracle_tail": 0.6667,
+        "v4_pertuned": 0.6667
+      },
+      "variant_match_all": true
+    },
+    "uazbus_tmeasy": {
+      "arm_n": {
+        "fixed_star": 3,
+        "structured_oracle_tail": 3,
+        "v4_pertuned": 3
+      },
+      "arm_success_counts": {
+        "fixed_star": 1,
+        "structured_oracle_tail": 0,
+        "v4_pertuned": 2
+      },
+      "direction_delta_oracle_minus_fixed_star": -0.3333,
+      "direction_delta_oracle_minus_pertuned": -0.6667,
+      "direction_verdict": "reversed",
+      "failure_modes": {
+        "fixed_star": {
+          "collision": 2,
+          "success": 1
+        },
+        "structured_oracle_tail": {
+          "collision": 2,
+          "offtrack": 1
+        },
+        "v4_pertuned": {
+          "collision": 1,
+          "success": 2
+        }
+      },
+      "n_rows": 3,
+      "reset_obs_finite_all": true,
+      "success_rates_context_not_claims": {
+        "fixed_star": 0.3333,
+        "structured_oracle_tail": 0.0,
+        "v4_pertuned": 0.6667
+      },
+      "variant_match_all": true
+    }
+  },
+  "preregistration_echo": {
+    "decision_rule": "D1 reports one direction-preservation verdict per Chrono vehicle. The D1 question is fully preserved only if all three variants are direction_preserved; partial/neutral/reversed verdicts are accepted negative or mixed results at full fidelity.",
+    "file": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/s4_hf_lite_chrono_pricing_prereg.json",
+    "selected_rows": [
+      {
+        "eval_seed": 7350195,
+        "instance": 10,
+        "level": "S1",
+        "oracle_by": "structured:coast_steer_-1.0",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst10-seed7350195",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "040ab1ff2a828daf8809cb0dd25a3c4a1192428cf6b532c747f7c261a80c0b62",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7305156,
+        "instance": 1,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_+0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst01-seed7305156",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "11eb09172c2efafb4e9668cf0809ec4264b30b94d9bcd55e13015f04ab98a2cf",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7345052,
+        "instance": 9,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst09-seed7345052",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "2253037918375a1c7ae95c3712dfa85aef3bac98106ba0e5c8251923257c861d",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7315208,
+        "instance": 3,
+        "level": "S1",
+        "oracle_by": "structured:brake_steer_-0.7",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S1-inst03-seed7315208",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "254c81c854d1e6a864dce70b003408c2dd1fe159e38c2ab235431d4bbcbc7a85",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7525273,
+        "instance": 5,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst05-seed7525273",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "0549b1af7b14cf2edd5cf84a2201eef211b2ae330d0eeed7c5254fd4ba72c6c7",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7520169,
+        "instance": 4,
+        "level": "S2",
+        "oracle_by": "structured:coast_steer_-0.7",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst04-seed7520169",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "132dd2df4d1c53f8f8b0727b06b4a9e7c3f16d8bd09dbefc383ff64f887dcb7b",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7530143,
+        "instance": 6,
+        "level": "S2",
+        "oracle_by": "structured:full_brake",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S2-inst06-seed7530143",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "133deacbe1f89a94be7729451bc787054f2ef47adef38b705ebdb1b35731e794",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7515052,
+        "instance": 3,
+        "level": "S2",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.4
+        ],
+        "row_id": "S2-inst03-seed7515052",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "1a68e0cd2f0cc9b80bb0ec341239bd4cc557dbdeca94b1a22011b62b034a921f",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7710156,
+        "instance": 2,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.8,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst02-seed7710156",
+        "selection_rank_within_level": 1,
+        "selection_score_sha256": "004314cd3ba8789cd29bf747301ee734546d28455c24b33793f4935fbed0df67",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7705117,
+        "instance": 1,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.8
+        ],
+        "row_id": "S3-inst01-seed7705117",
+        "selection_rank_within_level": 2,
+        "selection_score_sha256": "08c5aad4f0fca163181ca97aba8555f49c2b5a4ed738b583174253eed19f58f5",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7735026,
+        "instance": 7,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.0
+        ],
+        "row_id": "S3-inst07-seed7735026",
+        "selection_rank_within_level": 3,
+        "selection_score_sha256": "1183b9ad0fc62ce8b59e3f6e4748318e8fd75963d65b3aad326623af7dc591a6",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      },
+      {
+        "eval_seed": 7705078,
+        "instance": 1,
+        "level": "S3",
+        "oracle_by": "structured:brake_steer_-0.4",
+        "pertuned_grid": [
+          1.0,
+          1.45,
+          1.8
+        ],
+        "row_id": "S3-inst01-seed7705078",
+        "selection_rank_within_level": 4,
+        "selection_score_sha256": "23015d0b7afc212e4d26968a0389315dc423b987f32c5ad7a2500fa5292a08d0",
+        "source_fixed_star_outcome": "collision",
+        "source_oracle_solved": true,
+        "source_pertuned_outcome": "collision"
+      }
+    ],
+    "unmapped_lateral_channel_handling": {
+      "cf_cr_tire_curve_family": "continuous cf/cr and tire-curve-family scales are not mapped; all D1 variants use TMeasy tires. Tire-fixture differences are discrete vehicle-model differences only.",
+      "iz_inertia_scale": "A3 iz/inertia_scale is carried in scenario params for provenance but selected Chrono vehicle inertia tensors remain the backend fixture. backend_info is recorded per reset.",
+      "lf_lr_cg_shift": "A3 scenario carries lf/lr/cg_shift in params, but Chrono backend does not continuously map them. D1 therefore treats vehicle selection as a discrete geometry/inertia/tire-fixture bracket and does not claim continuous lf/lr pricing.",
+      "mass_brake_drive_tau": "scenario mass, drive/brake force scales, and control-layer lags remain the frozen A3 row values. Chrono matches total mass by chassis-mass override and clips command scaling as documented in KNOWN_DIFFERENCES."
+    }
+  },
+  "progress_jsonl": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/s4_hf_lite_chrono_pricing/progress_quick.jsonl",
+  "protocol": "s4_hf_lite_chrono_direction_pricing",
+  "quick_mode": true,
+  "row_count": 27,
+  "rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/s4_hf_lite_chrono_pricing/episode_rows_quick.csv",
+  "variants": [
+    "sedan_tmeasy",
+    "bmw_e90_tmeasy",
+    "uazbus_tmeasy"
+  ]
+}

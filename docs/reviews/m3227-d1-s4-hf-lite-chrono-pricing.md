@@ -1,0 +1,84 @@
+# m3227-d1-s4-hf-lite-chrono-pricing Research Review
+
+## Summary
+
+- Generated at UTC: 20260611T215423Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: d1_chrono_direction_reversed_all_variants
+- Decision reason: Completed: pre-registered D1 Chrono multi-vehicle direction-pricing rollout executed through the harness in 1244.6 s; 108 Chrono episodes over Sedan/BMW_E90/UAZBUS; finite reset obs72 and variant matching passed; direction reversed in all three variants for structured current-sim oracle-tail replay vs v4_pertuned (Sedan -0.0833, BMW_E90 -0.0833, UAZBUS -0.5000). Negative direction-pricing only; no fresh HF oracle, continuous lf/lr/Iz/cf/cr mapping, driver mutation, training, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+
+## Hypothesis
+
+A frozen D1 S4-HF-lite Chrono direction-pricing rollout can decide whether the A3 C5-prime structural-gap direction is preserved across Sedan, BMW_E90, and UAZBUS Chrono variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/roadmap-phase3-codex-execution.md, docs/current-status.md, docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md, docs/m3222-a3-c5prime-target-consolidation.md
+- parent_dataset: runs/feasibility_audit/c5prime_target_consolidation/episode_rows.csv
+- parent_config: experiments/feasibility_audit/s4_hf_lite_chrono_pricing_prereg.json, src/autodrift/chrono_vehicle_backend.py, scripts/feasibility_audit/s4_hf_lite_chrono_pricing.py
+- parent_objective: execute roadmap D1 multi-vehicle Chrono direction-pricing without changing the incumbent driver or backend selector
+- derived_from: M3219 Chrono variant selector smoke, M3222 A3 C5-prime structural-ceiling target consolidation, D1 roadmap OPEN item
+- blocked_by: D1 requires a frozen preregistration and a small cross-vehicle pricing rollout
+- supersedes: the D1 OPEN status line if the full rollout and documentation are completed
+- invalidates: assuming the A3 current-sim structural-gap direction automatically transfers to every Chrono vehicle variant, claiming continuous lf/lr/Iz/cf/cr Chrono pricing before those channels are mapped
+
+## Success Criteria
+
+- experiments/feasibility_audit/s4_hf_lite_chrono_pricing_prereg.json exists before full rollout
+- experiments/feasibility_audit/s4_hf_lite_chrono_pricing_quick.json exists from the protocol smoke
+- experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json exists with protocol s4_hf_lite_chrono_direction_pricing
+- full result reports a direction-preservation verdict for each requested Chrono vehicle variant
+- the result document separates measured artifacts from inferred interpretation and states that absolute success rates are not claims
+
+## Failure Criteria
+
+- full rollout runs before preregistration
+- any requested Chrono variant fails backend_info variant matching
+- the rollout includes non-reproducible A3 CEM oracle rows
+- the milestone mutates ActiveSafetyReflexDriver, trains a policy, changes Chrono mapping, or admits Track C
+
+## Evidence Gates
+
+- M3227 must use a frozen preregistration before the full rollout
+- M3227 must use only structured A3 oracle rows whose action family is reproducible
+- M3227 must exercise Sedan, BMW_E90, and UAZBUS Chrono variants
+- M3227 must report direction-preservation verdicts per vehicle and state that absolute success rates are not claims
+- M3227 must declare lf/lr/Iz/cf/cr continuous channels unmapped
+- M3227 must not touch ActiveSafetyReflexDriver or train any policy
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not touch ActiveSafetyReflexDriver
+- do not train RL or create checkpoints
+- do not mutate Chrono backend mappings during the pricing rollout
+- do not claim high-fidelity sufficiency or driver performance from D1
+- do not include A3 CEM oracle rows because their action sequences were not persisted
+- do not reinterpret absolute Chrono success rates as validation or ranking evidence
+
+## Failure Taxonomy
+
+- none
+
+## Scoreboard
+
+- milestone: m3227-d1-s4-hf-lite-chrono-pricing
+- type: infrastructure
+- checkpoint: experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: d1_chrono_direction_reversed_all_variants
+- reason: Completed: pre-registered D1 Chrono multi-vehicle direction-pricing rollout executed through the harness in 1244.6 s; 108 Chrono episodes over Sedan/BMW_E90/UAZBUS; finite reset obs72 and variant matching passed; direction reversed in all three variants for structured current-sim oracle-tail replay vs v4_pertuned (Sedan -0.0833, BMW_E90 -0.0833, UAZBUS -0.5000). Negative direction-pricing only; no fresh HF oracle, continuous lf/lr/Iz/cf/cr mapping, driver mutation, training, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+
+## Next Blocker
+
+After D1, Track C remains blocked on CP-1; any further Chrono backend mapping work requires a new roadmap unit or PI direction.

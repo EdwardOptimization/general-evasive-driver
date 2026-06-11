@@ -56245,3 +56245,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/feasibility_audit/minute_scale_drive_structure_smoke/frame_rows.csv`
 - success artifact: `experiments/feasibility_audit/minute_scale_drive_structure_smoke.json`
 - notes: Completed pre-registered B4 minute-scale drive-structure env smoke. Full smoke ran 4 seeds, 12004 frames, and 3000 steps / 60.0 s per seed. Verdict: all gates passed; obs72 shape and finite observations preserved; warmup gate passed at steps 215-216; emergency obstacle appeared at step 250; raw obstacle pass occurred at steps 991-999 without `obstacle_completed`; minimum post-pass continuation was 2001 steps; deterministic replay failures 0. B4 is env engineering only; no training, driver mutation, validation ranking, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.
+
+## 20260611T215014Z m3227-d1-s4-hf-lite-chrono-pricing
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: A frozen D1 S4-HF-lite Chrono direction-pricing rollout can decide whether the A3 C5-prime structural-gap direction is preserved across Sedan, BMW_E90, and UAZBUS Chrono variants before training validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.
+- command: `env PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/s4_hf_lite_chrono_pricing.py --resume`
+- returncode: `0`
+- run dir: `runs/research/m3227-d1-s4-hf-lite-chrono-pricing_20260611T212929Z`
+- command log: `runs/research/m3227-d1-s4-hf-lite-chrono-pricing_20260611T212929Z/command.log`
+- success artifact: `experiments/feasibility_audit/s4_hf_lite_chrono_pricing.json`
+- notes: Completed: pre-registered D1 Chrono multi-vehicle direction-pricing rollout executed through the harness in 1244.6 s; 108 Chrono episodes over Sedan/BMW_E90/UAZBUS; finite reset obs72 and variant matching passed; direction reversed in all three variants for structured current-sim oracle-tail replay vs v4_pertuned (Sedan -0.0833, BMW_E90 -0.0833, UAZBUS -0.5000). Negative direction-pricing only; no fresh HF oracle, continuous lf/lr/Iz/cf/cr mapping, driver mutation, training, high-fidelity sufficiency, validation, promotion, paper, repair-success, robustness-result, feasibility-proof, or self-ID claim.

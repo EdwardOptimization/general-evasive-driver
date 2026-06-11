@@ -148,13 +148,21 @@ demonstrating the new axis, registered as a milestone. No training claims.
 
 ## Track D — high-fidelity / Chrono (continues M3218/M3219)
 
-### D1. S4 multi-vehicle Chrono pricing [OPEN]
+### D1. S4 multi-vehicle Chrono pricing [DONE: M3227]
 - the variant selector is smoked (M3219: Sedan default + BMW_E90/UAZBUS);
   needed: frozen prereg + declared handling of unmapped lf/lr/iz/cf/cr
   (coverage-map fidelity row), then a small cross-vehicle pricing rollout
   (does the structural-ceiling gap direction hold across Chrono vehicles?).
 - acceptance: direction-preservation verdict per vehicle; absolute numbers
   are not claims.
+- result: `docs/m3227-d1-s4-hf-lite-chrono-pricing.md` completed the frozen
+  D1 S4-HF-lite direction-pricing proxy. Full run: 108 Chrono episodes over
+  Sedan/BMW_E90/UAZBUS, finite obs72 resets and variant matching passed.
+  Verdict: direction **reversed** in all three variants. The A3 current-sim
+  structured oracle-tail replay underperformed `v4_pertuned` by -0.0833
+  (Sedan), -0.0833 (BMW_E90), and -0.5000 (UAZBUS). This is negative
+  direction-pricing only; it does not refute A3 current-sim pricing and does
+  not price a fresh high-fidelity oracle or continuous lf/lr/Iz/cf/cr mapping.
 
 ## Out of scope for Codex sessions
 
@@ -174,7 +182,7 @@ demonstrating the new axis, registered as a milestone. No training claims.
 - B3: DONE (M3225; geometry-channel degradation smoke passed; split-mu not expressible on the DriftObstacleEnv single-track path)
 - B4: DONE (M3226; 60 s warmup-to-obstacle-to-post-pass continuation smoke passed)
 - C1-C3: BLOCKED on CP-1
-- D1: OPEN
+- D1: DONE (M3227; Chrono multi-vehicle direction-pricing reversed in all three variants)
 - WP6.2 guardrails: **MERGED** (commit 05607bcd — validator V7 live in the
   pre-commit hook, escalation protocol in docs/escalations/, managed-run
   helper scripts/run_managed.sh). Codex execution may begin.
