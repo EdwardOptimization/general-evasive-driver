@@ -1,0 +1,89 @@
+# m3214-selfid-degradation-pipeline-integration-g1-ignition-gate Research Review
+
+## Summary
+
+- Generated at UTC: 20260611T024337Z
+- Type: infrastructure
+- Gate tier: infrastructure
+- Promotion decision: g1_fail_cancel_full_degradation_matrix_route_to_task_design_rework
+- Decision reason: Completed: integrated observation-degradation pipeline at all four real entry points with bit-for-bit backward compatibility and executed the pre-registered G1 ignition gate deterministically (2 conditions x 4 seeds x 65536 steps with 200 shared-seed eval episodes per run) yielding FAIL because the 95% paired bootstrap CIs for success_rate [-0.0213 +0.1525] and clearance_margin_p10 [-0.0153 +0.0532] both contain 0 while within-condition seed variance dominates so the full 20-cell matrix is cancelled under the current pre-registration and task design routes to rework; auxiliary diagnostic branch only with active-safety driver objective boundary unchanged and no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Hypothesis
+
+The integrated observation-degradation task pipeline plus a pre-registered minutes-scale G1 ignition gate can decide whether the delay-25 task condition produces a seed-paired outcome-distribution difference against the wrapped-clean condition through the real train/eval entry points before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Lineage
+
+- parent_checkpoint: docs/selfid-completion-experiment-design-2026-06.md
+- parent_dataset: experiments/feasibility_audit/selfid_gate_pipeline_check.json, experiments/feasibility_audit/selfid_task_health_check.json, experiments/feasibility_audit/selfid_matrix_cost_estimate.json
+- parent_config: configs/selfid_positive_control_p0_smoke.json
+- parent_objective: integrate the observation-degradation task family into every real training/evaluation/gate entry point and ignite or cancel the pre-registered 20-cell matrix via a frozen G1 outcome gate
+- derived_from: docs/selfid-completion-experiment-design-2026-06.md, experiments/feasibility_audit/selfid_gate_pipeline_check.json, experiments/feasibility_audit/selfid_task_health_check.json, experiments/feasibility_audit/selfid_matrix_cost_estimate.json
+- blocked_by: the full 20-cell degradation matrix must not start before the integrated pipeline shows outcome ignition at minutes scale, pre-launch audit found the wrapper unintegrated: vector_env, train_ppo evaluate_actor, evaluate, and hidden_swap_gate all constructed bare AutoDriftEnv
+- supersedes: running degradation experiments through the script-only unintegrated wrapper path
+- invalidates: reading any G1 ignition-budget number as scientific evidence of any kind
+
+## Success Criteria
+
+- runs/feasibility_audit/selfid_g1_ignition_gate/summary.json exists with status completed, budget_is_preregistered true, the frozen criteria text, and a deterministic g1_verdict
+- runs/feasibility_audit/selfid_g1_ignition_gate/g1_run_rows.csv has 8 rows (2 conditions x 4 seeds) with finite success_rate, collision_rate, offtrack_rate, and clearance metrics
+- the gate exercises the real integrated chain: train_ppo subprocess -> checkpoint metadata carrying the observation_degradation block -> evaluate subprocess mounting the wrapper from metadata
+- docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md records the integration summary, the pre-registered criteria, the measured verdict, and the routing
+- ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary are unchanged
+
+## Failure Criteria
+
+- any training or evaluation link crashes or yields non-finite required metrics
+- verdict criteria, budget, or seeds are altered after seeing results
+- G1 numbers are presented as profile ranking, gate validity, information ceiling, driver performance, robustness result, feasibility proof, or self-ID evidence
+- the milestone mutates the public driver, promotes a checkpoint, or starts a full-budget matrix cell
+
+## Evidence Gates
+
+- M3214 must pre-register the G1 verdict criteria in the gate script docstring and echo them into summary.json before any result is read
+- M3214 must evaluate each run in its own task condition with a shared eval seed list disjoint from training seeds
+- M3214 must keep all G1 training runs throwaway: no checkpoint promotion mutation or reuse as a parent
+- M3214 must leave ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary unchanged
+- M3214 must record a deterministic verdict whose fail branch cancels the full matrix instead of weakening thresholds
+
+## Holdout Policy
+
+- not_used
+
+## Forbidden Shortcuts
+
+- do not weaken or extend the pre-registered G1 thresholds budget or seeds after seeing results
+- do not read G1 numbers as profile ranking gate validity information ceiling dose-response driver-performance current-sim high-fidelity robustness-result feasibility-proof or self-ID evidence at any level
+- do not promote mutate or reuse G1 checkpoints or public driver defaults
+- do not start any full-budget matrix cell inside M3214
+- do not bypass make_env_from_config when constructing envs for degradation configs
+
+## Failure Taxonomy
+
+- training_instability
+- metric_artifact
+- seed_fragility
+- contract_violation
+- lineage_invalid
+- scenario_sampling_failure
+- proof_washout
+- objective_overfit
+
+## Scoreboard
+
+- milestone: m3214-selfid-degradation-pipeline-integration-g1-ignition-gate
+- type: infrastructure
+- checkpoint: runs/feasibility_audit/selfid_g1_ignition_gate/summary.json
+- success_rate: None
+- termination_rate: None
+- clearance_margin_mean: None
+- reset_success: None
+- zero_wheel_success: None
+- zero_all_success: None
+- wheel_gain_mu: None
+- decision: g1_fail_cancel_full_degradation_matrix_route_to_task_design_rework
+- reason: Completed: integrated observation-degradation pipeline at all four real entry points with bit-for-bit backward compatibility and executed the pre-registered G1 ignition gate deterministically (2 conditions x 4 seeds x 65536 steps with 200 shared-seed eval episodes per run) yielding FAIL because the 95% paired bootstrap CIs for success_rate [-0.0213 +0.1525] and clearance_margin_p10 [-0.0153 +0.0532] both contain 0 while within-condition seed variance dominates so the full 20-cell matrix is cancelled under the current pre-registration and task design routes to rework; auxiliary diagnostic branch only with active-safety driver objective boundary unchanged and no validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+
+## Next Blocker
+
+m3214-selfid-degradation-pipeline-integration-g1-ignition-gate

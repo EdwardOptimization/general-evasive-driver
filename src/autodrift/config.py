@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, fields
 from typing import Any
 
 from autodrift.dynamics import RandomizationConfig
-from autodrift.env import DriftEnvConfig, FrictionStepConfig, ObstacleTaskConfig, WarmupGateConfig
+from autodrift.env import (
+    DriftEnvConfig,
+    FrictionStepConfig,
+    ObservationDegradationConfig,
+    ObstacleTaskConfig,
+    WarmupGateConfig,
+)
 
 
 def _tuple2(value: Any) -> tuple[float, float]:
@@ -76,6 +82,17 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
                 else:
                     warmup_gate[gate_key] = gate_value
             values["warmup_gate"] = warmup_gate
+        elif key == "observation_degradation":
+            if value is None:
+                values[key] = None
+            else:
+                if not isinstance(value, dict):
+                    raise ValueError("observation_degradation must be a mapping or null")
+                known_keys = {field.name for field in fields(ObservationDegradationConfig)}
+                for degradation_key in value:
+                    if degradation_key not in known_keys:
+                        raise ValueError(f"unknown observation_degradation config key: {degradation_key}")
+                values[key] = dict(value)
         elif key.endswith("_range"):
             values[key] = _tuple2(value)
         else:
@@ -84,6 +101,8 @@ def build_env_config(data: dict[str, Any] | None = None) -> DriftEnvConfig:
     values["friction_step"] = FrictionStepConfig(**values["friction_step"])
     values["obstacle"] = ObstacleTaskConfig(**values["obstacle"])
     values["warmup_gate"] = WarmupGateConfig(**values["warmup_gate"])
+    if values["observation_degradation"] is not None:
+        values["observation_degradation"] = ObservationDegradationConfig(**values["observation_degradation"])
     return DriftEnvConfig(**values)
 
 
@@ -110,6 +129,13 @@ def merge_env_config(base: dict[str, Any], override: dict[str, Any]) -> dict[str
             warmup_gate = dict(merged.get("warmup_gate", {}))
             warmup_gate.update(value)
             merged["warmup_gate"] = warmup_gate
+        elif key == "observation_degradation":
+            if value is None:
+                merged["observation_degradation"] = None
+            else:
+                observation_degradation = dict(merged.get("observation_degradation") or {})
+                observation_degradation.update(value)
+                merged["observation_degradation"] = observation_degradation
         else:
             merged[key] = value
     return merged

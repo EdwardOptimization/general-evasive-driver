@@ -1,0 +1,181 @@
+{
+  "id": "m3214-selfid-degradation-pipeline-integration-g1-ignition-gate",
+  "priority": 32140,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "training_instability",
+    "metric_artifact",
+    "seed_fragility",
+    "contract_violation",
+    "lineage_invalid",
+    "scenario_sampling_failure",
+    "proof_washout",
+    "objective_overfit"
+  ],
+  "hypothesis": "The integrated observation-degradation task pipeline plus a pre-registered minutes-scale G1 ignition gate can decide whether the delay-25 task condition produces a seed-paired outcome-distribution difference against the wrapped-clean condition through the real train/eval entry points before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/selfid-completion-experiment-design-2026-06.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/selfid_gate_pipeline_check.json",
+      "experiments/feasibility_audit/selfid_task_health_check.json",
+      "experiments/feasibility_audit/selfid_matrix_cost_estimate.json"
+    ],
+    "parent_config": [
+      "configs/selfid_positive_control_p0_smoke.json"
+    ],
+    "parent_objective": [
+      "integrate the observation-degradation task family into every real training/evaluation/gate entry point and ignite or cancel the pre-registered 20-cell matrix via a frozen G1 outcome gate"
+    ],
+    "derived_from": [
+      "docs/selfid-completion-experiment-design-2026-06.md",
+      "experiments/feasibility_audit/selfid_gate_pipeline_check.json",
+      "experiments/feasibility_audit/selfid_task_health_check.json",
+      "experiments/feasibility_audit/selfid_matrix_cost_estimate.json"
+    ],
+    "blocked_by": [
+      "the full 20-cell degradation matrix must not start before the integrated pipeline shows outcome ignition at minutes scale",
+      "pre-launch audit found the wrapper unintegrated: vector_env, train_ppo evaluate_actor, evaluate, and hidden_swap_gate all constructed bare AutoDriftEnv"
+    ],
+    "supersedes": [
+      "running degradation experiments through the script-only unintegrated wrapper path"
+    ],
+    "invalidates": [
+      "reading any G1 ignition-budget number as scientific evidence of any kind"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md",
+  "public_gates": [
+    "M3214 must pre-register the G1 verdict criteria in the gate script docstring and echo them into summary.json before any result is read",
+    "M3214 must evaluate each run in its own task condition with a shared eval seed list disjoint from training seeds",
+    "M3214 must keep all G1 training runs throwaway: no checkpoint promotion mutation or reuse as a parent",
+    "M3214 must leave ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary unchanged",
+    "M3214 must record a deterministic verdict whose fail branch cancels the full matrix instead of weakening thresholds"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not weaken or extend the pre-registered G1 thresholds budget or seeds after seeing results",
+    "do not read G1 numbers as profile ranking gate validity information ceiling dose-response driver-performance current-sim high-fidelity robustness-result feasibility-proof or self-ID evidence at any level",
+    "do not promote mutate or reuse G1 checkpoints or public driver defaults",
+    "do not start any full-budget matrix cell inside M3214",
+    "do not bypass make_env_from_config when constructing envs for degradation configs"
+  ],
+  "workflow_synthesis": {
+    "branch": "selfid_degradation_diagnostic_g1",
+    "evidence_axis": "observation_degradation_outcome_ignition",
+    "evidence_increment": "first closed-loop outcome data produced through the integrated degradation pipeline at the real train_ppo/evaluate entry points (8 diagnostic training runs, 1600 fresh shared-seed eval episodes across two task conditions)",
+    "claim_scope": "Auxiliary diagnostic branch; active-safety driver objective boundary unchanged; infrastructure ignition evidence only; no validation ranking promotion driver-performance current-sim verdict high-fidelity paper full-driver repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if any entry point bypasses make_env_from_config for degradation configs",
+      "stop the full 20-cell matrix and return to task design if the G1 verdict is fail",
+      "stop if any G1 ignition-budget number starts being quoted as scientific evidence"
+    ],
+    "fallback_plan": [
+      "on execution failure repair infrastructure and rerun the identical pre-registered gate",
+      "on G1 fail route to task-design rework per the pre-registered Outcome B/D analogue",
+      "preserve the M3105/M3103 engineering incumbent and the active-safety mainline untouched"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "external review approved converting the degradation pipeline integration and the G1 ignition gate into a formal harness milestone",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Execute the pre-registered G1 ignition gate on the integrated observation-degradation pipeline using throwaway diagnostic training runs (2 conditions x 4 seeds x 65536 steps, 200 shared-seed eval episodes per run)",
+    "admission_evidence": [
+      "stage-1 integration: train_ppo.make_vector_env, evaluate_actor, evaluate_policy, and hidden_swap_gate all construct envs via make_env_from_config with 105 passing tests and bit-for-bit backward compatibility without the degradation block",
+      "selfid_task_health_check manipulation check reproduced at the real training entry: delay stream first_diff_step=1 and rewards bitwise identical",
+      "selfid_matrix_cost_estimate: 8 concurrent single-thread num_envs=16 jobs reach 8695 aggregate env steps/s so the G1 budget is minutes-scale",
+      "selfid_gate_pipeline_check: 20/20 paired episodes per condition with finite replay returns through the gate chain"
+    ],
+    "blocked_shortcuts": [
+      "no checkpoint promotion mutation or reuse from G1 diagnostic runs",
+      "no full-budget matrix cells before a fresh pre-registration",
+      "no profile ranking gate-validity information-ceiling driver-performance current-sim high-fidelity paper repair-success robustness-result feasibility-proof or self-ID claim from ignition-budget numbers"
+    ],
+    "allowed_updates": [
+      "scripts/feasibility_audit/selfid_g1_ignition_gate.py",
+      "runs/feasibility_audit/selfid_g1_ignition_gate artifacts",
+      "docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md",
+      "docs/reviews/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md",
+      "experiments/reviews/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.json",
+      "M3214 status queue scoreboard research log and review rows"
+    ],
+    "next_stage_criteria": [
+      "summary.json records a deterministic g1_verdict with budget_is_preregistered=true and finite per-run metrics",
+      "verdict pass routes to drafting a fresh full-budget pre-registration for the remaining repair-list items; verdict fail cancels the 20-cell matrix and routes to task-design rework"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "The wrapped-clean cell keeps full current-frame sufficiency; the delay-25 cell removes it by a 25-step delay on ego-response indices 0-8 as a task family. G1 only checks that this task axis changes episode outcomes at ignition budget; it cannot and must not speak about history necessity.",
+    "history_necessity_tests": [
+      "none in M3214: G1 measures task-condition outcome ignition only; history-necessity tests remain reserved for the full-budget pre-registered experiments"
+    ],
+    "temporal_evidence_window": "Friction step at steps 8-40 provides a pre-obstacle command-response evidence window; the delay-25 condition makes the current ego-response frame insufficient during that window.",
+    "negative_result_policy": "A G1 fail verdict routes to the pre-registered Outcome B/D analogue: the full 20-cell matrix is cancelled and the task design is reworked; thresholds are never weakened and the budget is never silently extended.",
+    "allowed_claims": [
+      "pipeline integration correctness and a deterministic pre-registered G1 ignition verdict only",
+      "no self-identification evidence at any level above not_applicable, no profile ranking, no gate validity, no information ceiling, no dose-response shape, no driver-performance or robustness-result claim"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_closed_loop_data",
+    "process_overhead": "medium",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "first outcome-level closed-loop data from the integrated degradation pipeline: 8 diagnostic training runs and 1600 fresh shared-seed eval episodes across the wrapped-clean and delay-25 task conditions plus an auxiliary action-divergence probe",
+    "paper_verdict_delta": "none: paper and self-ID claims remain frozen at not_applicable; G1 only gates whether the full matrix budget may be freshly pre-registered or must be cancelled",
+    "must_synthesize_if": [
+      "G1 execution fails twice on the same infrastructure failure",
+      "any follow-up proposes reading G1 ignition-budget numbers as scientific evidence",
+      "the branch attempts a full-budget matrix cell without a fresh pre-registration"
+    ]
+  },
+  "success_criteria": [
+    "runs/feasibility_audit/selfid_g1_ignition_gate/summary.json exists with status completed, budget_is_preregistered true, the frozen criteria text, and a deterministic g1_verdict",
+    "runs/feasibility_audit/selfid_g1_ignition_gate/g1_run_rows.csv has 8 rows (2 conditions x 4 seeds) with finite success_rate, collision_rate, offtrack_rate, and clearance metrics",
+    "the gate exercises the real integrated chain: train_ppo subprocess -> checkpoint metadata carrying the observation_degradation block -> evaluate subprocess mounting the wrapper from metadata",
+    "docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md records the integration summary, the pre-registered criteria, the measured verdict, and the routing",
+    "ActiveSafetyReflexDriver, public driver defaults, and the engineering mainline objective boundary are unchanged"
+  ],
+  "failure_criteria": [
+    "any training or evaluation link crashes or yields non-finite required metrics",
+    "verdict criteria, budget, or seeds are altered after seeing results",
+    "G1 numbers are presented as profile ranking, gate validity, information ceiling, driver performance, robustness result, feasibility proof, or self-ID evidence",
+    "the milestone mutates the public driver, promotes a checkpoint, or starts a full-budget matrix cell"
+  ],
+  "decision_rule": "Pass only if the G1 gate executes end to end through the integrated pipeline with finite metrics and records a deterministic pre-registered verdict (pass or fail) in summary.json with budget_is_preregistered=true while preserving the obs72/action3 actor contract, the untouched ActiveSafetyReflexDriver, and all claim boundaries; the recorded verdict then routes the branch: pass permits drafting a fresh full-budget pre-registration, fail cancels the 20-cell matrix and returns to task design.",
+  "commands": [
+    {
+      "name": "selfid_g1_ignition_gate",
+      "command": "PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/selfid_g1_ignition_gate.py --output-dir runs/feasibility_audit/selfid_g1_ignition_gate"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "runs/feasibility_audit/selfid_g1_ignition_gate/summary.json",
+      "type": "json"
+    },
+    {
+      "path": "runs/feasibility_audit/selfid_g1_ignition_gate/g1_run_rows.csv",
+      "type": "csv"
+    },
+    {
+      "path": "docs/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "docs/selfid-completion-experiment-design-2026-06.md",
+    "experiments/feasibility_audit/selfid_matrix_cost_estimate.json",
+    "configs/selfid_positive_control_p0_smoke.json"
+  ],
+  "scoreboard_checkpoint": "runs/feasibility_audit/selfid_g1_ignition_gate/summary.json",
+  "next_blocker": "m3214-selfid-degradation-pipeline-integration-g1-ignition-gate",
+  "status": "completed"
+}

@@ -139,6 +139,45 @@ class WarmupGateConfig:
 
 
 @dataclass(frozen=True)
+class ObservationDegradationConfig:
+    """Degraded-response TASK FAMILY parameters (delay/noise on ego channels 0-8).
+
+    Consumed by ``autodrift.observation_degradation_wrapper.make_env_from_config``;
+    ``AutoDriftEnv`` itself ignores this block, so entry points that build envs
+    from a ``DriftEnvConfig`` must go through that factory for the degradation
+    to apply. ``noise_seed_stream`` default must stay equal to
+    ``observation_degradation_wrapper.DEFAULT_NOISE_SEED_STREAM``.
+    """
+
+    delay_steps: int = 0
+    noise_std: float | tuple[float, ...] = 0.0
+    noise_seed_stream: int = 20260610
+
+    def __post_init__(self) -> None:
+        if isinstance(self.delay_steps, bool) or not isinstance(self.delay_steps, int):
+            raise ValueError("observation_degradation delay_steps must be an integer")
+        if self.delay_steps < 0:
+            raise ValueError("observation_degradation delay_steps must be non-negative")
+        if isinstance(self.noise_seed_stream, bool) or not isinstance(self.noise_seed_stream, int):
+            raise ValueError("observation_degradation noise_seed_stream must be an integer")
+        if isinstance(self.noise_std, (list, tuple, np.ndarray)):
+            values = tuple(float(item) for item in self.noise_std)
+            if len(values) != EGO_OBS_DIM:
+                raise ValueError(
+                    "observation_degradation noise_std must be a scalar or a "
+                    f"length-{EGO_OBS_DIM} per-channel sequence, got length {len(values)}"
+                )
+            object.__setattr__(self, "noise_std", values)
+        elif isinstance(self.noise_std, (int, float)) and not isinstance(self.noise_std, bool):
+            values = (float(self.noise_std),)
+            object.__setattr__(self, "noise_std", float(self.noise_std))
+        else:
+            raise ValueError("observation_degradation noise_std must be a number or a sequence of numbers")
+        if any((not math.isfinite(value)) or value < 0.0 for value in values):
+            raise ValueError("observation_degradation noise_std values must be finite and non-negative")
+
+
+@dataclass(frozen=True)
 class DriftEnvConfig:
     dt: float = 0.02
     max_steps: int = 800
@@ -170,6 +209,9 @@ class DriftEnvConfig:
     obstacle: ObstacleTaskConfig = ObstacleTaskConfig()
     warmup_gate: WarmupGateConfig = WarmupGateConfig()
     randomization: RandomizationConfig = RandomizationConfig()
+    # Optional degraded-response task family block. None keeps every existing
+    # entry point bit-for-bit unchanged (bare AutoDriftEnv, no wrapper).
+    observation_degradation: ObservationDegradationConfig | None = None
 
     def __post_init__(self) -> None:
         if self.history_length < 1:

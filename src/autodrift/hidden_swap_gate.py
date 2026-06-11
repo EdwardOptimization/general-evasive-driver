@@ -23,6 +23,7 @@ from autodrift.env import (
     LAST_ACTION_OBS_DIM,
 )
 from autodrift.evaluate import load_env_config
+from autodrift.observation_degradation_wrapper import ObservationDegradationWrapper, make_env_from_config
 from autodrift.paired_perturbation_gate import (
     condition_config,
     load_seed_csv,
@@ -42,7 +43,9 @@ class DecisionSnapshot:
     step: int
     observation: np.ndarray
     hidden: torch.Tensor | None
-    env: AutoDriftEnv
+    # Bare AutoDriftEnv, or ObservationDegradationWrapper when the env config
+    # carries an observation_degradation block (degraded-response task family).
+    env: AutoDriftEnv | ObservationDegradationWrapper
     info: dict[str, Any]
     obstacle_distance: float
     snapshot_score: float
@@ -176,7 +179,7 @@ def collect_decision_snapshot(
     require_friction_step: bool = True,
     min_hidden_updates_after_friction: int = 2,
 ) -> DecisionSnapshot | None:
-    env = AutoDriftEnv(env_config)
+    env = make_env_from_config(env_config)
     obs, info = env.reset(seed=seed)
     hidden: torch.Tensor | None = None
     best: DecisionSnapshot | None = None
@@ -538,7 +541,7 @@ def main() -> None:
     run_dir.mkdir(parents=True, exist_ok=True)
 
     base_config = load_env_config(args.env_config)
-    target_obs_dim = int(AutoDriftEnv(base_config).observation_space.shape[0])
+    target_obs_dim = int(make_env_from_config(base_config).observation_space.shape[0])
     model, _ = load_actor_critic_checkpoint(args.checkpoint, device=args.device, obs_dim=target_obs_dim)
     if not model.is_online_recurrent:
         raise ValueError("hidden-swap gate requires an online recurrent checkpoint")

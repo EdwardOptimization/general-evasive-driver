@@ -29,8 +29,9 @@ from autodrift.controller_profile_runtime import (
     mask_spec_from_config,
     profile_runtime_summary,
 )
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
+from autodrift.env import DriftEnvConfig, FRONT_REAR_WHEEL_OBS_DIM
 from autodrift.history_baselines import build_history_baseline_spec, history_baseline_spec_to_dict
+from autodrift.observation_degradation_wrapper import make_env_from_config
 from autodrift.intervention_objectives import (
     action_mean_margin_contrast_loss,
     baseline_action_anchor_loss,
@@ -1937,7 +1938,7 @@ def evaluate_actor(
     env_config: DriftEnvConfig | None = None,
     observation_mask_spec: ObservationMaskSpec | None = None,
 ) -> dict[str, float]:
-    env = AutoDriftEnv(env_config or DriftEnvConfig())
+    env = make_env_from_config(env_config or DriftEnvConfig())
     if observation_mask_spec is not None and observation_mask_spec.enabled:
         env = ControllerProfileObservationWrapper(env, observation_mask_spec)
     rows = []

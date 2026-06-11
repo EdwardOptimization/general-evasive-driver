@@ -56085,3 +56085,15 @@ reject_ppo_smoke_replay_and_protected_key_failure
 - command log: `runs/research/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis_20260608T081117Z/command.log`
 - success artifact: `docs/m3212-engineering-controller-active-safety-driver-residual-hard-safety-recovery-clearance-supervisor-neutral-residual-trace-synthesis.md`
 - notes: Pending: synthesize M3210/M3211 neutral supervisor residual-trace evidence and select the next evidence axis.
+
+## 20260611T024119Z m3214-selfid-degradation-pipeline-integration-g1-ignition-gate
+
+- status: `completed`
+- kind: `infrastructure`
+- hypothesis: The integrated observation-degradation task pipeline plus a pre-registered minutes-scale G1 ignition gate can decide whether the delay-25 task condition produces a seed-paired outcome-distribution difference against the wrapped-clean condition through the real train/eval entry points before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof or self-ID claim.
+- command: `PYTHONPATH=src OMP_NUM_THREADS=1 python scripts/feasibility_audit/selfid_g1_ignition_gate.py --output-dir runs/feasibility_audit/selfid_g1_ignition_gate`
+- returncode: `0`
+- run dir: `runs/research/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate_20260611T024006Z`
+- command log: `runs/research/m3214-selfid-degradation-pipeline-integration-g1-ignition-gate_20260611T024006Z/command.log`
+- success artifact: `runs/feasibility_audit/selfid_g1_ignition_gate/summary.json`
+- notes: Pending: execute the pre-registered G1 ignition gate for the selfid degradation diagnostic branch; auxiliary diagnostic only; active-safety driver objective boundary unchanged; verdict fail cancels the full 20-cell matrix.

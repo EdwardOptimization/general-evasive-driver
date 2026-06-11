@@ -19,6 +19,7 @@ from autodrift.env import (
     FRONT_REAR_WHEEL_OBS_DIM,
     FRONT_REAR_WHEEL_OBSERVATION_MODES,
 )
+from autodrift.observation_degradation_wrapper import make_env_from_config
 from autodrift.outcome_metric_instrumentation import compute_episode_outcome_metrics
 from autodrift.policies import Policy, make_policy
 from autodrift.train_ppo import ActorCritic
@@ -375,7 +376,7 @@ def evaluate_policy(
         )
         if env_config is None and isinstance(metadata_env, dict):
             resolved_env_config = build_env_config(metadata_env)
-    env = AutoDriftEnv(resolved_env_config)
+    env = make_env_from_config(resolved_env_config)
     if policy_name == "checkpoint":
         assert checkpoint_path is not None
         target_obs_dim = int(env.observation_space.shape[0])

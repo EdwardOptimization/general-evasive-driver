@@ -10,7 +10,8 @@ from typing import Any
 import numpy as np
 
 from autodrift.controller_profile_runtime import ObservationMaskSpec
-from autodrift.env import AutoDriftEnv, DriftEnvConfig
+from autodrift.env import DriftEnvConfig
+from autodrift.observation_degradation_wrapper import make_env_from_config
 
 
 @dataclass(frozen=True)
@@ -23,7 +24,7 @@ class VectorStep:
 
 
 def _env_worker(remote: Connection, config: DriftEnvConfig) -> None:
-    env = AutoDriftEnv(config)
+    env = make_env_from_config(config)
     try:
         while True:
             command, payload = remote.recv()
@@ -76,7 +77,7 @@ class SyncAutoDriftVectorEnv:
         self.observation_mask_spec = observation_mask_spec
         self.seed_sequence_index = 0
         self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
-        self.envs = [AutoDriftEnv(self.config) for _ in range(self.num_envs)]
+        self.envs = [make_env_from_config(self.config) for _ in range(self.num_envs)]
         self.single_observation_space = self.envs[0].observation_space
         self.single_action_space = self.envs[0].action_space
         self.episode_returns = np.zeros(self.num_envs, dtype=np.float64)
@@ -199,7 +200,7 @@ class ParallelAutoDriftVectorEnv:
         self.seed_rng = np.random.default_rng(self.base_seed + 1_000_003)
         self.closed = False
 
-        sample_env = AutoDriftEnv(self.config)
+        sample_env = make_env_from_config(self.config)
         self.single_observation_space = sample_env.observation_space
         self.single_action_space = sample_env.action_space
         self.episode_returns = np.zeros(self.num_envs, dtype=np.float64)

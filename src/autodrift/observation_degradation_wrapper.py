@@ -77,7 +77,7 @@ from typing import Any
 import gymnasium as gym
 import numpy as np
 
-from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM
+from autodrift.env import AutoDriftEnv, DriftEnvConfig, EGO_OBS_DIM, ObservationDegradationConfig
 
 
 # Ego response channels degraded by this task family (per stacked frame).
@@ -117,8 +117,9 @@ OBS72_INDEX_TABLE: dict[str, dict[str, Any]] = {
 }
 
 # Fixed stream constant mixed into the noise RNG derivation so the wrapper's
-# noise stream cannot collide with the env's own episode RNG stream.
-DEFAULT_NOISE_SEED_STREAM = 20260610
+# noise stream cannot collide with the env's own episode RNG stream. The
+# single source of truth is the ObservationDegradationConfig default in env.py.
+DEFAULT_NOISE_SEED_STREAM = ObservationDegradationConfig().noise_seed_stream
 
 
 def _noise_std_vector(noise_std: float | tuple | list | np.ndarray) -> np.ndarray:
@@ -176,6 +177,12 @@ class ObservationDegradationWrapper(gym.Wrapper):
         self._raw_ego: list[np.ndarray] = []
         self._degraded_ego: list[np.ndarray] = []
         self._t = 0
+
+    @property
+    def config(self) -> DriftEnvConfig:
+        """Expose the base env config (gymnasium wrappers do not forward attributes)."""
+
+        return self._config
 
     # -- seed / rng -----------------------------------------------------------
 
@@ -245,4 +252,25 @@ def make_observation_degradation_env(
         delay_steps=delay_steps,
         noise_std=noise_std,
         noise_seed_stream=noise_seed_stream,
+    )
+
+
+def make_env_from_config(config: DriftEnvConfig) -> AutoDriftEnv | ObservationDegradationWrapper:
+    """Unified env factory for every training/evaluation/gate entry point.
+
+    When ``config.observation_degradation`` is absent (None) this returns a bare
+    ``AutoDriftEnv`` so all existing code paths stay bit-for-bit unchanged.
+    When the block is present the env is wrapped in the degraded-response task
+    family wrapper, including for the T1/clean cell (delay 0, noise 0), so all
+    matrix cells share an identical construction path.
+    """
+
+    degradation = config.observation_degradation
+    if degradation is None:
+        return AutoDriftEnv(config)
+    return ObservationDegradationWrapper(
+        AutoDriftEnv(config),
+        delay_steps=degradation.delay_steps,
+        noise_std=degradation.noise_std,
+        noise_seed_stream=degradation.noise_seed_stream,
     )
