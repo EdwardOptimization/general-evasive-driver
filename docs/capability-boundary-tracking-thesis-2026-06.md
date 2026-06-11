@@ -231,3 +231,36 @@ the learning program a measured prize: a history-bearing policy under
 degraded observation at tight windows has 0.21-0.88 of success to capture
 over the best belief-free controller — the first task condition in 3200+
 milestones where that statement is backed by an oracle-level measurement.
+
+## 9. Heterogeneous belief: vehicle vs road (2026-06-11)
+
+The PI's third refinement — a driver also *sees what car it is* and
+*drives it for a while*, building vehicle knowledge from ordinary
+sub-limit feedback — decomposes the belief into two components with
+opposite identifiability (`docs/selfid-belief-decomposition-2026-06.md`):
+
+- **Sub-limit driving is structurally mu-blind**: utilization <= 0.4 leaks
+  zero mu; even near-limit sub-limit driving yields only a one-sided lower
+  bound. The same gentle data identifies the vehicle authority ratios to
+  < 1% — vehicle and road knowledge come through orthogonal channels.
+- **The prize is road knowledge.** Across all degraded cells the road
+  component ~ equals the whole matched prize; the vehicle component is
+  <= 0.19, exists only in light-degradation cells, and the interaction is
+  negative and equal: the two are **substitutes**. Vehicle knowledge is
+  instrumental — vehicle uncertainty alone lifts the shortfall-detection
+  floor from 0.08 to 0.29, so knowing the car repairs the grip detector;
+  once mu is known it adds ~nothing.
+- **Familiarization is cheap and bounded**: 5 s of ordinary driving
+  recovers the entire vehicle share (kappa error 0.0025); under sensor
+  noise a naive estimator hits an errors-in-variables bias floor that
+  time-averaging does not remove (an IV fix via the undegraded command
+  channels is the engineering answer).
+- **Ladder update**: the hierarchy becomes two-dimensional — temporal
+  integration depth (L0-L3) x information source. "Driving it for a
+  while" is L3.5 (drive-scale slow proprioceptive belief); "seeing the
+  car type" is L4 (exogenous categorical prior). Measured: both are
+  capped by the vehicle share, L3.5 saturates the cap in 5 s, so L4 can
+  at most shorten the familiarization — and is worth zero where sensing
+  noise erases the vehicle component entirely. The expert's edge,
+  re-confirmed: knowing the car is how you *feel the road better*; the
+  road is what decides.

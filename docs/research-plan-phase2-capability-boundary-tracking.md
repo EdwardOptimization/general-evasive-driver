@@ -176,6 +176,28 @@ protocol skeleton (seed discipline, paired eval, leak checks).
    mu); feasible-speed band = secondary, exploratory. Training rollout
    seed stream = a new SEED_BASE, disjoint from the regime measurement's
    selection and validation streams.
+   **Heterogeneous-belief fixtures** (from
+   `docs/selfid-belief-decomposition-2026-06.md`): if vehicle
+   randomization is on, episodes carry a **5 s sub-limit familiarization
+   prefix as a standard fixture**, and the belief-free floor includes
+   prefix + vehicle-RLS — otherwise the prize over-counts the vehicle
+   share (+0.15-0.19) that 5 s of ordinary driving recovers for free. The
+   estimator design is asymmetric two-timescale: slow vehicle channel
+   (RLS on the authority ratios; <= 5 s convergence; under noise requires
+   an errors-in-variables/IV fix using the undegraded command channels
+   9-11 — naive RLS has a ~0.1 attenuation-bias floor that averaging does
+   not remove); fast channel = the mu belief, which remains the learned
+   target. Sub-limit data is structurally mu-blind (utilization <= 0.4
+   leaks zero; higher sub-limit utilization yields only a one-sided lower
+   bound), so the mu channel cannot be trained from familiarization data.
+   The eligible-cell list is frozen only after deciding whether family #2
+   randomizes vehicle parameters (noise-cell matched prize compresses to
+   ~0.12 with vehicle randomization on).
+   **L4 (vehicle-class prior) scope**: measured upper bound = the vehicle
+   share (<= 0.19; zero in noise cells), reachable by L3.5 familiarization
+   in 5 s — a class prior can at most shorten the prefix. A minimal
+   L4-prior arm (coarse kappa bins as RLS prior; within-class variance
+   swept) rides along in WP1 as an exploratory arm, not a gated claim.
 2. **Arms**: L0 current-frame; L2_window_25/50/100; L3_GRU (+ reset-eval
    control). Capacity matching counts non-input-projection parameters
    only; window arms use a shared per-frame encoder (72->h) + temporal
