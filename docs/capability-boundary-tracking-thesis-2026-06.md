@@ -320,7 +320,8 @@ original C5 argument in two. The mass/brake/tau spread mechanism did
 The remaining population question is narrower and high-fidelity: whether
 lateral/tire/load-transfer spread across passenger cars moves the
 boundary. M3218 found Chrono resources for that extension but also found
-the current repo wiring still hard-coded to Sedan + TMeasy, so S4 pricing
-waits on a variant-selector smoke. Claim C5 and the WP-RL program now
-operationalize this discipline: price first, then train RL only against a
-measured, pre-registered gap.
+the repo wiring still hard-coded to Sedan + TMeasy; M3219 then added and
+smoked the reset-time selector on default Sedan, BMW_E90, and UAZBUS. S4
+pricing now waits on a frozen preregistration, not on backend wiring. Claim
+C5 and the WP-RL program operationalize this discipline: price first, then
+train RL only against a measured, pre-registered gap.

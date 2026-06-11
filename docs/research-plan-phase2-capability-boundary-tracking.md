@@ -352,12 +352,13 @@ check (not "~1 command").
    and per-instance oracles; the S0-S3 run prices the within-model rungs
    and S4 prices the population claim itself.
 
-   Live disposition (2026-06-12, M3218): direct S4-HF-lite pricing is
-   **not admitted** on the current backend. Chrono resources contain
-   multiple vehicle/tire fixtures, but the repository worker/backend still
-   hard-code Sedan + TMeasy and do not map `lf/lr/iz/cf/cr` into Chrono
-   dynamics. The next admissible step is a variant-selector reset-step
-   smoke (M3219) before any S4 pricing run.
+   Live disposition (2026-06-12, M3219): the Chrono variant-selector
+   connector is implemented and smoke-tested. Omitted selector preserves the
+   default Sedan/TMeasy path; explicit BMW_E90 and UAZBUS variants reset and
+   step through the worker with finite obs72/action3. This admits only a
+   frozen S4-HF-lite pricing pre-registration. Pricing execution is still
+   blocked until that pre-registration decides how to handle the still-
+   unmapped `lf/lr/Iz/cf/cr` lateral/tire channels.
    Four paired arms: fixed v4 / v4+RLS-retuned (the classical
    identification arm reviewers will demand) / per-instance-tuned v4
    (the "tune every car" upper bound, quantified to show its cost) /

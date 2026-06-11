@@ -1,0 +1,169 @@
+{
+  "id": "m3219-s4-hf-lite-chrono-variant-selector-smoke",
+  "priority": 32190,
+  "type": "infrastructure",
+  "gate_tier": "infrastructure",
+  "promotion_decision": "not_applicable",
+  "failure_types": [
+    "none"
+  ],
+  "hypothesis": "A whitelisted Chrono vehicle-variant selector can preserve the default Sedan/TMeasy HF4 path while resetting and stepping at least two explicit passenger-envelope variants through the JSONL worker and obs72/action3 contract, thereby admitting only an S4-HF-lite pricing pre-registration before validation ranking promotion driver-performance current-sim high-fidelity full-driver repair-success robustness-result feasibility-proof paper or self-ID claim.",
+  "lineage": {
+    "parent_checkpoint": [
+      "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "docs/feasibility-route-hf-backend-2026-06.md",
+      "docs/research-plan-phase2-capability-boundary-tracking.md"
+    ],
+    "parent_dataset": [
+      "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json"
+    ],
+    "parent_config": [
+      "src/autodrift/chrono_vehicle_backend.py",
+      "scripts/feasibility_audit/chrono_backend_worker.py"
+    ],
+    "parent_objective": [
+      "remove the M3218 connector blocker by adding and smoking a reset-time Chrono vehicle selector before any S4-HF-lite pricing run"
+    ],
+    "derived_from": [
+      "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+      "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+      "scripts/feasibility_audit/s4_hf_lite_variant_selector_smoke.py"
+    ],
+    "blocked_by": [
+      "S4-HF-lite pricing still requires a frozen pricing pre-registration after this selector smoke; this milestone cannot launch pricing itself"
+    ],
+    "supersedes": [
+      "the M3218 direct-backend blocker that no runtime vehicle/tire variant selector existed"
+    ],
+    "invalidates": [
+      "claiming the Chrono backend is Sedan-only after M3219; the default HF4 path remains Sedan-only, but explicit variants now exist"
+    ]
+  },
+  "review_artifact": "docs/reviews/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+  "public_gates": [
+    "M3219 must leave omitted-selector scenarios on the default Sedan/TMeasy path",
+    "M3219 must reset and step at least two explicit vehicle variants through the existing JSONL worker and obs72/action3 contract",
+    "M3219 must report variant id, Chrono model, tire model, total mass, max steer, wheelbase, wheeltracks, and chassis inertia in backend_info",
+    "M3219 must not run S4 pricing, train RL, mutate the incumbent, or claim driver performance"
+  ],
+  "private_holdout_policy": "not_used",
+  "forbidden_shortcuts": [
+    "do not admit a pricing run before an S4-HF-lite pricing pre-registration exists",
+    "do not hide default-path changes behind the selector work",
+    "do not read reset/step smoke as high-fidelity sufficiency or S4/C5 evidence",
+    "do not modify ActiveSafetyReflexDriver, public driver defaults, or any checkpoint"
+  ],
+  "workflow_synthesis": {
+    "branch": "c5_s4_hf_lite_backend_preflight",
+    "evidence_axis": "chrono_population_backend_wiring_admission",
+    "evidence_increment": "first implemented Chrono vehicle selector plus reset/step worker smoke over default Sedan, BMW_E90, and UAZBUS, converting the M3218 connector blocker into an S4 pricing pre-registration gate",
+    "claim_scope": "Infrastructure connector only; no S4 pricing result, no RL, no driver-performance, no high-fidelity sufficiency, no validation ranking promotion paper repair-success robustness-result feasibility-proof or self-ID claim",
+    "stop_condition": [
+      "stop if default omitted-selector scenarios no longer return sedan_tmeasy",
+      "stop if any explicit smoke variant fails reset, emits non-finite obs72, mismatches target mass, or terminates during the no-op step smoke",
+      "stop before any pricing run; only pricing pre-registration can follow"
+    ],
+    "fallback_plan": [
+      "on default-path regression, revert selector plumbing and preserve HF4 compatibility before continuing",
+      "on one variant failure, either remove the variant from the whitelist or repair it and rerun the same smoke",
+      "on smoke pass, route to S4-HF-lite pricing pre-registration, not direct pricing execution"
+    ],
+    "synthesis_cadence": 10,
+    "synthesis_trigger": "M3218 found Chrono resources but blocked direct S4-HF-lite pricing on missing variant-selector wiring",
+    "synthesis_decision": "not_applicable"
+  },
+  "training_stage": {
+    "stage": "infrastructure",
+    "stage_objective": "Implement and smoke-test a reset-time Chrono vehicle selector while preserving obs72/action3 and the default Sedan/TMeasy path.",
+    "admission_evidence": [
+      "M3218 inventory found Chrono data and Python wrappers for multiple vehicle/tire resources but no repository selector wiring",
+      "manual chrono-env constructor probe showed Sedan, BMW_E90, and UAZBUS expose the backend methods required by the existing ChronoVehicleBackend path",
+      "HF4 evidence remains tied to the default Sedan/TMeasy path and must not be generalized by this smoke"
+    ],
+    "blocked_shortcuts": [
+      "no training runs, no checkpoint creation or reuse",
+      "no S4 pricing episodes or driver evaluation",
+      "no promotion of any high-fidelity result"
+    ],
+    "allowed_updates": [
+      "src/autodrift/chrono_vehicle_backend.py",
+      "scripts/feasibility_audit/s4_hf_lite_variant_selector_smoke.py",
+      "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json",
+      "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+      "docs/reviews/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+      "tests/test_chrono_vehicle_backend_variants.py",
+      "M3219 status queue scoreboard research log and index rows"
+    ],
+    "next_stage_criteria": [
+      "summary JSON records status_pass true, default_selector_preserved true, explicit_variants_passed true, and decision.s4_hf_lite_pricing_preregistration_admitted true",
+      "summary JSON records decision.s4_hf_lite_pricing_run_admitted false",
+      "S4-HF-lite pricing pre-registration explicitly handles the still-unmapped lf/lr/Iz/cf/cr lateral/tire channels"
+    ]
+  },
+  "self_id_evidence_discipline": {
+    "claim_level": "not_applicable",
+    "current_frame_substitution_risk": "Not applicable: M3219 performs no policy rollout, no substitution, and no learned-history measurement.",
+    "history_necessity_tests": [
+      "none in M3219: reset/step infrastructure smoke only"
+    ],
+    "temporal_evidence_window": "none: only short no-op backend steps are generated",
+    "negative_result_policy": "A failed variant smoke is reported as an infrastructure connector failure and does not become scientific or driver-performance evidence.",
+    "allowed_claims": [
+      "default Sedan/TMeasy preservation for omitted selectors",
+      "explicit BMW_E90/UAZBUS reset-step smoke through the worker protocol",
+      "admission of S4-HF-lite pricing pre-registration only"
+    ]
+  },
+  "local_search_guard": {
+    "actual_progress_type": "new_tool_or_infra",
+    "process_overhead": "low",
+    "local_search_risk": "low",
+    "same_failure_repeat_count": 0,
+    "same_public_gate_repair_count": 0,
+    "evidence_expansion": "new infrastructure connector enabling an S4 pricing pre-registration; no closed-loop evidence is claimed",
+    "paper_verdict_delta": "none directly: S4 remains unpriced, but the backend blocker moves from missing selector wiring to the next preregistration decision",
+    "must_synthesize_if": [
+      "another connector milestone is proposed before S4 pricing pre-registration",
+      "any result from this smoke is quoted as high-fidelity sufficiency or S4/C5 evidence",
+      "the branch attempts pricing execution without a pre-registration"
+    ]
+  },
+  "success_criteria": [
+    "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json exists with status_pass true",
+    "the omitted-selector case reports chrono_vehicle_variant sedan_tmeasy",
+    "the BMW_E90 and UAZBUS cases report the requested variants and finite obs72 over reset plus at least 3 steps",
+    "backend_info includes selected model, tire model, mass, max steer, wheelbase, wheeltracks, and chassis inertia",
+    "decision.s4_hf_lite_pricing_run_admitted remains false"
+  ],
+  "failure_criteria": [
+    "default omitted-selector scenario no longer maps to sedan_tmeasy",
+    "any smoke case emits non-finite obs72, wrong shape, wrong variant id, wrong target mass, or terminates during the no-op step smoke",
+    "the milestone runs pricing episodes, trains RL, mutates the incumbent, or claims high-fidelity sufficiency or driver performance",
+    "the JSON artifact lacks the pricing preregistration/run distinction"
+  ],
+  "decision_rule": "Pass only if default preservation and both explicit variant reset-step cases pass through the worker protocol with finite obs72/action3 and structured backend_info, while pricing execution remains blocked pending a frozen S4-HF-lite pre-registration.",
+  "commands": [
+    {
+      "name": "s4_hf_lite_variant_selector_smoke",
+      "command": "PYTHONPATH=src python scripts/feasibility_audit/s4_hf_lite_variant_selector_smoke.py"
+    }
+  ],
+  "required_artifacts": [
+    {
+      "path": "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json",
+      "type": "json"
+    },
+    {
+      "path": "docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md",
+      "type": "markdown"
+    }
+  ],
+  "baseline_checkpoints": [
+    "experiments/feasibility_audit/s4_hf_lite_backend_inventory.json",
+    "docs/m3218-s4-hf-lite-backend-inventory-preflight.md",
+    "docs/feasibility-route-hf-backend-2026-06.md"
+  ],
+  "scoreboard_checkpoint": "experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json",
+  "next_blocker": "S4-HF-lite pricing pre-registration must be written before any pricing run",
+  "status": "completed"
+}

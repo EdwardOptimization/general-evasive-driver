@@ -222,6 +222,8 @@ def _inspect_current_backend() -> dict[str, Any]:
     source = BACKEND_PATH.read_text(encoding="utf-8")
     worker_source = WORKER_PATH.read_text(encoding="utf-8")
     backend_id, known_differences = _repo_imports()
+    has_variant_catalog = "CHRONO_VEHICLE_VARIANTS" in source
+    has_variant_resolver = "_resolve_vehicle_variant" in source
     return {
         "backend_id": backend_id,
         "backend_path": str(BACKEND_PATH.relative_to(REPO_ROOT)),
@@ -230,9 +232,7 @@ def _inspect_current_backend() -> dict[str, Any]:
         "hardcoded_tmeasy_tire": "SetTireType(veh.TireModelType_TMEASY)" in source,
         "worker_constructs_default_backend": "ChronoVehicleBackend()" in worker_source,
         "scenario_carries_lateral_params": all(token in source for token in ['"iz"', '"lf"', '"lr"', '"cf"', '"cr"']),
-        "has_runtime_vehicle_variant_selector": bool(
-            re.search(r"vehicle_(model|variant)|tire_(model|variant)|chrono_variant", source)
-        ),
+        "has_runtime_vehicle_variant_selector": bool(has_variant_catalog and has_variant_resolver),
         "known_differences": known_differences,
         "current_mapping": [
             {
@@ -268,12 +268,16 @@ def _inspect_current_backend() -> dict[str, Any]:
             {
                 "channel": "cf/cr/tire_curve_family",
                 "status": "not_mapped",
-                "note": "Scenario carries cf/cr but current backend always uses Sedan TMeasy tire data.",
+                "note": "Scenario carries cf/cr but current backend does not map those stiffness scales into tire parameters.",
             },
             {
                 "channel": "vehicle_model",
-                "status": "not_mapped",
-                "note": "The backend constructs veh.Sedan() unconditionally and the worker has no variant option.",
+                "status": "mapped_selector" if has_variant_catalog and has_variant_resolver else "not_mapped",
+                "note": (
+                    "The backend exposes a whitelisted scenario chrono_vehicle_variant selector."
+                    if has_variant_catalog and has_variant_resolver
+                    else "The backend constructs veh.Sedan() unconditionally and the worker has no variant option."
+                ),
             },
         ],
     }
@@ -282,10 +286,28 @@ def _inspect_current_backend() -> dict[str, Any]:
 def _build_report(chrono_probe: dict[str, Any], backend: dict[str, Any]) -> dict[str, Any]:
     chrono_resources_available = bool(chrono_probe.get("ok")) and int(chrono_probe.get("vehicle_json_count", 0)) > 0
     candidate_count = len(chrono_probe.get("candidate_passenger_like_models", [])) if chrono_probe.get("ok") else 0
+    has_selector = bool(backend.get("has_runtime_vehicle_variant_selector"))
     direct_pricing = False
     extension_supported = chrono_resources_available and candidate_count >= 2
+    if not has_selector:
+        blocker = (
+            "The repository worker/backend still hard-code veh.Sedan() with TireModelType_TMEASY and expose no variant selector; "
+            "scenario lf/lr/iz/cf/cr are carried but not mapped into Chrono dynamics."
+        )
+        next_step = "M3219 Chrono variant-selector smoke before any S4-HF-lite pricing run"
+    else:
+        blocker = (
+            "The repository backend now exposes a vehicle variant selector, but direct S4-HF-lite pricing still requires "
+            "the reset-step smoke artifact, a frozen pricing pre-registration, and an explicit decision on the still-unmapped "
+            "lf/lr/Iz/cf/cr lateral/tire channels."
+        )
+        next_step = "S4-HF-lite pricing pre-registration after M3219 smoke"
     next_connectors = [
-        "Add an explicit Chrono backend variant selector (vehicle model + tire model or JSON fixture).",
+        (
+            "Keep the explicit Chrono backend variant selector under reset-step smoke coverage."
+            if has_selector
+            else "Add an explicit Chrono backend variant selector (vehicle model + tire model or JSON fixture)."
+        ),
         "Expose reset-time backend_info with selected model, tire model, mass, max steer, wheelbase, chassis inertia, and tire family.",
         "Map or deliberately bracket lateral channels: lf/lr/CG placement, Iz/inertia, axle load split, and tire curve family.",
         "Run a no-policy reset/step smoke for at least Sedan nominal plus two passenger-like variants before S4 pricing.",
@@ -318,11 +340,8 @@ def _build_report(chrono_probe: dict[str, Any], backend: dict[str, Any]) -> dict
                 if extension_supported
                 else "Chrono resource availability was not sufficient to admit a multi-vehicle extension from this preflight."
             ),
-            "blocker": (
-                "The repository worker/backend still hard-code veh.Sedan() with TireModelType_TMEASY and expose no variant selector; "
-                "scenario lf/lr/iz/cf/cr are carried but not mapped into Chrono dynamics."
-            ),
-            "next_admitted_milestone": "M3219 Chrono variant-selector smoke before any S4-HF-lite pricing run",
+            "blocker": blocker,
+            "next_admitted_milestone": next_step,
             "minimal_connectors": next_connectors,
         },
     }
@@ -399,6 +418,10 @@ def _write_markdown(path: Path, report: dict[str, Any], json_path: Path) -> None
     )
     for item in decision["minimal_connectors"]:
         lines.append(f"- {item}")
+    try:
+        json_display = str(json_path.relative_to(REPO_ROOT))
+    except ValueError:
+        json_display = str(json_path)
     lines.extend(
         [
             "",
@@ -410,7 +433,7 @@ def _write_markdown(path: Path, report: dict[str, Any], json_path: Path) -> None
             "",
             "## Artifacts",
             "",
-            f"- JSON: `{json_path.relative_to(REPO_ROOT)}`",
+            f"- JSON: `{json_display}`",
             f"- Script: `scripts/feasibility_audit/{Path(__file__).name}`",
         ]
     )

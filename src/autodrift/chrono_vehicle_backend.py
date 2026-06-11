@@ -38,6 +38,7 @@ itself was verified bitwise-deterministic for repeated identical episodes.
 from __future__ import annotations
 
 import math
+from dataclasses import dataclass
 from typing import Any, Mapping
 
 import numpy as np
@@ -70,11 +71,47 @@ INIT_CHASSIS_Z = 0.23  # near static ride height (measured equilibrium 0.2145)
 BASE_MAX_DRIVE_FORCE = 8200.0
 BASE_MAX_BRAKE_FORCE = 6000.0
 
+
+@dataclass(frozen=True)
+class ChronoVehicleVariant:
+    variant_id: str
+    constructor_name: str
+    tire_model: str = "TMEASY"
+    init_chassis_z: float = INIT_CHASSIS_Z
+    description: str = ""
+
+
+DEFAULT_CHRONO_VEHICLE_VARIANT = "sedan_tmeasy"
+CHRONO_VEHICLE_VARIANTS: dict[str, ChronoVehicleVariant] = {
+    DEFAULT_CHRONO_VEHICLE_VARIANT: ChronoVehicleVariant(
+        variant_id=DEFAULT_CHRONO_VEHICLE_VARIANT,
+        constructor_name="Sedan",
+        tire_model="TMEASY",
+        init_chassis_z=INIT_CHASSIS_Z,
+        description="Default HF4-preserving Chrono Sedan with TMeasy tires.",
+    ),
+    "bmw_e90_tmeasy": ChronoVehicleVariant(
+        variant_id="bmw_e90_tmeasy",
+        constructor_name="BMW_E90",
+        tire_model="TMEASY",
+        init_chassis_z=0.35,
+        description="BMW_E90 wrapper smoke target for S4-HF-lite vehicle selection.",
+    ),
+    "uazbus_tmeasy": ChronoVehicleVariant(
+        variant_id="uazbus_tmeasy",
+        constructor_name="UAZBUS",
+        tire_model="TMEASY",
+        init_chassis_z=0.35,
+        description="UAZBUS wrapper smoke target near the upper passenger-car mass envelope.",
+    ),
+}
+
 KNOWN_DIFFERENCES = (
-    "vehicle model: Chrono Sedan (double wishbone / multilink, TMeasy tires, RWD, "
-    "4-speed automatic) vs AutoDrift single-track analytic model",
+    "vehicle model: default Chrono Sedan (double wishbone / multilink, TMeasy tires, RWD, "
+    "4-speed automatic) vs AutoDrift single-track analytic model; explicit S4-HF-lite "
+    "smoke variants can select BMW_E90 or UAZBUS through scenario chrono_vehicle_variant",
     "total mass matched by chassis-mass override; inertia, CG height/shift and "
-    "per-axle load split remain the Sedan's, so iz / cg_shift / inertia_scale "
+    "per-axle load split remain the selected Chrono vehicle's, so iz / cg_shift / inertia_scale "
     "hidden parameters are NOT mapped",
     "tire stiffness scales (cf/cr) NOT mapped (TMeasy parameters fixed by the "
     "Sedan tire JSON); effective grip at a given mu differs from mu*g "
@@ -98,7 +135,7 @@ KNOWN_DIFFERENCES = (
     "friction step changes terrain mu for the tires; AutoDrift additionally "
     "resamples speed_ref (reward-only, no actor/dynamics effect)",
     "AutoDrift aerodynamic drag/rolling resistance coefficients are not "
-    "transferred; the Sedan's own drag and rolling resistance apply",
+    "transferred; the selected Chrono vehicle's own drag and rolling resistance apply",
 )
 
 
@@ -320,6 +357,7 @@ class ChronoVehicleBackend:
         self._substeps = max(1, int(round(self.dt / self.internal_step)))
         self.track = CircleTrack(radius=float(self.scenario["track_radius"]))
         self._params = dict(self.scenario["params"])
+        self._variant = self._resolve_vehicle_variant(self.scenario)
         self._drive_scale = float(self._params["max_drive_force"]) / BASE_MAX_DRIVE_FORCE
         self._brake_scale = float(self._params["max_brake_force"]) / BASE_MAX_BRAKE_FORCE
 
@@ -368,7 +406,16 @@ class ChronoVehicleBackend:
             "substeps_per_control_step": self._substeps,
             "vehicle_total_mass": self._total_mass(),
             "target_mass": float(self._params["mass"]),
+            "chrono_vehicle_variant": self._variant.variant_id,
+            "chrono_vehicle_model": self._variant.constructor_name,
+            "chrono_tire_model": self._variant.tire_model,
+            "chrono_variant_description": self._variant.description,
+            "chrono_base_vehicle_mass": float(self._base_vehicle_mass),
+            "chrono_base_chassis_mass": float(self._base_chassis_mass),
             "chrono_max_steer_rad": float(self._vehicle.GetMaxSteeringAngle()),
+            "chrono_wheelbase_m": self._chrono_wheelbase(),
+            "chrono_wheeltrack_m": self._chrono_wheeltracks(),
+            "chrono_chassis_inertia_xx_kgm2": self._chrono_chassis_inertia_xx(),
             "known_differences": list(KNOWN_DIFFERENCES),
         }
         return BackendResetResult(actor_view=actor_view, diagnostics=diagnostics, backend_info=backend_info)
@@ -450,18 +497,37 @@ class ChronoVehicleBackend:
 
     # -- Chrono construction / handoff --------------------------------------------
 
+    def _resolve_vehicle_variant(self, scenario: Mapping[str, Any]) -> ChronoVehicleVariant:
+        requested: Any = scenario.get("chrono_vehicle_variant", DEFAULT_CHRONO_VEHICLE_VARIANT)
+        if isinstance(requested, Mapping):
+            requested = requested.get("variant_id", requested.get("id", DEFAULT_CHRONO_VEHICLE_VARIANT))
+        variant_id = str(requested or DEFAULT_CHRONO_VEHICLE_VARIANT)
+        if variant_id not in CHRONO_VEHICLE_VARIANTS:
+            allowed = ", ".join(sorted(CHRONO_VEHICLE_VARIANTS))
+            raise ValueError(f"unknown chrono_vehicle_variant {variant_id!r}; allowed: {allowed}")
+        return CHRONO_VEHICLE_VARIANTS[variant_id]
+
+    def _tire_model_type(self):
+        enum_name = f"TireModelType_{self._variant.tire_model.upper()}"
+        if not hasattr(self._veh, enum_name):
+            raise ValueError(f"chrono tire model {self._variant.tire_model!r} is not exposed as {enum_name}")
+        return getattr(self._veh, enum_name)
+
     def _build_and_handoff(self) -> dict[str, Any]:
         chrono = self._chrono
         veh = self._veh
         init = self.scenario["initial_state"]
         target_speed = math.hypot(float(init["vx"]), float(init["vy"]))
 
-        car = veh.Sedan()
+        constructor = getattr(veh, self._variant.constructor_name)
+        car = constructor()
         car.SetContactMethod(chrono.ChContactMethod_NSC)
         car.SetChassisFixed(False)
         car.SetChassisCollisionType(veh.CollisionType_NONE)
-        car.SetInitPosition(chrono.ChCoordsysd(chrono.ChVector3d(0.0, 0.0, INIT_CHASSIS_Z), chrono.QUNIT))
-        car.SetTireType(veh.TireModelType_TMEASY)
+        car.SetInitPosition(
+            chrono.ChCoordsysd(chrono.ChVector3d(0.0, 0.0, self._variant.init_chassis_z), chrono.QUNIT)
+        )
+        car.SetTireType(self._tire_model_type())
         car.SetTireStepSize(self.internal_step)
         car.Initialize()
         self._car = car
@@ -474,7 +540,9 @@ class ChronoVehicleBackend:
 
         # mass mapping: match total vehicle mass via chassis body mass override
         target_mass = float(self._params["mass"])
-        non_chassis = float(self._vehicle.GetMass()) - float(self._chassis_body.GetMass())
+        self._base_vehicle_mass = float(self._vehicle.GetMass())
+        self._base_chassis_mass = float(self._chassis_body.GetMass())
+        non_chassis = self._base_vehicle_mass - self._base_chassis_mass
         self._non_chassis_mass = non_chassis
         self._chassis_body.SetMass(max(target_mass - non_chassis, 50.0))
 
@@ -550,6 +618,29 @@ class ChronoVehicleBackend:
 
     def _total_mass(self) -> float:
         return float(self._chassis_body.GetMass()) + float(self._non_chassis_mass)
+
+    def _chrono_wheelbase(self) -> float | None:
+        try:
+            return float(self._vehicle.GetWheelbase())
+        except Exception:
+            return None
+
+    def _chrono_wheeltracks(self) -> list[float]:
+        tracks: list[float] = []
+        try:
+            axles = self._vehicle.GetAxles()
+        except Exception:
+            return tracks
+        for index in range(len(axles)):
+            try:
+                tracks.append(float(self._vehicle.GetWheeltrack(index)))
+            except Exception:
+                continue
+        return tracks
+
+    def _chrono_chassis_inertia_xx(self) -> list[float]:
+        inertia = self._chassis_body.GetInertiaXX()
+        return [float(inertia.x), float(inertia.y), float(inertia.z)]
 
     # -- state extraction ----------------------------------------------------------
 

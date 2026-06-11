@@ -15,9 +15,10 @@ discrepancy report.
 
 | Level | Deliverable | Status |
 |---|---|---|
-| A1 | `src/autodrift/chrono_vehicle_backend.py` (DynamicsBackend over pychrono Sedan) | **delivered, verified** |
+| A1 | `src/autodrift/chrono_vehicle_backend.py` (DynamicsBackend over default pychrono Sedan with explicit S4-HF-lite vehicle-variant selector) | **delivered, verified for default Sedan; selector smoke passed in M3219** |
 | A2 | `scripts/feasibility_audit/chrono_backend_smoke.py` -> `runs/feasibility_audit/chrono_smoke_summary.json` | **delivered, status_pass=True** |
 | A3 | `scripts/feasibility_audit/chrono_mini_discrepancy.py` -> `experiments/feasibility_audit/chrono_mini_discrepancy.csv` | **delivered, 23/23 rows measured** |
+| A4 | `scripts/feasibility_audit/s4_hf_lite_variant_selector_smoke.py` -> `experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json` | **delivered, status_pass=True; reset/step only, no pricing** |
 
 Execution environment: pychrono **10.0.0** in conda env `chrono`
 (python 3.10); `gymnasium 1.3.0` was additionally installed into that env
@@ -31,14 +32,18 @@ are prefixed `@CHRONO@` so stray native output cannot corrupt them.
 
 ## A1: backend design and mapping table
 
-Vehicle: **Chrono Sedan** wrapper model (double-wishbone/multilink, RWD,
-4-speed automatic, TMeasy handling tires), data files complete under the env's
-`share/chrono/data/vehicle/sedan/`. Stock total mass 1683.97 kg (chassis
-1515.0 + 168.97 non-chassis); AutoDrift base mass is 1450 kg — the chassis
-body mass is overridden per scenario so the *total* matches the sampled
-hidden mass exactly (verified: sampled range 1232–1740 kg always leaves a
-positive chassis mass). Terrain: `FlatTerrain` (pure height/friction query —
-TMeasy needs no rigid contact), friction = scenario `mu`.
+Vehicle: default **Chrono Sedan** wrapper model (double-wishbone/multilink,
+RWD, 4-speed automatic, TMeasy handling tires), data files complete under the
+env's `share/chrono/data/vehicle/sedan/`. M3219 added an explicit reset-time
+`chrono_vehicle_variant` selector with a whitelist: `sedan_tmeasy` (default),
+`bmw_e90_tmeasy`, and `uazbus_tmeasy`. If the scenario omits the selector,
+the default remains `sedan_tmeasy`, preserving the HF4 path. Stock Sedan total
+mass 1683.97 kg (chassis 1515.0 + 168.97 non-chassis); AutoDrift base mass is
+1450 kg — the chassis body mass is overridden per scenario so the *total*
+matches the sampled hidden mass exactly (verified: sampled range 1232–1740 kg
+always leaves a positive chassis mass). Terrain: `FlatTerrain` (pure
+height/friction query — TMeasy needs no rigid contact), friction = scenario
+`mu`.
 
 Stepping: internal Chrono step **1e-3 s**, tire step 1e-3 s, control at
 **50 Hz** (20 substeps per control step), matching AutoDrift `dt = 0.02`.
@@ -84,11 +89,12 @@ Hidden-parameter mapping:
 | `mu` (incl. friction step) | FlatTerrain friction; at the friction-step step index the terrain object is swapped to `new_mu` (verified effective: braking distance 8.1 m at mu 0.9 vs 26–29 m after runtime switch to 0.3) | mapped |
 | friction-step replacement mu | the env's only post-reset RNG draw; pre-computed from a sacrificial reset and replayed at the same step index | mapped |
 | `mass` | chassis-body mass override so total vehicle mass equals the sampled mass | mapped |
+| `chrono_vehicle_variant` | optional scenario field selecting one whitelisted Chrono wrapper (`sedan_tmeasy`, `bmw_e90_tmeasy`, `uazbus_tmeasy`); omitted field defaults to Sedan | mapped selector (M3219 smoke only) |
 | `drive_scale` / `brake_scale` | multiplicative throttle/brake input scaling, clipped at 1.0 (scales > 1 saturate) | approximate |
 | `steer_tau`, `drive_tau`, `max_steer_rate` (actuator tau scale) | exact AutoDrift first-order filter at the 50 Hz layer | mapped (command shaping) |
-| `max_steer` | normalized: full-scale command = Sedan full lock 0.4363 rad vs AutoDrift 0.62 rad (physical gain ~0.70x) | known difference |
-| `iz` / inertia_scale, cg_shift (`lf`/`lr`), `cf`/`cr` tire stiffness scales | not mapped (Sedan geometry/tire JSON fixed) | **not mapped** |
-| drag/rolling coefficients | Sedan's own aero/rolling apply | not mapped |
+| `max_steer` | normalized: full-scale command = selected Chrono vehicle full lock (Sedan/BMW 0.4363 rad, UAZBUS 0.4712 rad in M3219) vs AutoDrift 0.62 rad | known difference |
+| `iz` / inertia_scale, cg_shift (`lf`/`lr`), `cf`/`cr` tire stiffness scales | not mapped into continuous parameters; vehicle wrapper selection changes the base geometry/inertia/tire fixture discretely | **not mapped as sampled hidden params** |
+| drag/rolling coefficients | selected Chrono vehicle's own aero/rolling apply | not mapped |
 
 Full machine-readable list: `KNOWN_DIFFERENCES` in
 `src/autodrift/chrono_vehicle_backend.py` (also embedded in both output
@@ -132,6 +138,26 @@ A bitwise repeat of the mu=0.3 episode is identical
 
 Output: `runs/feasibility_audit/chrono_smoke_summary.json`
 (worker stderr: `runs/feasibility_audit/chrono_smoke_worker_stderr.log`).
+
+## A4: S4-HF-lite variant-selector smoke (status_pass = True)
+
+`PYTHONPATH=src python scripts/feasibility_audit/s4_hf_lite_variant_selector_smoke.py`
+
+This is reset/step infrastructure only. It does not run the incumbent driver,
+does not price S4, and does not claim high-fidelity sufficiency. The worker
+reset and stepped three cases through the same obs72/action3 contract:
+
+| case | selector | Chrono model | target mass | wheelbase | wheeltracks | result |
+|---|---|---|---|---|---|---|
+| default_no_selector_sedan | omitted -> `sedan_tmeasy` | Sedan | 1450.0 kg | 2.776 m | 1.5958 / 1.6 m | pass |
+| explicit_bmw_e90 | `bmw_e90_tmeasy` | BMW_E90 | 1800.0 kg | 2.776 m | 1.500124 / 1.4986 m | pass |
+| explicit_uazbus | `uazbus_tmeasy` | UAZBUS | 2858.0 kg | 2.3 m | 1.465 / 1.465 m | pass |
+
+Each case reset to finite obs72, matched the requested backend variant in
+`backend_info`, matched target total mass after chassis override, and stepped
+3 no-op controls without termination/truncation. Decision: selector smoke
+passed; S4-HF-lite pricing **pre-registration** is admitted, but a pricing
+run is still not admitted until that preregistration exists.
 
 ## A3: HF4-mini discrepancy, 16 + 7 rows
 

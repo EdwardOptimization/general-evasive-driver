@@ -26,7 +26,7 @@ gap map below is what C5's population claim must close.
 | speed regime | 5-20 m/s; utilization 0.2-0.95 sweeps; overshoot injection to 150% (measurements A/C) | **> 72 km/h zero coverage** (production AEB/AES operates to 130+ km/h); sustained drift equilibria (de-scoped to Phase-3) |
 | sensing degradation | ego channels thoroughly: delay (constant/episode-random/piecewise, 100-500 ms), iid Gaussian, AR(1) rho 0.9/0.95, dropout 0.2 (M3215) | geometry-channel degradation (obstacle/boundary perception noise — only binary reveal timing exists); calibration-bias error classes; action-side wrapper built (S1) but never measured |
 | temporal structure | episodes 5.7-9.6 s; familiarization prefixes to 15 s (belief decomposition) | minute-scale continuous drives (the real L3.5 scale; per-car identification across the population needs it); cross-episode persistence |
-| fidelity | single-track toy (all measurements) + Chrono::Vehicle **Sedan only** spot checks (279 rows, HF4 + minis); M3218 inventory confirms Chrono resources for multi-vehicle/tire extension (484 vehicle JSON files, 623 vehicle module classes) | Chrono multi-vehicle zero rollout coverage — current repo wiring hard-codes Sedan + TMeasy and does not map `lf/lr/iz/cf/cr`; M3219 variant-selector smoke must precede S4 pricing |
+| fidelity | single-track toy (all measurements) + Chrono::Vehicle **Sedan only** spot checks (279 rows, HF4 + minis); M3218 inventory confirms Chrono resources for multi-vehicle/tire extension; M3219 reset/step-smoked default Sedan plus explicit BMW_E90/UAZBUS selectors | Chrono multi-vehicle zero pricing rollout coverage — selector exists, but S4 pricing still needs a frozen preregistration and a declared handling of unmapped `lf/lr/iz/cf/cr` |
 
 ## Volumes (this takeover session)
 
@@ -50,7 +50,7 @@ budgets.
 
 ## Priority order for closing (feeds WP-RL prerequisites)
 
-1. M3219 Chrono variant-selector reset-step smoke + obs-normalization audit, then S4 population tier pricing (zero training, CPU).
+1. S4 population tier pricing pre-registration + obs-normalization audit, then S4 population tier pricing (zero training, CPU).
 2. Moving obstacles (env engineering: kinematics, collision, label
    re-derivation; >= 1-2 days).
 3. High-speed domain (> 20 m/s scenarios; preview/normalization rework).

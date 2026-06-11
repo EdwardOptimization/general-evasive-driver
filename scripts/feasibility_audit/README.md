@@ -1,6 +1,6 @@
 # Feasibility Audit Measurement Index (2026-06)
 
-Index of every script in this directory (35 as of 2026-06-12), mapped to its
+Index of every script in this directory (36 as of 2026-06-12), mapped to its
 primary result artifacts and the conclusion document that interprets them.
 All scripts are deterministic, CPU-only, and run as
 `PYTHONPATH=src python scripts/feasibility_audit/<script>.py` from the repo
@@ -35,6 +35,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | `chrono_backend_smoke.py` | `runs/feasibility_audit/chrono_smoke_summary.json` | `docs/feasibility-route-hf-backend-2026-06.md` | Does the incumbent run closed-loop on the Chrono backend at all (reset/step/outcome contract)? Yes, status_pass=true. |
 | `chrono_mini_discrepancy.py` | `experiments/feasibility_audit/chrono_mini_discrepancy.csv`; `runs/feasibility_audit/chrono_mini_discrepancy_summary.json` | `docs/feasibility-route-hf-backend-2026-06.md` | 23-row mini panel: which current-sim outcomes survive Chrono::Vehicle dynamics, before paying for the full HF4 run? |
 | `chrono_hf4_full_discrepancy.py` | `experiments/feasibility_audit/chrono_hf4_full_rows.csv`; `runs/feasibility_audit/chrono_hf4_full_summary.json`, `chrono_hf4_scenarios/` | `docs/feasibility-route-hf4-full-discrepancy-2026-06.md` | Full HF4: 256 same-scenario dual-backend rows. 249/256 identical; zero success->collision/offtrack flips; the 7-row ceiling holds under Chrono. |
+| `s4_hf_lite_variant_selector_smoke.py` | `experiments/feasibility_audit/s4_hf_lite_variant_selector_smoke.json` | `docs/m3219-s4-hf-lite-chrono-variant-selector-smoke.md` | Does the new Chrono vehicle selector preserve the default Sedan path and reset/step explicit BMW_E90/UAZBUS variants through obs72/action3? Yes; pricing preregistration admitted, pricing run still blocked. |
 
 ## 4. VoI series (task design: does knowing mu pay?)
 
@@ -88,7 +89,7 @@ Created as WP6.3 of `docs/research-plan-phase2-capability-boundary-tracking.md`.
 | script | artifacts | conclusion doc | answers |
 |---|---|---|---|
 | `c5_reflex_degradation.py` | `experiments/feasibility_audit/c5_prereg.json`, `c5_reflex_degradation.json`; `runs/feasibility_audit/c5_reflex_degradation/episode_rows.csv`, `progress.json`, `full_run.log` | `docs/c5-reflex-degradation-2026-06.md` | Does passenger-car spread open a priced gap for RL over fixed reflex and classical kappa-RLS retuning? Original spread formulation rejected 0/8 cells; surviving candidate prize is the T-limit structural ceiling gap, pending PI disposition. |
-| `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | Can S4-HF-lite passenger-car-population pricing run on the current Chrono backend wiring? No: Chrono resources support extension, but the repo worker/backend hard-code Sedan + TMeasy and do not expose a vehicle/tire variant selector or map `lf/lr/iz/cf/cr`; route to M3219 variant-selector smoke before pricing. |
+| `s4_hf_lite_backend_inventory.py` | `experiments/feasibility_audit/s4_hf_lite_backend_inventory.json` | `docs/m3218-s4-hf-lite-backend-inventory-preflight.md` | At M3218, could S4-HF-lite passenger-car-population pricing run on the then-current Chrono backend wiring? No: Chrono resources supported extension, but repo wiring had no vehicle/tire variant selector; routed to M3219 variant-selector smoke before pricing. |
 
 ## Artifacts without a script in this directory
 

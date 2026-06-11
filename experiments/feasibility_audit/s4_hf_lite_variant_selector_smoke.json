@@ -1,0 +1,275 @@
+{
+  "action": [
+    0.0,
+    -1.0,
+    -1.0
+  ],
+  "cases": [
+    {
+      "backend_info": {
+        "backend_id": "chrono_sedan_tmeasy_hf_backend",
+        "chrono_base_vehicle_mass": 1683.967,
+        "chrono_chassis_inertia_xx_kgm2": [
+          222.8,
+          944.1,
+          1053.5
+        ],
+        "chrono_max_steer_rad": 0.4363323129985824,
+        "chrono_tire_model": "TMEASY",
+        "chrono_vehicle_model": "Sedan",
+        "chrono_vehicle_variant": "sedan_tmeasy",
+        "chrono_wheelbase_m": 2.776,
+        "chrono_wheeltrack_m": [
+          1.5958,
+          1.6
+        ],
+        "target_mass": 1450.0,
+        "vehicle_total_mass": 1450.0
+      },
+      "case_id": "default_no_selector_sedan",
+      "expected_variant": "sedan_tmeasy",
+      "mass_match_abs_error": 0.0,
+      "model_present": true,
+      "pass": true,
+      "reset_obs_finite": true,
+      "reset_obs_shape": [
+        72
+      ],
+      "scenario_variant": null,
+      "seed": 93210,
+      "step_rows": [
+        {
+          "lateral_error": 0.35839660338354307,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 10.087270097649137,
+          "status": "running",
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.3632464014361432,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 10.010007517657696,
+          "status": "running",
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.3698450914038318,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 9.983061795300321,
+          "status": "running",
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        }
+      ],
+      "target_mass": 1450.0,
+      "variant_match": true
+    },
+    {
+      "backend_info": {
+        "backend_id": "chrono_sedan_tmeasy_hf_backend",
+        "chrono_base_vehicle_mass": 1800.082955108,
+        "chrono_chassis_inertia_xx_kgm2": [
+          572.0,
+          2487.0,
+          2768.0
+        ],
+        "chrono_max_steer_rad": 0.4363323129985824,
+        "chrono_tire_model": "TMEASY",
+        "chrono_vehicle_model": "BMW_E90",
+        "chrono_vehicle_variant": "bmw_e90_tmeasy",
+        "chrono_wheelbase_m": 2.776,
+        "chrono_wheeltrack_m": [
+          1.500124,
+          1.4986
+        ],
+        "target_mass": 1800.0,
+        "vehicle_total_mass": 1800.0
+      },
+      "case_id": "explicit_bmw_e90",
+      "expected_variant": "bmw_e90_tmeasy",
+      "mass_match_abs_error": 0.0,
+      "model_present": true,
+      "pass": true,
+      "reset_obs_finite": true,
+      "reset_obs_shape": [
+        72
+      ],
+      "scenario_variant": "bmw_e90_tmeasy",
+      "seed": 93211,
+      "step_rows": [
+        {
+          "lateral_error": 0.45961508431909337,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 8.50563451012503,
+          "status": "running",
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.4548630681579766,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 8.338973718424985,
+          "status": "running",
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.4511045395776989,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 8.179930294499862,
+          "status": "running",
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        }
+      ],
+      "target_mass": 1800.0,
+      "variant_match": true
+    },
+    {
+      "backend_info": {
+        "backend_id": "chrono_sedan_tmeasy_hf_backend",
+        "chrono_base_vehicle_mass": 2857.8249999999994,
+        "chrono_chassis_inertia_xx_kgm2": [
+          785.0,
+          2612.0,
+          2761.0
+        ],
+        "chrono_max_steer_rad": 0.47123889803846897,
+        "chrono_tire_model": "TMEASY",
+        "chrono_vehicle_model": "UAZBUS",
+        "chrono_vehicle_variant": "uazbus_tmeasy",
+        "chrono_wheelbase_m": 2.3,
+        "chrono_wheeltrack_m": [
+          1.465,
+          1.465
+        ],
+        "target_mass": 2858.0,
+        "vehicle_total_mass": 2858.0
+      },
+      "case_id": "explicit_uazbus",
+      "expected_variant": "uazbus_tmeasy",
+      "mass_match_abs_error": 0.0,
+      "model_present": true,
+      "pass": true,
+      "reset_obs_finite": true,
+      "reset_obs_shape": [
+        72
+      ],
+      "scenario_variant": "uazbus_tmeasy",
+      "seed": 93212,
+      "step_rows": [
+        {
+          "lateral_error": 0.21642366467020224,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 6.682843031900667,
+          "status": "running",
+          "step": 1,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.2217493740413623,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 6.594560560971279,
+          "status": "running",
+          "step": 2,
+          "terminated": false,
+          "truncated": false
+        },
+        {
+          "lateral_error": 0.22921431058010455,
+          "obs_finite": true,
+          "obs_shape": [
+            72
+          ],
+          "speed": 6.574010419612527,
+          "status": "running",
+          "step": 3,
+          "terminated": false,
+          "truncated": false
+        }
+      ],
+      "target_mass": 2858.0,
+      "variant_match": true
+    }
+  ],
+  "claim_boundary": {
+    "allowed": [
+      "Chrono vehicle variant selector reset/step smoke",
+      "obs72/action3 contract preservation through the worker protocol",
+      "admission of S4-HF-lite pricing pre-registration if all smoke cases pass"
+    ],
+    "forbidden": [
+      "driver performance",
+      "S4/C5 pricing result",
+      "RL evidence",
+      "high-fidelity sufficiency",
+      "validation ranking or promotion",
+      "paper evidence"
+    ]
+  },
+  "decision": {
+    "next_admitted_step": "write a frozen S4-HF-lite pricing pre-registration",
+    "s4_hf_lite_pricing_preregistration_admitted": true,
+    "s4_hf_lite_pricing_run_admitted": false,
+    "variant_selector_smoke_passed": true
+  },
+  "default_selector_preserved": true,
+  "explicit_variants_passed": true,
+  "milestone": "m3219-s4-hf-lite-chrono-variant-selector-smoke",
+  "schema_version": 1,
+  "smoke_steps_per_case": 3,
+  "status_pass": true,
+  "variant_catalog": {
+    "bmw_e90_tmeasy": {
+      "constructor_name": "BMW_E90",
+      "description": "BMW_E90 wrapper smoke target for S4-HF-lite vehicle selection.",
+      "init_chassis_z": 0.35,
+      "tire_model": "TMEASY"
+    },
+    "sedan_tmeasy": {
+      "constructor_name": "Sedan",
+      "description": "Default HF4-preserving Chrono Sedan with TMeasy tires.",
+      "init_chassis_z": 0.23,
+      "tire_model": "TMEASY"
+    },
+    "uazbus_tmeasy": {
+      "constructor_name": "UAZBUS",
+      "description": "UAZBUS wrapper smoke target near the upper passenger-car mass envelope.",
+      "init_chassis_z": 0.35,
+      "tire_model": "TMEASY"
+    }
+  }
+}
