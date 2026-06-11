@@ -1,0 +1,2458 @@
+{
+  "protocol": "feasibility_audit_voi_conditional_prior",
+  "generated_by": "scripts/feasibility_audit/voi_conditional_prior.py",
+  "generated_at_utc": "20260611T061752Z",
+  "claim_boundary": "Feasibility-audit task-design measurement only: conditional VoI of precise mu given a coarse prior bin is measured with scripted bin-aware plans and a per-mu empirical oracle on a continuous-mu variant of the B2 commitment family. No driver-performance, repair-success, robustness, validation, ranking, promotion, paper, or self-ID *capability* claim is made.",
+  "proposition_under_test": "Side channels (road appearance / wipers / temperature) only give a coarse mu range (+/-0.2..0.3 literature precision); precise capability knowledge requires instruction->response identification. Tested as: conditional VoI(precise mu | coarse bin) significantly positive?",
+  "voi_definition": "conditional VoI(bin) = E_{mu in bin}[per-mu oracle outcome] - max_{bin-aware fixed plan} E_{mu in bin}[outcome]; mu on a deterministic midpoint grid (~U(bin)); fixed plans may use the bin and own driven distance (silence ladders) but not mu; success = outcome_bucket == success_obstacle_pass; selection on selection seeds, headline on disjoint validation seeds.",
+  "continuousization": {
+    "mu_to_distance_knots": {
+      "mu": [
+        0.3,
+        0.55,
+        0.85,
+        1.15
+      ],
+      "d_m": [
+        24.0,
+        38.0,
+        49.0,
+        62.0
+      ]
+    },
+    "interpolation": "piecewise linear, linear extrapolation outside [0.30, 1.15]",
+    "oracle_speed_prior_knots_for_ladders": {
+      "mu": [
+        0.3,
+        0.55,
+        0.85,
+        1.15
+      ],
+      "v_mps": [
+        5.0,
+        7.5,
+        10.0,
+        13.0
+      ]
+    }
+  },
+  "panel": {
+    "mu_points_per_bin": 12,
+    "selection_seeds": 2,
+    "validation_seeds": 2,
+    "cem_pop": 12,
+    "cem_iters": 3,
+    "seed_formula": "20260611*10 + {0,1 sel | 100,101 val} + 17*point + 1000*k"
+  },
+  "task_b_anchor": {
+    "discrete_B2_voi_success_augmented_in_sample": 0.4375,
+    "source": "experiments/feasibility_audit/voi_commitment_adversarial_audit.json"
+  },
+  "headline_curve_voi_vs_prior_width": [
+    {
+      "bin_id": "narrow_pm0.10",
+      "prior_half_width": 0.1,
+      "voi_success_in_sample": 0.0,
+      "voi_success_validated": -0.0833,
+      "voi_return_validated": 0.9295,
+      "best_fixed_plan": "ladder_d1_m3",
+      "band_intersection": {
+        "lo": 8.5,
+        "hi": 9.5,
+        "width": 1.0,
+        "empty": false
+      }
+    },
+    {
+      "bin_id": "medium_pm0.20",
+      "prior_half_width": 0.2,
+      "voi_success_in_sample": 0.0,
+      "voi_success_validated": 0.0,
+      "voi_return_validated": -0.8123,
+      "best_fixed_plan": "grid_v9.5_A",
+      "band_intersection": {
+        "lo": 9.5,
+        "hi": 9.5,
+        "width": 0.0,
+        "empty": false
+      }
+    },
+    {
+      "bin_id": "wide_pm0.30",
+      "prior_half_width": 0.3,
+      "voi_success_in_sample": 0.1667,
+      "voi_success_validated": 0.0,
+      "voi_return_validated": -1.6386,
+      "best_fixed_plan": "cem_robust",
+      "band_intersection": {
+        "lo": 10.5,
+        "hi": 9.5,
+        "width": -1.0,
+        "empty": true
+      }
+    },
+    {
+      "bin_id": "full_pm0.45",
+      "prior_half_width": 0.45,
+      "voi_success_in_sample": 0.3333,
+      "voi_success_validated": 0.2083,
+      "voi_return_validated": 4.06,
+      "best_fixed_plan": "grid_v11.5_A",
+      "band_intersection": {
+        "lo": 11.5,
+        "hi": 8.0,
+        "width": -3.5,
+        "empty": true
+      }
+    }
+  ],
+  "base_variant": {
+    "variant": {
+      "variant_id": "base_B2_continuous",
+      "max_steps": 285,
+      "reveal_distance": 12.0,
+      "obstacle_half_width": 1.25,
+      "slope_scale": 1.0,
+      "note": "B2 knobs unchanged, continuous mu"
+    },
+    "deadline_s": 5.7,
+    "bins": {
+      "full_pm0.45": {
+        "bin_id": "full_pm0.45",
+        "bin_note": "no-prior control (whole domain)",
+        "mu_lo": 0.25,
+        "mu_hi": 1.15,
+        "prior_half_width": 0.45,
+        "n_mu_points": 12,
+        "mu_points": [
+          0.2875,
+          0.3625,
+          0.4375,
+          0.5125,
+          0.5875,
+          0.6625,
+          0.7375,
+          0.8125,
+          0.8875,
+          0.9625,
+          1.0375,
+          1.1125
+        ],
+        "d_points_m": [
+          23.3,
+          27.5,
+          31.7,
+          35.9,
+          39.37,
+          42.12,
+          44.88,
+          47.62,
+          50.62,
+          53.88,
+          57.12,
+          60.38
+        ],
+        "seeds": {
+          "selection": [
+            202606110,
+            202606111
+          ],
+          "validation": [
+            202606210,
+            202606211
+          ]
+        },
+        "episodes": 1462,
+        "voi_success": {
+          "oracle_in_sample": 1.0,
+          "oracle_validated": 0.9167,
+          "best_fixed_plan": "grid_v11.5_A",
+          "best_fixed_in_sample": 0.6667,
+          "best_fixed_validated": 0.7083,
+          "voi_in_sample": 0.3333,
+          "voi_validated": 0.2083
+        },
+        "voi_return": {
+          "oracle_in_sample": 270.8408,
+          "oracle_validated": 267.6286,
+          "best_fixed_plan": "grid_v11.5_A",
+          "best_fixed_in_sample": 261.122,
+          "best_fixed_validated": 263.5687,
+          "voi_in_sample": 9.7189,
+          "voi_validated": 4.06
+        },
+        "oracle_plan_per_point": [
+          "grid_v8_A",
+          "grid_v8_B",
+          "cem_robust",
+          "cem_robust",
+          "grid_v9.5_A",
+          "grid_v12_B",
+          "grid_v11.5_B",
+          "grid_v12_A",
+          "grid_v12_A",
+          "grid_v10.5_A",
+          "grid_v11_A",
+          "grid_v11.5_A"
+        ],
+        "top_fixed_plans": [
+          {
+            "plan": "grid_v11.5_A",
+            "group": "grid",
+            "mean_success_sel": 0.6667,
+            "mean_return_sel": 261.1
+          },
+          {
+            "plan": "grid_v11.5_B",
+            "group": "grid",
+            "mean_success_sel": 0.6667,
+            "mean_return_sel": 260.4
+          },
+          {
+            "plan": "grid_v12_A",
+            "group": "grid",
+            "mean_success_sel": 0.625,
+            "mean_return_sel": 259.8
+          },
+          {
+            "plan": "grid_v11_A",
+            "group": "grid",
+            "mean_success_sel": 0.5833,
+            "mean_return_sel": 259.7
+          },
+          {
+            "plan": "grid_v11_B",
+            "group": "grid",
+            "mean_success_sel": 0.5833,
+            "mean_return_sel": 258.5
+          },
+          {
+            "plan": "grid_v12_B",
+            "group": "grid",
+            "mean_success_sel": 0.5833,
+            "mean_return_sel": 257.1
+          }
+        ],
+        "cem_robust": {
+          "params_v_cap_off_gain": [
+            9.099,
+            0.806,
+            2.915,
+            3.947
+          ],
+          "history": [
+            {
+              "iter": 0,
+              "best": 0.5485,
+              "mean_v": 8.78
+            },
+            {
+              "iter": 1,
+              "best": 0.5493,
+              "mean_v": 8.91
+            },
+            {
+              "iter": 2,
+              "best": 0.5494,
+              "mean_v": 9.04
+            }
+          ]
+        },
+        "mechanism": {
+          "bands_per_mu_point": [
+            {
+              "mu": 0.2875,
+              "d_m": 23.3,
+              "v_min": 4.5,
+              "v_max": 8.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "grid_v8_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 0.0
+            },
+            {
+              "mu": 0.3625,
+              "d_m": 27.5,
+              "v_min": 5.0,
+              "v_max": 8.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v8_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 0.0
+            },
+            {
+              "mu": 0.4375,
+              "d_m": 31.7,
+              "v_min": 6.0,
+              "v_max": 9.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 0.5
+            },
+            {
+              "mu": 0.5125,
+              "d_m": 35.9,
+              "v_min": 7.0,
+              "v_max": 9.0,
+              "n_feasible_speeds": 5,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 0.0
+            },
+            {
+              "mu": 0.5875,
+              "d_m": 39.37,
+              "v_min": 7.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 5,
+              "oracle_plan": "grid_v9.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6625,
+              "d_m": 42.12,
+              "v_min": 8.0,
+              "v_max": 12.0,
+              "n_feasible_speeds": 9,
+              "oracle_plan": "grid_v12_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 0.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7375,
+              "d_m": 44.88,
+              "v_min": 8.5,
+              "v_max": 11.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v11.5_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.8125,
+              "d_m": 47.62,
+              "v_min": 9.0,
+              "v_max": 12.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v12_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.8875,
+              "d_m": 50.62,
+              "v_min": 9.5,
+              "v_max": 12.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v12_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.9625,
+              "d_m": 53.88,
+              "v_min": 10.5,
+              "v_max": 13.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v10.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 1.0375,
+              "d_m": 57.12,
+              "v_min": 11.0,
+              "v_max": 13.5,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 1.1125,
+              "d_m": 60.38,
+              "v_min": 11.5,
+              "v_max": 14.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            }
+          ],
+          "band_top_shift_mps_per_mu": 7.27,
+          "band_bottom_shift_mps_per_mu": 8.48,
+          "band_intersection_over_bin": {
+            "lo": 11.5,
+            "hi": 8.0,
+            "width": -3.5,
+            "empty": true
+          }
+        },
+        "elapsed_s": 42.4
+      },
+      "wide_pm0.30": {
+        "bin_id": "wide_pm0.30",
+        "bin_note": "side-channel precision +/-0.30",
+        "mu_lo": 0.4,
+        "mu_hi": 1.0,
+        "prior_half_width": 0.3,
+        "n_mu_points": 12,
+        "mu_points": [
+          0.425,
+          0.475,
+          0.525,
+          0.575,
+          0.625,
+          0.675,
+          0.725,
+          0.775,
+          0.825,
+          0.875,
+          0.925,
+          0.975
+        ],
+        "d_points_m": [
+          31.0,
+          33.8,
+          36.6,
+          38.92,
+          40.75,
+          42.58,
+          44.42,
+          46.25,
+          48.08,
+          50.08,
+          52.25,
+          54.42
+        ],
+        "seeds": {
+          "selection": [
+            202606110,
+            202606111
+          ],
+          "validation": [
+            202606210,
+            202606211
+          ]
+        },
+        "episodes": 1454,
+        "voi_success": {
+          "oracle_in_sample": 1.0,
+          "oracle_validated": 0.9167,
+          "best_fixed_plan": "cem_robust",
+          "best_fixed_in_sample": 0.8333,
+          "best_fixed_validated": 0.9167,
+          "voi_in_sample": 0.1667,
+          "voi_validated": 0.0
+        },
+        "voi_return": {
+          "oracle_in_sample": 276.3071,
+          "oracle_validated": 273.4102,
+          "best_fixed_plan": "cem_robust",
+          "best_fixed_in_sample": 270.9576,
+          "best_fixed_validated": 275.0488,
+          "voi_in_sample": 5.3495,
+          "voi_validated": -1.6386
+        },
+        "oracle_plan_per_point": [
+          "cem_robust",
+          "grid_v9.5_A",
+          "grid_v10_B",
+          "cem_robust",
+          "cem_robust",
+          "grid_v12_B",
+          "grid_v11.5_B",
+          "grid_v11.5_A",
+          "grid_v11.5_A",
+          "cem_robust",
+          "cem_robust",
+          "grid_v10.5_A"
+        ],
+        "top_fixed_plans": [
+          {
+            "plan": "grid_v9.5_A",
+            "group": "grid",
+            "mean_success_sel": 0.8333,
+            "mean_return_sel": 270.5
+          },
+          {
+            "plan": "cem_robust",
+            "group": "cem_robust",
+            "mean_success_sel": 0.8333,
+            "mean_return_sel": 271.0
+          },
+          {
+            "plan": "grid_v9_A",
+            "group": "grid",
+            "mean_success_sel": 0.75,
+            "mean_return_sel": 265.2
+          },
+          {
+            "plan": "grid_v9.5_B",
+            "group": "grid",
+            "mean_success_sel": 0.75,
+            "mean_return_sel": 266.6
+          },
+          {
+            "plan": "grid_v10.5_A",
+            "group": "grid",
+            "mean_success_sel": 0.75,
+            "mean_return_sel": 265.6
+          },
+          {
+            "plan": "grid_v10.5_B",
+            "group": "grid",
+            "mean_success_sel": 0.75,
+            "mean_return_sel": 264.3
+          }
+        ],
+        "cem_robust": {
+          "params_v_cap_off_gain": [
+            9.749,
+            0.984,
+            2.896,
+            2.916
+          ],
+          "history": [
+            {
+              "iter": 0,
+              "best": 0.8855,
+              "mean_v": 9.69
+            },
+            {
+              "iter": 1,
+              "best": 1.0531,
+              "mean_v": 9.68
+            },
+            {
+              "iter": 2,
+              "best": 1.0539,
+              "mean_v": 9.76
+            }
+          ]
+        },
+        "mechanism": {
+          "bands_per_mu_point": [
+            {
+              "mu": 0.425,
+              "d_m": 31.0,
+              "v_min": 6.0,
+              "v_max": 9.5,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.475,
+              "d_m": 33.8,
+              "v_min": 6.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v9.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.525,
+              "d_m": 36.6,
+              "v_min": 7.0,
+              "v_max": 10.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v10_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.575,
+              "d_m": 38.92,
+              "v_min": 7.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 5,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.625,
+              "d_m": 40.75,
+              "v_min": 8.0,
+              "v_max": 9.5,
+              "n_feasible_speeds": 4,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.675,
+              "d_m": 42.58,
+              "v_min": 8.0,
+              "v_max": 12.0,
+              "n_feasible_speeds": 9,
+              "oracle_plan": "grid_v12_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 0.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.725,
+              "d_m": 44.42,
+              "v_min": 8.5,
+              "v_max": 11.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v11.5_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.775,
+              "d_m": 46.25,
+              "v_min": 9.0,
+              "v_max": 11.5,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.825,
+              "d_m": 48.08,
+              "v_min": 9.0,
+              "v_max": 11.5,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.875,
+              "d_m": 50.08,
+              "v_min": 9.5,
+              "v_max": 13.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.925,
+              "d_m": 52.25,
+              "v_min": 10.0,
+              "v_max": 13.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.975,
+              "d_m": 54.42,
+              "v_min": 10.5,
+              "v_max": 13.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v10.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 0.0
+            }
+          ],
+          "band_top_shift_mps_per_mu": 6.36,
+          "band_bottom_shift_mps_per_mu": 8.18,
+          "band_intersection_over_bin": {
+            "lo": 10.5,
+            "hi": 9.5,
+            "width": -1.0,
+            "empty": true
+          }
+        },
+        "elapsed_s": 42.7
+      },
+      "medium_pm0.20": {
+        "bin_id": "medium_pm0.20",
+        "bin_note": "side-channel precision +/-0.20",
+        "mu_lo": 0.45,
+        "mu_hi": 0.85,
+        "prior_half_width": 0.2,
+        "n_mu_points": 12,
+        "mu_points": [
+          0.4667,
+          0.5,
+          0.5333,
+          0.5667,
+          0.6,
+          0.6333,
+          0.6667,
+          0.7,
+          0.7333,
+          0.7667,
+          0.8,
+          0.8333
+        ],
+        "d_points_m": [
+          33.33,
+          35.2,
+          37.07,
+          38.61,
+          39.83,
+          41.06,
+          42.28,
+          43.5,
+          44.72,
+          45.94,
+          47.17,
+          48.39
+        ],
+        "seeds": {
+          "selection": [
+            202606110,
+            202606111
+          ],
+          "validation": [
+            202606210,
+            202606211
+          ]
+        },
+        "episodes": 1478,
+        "voi_success": {
+          "oracle_in_sample": 1.0,
+          "oracle_validated": 1.0,
+          "best_fixed_plan": "grid_v9.5_A",
+          "best_fixed_in_sample": 1.0,
+          "best_fixed_validated": 1.0,
+          "voi_in_sample": 0.0,
+          "voi_validated": 0.0
+        },
+        "voi_return": {
+          "oracle_in_sample": 265.333,
+          "oracle_validated": 265.9776,
+          "best_fixed_plan": "cem_robust",
+          "best_fixed_in_sample": 261.2953,
+          "best_fixed_validated": 266.7899,
+          "voi_in_sample": 4.0378,
+          "voi_validated": -0.8123
+        },
+        "oracle_plan_per_point": [
+          "cem_robust",
+          "grid_v9.5_B",
+          "grid_v10_B",
+          "grid_v9.5_A",
+          "ladder_d1_m3",
+          "grid_v11.5_B",
+          "grid_v11_A",
+          "grid_v11_B",
+          "grid_v11_A",
+          "cem_robust",
+          "cem_robust",
+          "cem_robust"
+        ],
+        "top_fixed_plans": [
+          {
+            "plan": "grid_v9.5_A",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 261.0
+          },
+          {
+            "plan": "grid_v9.5_B",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 259.7
+          },
+          {
+            "plan": "grid_v9_A",
+            "group": "grid",
+            "mean_success_sel": 0.9583,
+            "mean_return_sel": 258.2
+          },
+          {
+            "plan": "grid_v9_B",
+            "group": "grid",
+            "mean_success_sel": 0.9167,
+            "mean_return_sel": 257.1
+          },
+          {
+            "plan": "cem_robust",
+            "group": "cem_robust",
+            "mean_success_sel": 0.875,
+            "mean_return_sel": 261.3
+          },
+          {
+            "plan": "grid_v10_A",
+            "group": "grid",
+            "mean_success_sel": 0.8333,
+            "mean_return_sel": 256.8
+          }
+        ],
+        "cem_robust": {
+          "params_v_cap_off_gain": [
+            9.953,
+            0.872,
+            2.832,
+            1.892
+          ],
+          "history": [
+            {
+              "iter": 0,
+              "best": 1.0525,
+              "mean_v": 8.83
+            },
+            {
+              "iter": 1,
+              "best": 1.0518,
+              "mean_v": 9.35
+            },
+            {
+              "iter": 2,
+              "best": 1.0523,
+              "mean_v": 9.65
+            }
+          ]
+        },
+        "mechanism": {
+          "bands_per_mu_point": [
+            {
+              "mu": 0.4667,
+              "d_m": 33.33,
+              "v_min": 6.5,
+              "v_max": 10.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.5,
+              "d_m": 35.2,
+              "v_min": 6.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v9.5_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.5333,
+              "d_m": 37.07,
+              "v_min": 7.0,
+              "v_max": 10.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v10_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.5667,
+              "d_m": 38.61,
+              "v_min": 7.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 5,
+              "oracle_plan": "grid_v9.5_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6,
+              "d_m": 39.83,
+              "v_min": 7.5,
+              "v_max": 9.5,
+              "n_feasible_speeds": 5,
+              "oracle_plan": "ladder_d1_m3",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6333,
+              "d_m": 41.06,
+              "v_min": 8.0,
+              "v_max": 12.0,
+              "n_feasible_speeds": 9,
+              "oracle_plan": "grid_v11.5_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6667,
+              "d_m": 42.28,
+              "v_min": 8.0,
+              "v_max": 11.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v11_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7,
+              "d_m": 43.5,
+              "v_min": 8.5,
+              "v_max": 11.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7333,
+              "d_m": 44.72,
+              "v_min": 8.5,
+              "v_max": 11.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7667,
+              "d_m": 45.94,
+              "v_min": 9.0,
+              "v_max": 12.5,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.8,
+              "d_m": 47.17,
+              "v_min": 9.0,
+              "v_max": 12.5,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.8333,
+              "d_m": 48.39,
+              "v_min": 9.5,
+              "v_max": 12.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            }
+          ],
+          "band_top_shift_mps_per_mu": 6.82,
+          "band_bottom_shift_mps_per_mu": 8.18,
+          "band_intersection_over_bin": {
+            "lo": 9.5,
+            "hi": 9.5,
+            "width": 0.0,
+            "empty": false
+          }
+        },
+        "elapsed_s": 43.3
+      },
+      "narrow_pm0.10": {
+        "bin_id": "narrow_pm0.10",
+        "bin_note": "side-channel precision +/-0.10",
+        "mu_lo": 0.55,
+        "mu_hi": 0.75,
+        "prior_half_width": 0.1,
+        "n_mu_points": 12,
+        "mu_points": [
+          0.5583,
+          0.575,
+          0.5917,
+          0.6083,
+          0.625,
+          0.6417,
+          0.6583,
+          0.675,
+          0.6917,
+          0.7083,
+          0.725,
+          0.7417
+        ],
+        "d_points_m": [
+          38.31,
+          38.92,
+          39.53,
+          40.14,
+          40.75,
+          41.36,
+          41.97,
+          42.58,
+          43.19,
+          43.81,
+          44.42,
+          45.03
+        ],
+        "seeds": {
+          "selection": [
+            202606110,
+            202606111
+          ],
+          "validation": [
+            202606210,
+            202606211
+          ]
+        },
+        "episodes": 1484,
+        "voi_success": {
+          "oracle_in_sample": 1.0,
+          "oracle_validated": 0.9167,
+          "best_fixed_plan": "ladder_d1_m3",
+          "best_fixed_in_sample": 1.0,
+          "best_fixed_validated": 1.0,
+          "voi_in_sample": 0.0,
+          "voi_validated": -0.0833
+        },
+        "voi_return": {
+          "oracle_in_sample": 267.4464,
+          "oracle_validated": 264.6006,
+          "best_fixed_plan": "grid_v10_A",
+          "best_fixed_in_sample": 261.5866,
+          "best_fixed_validated": 263.6711,
+          "voi_in_sample": 5.8598,
+          "voi_validated": 0.9295
+        },
+        "oracle_plan_per_point": [
+          "cem_robust",
+          "grid_v10_B",
+          "cem_robust",
+          "grid_v10_A",
+          "ladder_d1_m3",
+          "grid_v12_B",
+          "grid_v11_B",
+          "grid_v11_B",
+          "grid_v11_A",
+          "grid_v12_A",
+          "grid_v12_A",
+          "grid_v12_A"
+        ],
+        "top_fixed_plans": [
+          {
+            "plan": "grid_v8.5_A",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 257.6
+          },
+          {
+            "plan": "grid_v8.5_B",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 255.7
+          },
+          {
+            "plan": "grid_v9_A",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 258.8
+          },
+          {
+            "plan": "grid_v9_B",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 256.9
+          },
+          {
+            "plan": "grid_v9.5_A",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 260.4
+          },
+          {
+            "plan": "grid_v9.5_B",
+            "group": "grid",
+            "mean_success_sel": 1.0,
+            "mean_return_sel": 258.8
+          }
+        ],
+        "cem_robust": {
+          "params_v_cap_off_gain": [
+            10.707,
+            0.691,
+            3.129,
+            2.994
+          ],
+          "history": [
+            {
+              "iter": 0,
+              "best": 1.0532,
+              "mean_v": 10.4
+            },
+            {
+              "iter": 1,
+              "best": 1.0531,
+              "mean_v": 10.61
+            },
+            {
+              "iter": 2,
+              "best": 1.0532,
+              "mean_v": 10.67
+            }
+          ]
+        },
+        "mechanism": {
+          "bands_per_mu_point": [
+            {
+              "mu": 0.5583,
+              "d_m": 38.31,
+              "v_min": 7.5,
+              "v_max": 10.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.575,
+              "d_m": 38.92,
+              "v_min": 7.5,
+              "v_max": 10.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v10_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.5917,
+              "d_m": 39.53,
+              "v_min": 7.5,
+              "v_max": 10.5,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "cem_robust",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6083,
+              "d_m": 40.14,
+              "v_min": 7.5,
+              "v_max": 10.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v10_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.625,
+              "d_m": 40.75,
+              "v_min": 8.0,
+              "v_max": 9.5,
+              "n_feasible_speeds": 4,
+              "oracle_plan": "ladder_d1_m3",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6417,
+              "d_m": 41.36,
+              "v_min": 8.0,
+              "v_max": 12.0,
+              "n_feasible_speeds": 9,
+              "oracle_plan": "grid_v12_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 0.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6583,
+              "d_m": 41.97,
+              "v_min": 8.0,
+              "v_max": 11.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v11_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.675,
+              "d_m": 42.58,
+              "v_min": 8.0,
+              "v_max": 11.0,
+              "n_feasible_speeds": 7,
+              "oracle_plan": "grid_v11_B",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.6917,
+              "d_m": 43.19,
+              "v_min": 8.5,
+              "v_max": 11.0,
+              "n_feasible_speeds": 6,
+              "oracle_plan": "grid_v11_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7083,
+              "d_m": 43.81,
+              "v_min": 8.5,
+              "v_max": 12.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "grid_v12_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.725,
+              "d_m": 44.42,
+              "v_min": 8.5,
+              "v_max": 12.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "grid_v12_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            },
+            {
+              "mu": 0.7417,
+              "d_m": 45.03,
+              "v_min": 8.5,
+              "v_max": 12.0,
+              "n_feasible_speeds": 8,
+              "oracle_plan": "grid_v12_A",
+              "oracle_success_in_sample": 1.0,
+              "oracle_success_validated": 1.0,
+              "best_fixed_success_validated": 1.0
+            }
+          ],
+          "band_top_shift_mps_per_mu": 8.18,
+          "band_bottom_shift_mps_per_mu": 5.45,
+          "band_intersection_over_bin": {
+            "lo": 8.5,
+            "hi": 9.5,
+            "width": 1.0,
+            "empty": false
+          }
+        },
+        "elapsed_s": 43.0
+      }
+    }
+  },
+  "knob_iterations": [
+    {
+      "variant": {
+        "variant_id": "K1_deadline265",
+        "max_steps": 265,
+        "reveal_distance": 12.0,
+        "obstacle_half_width": 1.25,
+        "slope_scale": 1.0,
+        "note": "deadline 5.7 -> 5.3 s"
+      },
+      "deadline_s": 5.3,
+      "bins": {
+        "wide_pm0.30": {
+          "bin_id": "wide_pm0.30",
+          "bin_note": "side-channel precision +/-0.30",
+          "mu_lo": 0.4,
+          "mu_hi": 1.0,
+          "prior_half_width": 0.3,
+          "n_mu_points": 12,
+          "mu_points": [
+            0.425,
+            0.475,
+            0.525,
+            0.575,
+            0.625,
+            0.675,
+            0.725,
+            0.775,
+            0.825,
+            0.875,
+            0.925,
+            0.975
+          ],
+          "d_points_m": [
+            31.0,
+            33.8,
+            36.6,
+            38.92,
+            40.75,
+            42.58,
+            44.42,
+            46.25,
+            48.08,
+            50.08,
+            52.25,
+            54.42
+          ],
+          "seeds": {
+            "selection": [
+              202606110,
+              202606111
+            ],
+            "validation": [
+              202606210,
+              202606211
+            ]
+          },
+          "episodes": 1478,
+          "voi_success": {
+            "oracle_in_sample": 1.0,
+            "oracle_validated": 0.9167,
+            "best_fixed_plan": "grid_v9.5_A",
+            "best_fixed_in_sample": 0.6667,
+            "best_fixed_validated": 0.6667,
+            "voi_in_sample": 0.3333,
+            "voi_validated": 0.25
+          },
+          "voi_return": {
+            "oracle_in_sample": 275.6678,
+            "oracle_validated": 273.0798,
+            "best_fixed_plan": "cem_robust",
+            "best_fixed_in_sample": 267.4355,
+            "best_fixed_validated": 271.2272,
+            "voi_in_sample": 8.2324,
+            "voi_validated": 1.8526
+          },
+          "oracle_plan_per_point": [
+            "cem_robust",
+            "grid_v9.5_A",
+            "grid_v10_B",
+            "cem_robust",
+            "cem_robust",
+            "grid_v12_B",
+            "grid_v11.5_B",
+            "cem_robust",
+            "grid_v11.5_A",
+            "grid_v10.5_A",
+            "grid_v11_A",
+            "grid_v11.5_A"
+          ],
+          "top_fixed_plans": [
+            {
+              "plan": "grid_v9.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.6667,
+              "mean_return_sel": 265.7
+            },
+            {
+              "plan": "grid_v11.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.6667,
+              "mean_return_sel": 263.3
+            },
+            {
+              "plan": "grid_v11.5_B",
+              "group": "grid",
+              "mean_success_sel": 0.6667,
+              "mean_return_sel": 262.4
+            },
+            {
+              "plan": "grid_v11_A",
+              "group": "grid",
+              "mean_success_sel": 0.625,
+              "mean_return_sel": 263.5
+            },
+            {
+              "plan": "grid_v11_B",
+              "group": "grid",
+              "mean_success_sel": 0.625,
+              "mean_return_sel": 262.4
+            },
+            {
+              "plan": "cem_robust",
+              "group": "cem_robust",
+              "mean_success_sel": 0.625,
+              "mean_return_sel": 267.4
+            }
+          ],
+          "cem_robust": {
+            "params_v_cap_off_gain": [
+              9.688,
+              0.83,
+              2.725,
+              3.416
+            ],
+            "history": [
+              {
+                "iter": 0,
+                "best": 0.7188,
+                "mean_v": 9.85
+              },
+              {
+                "iter": 1,
+                "best": 0.7192,
+                "mean_v": 9.74
+              },
+              {
+                "iter": 2,
+                "best": 0.8868,
+                "mean_v": 9.76
+              }
+            ]
+          },
+          "mechanism": {
+            "bands_per_mu_point": [
+              {
+                "mu": 0.425,
+                "d_m": 31.0,
+                "v_min": 6.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 7,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.475,
+                "d_m": 33.8,
+                "v_min": 7.0,
+                "v_max": 9.5,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v9.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.525,
+                "d_m": 36.6,
+                "v_min": 7.5,
+                "v_max": 10.0,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v10_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.575,
+                "d_m": 38.92,
+                "v_min": 8.0,
+                "v_max": 9.5,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.625,
+                "d_m": 40.75,
+                "v_min": 8.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.675,
+                "d_m": 42.58,
+                "v_min": 9.0,
+                "v_max": 12.0,
+                "n_feasible_speeds": 7,
+                "oracle_plan": "grid_v12_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 0.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.725,
+                "d_m": 44.42,
+                "v_min": 9.0,
+                "v_max": 11.5,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v11.5_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.775,
+                "d_m": 46.25,
+                "v_min": 9.5,
+                "v_max": 11.5,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.825,
+                "d_m": 48.08,
+                "v_min": 10.0,
+                "v_max": 11.5,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "grid_v11.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.875,
+                "d_m": 50.08,
+                "v_min": 10.5,
+                "v_max": 13.0,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v10.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.925,
+                "d_m": 52.25,
+                "v_min": 11.0,
+                "v_max": 13.0,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "grid_v11_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.975,
+                "d_m": 54.42,
+                "v_min": 11.5,
+                "v_max": 13.0,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "grid_v11.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              }
+            ],
+            "band_top_shift_mps_per_mu": 6.36,
+            "band_bottom_shift_mps_per_mu": 9.09,
+            "band_intersection_over_bin": {
+              "lo": 11.5,
+              "hi": 9.5,
+              "width": -2.0,
+              "empty": true
+            }
+          },
+          "elapsed_s": 41.6
+        },
+        "medium_pm0.20": {
+          "bin_id": "medium_pm0.20",
+          "bin_note": "side-channel precision +/-0.20",
+          "mu_lo": 0.45,
+          "mu_hi": 0.85,
+          "prior_half_width": 0.2,
+          "n_mu_points": 12,
+          "mu_points": [
+            0.4667,
+            0.5,
+            0.5333,
+            0.5667,
+            0.6,
+            0.6333,
+            0.6667,
+            0.7,
+            0.7333,
+            0.7667,
+            0.8,
+            0.8333
+          ],
+          "d_points_m": [
+            33.33,
+            35.2,
+            37.07,
+            38.61,
+            39.83,
+            41.06,
+            42.28,
+            43.5,
+            44.72,
+            45.94,
+            47.17,
+            48.39
+          ],
+          "seeds": {
+            "selection": [
+              202606110,
+              202606111
+            ],
+            "validation": [
+              202606210,
+              202606211
+            ]
+          },
+          "episodes": 1460,
+          "voi_success": {
+            "oracle_in_sample": 1.0,
+            "oracle_validated": 1.0,
+            "best_fixed_plan": "cem_robust",
+            "best_fixed_in_sample": 0.875,
+            "best_fixed_validated": 1.0,
+            "voi_in_sample": 0.125,
+            "voi_validated": 0.0
+          },
+          "voi_return": {
+            "oracle_in_sample": 264.9574,
+            "oracle_validated": 265.4104,
+            "best_fixed_plan": "cem_robust",
+            "best_fixed_in_sample": 260.0512,
+            "best_fixed_validated": 265.4602,
+            "voi_in_sample": 4.9062,
+            "voi_validated": -0.0497
+          },
+          "oracle_plan_per_point": [
+            "grid_v10_A",
+            "grid_v9.5_B",
+            "grid_v10_B",
+            "grid_v9.5_A",
+            "ladder_d1_m3",
+            "grid_v11.5_B",
+            "grid_v11_A",
+            "grid_v11_B",
+            "grid_v11_A",
+            "cem_robust",
+            "grid_v12.5_A",
+            "cem_robust"
+          ],
+          "top_fixed_plans": [
+            {
+              "plan": "grid_v9.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.875,
+              "mean_return_sel": 259.5
+            },
+            {
+              "plan": "cem_robust",
+              "group": "cem_robust",
+              "mean_success_sel": 0.875,
+              "mean_return_sel": 260.1
+            },
+            {
+              "plan": "grid_v9.5_B",
+              "group": "grid",
+              "mean_success_sel": 0.8333,
+              "mean_return_sel": 257.7
+            },
+            {
+              "plan": "grid_v10_A",
+              "group": "grid",
+              "mean_success_sel": 0.8333,
+              "mean_return_sel": 256.8
+            },
+            {
+              "plan": "grid_v10_B",
+              "group": "grid",
+              "mean_success_sel": 0.7917,
+              "mean_return_sel": 253.8
+            },
+            {
+              "plan": "grid_v10.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.75,
+              "mean_return_sel": 254.7
+            }
+          ],
+          "cem_robust": {
+            "params_v_cap_off_gain": [
+              9.944,
+              0.989,
+              2.916,
+              2.079
+            ],
+            "history": [
+              {
+                "iter": 0,
+                "best": 0.8846,
+                "mean_v": 9.16
+              },
+              {
+                "iter": 1,
+                "best": 1.052,
+                "mean_v": 9.8
+              },
+              {
+                "iter": 2,
+                "best": 1.0522,
+                "mean_v": 10.0
+              }
+            ]
+          },
+          "mechanism": {
+            "bands_per_mu_point": [
+              {
+                "mu": 0.4667,
+                "d_m": 33.33,
+                "v_min": 7.0,
+                "v_max": 10.0,
+                "n_feasible_speeds": 7,
+                "oracle_plan": "grid_v10_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.5,
+                "d_m": 35.2,
+                "v_min": 7.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "grid_v9.5_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.5333,
+                "d_m": 37.07,
+                "v_min": 7.5,
+                "v_max": 10.0,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v10_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.5667,
+                "d_m": 38.61,
+                "v_min": 8.0,
+                "v_max": 9.5,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "grid_v9.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.6,
+                "d_m": 39.83,
+                "v_min": 8.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "ladder_d1_m3",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.6333,
+                "d_m": 41.06,
+                "v_min": 8.5,
+                "v_max": 12.0,
+                "n_feasible_speeds": 8,
+                "oracle_plan": "grid_v11.5_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.6667,
+                "d_m": 42.28,
+                "v_min": 9.0,
+                "v_max": 11.0,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "grid_v11_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7,
+                "d_m": 43.5,
+                "v_min": 9.0,
+                "v_max": 11.0,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "grid_v11_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7333,
+                "d_m": 44.72,
+                "v_min": 9.5,
+                "v_max": 11.0,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "grid_v11_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7667,
+                "d_m": 45.94,
+                "v_min": 9.5,
+                "v_max": 12.5,
+                "n_feasible_speeds": 7,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.8,
+                "d_m": 47.17,
+                "v_min": 10.0,
+                "v_max": 12.5,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "grid_v12.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.8333,
+                "d_m": 48.39,
+                "v_min": 10.0,
+                "v_max": 12.5,
+                "n_feasible_speeds": 6,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              }
+            ],
+            "band_top_shift_mps_per_mu": 6.82,
+            "band_bottom_shift_mps_per_mu": 8.18,
+            "band_intersection_over_bin": {
+              "lo": 10.0,
+              "hi": 9.5,
+              "width": -0.5,
+              "empty": true
+            }
+          },
+          "elapsed_s": 41.1
+        }
+      },
+      "medium_voi_validated": 0.0,
+      "target_met": false
+    },
+    {
+      "variant": {
+        "variant_id": "K2_reveal10",
+        "max_steps": 285,
+        "reveal_distance": 10.0,
+        "obstacle_half_width": 1.25,
+        "slope_scale": 1.0,
+        "note": "reveal 12 -> 10 m"
+      },
+      "deadline_s": 5.7,
+      "bins": {
+        "wide_pm0.30": {
+          "bin_id": "wide_pm0.30",
+          "bin_note": "side-channel precision +/-0.30",
+          "mu_lo": 0.4,
+          "mu_hi": 1.0,
+          "prior_half_width": 0.3,
+          "n_mu_points": 12,
+          "mu_points": [
+            0.425,
+            0.475,
+            0.525,
+            0.575,
+            0.625,
+            0.675,
+            0.725,
+            0.775,
+            0.825,
+            0.875,
+            0.925,
+            0.975
+          ],
+          "d_points_m": [
+            31.0,
+            33.8,
+            36.6,
+            38.92,
+            40.75,
+            42.58,
+            44.42,
+            46.25,
+            48.08,
+            50.08,
+            52.25,
+            54.42
+          ],
+          "seeds": {
+            "selection": [
+              202606110,
+              202606111
+            ],
+            "validation": [
+              202606210,
+              202606211
+            ]
+          },
+          "episodes": 1460,
+          "voi_success": {
+            "oracle_in_sample": 1.0,
+            "oracle_validated": 0.9167,
+            "best_fixed_plan": "cem_robust",
+            "best_fixed_in_sample": 0.5,
+            "best_fixed_validated": 0.5417,
+            "voi_in_sample": 0.5,
+            "voi_validated": 0.375
+          },
+          "voi_return": {
+            "oracle_in_sample": 275.5975,
+            "oracle_validated": 272.3057,
+            "best_fixed_plan": "cem_robust",
+            "best_fixed_in_sample": 262.6807,
+            "best_fixed_validated": 265.1464,
+            "voi_in_sample": 12.9168,
+            "voi_validated": 7.1593
+          },
+          "oracle_plan_per_point": [
+            "ladder_d1_m3",
+            "ladder_d1_m1",
+            "grid_v8_B",
+            "grid_v7.5_A",
+            "grid_v8_A",
+            "grid_v10_A",
+            "grid_v9.5_A",
+            "cem_robust",
+            "cem_robust",
+            "grid_v10.5_A",
+            "grid_v10.5_A",
+            "grid_v11_B"
+          ],
+          "top_fixed_plans": [
+            {
+              "plan": "grid_v9.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.5,
+              "mean_return_sel": 262.1
+            },
+            {
+              "plan": "grid_v9.5_B",
+              "group": "grid",
+              "mean_success_sel": 0.5,
+              "mean_return_sel": 261.4
+            },
+            {
+              "plan": "cem_robust",
+              "group": "cem_robust",
+              "mean_success_sel": 0.5,
+              "mean_return_sel": 262.7
+            },
+            {
+              "plan": "grid_v10_A",
+              "group": "grid",
+              "mean_success_sel": 0.375,
+              "mean_return_sel": 257.4
+            },
+            {
+              "plan": "grid_v10_B",
+              "group": "grid",
+              "mean_success_sel": 0.375,
+              "mean_return_sel": 257.0
+            },
+            {
+              "plan": "grid_v8_A",
+              "group": "grid",
+              "mean_success_sel": 0.3333,
+              "mean_return_sel": 247.7
+            }
+          ],
+          "cem_robust": {
+            "params_v_cap_off_gain": [
+              9.646,
+              0.968,
+              3.274,
+              4.134
+            ],
+            "history": [
+              {
+                "iter": 0,
+                "best": 0.5513,
+                "mean_v": 9.27
+              },
+              {
+                "iter": 1,
+                "best": 0.5514,
+                "mean_v": 9.5
+              },
+              {
+                "iter": 2,
+                "best": 0.5514,
+                "mean_v": 9.58
+              }
+            ]
+          },
+          "mechanism": {
+            "bands_per_mu_point": [
+              {
+                "mu": 0.425,
+                "d_m": 31.0,
+                "v_min": 6.0,
+                "v_max": 7.5,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "ladder_d1_m3",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.475,
+                "d_m": 33.8,
+                "v_min": 6.5,
+                "v_max": 7.0,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "ladder_d1_m1",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.525,
+                "d_m": 36.6,
+                "v_min": 7.0,
+                "v_max": 8.0,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v8_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.5
+              },
+              {
+                "mu": 0.575,
+                "d_m": 38.92,
+                "v_min": 7.5,
+                "v_max": 7.5,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "grid_v7.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.625,
+                "d_m": 40.75,
+                "v_min": 8.0,
+                "v_max": 8.0,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "grid_v8_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.675,
+                "d_m": 42.58,
+                "v_min": 8.0,
+                "v_max": 10.0,
+                "n_feasible_speeds": 5,
+                "oracle_plan": "grid_v10_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 0.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.725,
+                "d_m": 44.42,
+                "v_min": 8.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v9.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.775,
+                "d_m": 46.25,
+                "v_min": 9.0,
+                "v_max": 9.5,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.825,
+                "d_m": 48.08,
+                "v_min": 9.5,
+                "v_max": 9.5,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.875,
+                "d_m": 50.08,
+                "v_min": 9.5,
+                "v_max": 10.5,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v10.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.925,
+                "d_m": 52.25,
+                "v_min": 10.0,
+                "v_max": 10.5,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "grid_v10.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.975,
+                "d_m": 54.42,
+                "v_min": 10.5,
+                "v_max": 10.5,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "grid_v11_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              }
+            ],
+            "band_top_shift_mps_per_mu": 5.45,
+            "band_bottom_shift_mps_per_mu": 8.18,
+            "band_intersection_over_bin": {
+              "lo": 10.5,
+              "hi": 7.0,
+              "width": -3.5,
+              "empty": true
+            }
+          },
+          "elapsed_s": 42.3
+        },
+        "medium_pm0.20": {
+          "bin_id": "medium_pm0.20",
+          "bin_note": "side-channel precision +/-0.20",
+          "mu_lo": 0.45,
+          "mu_hi": 0.85,
+          "prior_half_width": 0.2,
+          "n_mu_points": 12,
+          "mu_points": [
+            0.4667,
+            0.5,
+            0.5333,
+            0.5667,
+            0.6,
+            0.6333,
+            0.6667,
+            0.7,
+            0.7333,
+            0.7667,
+            0.8,
+            0.8333
+          ],
+          "d_points_m": [
+            33.33,
+            35.2,
+            37.07,
+            38.61,
+            39.83,
+            41.06,
+            42.28,
+            43.5,
+            44.72,
+            45.94,
+            47.17,
+            48.39
+          ],
+          "seeds": {
+            "selection": [
+              202606110,
+              202606111
+            ],
+            "validation": [
+              202606210,
+              202606211
+            ]
+          },
+          "episodes": 1462,
+          "voi_success": {
+            "oracle_in_sample": 1.0,
+            "oracle_validated": 0.9583,
+            "best_fixed_plan": "grid_v9_A",
+            "best_fixed_in_sample": 0.625,
+            "best_fixed_validated": 0.6667,
+            "voi_in_sample": 0.375,
+            "voi_validated": 0.2917
+          },
+          "voi_return": {
+            "oracle_in_sample": 263.9176,
+            "oracle_validated": 264.0776,
+            "best_fixed_plan": "grid_v9_A",
+            "best_fixed_in_sample": 252.8057,
+            "best_fixed_validated": 255.2623,
+            "voi_in_sample": 11.1119,
+            "voi_validated": 8.8153
+          },
+          "oracle_plan_per_point": [
+            "cem_robust",
+            "ladder_d0.5_m3",
+            "ladder_d0.5_m3",
+            "grid_v7.5_A",
+            "grid_v7.5_A",
+            "ladder_d1_m3",
+            "grid_v9_B",
+            "grid_v9_A",
+            "grid_v9_A",
+            "grid_v10_A",
+            "grid_v10_A",
+            "grid_v10_A"
+          ],
+          "top_fixed_plans": [
+            {
+              "plan": "grid_v9_A",
+              "group": "grid",
+              "mean_success_sel": 0.625,
+              "mean_return_sel": 252.8
+            },
+            {
+              "plan": "grid_v9_B",
+              "group": "grid",
+              "mean_success_sel": 0.625,
+              "mean_return_sel": 252.1
+            },
+            {
+              "plan": "grid_v9.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.5417,
+              "mean_return_sel": 250.4
+            },
+            {
+              "plan": "grid_v9.5_B",
+              "group": "grid",
+              "mean_success_sel": 0.5417,
+              "mean_return_sel": 250.0
+            },
+            {
+              "plan": "grid_v8.5_A",
+              "group": "grid",
+              "mean_success_sel": 0.5,
+              "mean_return_sel": 248.5
+            },
+            {
+              "plan": "grid_v8.5_B",
+              "group": "grid",
+              "mean_success_sel": 0.5,
+              "mean_return_sel": 247.6
+            }
+          ],
+          "cem_robust": {
+            "params_v_cap_off_gain": [
+              8.04,
+              1.0,
+              2.71,
+              1.804
+            ],
+            "history": [
+              {
+                "iter": 0,
+                "best": 0.717,
+                "mean_v": 7.95
+              },
+              {
+                "iter": 1,
+                "best": 0.7171,
+                "mean_v": 7.97
+              },
+              {
+                "iter": 2,
+                "best": 0.7172,
+                "mean_v": 8.07
+              }
+            ]
+          },
+          "mechanism": {
+            "bands_per_mu_point": [
+              {
+                "mu": 0.4667,
+                "d_m": 33.33,
+                "v_min": 6.5,
+                "v_max": 8.0,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "cem_robust",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.5
+              },
+              {
+                "mu": 0.5,
+                "d_m": 35.2,
+                "v_min": 7.0,
+                "v_max": 7.5,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "ladder_d0.5_m3",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.5333,
+                "d_m": 37.07,
+                "v_min": 7.0,
+                "v_max": 8.0,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "ladder_d0.5_m3",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.5
+              },
+              {
+                "mu": 0.5667,
+                "d_m": 38.61,
+                "v_min": 7.5,
+                "v_max": 7.5,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "grid_v7.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              },
+              {
+                "mu": 0.6,
+                "d_m": 39.83,
+                "v_min": 7.5,
+                "v_max": 7.5,
+                "n_feasible_speeds": 1,
+                "oracle_plan": "grid_v7.5_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.6333,
+                "d_m": 41.06,
+                "v_min": 8.0,
+                "v_max": 9.5,
+                "n_feasible_speeds": 4,
+                "oracle_plan": "ladder_d1_m3",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 0.5,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.6667,
+                "d_m": 42.28,
+                "v_min": 8.0,
+                "v_max": 9.0,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v9_B",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7,
+                "d_m": 43.5,
+                "v_min": 8.5,
+                "v_max": 9.0,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "grid_v9_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7333,
+                "d_m": 44.72,
+                "v_min": 8.5,
+                "v_max": 9.0,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "grid_v9_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.7667,
+                "d_m": 45.94,
+                "v_min": 9.0,
+                "v_max": 10.0,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v10_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.8,
+                "d_m": 47.17,
+                "v_min": 9.0,
+                "v_max": 10.0,
+                "n_feasible_speeds": 3,
+                "oracle_plan": "grid_v10_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 1.0
+              },
+              {
+                "mu": 0.8333,
+                "d_m": 48.39,
+                "v_min": 9.5,
+                "v_max": 10.0,
+                "n_feasible_speeds": 2,
+                "oracle_plan": "grid_v10_A",
+                "oracle_success_in_sample": 1.0,
+                "oracle_success_validated": 1.0,
+                "best_fixed_success_validated": 0.0
+              }
+            ],
+            "band_top_shift_mps_per_mu": 5.45,
+            "band_bottom_shift_mps_per_mu": 8.18,
+            "band_intersection_over_bin": {
+              "lo": 9.5,
+              "hi": 7.5,
+              "width": -2.0,
+              "empty": true
+            }
+          },
+          "elapsed_s": 42.8
+        }
+      },
+      "medium_voi_validated": 0.2917,
+      "target_met": true
+    }
+  ],
+  "voi_target": 0.2,
+  "verdict": "refuted_at_tested_widths",
+  "verdict_note": "Within this task structure, coarse priors of +/-0.20..0.30 plus bin-aware hedge plans (ladders / robust-CEM) capture nearly the whole oracle: the user proposition fails here.",
+  "elapsed_s": 340.1,
+  "artifacts": {
+    "episode_rows_csv": "/home/quyaonan/workspace/autodrift/runs/feasibility_audit/voi_conditional_prior/episode_rows.csv",
+    "results_json": "/home/quyaonan/workspace/autodrift/experiments/feasibility_audit/voi_conditional_prior.json"
+  }
+}
